@@ -6198,6 +6198,19 @@
    "unlisted": false
   },
   {
+   "id": "secret-based-quantum-money-mini-scheme",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#secret-based-mini-schemes",
+   "of": "quantum-money",
+   "title": "Secret-based mini-schemes",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "secret-key-bit-circular-security",
    "kind": "variant",
    "type": "assumption",
@@ -22117,6 +22130,34 @@
    "title": "PSPACE ⊆ IP"
   },
   {
+   "id": "red-public-key-quantum-money-to-quantum-money-mini-scheme-ac12",
+   "kind": "implication",
+   "hypotheses": [
+    "public-key-quantum-money"
+   ],
+   "conclusion": "quantum-money-mini-scheme",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the counterfeiter against the public-key scheme is the mini-scheme counterfeiter itself, with the same success probability",
+   "rationale": {
+    "class": "The mini-scheme runs the public-key scheme's algorithms only as oracles, and the reduction hands the public key and one banknote to an arbitrary mini-scheme counterfeiter used only as an oracle.",
+    "model": "The banknotes and the counterfeiters are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/public-key-quantum-money-to-quantum-money-mini-scheme-ac12.md",
+   "slug": "public-key-quantum-money-to-quantum-money-mini-scheme-ac12",
+   "graphSlug": "Reductions/public-key-quantum-money-to-quantum-money-mini-scheme-ac12",
+   "title": "Public-key QM ⇒ Mini-scheme"
+  },
+  {
    "id": "red-pure-one-way-state-generator-to-one-way-state-generator",
    "kind": "implication",
    "hypotheses": [
@@ -22846,10 +22887,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a counterfeiter that receives $q$ banknotes and outputs $r$ succeeds with probability at most $r$ times the forger's advantage plus $q\\binom{r}{2}$ times the mini-scheme counterfeiter's",
    "rationale": {
     "class": "The construction calls the mini-scheme and the signature scheme only as oracles, and the reduction runs any counterfeiter once as an oracle, either as a forger that outputs the serial number and signature of a uniformly chosen output banknote or as a mini-scheme counterfeiter that signs under a key pair it samples and outputs the money states of two uniformly chosen outputs.",
-    "model": "The banknotes and the counterfeiters are quantum, so the signature scheme must be unforgeable against quantum forgers."
+    "model": "The banknotes and the counterfeiters are quantum, so the signature scheme must be unforgeable against quantum forgers.",
+    "securityLoss": "The forger outputs a uniformly chosen one of the $r$ outputs, and the mini-scheme counterfeiter needs its uniformly placed challenge, one of $q$ positions hidden from the counterfeiter, to be the serial number two valid outputs share, and its uniformly chosen pair of outputs to be such a pair."
    },
    "status": "draft",
    "page": "content/Reductions/quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12.md",
@@ -23565,6 +23607,34 @@
    "slug": "search-lwe-to-decision-lwe",
    "graphSlug": "Reductions/search-lwe-to-decision-lwe",
    "title": "Search LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-secret-based-quantum-money-mini-scheme-to-owf-ac12",
+   "kind": "implication",
+   "hypotheses": [
+    "secret-based-quantum-money-mini-scheme"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The function runs the mini-scheme's minting procedure on its input and keeps the serial number, and the counterfeiter calls an arbitrary inverter once as an oracle on the challenge serial number and then mints from the string it returns.",
+    "model": "The inverter and the counterfeiter are quantum, so the function is one-way against efficient quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secret-based-quantum-money-mini-scheme-to-owf-ac12.md",
+   "slug": "secret-based-quantum-money-mini-scheme-to-owf-ac12",
+   "graphSlug": "Reductions/secret-based-quantum-money-mini-scheme-to-owf-ac12",
+   "title": "Secret-based mini-scheme ⇒ OWF"
   },
   {
    "id": "red-secret-key-xor-homomorphic-encryption-to-pke-rot11",
