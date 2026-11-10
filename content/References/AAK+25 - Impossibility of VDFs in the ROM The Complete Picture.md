@@ -17,4 +17,4 @@ cryptobib_key: EPRINT:AAKTC25
 
 ## Abstract
 
-TODO — abstract.
+We study whether Verifiable Delay Functions (VDFs) can be constructed in the (plain) Random Oracle Model (ROM) without any computational assumptions. A first partial answer to this question is due to Mahmoody, Smith, and Wu [ICALP 2020] where they rule out perfectly unique VDFs in the ROM. Building on this result, Guan, Riazanov, and Yuan [CRYPTO 2025] prove that VDFs with computational uniqueness and public-coin setup are impossible in the ROM. These works leave open the possibility of constructing computationally unique VDFs with private-coin setup in the ROM. We resolve this problem and additionally rule out computationally-unique VDFs with computationally expensive private-coin setup in the ROM.

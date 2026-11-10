@@ -26,4 +26,7 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+The Goppa Code Distinguishing (GD) problem consists in distinguishing the matrix of Goppa code from a random matrix.
+Up to now, it was widely believed that this problem is computationally hard. The hardness of this problem was a mandatory assumption to prove the security of code-based cryptographic primitives like McEliece's cryptosystem. We present a polynomial time distinguisher for alternant and Goppa codes of high rate over any field. The key ingredient is an algebraic technique already used to asses the security McEliece's cryptosystem. Our method permits to indeed distinguish public keys of the CFS signature
+scheme for all parameters considered as secure and some realistic secure parameters of McEliece. The idea is to
+consider the dimension of the solution space of a linearized system deduced from a polynomial one. It turns out that this dimension depends on the type of code considered. We provide explicit formulas for the value of the dimension for “generic" random, alternant, and Goppa code over any alphabet.

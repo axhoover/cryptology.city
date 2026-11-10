@@ -17,4 +17,10 @@ cryptobib_key: EC:Wee25
 
 ## Abstract
 
-TODO — abstract.
+We present almost-optimal lattice-based attribute-based encryption (ABE) and laconic function evaluation (LFE). For depth d circuits over $\ell$-bit inputs, we obtain
+
+\* key-policy (KP) and ciphertext-policy (CP) ABE schemes with ciphertext, secret key and public key size $O(1)$;
+
+\* LFE with ciphertext size $\ell + O(1)$ as well as CRS and digest size $O(1)$;
+
+where O(·) hides poly(d, λ) factors. The parameter sizes are optimal, up to the poly(d) dependencies. The security of our schemes rely on succinct LWE (Wee, CRYPTO 2024). Our results constitute a substantial improvement over the state of the art; none of our results were known even under the stronger evasive LWE assumption.

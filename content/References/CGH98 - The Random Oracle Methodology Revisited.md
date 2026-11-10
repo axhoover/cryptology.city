@@ -17,4 +17,15 @@ cryptobib_key: STOC:CanGolHal98
 
 ## Abstract
 
-TODO — abstract.
+We take a critical look at the relationship between the security of
+cryptographic schemes in the Random Oracle Model, and the security of the
+schemes that result from implementing the random oracle by so called
+"cryptographic hash functions".
+
+The main result of this paper is a negative one: There exist signature and
+encryption schemes that are secure in the Random Oracle Model, but for which
+any implementation of the random oracle results in insecure schemes.
+
+In the process of devising the above schemes, we consider possible definitions
+for the notion of a "good implementation" of a random oracle, pointing out
+limitations and challenges.

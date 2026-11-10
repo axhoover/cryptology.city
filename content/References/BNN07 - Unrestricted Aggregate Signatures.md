@@ -17,4 +17,4 @@ cryptobib_key: ICALP:BelNamNev07
 
 ## Abstract
 
-TODO — abstract.
+Secure use of the BGLS aggregate signature schemes is restricted to the aggregation of distinct messages (for the basic scheme) or per-signer distinct messages (for the enhanced, prepend-public-key version of the scheme). We argue that these restrictions preclude interesting applications, make usage of the schemes error-prone and are generally undesirable in practice. Via a new analysis and proof, we show how the restrictions can be lifted, yielding the first truly unrestricted aggregate signature scheme. Via another new analysis and proof, we show that the distinct signer restriction on the sequential aggregate signature schemes of Lysyanskaya et al. can also be dropped, yielding an unrestricted sequential aggregate signature scheme. Finally, we present variants of these schemes with tight security reductions.

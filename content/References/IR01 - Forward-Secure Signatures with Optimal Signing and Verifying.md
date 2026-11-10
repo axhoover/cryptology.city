@@ -17,4 +17,8 @@ cryptobib_key: C:ItkRey01
 
 ## Abstract
 
-TODO — abstract.
+Ordinary digital signatures have an inherent weakness: if the secret key is leaked, then all signatures, even the ones generated before the leak, are no longer trustworthy. Forward-secure digital signatures were recently proposed to address this weakness: they ensure that past signatures remain secure even if the current secret key is leaked.
+
+We propose the first forward-secure signature scheme for which both signing and verifying are as efficient as for one of the most efficient ordinary signature schemes (Guillou-Quisquater): each requiring just two modular exponentiations with a short exponent. All previously proposed forward-secure signature schemes took significantly longer to sign and verify than ordinary signature schemes.
+
+Our scheme requires only fractional increases to the sizes of keys and signatures, and no additional public storage. Like the underlying Guillou-Quisquater scheme, our scheme is provably secure in the random oracle model.

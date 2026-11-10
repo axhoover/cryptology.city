@@ -25,4 +25,6 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+Quantum information is well-known to achieve cryptographic feats that are unattainable using classical information alone. Here, we add to this repertoire by introducing a new cryptographic functionality called uncloneable encryption. This functionality allows the encryption of a classical message such that two collaborating but isolated adversaries are prevented from simultaneously recovering the message, even when the encryption key is revealed. Clearly, such functionality is unattainable using classical information alone.
+
+We formally define uncloneable encryption, and show how to achieve it using Wiesner's conjugate coding, combined with a quantum-secure pseudorandom function (qPRF). Modelling the qPRF as an oracle, we show security by adapting techniques from the quantum one-way-to-hiding lemma, as well as using bounds from quantum monogamy-of-entanglement games.

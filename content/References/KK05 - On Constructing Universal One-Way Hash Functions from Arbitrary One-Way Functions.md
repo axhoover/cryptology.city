@@ -17,4 +17,6 @@ cryptobib_key: EPRINT:KatKoo05
 
 ## Abstract
 
-TODO — abstract.
+A fundamental result in cryptography is that a digital signature scheme can be constructed from an arbitrary one-way function. A proof of this somewhat surprising statement follows from two results: first, Naor and Yung defined the notion of universal one-way hash functions and showed that the existence of such hash functions implies the existence of secure digital signature schemes. Subsequently, Rompel showed that universal one-way hash functions could be constructed from arbitrary one-way functions. Unfortunately, despite the importance of the result, a complete proof of the latter claim has never been published. In fact, a careful reading of Rompel's original conference publication reveals a number of errors in many of his arguments which have (seemingly) never been addressed.
+
+We provide here what is --- as far as we know --- the first complete write-up of Rompel's proof that universal one-way hash functions can be constructed from arbitrary one-way functions.

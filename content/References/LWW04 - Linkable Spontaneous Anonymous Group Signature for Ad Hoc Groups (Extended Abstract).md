@@ -17,4 +17,20 @@ cryptobib_key: ACISP:LiuWeiWon04
 
 ## Abstract
 
-TODO — abstract.
+We present a linkable spontaneously
+anonymous group (LSAG) signature scheme
+(alternatively known as linkable ring signature scheme)
+satisfying the following three properties.
+(1) Anonymity, or signer indistinguishability.
+(2) Linkability: That two signatures by the same signer can be linked.
+(3) Spontaneity: No group secret, therefore no group manager or
+group secret sharing setup.
+We reduce the security of our scheme to well-known problems
+under the random oracle model.
+Using the scheme, we construct a new efficient one-round e-voting system
+which does not have a registration phase.
+We also present a new efficient
+reduction of famous
+rewind simulation lemma which
+only relies on elementary probability theory.
+Threshold extensions of our scheme are also presented.

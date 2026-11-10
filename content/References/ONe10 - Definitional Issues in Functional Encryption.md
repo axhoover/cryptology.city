@@ -17,4 +17,4 @@ cryptobib_key: EPRINT:ONeill10b
 
 ## Abstract
 
-TODO — abstract.
+We provide a formalization of the emergent notion of “functional encryption,” as well as introduce various security notions for it, and study relations among the latter. In particular, we show that indistinguishability and semantic security based notions of security are _inequivalent_ for functional encryption in general; in fact, “adaptive” indistinguishability does not even imply “non-adaptive” semantic security. This is alarming given the large body of work employing (special cases of) the former. We go on to show, however, that in the “non-adaptive” case an equivalence does hold between indistinguishability and semantic security for what we call _preimage sampleable_ schemes. We take this as evidence that for preimage sampleable schemes an indistinguishability based notion may be acceptable in practice. We show that some common functionalities considered in the literature satisfy this requirement.

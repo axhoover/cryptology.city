@@ -17,4 +17,10 @@ cryptobib_key: EC:Shoup00a
 
 ## Abstract
 
-TODO — abstract.
+We present an RSA threshold signature scheme. The scheme enjoys the following
+properties:
+it is unforgeable and robust;
+in the random oracle model, assuming the RSA problem is hard;
+signature share generation and verification is completely non-interactive;
+the size of an individual signature share is bounded by a constant
+times the size of the RSA modulus.

@@ -17,4 +17,4 @@ cryptobib_key: EC:GarGenHal13
 
 ## Abstract
 
-TODO — abstract.
+We describe plausible lattice-based constructions with properties that approximate the sought-after multilinear maps in hard-discrete-logarithm groups, and show an example application of such multilinear maps that can be realized using our approximation. The security of our constructions relies on seemingly hard problems in ideal lattices, which can be viewed as extensions of the assumed hardness of the NTRU function.

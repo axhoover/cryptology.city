@@ -17,4 +17,4 @@ cryptobib_key: C:BBBF18
 
 ## Abstract
 
-TODO — abstract.
+We study the problem of building a verifiable delay function (VDF). A VDF requires a specified number of sequential steps to evaluate, yet produces a unique output that can be efficiently and publicly verified. VDFs have many applications in decentralized systems, including public randomness beacons, leader election in consensus protocols, and proofs of replication. We formalize the requirements for VDFs and present new candidate constructions that are the first to achieve an exponential gap between evaluation and verification time.

@@ -25,4 +25,15 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+We revisit the problem of generating a `hard' random lattice together
+with a basis of relatively short vectors. This problem has gained in
+importance lately due to new cryptographic schemes that use such a
+procedure to generate public/secret key pairs. In these applications,
+a shorter basis corresponds to milder underlying complexity
+assumptions and smaller key sizes.
+
+The contributions of this work are twofold. First, we simplify and
+modularize an approach originally due to Ajtai (ICALP 1999). Second,
+we improve the construction and its analysis in several ways, most
+notably by making the output basis asymptotically as short as
+possible.

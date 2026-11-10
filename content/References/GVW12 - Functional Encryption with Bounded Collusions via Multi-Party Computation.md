@@ -17,4 +17,7 @@ cryptobib_key: C:GorVaiWee12
 
 ## Abstract
 
-TODO — abstract.
+We construct a functional encryption scheme secure against an a priori bounded polynomial number of collusions for the class of all polynomial-size circuits. Our constructions require only semantically secure public-key encryption schemes and pseudo-random generators computable by small-depth circuits (known to be implied by
+most concrete intractability assumptions). For certain special cases such as predicate encryption schemes with public index, the construction requires only semantically secure encryption schemes, which is clearly the minimal necessary assumption.
+
+Our constructions rely heavily on techniques from secure multiparty computation and randomized encodings. All our constructions are secure under a strong, adaptive simulation-based definition of functional encryption.

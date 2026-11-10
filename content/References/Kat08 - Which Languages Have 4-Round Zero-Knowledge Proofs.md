@@ -17,4 +17,4 @@ cryptobib_key: TCC:Katz08a
 
 ## Abstract
 
-TODO — abstract.
+We show, unconditionally, that if a language $L$ has a 4-round, black-box, computational zero-knowledge proof system with negligible soundness error, then $\bar L \in MA$. Assuming the polynomial hierarchy does not collapse, this means, in particular, that $NP$-complete languages do not have 4-round zero-knowledge proofs (at least with respect to black-box simulation).

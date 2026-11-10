@@ -17,4 +17,4 @@ cryptobib_key: PQCRYPTO:BucDahHul11
 
 ## Abstract
 
-TODO — abstract.
+We present the hash-based signature scheme XMSS. It is the first provably (forward) secure and practical signature scheme with minimal security requirements: a pseudorandom and a second preimage resistant (hash) function family. Its signature size is reduced to less than 25% compared to the best provably secure hash based signature scheme.

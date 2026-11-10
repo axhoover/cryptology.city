@@ -28,4 +28,4 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+We study the problem of finding efficiently computable non-degenerate multilinear maps from $G_1^n$ to $G_2$, where $G_1$ and $G_2$ are groups of the same prime order, and where computing discrete logarithms in $G_1$ is hard. We present several applications to cryptography, explore directions for building such maps, and give some reasons to believe that finding examples with $n>2$ may be difficult.

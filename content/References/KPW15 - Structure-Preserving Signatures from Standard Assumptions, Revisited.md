@@ -17,4 +17,10 @@ cryptobib_key: C:KilPanWee15
 
 ## Abstract
 
-TODO — abstract.
+Structure-preserving signatures (SPS) are pairing-based signatures
+where all the messages, signatures and public keys are group elements, with
+numerous applications in public-key cryptography. We present new,
+simple and improved SPS constructions under standard assumptions via a
+conceptually different approach. Our constructions significantly
+narrow the gap between existing constructions from standard assumptions
+and optimal schemes in the generic group model.

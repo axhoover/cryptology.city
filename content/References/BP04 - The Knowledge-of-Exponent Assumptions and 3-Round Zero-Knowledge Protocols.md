@@ -17,4 +17,13 @@ cryptobib_key: C:BelPal04
 
 ## Abstract
 
-TODO — abstract.
+Hada and Tanaka showed the existence
+of 3-round, negligible-error zero-knowledge arguments for NP based
+on a pair of non-standard assumptions, here called KEA1 and
+KEA2. In this paper we show that KEA2 is false. This renders vacuous
+the results of Hada and Tanaka. We recover these results, however,
+under a suitably modified new assumption called KEA3. What we
+believe is most interesting is that we show that it is possible to
+“falsify” assumptions like KEA2 that, due to their nature and
+quantifier-structure, do not lend themselves easily to “efficient
+falsification” (Naor).

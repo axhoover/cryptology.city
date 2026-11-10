@@ -17,4 +17,4 @@ cryptobib_key: EC:BelNamNev04
 
 ## Abstract
 
-TODO — abstract.
+This paper provides either security proofs or attacks for a large number of identity-based identification and signature schemes defined either explicitly or implicitly in existing literature. Underlying these is a framework that on the one hand helps explain how these schemes are derived, and on the other hand enables modular security analyses, thereby helping to understand, simplify and unify previous work. We also analyze a generic folklore construction that in particular yields identity-based identification and signature schemes without random oracles.

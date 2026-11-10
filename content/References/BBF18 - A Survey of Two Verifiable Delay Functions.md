@@ -17,4 +17,8 @@ cryptobib_key: EPRINT:BonBunFis18a
 
 ## Abstract
 
-TODO — abstract.
+A verifiable delay function (VDF) is an important tool used for adding delay in decentralized
+applications. This short note briefly surveys and compares two recent beautiful Verifiable Delay
+Functions (VDFs), one due to Pietrzak and the other due to Wesolowski. We also provide a
+new computational proof of security for one of them, and compare the complexity assumptions
+needed for both schemes.

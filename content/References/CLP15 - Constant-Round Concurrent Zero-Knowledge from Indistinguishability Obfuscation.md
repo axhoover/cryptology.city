@@ -17,4 +17,4 @@ cryptobib_key: C:ChuLinPas15
 
 ## Abstract
 
-TODO — abstract.
+We present a constant-round concurrent zero-knowledge protocol for NP. Our protocol relies on the existence of families of collision-resistant hash functions, one-way permutations, and indistinguishability obfuscators for P/poly (with slightly super-polynomial security).

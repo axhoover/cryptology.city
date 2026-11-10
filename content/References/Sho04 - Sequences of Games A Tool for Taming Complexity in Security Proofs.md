@@ -17,4 +17,4 @@ cryptobib_key: EPRINT:Shoup04
 
 ## Abstract
 
-TODO — abstract.
+This paper is a brief tutorial on a technique for structuring security proofs as sequences of games.

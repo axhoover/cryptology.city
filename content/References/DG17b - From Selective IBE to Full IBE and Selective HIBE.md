@@ -17,4 +17,4 @@ cryptobib_key: TCC:DotGar17
 
 ## Abstract
 
-TODO — abstract.
+Starting with any selectively secure identity-based encryption (IBE) scheme, we give generic constructions of fully secure IBE and selectively secure hierarchical IBE (HIBE) schemes. Our HIBE scheme allows for delegation arbitrarily many times.

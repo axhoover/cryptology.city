@@ -17,4 +17,11 @@ cryptobib_key: JC:JouNgu03
 
 ## Abstract
 
-TODO — abstract.
+In many cases, the security of a cryptographic scheme based on Diffie--Hellman does in fact rely on the hardness of the
+Diffie--Hellman Decision problem. In this paper, we show that the
+hardness of Decision Diffie--Hellman is a much stronger hypothesis than the hardness of the regular Diffie--Hellman problem. Indeed, we
+describe a reasonably looking cryptographic group where Decision
+Diffie--Hellman is easy while Diffie--Hellman is equivalent to a --
+presumably hard -- Discrete Logarithm Problem. This shows that care
+should be taken when dealing with Decision Diffie--Hellman, since its
+security cannot be taken for granted.
