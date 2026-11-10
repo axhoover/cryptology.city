@@ -15961,7 +15961,7 @@
     "subexp-ind-sid-cpa"
    ],
    "conclusion": "ind-id-cpa",
-   "class": "fully-black-box",
+   "class": "unstated",
    "model": "standard",
    "models": [
     "standard"
@@ -15975,7 +15975,7 @@
    "heuristic": false,
    "securityLoss": "multiplicative $|\\calI|$",
    "rationale": {
-    "class": "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."
+    "class": "The construction runs the selective scheme at security parameter $\\lceil \\secpar^{2/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sID-CPA-secure scheme."
    },
    "status": "draft",
    "page": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
@@ -25584,7 +25584,7 @@
     "hibe-subexp-selective-security"
    ],
    "conclusion": "hibe-adaptive-security",
-   "class": "fully-black-box",
+   "class": "unstated",
    "model": "standard",
    "models": [
     "standard"
@@ -25598,7 +25598,7 @@
    "heuristic": false,
    "securityLoss": "multiplicative $|\\Sigma^{\\le d}|$",
    "rationale": {
-    "class": "The construction is the identity map on HIBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity vector, aborting on a wrong guess."
+    "class": "The construction runs the selective scheme at security parameter $\\lceil \\secpar^{2/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sHIBE-CPA-secure scheme."
    },
    "status": "draft",
    "page": "content/Reductions/subexp-selective-hibe-to-adaptive-hibe.md",
