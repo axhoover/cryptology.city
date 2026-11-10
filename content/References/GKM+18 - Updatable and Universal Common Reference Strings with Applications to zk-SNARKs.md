@@ -27,7 +27,6 @@ also makes deploying zk-SNARKS problematic, as it is difficult to argue why the
 trapdoor would not be available to the entity responsible for generating the
 CRS. Moreover, for pre-processing zk-SNARKs a new trusted CRS needs to be
 computed every time the relation is changed.
-%
 
 In this paper, we address both issues by proposing a model where a number of users can update a universal CRS. The updatable CRS model guarantees security if at least one of the users updating the CRS is honest.
 We provide both a negative result, by showing that

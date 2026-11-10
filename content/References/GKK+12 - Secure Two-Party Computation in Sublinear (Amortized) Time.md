@@ -23,3 +23,7 @@ the function $f$ being computed as a circuit. For any function $f$ that depends 
 We present an approach to secure two-party computation that yields sublinear-time protocols, in an amortized sense, for functions that can be computed in sublinear time on a random access machine (RAM). Furthermore, a party whose input is “small” is required to maintain
 only small state. We provide a generic protocol that achieves the claimed complexity, based on any oblivious RAM and any protocol for
 secure two-party computation. We then present an optimized version of this protocol, where generic secure two-party computation is used only for evaluating a small number of simple operations.
+
+# Notes
+
+The abstract above is from the ePrint precursor, _Secure Computation with Sublinear Amortized Work_ (ePrint 2011/482; Gordon, Katz, Kolesnikov, Malkin, Raykova, Vahlis), not the CCS 2012 paper.

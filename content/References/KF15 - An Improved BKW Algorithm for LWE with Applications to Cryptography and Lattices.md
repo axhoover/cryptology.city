@@ -21,8 +21,7 @@ In this paper, we study the Learning With Errors problem and its binary variant,
 secrets and errors are binary or taken in a small interval. We introduce a new variant of the Blum,
 Kalai and Wasserman algorithm, relying on a quantization step that generalizes and fine-tunes modulus
 switching. In general this new technique yields a significant gain in the constant in front of the exponent
-in the overall complexity. We illustrate this by solving
-p within half a day a LWE instance with dimension
+in the overall complexity. We illustrate this by solving within half a day a LWE instance with dimension
 n = 128, modulus q = n^2 , Gaussian noise alpha = 1/(sqrt(n/pi)log^2 n) and binary secret, using 2^28 samples,
 while the previous best result based on BKW claims a time complexity of 2^74 with 2^60 samples for the
 same parameters.

@@ -27,7 +27,7 @@ the multiplication of shared values, an LSSS is an apparently much weaker
 primitive than VSS or MPC.
 
 Our approach to secure MPC is generic and applies to both the
-in\-for\-ma\-tion-theoretic and the cryptographic setting. The
+information-theoretic and the cryptographic setting. The
 construction is based on 1) a formalization of the special
 multiplicative property of an LSSS that is needed to perform a
 multiplication on shared values, 2) an efficient generic construction
@@ -37,7 +37,7 @@ verifiability into every LSSS (always assuming that the adversary
 structure allows for MPC or VSS at all).
 
 The protocols are efficient. In contrast to all previous
-information-theo\-re\-ti\-cal\-ly secure protocols, the field size is not
+information-theoretically secure protocols, the field size is not
 restricted (e.g, to be greater than $n$). Moreover, we exhibit
 adversary structures for which our protocols are polynomial in $n$
 while all previous approaches to MPC for non-threshold adversaries

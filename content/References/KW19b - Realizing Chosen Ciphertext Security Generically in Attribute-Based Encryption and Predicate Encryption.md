@@ -20,5 +20,5 @@ cryptobib_key: C:KopWat19
 We provide generic and black box transformations from any chosen plaintext secure Attribute-Based Encryption (ABE) or One-sided Predicate Encryption system into a chosen ciphertext secure system.
 Our transformation requires only the IND-CPA security of the original ABE scheme coupled with a pseudorandom generator (PRG) with a special security property.
 
-In particular, we consider a PRG with an $n$ bit input $s \in {0,1}^n$ and $n\cdot \ell$ bit output $y_1, ..., y_n$ where each $y_i$ is an $\ell$ bit string. Then for a randomly chosen $s$ the following two distributions should be computationally indistinguishable. In the first distribution $r_{i,s_i} = y_i$ and $r_{i, \bar{s}_i}$ is chosen randomly for $i \in [n]$.
-In the second distribution all $r_{i,b}$ are chosen randomly for $i \in [n], b \in {0,1}$.
+In particular, we consider a PRG with an $n$ bit input $s \in \{0,1\}^n$ and $n\cdot \ell$ bit output $y_1, ..., y_n$ where each $y_i$ is an $\ell$ bit string. Then for a randomly chosen $s$ the following two distributions should be computationally indistinguishable. In the first distribution $r_{i,s_i} = y_i$ and $r_{i, \bar{s}_i}$ is chosen randomly for $i \in [n]$.
+In the second distribution all $r_{i,b}$ are chosen randomly for $i \in [n], b \in \{0,1\}$.

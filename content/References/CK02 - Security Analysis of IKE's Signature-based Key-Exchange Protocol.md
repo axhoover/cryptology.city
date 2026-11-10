@@ -27,5 +27,5 @@ where peer identities are not necessarily known or disclosed
 from the start of the protocol. This is a common practical setting,
 which includes the case of IKE and other protocols that provide
 confidentiality of identities over the network. The rigorous study
-of this “post-specified peer" model is a further contribution of
+of this “post-specified peer” model is a further contribution of
 this paper.

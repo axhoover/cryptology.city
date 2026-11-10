@@ -22,8 +22,7 @@ rise to almost any known cryptographic object. Prior candidate IO constructions 
 based on specific assumptions on algebraic objects called multi-linear graded encodings.
 We present a generic construction of indistinguishability obfuscation from public-key
 functional encryption with succinct encryption circuits and subexponential security. This
-shows the equivalence of indistinguishability obfuscation and public-key functional en-
-cryption, a primitive that has previously seemed to be much weaker, lacking the power
+shows the equivalence of indistinguishability obfuscation and public-key functional encryption, a primitive that has previously seemed to be much weaker, lacking the power
 and the staggering range of applications of indistinguishability obfuscation.
 Our main construction can be based on functional encryption schemes that support a
 single functional key, and where the encryption circuit grows sub-linearly in the circuit-size

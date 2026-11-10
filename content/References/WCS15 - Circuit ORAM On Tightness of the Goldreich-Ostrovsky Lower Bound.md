@@ -24,6 +24,5 @@ shows that the well-known Goldreich-Ostrovsky logarithmic ORAM lower bound is ti
 certain parameter ranges, for several performance metrics. Therefore, we are the first to give an
 answer to a theoretical challenge that remained open for the past twenty-seven years. Second,
 Circuit ORAM earns its name because it achieves (almost) optimal circuit size both in theory
-and in practice for realistic choices of block sizes. We demonstrate compelling practical perfor-
-mance and show that Circuit ORAM is an ideal candidate for secure multi-party computation
+and in practice for realistic choices of block sizes. We demonstrate compelling practical performance and show that Circuit ORAM is an ideal candidate for secure multi-party computation
 applications.

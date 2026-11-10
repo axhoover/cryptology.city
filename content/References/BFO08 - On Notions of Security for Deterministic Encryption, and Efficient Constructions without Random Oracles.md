@@ -18,7 +18,7 @@ cryptobib_key: C:BolFehONe08
 ## Abstract
 
 The study of deterministic public-key encryption was initiated by
-Bellare et al. (CRYPTO '07), who provided the “strongest possible"
+Bellare et al. (CRYPTO '07), who provided the “strongest possible”
 notion of security for this primitive (called PRIV) and
 constructions in the random oracle (RO) model. We focus on
 constructing efficient deterministic encryption schemes
