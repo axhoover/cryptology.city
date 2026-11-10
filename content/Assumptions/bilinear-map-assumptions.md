@@ -91,7 +91,31 @@ A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). 
 
 ## $k$-Linear assumption
 
-Given $(g_1, \ldots, g_{k+1}, g_1^{r_1}, \ldots, g_k^{r_k})$ for $g_1, \ldots, g_{k+1} \getsr \GG$ in a cyclic group $\GG$ of prime order $q$ and $r_1, \ldots, r_k \getsr \ZZ_q$, distinguish $g_{k+1}^{r_1 + \cdots + r_k}$ from uniform in $\GG$ — [[HK07 - Secure Hybrid Encryption from Weakened Key Encapsulation|HK07]], [[Sha07 - A Cramer-Shoup Encryption Scheme from the Linear Assumption and from Progressively Weaker Linear Variants|Sha07]]. For $k = 1$ this is [[decisional-diffie-hellman|DDH]]; for $k = 2$ it is [[decisional-diffie-hellman#dlin|DLIN]].
+Given $(h_1, \ldots, h_{k+1}, h_1^{r_1}, \ldots, h_k^{r_k})$ for $h_1, \ldots, h_{k+1} \getsr \GG$ in a cyclic group $\GG$ of prime order $q$ and $r_1, \ldots, r_k \getsr \ZZ_q$, distinguish $h_{k+1}^{r_1 + \cdots + r_k}$ from uniform in $\GG$ — [[HK07 - Secure Hybrid Encryption from Weakened Key Encapsulation|HK07]], [[Sha07 - A Cramer-Shoup Encryption Scheme from the Linear Assumption and from Progressively Weaker Linear Variants|Sha07]]. For $k = 1$ this is [[decisional-diffie-hellman|DDH]]; for $k = 2$ it is [[decisional-diffie-hellman#dlin|DLIN]].
+
+In a pairing group the assumption is stated in a source group. Let $\GrGen(1^\secpar)$ output $\calG = (q, \GG_1, \GG_2, \GG_T, e, g_1, g_2)$: cyclic groups $\GG_1, \GG_2, \GG_T$ of prime order $q$, generators $g_1, g_2$ of $\GG_1, \GG_2$, and a non-degenerate bilinear map $e : \GG_1 \times \GG_2 \to \GG_T$, with $\GG_1 = \GG_2$ for a symmetric pairing. For $s \in \{1, 2\}$:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{k\text{-lin}}_{s,\GrGen,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\calG = (q, \GG_1, \GG_2, \GG_T, e, g_1, g_2) \gets \GrGen(1^\secpar)$
+\State $h_1, \ldots, h_{k+1} \getsr \GG_s$; $r_1, \ldots, r_k \getsr \ZZ_q$; $b \getsr \bits$
+\State $Z_0 \gets h_{k+1}^{r_1 + \cdots + r_k}$; $Z_1 \getsr \GG_s$
+\State $b' \gets \calA(1^\secpar, \calG, h_1, \ldots, h_{k+1}, h_1^{r_1}, \ldots, h_k^{r_k}, Z_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**$k$-Lin is hard in $\GG_s$** for $\GrGen$ if for all efficient $\calA$,
+
+$$
+\Adv^{k\text{-lin}}_{s,\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{k\text{-lin}}_{s,\GrGen,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — standard. For a prime-order group $(q, \GG, g)$ with no pairing, the same game with $\calG = (q, \GG, g)$ and $\GG_s = \GG$ defines $k$-Lin in $\GG$. In a symmetric pairing group 1-Lin is easy: for $h_1 \ne 1$, $e(h_1^{r_1}, h_2) = e(h_1, Z)$ holds exactly when $Z = h_2^{r_1}$ — standard. 1-Lin in both $\GG_1$ and $\GG_2$ of an asymmetric pairing is [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]].
 
 ## Decision $n$-BDHE
 
