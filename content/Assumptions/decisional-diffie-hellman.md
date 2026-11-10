@@ -11,6 +11,7 @@ variants:
   prime-order-ddh: "#ddh-in-prime-order-groups"
   subexponential-ddh: "#sub-exponential-ddh"
   decisional-linear: "#dlin"
+  matrix-dh: "#matrix-diffie-hellman"
   sxdh: "#sxdh-symmetric-external-diffie-hellman"
   subexponential-sxdh: "#sub-exponential-sxdh"
 ---
@@ -91,7 +92,30 @@ The $k$-Linear assumption is defined on [[bilinear-map-assumptions#k-linear-assu
 
 ## Matrix Diffie-Hellman
 
-TODO
+Let $\GrGen$ output $(\GG, g, p)$ with $p$ prime, and for $\mathbf{A} = (a_{ij}) \in \ZZ_p^{\ell \times k}$ write $g^{\mathbf{A}} := (g^{a_{ij}})_{i,j} \in \GG^{\ell \times k}$. For $\ell > k$, a _matrix distribution_ $\calD_{\ell,k}$ outputs, in polynomial time, a matrix in $\ZZ_p^{\ell \times k}$ of rank $k$; $\calD_k := \calD_{k+1,k}$. The $\calD_{\ell,k}$-MDDH assumption states that, given $g^{\mathbf{A}}$ for $\mathbf{A} \gets \calD_{\ell,k}$, no efficient adversary can tell whether a vector in $\GG^{\ell}$ lies in the span of the columns of $g^{\mathbf{A}}$ — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{mddh}}_{\calD_{\ell,k},\GrGen,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\GG, g, p) \gets \GrGen(1^\secpar)$
+\State $\mathbf{A} \gets \calD_{\ell,k}$ ; $\mathbf{w} \getsr \ZZ_p^k$ ; $\mathbf{u} \getsr \ZZ_p^{\ell}$
+\State $b \getsr \bits$
+\State $\mathbf{z}_0 \gets \mathbf{A}\mathbf{w}$ ; $\mathbf{z}_1 \gets \mathbf{u}$
+\State $\hat{b} \gets \calA(1^\secpar, \GG, g, p, g^{\mathbf{A}}, g^{\mathbf{z}_b})$
+\Return $[\hat{b} = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**$\calD_{\ell,k}$-MDDH is hard** for $\GrGen$ if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{mddh}}_{\calD_{\ell,k},\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{mddh}}_{\calD_{\ell,k},\GrGen,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]]. Choices of $\calD_{\ell,k}$ recover DDH, [[decisional-diffie-hellman#dlin|DLIN]] and [$k$-Lin](bilinear-map-assumptions#k-linear-assumption); the distributions $2$-SCasc and $2$-ILin introduced there give MDDH assumptions that are generically hard in bilinear groups and have a shorter description than $2$-Lin — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]].
 
 ## SXDH (Symmetric External Diffie-Hellman)
 
