@@ -11,7 +11,7 @@ id: ds
 variants:
   one-time-signature: "#one-time-signatures"
   schnorr-signature: "#schnorr-signatures"
-  hash-and-sign-signature: "#lattice-based-signatures"
+  hash-and-sign-signature: "#hash-and-sign-signatures"
   boneh-lynn-shacham-signature: "#bls-signatures"
   waters-signature: "#waters-signatures"
   eddsa: "#eddsa"
@@ -261,6 +261,10 @@ Hash-based signatures need no number-theoretic or lattice assumption: one-time s
 A one-time signature scheme is EUF-CMA secure against adversaries that make at most one signing query.
 
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
+
+## Hash-and-sign signatures
+
+Full-domain hash signs $m$ as $\sigma = f^{-1}(H(m))$ for a [[trapdoor-permutation|trapdoor permutation]] $f$, with $H$ a random oracle onto the domain of $f$, and is EUF-CMA-unforgeable in the [[random-oracle-model|random-oracle model]] ([[tdp-to-ds-br93|TDP ⇒ DS]]) — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]. With $f$ the [[lattice-trapdoor#preimage-sampling-and-inversion|preimage sampleable function]] $\mathbf{e} \mapsto \mathbf{A}\mathbf{e} \bmod q$ instead, $\Sign$ uses a trapdoor for $\mathbf{A}$ to sample a short preimage of $H(m)$ from a distribution independent of the trapdoor, and the scheme is SUF-CMA-unforgeable in the random-oracle model if [[shortest-integer-solution|SIS]] is hard ([[sis-to-ds|SIS ⇒ DS]]) — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 
 ## Lattice-based signatures
 

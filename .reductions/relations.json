@@ -2696,9 +2696,9 @@
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
    "graphSlug": "Primitives/digital-signature",
-   "anchor": "#lattice-based-signatures",
+   "anchor": "#hash-and-sign-signatures",
    "of": "ds",
-   "title": "Lattice-based signatures",
+   "title": "Hash-and-sign signatures",
    "aliases": [],
    "unlisted": false
   },
