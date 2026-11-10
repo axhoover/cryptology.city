@@ -219,7 +219,7 @@ NAXOS, whose ephemeral exponent is a hash of the session's ephemeral secret key 
 
 ## Multi-party key exchange
 
-An $n$-party key exchange protocol lets $n$ parties communicating over a public, authenticated broadcast channel establish a shared key that is computationally indistinguishable from uniformly random to every efficient eavesdropper. The protocol of Burmester and Desmedt takes two broadcast rounds for every $n$ — [[BD94 - A Secure and Efficient Conference Key Distribution System|BD94]].
+An $n$-party key exchange protocol lets $n$ parties communicating over a public, authenticated broadcast channel establish a shared key that is computationally indistinguishable from uniformly random to every efficient eavesdropper. The protocol of Burmester and Desmedt takes two rounds for every $n$ — [[BD94 - A Secure and Efficient Conference Key Distribution System|BD94]], [[KY03 - Scalable Protocols for Authenticated Group Key Exchange|KY03]]. [[KY03 - Scalable Protocols for Authenticated Group Key Exchange|KY03]] prove a variant of it secure against eavesdroppers and give a compiler that adds one round and turns any group key exchange secure against eavesdroppers into an authenticated one, secure against an adversary that controls all communication; applied to that variant, the compiler gives a three-round authenticated group key exchange with forward secrecy, secure under [[decisional-diffie-hellman|DDH]] in the standard model.
 
 ## Multiparty non-interactive key exchange
 
