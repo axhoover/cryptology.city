@@ -111,7 +111,7 @@ $R$ returns a fresh uniform $r \getsr \calR$. Beyond that, a trapdoor PRG should
       \Pr\!\left[\Invert(\td,r) = 0 : \td \gets \Gen(1^{\secpar}),\ r \getsr \calR\right] \ge 1 - \delta.
   $$
 
-Every [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor PRG whose completeness is robust to noise — folklore; [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] for the PRC definition.
+Every [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor PRG whose completeness is robust to noise ([[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]]) — folklore; [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] for the PRC definition.
 
 ## Hitting-set generators against co-nondeterministic circuits
 
@@ -119,7 +119,7 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 
 # Other results
 
-- A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
+- A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]) — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $\PRG(k) \oplus m$ is only one-time secure — folklore
 
 <!-- BEGIN GENERATED participates-in 92181de63a8e -->

@@ -54,11 +54,11 @@ A NIZK proof system for an $\classNP$-complete language, such as circuit satisfi
 
 ### NIZK arguments for NP
 
-A NIZK argument for an $\classNP$-complete language: soundness holds only against efficient provers, which still choose the statement after seeing $\crs$. Every [[#NIZK for NP|NIZK proof system for NP]] is one.
+A NIZK argument for an $\classNP$-complete language: soundness holds only against efficient provers, which still choose the statement after seeing $\crs$. Every [[#NIZK for NP|NIZK proof system for NP]] is one ([[nizk-for-np-to-nizk-argument-for-np|NIZK proof for NP ⇒ NIZK argument for NP]]).
 
 #### Non-adaptively sound NIZK arguments for NP
 
-A NIZK argument for an $\classNP$-complete language whose soundness holds only against efficient provers that fix the false statement $x$ before $\crs$ is sampled. Puncturing arguments that hard-wire the false statement $x$ into a hybrid reference string prove this notion directly; the Sahai–Waters argument was shown only non-adaptively sound, and WW24 obtain adaptive soundness for a succinct variant from sub-exponentially secure iO and one-way functions together with polynomial hardness of discrete logarithms or factoring, by complexity leveraging — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]].
+A NIZK argument for an $\classNP$-complete language whose soundness holds only against efficient provers that fix the false statement $x$ before $\crs$ is sampled. Puncturing arguments that hard-wire the false statement $x$ into a hybrid reference string prove this notion directly; the Sahai–Waters argument was shown only non-adaptively sound ([[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]), and WW24 obtain adaptive soundness for a succinct variant from sub-exponentially secure iO and one-way functions together with polynomial hardness of discrete logarithms or factoring, by complexity leveraging — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]].
 
 ## NIZK proofs in the common random string model
 
@@ -109,7 +109,7 @@ See [[succinct-argument|SNARKs]] for more detail.
 
 ## NIZK in the random oracle model
 
-Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|sigma protocol]] with a superpolynomial-size challenge space can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the statement and the prover's commitment — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].
+Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|sigma protocol]] with a superpolynomial-size challenge space can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the statement and the prover's commitment ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]) — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].
 
 # Other results
 

@@ -14,7 +14,7 @@ variants:
 
 # Inner-product predicate encryption
 
-**Inner-product predicate encryption (IPPE)** is a form of predicate encryption in which keys and ciphertexts are each associated with vectors over $\ZZ_p$. A key for vector $v \in \ZZ_p^n$ can decrypt a ciphertext for vector $x \in \ZZ_p^n$ if and only if $\langle v, x \rangle = 0 \pmod{p}$. IPPE achieves **full attribute-hiding**: a ciphertext hides both the encrypted payload and the attribute vector $x$. It subsumes [[hidden-vector-encryption|HVE]] and, via inner-product encodings, supports disjunctions, CNF/DNF formulas, and polynomial evaluation—making it the practical ceiling before full predicate encryption.
+**Inner-product predicate encryption (IPPE)** is a form of predicate encryption in which keys and ciphertexts are each associated with vectors over $\ZZ_p$. A key for vector $v \in \ZZ_p^n$ can decrypt a ciphertext for vector $x \in \ZZ_p^n$ if and only if $\langle v, x \rangle = 0 \pmod{p}$. IPPE achieves **full attribute-hiding**: a ciphertext hides both the encrypted payload and the attribute vector $x$. It subsumes [[hidden-vector-encryption|HVE]] ([[ippe-to-hve|IPPE ⇒ HVE]]) and, via inner-product encodings, supports disjunctions, CNF/DNF formulas, and polynomial evaluation—making it the practical ceiling before full predicate encryption.
 
 ## Syntax
 
@@ -72,7 +72,7 @@ is negligible.
 
 ## Payload-only hiding
 
-Dropping the attribute-hiding requirement yields a simpler **payload-hiding** variant: the adversary commits to a single $x^*$ and submits two messages, with the constraint that no queried $v$ satisfies $\langle v, x^* \rangle = 0 \pmod p$.
+Dropping the attribute-hiding requirement yields a simpler **payload-hiding** variant ([[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]]): the adversary commits to a single $x^*$ and submits two messages, with the constraint that no queried $v$ satisfies $\langle v, x^* \rangle = 0 \pmod p$.
 
 ## Zero inner product vs. non-zero
 
