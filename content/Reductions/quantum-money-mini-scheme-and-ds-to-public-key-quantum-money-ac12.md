@@ -11,10 +11,11 @@ class: fully-black-box
 model: quantum
 source:
   - "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
-security-loss: ""
+security-loss: "polynomial: a counterfeiter that receives $q$ banknotes and outputs $r$ succeeds with probability at most $r$ times the forger's advantage plus $q\\binom{r}{2}$ times the mini-scheme counterfeiter's"
 rationale:
   class: "The construction calls the mini-scheme and the signature scheme only as oracles, and the reduction runs any counterfeiter once as an oracle, either as a forger that outputs the serial number and signature of a uniformly chosen output banknote or as a mini-scheme counterfeiter that signs under a key pair it samples and outputs the money states of two uniformly chosen outputs."
   model: "The banknotes and the counterfeiters are quantum, so the signature scheme must be unforgeable against quantum forgers."
+  security-loss: "The forger outputs a uniformly chosen one of the $r$ outputs; when two valid outputs share one of the $q$ given serial numbers, the mini-scheme counterfeiter's challenge, hidden at a uniform one of the $q$ positions, carries such a serial number with probability at least $1/q$, and its uniformly chosen pair of outputs is a valid pair with that serial number with probability at least $1/\\binom{r}{2}$."
 ---
 
 # Mini-scheme + DS ⇒ Public-key QM
@@ -30,5 +31,5 @@ Let a counterfeiter receive $q$ banknotes and output more than $q$ valid ones. I
 ## Notes
 
 - The construction, without a security proof, is from [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]] — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
-- Conversely, an unforgeable public-key scheme yields an unforgeable mini-scheme, whose serial number is a fresh public key and whose money state is one banknote minted under it — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
-- A mini-scheme is secret-based if $\mathsf{Mint}_{\mathsf{MS}}$ samples a uniform classical string $r$ and outputs a banknote $(s_r, \rho_r)$ determined by $r$. For a secure secret-based mini-scheme, $r \mapsto s_r$ is one-way against quantum adversaries, so signatures from one-way functions ([[hash-function-to-ds|OWF ⇒ DS]]), secure against quantum forgers making classical queries, make the mini-scheme alone sufficient for public-key quantum money — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+- Conversely, an unforgeable public-key scheme yields an unforgeable mini-scheme, whose serial number is a fresh public key and whose money state is one banknote minted under it ([[public-key-quantum-money-to-quantum-money-mini-scheme-ac12|Public-key QM ⇒ Mini-scheme]]) — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+- For a secure [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]], whose $\mathsf{Mint}_{\mathsf{MS}}$ samples a uniform classical string $r$ and outputs a banknote $(s_r, \rho_r)$ determined by $r$, the map $r \mapsto s_r$ is one-way against quantum adversaries ([[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme ⇒ OWF]]), so signatures from one-way functions ([[hash-function-to-ds|OWF ⇒ DS]]), secure against quantum forgers making classical queries, make the mini-scheme alone sufficient for public-key quantum money — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
