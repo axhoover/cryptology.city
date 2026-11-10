@@ -7140,6 +7140,19 @@
    "unlisted": false
   },
   {
+   "id": "subexponential-weakly-compact-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#sub-exponentially-secure-weakly-compact-fe",
+   "of": "functional-encryption",
+   "title": "Sub-exponentially secure weakly compact FE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "subgroup-decision",
    "kind": "variant",
    "type": "assumption",
@@ -13737,7 +13750,7 @@
    "id": "red-fe-to-io",
    "kind": "implication",
    "hypotheses": [
-    "compact-fe"
+    "subexponential-weakly-compact-fe"
    ],
    "conclusion": "io",
    "class": "free",
@@ -13759,7 +13772,7 @@
    "page": "content/Reductions/fe-to-io.md",
    "slug": "fe-to-io",
    "graphSlug": "Reductions/fe-to-io",
-   "title": "Compact FE ⇒ iO"
+   "title": "Sub-exponential weakly compact FE ⇒ iO"
   },
   {
    "id": "red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",

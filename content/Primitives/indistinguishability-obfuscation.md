@@ -68,10 +68,10 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 - iO together with one-way functions (or close variants of them) also yields injective trapdoor functions, CCA-secure PKE and oblivious transfer — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
-- [[fe-to-io|Compact FE ⇒ iO]]
+- [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in c6952aa68275 -->
+<!-- BEGIN GENERATED participates-in 1a2deba5bc3c -->
 
 ## Participates in
 
@@ -101,7 +101,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
-- [[fe-to-io|Compact FE ⇒ iO]]
+- [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]
 - [[statistical-io-to-io|Statistical iO ⇒ iO]]
 - [[subexponential-io-to-io|Sub-exponentially secure iO ⇒ iO]]

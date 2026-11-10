@@ -10,6 +10,7 @@ variants:
   fe-selective-security: "#selective-security"
   bounded-collusion-fe: "#bounded-collusion-fe"
   compact-fe: "#compactness"
+  subexponential-weakly-compact-fe: "#sub-exponentially-secure-weakly-compact-fe"
   sim-secure-fe: "#simulation-based-security"
 ---
 
@@ -100,7 +101,11 @@ For a bound $q$ given to $\Setup$, the adversary in the IND game makes at most $
 
 ## Compactness
 
-Let $\calF$ consist of circuits of size at most $s$ on $n$-bit inputs. $\mathsf{FE}$ is **compact** if $\Enc$ runs in time $\poly(\secpar, n, \log s)$ — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and **weakly compact** if it runs in time $s^{1-\varepsilon} \cdot \poly(\secpar, n)$ for a constant $\varepsilon > 0$ — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]. $\mathsf{FE}$ is **sub-exponentially secure** if there is a constant $\delta > 0$ such that every admissible adversary of size at most $2^{\secpar^{\delta}}$ has advantage at most $2^{-\secpar^{\delta}}$.
+Let $\calF$ consist of circuits of size at most $s$ on $n$-bit inputs. $\mathsf{FE}$ is **compact** if $\Enc$ runs in time $\poly(\secpar, n, \log s)$ — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and **weakly compact** if it runs in time $s^{1-\varepsilon} \cdot \poly(\secpar, n)$ for a constant $\varepsilon > 0$ — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
+
+## Sub-exponentially secure weakly compact FE
+
+$\mathsf{FE}$ is **sub-exponentially secure** if there is a constant $\delta > 0$ such that every admissible adversary of size at most $2^{\secpar^{\delta}}$ has advantage at most $2^{-\secpar^{\delta}}$. A **sub-exponentially secure weakly compact** FE scheme is a weakly compact public-key FE scheme for $\classPpoly$ that is sub-exponentially secure in the selective game against adversaries making one key query — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
 
 ## Simulation-based security
 
@@ -112,19 +117,19 @@ In _predicate encryption with public index_, a message is a pair $(x, \mu)$, the
 
 # Other results
 
-- [[fe-to-io|Compact FE ⇒ iO]]: single-key, sub-exponentially secure FE for $\classPpoly$ gives [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits when it is compact — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and already when it is weakly compact — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
+- [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]]: single-key, sub-exponentially secure FE for $\classPpoly$ gives [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits when it is compact — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and already when it is weakly compact — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
 - [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]]: selectively IND-secure FE for all polynomial-size circuits from iO, a perfectly correct IND-CPA-secure PKE and a statistically simulation-sound NIZK proof system for $\classNP$ — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
 - [[owf-and-io-to-fe-wat15|OWF + iO ⇒ FE]]: IND-secure FE for all polynomial-size circuits from iO and one-way functions, with a polynomial security loss — [[Wat15 - A Punctured Programming Approach to Adaptively Secure Functional Encryption|Wat15]].
 - Single-key FE for all circuits of depth $d$ from [[learning-with-errors|LWE]], whose ciphertexts grow with $d$ and the output length but not with the circuit size; security extends to an a priori bounded number of keys. A ciphertext holds an [[homomorphic-encryption|FHE]] encryption $\psi$ of $m$, a [[garbled-circuit|garbled circuit]] for FHE decryption, and [[attribute-based-encryption|ABE]] encryptions of its input labels with attribute $\psi$; the key for $f$ releases, for each bit of the homomorphic evaluation of $f$ on $\psi$, the label matching that bit — [[GKPVZ13a - Reusable Garbled Circuits and Succinct Functional Encryption|GKPVZ13a]].
 - For every bound $q$ fixed at setup, $q$-bounded-collusion FE for all polynomial-size circuits from semantically secure [[public-key-encryption|PKE]] and [[pseudorandom-generator|PRGs]] computable by low-depth circuits — [[GVW12 - Functional Encryption with Bounded Collusions via Multi-Party Computation|GVW12]].
 
-<!-- BEGIN GENERATED participates-in 0d3b790286e7 -->
+<!-- BEGIN GENERATED participates-in 54cbf315e47b -->
 
 ## Participates in
 
 **Builds on Functional encryption**
 
-- [[fe-to-io|Compact FE ⇒ iO]] (via [[functional-encryption#compactness|Compactness]])
+- [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]] (via [[functional-encryption#sub-exponentially-secure-weakly-compact-fe|Sub-exponentially secure weakly compact FE]])
 
 **Produces Functional encryption**
 
