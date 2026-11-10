@@ -87,14 +87,13 @@ For a three-move public-coin protocol with challenge space $C$, fix a prover $P^
 
 If DLOG is 2-moment hard, meaning that every algorithm's success probability is bounded in terms of the second moment of its running time, as in the generic group model, a high-moment forking lemma for sigma protocols shows that every $t$-time Schnorr forger making $q$ hash queries succeeds with probability at most $(q t^2/p)^{2/3}$ in a group of prime order $p$, against $(q t^2/p)^{1/2}$ from earlier proofs — [[RS21 - Tighter Security for Schnorr Identification and Signatures A High-Moment Forking Lemma for Sigma-Protocols|RS21]].
 
-<!-- BEGIN GENERATED participates-in 03bd3ca62de5 -->
+<!-- BEGIN GENERATED participates-in f1ee869aea9c -->
 
 ## Participates in
 
 **Used via Forking lemma**
 
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
-- [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]

@@ -10,13 +10,14 @@ conclusion: ds
 class: fully-black-box
 model: rom
 source:
-  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+  - "[[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]"
 via:
-  - "[[forking-lemma|forking lemma]]"
-security-loss: "$\\approx \\varepsilon^2/q$ for advantage $\\varepsilon$ and $q$ random-oracle queries (PS96)"
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+security-loss: "a factor linear in the number of random-oracle queries"
 rationale:
-  class: "The transform uses the identification scheme's prover and verifier only as oracles, and the reductions run the forger only as an oracle, programming the random oracle (AABN02) and rewinding the forger (PS00)."
-  model: "The reductions program the random oracle that replaces the verifier's challenge."
+  class: "The transform uses the identification scheme's prover and verifier only as oracles, and the reduction runs the forger only as an oracle, programming the random oracle."
+  model: "The reduction programs the random oracle that replaces the verifier's challenge."
+  security-loss: "The impersonator guesses which of the forger's random-oracle queries fixes the challenge of the forgery."
 ---
 
 # ID ⇒ DS
