@@ -47,9 +47,33 @@ $$
 
 is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. In particular, no efficient user observes any change in the quality of the text.
 
-### Soundness and completeness
+### Completeness
 
-**Soundness**: every text of length at most $\poly(\secpar)$ fixed independently of $\sk$, in particular every human-written text, is detected as watermarked with negligible probability over $\Setup$. **Completeness**: a response produced by $\mathsf{Wat}$ is detected as watermarked except with negligible probability, provided the response has enough empirical entropy; responses with little entropy, which the model determines almost uniquely, cannot carry an undetectable watermark — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
+The **empirical entropy** of $\mathsf{Model}$ responding with $x$ to $\mathit{prompt}$ is
+
+$$
+H_e(\mathsf{Model}, \mathit{prompt}, x) := -\log_2 \Pr\!\left[\mathsf{Model}(\mathit{prompt}) = x\right].
+$$
+
+For $b : \NN \to \mathbb{R}$, a watermarking scheme $\mathsf{W}$ is **$b(L)$-complete** if for every $\mathit{prompt}$ of length at most $\poly(\secpar)$,
+
+$$
+\Pr\!\left[\mathsf{Detect}(\sk, x) = 0 \,\wedge\, H_e(\mathsf{Model}, \mathit{prompt}, x) \ge b(|x|) : \sk \gets \Setup(1^\secpar),\ x \gets \mathsf{Wat}(\sk, \mathit{prompt})\right]
+$$
+
+is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. $H_e$ is measured with respect to $\mathsf{Model}$, not $\mathsf{Wat}$, and $\mathsf{Detect}$ need not compute it.
+
+An undetectable scheme can watermark only responses whose empirical entropy is high relative to the distinguisher's running time: if $\mathsf{W}$ is sound and, for some $\mathit{prompt}$ and $t$, a response $x \gets \mathsf{Wat}(\sk, \mathit{prompt})$ is detected and has $H_e(\mathsf{Model}, \mathit{prompt}, x) \le t$ with probability greater than $1/\poly(\secpar)$, then $\mathsf{Wat}(\sk, \cdot)$ and $\mathsf{Model}$ are distinguishable with non-negligible probability using $O(\exp(t) \cdot \poly(\secpar))$ queries and time — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. A threshold on the Shannon entropy of $\mathsf{Model}(\mathit{prompt})$ in place of $H_e$ does not work: for every $b$ and $\varepsilon > 0$ some model has $H(\mathsf{Model}(\mathit{prompt})) \ge b$, yet every sound, undetectable scheme for it detects its watermarked responses with probability at most $\varepsilon + \negl(\secpar)$ — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
+
+### Soundness
+
+A watermarking scheme $\mathsf{W}$ is **sound** if for every $\mathit{text}$ of length at most $\poly(\secpar)$,
+
+$$
+\Pr\!\left[\mathsf{Detect}(\sk, \mathit{text}) = 1 : \sk \gets \Setup(1^\secpar)\right]
+$$
+
+is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. The same bound holds for a text sampled independently of $\sk$, in particular a human-written one.
 
 # Variations
 
