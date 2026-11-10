@@ -20,7 +20,7 @@ variants:
 
 # Trapdoor permutation
 
-A _trapdoor permutation (TDP)_ is a permutation that is easy to compute but hard to invert without a _trapdoor_: a secret that makes inversion efficient. Trapdoor permutations are one-way functions with an additional invertibility structure, and they are associated with Impagliazzo's "Cryptomania" world. Their existence implies many public-key cryptographic primitives.
+A _trapdoor permutation (TDP)_ is a permutation that is easy to compute but hard to invert without a _trapdoor_: a secret that makes inversion efficient. Trapdoor permutations are one-way functions with an additional invertibility structure ([[tdp-to-hash-function|TDP ⇒ OWF]]), and they are associated with Impagliazzo's "Cryptomania" world. Their existence implies many public-key cryptographic primitives.
 
 ## Syntax
 
@@ -53,15 +53,15 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
+An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists ([[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]) — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
 ### Doubly enhanced certified trapdoor permutations
 
-An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses — [[GR13 - Enhancements of Trapdoor Permutations|GR13]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]].
+An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses ([[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]]) — [[GR13 - Enhancements of Trapdoor Permutations|GR13]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]].
 
 ## Injective trapdoor functions
 
-An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one — folklore.
+An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one ([[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]) — folklore.
 
 ## Claw-free permutations
 
@@ -73,11 +73,11 @@ A _claw-free pair of trapdoor permutations_ is a claw-free pair $(f_0, f_1)$ who
 
 ## Lossy trapdoor functions
 
-An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is injective and inverted by $\Invert$ with the trapdoor, one-wayness not being assumed, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. A _lossy trapdoor function_ is an $(n, k)$-lossy one with $k = \omega(\log \secpar)$; without a lower bound on $k$, every injective trapdoor function is an $(n, 0)$-lossy one, with the same index in both modes. $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and IND-CCA-secure encryption — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]].
+An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is injective and inverted by $\Invert$ with the trapdoor, one-wayness not being assumed, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. A _lossy trapdoor function_ is an $(n, k)$-lossy one with $k = \omega(\log \secpar)$; without a lower bound on $k$, every injective trapdoor function is an $(n, 0)$-lossy one, with the same index in both modes. $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions ([[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]]) — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and IND-CCA-secure encryption ([[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]]) — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]].
 
 ### Highly lossy trapdoor functions
 
-An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is $r \le \rho n$ for a constant $\rho < 1/2$, the regime in which it yields collision-resistant hashing — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is $r \le \rho n$ for a constant $\rho < 1/2$, the regime in which it yields collision-resistant hashing ([[lossy-trapdoor-function-to-crhf-pw08|Highly lossy TDF ⇒ CRHF]]) — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 # Other results
 
