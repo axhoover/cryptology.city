@@ -10,6 +10,7 @@ aliases:
 title: Shortest Integer Solution
 id: sis
 variants:
+  bit-compressing-sis: "#bit-compressing-sis"
   module-sis: "#module-sis"
   inhomogeneous-sis: "#isis-inhomogeneous-sis"
   ring-sis: "#ring-sis"
@@ -53,17 +54,21 @@ Solving SIS on average (over a uniformly random $\mathbf{A}$) is at least as har
 
 ### Collision-resistant hash functions
 
-The function family $\{f_\mathbf{A} : \mathbf{z} \mapsto \mathbf{Az} \bmod q\}$, restricted to inputs $\mathbf{z} \in \{0, \ldots, \lfloor \beta/\sqrt{m} \rfloor\}^m$, is a [[hash-function#collision-resistance|collision-resistant hash function]] family under SIS hardness ([[sis-to-hash-function-ajt96|SIS ⇒ CRHF]]) — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]], [[GGH96 - Collision-Free Hashing from Lattice Problems|GGH96]]. Any collision $f_\mathbf{A}(\mathbf{z}) = f_\mathbf{A}(\mathbf{z}')$ with $\mathbf{z} \neq \mathbf{z}'$ yields $\mathbf{A}(\mathbf{z} - \mathbf{z}') = \mathbf{0} \pmod q$ with $\|\mathbf{z} - \mathbf{z}'\| \leq \beta$, which is exactly a SIS solution.
+For $m \ge n \log q + 1$, the function family $\{f_\mathbf{A} : \mathbf{z} \mapsto \mathbf{Az} \bmod q\}$, restricted to inputs $\mathbf{z} \in \{0, \ldots, \lfloor \beta/\sqrt{m} \rfloor\}^m$, is a [[hash-function#collision-resistance|collision-resistant hash function]] family under [[#bit-compressing-sis|bit-compressing SIS]] hardness ([[sis-to-hash-function-ajt96|SIS ⇒ CRHF]]) — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]], [[GGH96 - Collision-Free Hashing from Lattice Problems|GGH96]]. Any collision $f_\mathbf{A}(\mathbf{z}) = f_\mathbf{A}(\mathbf{z}')$ with $\mathbf{z} \neq \mathbf{z}'$ yields $\mathbf{A}(\mathbf{z} - \mathbf{z}') = \mathbf{0} \pmod q$ with $\|\mathbf{z} - \mathbf{z}'\| \leq \beta$, which is exactly a SIS solution.
 
 ### Total search complexity
 
-For $m \ge n \log q + 1$ and $\sqrt{m} \le \beta < q$, SIS lies in [[total-function-np#pwpp|PWPP]] ([[sis-to-pwpp-szz18|SIS ∈ PWPP]]): $\mathbf{z} \mapsto \mathbf{A}\mathbf{z} \bmod q$ compresses $\bits^m$, and a collision gives a solution — standard. Constrained SIS, a generalization, is [[total-function-np#ppp|PPP]]-complete, and its weak form, a binary collision problem whose unconstrained case is the collision form of SIS, is PWPP-complete — [[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]]. Membership does not make SIS itself PWPP-hard.
+[[#bit-compressing-sis|Bit-compressing SIS]], with $m \ge n \log q + 1$ and $\sqrt{m} \le \beta < q$, lies in [[total-function-np#pwpp|PWPP]] ([[sis-to-pwpp-szz18|SIS ∈ PWPP]]): $\mathbf{z} \mapsto \mathbf{A}\mathbf{z} \bmod q$ maps $\bits^m$ into $\bits^{m-1}$, and a collision gives a solution — standard. Constrained SIS, a generalization, is [[total-function-np#ppp|PPP]]-complete, and its weak form, a binary collision problem whose unconstrained case is the collision form of SIS, is PWPP-complete — [[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]]. Membership does not make SIS itself PWPP-hard.
 
 ## Attacks
 
 - **Lattice reduction (LLL/BKZ):** The best known attacks find short vectors in the $q$-ary lattice $\Lambda^\perp(\mathbf{A}) = \{\mathbf{z} \in \ZZ^m : \mathbf{Az} = \mathbf{0} \pmod q\}$ using BKZ-style block reduction algorithms. Runtime is exponential in the block size $b$: $2^{\Theta(b)}$ with a sieving SVP oracle — _standard_.
 
 # Variations
+
+## Bit-compressing SIS
+
+**Bit-compressing SIS** is SIS restricted to $m \ge n \log q + 1$ and $\sqrt{m} \le \beta < q$. Then $q^n \le 2^{m-1}$, so $\mathbf{z} \mapsto \mathbf{A}\mathbf{z} \bmod q$, with its value written as an integer below $q^n$, maps $\bits^m$ into $\bits^{m-1}$. **Bit-compressing SIS is hard** for such $(n, m, q, \beta)$ if for all efficient $\calA$, $\Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar)$ is negligible. For $n \log q < m < n \log q + 1$, inside the SIS regime, $q^n < 2^m$ but the integers below $q^n$ need $m$ bits.
 
 ## ISIS (Inhomogeneous SIS)
 
@@ -85,22 +90,24 @@ The instance is parameterized by $(n, k, \ell, q, \beta)$, with $R = \ZZ[x]/\lan
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices ([[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-<!-- BEGIN GENERATED participates-in 2b36cf2cd195 -->
+<!-- BEGIN GENERATED participates-in 77a07e70b42e -->
 
 ## Participates in
 
 **Builds on Shortest Integer Solution**
 
+- [[bit-compressing-sis-to-sis|Bit-compressing SIS ⇒ SIS]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
 - [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]] (via [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS (Inhomogeneous SIS)]])
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[module-sis-to-crhf|Module-SIS ⇒ CRHF]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[ring-sis-to-crhf-lm06|Ring-SIS ⇒ CRHF]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
 - [[sis-to-ds|SIS ⇒ DS]]
-- [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]]
-- [[sis-to-pwpp-szz18|SIS ∈ PWPP]]
+- [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
+- [[sis-to-pwpp-szz18|SIS ∈ PWPP]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
 
 **Produces Shortest Integer Solution**
 
+- [[bit-compressing-sis-to-sis|Bit-compressing SIS ⇒ SIS]]
 - [[gapsvp-to-sis-ajt96|Polynomial-factor GapSVP ⇒ SIS]]
 - [[ideal-svp-to-ring-sis-lm06|Ideal-SVP ⇒ Ring-SIS]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
 - [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]

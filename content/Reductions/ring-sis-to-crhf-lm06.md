@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let $R_q = \ZZ_q[x]/\langle x^n + 1 \rangle$ with $n$ a power of $2$, and let $\ell > \log q$, so that $m = n\ell > n \log q$. The generalized compact knapsack $h_{a_1, \ldots, a_\ell}(z_1, \ldots, z_\ell) = \sum_i a_i z_i \in R_q$, keyed by uniform $a_i \in R_q$ and restricted to inputs whose coefficients lie in $\bits$, is a compressing [[hash-function#collision-resistance|collision-resistant hash function]] family whenever [[shortest-integer-solution#ring-sis|Ring-SIS]] over $R_q$ with $\ell$ ring elements and norm bound $\beta \ge \sqrt{n\ell}$ is hard — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]. With inputs of coefficients bounded by $d$ in absolute value and $\ell > \log q / \log(2d)$, as in LM06, the same argument needs $\beta \ge 2d\sqrt{n\ell}$.
+Let $R_q = \ZZ_q[x]/\langle x^n + 1 \rangle$ with $n$ a power of $2$, and let $n\ell \ge n \log q + 1$, so that $q^n \le 2^{n\ell - 1}$. The generalized compact knapsack $h_{a_1, \ldots, a_\ell}(z_1, \ldots, z_\ell) = \sum_i a_i z_i \in R_q$, keyed by uniform $a_i \in R_q$, restricted to inputs whose coefficients lie in $\bits$, and with its value written as an integer below $q^n$, is a [[hash-function#collision-resistance|collision-resistant hash function]] family $\bits^{n\ell} \to \bits^{n\ell - 1}$ whenever [[shortest-integer-solution#ring-sis|Ring-SIS]] over $R_q$ with $\ell$ ring elements and norm bound $\beta \ge \sqrt{n\ell}$ is hard — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]. With inputs of coefficients bounded by $d$ in absolute value and $\ell > \log q / \log(2d)$, as in LM06, the same argument needs $\beta \ge 2d\sqrt{n\ell}$.
 
 ## Sketch
 
