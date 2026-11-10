@@ -14,7 +14,7 @@ variants:
 
 # Quadratic residuosity assumption
 
-The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The restriction is necessary: $\left(\frac{a}{N}\right)$ is efficiently computable without $p, q$, and $\left(\frac{a}{N}\right) = -1$ certifies $a \notin \QR_N$ — [[GM84 - Probabilistic encryption|GM84]]. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
+The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The restriction is necessary: $\left(\frac{a}{N}\right)$ is efficiently computable without $p, q$, and $\left(\frac{a}{N}\right) = -1$ certifies $a \notin \QR_N$ — [[GM84 - Probabilistic encryption|GM84]]. It underlies the first provably CPA-secure public-key encryption scheme ([[qr-to-pke-gm84|QR ⇒ PKE]]) — [[GM84 - Probabilistic encryption|GM84]].
 
 ## Assumption
 
@@ -64,7 +64,7 @@ For a prime $p$, deciding quadratic residuosity modulo $p$ is easy (via the Lege
 
 ## Higher residuosity
 
-Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Micali generalizations and the Benaloh cryptosystem.
+Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Micali generalizations and the Benaloh cryptosystem ([[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]).
 
 # Attacks
 
