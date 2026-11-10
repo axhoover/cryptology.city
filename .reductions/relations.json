@@ -15733,6 +15733,35 @@
    "title": "Invertible PRFs ⇒ PRF"
   },
   {
+   "id": "red-io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "injective-one-way-function"
+   ],
+   "conclusion": "public-key-quantum-money",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]]",
+    "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The counterfeiter and the reductions are quantum, so the obfuscator and the injective one-way function must be secure against quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-injective-one-way-function-to-public-key-quantum-money-zha19.md",
+   "slug": "io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
+   "graphSlug": "Reductions/io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
+   "title": "iO + Injective OWF ⇒ Public-key QM"
+  },
+  {
    "id": "red-io-and-np-not-in-io-bpp-to-owf-kmnpry14",
    "kind": "implication",
    "hypotheses": [

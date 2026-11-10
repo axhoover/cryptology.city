@@ -75,7 +75,7 @@ An injective function $f$ is **adaptively one-way** if for all efficient $\calA$
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]].
 - There is no fully-black-box construction, from an injective one-way function and [[indistinguishability-obfuscation|iO]] for circuits that call it, of a language in $\classNP \cap \classcoNP$ that no efficient algorithm decides on every input — [[BDV17 - Structure vs Hardness Through the Obfuscation Lens|BDV17]].
 
-<!-- BEGIN GENERATED participates-in 0ee07818e4d9 -->
+<!-- BEGIN GENERATED participates-in e659a97d3f49 -->
 
 ## Participates in
 
@@ -85,6 +85,7 @@ An injective function $f$ is **adaptively one-way** if for all efficient $\calA$
 - [[injective-one-way-function-to-owf|Injective OWF ⇒ OWF]]
 - [[injective-one-way-function-to-statistically-binding-commitment|Injective OWF ⇒ Statistically binding COM]]
 - [[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ Three-round NM commitment (Goyal–Richelson)]]
+- [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|iO + Injective OWF ⇒ Public-key QM]]
 
 **Produces Injective one-way function**
 
