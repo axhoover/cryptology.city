@@ -8,6 +8,7 @@ title: Public-key encryption with keyword search
 id: peks
 variants:
   consistent-peks: "#consistency"
+  perfectly-consistent-peks: "#perfect-consistency"
 ---
 
 # Public-key encryption with keyword search
@@ -58,7 +59,11 @@ $$
 \Adv^{\mathrm{consist}}_{\Pi,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{consist}}_{\Pi,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. ABC+05 also define **statistical** consistency, which asks the same of computationally unbounded adversaries, and **perfect** consistency, which asks that the advantage be $0$; the definition of BDOP04, in which $\mathsf{Test}$ outputs $0$ on every non-matching keyword, amounts to perfect consistency — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, consistent PEKS denotes a correct, IND-CKA-secure and computationally consistent scheme.
+is negligible. ABC+05 also define **statistical** consistency, which asks the same of computationally unbounded adversaries — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, consistent PEKS denotes a correct, IND-CKA-secure and computationally consistent scheme.
+
+#### Perfect consistency
+
+A PEKS scheme $\Pi$ is **perfectly consistent** if $\Adv^{\mathrm{consist}}_{\Pi,\calA}(\secpar) = 0$ for all $\secpar \in \NN$ and all computationally unbounded $\calA$ — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]: for every key pair $(\pk, \sk)$ in the support of $\KeyGen(1^\secpar)$ and all keywords $W \ne W'$, $\mathsf{Test}(\pk, \mathsf{PEKS}(\pk, W), \mathsf{Trapdoor}(\sk, W')) = 0$ with probability $1$. The definition of [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]], in which $\mathsf{Test}$ outputs $0$ on every non-matching keyword, is perfect consistency — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, perfectly consistent PEKS denotes a correct, IND-CKA-secure and perfectly consistent scheme.
 
 ### Security against chosen-keyword attacks
 
@@ -98,23 +103,25 @@ In public-key encryption with temporary keyword search (PETKS), a trapdoor for $
 # Other results
 
 - Under the [[bilinear-map-assumptions|bilinear Diffie–Hellman assumption]], BDOP04's pairing-based scheme is IND-CKA-secure in the [[random-oracle-model|random oracle model]] ([[bdh-to-consistent-peks-bdop04|BDH ⇒ PEKS]]) — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]]; it is also computationally consistent in the random oracle model — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]].
-- An [[identity-based-encryption#anonymous-ibe|anonymous IBE]] gives a consistent PEKS by encrypting a random string under the keyword as identity and appending that string ([[anonymous-ibe-to-consistent-peks-abc05|anonymous IBE ⇒ PEKS]]) — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]; conversely, a consistent PEKS gives an [[identity-based-encryption|IBE]] ([[consistent-peks-to-ind-id-cpa-bdop04|PEKS ⇒ IBE]]) — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]].
+- An [[identity-based-encryption#anonymous-ibe|anonymous IBE]] gives a consistent PEKS by encrypting a random string under the keyword as identity and appending that string ([[anonymous-ibe-to-consistent-peks-abc05|anonymous IBE ⇒ PEKS]]) — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]; conversely, a [[#Perfect consistency|perfectly consistent]] PEKS gives an [[identity-based-encryption|IBE]] ([[consistent-peks-to-ind-id-cpa-bdop04|PEKS ⇒ IBE]]) — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]].
 - A sender appends $\mathsf{PEKS}(\pk, W_1), \ldots, \mathsf{PEKS}(\pk, W_k)$ for the keywords of a message to a [[public-key-encryption|PKE]] encryption of the message, and a gateway holding $T_W$ routes the messages whose appended encryptions pass $\mathsf{Test}$ with $T_W$ — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]].
 - $\mathsf{Test}$ is public, so a holder of $T_W$ tests a guess $W'$ by computing $\mathsf{Test}(\pk, \mathsf{PEKS}(\pk, W'), T_W)$; for a perfectly correct and consistent scheme the result is $1$ for $W' = W$ and, except with negligible probability, $0$ for each fixed $W' \ne W$, so a trapdoor reveals its keyword whenever the keywords in use range over a set of polynomial size — standard. IND-CKA does not exclude this: the adversary holds no trapdoor for $W_0$ or $W_1$.
 
-<!-- BEGIN GENERATED participates-in a8c641cc0a62 -->
+<!-- BEGIN GENERATED participates-in 779356b7857f -->
 
 ## Participates in
 
 **Builds on Public-key encryption with keyword search**
 
-- [[consistent-peks-to-ind-id-cpa-bdop04|Consistent PEKS ⇒ IBE (BDOP04)]] (via [[public-key-encryption-with-keyword-search#consistency|Consistency]])
+- [[consistent-peks-to-ind-id-cpa-bdop04|Perfectly consistent PEKS ⇒ IBE (BDOP04)]] (via [[public-key-encryption-with-keyword-search#perfect-consistency|Perfect consistency]])
 - [[consistent-peks-to-peks|Consistent PEKS ⇒ PEKS]] (via [[public-key-encryption-with-keyword-search#consistency|Consistency]])
+- [[perfectly-consistent-peks-to-consistent-peks|Perfectly consistent PEKS ⇒ Consistent PEKS]] (via [[public-key-encryption-with-keyword-search#perfect-consistency|Perfect consistency]])
 
 **Produces Public-key encryption with keyword search**
 
 - [[anonymous-ibe-to-consistent-peks-abc05|Anonymous IBE ⇒ PEKS (ABC+05)]] (via [[public-key-encryption-with-keyword-search#consistency|Consistency]])
 - [[bdh-to-consistent-peks-bdop04|BDH ⇒ PEKS (random oracle model)]] (via [[public-key-encryption-with-keyword-search#consistency|Consistency]])
 - [[consistent-peks-to-peks|Consistent PEKS ⇒ PEKS]]
+- [[perfectly-consistent-peks-to-consistent-peks|Perfectly consistent PEKS ⇒ Consistent PEKS]] (via [[public-key-encryption-with-keyword-search#consistency|Consistency]])
 
 <!-- END GENERATED participates-in -->
