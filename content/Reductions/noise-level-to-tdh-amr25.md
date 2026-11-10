@@ -1,24 +1,24 @@
 ---
 type: reduction
 status: draft
-title: "Low-noise LPN ⇒ Slightly sublinear TDH"
+title: "Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH"
 aliases: []
 id: red-noise-level-to-tdh-amr25
 kind: implication
-hypotheses: [lpn-low-noise]
+hypotheses: [quasi-polynomial-low-noise-lpn]
 conclusion: sublinear-tdh
 class: unstated
 model: standard
 source:
   - "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]"
-security-loss: "requires quasi-polynomial hardness of low-noise LPN"
+security-loss: ""
 ---
 
-# Low-noise LPN ⇒ Slightly sublinear TDH
+# Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH
 
 ## Statement
 
-Quasi-polynomial hardness of [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$, for a constant $\beta > 0$, implies [[trapdoor-hash-function#slightly-sublinear-trapdoor-hash-functions|slightly sublinear trapdoor hash functions]] with compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$; this is the first trapdoor hash function from LPN — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
+[[learning-parity-with-noise#quasi-polynomially-hard-low-noise-lpn|Quasi-polynomially hard low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$, for a constant $\beta \in (0,1)$, implies [[trapdoor-hash-function#slightly-sublinear-trapdoor-hash-functions|slightly sublinear trapdoor hash functions]] with compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$; this is the first trapdoor hash function from LPN — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
 
 ## Notes
 
