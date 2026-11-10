@@ -17,7 +17,7 @@ source:
 
 ## Statement
 
-Under the [[decisional-diffie-hellman|DDH]] assumption, the Double-strand Cramer–Shoup scheme, an extension of [[ddh-and-uowhf-to-pke-cca2-security-cs98|Cramer–Shoup encryption]], is a [[rerandomizable-encryption#rerandomizable-rcca-encryption|rerandomizable RCCA]] scheme: it is [[rerandomizable-encryption#rerandomization|perfectly rerandomizable]], and for all efficient $\calA$, $\Adv^{\mathrm{rcca}}_{\PKE,\calA}(\secpar)$ is negligible — [[PR07 - Rerandomizable RCCA Encryption|PR07]].
+Under the [[decisional-diffie-hellman|DDH]] assumption, the Double-strand Cramer–Shoup scheme, an extension of [[ddh-and-uowhf-to-pke-cca2-security-cs98|Cramer–Shoup encryption]], is a [[rerandomizable-encryption#rerandomizable-rcca-encryption|rerandomizable RCCA]] scheme: it is [[rerandomizable-encryption#rerandomization|perfectly rerandomizable]], and for all admissible efficient $\calA$, $\Adv^{\mathrm{rcca}}_{\PKE,\calA}(\secpar)$ is negligible — [[PR07 - Rerandomizable RCCA Encryption|PR07]].
 
 ## Notes
 

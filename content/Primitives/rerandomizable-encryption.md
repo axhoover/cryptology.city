@@ -126,7 +126,7 @@ A **rerandomizable RCCA** scheme is perfectly rerandomizable and RCCA-secure. [[
 - Perfect rerandomization implies statistical rerandomization of honest ciphertexts ([[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]]) — folklore.
 - An IND-CPA-secure public-key bit-encryption scheme with a strong homomorphic evaluator for a boolean function $f$ is statistically rerandomizable, for essentially every $f$ other than the trivial functions, NOT, AND and OR ([[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]]) — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 - Sub-exponentially secure iO and rerandomizable encryption secure against slightly super-polynomial adversaries give compact FHE without circular security ([[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE]]) — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
-- The Double-strand Cramer–Shoup scheme, an extension of Cramer–Shoup encryption, is perfectly rerandomizable and RCCA-secure under DDH ([[ddh-to-rerandomizable-rcca-encryption-pr07|DDH ⇒ Rerandomizable RCCA encryption]]) — [[PR07 - Rerandomizable RCCA Encryption|PR07]].
+- The Double-strand Cramer–Shoup scheme, an extension of Cramer–Shoup encryption, is perfectly rerandomizable and RCCA-secure under [[decisional-diffie-hellman|DDH]] ([[ddh-to-rerandomizable-rcca-encryption-pr07|DDH ⇒ Rerandomizable RCCA encryption]]) — [[PR07 - Rerandomizable RCCA Encryption|PR07]].
 
 <!-- BEGIN GENERATED participates-in 69bb6d54a338 -->
 
