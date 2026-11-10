@@ -13,7 +13,7 @@ id: spir
 
 # Multi-server Symmetric private information retrieval
 
-Multi-server symmetric private information retrieval (SPIR) is [[multi-server-private-information-retrieval|multi-server PIR]] that also protects the data: no single server learns anything about the client's index $i$, and the client learns the single physical bit $D[i]$ of the database and no other information about it — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]].
+Multi-server symmetric private information retrieval (SPIR) is [[multi-server-private-information-retrieval|multi-server PIR]] ([[spir-to-it-pir|SPIR ⇒ IT-PIR]]) that also protects the data: no single server learns anything about the client's index $i$, and the client learns the single physical bit $D[i]$ of the database and no other information about it — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]].
 
 ## Syntax
 

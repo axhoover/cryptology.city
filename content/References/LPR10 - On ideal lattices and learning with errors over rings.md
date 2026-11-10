@@ -15,4 +15,4 @@ published: 2010-01-01
 
 **Authors:** Vadim Lyubashevsky, Chris Peikert, Oded Regev | **Venue:** Eurocrypt 2010 | [Source](https://eprint.iacr.org/2012/230)
 
-Introduced Ring LWE (RLWE), which restricts LWE samples to a polynomial ring $R_q = \ZZ_q[x]/\langle\Phi_n(x)\rangle$ (typically the $n$-th cyclotomic ring). This yields $O(n \log n)$-size keys (vs. $O(n^2)$ for plain LWE) and admits fast NTT-based arithmetic. The paper also gives a quantum worst-case to average-case reduction from ideal lattice problems (Ideal-SVP) to Ring LWE.
+Introduced Ring LWE (RLWE), which restricts LWE samples to a polynomial ring $R_q = \ZZ_q[x]/\langle\Phi_n(x)\rangle$ (typically the $n$-th cyclotomic ring). This yields $O(n \log n)$-size keys (vs. $O(n^2)$ for plain LWE) and admits fast NTT-based arithmetic. The paper also gives a quantum worst-case to average-case reduction from ideal lattice problems (Ideal-SVP) to Ring LWE ([[ideal-svp-to-ring-lwe-lpr10|Ideal-SVP ⇒ Ring LWE]]).
