@@ -33,7 +33,7 @@ Combining these axes gives four types of reductions:
 
 The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out relativizing, hence fully black-box, reductions — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
-> **Example (fully BB).** The [[pseudorandom-function|GGM construction]] of a $\PRF$ from a $\PRG$ is fully black-box: the $\PRG$ is invoked as an oracle, and the security proof reduces any $\PRF$ adversary (treated as an oracle) to a $\PRG$ distinguisher.
+> **Example (fully BB).** The [[pseudorandom-function|GGM construction]] of a $\PRF$ from a $\PRG$ is fully black-box ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]): the $\PRG$ is invoked as an oracle, and the security proof reduces any $\PRF$ adversary (treated as an oracle) to a $\PRG$ distinguisher.
 
 ## Oracle Separations
 
@@ -52,7 +52,7 @@ An **oracle separation** is the standard technique for proving that no fully bla
 
 The landmark result of [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] established the first major cryptographic oracle separation:
 
-> **Theorem (Impagliazzo–Rudich, 1989).** There exists an oracle $O$ relative to which [[one-way-permutation|one-way permutations (OWPs)]] exist but secret-key agreement (KA) is impossible.
+> **Theorem (Impagliazzo–Rudich, 1989).** There exists an oracle $O$ relative to which [[one-way-permutation|one-way permutations (OWPs)]] exist but secret-key agreement (KA) is impossible ([[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]).
 
 **Corollaries.**
 
@@ -69,7 +69,7 @@ Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$ togeth
 
 A black-box security reduction would convert this eavesdropper (which is efficient relative to $O$) into an inverter for $\pi$ — contradicting one-wayness. Hence no such reduction can exist.
 
-**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper against random-oracle protocols from IR89's $\tilde{O}(\ell^6)$ to $O(\ell^2)$, matching the quadratic gap of Merkle's puzzles — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]: no random-oracle KA protocol achieves a better-than-quadratic query gap between the honest parties and the eavesdropper — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
+**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper against random-oracle protocols from IR89's $\tilde{O}(\ell^6)$ to $O(\ell^2)$, matching the quadratic gap of Merkle's puzzles ([[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]) — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]: no random-oracle KA protocol achieves a better-than-quadratic query gap between the honest parties and the eavesdropper ([[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]) — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
 
 ## Other Notable Separations
 
