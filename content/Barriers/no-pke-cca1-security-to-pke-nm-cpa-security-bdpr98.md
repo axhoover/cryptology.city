@@ -34,5 +34,5 @@ Given an IND-CCA1-secure $\PKE = (\KeyGen, \Enc, \Dec)$, let $\Enc'(\pk, m) = \E
 ## Notes
 
 - IND-CCA1 security implies IND-CPA security ([[cca1-security-to-cpa-security|CCA1 ⇒ CPA]]), so the same scheme is IND-CPA-secure and not NM-CPA-secure — standard.
-- A construction other than the identity turns every IND-CPA-secure scheme into an NM-CPA-secure one ([[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA ⇒ NM-CPA]]) — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
+- A construction other than the identity turns every [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] IND-CPA-secure scheme into an NM-CPA-secure one ([[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA ⇒ NM-CPA]]) — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
 - The converse separation also holds: [[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|NM-CPA ⇏ IND-CCA1]] — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
