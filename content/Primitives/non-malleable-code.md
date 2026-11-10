@@ -75,7 +75,7 @@ The **bit-wise** family contains every function that acts on each bit of the cod
 
 # Other results
 
-- For every family $\calF$ that is small enough, the probabilistic method gives a code that is non-malleable with respect to $\calF$; the code need not be efficient — [[DPW10 - Non-Malleable Codes|DPW10]].
+- For every family $\calF$ with $|\calF| \le 2^{2^{\alpha n}}$, for a constant $0 < \alpha < 1$, the probabilistic method gives a code that is non-malleable with respect to $\calF$ and has rate close to $(1 - \alpha)/3$; the code need not be efficient — [[DPW10 - Non-Malleable Codes|DPW10]], as summarized by [[CG14 - Capacity of non-malleable codes|CG14]].
 - For every family with $|\calF| \le 2^{2^{\alpha n}}$, where $0 < \alpha < 1$, a randomized construction gives, with high probability, codes non-malleable with respect to $\calF$ of rate arbitrarily close to $1 - \alpha$; for the family of functions that tamper only with the first $\alpha n$ bits of the codeword, $1 - \alpha$ is the best achievable rate — [[CG14 - Capacity of non-malleable codes|CG14]].
 - In the [[random-oracle-model|random-oracle model]] there are efficient codes non-malleable with respect to families in which every bit of the tampered codeword depends arbitrarily on any $99\%$ of the bits of the original codeword — [[DPW10 - Non-Malleable Codes|DPW10]].
 - Storing the secret state of a device encoded with a code non-malleable with respect to $\calF$ protects any functionality against tampering of its memory by functions in $\calF$ — [[DPW10 - Non-Malleable Codes|DPW10]].

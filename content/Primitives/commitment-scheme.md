@@ -168,7 +168,7 @@ A non-malleable commitment scheme whose commit phase has a constant number of me
 
 ### Three-round non-malleable commitments
 
-A non-malleable commitment scheme whose commit phase has three messages. [[injective-one-way-function|Injective one-way functions]] suffice ([[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ three-round NM commitment]]) — [[GR19 - Non-Malleable Commitments using Goldreich-Levin List Decoding|GR19]].
+A non-malleable commitment scheme whose commit phase has three messages. GPR16 give a three-round scheme that is non-malleable against _synchronizing_ adversaries, which answer each message of one session at once with the corresponding message of the other, and that makes black-box use of any non-interactive statistically binding commitment scheme, so that any [[injective-one-way-function|injective one-way function]] suffices; their extended protocol, for general adversaries, needs a stronger assumption — [[GPR16 - Textbook non-malleable commitments|GPR16]]. Against adversaries that schedule the two sessions arbitrarily, as in the game above, injective one-way functions suffice ([[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ three-round NM commitment]]) — [[GR19 - Non-Malleable Commitments using Goldreich-Levin List Decoding|GR19]].
 
 # Other results
 
