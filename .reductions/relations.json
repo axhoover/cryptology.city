@@ -21780,6 +21780,33 @@
    "title": "PRF ⇒ Strong PRP"
   },
   {
+   "id": "red-prf-to-weak-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "weak-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function family, and the reduction answers each of the weak-PRF adversary's requests by querying its own oracle at a fresh uniform point."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-weak-prf.md",
+   "slug": "prf-to-weak-prf",
+   "graphSlug": "Reductions/prf-to-weak-prf",
+   "title": "PRF ⇒ Weak PRF"
+  },
+  {
    "id": "red-prg-in-nc1-to-low-complexity-prg-nc0-aik06",
    "kind": "implication",
    "hypotheses": [

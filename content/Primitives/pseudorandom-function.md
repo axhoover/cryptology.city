@@ -159,7 +159,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 6abb222d1e1b -->
+<!-- BEGIN GENERATED participates-in 2b4426f746ae -->
 
 ## Participates in
 
@@ -180,6 +180,7 @@ is negligible.
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-strong-pseudorandom-permutation-lr88|PRF ⇒ Strong PRP]]
+- [[prf-to-weak-prf|PRF ⇒ Weak PRF]]
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]]
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]]
 - [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
@@ -190,6 +191,7 @@ is negligible.
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
+- [[prf-to-weak-prf|PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]] (via [[pseudorandom-function#puncturable-prfs|Puncturable PRFs]])
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
