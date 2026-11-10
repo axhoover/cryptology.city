@@ -5989,19 +5989,6 @@
    "unlisted": false
   },
   {
-   "id": "quasi-polynomial-low-noise-lpn",
-   "kind": "variant",
-   "type": "assumption",
-   "page": "content/Assumptions/learning-parity-with-noise.md",
-   "slug": "learning-parity-with-noise",
-   "graphSlug": "Assumptions/learning-parity-with-noise",
-   "anchor": "#quasi-polynomially-hard-low-noise-lpn",
-   "of": "lpn",
-   "title": "Quasi-polynomially hard low-noise LPN",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "quasi-polynomial-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -18378,7 +18365,7 @@
    "id": "red-noise-level-to-tdh-amr25",
    "kind": "implication",
    "hypotheses": [
-    "quasi-polynomial-low-noise-lpn"
+    "lpn-low-noise"
    ],
    "conclusion": "sublinear-tdh",
    "class": "unstated",
@@ -18396,7 +18383,7 @@
    "page": "content/Reductions/noise-level-to-tdh-amr25.md",
    "slug": "noise-level-to-tdh-amr25",
    "graphSlug": "Reductions/noise-level-to-tdh-amr25",
-   "title": "Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH"
+   "title": "Low-noise LPN ⇒ Slightly sublinear TDH"
   },
   {
    "id": "red-noisy-k-lin-and-pc-to-pke-ghjs25",
@@ -23489,33 +23476,6 @@
    "slug": "quantum-secure-owf-to-owf",
    "graphSlug": "Reductions/quantum-secure-owf-to-owf",
    "title": "Quantum-secure OWF ⇒ OWF"
-  },
-  {
-   "id": "red-quasi-polynomial-low-noise-lpn-to-lpn-low-noise",
-   "kind": "implication",
-   "hypotheses": [
-    "quasi-polynomial-low-noise-lpn"
-   ],
-   "conclusion": "lpn-low-noise",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none",
-   "rationale": {
-    "class": "The construction is the identity on the LPN problem up to a fixed sample map that adds independent Bernoulli noise to each label, and the reduction forwards any distinguisher unchanged through that map."
-   },
-   "status": "draft",
-   "page": "content/Reductions/quasi-polynomial-low-noise-lpn-to-lpn-low-noise.md",
-   "slug": "quasi-polynomial-low-noise-lpn-to-lpn-low-noise",
-   "graphSlug": "Reductions/quasi-polynomial-low-noise-lpn-to-lpn-low-noise",
-   "title": "Quasi-polynomially hard low-noise LPN ⇒ Low-noise LPN"
   },
   {
    "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",

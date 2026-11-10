@@ -100,13 +100,13 @@ In a slightly sublinear trapdoor hash function, the hash of $x \in \bits^n$ has 
 
 TODO: the syntax, the compactness requirement (which compression factors $c$ qualify), and the correctness and privacy notions of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]], stated from the paper.
 
-The first trapdoor hash function from LPN is of this kind: it rests on [[learning-parity-with-noise#quasi-polynomially-hard-low-noise-lpn|quasi-polynomially hard low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ for a constant $\beta \in (0,1)$, has compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, and gives [[single-server-private-information-retrieval|PIR]] with communication $L/2^{\Theta(\log^{1-\beta} L)}$ for a database of size $L$, the first PIR with communication $o(L)$ from a code-based assumption — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
+The first trapdoor hash function from LPN is of this kind: it rests on the hardness of [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] in dimension $k$ for efficient adversaries, at noise rate $\varepsilon = \Theta(\log^{1+\beta}(k)/k)$ for a constant $\beta \in (0,1)$ ([[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]]), has compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, and gives [[single-server-private-information-retrieval|PIR]] with communication $L/2^{\Theta(\log^{1-\beta} L)}$ for a database of size $L$, the first PIR with communication $o(L)$ from a code-based assumption — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
 
 # Other results
 
 - Two-message rate-1 string [[oblivious-transfer|OT]] from DDH, QR or LWE; [[single-server-private-information-retrieval|PIR]] with communication polylogarithmic in the database size from DDH or QR, of rate 1 for block PIR; semi-compact [[homomorphic-encryption|homomorphic encryption]] for branching programs, whose encrypted output grows only with the program length, from DDH or QR; [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] with input-to-output ratio approaching 1 from DDH, QR or LWE; constant-rate two-message statistically sender-private OT from LWE in the plain model; and rate-1 protocols for $n$ parallel OTs and for matrix–vector products from DDH, QR or LWE — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
-<!-- BEGIN GENERATED participates-in 9f66d423a7e0 -->
+<!-- BEGIN GENERATED participates-in c50819819aee -->
 
 ## Participates in
 
@@ -119,7 +119,7 @@ The first trapdoor hash function from LPN is of this kind: it rests on [[learnin
 - [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]]
-- [[noise-level-to-tdh-amr25|Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH]] (via [[trapdoor-hash-function#slightly-sublinear-trapdoor-hash-functions|Slightly sublinear trapdoor hash functions]])
+- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]] (via [[trapdoor-hash-function#slightly-sublinear-trapdoor-hash-functions|Slightly sublinear trapdoor hash functions]])
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 
 <!-- END GENERATED participates-in -->

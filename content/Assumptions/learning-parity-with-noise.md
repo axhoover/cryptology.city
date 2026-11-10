@@ -9,7 +9,6 @@ id: lpn
 variants:
   sparse-lpn: "#sparse-learning-parity-with-noise"
   lpn-low-noise: "#low-noise-lpn"
-  quasi-polynomial-low-noise-lpn: "#quasi-polynomially-hard-low-noise-lpn"
   subexponential-lpn: "#subexponential-lpn"
   subexponential-lpn-fp: "#sub-exponential-lpn-over-large-fields"
   lpn-mid-noise: "#mid-noise-lpn"
@@ -79,11 +78,7 @@ The noise rate is $\varepsilon = \log^c(k)/k$ for a constant $c > 1$.
 
 At $\varepsilon = O(\log(k)/k)$, [[#Attacks|Gaussian elimination]] recovers $\mathbf{s}$ in polynomial time — standard.
 
-##### Quasi-polynomially hard low-noise LPN
-
-For a constant $\beta \in (0,1)$, $(k,\varepsilon)$-LPN with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ is hard for adversaries of quasi-polynomial size — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]. The size bound cannot be every quasi-polynomial, since [[#Attacks|Gaussian elimination]] recovers $\mathbf{s}$ in time $\poly(k) \cdot (1-\varepsilon)^{-k} = 2^{O(\log^{1+\beta} k)}$ at this noise rate — standard. [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]] state the assumption for every constant $\beta > 0$; the bound $\beta < 1$ is what makes the compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$ of their [[trapdoor-hash-function#slightly-sublinear-trapdoor-hash-functions|trapdoor hash function]] grow with $\secpar$. It implies low-noise LPN at noise rate $\log^c(k)/k$ for every constant $c > 1+\beta$ ([[quasi-polynomial-low-noise-lpn-to-lpn-low-noise|Quasi-polynomially hard low-noise LPN ⇒ Low-noise LPN]]) — folklore.
-
-TODO: the exact adversary size and advantage bounds, and their dependence on $\beta$, from the main theorem of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
+[[noise-level-to-tdh-amr25|AMR25's trapdoor hash function]] assumes $(k,\varepsilon)$-LPN hard, against efficient adversaries as defined above, at noise rate $\varepsilon = \Theta(\log^{1+\beta}(k)/k)$ for a constant $\beta \in (0,1)$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]. At this rate [[#Attacks|Gaussian elimination]] recovers $\mathbf{s}$ in time $\poly(k) \cdot (1-\varepsilon)^{-k} = 2^{O(\log^{1+\beta} k)}$, so the assumption fails against adversaries of size $2^{C \log^{1+\beta} k}$ for a large enough constant $C$; this quasi-polynomial ceiling on attainable security is not part of the premise — standard.
 
 ### Subexponential LPN
 
@@ -99,7 +94,7 @@ For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secre
 
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]]
-- [[noise-level-to-tdh-amr25|Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH]]
+- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]]
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]]
@@ -193,7 +188,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
 - **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
-<!-- BEGIN GENERATED participates-in 1372302ec5e8 -->
+<!-- BEGIN GENERATED participates-in af59a6b029be -->
 
 ## Participates in
 
@@ -211,9 +206,8 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
-- [[noise-level-to-tdh-amr25|Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH]] (via [[learning-parity-with-noise#quasi-polynomially-hard-low-noise-lpn|Quasi-polynomially hard low-noise LPN]])
+- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
-- [[quasi-polynomial-low-noise-lpn-to-lpn-low-noise|Quasi-polynomially hard low-noise LPN ⇒ Low-noise LPN]] (via [[learning-parity-with-noise#quasi-polynomially-hard-low-noise-lpn|Quasi-polynomially hard low-noise LPN]])
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]] (via [[learning-parity-with-noise#sparse-ring-lpn|Sparse Ring-LPN]])
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
@@ -227,6 +221,5 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
 - [[lsn-to-lpn-cimr25|LSN ⇒ LPN]]
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
-- [[quasi-polynomial-low-noise-lpn-to-lpn-low-noise|Quasi-polynomially hard low-noise LPN ⇒ Low-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 
 <!-- END GENERATED participates-in -->
