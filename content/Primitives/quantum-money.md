@@ -79,7 +79,7 @@ In a **public-key** scheme $\mathsf{QM} = (\KeyGen, \mathsf{Mint}, \Vrfy)$, $\Ke
 
 ## Mini-schemes
 
-A **mini-scheme** $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ has no keys and issues a single banknote: $\mathsf{Mint}(1^\secpar) \to (s, \rho_s)$ outputs a classical serial number $s$ and a quantum money state $\rho_s$, and $\Vrfy(s, \sigma) \to \top/\bot$ accepts or rejects a state $\sigma$ as a money state for $s$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]], following [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]]. $\mathsf{MS}$ is $(1-\varepsilon)$-**correct** if $\Vrfy(s, \rho_s)$ accepts with probability at least $1 - \varepsilon$ for every $(s, \rho_s)$ that $\mathsf{Mint}(1^\secpar)$ outputs.
+A **mini-scheme** $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ has no keys, and its security concerns a single banknote: $\mathsf{Mint}(1^\secpar) \to (s, \rho_s)$ outputs a classical serial number $s$ and a quantum money state $\rho_s$, and $\Vrfy(s, \sigma) \to \top/\bot$ accepts or rejects a state $\sigma$ as a money state for $s$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]], following [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]]. $\mathsf{MS}$ is $(1-\varepsilon)$-**correct** if $\Vrfy(s, \rho_s)$ accepts with probability at least $1 - \varepsilon$ for every $(s, \rho_s)$ that $\mathsf{Mint}(1^\secpar)$ outputs, and **correct** when $\varepsilon$ is negligible.
 
 ```pseudocode
 \begin{algorithm}
@@ -101,7 +101,7 @@ $$
 \Adv^{\mathrm{mini}}_{\mathsf{MS},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{mini}}_{\mathsf{MS},\calA}(\secpar) = 1\right]
 $$
 
-is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. Both registers are verified under the serial number $s$ of the banknote $\calA$ received. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] call $\mathsf{MS}$ secure if it is unforgeable and has completeness error at most $1/3$.
+is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] call $\mathsf{MS}$ secure if it is unforgeable and has completeness error at most $1/3$.
 
 ## Quantum lightning
 
