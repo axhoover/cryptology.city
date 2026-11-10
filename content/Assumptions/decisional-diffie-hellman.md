@@ -115,7 +115,7 @@ $$
 \Adv^{\mathrm{mddh}}_{\calD_{\ell,k},\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{mddh}}_{\calD_{\ell,k},\GrGen,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]]. Choices of $\calD_{\ell,k}$ recover DDH, [[decisional-diffie-hellman#dlin|DLIN]] and [$k$-Lin](bilinear-map-assumptions#k-linear-assumption); the distributions $2$-SCasc and $2$-ILin introduced there give MDDH assumptions that are generically hard in bilinear groups and have a shorter description than $2$-Lin — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]].
+is negligible — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]]. Choices of $\calD_{\ell,k}$ recover DDH, [[decisional-diffie-hellman#dlin|DLIN]] and [$k$-Lin](bilinear-map-assumptions#k-linear-assumption); two new distributions, $2$-SCasc and $2$-ILin, give MDDH assumptions that are generically hard in bilinear groups and have a shorter description than $2$-Lin — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]].
 
 ## SXDH (Symmetric External Diffie-Hellman)
 
