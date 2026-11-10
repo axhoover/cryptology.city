@@ -102,7 +102,7 @@ $$
 
 the probability also over the coins of $\calA$ — standard.
 
-<!-- BEGIN GENERATED participates-in c2740c1e0771 -->
+<!-- BEGIN GENERATED participates-in 40543f125765 -->
 
 ## Participates in
 
@@ -128,5 +128,6 @@ the probability also over the coins of $\calA$ — standard.
 - [[hash-function-to-czk|OWF ⇒ CZK]]
 - [[honest-verifier-czk-to-czk-vad06|HVCZK = CZK]]
 - [[szk-to-czk|SZK ⊆ CZK]]
+- [[zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness|ZKP + NP ⊄ io-BPP ⇒ CZK ⊄ BPP]] (via [[computational-zero-knowledge#worst-case-hardness|Worst-case hardness]])
 
 <!-- END GENERATED participates-in -->
