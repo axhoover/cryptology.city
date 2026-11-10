@@ -3942,6 +3942,19 @@
    "unlisted": false
   },
   {
+   "id": "matrix-dh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#matrix-diffie-hellman",
+   "of": "ddh",
+   "title": "Matrix Diffie-Hellman",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "maurer-generic-group-model",
    "kind": "variant",
    "type": "glossary",
