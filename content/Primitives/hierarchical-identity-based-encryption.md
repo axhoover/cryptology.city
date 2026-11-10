@@ -16,7 +16,7 @@ variants:
 
 # Hierarchical identity-based encryption
 
-A **hierarchical identity-based encryption (HIBE)** scheme extends [[identity-based-encryption|IBE]] by organizing identities into a tree: an entity at depth $k$ holds an identity vector $\vec{\mathit{id}} = (\mathit{id}_1, \ldots, \mathit{id}_k)$ where $\mathit{id}_1$ is the root domain and each subsequent component refines the identity. Any node can delegate a decryption key to any of its children without involvement of the root KGC. HIBE models real-world key delegation in organizations and DNS-style identity hierarchies.
+A **hierarchical identity-based encryption (HIBE)** scheme extends [[identity-based-encryption|IBE]] ([[hibe-to-ibe|HIBE ⇒ IBE]]) by organizing identities into a tree: an entity at depth $k$ holds an identity vector $\vec{\mathit{id}} = (\mathit{id}_1, \ldots, \mathit{id}_k)$ where $\mathit{id}_1$ is the root domain and each subsequent component refines the identity. Any node can delegate a decryption key to any of its children without involvement of the root KGC. HIBE models real-world key delegation in organizations and DNS-style identity hierarchies.
 
 ## Syntax
 
@@ -75,7 +75,7 @@ is negligible. The prefix constraint is necessary because $\Delegate$ is publicl
 
 ### IND-sHIBE-CPA Security (Selective)
 
-In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. When $|\Sigma^{\le d}|$ is superpolynomial, selective security of a scheme does not imply its adaptive security, and guessing $\vec{\mathit{id}}^*$ recovers adaptive security only at a loss factor of $|\Sigma^{\le d}|$ — folklore. For HIBE schemes with a checkability property on keys and ciphertexts, any simple black-box reduction proving adaptive security from a non-interactive assumption loses a factor exponential in $d$ — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]]. An adaptively secure HIBE can be built from any selectively secure IBE — [[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]].
+In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. When $|\Sigma^{\le d}|$ is superpolynomial, selective security of a scheme does not imply its adaptive security ([[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security|No fixed-construction reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security]]), and guessing $\vec{\mathit{id}}^*$ recovers adaptive security only at a loss factor of $|\Sigma^{\le d}|$ ([[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]]) — folklore. For HIBE schemes with a checkability property on keys and ciphertexts, any simple black-box reduction proving adaptive security from a non-interactive assumption loses a factor exponential in $d$ — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]]. An adaptively secure HIBE can be built from any selectively secure IBE ([[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]]) — [[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]].
 
 #### Sub-exponential IND-sHIBE-CPA Security
 
@@ -85,7 +85,7 @@ An HIBE scheme $\HIBE$ is **sub-exponentially IND-sHIBE-CPA-secure** if there is
 
 ## Anonymous HIBE
 
-An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ from the ciphertext, so an eavesdropper learns neither the payload nor the intended recipient.
+An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ from the ciphertext, so an eavesdropper learns neither the payload nor the intended recipient ([[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]]).
 
 ## Binary tree encryption
 
@@ -137,7 +137,7 @@ is negligible — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
 - [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]]
 - BBG05 achieves $O(1)$ ciphertext size and $O(d)$ key size — [[BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext|BBG05]]
-- The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
+- The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption ([[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]) — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
 <!-- BEGIN GENERATED participates-in 9b3c7281e28c -->
 
