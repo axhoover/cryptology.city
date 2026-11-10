@@ -18918,7 +18918,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "impersonation advantage $\\varepsilon$ yields OMDL advantage at least $(\\varepsilon - 1/|C|)^2$",
+   "securityLoss": "impersonation advantage $\\varepsilon \\ge 1/|C|$ yields OMDL advantage at least $(\\varepsilon - 1/|C|)^2$",
    "rationale": {
     "class": "The protocol is fixed and uses only the group operation, and the reduction answers prover sessions with its discrete-logarithm oracle and runs the impersonator only as an oracle, rewinding it to extract the secret key."
    },
@@ -21091,7 +21091,7 @@
    "hypotheses": [
     "polynomial-ratio-lwe"
    ],
-   "conclusion": "sis",
+   "conclusion": "bit-compressing-sis",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -22448,7 +22448,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "impersonation advantage $\\varepsilon$ yields DLOG advantage at least $(1 - 1/p)(\\varepsilon - 1/|C|)^2$",
+   "securityLoss": "impersonation advantage $\\varepsilon \\ge 1/|C|$ yields DLOG advantage at least $(1 - 1/p)(\\varepsilon - 1/|C|)^2$",
    "rationale": {
     "class": "The protocol is fixed and uses only the group operation, and the reduction plays the honest prover with a key it knows and runs the impersonator only as an oracle, rewinding it."
    },
