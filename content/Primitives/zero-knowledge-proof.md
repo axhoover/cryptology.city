@@ -36,7 +36,7 @@ A zero-knowledge proof system for a language $L \subseteq \bits^*$ is an interac
 - $V$ receives input $x$ and outputs $\mathrm{accept}$ or $\mathrm{reject}$
 - The transcript of the interaction is a sequence of messages $(\alpha_1, \beta_1, \ldots, \alpha_k, \beta_k)$
 
-A zero-knowledge proof without further qualification means a computational zero-knowledge proof system for every language in $\classNP$, as one-way functions give ([[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. For a single language in $\classBPP$ the notion is trivial: the verifier decides $x$ alone — standard.
+A zero-knowledge proof without further qualification means a computational zero-knowledge proof system for every language in $\classNP$, as one-way functions give through statistically binding commitments ([[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. For a single language in $\classBPP$ the notion is trivial: the verifier decides $x$ alone — standard.
 
 ## Properties
 
