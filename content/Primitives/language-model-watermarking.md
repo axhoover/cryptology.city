@@ -63,7 +63,7 @@ $$
 
 is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. $H_e$ is measured with respect to $\mathsf{Model}$, not $\mathsf{Wat}$, and $\mathsf{Detect}$ need not compute it.
 
-An undetectable scheme can watermark only responses whose empirical entropy is high relative to the distinguisher's running time: if $\mathsf{W}$ is sound and, for some $\mathit{prompt}$ and $t$, a response $x \gets \mathsf{Wat}(\sk, \mathit{prompt})$ is detected and has $H_e(\mathsf{Model}, \mathit{prompt}, x) \le t$ with probability greater than $1/\poly(\secpar)$, then $\mathsf{Wat}(\sk, \cdot)$ and $\mathsf{Model}$ are distinguishable with non-negligible probability using $O(\exp(t) \cdot \poly(\secpar))$ queries and time — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. A threshold on the Shannon entropy of $\mathsf{Model}(\mathit{prompt})$ in place of $H_e$ does not work: for every $b$ and $\varepsilon > 0$ some model has $H(\mathsf{Model}(\mathit{prompt})) \ge b$, yet every sound, undetectable scheme for it detects its watermarked responses with probability at most $\varepsilon + \negl(\secpar)$ — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
+An undetectable scheme can watermark only responses whose empirical entropy is high relative to the distinguisher's running time: if $\mathsf{W}$ is sound and, for some $\mathit{prompt}$ and $t$, a response $x \gets \mathsf{Wat}(\sk, \mathit{prompt})$ is detected and has $H_e(\mathsf{Model}, \mathit{prompt}, x) \le t$ with probability greater than $1/\poly(\secpar)$, then $\mathsf{Wat}(\sk, \cdot)$ and $\mathsf{Model}$ are distinguishable with non-negligible probability using $O(\exp(t) \cdot \poly(\secpar))$ queries and time — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. A threshold on the Shannon entropy of $\mathsf{Model}(\mathit{prompt})$ in place of $H_e$ does not work: for every $b$ and $\varepsilon > 0$ some prompt-independent model has $H(\mathsf{Model}(\emptyset)) \ge b$, yet every sound, undetectable scheme for it detects a response $x \gets \mathsf{Wat}(\sk, \emptyset)$ to the empty prompt with probability at most $\varepsilon + \negl(\secpar)$ — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
 
 ### Soundness
 
@@ -73,7 +73,7 @@ $$
 \Pr\!\left[\mathsf{Detect}(\sk, \mathit{text}) = 1 : \sk \gets \Setup(1^\secpar)\right]
 $$
 
-is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. The same bound holds for a text sampled independently of $\sk$, in particular a human-written one.
+is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]. The same bound holds for a text of length at most $\poly(\secpar)$ sampled independently of $\sk$, in particular a human-written one.
 
 # Variations
 
