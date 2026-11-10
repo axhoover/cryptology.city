@@ -96,7 +96,7 @@ $$
 \Pr\!\left[\Game^{\mathrm{uncl\text{-}ind}}_{\mathsf{UE},(\calA,\calB,\calC)}(\secpar) = 1\right] \le \frac{1}{2} + \negl(\secpar)
 $$
 
-— [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]] (Definition 2.10); in the original definition of [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]] (Definition 11), $m_0 = 0^n$ is fixed and $\calA$ chooses only $m_1$. The threshold is $1/2$ because $\calB$ and $\calC$ win with probability $1/2$ by outputting a common random bit that $\calA$ places in both registers; the bound is one-sided because they lose outright by disagreeing. For one-bit messages, the adversary whose first stage outputs $(m_0, m_1) = (0, 1)$ plays the unclonable-security game, so unclonable indistinguishability implies $\delta$-unclonability for $\delta = 1/2 + \negl(\secpar)$ — folklore.
+— [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]] (arXiv v1, Definition 2.10); in the original definition of [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]] (arXiv v2, Definition 11), $m_0 = 0^n$ is fixed and $\calA$ chooses only $m_1$. The threshold is $1/2$ because $\calB$ and $\calC$ win with probability $1/2$ by outputting a common random bit that $\calA$ places in both registers; the bound is one-sided because they lose outright by disagreeing. For one-bit messages, the adversary whose first stage outputs $(m_0, m_1) = (0, 1)$ plays the unclonable-security game, so unclonable indistinguishability implies $\delta$-unclonability for $\delta = 1/2 + \negl(\secpar)$ — folklore.
 
 # Other results
 
