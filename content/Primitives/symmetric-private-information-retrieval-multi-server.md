@@ -55,7 +55,7 @@ A SPIR has **data privacy against dishonest clients** if for every tuple of quer
 
 # Other results
 
-- For every constant $k \ge 2$ there is a $k$-server SPIR with communication $O(n^{1/(2k-1)})$, and there is an $O(\log n)$-server SPIR with communication $O(\log^2 n \cdot \log\log n)$; both have one round and information-theoretic privacy, and are [[symmetric-private-information-retrieval-multi-server#data-privacy|data-private against dishonest clients]]. Both come from a transformation of PIR schemes into SPIR schemes that costs a constant factor in communication and is built on conditional disclosure of secrets, a primitive GIKM00 introduce. The schemes also give the first distributed version of $1$-out-of-$n$ [[oblivious-transfer|OT]] with information-theoretic security and sublinear communication — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]].
+- For every constant $k \ge 2$ there is a $k$-server SPIR with communication $O(n^{1/(2k-1)})$, and there is an $O(\log n)$-server SPIR with communication $O(\log^2 n \cdot \log\log n)$; both have one round and information-theoretic privacy, and are resilient to any dishonest behavior of the client. Both come from a transformation of PIR schemes into SPIR schemes that costs a constant factor in communication and is built on conditional disclosure of secrets, a primitive GIKM00 introduce. The schemes also give the first implementation of a distributed version of $1$-out-of-$n$ [[oblivious-transfer|OT]] with information-theoretic security and sublinear communication — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]].
 
 <!-- BEGIN GENERATED participates-in abb06b978648 -->
 
