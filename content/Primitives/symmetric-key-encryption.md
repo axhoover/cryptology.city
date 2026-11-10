@@ -99,7 +99,7 @@ $$
 \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. IND\$-CPA implies CPA security, but not vice versa — standard.
+is negligible. IND\$-CPA implies CPA security ([[ind-dollar-cpa-security-to-cpa-security|IND\$-CPA Security ⇒ CPA Security]]), but not vice versa ([[no-cpa-security-to-ind-cpa-security|No fixed-construction reduction from CPA Security to IND\$-CPA Security]]) — standard.
 
 ### CCA Security
 
