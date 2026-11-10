@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "DLIN ⇒ NIZK"
+title: "Bilinear pairing + DLIN ⇒ NIZK"
 aliases: []
 id: red-dlin-to-nizk-gos06
 kind: implication
-hypotheses: [decisional-linear]
+hypotheses: [bilinear-pairing, decisional-linear]
 conclusion: nizk-for-np
 class: unstated
 model: crs
@@ -16,11 +16,11 @@ rationale:
   model: "The proof system needs a trusted common reference string."
 ---
 
-# DLIN ⇒ NIZK
+# Bilinear pairing + DLIN ⇒ NIZK
 
 ## Statement
 
-If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in a prime-order symmetric bilinear group, then Circuit-SAT, and hence every $\classNP$ language, has a [[non-interactive-zero-knowledge|NIZK]] proof in the common reference string model with perfect completeness, perfect soundness and computational zero-knowledge. The CRS has $O(\secpar)$ bits, and a proof for a circuit $C$ has $O(|C|\secpar)$ bits — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
+If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in a prime-order symmetric [[pairings|bilinear group]], then Circuit-SAT, and hence every $\classNP$ language, has a [[non-interactive-zero-knowledge|NIZK]] proof in the common reference string model with perfect completeness, perfect soundness and computational zero-knowledge. The CRS has $O(\secpar)$ bits, and a proof for a circuit $C$ has $O(|C|\secpar)$ bits — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
 
 ## Sketch
 

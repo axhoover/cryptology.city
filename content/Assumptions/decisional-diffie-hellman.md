@@ -134,7 +134,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 662f67269ba2 -->
+<!-- BEGIN GENERATED participates-in 7c12aab5c0b5 -->
 
 ## Participates in
 
@@ -162,8 +162,8 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
-- [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
-- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[bdh-to-nizk-gro16|Bilinear pairing + DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])

@@ -12261,6 +12261,7 @@
    "id": "red-dlin-to-ippe-ksw08",
    "kind": "implication",
    "hypotheses": [
+    "bilinear-pairing",
     "decisional-linear"
    ],
    "conclusion": "ippe",
@@ -12283,12 +12284,13 @@
    "page": "content/Reductions/dlin-to-ippe-ksw08.md",
    "slug": "dlin-to-ippe-ksw08",
    "graphSlug": "Reductions/dlin-to-ippe-ksw08",
-   "title": "DLIN ⇒ IPPE"
+   "title": "Bilinear pairing + DLIN ⇒ IPPE"
   },
   {
    "id": "red-dlin-to-nizk-gos06",
    "kind": "implication",
    "hypotheses": [
+    "bilinear-pairing",
     "decisional-linear"
    ],
    "conclusion": "nizk-for-np",
@@ -12310,7 +12312,7 @@
    "page": "content/Reductions/bdh-to-nizk-gro16.md",
    "slug": "bdh-to-nizk-gro16",
    "graphSlug": "Reductions/bdh-to-nizk-gro16",
-   "title": "DLIN ⇒ NIZK"
+   "title": "Bilinear pairing + DLIN ⇒ NIZK"
   },
   {
    "id": "red-dlog-and-rom-to-schnorr-signatures-sch91",
@@ -29494,7 +29496,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "SXDH extended from bilinear to multilinear groups"
+    "SXDH extended to multilinear groups of degree at least c log p, for a constant c > 1 and group order p"
    ],
    "circumventedBy": [],
    "source": [
