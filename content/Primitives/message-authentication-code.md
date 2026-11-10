@@ -8,6 +8,8 @@ title: Message authentication code
 id: mac
 variants:
   suf-cma-mac: "#strong-unforgeability"
+  one-time-mac: "#one-time-macs"
+  nonce-based-mac: "#nonce-based-macs"
 ---
 
 # Message authentication code
@@ -138,16 +140,15 @@ $$
 \Tag((k, h), n, m) := F_k(n) \oplus h(m).
 $$
 
-For every efficient $\calA$ making $q$ queries there is an efficient $\calB$ making $q + 1$ queries with $\Adv^{\ufcma}_{\MAC,\calA}(\secpar) \le \Adv^{\mathrm{prf}}_{\PRF,\calB}(\secpar) + \varepsilon$: once $F_k$ is a uniformly random function, the tags under distinct nonces are independent uniform values that carry no information about $h$, a forgery under an unused nonce succeeds with probability $2^{-\tau} \le \varepsilon$, and one under a used nonce $n_i$ needs $h(\hat m) \oplus h(m_i) = \hat t \oplus t_i$ for $\hat m \ne m_i$, which has probability at most $\varepsilon$ — standard.
-
 # Other results
 
 - [[prf-to-mac|PRF ⇒ MAC]], and [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]] on messages of a fixed number of blocks.
+- [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]].
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (encrypt-then-MAC).
 - **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$, let $F_k(m_1 \cdots m_\ell) := y_\ell$ with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$ be its iteration keyed by the initial chaining value. Then $\mathrm{NMAC}_{k_1,k_2}(m) := F_{k_1}(F_{k_2}(m))$, with the inner output padded to one block, is a UF-CMA-secure MAC if $f$, keyed by its chaining input, is a secure MAC on one-block messages and $F_k$ is weakly collision resistant, that is, collision resistant against an adversary that sees $F_k$ only through an oracle — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. $\mathrm{HMAC}$ is NMAC with $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$ derived from a single key $\bar k$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]].
-- NMAC is a PRF if $f$, keyed by its chaining input, is a PRF, with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
+- [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]: NMAC is a PRF if $f$, keyed by its chaining input, is a PRF, with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
 
-<!-- BEGIN GENERATED participates-in 8865c3c7f2cb -->
+<!-- BEGIN GENERATED participates-in ed4de75c3a7f -->
 
 ## Participates in
 
@@ -159,6 +160,8 @@ For every efficient $\calA$ making $q$ queries there is an efficient $\calB$ mak
 **Produces Message authentication code**
 
 - [[prf-to-mac|PRF ⇒ MAC]]
+- [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
+- [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]] (via [[message-authentication-code#nonce-based-macs|Nonce-based MACs]])
 
 <!-- END GENERATED participates-in -->
