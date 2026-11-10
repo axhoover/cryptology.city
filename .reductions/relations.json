@@ -5794,6 +5794,19 @@
    "unlisted": false
   },
   {
+   "id": "quantum-money-mini-scheme",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#mini-schemes",
+   "of": "quantum-money",
+   "title": "Mini-schemes",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "quasi-polynomial-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -22599,6 +22612,35 @@
    "slug": "qszk-to-qip",
    "graphSlug": "Reductions/qszk-to-qip",
    "title": "QSZK ⊆ QIP"
+  },
+  {
+   "id": "red-quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12",
+   "kind": "implication",
+   "hypotheses": [
+    "quantum-money-mini-scheme",
+    "ds"
+   ],
+   "conclusion": "public-key-quantum-money",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the mini-scheme and the signature scheme only as oracles, and the reduction runs any counterfeiter once as an oracle, either as a forger that outputs the serial number and signature of a uniformly chosen output banknote or as a mini-scheme counterfeiter that signs under a key pair it samples and outputs the money states of two uniformly chosen outputs.",
+    "model": "The banknotes and the counterfeiters are quantum, so the signature scheme must be unforgeable against quantum forgers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12.md",
+   "slug": "quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12",
+   "graphSlug": "Reductions/quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12",
+   "title": "Mini-scheme + DS ⇒ Public-key QM"
   },
   {
    "id": "red-quantum-money-to-one-way-state-generator-my22",
