@@ -93,7 +93,6 @@ For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secre
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]]
 - [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]]
-- [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]]
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]]

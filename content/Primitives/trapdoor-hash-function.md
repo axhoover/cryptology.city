@@ -98,7 +98,7 @@ With one-bit hints, a receiver that sends $m$ encoding keys for indices of one i
 
 In a slightly sublinear trapdoor hash function, the hash of $x \in \bits^n$ has length $\eta \le n / c(\secpar)$ for a compression factor $c = c(\secpar)$, in place of a length independent of $n$; an encoding key for a function $f$ and its trapdoor recover $f(x)$ from the hash and a short encoding of $x$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
 
-TODO: the syntax, correctness and privacy notions of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]], stated from the paper.
+TODO: the syntax, the compactness requirement (which compression factors $c$ qualify), and the correctness and privacy notions of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]], stated from the paper.
 
 The first trapdoor hash function from LPN is of this kind: it rests on quasi-polynomial hardness of [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ for a constant $\beta > 0$, has compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, and gives [[single-server-private-information-retrieval|PIR]] with communication $L/2^{\Theta(\log^{1-\beta} L)}$ for a database of size $L$, the first PIR with communication $o(L)$ from a code-based assumption — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
 
