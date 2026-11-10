@@ -20,11 +20,11 @@ cryptobib_key: EC:BDOP04
 We study the problem of searching on data that is encrypted using a
 public key system. Consider user Bob who sends email to user Alice
 encrypted under Alice's public key. An email gateway wants to test
-whether the email contains the keyword `urgent' so that it could
-route the email accordingly.  Alice, on the other hand does not wish
+whether the email contains the keyword ‘urgent’ so that it could
+route the email accordingly. Alice, on the other hand does not wish
 to give the gateway the ability to decrypt all her messages. We define
 and construct a mechanism that enables Alice to provide a key to the
-gateway that enables the gateway to test whether the word `urgent'
+gateway that enables the gateway to test whether the word ‘urgent’
 is a keyword in the email without learning anything else about the
 email. We refer to this mechanism as _Public Key Encryption with
 keyword Search_. As another example, consider a mail server that

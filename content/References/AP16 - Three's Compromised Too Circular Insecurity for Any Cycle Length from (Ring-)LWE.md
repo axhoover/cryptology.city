@@ -27,8 +27,8 @@ question is whether standard security notions like IND-CPA/CCA imply
 $k$-circular security.
 
 For the case $k=2$, several works over the past years have constructed
-counterexamples---i.e., schemes that are CPA or even CCA secure but
-not $2$-circular secure---under a variety of well-studied assumptions
+counterexamples—i.e., schemes that are CPA or even CCA secure but
+not $2$-circular secure—under a variety of well-studied assumptions
 (SXDH, decision linear, and LWE). However, for $k > 2$ the only known
 counterexamples are based on strong general-purpose obfuscation
 assumptions.

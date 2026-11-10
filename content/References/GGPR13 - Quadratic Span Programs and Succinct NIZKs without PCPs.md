@@ -19,7 +19,7 @@ cryptobib_key: EC:GGPR13
 
 We introduce a new characterization of the NP complexity class, called Quadratic Span Programs (QSPs), which is a natural extension of span programs defined by Karchmer and Wigderson. Our main motivation is the construction of succinct arguments of NP-statements that are quick to construct and verify. QSPs seem well-suited for this task, perhaps even better than Probabilistically Checkable Proofs (PCPs).
 
-In 2010, Groth constructed a NIZK argument in the common reference string (CRS) model for Circuit-SAT consisting of only 42 elements in a bilinear group. Interestingly, his argument does not (explicitly) use PCPs. But his scheme has some disadvantages -- namely, the CRS size and prover computation are both quadratic in the circuit size. In 2011, Lipmaa reduced the CRS size to quasi-linear, but with prover computation still quadratic.
+In 2010, Groth constructed a NIZK argument in the common reference string (CRS) model for Circuit-SAT consisting of only 42 elements in a bilinear group. Interestingly, his argument does not (explicitly) use PCPs. But his scheme has some disadvantages – namely, the CRS size and prover computation are both quadratic in the circuit size. In 2011, Lipmaa reduced the CRS size to quasi-linear, but with prover computation still quadratic.
 
 Using QSPs we construct a NIZK argument in the CRS model for Circuit-SAT consisting of just 7 group elements. The CRS size is linear in the circuit size, and prover computation is quasi-linear, making our scheme seemingly quite practical. (The prover only needs to do a linear number of group operations; the quasi-linear computation is a multipoint evaluation and interpolation.)
 

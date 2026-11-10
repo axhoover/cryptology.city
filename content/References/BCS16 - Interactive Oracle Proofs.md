@@ -25,4 +25,4 @@ As a first investigation into IOPs, we offer two main technical contributions. F
 
 Second, we study the notion of state-restoration soundness of an IOP: we prove tight upper and lower bounds in terms of the IOP's (standard) soundness and round complexity; and describe a simple adversarial strategy that is optimal across all state restoration attacks.
 
-Our compiler can be viewed as a generalization of the Fiat--Shamir paradigm for public-coin IPs (CRYPTO '86), and of the "CS proof" constructions of Micali (FOCS '94) and Valiant (TCC '08) for PCPs. Our analysis of the compiler gives, in particular, a unified understanding of all of these constructions, and also motivates the study of state restoration attacks, not only for IOPs, but also for IPs and PCPs.
+Our compiler can be viewed as a generalization of the Fiat–Shamir paradigm for public-coin IPs (CRYPTO '86), and of the "CS proof" constructions of Micali (FOCS '94) and Valiant (TCC '08) for PCPs. Our analysis of the compiler gives, in particular, a unified understanding of all of these constructions, and also motivates the study of state restoration attacks, not only for IOPs, but also for IPs and PCPs.

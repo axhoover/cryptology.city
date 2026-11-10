@@ -25,7 +25,7 @@ bibtex: |
 
 ## Abstract
 
-We revisit the problem of generating a `hard' random lattice together
+We revisit the problem of generating a ‘hard’ random lattice together
 with a basis of relatively short vectors. This problem has gained in
 importance lately due to new cryptographic schemes that use such a
 procedure to generate public/secret key pairs. In these applications,

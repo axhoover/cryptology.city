@@ -46,8 +46,8 @@ and even has a tighter security reduction.
 It should be stressed that these results do not
 imply that a particular instantiation of OAEP, such as RSA-OAEP, is insecure.
 They simply undermine the original justification for its security.
-In fact, it turns out -- essentially by accident,
-rather than by design -- that RSA-OAEP is secure in the random oracle
+In fact, it turns out – essentially by accident,
+rather than by design – that RSA-OAEP is secure in the random oracle
 model; however, this fact relies on special algebraic properties
 of the RSA function, and not on the security
 of the general OAEP scheme.

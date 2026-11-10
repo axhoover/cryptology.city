@@ -23,8 +23,8 @@ We present a framework for proving meaningful negative results on the power of i
 
 Within our framework we prove the first negative results on the power of indistinguishability obfuscation and of the tightly related notion of functional encryption. Our results are as follows:
 
--- There is no fully black-box construction of a collision-resistant function family from an indistinguishability obfuscator for oracle-aided circuits.
+– There is no fully black-box construction of a collision-resistant function family from an indistinguishability obfuscator for oracle-aided circuits.
 
--- There is no fully black-box construction of a key-agreement protocol with perfect completeness from a private-key functional encryption scheme for oracle-aided circuits.
+– There is no fully black-box construction of a key-agreement protocol with perfect completeness from a private-key functional encryption scheme for oracle-aided circuits.
 
 Specifically, we prove that any such potential constructions must suffer from an exponential security loss, and thus our results cannot be circumvented using sub-exponential security assumptions. Our framework captures constructions that may rely on a wide variety of primitives in a non-black-box manner (e.g., obfuscating or generating a functional key for a function that uses the evaluation circuit of a puncturable pseudorandom function), and we only assume that the underlying indistinguishability obfuscator or functional encryption scheme themselves are used in a black-box manner.

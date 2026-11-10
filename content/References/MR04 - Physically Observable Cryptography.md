@@ -23,10 +23,10 @@ To respond to the present crisis, we put forward physically observable cryptogra
 
 Our general model allows for a variety of adversaries. In this paper, however, we focus on the strongest possible adversary, so as to capture what is cryptographically possible in the worst possible, physically observable setting. In particular, we
 
--- consider an adversary that has full (and indeed adaptive) access to any leaked information;
+– consider an adversary that has full (and indeed adaptive) access to any leaked information;
 
--- show that some of the basic theorems and intuitions of traditional cryptography no longer hold in a physically observable setting; and
+– show that some of the basic theorems and intuitions of traditional cryptography no longer hold in a physically observable setting; and
 
--- construct pseudorandom generators that are provably secure against all physical-observation attacks.
+– construct pseudorandom generators that are provably secure against all physical-observation attacks.
 
 Our model makes it easy to meaningfully restrict the power of our general physically observing adversary. Such restrictions may enable schemes that are more efficient or rely on weaker assumptions, while retaining security against meaningful physical observations attacks.

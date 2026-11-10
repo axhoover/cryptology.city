@@ -39,7 +39,7 @@ to the verifier (to achieve soundness error 1/2).
 
 (2) Simpler proofs of many of the previously known
 results about statistical zero knowledge, such as
-the Fortnow and Aiello--H&aring;stad upper bounds on the complexity of SZK
+the Fortnow and Aiello–H&aring;stad upper bounds on the complexity of SZK
 and
 Okamoto's result that SZK is closed under complement.
 

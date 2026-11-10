@@ -23,8 +23,8 @@ under a natural composition method.
 
 The definitions follow the general paradigm of known definitions;
 yet some substantial modifications and simplifications are introduced. In
-particular, `black-box simulation' is no longer required. The composition
-method is essentially the natural `subroutine substitution' method suggested
+particular, ‘black-box simulation’ is no longer required. The composition
+method is essentially the natural ‘subroutine substitution’ method suggested
 by Micali and Rogaway.
 
 We first present the general definitional approach. Next we consider several

@@ -24,8 +24,8 @@ maintain secrecy of the private key. We propose and investigate the
 notion of _key-insulated security_ whose goal is to minimize the damage
 caused by secret-key exposures. In our model, the secret key(s)
 stored on the insecure device are refreshed at discrete time periods
-via interaction with a physically-secure --- but
-computationally-limited --- device which stores a “master key”. All
+via interaction with a physically-secure — but
+computationally-limited — device which stores a “master key”. All
 cryptographic computations are still done on the insecure device, and
 the public key remains unchanged. In a (t, N)-key-insulated scheme, an
 adversary who compromises the insecure device and obtains secret keys

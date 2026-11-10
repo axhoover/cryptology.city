@@ -28,7 +28,7 @@ Schneider, ICALP 2008). In this work we show how to simultaneously
 garble AND gates using two ciphertexts and XOR gates using zero
 ciphertexts, resulting in smaller garbled circuits than any prior
 scheme. The main idea behind our construction is to break an AND gate
-into two half-gates --- AND gates for which one party knows one
+into two half-gates — AND gates for which one party knows one
 input. Each half-gate can be garbled with a single ciphertext, so our
 construction uses two ciphertexts for each AND gate while being
 compatible with free-XOR gates. The price for the reduction in size is that the evaluator must perform two cryptographic operations per AND gate, rather than one as in previous schemes. We experimentally

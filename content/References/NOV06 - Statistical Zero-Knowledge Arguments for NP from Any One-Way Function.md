@@ -24,10 +24,10 @@ unbounded verifier cannot learn anything other than the fact that the
 assertion being proven is true, whereas a polynomial-time prover
 cannot convince the verifier to accept a false assertion except with
 negligible probability. This resolves an open question posed by Naor,
-Ostrovsky, Venkatesan, and Yung (CRYPTO `92, J. Cryptology `98).
+Ostrovsky, Venkatesan, and Yung (CRYPTO ’92, J. Cryptology ’98).
 
 Departing from previous works on this problem, we do not construct
 standard statistically hiding commitments from any one-way function.
 Instead, we construct a relaxed variant of commitment schemes called
 "1-out-of-2-binding commitments," recently introduced by Nguyen and
-Vadhan (STOC `06).
+Vadhan (STOC ’06).

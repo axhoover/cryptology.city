@@ -18,7 +18,7 @@ cryptobib_key: C:BelSah99
 ## Abstract
 
 We prove the equivalence of two definitions of non-malleable
-encryption appearing in the literature--- the original one of Dolev, Dwork
+encryption appearing in the literature— the original one of Dolev, Dwork
 and Naor and the later one of Bellare, Desai, Pointcheval and Rogaway. The
 equivalence relies on a new characterization of non-malleable encryption in
 terms of the standard notion of indistinguishability of Goldwasser and

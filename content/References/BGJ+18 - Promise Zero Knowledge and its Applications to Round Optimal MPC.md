@@ -23,7 +23,7 @@ We demonstrate the following applications of our new technique:
 
 -> We construct the first round-optimal (i.e., four round) MPC protocol for general functions based on polynomially hard DDH (or QR or N^{th}-Residuosity).
 
--> We further show how to overcome the four-round barrier for MPC by constructing a three-round protocol for “list coin-tossing” -- a slight relaxation of coin-tossing that suffices for most conceivable applications -- based on polynomially hard DDH (or QR or N^{th}-Residuosity). This result generalizes to randomized input-less functionalities.
+-> We further show how to overcome the four-round barrier for MPC by constructing a three-round protocol for “list coin-tossing” – a slight relaxation of coin-tossing that suffices for most conceivable applications – based on polynomially hard DDH (or QR or N^{th}-Residuosity). This result generalizes to randomized input-less functionalities.
 
 Previously, four round MPC protocols required sub-exponential-time hardness assumptions and no multi-party three-round protocols were known for any relaxed security notions with polynomial-time simulation against malicious adversaries.
 

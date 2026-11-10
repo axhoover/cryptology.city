@@ -34,7 +34,7 @@ to deal with password guessing, forward secrecy,
 server compromise, and loss of session keys.
 The one model can be used to
 define various goals.
-We take AKE (with implicit authentication---no one besides
+We take AKE (with implicit authentication—no one besides
 your intended partner could possibly get the key, though he may or may
 not actually get it) as the basic goal.
 Then we prove that any secure

@@ -21,6 +21,6 @@ This work resolves the open problem of whether verifiable delay functions (VDFs)
 
 We prove that VDFs do not exist in the random oracle model. This also rules out black-box constructions of VDFs from other cryptographic primitives, such as one-way functions, one-way permutations and collision-resistant hash functions.
 
-Prior to our work, Mahmoody, Smith and Wu (ICALP 2020) prove that _perfectly unique_ VDFs (a much stronger form of VDFs) do not exist in the random oracle model; on the other hand, Ephraim, Freitag, Komargodski, and Pass (Eurocrypt 2020) construct VDFs in the random oracle model assuming the hardness of repeated squaring. Our result is optimal -- we bridge the current gap between previously known impossibility results and existing constructions.
+Prior to our work, Mahmoody, Smith and Wu (ICALP 2020) prove that _perfectly unique_ VDFs (a much stronger form of VDFs) do not exist in the random oracle model; on the other hand, Ephraim, Freitag, Komargodski, and Pass (Eurocrypt 2020) construct VDFs in the random oracle model assuming the hardness of repeated squaring. Our result is optimal – we bridge the current gap between previously known impossibility results and existing constructions.
 
 We initiate the study of _proof of work functions_, a new cryptographic primitive that shares similarities with both VDFs and proof of works. We show that a stronger form of it does not exist in the random oracle model, leaving open the fascinating possibility of a random-oracle-based construction.

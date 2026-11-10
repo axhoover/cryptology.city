@@ -23,7 +23,7 @@ with security based on the plain Learning With Errors (LWE)
 problem, and thereby on worst-case lattice problems. Our proof system
 instantiates the framework recently developed by Canetti
 et al. [EUROCRYPT'18], Holmgren and Lombardi [FOCS'18], and Canetti
-et al. [STOC'19] for soundly applying the Fiat--Shamir transform using
+et al. [STOC'19] for soundly applying the Fiat–Shamir transform using
 a hash function family that is correlation intractable for a
 suitable class of relations. Previously, such hash families were based
 either on “exotic” assumptions (e.g., indistinguishability

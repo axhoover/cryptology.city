@@ -24,7 +24,7 @@ the random choices (and also the secret key, if one exists)
 used in generating
 the ciphertext, thereby exposing the cleartext.
 An encryption scheme is **deniable** if the sender can generate
-`fake random choices' that will make the ciphertext `look like'
+‘fake random choices’ that will make the ciphertext ‘look like’
 an encryption of a different cleartext, thus keeping the
 real cleartext private.
 Analogous requirements can be formulated with respect to

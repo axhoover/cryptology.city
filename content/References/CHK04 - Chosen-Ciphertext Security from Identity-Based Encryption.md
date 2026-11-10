@@ -37,5 +37,5 @@ attacks. This, in turn, yields more efficient constructions of CCA-secure
 (hierarchical) identity-based and forward-secure encryption schemes in the
 standard model.
 
-Our results --- building on previous black-box separations ---
+Our results — building on previous black-box separations —
 rule out black-box constructions of IBE from CPA-secure public-key encryption.
