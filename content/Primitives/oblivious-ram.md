@@ -190,7 +190,7 @@ A **sub-square-root one-round balls-and-bins ORAM** is a statistically secure on
 
 ## Polylogarithmic-overhead ORAM
 
-A **polylogarithmic-overhead ORAM** is a secure ORAM with block length $\beta_1 \ge \log_2 N_1$, client storage of $O(1)$ blocks and amortized bandwidth blowup $\polylog(N_1)$ over every sequence of $q$ operations with $\secpar \le N_1 \le q \le \poly(\secpar)$, whose key $K \gets \Gen(1^\secpar)$ has length a fixed polynomial in $\secpar$, independent of $N_1$.
+A **polylogarithmic-overhead ORAM** is a secure ORAM with block length $\beta_1 \ge \log_2 N_1$, client storage of $O(1)$ blocks and amortized bandwidth blowup $\polylog(N_1)$ over every sequence of $q$ operations with $\secpar \le N_1 \le q \le \poly(\secpar)$, whose key $K \gets \Gen(1^\secpar)$ has length a fixed polynomial in $\secpar$, independent of $N_1$. One exists without any assumption: recursive Path ORAM that keeps its client state on the server between accesses is a statistically secure one ([[#Other results]]) — [[SDS+13 - Path ORAM An Extremely Simple Oblivious RAM Protocol|SDS+13]].
 
 ## Logarithmic-overhead ORAM
 
@@ -219,12 +219,15 @@ A **constant-bandwidth ORAM** is an efficient ORAM with server computation, secu
 - A coin-flipping RAM simulates any RAM obliviously and online with polylogarithmic slowdown in time and space and no cryptographic assumption; with $n$ memory locations it fails with probability at most $n^{-\log n}$ — [[Ajt10 - Oblivious RAMs without Cryptographic Assumptions|Ajt10]].
 - There is an ORAM whose access pattern is perfectly hidden, in the information-theoretic sense, without a random oracle, and DMN11 lower-bound the randomness an information-theoretically secure ORAM needs — [[DMN11 - Perfectly Secure Oblivious RAM without Random Oracles|DMN11]].
 - There is a statistically secure ORAM with $\tilde{O}(\log^2 N_1)$ overhead — [[CLP14 - Statistically-secure ORAM with O(log2 n) Overhead|CLP14]], building on the tree-based ORAM of SCSL11, which has polylogarithmic worst-case cost with constant client storage — [[SCSL11 - Oblivious RAM with O((log N)3) Worst-Case Cost|SCSL11]].
-- Path ORAM is statistically secure, encryption of the blocks aside. With the position map on the client, each access reads and writes one root-to-leaf path of its tree, $2Z \log N_1$ blocks for buckets of $Z = O(1)$ blocks — [[SDS+13 - Path ORAM An Extremely Simple Oblivious RAM Protocol|SDS+13]]. With blocks of $X \log N_1$ bits for $X \ge 2$ and the position map stored recursively in smaller Path ORAMs, there are two parameter sets, according to where the stashes of the recursive levels are kept, and each fails, by overflowing a stash, with probability $N_1^{-\omega(1)}$ — [[SDS+13 - Path ORAM An Extremely Simple Oblivious RAM Protocol|SDS+13]]:
+- Path ORAM is statistically secure, encryption of the blocks aside. With the position map on the client, each access reads and writes one root-to-leaf path of its tree, $2Z \log N_1$ blocks for buckets of $Z = O(1)$ blocks — [[SDS+13 - Path ORAM An Extremely Simple Oblivious RAM Protocol|SDS+13]]. With blocks of $X \log N_1$ bits for $X \ge 2$ and the position map stored recursively in $O(\log N_1 / \log X)$ smaller Path ORAMs, the parameters depend on where the stashes of the recursive levels are kept, and each set fails, by overflowing a stash, with probability $N_1^{-\omega(1)}$ over $\poly(N_1)$ operations — [[SDS+13 - Path ORAM An Extremely Simple Oblivious RAM Protocol|SDS+13]]:
 
-  | Stashes kept  | Bandwidth blowup                         | Client storage (blocks)                  |
-  | ------------- | ---------------------------------------- | ---------------------------------------- |
-  | on the client | $O(\log^2 N_1 / \log X)$                 | $O(\log^2 N_1 / \log X) \cdot \omega(1)$ |
-  | on the server | $O(\log^2 N_1 / \log X) \cdot \omega(1)$ | $O(\log N_1) \cdot \omega(1)$            |
+  | Stashes kept                            | Bandwidth blowup                         | Client storage (blocks)                  |
+  | --------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+  | on the client, one per level            | $O(\log^2 N_1 / \log X)$                 | $O(\log^2 N_1 / \log X) \cdot \omega(1)$ |
+  | on the client, one shared by all levels | $O(\log^2 N_1 / \log X)$                 | $O(\log N_1) \cdot \omega(1)$            |
+  | on the server, one per level            | $O(\log^2 N_1 / \log X) \cdot \omega(1)$ | $O(1)$                                   |
+
+  In the last set the client downloads its state before each access and uploads it afterwards, holding $O(\log N_1) \cdot \omega(1)$ blocks within an access. With blocks of $\Omega(\log^2 N_1)$ bits and position-map blocks of $\Theta(\log N_1)$ bits, the bandwidth blowup is $O(\log N_1)$ with $O(\log N_1) \cdot \omega(1)$ blocks of client storage — [[SDS+13 - Path ORAM An Extremely Simple Oblivious RAM Protocol|SDS+13]].
 
 - For a RAM with $N$ words of $N^{\varepsilon}$ bits, for a constant $0 < \varepsilon < 1$, Circuit ORAM gives an ORAM with $O(1)$ words of client storage that runs $T$ steps in time $O(T \log N) \cdot \omega(1)$ with negligible statistical failure probability, or $O(T \log N)$ with inverse-polynomial failure probability, showing that the Goldreich–Ostrovsky bound is tight for some parameter ranges. For blocks of $D = \Omega(\log^2 N)$ bits its circuit size is $O(D \log N) \cdot \omega(1)$ with failure probability $\negl(N)$ — [[WCS15 - Circuit ORAM On Tightness of the Goldreich-Ostrovsky Lower Bound|WCS15]].
 - There is an oblivious parallel RAM compiler with polylogarithmic slowdown in total and parallel complexity whose memory-access distribution is statistically close to one independent of the data, and from it and IBE a garbled parallel RAM compiler — [[BCP16 - Oblivious Parallel RAM and Applications|BCP16]].
