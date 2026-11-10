@@ -87,10 +87,11 @@ A **quantum lightning** scheme has no secret key: $\KeyGen(1^\secpar) \to \pk$, 
 - [[prs-to-quantum-money-jls18|PRS ⇒ QM]]: with $\mathsf{Mint}(k) := |\phi_k\rangle$ for a [[pseudorandom-quantum-state|pseudorandom quantum state]] generator and verification by projection onto $|\phi_k\rangle$, the scheme is unforgeable with pure money states — [[JLS18 - Pseudorandom Quantum States|JLS18]].
 - [[owsg-to-qm|Pure-state QM ⇒ OWSG]]: a private-key scheme with pure money states yields a [[one-way-state-generator|one-way state generator]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
 - A mini-scheme, a public-key scheme that issues a single banknote, together with a [[digital-signature|digital signature scheme]] secure against quantum adversaries, yields a full public-key scheme: the bank mints each banknote with a fresh mini-scheme and signs its public data — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
-- Hidden-subspace money: the banknote is $|A\rangle := |A|^{-1/2} \sum_{x \in A} |x\rangle$ for a uniformly random subspace $A \subseteq \FF_2^n$ of dimension $n/2$, and verification uses membership oracles for $A$ and for its dual $A^\perp$, with $H^{\otimes n}|A\rangle = |A^\perp\rangle$. Relative to these classical oracles the resulting mini-scheme is secure, which gives a public-key scheme secure relative to a classical oracle — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. Replacing the oracles by [[indistinguishability-obfuscation|indistinguishability obfuscations]] of the membership programs, with the obfuscator and an [[injective-one-way-function|injective one-way function]] both secure against quantum adversaries, yields a secure public-key scheme — [[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]].
+- Hidden-subspace money: the banknote is $|A\rangle := |A|^{-1/2} \sum_{x \in A} |x\rangle$ for a uniformly random subspace $A \subseteq \FF_2^n$ of dimension $n/2$, and verification uses membership oracles for $A$ and for its dual $A^\perp$, with $H^{\otimes n}|A\rangle = |A^\perp\rangle$. Relative to these classical oracles the resulting mini-scheme is secure, which gives a public-key scheme secure relative to a classical oracle — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+- [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|iO + Injective OWF ⇒ Public-key QM]]: with subspaces of $\ZZ_q^n$ for a prime $q$ and the membership oracles replaced by [[indistinguishability-obfuscation|indistinguishability obfuscations]] of the membership programs, the hidden-subspace mini-scheme is secure if the obfuscator and an [[injective-one-way-function|injective one-way function]] are both secure against quantum adversaries — [[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]]; signing its serial numbers with a signature scheme built from the one-way function then gives a public-key scheme — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
 - Knot money: a candidate public-key scheme whose banknotes are superpositions of knot diagrams sharing one Alexander polynomial, which serves as the serial number; [[FGH+12 - Quantum Money from Knots|FGH+12]] give no security reduction.
 
-<!-- BEGIN GENERATED participates-in 155e371816f0 -->
+<!-- BEGIN GENERATED participates-in 321c66099958 -->
 
 ## Participates in
 
@@ -101,6 +102,7 @@ A **quantum lightning** scheme has no secret key: $\KeyGen(1^\secpar) \to \pk$, 
 
 **Produces Quantum money**
 
+- [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|iO + Injective OWF ⇒ Public-key QM]] (via [[quantum-money#public-key-quantum-money|Public-key quantum money]])
 - [[prs-to-quantum-money-jls18|PRS ⇒ QM]] (via [[quantum-money#pure-money-states|Pure money states]])
 - [[pure-state-quantum-money-to-quantum-money|Pure-state QM ⇒ QM]]
 
