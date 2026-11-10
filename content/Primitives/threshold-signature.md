@@ -88,7 +88,38 @@ For non-interactive schemes, [[BCK+22 - Better than Advertised Security for Non-
 
 ### Robustness
 
-$\Pi$ is **robust** if the corrupted parties cannot prevent the honest parties from producing signatures — [[Sho00 - Practical Threshold Signatures|Sho00]]: every session whose set $S$ contains at least $t+1$ honest parties outputs a valid signature, whatever the corrupted parties send. Robustness needs $n \ge 2t+1$, so that $t+1$ honest parties exist — standard.
+$\Pi$ is **robust** if the corrupted parties cannot prevent the honest parties from producing signatures — [[Sho00 - Practical Threshold Signatures|Sho00]]: every session whose set $S$ contains at least $t+1$ honest parties outputs a valid signature, whatever the corrupted parties send. The game has the static corruption, $\KeyGen$ and $\calO_{\Sign}$ of $\Game^{\mathrm{ts\text{-}uf}}$. Once $\calA$ halts, the game runs every unfinished session to completion, each message a corrupted party has not sent taken to be $\bot$, so that withholding messages cannot keep a session from ending.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{rob}}_{\Pi,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(C, \stA) \gets \calA(1^\secpar, n, t)$
+\Comment{static corruption: $C \subseteq [n]$, $|C| \le t$}
+\State $(\pk, (\pk_i)_{i \in [n]}, (\sk_i)_{i \in [n]}) \gets \KeyGen(1^\secpar, n, t)$ ; $\calQ \gets \{\}$
+\State run $\calA^{\calO_{\Sign}}(\stA, \pk, (\pk_i)_{i \in [n]}, (\sk_i)_{i \in C})$
+\State run every unfinished session to completion
+\Comment{unsent messages of parties in $C$ are $\bot$}
+\For{each session $j$, on set $S$ and message $m$, with $|S \setminus C| \ge t+1$}
+\If{some $i \in S \setminus C$ outputs $\bot$ or a $\sigma$ with $\Vrfy(\pk, m, \sigma) \ne 1$}
+\Return $1$
+\EndIf
+\EndFor
+\Return $0$
+\end{algorithmic}
+\end{algorithm}
+```
+
+For polynomials $n = n(\secpar)$ and $t = t(\secpar) < n$, $\Pi$ is **robust** against static corruption of $t$ parties if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{rob}}_{\Pi,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{rob}}_{\Pi,\calA}(\secpar) = 1\right]
+$$
+
+is negligible.
+
+When $n \ge 2t+1$, at least $t+1$ parties are honest whatever $C$ is, so the honest parties can always sign — standard. In a non-interactive scheme, a session with at least $t+1$ honest parties has at least $t+1$ shares that pass $\mathsf{ShareVrfy}$, by correctness, so the scheme is robust if, except with negligible probability, every $t+1$ shares that pass $\mathsf{ShareVrfy}$ combine into a valid signature — standard.
 
 # Variations
 
@@ -124,7 +155,7 @@ FROST is a threshold version of [[digital-signature#schnorr-signatures|Schnorr s
 
 KG20 write $t$ for the number of signers and tolerate $t-1$ corruptions. The binding factors tie each party's nonce to $m$ and to the whole list $B$, which protects concurrent signing sessions against forgery attacks that apply to similar schemes. FROST is not robust: a party whose share fails its check is identified, and the session aborts. FROST was proposed with a security argument from the hardness of [[discrete-logarithm|DLOG]] in the random-oracle model against an adversary controlling fewer than $t$ parties — [[KG20 - FROST Flexible Round-Optimized Schnorr Threshold Signatures|KG20]].
 
-FROST2 uses one binding factor $\rho$ for all signers, so that $R = \prod_{j \in S} D_j \cdot \left(\prod_{j \in S} E_j\right)^{\rho}$ costs one exponentiation in place of $|S|$ — [[CKM21 - How to Prove Schnorr Assuming Schnorr Security of Multi- and Threshold Signatures|CKM21]]. With trusted key generation, FROST and FROST2 are unforgeable in the random-oracle model if [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] is hard, in notions of the BCK+22 hierarchy stronger than unforgeability above; with key generation by PedPoP, the Pedersen [[distributed-key-generation|DKG]] in which each party also proves possession of its secret contribution, FROST2 is proved secure in the random-oracle model under OMDL together with a Schnorr knowledge-of-exponent assumption, which the simulation of PedPoP needs — [[BCK+22 - Better than Advertised Security for Non-interactive Threshold Signatures|BCK+22]].
+FROST2 uses one binding factor $\rho$ for all signers, so that $R = \prod_{j \in S} D_j \cdot \left(\prod_{j \in S} E_j\right)^{\rho}$ costs one exponentiation in place of $|S|$; FROST2 was introduced with a proof of security under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] in the programmable random-oracle model — [[CKM21 - How to Prove Schnorr Assuming Schnorr Security of Multi- and Threshold Signatures|CKM21]]. With trusted key generation, FROST and FROST2 are unforgeable in the random-oracle model if OMDL is hard, in notions of the BCK+22 hierarchy stronger than unforgeability above; with key generation by PedPoP, the Pedersen [[distributed-key-generation|DKG]] in which each party also proves possession of its secret contribution, FROST2 is proved secure in the random-oracle model under OMDL together with a Schnorr knowledge-of-exponent assumption, which the simulation of PedPoP needs — [[BCK+22 - Better than Advertised Security for Non-interactive Threshold Signatures|BCK+22]].
 
 ## Threshold DSA and ECDSA
 
@@ -132,7 +163,7 @@ In [[digital-signature#ecdsa|DSA and ECDSA]] the signing equation $s = k^{-1}(H(
 
 - For DSS, with $t < n/2$ corrupted parties, any $2t+1$ parties produce a signature and $t$ corrupted parties cannot forge, with no trusted dealer and with unforgeability reduced to that of DSS itself; a robust version tolerates a smaller fraction of maliciously faulty parties — [[GJKR96 - Robust Threshold DSS Signatures|GJKR96]].
 - Two-party ECDSA, in which both parties sign, can have one party hold a Paillier encryption of the other's key share and evaluate the signing equation under the encryption — [[Lin17 - Fast Secure Two-Party ECDSA Signing|Lin17]].
-- Gennaro and Goldfeder give threshold ECDSA in this page's convention, any $t+1$ of $n$ parties signing, for every $t < n$, with dealerless key generation and security against a dishonest majority — [[GG18 - Fast Multiparty Threshold ECDSA with Fast Trustless Setup|GG18]]. Lindell and Nof give a full-threshold ECDSA protocol with practical distributed key generation — [[LN18b - Fast Secure Multiparty ECDSA with Practical Distributed Key Generation and Applications to Cryptocurrency Custody|LN18b]].
+- Gennaro and Goldfeder give threshold ECDSA in this page's convention, any $t+1$ of $n$ parties signing, for every $t < n$, with dealerless key generation and security against a dishonest majority — [[GG18 - Fast Multiparty Threshold ECDSA with Fast Trustless Setup|GG18]]. Lindell and Nof give a full-threshold ECDSA protocol, in which any $t+1$ of $n$ parties sign and security holds against $t$ corrupted parties for every $t < n$, with practical distributed key generation — [[LN18b - Fast Secure Multiparty ECDSA with Practical Distributed Key Generation and Applications to Cryptocurrency Custody|LN18b]].
 
 # Other results
 
