@@ -100,7 +100,7 @@ $$
 
 # Other results
 
-- Encoding the message in conjugate-coding states of [[Wie83 - Conjugate Coding|Wie83]] under a uniformly random choice of bases gives a scheme in the plain model that is $\delta$-unclonable for $n$-bit messages with $\delta = (1/2 + 1/(2\sqrt{2}))^n$, against unbounded cloning adversaries — [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]]. For $n = 1$ this is about $0.854$, far from the $1/2$ that unclonable indistinguishability requires.
+- One-time-padding the message with a uniformly random $r \in \bits^n$ and encoding $m \oplus r$ in the conjugate-coding states of [[Wie83 - Conjugate Coding|Wie83]] under uniformly random bases $\theta \in \bits^n$ gives a scheme in the plain model that is $\delta$-unclonable for $n$-bit messages with $\delta = (1/2 + 1/(2\sqrt{2}))^n$, against unbounded cloning adversaries — [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]]. For $n = 1$ this is about $0.854$, far from the $1/2$ that unclonable indistinguishability requires.
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]]: in the quantum random-oracle model, unclonable-indistinguishable encryption exists with no computational assumption — [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]].
 - A large class of encryption schemes is not unclonable-indistinguishable — [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]].
 

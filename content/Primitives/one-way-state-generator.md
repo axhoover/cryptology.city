@@ -65,21 +65,22 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. $\calA$ n
 
 ## Pure OWSGs
 
-A **pure** one-way state generator is one whose $\mathsf{StateGen}(k)$ outputs the same pure state $|\phi_k\rangle$ on every run, so that $\calA$ receives $|\phi_k\rangle^{\otimes t}$ and $\Vrfy$ runs on one further copy. This is the original definition of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], extended to mixed states by [[MY22 - One-Wayness in Quantum Cryptography|MY22]]; every pure one-way state generator is a one-way state generator ([[pure-owsg-to-owsg|Pure OWSG ⇒ OWSG]]) — folklore.
+A **pure** one-way state generator is one whose $\mathsf{StateGen}(k)$ outputs the same pure state $|\phi_k\rangle$ on every run, so that $\calA$ receives $|\phi_k\rangle^{\otimes t}$ and $\Vrfy$ runs on one further copy. With $\KeyGen(1^\secpar)$ sampling $k \getsr \bits^\secpar$ and $\Vrfy(k', \sigma)$ fixed to the projection of $\sigma$ onto $|\phi_{k'}\rangle$, accepting with probability $\langle \phi_{k'} | \sigma | \phi_{k'} \rangle$, this is the original definition of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], which [[MY22 - One-Wayness in Quantum Cryptography|MY22]] extend to mixed states, keys sampled by an arbitrary $\KeyGen$, and an arbitrary $\Vrfy$; every pure one-way state generator is a one-way state generator ([[pure-owsg-to-owsg|Pure OWSG ⇒ OWSG]]) — folklore. If $\Pr[\Vrfy(k, |\phi_k\rangle) = \top] \ge 1 - \negl(\secpar)$ for every key $k$, replacing $\Vrfy$ by the projection onto $|\phi_{k'}\rangle$ keeps a pure generator one-way — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
 
 # Other results
 
 - [[owf-to-owsg|OWF ⇒ OWSG]]: a [[hash-function#preimage-resistance-one-wayness|one-way function]] $f$ secure against quantum adversaries gives the pure generator $\mathsf{StateGen}(k) := |f(k)\rangle$, verified by measuring and comparing with $f(k')$ — folklore.
-- [[prs-to-owsg-my22a|PRS ⇒ OWSG]]: a [[pseudorandom-quantum-state|pseudorandom quantum state]] generator with output length $n = \omega(\log \secpar)$, verified by projection onto $|\phi_{k'}\rangle$, is a pure one-way state generator — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
-- [[owsg-to-qm|Pure-state QM ⇒ OWSG]]: private-key [[quantum-money#pure-money-states|quantum money with pure money states]] yields one-way state generators — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
-- One-time-secure digital signatures with quantum public keys exist if pure one-way state generators do — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]]; one-way state generators and one-time-secure digital signatures with quantum public keys are equivalent — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+- [[prs-to-owsg-my22a|PRS ⇒ OWSG]]: a [[pseudorandom-quantum-state|pseudorandom quantum state]] generator with $\secpar$-bit keys and output length $n \ge c\secpar$ for a constant $c > 1$, verified by projection onto $|\phi_{k'}\rangle$, is a pure one-way state generator — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
+- [[owsg-to-qm|Pure-state QM ⇒ OWSG]]: private-key [[quantum-money#pure-money-states|quantum money with pure money states]] yields pure one-way state generators, whose states are the banknotes — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+- [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]]: one-way state generators exist if and only if [[digital-signature#one-time-signatures-with-quantum-public-keys|one-time-secure digital signatures with quantum public keys]] do — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. The direction from generators to signatures is due to [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], for pure generators with uniformly random keys and verification by projection.
 
-<!-- BEGIN GENERATED participates-in 6c74b1bdfe18 -->
+<!-- BEGIN GENERATED participates-in fed17366eb35 -->
 
 ## Participates in
 
 **Builds on One-way state generator**
 
+- [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]]
 - [[pure-owsg-to-owsg|Pure OWSG ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
 
 **Produces One-way state generator**
@@ -87,6 +88,6 @@ A **pure** one-way state generator is one whose $\mathsf{StateGen}(k)$ outputs t
 - [[owf-to-owsg|OWF ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
 - [[prs-to-owsg-my22a|PRS ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
 - [[pure-owsg-to-owsg|Pure OWSG ⇒ OWSG]]
-- [[owsg-to-qm|Pure-state QM ⇒ OWSG]]
+- [[owsg-to-qm|Pure-state QM ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
 
 <!-- END GENERATED participates-in -->
