@@ -65,7 +65,7 @@ is negligible. In this case, $\hash$ is called a **one-way function (OWF)**.
 
 ### Quantum-secure one-wayness
 
-A hash function $\hash$ is **quantum-secure one-way** if for all efficient quantum $\calA$, which receive the classical pair $(k, y)$ in $\Game^{\mathrm{pr}}_{\hash,\calA}$ and output a classical $\hat{x}$, $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar)$ is negligible; $\hash$ itself is classical and efficiently computable.
+A hash function $\hash$ is **quantum-secure one-way** if for all efficient quantum $\calA$, which receive the classical pair $(k, y)$ in $\Game^{\mathrm{pr}}_{\hash,\calA}$ and output a classical $\hat{x}$, $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar)$ is negligible; $\hash$ itself is classical and efficiently computable. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] call such a function a classical one-way function secure against quantum attack.
 
 ### Auxiliary-input one-wayness
 
@@ -196,7 +196,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in fb8b9be53422 -->
+<!-- BEGIN GENERATED participates-in 0a8dc89b5e62 -->
 
 ## Participates in
 
@@ -243,6 +243,7 @@ TODO: definition and game.
 - [[owf-to-uowhf-rom90|OWF ⇒ UOWHF (Rompel)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-witness-indistinguishable-proof-fs90|OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12|Quantum-secure OWF ⇒ Nonadaptive post-quantum DS]] (via [[hash-function#quantum-secure-one-wayness|Quantum-secure one-wayness]])
 - [[quantum-secure-owf-to-owf|Quantum-secure OWF ⇒ OWF]] (via [[hash-function#quantum-secure-one-wayness|Quantum-secure one-wayness]])
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[size-verifiable-owf-to-owf|Size-verifiable OWF ⇒ OWF]] (via [[hash-function#size-verifiable-one-wayness|Size-verifiable one-wayness]])

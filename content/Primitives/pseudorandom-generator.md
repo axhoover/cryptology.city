@@ -7,6 +7,7 @@ aliases:
 title: Pseudorandom generator
 id: prg
 variants:
+  non-uniform-prg: "#security-against-non-uniform-adversaries"
   trapdoor-pseudorandom-generator: "#trapdoor-pseudorandom-generators"
   co-nondeterministic-hsg: "#hitting-set-generators-against-co-nondeterministic-circuits"
 ---
@@ -72,6 +73,10 @@ $$
 
 is negligible. Next-bit unpredictability is equivalent to pseudorandomness: a distinguisher with advantage $\varepsilon$ gives a predictor with advantage $\varepsilon/m$ by a [[hybrid-argument|hybrid argument]] over the prefixes of $\PRG(s)$ followed by uniform bits, and a predictor with advantage $\delta$ gives a distinguisher with advantage $\delta$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]], [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. The constructions of [[dlog-to-prg-bm84|Blum–Micali]] and [[owp-to-prg-yao82a-gl89|Yao]] are proved through this characterization, with the bits output in the order that makes each one unpredictable from those before it — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
 
+### Security against non-uniform adversaries
+
+Let $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ be a family of polynomial-size circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing the [[#Pseudorandomness|pseudorandomness]] game $\Game^{\mathrm{prg}}_{\PRG,\calA}(\secpar)$. $\PRG$ is **pseudorandom against non-uniform adversaries** if for every such family $\calA$, $\Adv^{\mathrm{prg}}_{\PRG,\calA}(\secpar)$ is negligible. Security against all non-uniform adversaries implies security against all uniform ones ([[non-uniform-prg-to-prg|Non-uniform PRG ⇒ PRG]]) — standard.
+
 # Variations
 
 ## Keyed PRG
@@ -117,17 +122,18 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $\PRG(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 56a2a93dea5d -->
+<!-- BEGIN GENERATED participates-in 92181de63a8e -->
 
 ## Participates in
 
 **Builds on Pseudorandom generator**
 
 - [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]]
+- [[non-uniform-prg-to-prg|Non-uniform PRG ⇒ PRG]] (via [[pseudorandom-generator#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[prg-to-hash-function|PRG ⇒ OWF]]
-- [[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]]
+- [[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-generator#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[prg-to-np-average-case-hardness|PRG ⇒ Average-case hardness of NP]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]]
@@ -139,6 +145,7 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]]
 - [[lpn-constant-noise-to-prg-bfkl93|Constant-noise LPN ⇒ PRG]]
+- [[non-uniform-prg-to-prg|Non-uniform PRG ⇒ PRG]]
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
 - [[qr-to-prg-bbs86|QR ⇒ PRG (Blum–Blum–Shub)]]

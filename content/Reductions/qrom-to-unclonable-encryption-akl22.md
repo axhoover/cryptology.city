@@ -8,13 +8,13 @@ kind: implication
 hypotheses: [qrom]
 conclusion: unclonable-indistinguishable-encryption
 class: free
-model: rom
+model: [rom, quantum]
 source:
   - "[[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]]"
 security-loss: ""
 rationale:
   class: "The theorem holds for every cloning adversary making polynomially many quantum queries to the oracle, which is the free class scoped by the model."
-  model: "The proof holds in the quantum random-oracle model, against quantum cloning adversaries that query the random oracle in superposition, and the Statement names the quantum access."
+  model: "The proof holds in the quantum random-oracle model: the ciphertext is a coset state, and the cloning adversaries are quantum and query the random oracle in superposition, so the edge records rom, which scopes its conclusion, and quantum."
 ---
 
 # QROM ⇒ unclonable-indistinguishable UE
