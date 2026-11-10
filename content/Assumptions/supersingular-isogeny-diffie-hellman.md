@@ -13,7 +13,7 @@ variants:
 
 # Supersingular Isogeny Diffie-Hellman
 
-The _Supersingular Isogeny Diffie-Hellman (SIDH)_ assumption underlies a family of post-quantum key exchange protocols based on the conjectured hardness of computing isogenies between supersingular elliptic curves. SIDH was introduced by Jao and De Feo as a candidate post-quantum key exchange — [[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]. In 2022, a classical polynomial-time attack was discovered that completely breaks SIDH — [[CD22 - An efficient key recovery attack on SIDH|CD22]].
+The _Supersingular Isogeny Diffie-Hellman (SIDH)_ assumption underlies a family of post-quantum key exchange protocols based on the conjectured hardness of computing isogenies between supersingular elliptic curves. SIDH was introduced by Jao and De Feo as a candidate post-quantum key exchange ([[sidh-to-ke-jdf11|SSDDH ⇒ KE]]) — [[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]. In 2022, a classical polynomial-time attack was discovered that completely breaks SIDH — [[CD22 - An efficient key recovery attack on SIDH|CD22]].
 
 ## Assumption
 

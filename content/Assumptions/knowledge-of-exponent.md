@@ -86,7 +86,7 @@ is negligible — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zer
 
 ## Algebraic Group Model (AGM)
 
-In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the representation of any group element it computes. This is a heuristic model that makes KEA-like extraction implicit: any output group element is accompanied by its algebraic derivation from the inputs.
+In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the representation of any group element it computes. This is a heuristic model that makes KEA-like extraction implicit: any output group element is accompanied by its algebraic derivation from the inputs ([[agm-to-kea|AGM ⇒ KEA]]).
 
 # Attacks
 
