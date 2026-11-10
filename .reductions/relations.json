@@ -19357,7 +19357,7 @@
    "hypotheses": [
     "owf"
    ],
-   "conclusion": "prs",
+   "conclusion": "linear-output-prs",
    "class": "unstated",
    "model": "quantum",
    "models": [

@@ -81,7 +81,7 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 - [[no-single-copy-prs-to-owf-kqst23|No relativizing reduction from single-copy PRS to OWF]]: relative to a classical oracle, $\classP = \classNP$ and single-copy-secure PRS generators with $n > \secpar$ exist — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
 - If $\classBQP = \classPP$, no PRS generator with $n = \omega(\log \secpar)$ exists — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
 
-<!-- BEGIN GENERATED participates-in 145fbd973e73 -->
+<!-- BEGIN GENERATED participates-in b2e2fb874f79 -->
 
 ## Participates in
 
@@ -96,7 +96,7 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 
 - [[exponential-dimension-prs-to-prs|Exponential-dimension PRS ⇒ PRS]]
 - [[linear-output-prs-to-exponential-dimension-prs|Linear-output PRS ⇒ Exponential-dimension PRS]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])
-- [[owf-to-prs-jls18|OWF ⇒ PRS]]
+- [[owf-to-prs-jls18|OWF ⇒ PRS]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
 
 **Barriers**
 
