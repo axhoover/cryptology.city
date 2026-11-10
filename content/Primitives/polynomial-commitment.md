@@ -62,7 +62,7 @@ The KZG scheme commits to $f$ as $C = g^{f(\tau)}$ in a bilinear group, where $\
 - **Proof size**: $O(1)$ (one group element)
 - **Verification time**: $O(1)$ (two pairings)
 - **Setup**: Trusted; requires a structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$
-- **Security**: $q$-Strong Diffie-Hellman assumption in a bilinear group
+- **Security**: $q$-Strong Diffie-Hellman assumption in a bilinear group ([[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]])
 - **Reference**: [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]
 
 Used in: Plonk, Marlin, KZG-based zkRollups, Ethereum EIP-4844.
@@ -84,7 +84,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - **Proof size**: $O(\log d)$
 - **Verification time**: $O(d)$ (linear, but no pairing)
 - **Setup**: Transparent
-- **Security**: Discrete logarithm assumption
+- **Security**: Discrete logarithm assumption ([[dlog-to-pcs|DLOG ⇒ PCS]])
 
 # Other results
 

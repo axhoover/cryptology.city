@@ -26,7 +26,7 @@ Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. 
 
 Equality of group elements is implicit: since $\sigma$ is injective, two handles are equal iff the underlying elements are. An algorithm is **generic** (in Shoup's sense) if it succeeds at a computational task for every choice of injection $\sigma$.
 
-The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries. Combined with the Baby-step Giant-step algorithm, this is tight.
+The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries ([[ggm-to-dlog-sho97|GGM ⇒ DLOG]], [[ggm-to-cdh-sho97|GGM ⇒ CDH]], [[ggm-to-ddh-sho97|GGM ⇒ DDH]]). Combined with the Baby-step Giant-step algorithm, this is tight.
 
 ## Maurer's Formulation
 
@@ -40,7 +40,7 @@ Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] arg
 
 ## The Structured GGM
 
-Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest. The main result is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
+Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest. The main result ([[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]) is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
 
 $$
 \Omega\!\left(\min\!\left(\sqrt{p},\; \frac{1}{\delta}\right)\right).
@@ -58,7 +58,7 @@ Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e)$ of prim
 
 ## Comparison with the AGM
 
-The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.
+The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM ([[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]).
 
 <!-- BEGIN GENERATED participates-in 8d84e710fe96 -->
 
