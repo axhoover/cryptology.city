@@ -11982,6 +11982,30 @@
    "title": "DDH ⇒ PRF (Naor–Reingold)"
   },
   {
+   "id": "red-ddh-to-rerandomizable-rcca-encryption-pr07",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "rerandomizable-rcca-encryption",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[PR07 - Rerandomizable RCCA Encryption|PR07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-rerandomizable-rcca-encryption-pr07.md",
+   "slug": "ddh-to-rerandomizable-rcca-encryption-pr07",
+   "graphSlug": "Reductions/ddh-to-rerandomizable-rcca-encryption-pr07",
+   "title": "DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)"
+  },
+  {
    "id": "red-ddh-to-tdh-dgi-19",
    "kind": "implication",
    "hypotheses": [

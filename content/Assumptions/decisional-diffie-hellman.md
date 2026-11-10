@@ -129,7 +129,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in fa1650815ee0 -->
+<!-- BEGIN GENERATED participates-in e10e80120aeb -->
 
 ## Participates in
 
@@ -154,6 +154,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
+- [[ddh-to-rerandomizable-rcca-encryption-pr07|DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
