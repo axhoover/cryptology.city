@@ -93,7 +93,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
-<!-- BEGIN GENERATED participates-in dc5fcbfbb81d -->
+<!-- BEGIN GENERATED participates-in 657755f17028 -->
 
 ## Participates in
 
@@ -106,6 +106,6 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
-- [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
+- [[hash-function-to-pcs-bbhr18|ROM ⇒ PCS (FRI)]]
 
 <!-- END GENERATED participates-in -->

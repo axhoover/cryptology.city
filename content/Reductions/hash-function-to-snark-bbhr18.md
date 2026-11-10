@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "CRHF ⇒ STARK"
+title: "ROM ⇒ STARK"
 aliases: []
 id: red-hash-function-to-snark-bbhr18
 kind: implication
-hypotheses: [crhf]
+hypotheses: [rom]
 conclusion: transparent-succinct-argument
 class: unstated
 model: rom
@@ -13,15 +13,15 @@ source:
   - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
 security-loss: "additive: the IOP's state-restoration soundness error for $t$ oracle queries plus $O(t^2 2^{-\\secpar})$ for $\\secpar$-bit oracle outputs"
 rationale:
-  model: "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model."
+  model: "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model with the oracle as both the Merkle-tree hash and the challenge generator."
   security-loss: "BCS16 bound the soundness error of the compiled argument by the IOP's state-restoration soundness error plus the probability of a collision among the random oracle's answers."
 ---
 
-# CRHF ⇒ STARK
+# ROM ⇒ STARK
 
 ## Statement
 
-A [[hash-function#collision-resistance|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields [[succinct-argument#stark|STARKs]]: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
+In the [[random-oracle-model|random-oracle model]], with the oracle serving as the hash of the Merkle commitments and as the source of the verifier's challenges, there are [[succinct-argument#stark|STARKs]]: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
 ## Sketch
 
@@ -29,6 +29,6 @@ The computation is expressed as an [[arithmetization#air-algebraic-intermediate-
 
 ## Notes
 
-- Only the interactive variant, before the BCS transform, reduces to collision resistance in the standard model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]; instantiating the random oracle with a concrete hash function is heuristic — standard.
+- Only the interactive variant, before the BCS transform, reduces to [[hash-function#collision-resistance|collision resistance]] in the standard model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]; instantiating the random oracle with a concrete hash function is heuristic — standard.
 - Post-quantum soundness of the non-interactive argument needs a quantum-random-oracle analysis: the BCS transform of a round-by-round sound IOP is sound in the quantum random-oracle model — [[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]].
 - The verifier runs in time $\polylog(T)$ for a fixed program — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].

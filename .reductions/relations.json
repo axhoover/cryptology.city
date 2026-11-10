@@ -14772,7 +14772,7 @@
    "id": "red-hash-function-to-pcs-bbhr18",
    "kind": "implication",
    "hypotheses": [
-    "crhf"
+    "rom"
    ],
    "conclusion": "pcs",
    "class": "unstated",
@@ -14787,13 +14787,13 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "The non-interactive scheme compiles the Merkle-committed FRI protocol with the BCS16 transformation, whose soundness is proved with the hash modelled as a random oracle; interactively, binding rests on collision resistance alone."
+    "model": "The scheme compiles the Merkle-committed FRI protocol with the BCS16 transformation, whose soundness is proved with the hash modelled as a random oracle."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-pcs-bbhr18.md",
    "slug": "hash-function-to-pcs-bbhr18",
    "graphSlug": "Reductions/hash-function-to-pcs-bbhr18",
-   "title": "CRHF ⇒ PCS"
+   "title": "ROM ⇒ PCS (FRI)"
   },
   {
    "id": "red-hash-function-to-secret-key-pir-sk-pir-bm26",
@@ -14823,7 +14823,7 @@
    "id": "red-hash-function-to-snark-bbhr18",
    "kind": "implication",
    "hypotheses": [
-    "crhf"
+    "rom"
    ],
    "conclusion": "transparent-succinct-argument",
    "class": "unstated",
@@ -14838,14 +14838,14 @@
    "heuristic": false,
    "securityLoss": "additive: the IOP's state-restoration soundness error for $t$ oracle queries plus $O(t^2 2^{-\\secpar})$ for $\\secpar$-bit oracle outputs",
    "rationale": {
-    "model": "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model.",
+    "model": "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model with the oracle as both the Merkle-tree hash and the challenge generator.",
     "securityLoss": "BCS16 bound the soundness error of the compiled argument by the IOP's state-restoration soundness error plus the probability of a collision among the random oracle's answers."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-snark-bbhr18.md",
    "slug": "hash-function-to-snark-bbhr18",
    "graphSlug": "Reductions/hash-function-to-snark-bbhr18",
-   "title": "CRHF ⇒ STARK"
+   "title": "ROM ⇒ STARK"
   },
   {
    "id": "red-hash-function-to-zkp-gmw91",
