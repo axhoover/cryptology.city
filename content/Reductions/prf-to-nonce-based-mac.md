@@ -35,7 +35,7 @@ so for negligible $\varepsilon$ the Wegman–Carter MAC is a UF-CMA-secure nonce
 
 ## Sketch
 
-$\calB$ samples $h \getsr \calH$, answers each query $(n_i, m_i)$ of $\calA$ with $\calO(n_i) \oplus h(m_i)$, and outputs $1$ iff $\calA$'s output $(\hat n, \hat m, \hat t)$ has $(\hat n, \hat m)$ unqueried and $\hat t = \calO(\hat n) \oplus h(\hat m)$. With a uniformly random function as $\calO$, the tags under distinct nonces are independent uniform values that carry no information about $h$, so a forgery under an unused nonce succeeds with probability $2^{-\tau} \le \varepsilon$. One under a used nonce $n_i$ needs $h(\hat m) \oplus h(m_i) = \hat t \oplus t_i$ for $\hat m \ne m_i$, which has probability at most $\varepsilon$.
+$\calB$ samples $h \getsr \calH$, answers each query $(n_i, m_i)$ of $\calA$ with $\calO(n_i) \oplus h(m_i)$, and outputs $1$ iff $\calA$'s output $(\hat n, \hat m, \hat t)$ has $(\hat n, \hat m)$ unqueried and $\hat t = \calO(\hat n) \oplus h(\hat m)$. With a uniformly random function as $\calO$, the tags under distinct nonces are independent uniform values that carry no information about $h$. A forgery under an unused nonce $\hat n$ succeeds with probability $2^{-\tau}$, since $\calO(\hat n)$ is uniform given $\calA$'s view, and $2^{-\tau} \le \varepsilon$ for every $\varepsilon$-almost XOR-universal family into $\bits^\tau$. One under a used nonce $n_i$ needs $h(\hat m) \oplus h(m_i) = \hat t \oplus t_i$ for $\hat m \ne m_i$, which has probability at most $\varepsilon$.
 
 ## Notes
 
