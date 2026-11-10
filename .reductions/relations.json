@@ -473,6 +473,19 @@
    "unlisted": false
   },
   {
+   "id": "anonymous-ibe-unbounded-identities",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/identity-based-encryption.md",
+   "slug": "identity-based-encryption",
+   "graphSlug": "Primitives/identity-based-encryption",
+   "anchor": "#anonymous-ibe-for-arbitrary-length-identities",
+   "of": "ibe",
+   "title": "Anonymous IBE for arbitrary-length identities",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "anonymous-public-key-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -8269,6 +8282,19 @@
    "unlisted": false
   },
   {
+   "id": "verifiable-type-1-pairing",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/pairings.md",
+   "slug": "pairings",
+   "graphSlug": "Glossary/pairings",
+   "anchor": "#verifiable-type-1-pairing",
+   "of": "bilinear-pairing",
+   "title": "Verifiable Type 1 pairing",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "virtual-black-box-obfuscation",
    "kind": "variant",
    "type": "primitive",
@@ -8814,7 +8840,7 @@
    "id": "red-anonymous-ibe-to-consistent-peks-abc05",
    "kind": "implication",
    "hypotheses": [
-    "anonymous-ibe"
+    "anonymous-ibe-unbounded-identities"
    ],
    "conclusion": "consistent-peks",
    "class": "fully-black-box",
@@ -8863,6 +8889,33 @@
    "slug": "anonymous-ibe-to-ind-id-cpa",
    "graphSlug": "Reductions/anonymous-ibe-to-ind-id-cpa",
    "title": "Anonymous IBE ⇒ IND-ID-CPA IBE"
+  },
+  {
+   "id": "red-anonymous-ibe-unbounded-identities-to-anonymous-ibe",
+   "kind": "implication",
+   "hypotheses": [
+    "anonymous-ibe-unbounded-identities"
+   ],
+   "conclusion": "anonymous-ibe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on IBE schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/anonymous-ibe-unbounded-identities-to-anonymous-ibe.md",
+   "slug": "anonymous-ibe-unbounded-identities-to-anonymous-ibe",
+   "graphSlug": "Reductions/anonymous-ibe-unbounded-identities-to-anonymous-ibe",
+   "title": "Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE"
   },
   {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
@@ -9417,7 +9470,7 @@
    "id": "red-bilinear-pairing-and-dlin-to-zap-gos06",
    "kind": "implication",
    "hypotheses": [
-    "type-1-pairing",
+    "verifiable-type-1-pairing",
     "decisional-linear"
    ],
    "conclusion": "non-interactive-zap",
@@ -9436,7 +9489,7 @@
    "page": "content/Reductions/bilinear-pairing-and-dlin-to-zap-gos06.md",
    "slug": "bilinear-pairing-and-dlin-to-zap-gos06",
    "graphSlug": "Reductions/bilinear-pairing-and-dlin-to-zap-gos06",
-   "title": "Type 1 pairing + DLIN ⇒ Zaps (non-interactive)"
+   "title": "Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)"
   },
   {
    "id": "red-bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
@@ -27966,6 +28019,33 @@
    "slug": "uowhf-and-ots-to-ds-ny89",
    "graphSlug": "Reductions/uowhf-and-ots-to-ds-ny89",
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
+  },
+  {
+   "id": "red-verifiable-type-1-pairing-to-type-1-pairing",
+   "kind": "implication",
+   "hypotheses": [
+    "verifiable-type-1-pairing"
+   ],
+   "conclusion": "type-1-pairing",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on group generators, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/verifiable-type-1-pairing-to-type-1-pairing.md",
+   "slug": "verifiable-type-1-pairing-to-type-1-pairing",
+   "graphSlug": "Reductions/verifiable-type-1-pairing-to-type-1-pairing",
+   "title": "Verifiable Type 1 pairing ⇒ Type 1 pairing"
   },
   {
    "id": "red-waters-signature-to-ds",

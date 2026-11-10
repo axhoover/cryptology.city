@@ -132,7 +132,7 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
   - Assuming either almost-optimal hardness of search [[learning-with-errors|LWE]] or a circular-secure [[homomorphic-encryption|fully homomorphic encryption]] scheme with standard security, the quadratic residuosity protocol of [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]] is not zero-knowledge when repeated in parallel; under either assumption the same paper gives NIZK arguments for $\classNP$ in the common reference string model — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in db7b478be797 -->
+<!-- BEGIN GENERATED participates-in cb3c856b71b4 -->
 
 ## Participates in
 
@@ -145,7 +145,7 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
 
 **Produces Zero-knowledge proof**
 
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
 - [[claw-free-permutations-to-concurrent-zk-proof-prs02|Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds]] (via [[zero-knowledge-proof#concurrent-zero-knowledge-proofs|Concurrent zero-knowledge proofs]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])

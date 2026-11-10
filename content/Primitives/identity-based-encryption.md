@@ -11,6 +11,7 @@ variants:
   ind-sid-cpa: "#ind-sid-cpa-security-selective"
   subexp-ind-sid-cpa: "#sub-exponential-ind-sid-cpa-security"
   anonymous-ibe: "#anonymous-ibe"
+  anonymous-ibe-unbounded-identities: "#anonymous-ibe-for-arbitrary-length-identities"
 ---
 
 # Identity-based encryption
@@ -137,7 +138,11 @@ $$
 \Adv^{\mathrm{ano\text{-}id\text{-}cpa}}_{\IBE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ano\text{-}id\text{-}cpa}}_{\IBE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$ wins against every scheme in which decrypting a ciphertext for $\mathit{id}_1$ under $\sk_{\mathit{id}_0}$ does not return $m$. As an object, anonymous IBE denotes a scheme that is both IND-ID-CPA-secure and ANO-ID-CPA-secure.
+is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$ wins against every scheme in which decrypting a ciphertext for $\mathit{id}_1$ under $\sk_{\mathit{id}_0}$ does not return $m$. As an object, anonymous IBE denotes a $(1-\negl(\secpar))$-correct scheme that is both IND-ID-CPA-secure and ANO-ID-CPA-secure.
+
+### Anonymous IBE for arbitrary-length identities
+
+An [[#Anonymous IBE|anonymous IBE]] whose identity space is $\bits^*$ and whose message space contains $\bits^\secpar$: the hypothesis of [[anonymous-ibe-to-consistent-peks-abc05|Anonymous IBE ⇒ PEKS (ABC+05)]], which uses each keyword in $\bits^*$ as an identity and encrypts a string in $\bits^\secpar$.
 
 # Other results
 
@@ -148,14 +153,15 @@ is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$
 - The Boneh–Franklin scheme FullIdent, built from the Weil pairing, is [[#IND-ID-CCA Security|IND-ID-CCA]]-secure in the random oracle model under computational [[bilinear-map-assumptions|BDH]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - Dual system encryption gives an adaptively secure ([[#IND-ID-CPA Security|IND-ID-CPA]]) IBE in the standard model whose public parameters, keys and ciphertexts each consist of a constant number of group elements, under [[bilinear-map-assumptions#decisional-bdh|DBDH]] and [[decisional-diffie-hellman#dlin|DLIN]] — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 257535b63f4d -->
+<!-- BEGIN GENERATED participates-in 33edd8a79956 -->
 
 ## Participates in
 
 **Builds on Identity-based encryption**
 
-- [[anonymous-ibe-to-consistent-peks-abc05|Anonymous IBE ⇒ PEKS (ABC+05)]] (via [[identity-based-encryption#anonymous-ibe|Anonymous IBE]])
+- [[anonymous-ibe-to-consistent-peks-abc05|Anonymous IBE ⇒ PEKS (ABC+05)]] (via [[identity-based-encryption#anonymous-ibe-for-arbitrary-length-identities|Anonymous IBE for arbitrary-length identities]])
 - [[anonymous-ibe-to-ind-id-cpa|Anonymous IBE ⇒ IND-ID-CPA IBE]] (via [[identity-based-encryption#anonymous-ibe|Anonymous IBE]])
+- [[anonymous-ibe-unbounded-identities-to-anonymous-ibe|Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE]] (via [[identity-based-encryption#anonymous-ibe-for-arbitrary-length-identities|Anonymous IBE for arbitrary-length identities]])
 - [[ibe-to-garbled-ram-ghl-14|IBE ⇒ garbled RAM]]
 - [[ibe-to-pke|IBE ⇒ PKE]]
 - [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
@@ -168,6 +174,7 @@ is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$
 
 - [[abe-to-ibe|ABE ⇒ IBE]]
 - [[anonymous-ibe-to-ind-id-cpa|Anonymous IBE ⇒ IND-ID-CPA IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[anonymous-ibe-unbounded-identities-to-anonymous-ibe|Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE]] (via [[identity-based-encryption#anonymous-ibe|Anonymous IBE]])
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])

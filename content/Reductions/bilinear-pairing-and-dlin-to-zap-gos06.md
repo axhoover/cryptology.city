@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Type 1 pairing + DLIN ⇒ Zaps (non-interactive)"
+title: "Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)"
 aliases: []
 id: red-bilinear-pairing-and-dlin-to-zap-gos06
 kind: implication
-hypotheses: [type-1-pairing, decisional-linear]
+hypotheses: [verifiable-type-1-pairing, decisional-linear]
 conclusion: non-interactive-zap
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Type 1 pairing + DLIN ⇒ Zaps (non-interactive)
+# Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)
 
 ## Statement
 
-If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in prime-order [[pairings#type-1|symmetric bilinear groups]] whose description the verifier can check, every $\classNP$ language has a [[zero-knowledge-proof#non-interactive-zaps|non-interactive zap]]: a single-message, perfectly sound witness-indistinguishable proof with no setup. For Circuit-SAT a proof for a circuit $C$ has $O(\secpar |C|)$ bits — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
+If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in prime-order [[pairings#verifiable-type-1-pairing|symmetric bilinear groups]] whose description the verifier can check, every $\classNP$ language has a [[zero-knowledge-proof#non-interactive-zaps|non-interactive zap]]: a single-message, perfectly sound witness-indistinguishable proof with no setup. For Circuit-SAT a proof for a circuit $C$ has $O(\secpar |C|)$ bits — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
 
 ## Notes
 

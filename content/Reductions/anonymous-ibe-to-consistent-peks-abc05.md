@@ -5,7 +5,7 @@ title: "Anonymous IBE ⇒ PEKS (ABC+05)"
 aliases: []
 id: red-anonymous-ibe-to-consistent-peks-abc05
 kind: implication
-hypotheses: [anonymous-ibe]
+hypotheses: [anonymous-ibe-unbounded-identities]
 conclusion: consistent-peks
 class: fully-black-box
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let $\IBE = (\Setup, \Extract, \Enc, \Dec)$ be a $(1-\varepsilon)$-correct [[identity-based-encryption#anonymous-ibe|anonymous IBE]], IND-ID-CPA-secure and ANO-ID-CPA-secure, whose identity space contains the keywords and whose message space contains $\bits^\secpar$. The [[public-key-encryption-with-keyword-search|PEKS]] with
+Let $\IBE = (\Setup, \Extract, \Enc, \Dec)$ be a $(1-\varepsilon)$-correct [[identity-based-encryption#anonymous-ibe-for-arbitrary-length-identities|anonymous IBE]], IND-ID-CPA-secure and ANO-ID-CPA-secure, whose identity space contains the keywords and whose message space contains $\bits^\secpar$. The [[public-key-encryption-with-keyword-search|PEKS]] with
 
 - $\KeyGen := \Setup$, so that $\pk = \pp$ and $\sk = \msk$;
 - $\mathsf{PEKS}(\pk, W)$: sample $R \getsr \bits^\secpar$, output $(R, \Enc(\pp, W, R))$;
