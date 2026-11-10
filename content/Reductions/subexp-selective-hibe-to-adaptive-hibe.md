@@ -7,14 +7,14 @@ id: red-subexp-selective-hibe-to-adaptive-hibe
 kind: implication
 hypotheses: [hibe-subexp-selective-security]
 conclusion: hibe-adaptive-security
-class: fully-black-box
+class: unstated
 model: standard
 source: folklore
 via:
   - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "multiplicative $|\\Sigma^{\\le d}|$"
 rationale:
-  class: "The construction is the identity map on HIBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity vector, aborting on a wrong guess."
+  class: "The construction runs the selective scheme at security parameter $\\lceil \\secpar^{2/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sHIBE-CPA-secure scheme."
 ---
 
 # Sub-exponentially selective HIBE ⇒ adaptive HIBE
