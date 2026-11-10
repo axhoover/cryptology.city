@@ -98,7 +98,7 @@ $$
 \Adv^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure — folklore. Conversely, guessing $\mathit{id}^*$ (complexity leveraging) turns an adaptive adversary into a selective one at a loss factor of $|\calI| \ge 2^{\secpar}$ in advantage — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]; a merely negligible selective advantage therefore does not suffice, and the argument gives IND-ID-CPA security from [[#Sub-exponential IND-sID-CPA Security|sub-exponential]] IND-sID-CPA security after rescaling $\secpar$ — folklore. A different, generic construction turns any IND-sID-CPA-secure IBE into an IND-ID-CPA-secure one — [[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]].
+is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure ([[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]]) — folklore. Conversely, guessing $\mathit{id}^*$ (complexity leveraging) turns an adaptive adversary into a selective one at a loss factor of $|\calI| \ge 2^{\secpar}$ in advantage — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]; a merely negligible selective advantage therefore does not suffice, and the argument gives IND-ID-CPA security from [[#Sub-exponential IND-sID-CPA Security|sub-exponential]] IND-sID-CPA security after rescaling $\secpar$ ([[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]]) — folklore. A different, generic construction turns any IND-sID-CPA-secure IBE into an IND-ID-CPA-secure one — [[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]].
 
 #### Sub-exponential IND-sID-CPA Security
 
@@ -112,7 +112,7 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 
 ## Anonymous IBE
 
-A ciphertext hides the identity it was encrypted to: given two identities of its choice and a message, no efficient adversary can tell to which identity the challenge ciphertext was encrypted, even with secret keys for all other identities. [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]] define this notion, IBE-ANO-CPA, and relate it to [[public-key-encryption-with-keyword-search|PEKS]].
+A ciphertext hides the identity it was encrypted to: given two identities of its choice and a message, no efficient adversary can tell to which identity the challenge ciphertext was encrypted, even with secret keys for all other identities. [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]] define this notion, IBE-ANO-CPA, and relate it to [[public-key-encryption-with-keyword-search|PEKS]] ([[anonymous-ibe-to-consistent-peks-abc05|Anonymous IBE ⇒ PEKS (ABC+05)]]).
 
 ```pseudocode
 \begin{algorithm}
