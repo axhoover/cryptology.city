@@ -7023,6 +7023,19 @@
    "unlisted": false
   },
   {
+   "id": "subexponential-injective-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/injective-one-way-function.md",
+   "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
+   "anchor": "#sub-exponential-one-wayness",
+   "of": "injective-one-way-function",
+   "title": "Sub-exponential one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "subexponential-io",
    "kind": "variant",
    "type": "primitive",
@@ -24805,7 +24818,7 @@
    "id": "red-subclasses-to-hash-function",
    "kind": "implication",
    "hypotheses": [
-    "subexponential-owf",
+    "subexponential-injective-owf",
     "subexponential-io"
    ],
    "conclusion": "ppad-hardness",
@@ -24830,7 +24843,7 @@
    "page": "content/Reductions/subclasses-to-hash-function.md",
    "slug": "subclasses-to-hash-function",
    "graphSlug": "Reductions/subclasses-to-hash-function",
-   "title": "Sub-exponential OWF + iO ⇒ PPAD hardness"
+   "title": "Sub-exponential injective OWF + iO ⇒ PPAD hardness"
   },
   {
    "id": "red-subexp-selective-hibe-to-adaptive-hibe",

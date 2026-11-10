@@ -34,7 +34,7 @@ Let $X = \bits^n$, and suppose every selective adversary of size at most $T(\sec
 
 ## Guessing an index versus a value
 
-A [[hybrid-argument|hybrid argument]] with $t$ transitions is often run by a reduction that samples the index $i \getsr [t]$ of the transition it attacks and loses a factor $t$; for $t = \poly(\secpar)$ the loss is polynomial and no leveraging is needed, and a non-uniform reduction may instead hard-wire the best index — standard. Leveraging is needed when the guessed object ranges over a super-polynomial set: a value chosen adaptively by the adversary, as above, or the index of a hybrid sequence of super-polynomial length, such as one that changes an obfuscated program on one input $x \in \bits^n$ at a time and so has $2^n$ steps — standard. The hard PPAD instances of [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] assume sub-exponentially secure [[indistinguishability-obfuscation|iO]] and one-way functions to absorb a super-polynomial reduction loss — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
+A [[hybrid-argument|hybrid argument]] with $t$ transitions is often run by a reduction that samples the index $i \getsr [t]$ of the transition it attacks and loses a factor $t$; for $t = \poly(\secpar)$ the loss is polynomial and no leveraging is needed, and a non-uniform reduction may instead hard-wire the best index — standard. Leveraging is needed when the guessed object ranges over a super-polynomial set: a value chosen adaptively by the adversary, as above, or the index of a hybrid sequence of super-polynomial length, such as one that changes an obfuscated program on one input $x \in \bits^n$ at a time and so has $2^n$ steps — standard. The hard PPAD instances of [[subclasses-to-hash-function|Sub-exponential injective OWF + iO ⇒ PPAD hardness]] assume sub-exponentially secure [[indistinguishability-obfuscation|iO]] and [[injective-one-way-function|injective one-way functions]] to absorb a super-polynomial reduction loss — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
 [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptive soundness]] of a NIZK argument gives adaptive soundness for statements of length $n$ with a loss of $2^n$: a cheating prover that chooses a false $x$ after seeing $\crs$ and succeeds with probability $p$ succeeds with probability at least $2^{-n} p$ on some fixed false statement $x_0$, which a non-uniform reduction fixes in advance — standard.
 
@@ -42,14 +42,14 @@ A [[hybrid-argument|hybrid argument]] with $t$ transitions is often run by a red
 
 A reduction may also run in super-polynomial time, for instance to break one component of a scheme by exhaustive search, and then needs the remaining assumptions to hold against adversaries of that running time. Such proofs set the components at different security levels: one breakable by exhaustive search in time $2^{\secpar_1}$, the others secure against adversaries running in time $2^{\secpar_1} \cdot \poly(\secpar)$ — standard.
 
-<!-- BEGIN GENERATED participates-in 7dbc66401d05 -->
+<!-- BEGIN GENERATED participates-in e4b43fb1232c -->
 
 ## Participates in
 
 **Used via Complexity leveraging**
 
 - [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]]
-- [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]]
+- [[subclasses-to-hash-function|Sub-exponential injective OWF + iO ⇒ PPAD hardness]]
 - [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]]
 
 <!-- END GENERATED participates-in -->
