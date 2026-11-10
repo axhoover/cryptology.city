@@ -4471,6 +4471,19 @@
    "unlisted": false
   },
   {
+   "id": "non-trivial-canonical-identification-scheme",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/identification-scheme.md",
+   "slug": "identification-scheme",
+   "graphSlug": "Primitives/identification-scheme",
+   "anchor": "#non-trivial-canonical-identification-schemes",
+   "of": "identification-scheme",
+   "title": "Non-trivial canonical identification schemes",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "nonadaptive-nizk-argument-for-np",
    "kind": "variant",
    "type": "primitive",
@@ -5306,6 +5319,32 @@
    "unlisted": false
   },
   {
+   "id": "post-quantum-injective-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/injective-one-way-function.md",
+   "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
+   "anchor": "#post-quantum-one-wayness",
+   "of": "injective-one-way-function",
+   "title": "Post-quantum one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "post-quantum-io",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/indistinguishability-obfuscation.md",
+   "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
+   "anchor": "#post-quantum-io",
+   "of": "io",
+   "title": "Post-quantum iO",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pp",
    "kind": "object",
    "type": "complexity-class",
@@ -5881,6 +5920,19 @@
    "anchor": "#mini-schemes",
    "of": "quantum-money",
    "title": "Mini-schemes",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "quasi-polynomial-low-noise-lpn",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-parity-with-noise.md",
+   "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
+   "anchor": "#quasi-polynomially-hard-low-noise-lpn",
+   "of": "lpn",
+   "title": "Quasi-polynomially hard low-noise LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -15379,7 +15431,7 @@
    "id": "red-id-and-rom-to-ds",
    "kind": "implication",
    "hypotheses": [
-    "identification-scheme"
+    "non-trivial-canonical-identification-scheme"
    ],
    "conclusion": "ds",
    "class": "fully-black-box",
@@ -15894,35 +15946,6 @@
    "slug": "invertible-prfs-to-prf",
    "graphSlug": "Reductions/invertible-prfs-to-prf",
    "title": "Invertible PRFs ⇒ PRF"
-  },
-  {
-   "id": "red-io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
-   "kind": "implication",
-   "hypotheses": [
-    "io",
-    "injective-one-way-function"
-   ],
-   "conclusion": "public-key-quantum-money",
-   "class": "unstated",
-   "model": "quantum",
-   "models": [
-    "quantum"
-   ],
-   "source": [
-    "[[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]]",
-    "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "model": "The counterfeiter and the reductions are quantum, so the obfuscator and the injective one-way function must be secure against quantum adversaries."
-   },
-   "status": "draft",
-   "page": "content/Reductions/io-and-injective-one-way-function-to-public-key-quantum-money-zha19.md",
-   "slug": "io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
-   "graphSlug": "Reductions/io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
-   "title": "iO + Injective OWF ⇒ Public-key QM"
   },
   {
    "id": "red-io-and-np-not-in-io-bpp-to-owf-kmnpry14",
@@ -18239,7 +18262,7 @@
    "id": "red-noise-level-to-tdh-amr25",
    "kind": "implication",
    "hypotheses": [
-    "lpn-low-noise"
+    "quasi-polynomial-low-noise-lpn"
    ],
    "conclusion": "sublinear-tdh",
    "class": "unstated",
@@ -18252,12 +18275,12 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "requires quasi-polynomial hardness of low-noise LPN",
+   "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-tdh-amr25.md",
    "slug": "noise-level-to-tdh-amr25",
    "graphSlug": "Reductions/noise-level-to-tdh-amr25",
-   "title": "Low-noise LPN ⇒ Slightly sublinear TDH"
+   "title": "Quasi-polynomially hard low-noise LPN ⇒ Slightly sublinear TDH"
   },
   {
    "id": "red-noisy-k-lin-and-pc-to-pke-ghjs25",
@@ -18364,6 +18387,33 @@
    "slug": "non-malleable-commitment-to-com",
    "graphSlug": "Reductions/non-malleable-commitment-to-com",
    "title": "NM commitment ⇒ COM"
+  },
+  {
+   "id": "red-non-trivial-canonical-identification-scheme-to-identification-scheme",
+   "kind": "implication",
+   "hypotheses": [
+    "non-trivial-canonical-identification-scheme"
+   ],
+   "conclusion": "identification-scheme",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity construction; the reduction forwards any impersonator unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-trivial-canonical-identification-scheme-to-identification-scheme.md",
+   "slug": "non-trivial-canonical-identification-scheme-to-identification-scheme",
+   "graphSlug": "Reductions/non-trivial-canonical-identification-scheme-to-identification-scheme",
+   "title": "Non-trivial canonical ID ⇒ ID"
   },
   {
    "id": "red-notable-problems-to-qma",
@@ -20922,6 +20972,88 @@
    "title": "LWE with polynomial ratio ⇒ SNARG for P"
   },
   {
+   "id": "red-post-quantum-injective-owf-to-injective-one-way-function",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-injective-owf"
+   ],
+   "conclusion": "injective-one-way-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/post-quantum-injective-owf-to-injective-one-way-function.md",
+   "slug": "post-quantum-injective-owf-to-injective-one-way-function",
+   "graphSlug": "Reductions/post-quantum-injective-owf-to-injective-one-way-function",
+   "title": "Post-quantum injective OWF ⇒ Injective OWF"
+  },
+  {
+   "id": "red-post-quantum-io-and-post-quantum-injective-owf-to-quantum-money-mini-scheme-zha19",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-io",
+    "post-quantum-injective-owf"
+   ],
+   "conclusion": "quantum-money-mini-scheme",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The counterfeiter and the reductions are quantum, so the obfuscator and the injective one-way function must be secure against quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-injective-one-way-function-to-public-key-quantum-money-zha19.md",
+   "slug": "io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
+   "graphSlug": "Reductions/io-and-injective-one-way-function-to-public-key-quantum-money-zha19",
+   "title": "Post-quantum iO + Post-quantum injective OWF ⇒ QM mini-scheme"
+  },
+  {
+   "id": "red-post-quantum-io-to-io",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-io"
+   ],
+   "conclusion": "io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/post-quantum-io-to-io.md",
+   "slug": "post-quantum-io-to-io",
+   "graphSlug": "Reductions/post-quantum-io-to-io",
+   "title": "Post-quantum iO ⇒ iO"
+  },
+  {
    "id": "red-pp-to-pspace",
    "kind": "inclusion",
    "hypotheses": [
@@ -23046,6 +23178,33 @@
    "slug": "owsg-to-qm",
    "graphSlug": "Reductions/owsg-to-qm",
    "title": "Pure-state QM ⇒ OWSG"
+  },
+  {
+   "id": "red-quasi-polynomial-low-noise-lpn-to-lpn-low-noise",
+   "kind": "implication",
+   "hypotheses": [
+    "quasi-polynomial-low-noise-lpn"
+   ],
+   "conclusion": "lpn-low-noise",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LPN problem up to a fixed sample map that adds independent Bernoulli noise to each label, and the reduction forwards any distinguisher unchanged through that map."
+   },
+   "status": "draft",
+   "page": "content/Reductions/quasi-polynomial-low-noise-lpn-to-lpn-low-noise.md",
+   "slug": "quasi-polynomial-low-noise-lpn-to-lpn-low-noise",
+   "graphSlug": "Reductions/quasi-polynomial-low-noise-lpn-to-lpn-low-noise",
+   "title": "Quasi-polynomially hard low-noise LPN ⇒ Low-noise LPN"
   },
   {
    "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",

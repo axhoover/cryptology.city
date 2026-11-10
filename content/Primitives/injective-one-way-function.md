@@ -10,6 +10,7 @@ variants:
   length-increasing-injective-owf: "#length-increasing-injective-owfs"
   adaptive-injective-owf: "#adaptive-one-wayness"
   subexponential-injective-owf: "#sub-exponential-one-wayness"
+  post-quantum-injective-owf: "#post-quantum-one-wayness"
 ---
 
 # Injective one-way function
@@ -73,6 +74,10 @@ An injective function $f$ is **adaptively one-way** if for all efficient $\calA$
 
 An injective function $f$ is **sub-exponentially one-way** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\mathrm{owf}}_{f,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$.
 
+## Post-quantum one-wayness
+
+An injective function $f$ is **post-quantum one-way** if for all efficient quantum $\calA$, $\Adv^{\mathrm{owf}}_{f,\calA}(\secpar)$ in the [[#One-wayness|one-wayness]] game is negligible; $f$ itself stays a deterministic classical polynomial-time algorithm.
+
 # Other results
 
 - An injective one-way function gives a non-interactive perfectly binding bit commitment, hiding by the Goldreich–Levin [[hardcore-predicate|hardcore predicate]] ([[injective-one-way-function-to-statistically-binding-commitment|Injective OWF ⇒ Statistically binding COM]]) — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]], [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]].
@@ -80,7 +85,7 @@ An injective function $f$ is **sub-exponentially one-way** if there is a constan
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]].
 - There is no fully-black-box construction, from an injective one-way function and [[indistinguishability-obfuscation|iO]] for circuits that call it, of a language in $\classNP \cap \classcoNP$ that no efficient algorithm decides on every input — [[BDV17 - Structure vs Hardness Through the Obfuscation Lens|BDV17]].
 
-<!-- BEGIN GENERATED participates-in 3693767ee319 -->
+<!-- BEGIN GENERATED participates-in ca3748cae1b1 -->
 
 ## Participates in
 
@@ -90,12 +95,14 @@ An injective function $f$ is **sub-exponentially one-way** if there is a constan
 - [[injective-one-way-function-to-owf|Injective OWF ⇒ OWF]]
 - [[injective-one-way-function-to-statistically-binding-commitment|Injective OWF ⇒ Statistically binding COM]]
 - [[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ Three-round NM commitment (Goyal–Richelson)]]
-- [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|iO + Injective OWF ⇒ Public-key QM]]
+- [[post-quantum-injective-owf-to-injective-one-way-function|Post-quantum injective OWF ⇒ Injective OWF]] (via [[injective-one-way-function#post-quantum-one-wayness|Post-quantum one-wayness]])
+- [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|Post-quantum iO + Post-quantum injective OWF ⇒ QM mini-scheme]] (via [[injective-one-way-function#post-quantum-one-wayness|Post-quantum one-wayness]])
 - [[subclasses-to-hash-function|Sub-exponential injective OWF + iO ⇒ PPAD hardness]] (via [[injective-one-way-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
 
 **Produces Injective one-way function**
 
 - [[owp-to-injective-one-way-function|OWP ⇒ Injective OWF]]
+- [[post-quantum-injective-owf-to-injective-one-way-function|Post-quantum injective OWF ⇒ Injective OWF]]
 
 **Barriers**
 

@@ -5,7 +5,7 @@ title: "ID ⇒ DS"
 aliases: []
 id: red-id-and-rom-to-ds
 kind: implication
-hypotheses: [identification-scheme]
+hypotheses: [non-trivial-canonical-identification-scheme]
 conclusion: ds
 class: fully-black-box
 model: rom
@@ -24,7 +24,7 @@ rationale:
 
 ## Statement
 
-The [[fiat-shamir-heuristic|Fiat–Shamir transform]] turns a three-move public-coin [[identification-scheme|identification scheme]] into a [[digital-signature|signature scheme]] in the [[random-oracle-model|ROM]]: the signer computes the verifier's challenge as the random-oracle hash of the commitment and the message, and the signature is the resulting transcript — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. If the identification scheme is secure against impersonation under passive attack and non-trivial (its commitments have super-logarithmic min-entropy), the resulting scheme is [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable in the ROM; for non-trivial schemes, passive-impersonation security is also necessary — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].
+The [[fiat-shamir-heuristic|Fiat–Shamir transform]] turns a three-move public-coin [[identification-scheme#non-trivial-canonical-identification-schemes|identification scheme]] into a [[digital-signature|signature scheme]] in the [[random-oracle-model|ROM]]: the signer computes the verifier's challenge as the random-oracle hash of the commitment and the message, and the signature is the resulting transcript — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. If the identification scheme is secure against impersonation under passive attack and non-trivial (its commitments have super-logarithmic min-entropy), the resulting scheme is [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable in the ROM; for non-trivial schemes, passive-impersonation security is also necessary — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].
 
 ## Sketch
 
