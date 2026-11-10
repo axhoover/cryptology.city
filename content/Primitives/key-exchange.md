@@ -66,7 +66,7 @@ is negligible.
 
 ## Non-interactive key exchange (NIKE)
 
-A NIKE allows any two parties to derive the same shared key, each from its own secret key and the other's public key, with no interaction at all. Diffie-Hellman over a cyclic group is the canonical example: $k = g^{ab}$ given public keys $g^a$ and $g^b$ — [[DH76 - New Directions in Cryptography|DH76]].
+A NIKE allows any two parties to derive the same shared key, each from its own secret key and the other's public key, with no interaction at all. Diffie-Hellman over a cyclic group is the canonical example: $k = g^{ab}$ given public keys $g^a$ and $g^b$ ([[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]) — [[DH76 - New Directions in Cryptography|DH76]].
 
 A NIKE is a tuple $\Pi = (\Setup, \Gen, \Combine)$ of efficient algorithms with key space $\calK$:
 
@@ -223,7 +223,7 @@ An $n$-party key exchange protocol lets $n$ parties communicating over a public,
 
 ## Multiparty non-interactive key exchange
 
-An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret, the $N - 1$ other published values and any public parameters, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] give it for any polynomial $N$ fixed in advance, without trusted setup — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
+An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret, the $N - 1$ other published values and any public parameters, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] give it for any polynomial $N$ fixed in advance, without trusted setup ([[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]]) — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
 
 ### Three-party NIKE
 

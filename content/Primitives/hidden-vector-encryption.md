@@ -95,7 +95,7 @@ $$
 \Adv^{\mathrm{ah}}_{\mathsf{HVE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ah}}_{\mathsf{HVE},\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Attribute-hiding strictly implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$).
+is negligible. Attribute-hiding strictly implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$; [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]]).
 
 # Variations
 
