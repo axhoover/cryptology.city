@@ -19,7 +19,7 @@ variants:
 
 # Decisional Diffie-Hellman
 
-The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It implies the [[computational-diffie-hellman|CDH]] assumption: an adversary which can solve the CDH problem can also solve DDH in the same group ([[ddh-to-cdh|DDH ⇒ CDH]]) — folklore.
+The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryptography. Under it, the key exchange of [[DH76 - New Directions in Cryptography|DH76]] gives a key indistinguishable from a uniform group element ([[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]) — folklore. It implies the [[computational-diffie-hellman|CDH]] assumption: an adversary which can solve the CDH problem can also solve DDH in the same group ([[ddh-to-cdh|DDH ⇒ CDH]]) — folklore.
 
 ## Assumption
 

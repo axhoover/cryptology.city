@@ -134,7 +134,7 @@ OT from public-key primitives requires expensive operations per transfer. **OT e
 
 ## Random OT
 
-In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with a single round of communication.
+In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with one message from each party, the receiver's first ([[random-ot-to-ot|Random OT ⇒ OT]]) — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].
 
 ## Two-round OT
 
