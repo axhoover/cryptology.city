@@ -6,7 +6,11 @@ aliases: []
 id: red-io-and-perfectly-correct-pke-cpa-security-and-simulation-sound-nizk-to-fe-selective-security-gghrsw13
 kind: implication
 hypotheses:
-  [io, perfectly-correct-pke-cpa-security, statistically-simulation-sound-nizk]
+  [
+    io,
+    perfectly-correct-pke-cpa-security,
+    statistically-simulation-sound-nizk-for-np,
+  ]
 conclusion: fe-selective-security
 class: free
 model: standard
@@ -22,7 +26,7 @@ rationale:
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits, a [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and a [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-sss-nizk|statistically simulation-sound NIZK]] proof system for $\classNP$, sound against computationally unbounded provers that see one simulated proof, imply a selectively secure, indistinguishability-based [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits: for all efficient $\calA$ that announce $(m_0, m_1)$ with $|m_0| = |m_1|$ before seeing the public parameters and request functional keys only for circuits $f$ with $f(m_0) = f(m_1)$, the advantage in distinguishing an encryption of $m_0$ from one of $m_1$ is negligible — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits, a [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and a [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-for-np|statistically simulation-sound NIZK]] proof system for $\classNP$, sound against computationally unbounded provers that see one simulated proof, imply a selectively secure, indistinguishability-based [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits: for all efficient $\calA$ that announce $(m_0, m_1)$ with $|m_0| = |m_1|$ before seeing the public parameters and request functional keys only for circuits $f$ with $f(m_0) = f(m_1)$, the advantage in distinguishing an encryption of $m_0$ from one of $m_1$ is negligible — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
 
 ## Sketch
 

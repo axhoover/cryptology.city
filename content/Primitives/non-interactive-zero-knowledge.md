@@ -11,6 +11,7 @@ id: nizk
 variants:
   simulation-sound-nizk: "#simulation-sound-nizk-ss-nizk"
   statistically-simulation-sound-nizk: "#statistically-simulation-sound-nizk-sss-nizk"
+  statistically-simulation-sound-nizk-for-np: "#statistically-simulation-sound-nizk-for-np"
   common-random-string-nizk-proof: "#nizk-proofs-in-the-common-random-string-model"
   nizk-for-np: "#nizk-for-np"
   nizk-argument-for-np: "#nizk-arguments-for-np"
@@ -92,6 +93,10 @@ $$
 
 is negligible. An unbounded $\calA$ outputs an accepting proof of a false $x' \ne x$ whenever one exists, so the condition bounds, uniformly over statements $x$, the probability over the simulator's coins that one exists, which is the form in which [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] state it. The simulated reference string depends on $x$, which is fixed before $\crs$ is sampled, and $\calA$ sees one simulated proof.
 
+#### Statistically simulation-sound NIZK for NP
+
+For every $\classNP$ relation $R$, an [[#Statistically simulation-sound NIZK (SSS-NIZK)|SSS-NIZK]] for $R$. [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] need it for the relation, fixed by a public-key encryption scheme, of ciphertext pairs that encrypt one message under two public keys. Unlike soundness and zero knowledge, simulation soundness does not transfer from an $\classNP$-complete relation along an arbitrary Levin reduction $f$: a false $x' \ne x$ with $f(x') = f(x)$ is accepted with the simulated proof for $x$ whenever $x$ is — standard.
+
 ## zk-SNARK
 
 A **Succinct Non-interactive ARgument of Knowledge (zk-SNARK)** is a NIZK argument with the additional properties that:
@@ -117,14 +122,14 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|si
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in c8f862591973 -->
+<!-- BEGIN GENERATED participates-in c94f05309078 -->
 
 ## Participates in
 
 **Builds on Non-interactive zero-knowledge**
 
 - [[common-random-string-nizk-proof-to-nizk|NIZK proofs with a common random string ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
-- [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]] (via [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-sss-nizk|Statistically simulation-sound NIZK (SSS-NIZK)]])
+- [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]] (via [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-for-np|Statistically simulation-sound NIZK for NP]])
 - [[nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np|NIZK argument for NP ⇒ Non-adaptively sound NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 - [[nizk-for-np-to-nizk|NIZK for NP ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[nizk-for-np-to-nizk-argument-for-np|NIZK proof for NP ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])

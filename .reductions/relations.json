@@ -6932,6 +6932,19 @@
    "unlisted": false
   },
   {
+   "id": "statistically-simulation-sound-nizk-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#statistically-simulation-sound-nizk-for-np",
+   "of": "nizk",
+   "title": "Statistically simulation-sound NIZK for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "strong-pseudorandom-permutation",
    "kind": "variant",
    "type": "primitive",
@@ -12358,7 +12371,7 @@
     "decisional-linear"
    ],
    "conclusion": "ippe",
-   "class": "free",
+   "class": "unstated",
    "model": "standard",
    "models": [
     "standard"
@@ -12370,7 +12383,6 @@
    "heuristic": false,
    "securityLoss": "polynomial: the dual-system hybrid changes the secret keys one at a time, a factor linear in the number of key queries",
    "rationale": {
-    "class": "OT12 do not place their proof in the RTV04 taxonomy, so the page records only that the implication is proved.",
     "securityLoss": "OT12 extend dual system encryption, whose hybrid moves each queried secret key to semi-functional form in turn, each move reducing to DLIN."
    },
    "status": "draft",
@@ -13854,7 +13866,6 @@
     "standard"
    ],
    "source": [
-    "[[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]]",
     "[[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]"
    ],
    "via": [],
@@ -16043,7 +16054,7 @@
    "hypotheses": [
     "io",
     "perfectly-correct-pke-cpa-security",
-    "statistically-simulation-sound-nizk"
+    "statistically-simulation-sound-nizk-for-np"
    ],
    "conclusion": "fe-selective-security",
    "class": "free",

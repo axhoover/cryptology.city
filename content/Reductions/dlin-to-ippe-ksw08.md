@@ -7,13 +7,12 @@ id: red-dlin-to-ippe-ksw08
 kind: implication
 hypotheses: [bilinear-pairing, decisional-linear]
 conclusion: ippe
-class: free
+class: unstated
 model: standard
 source:
   - "[[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]]"
 security-loss: "polynomial: the dual-system hybrid changes the secret keys one at a time, a factor linear in the number of key queries"
 rationale:
-  class: "OT12 do not place their proof in the RTV04 taxonomy, so the page records only that the implication is proved."
   security-loss: "OT12 extend dual system encryption, whose hybrid moves each queried secret key to semi-functional form in turn, each move reducing to DLIN."
 ---
 
