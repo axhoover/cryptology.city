@@ -15,7 +15,7 @@ variants:
 
 # Pseudorandom error-correcting code
 
-A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encryption|SKE]] that requires ciphertext decoding to be _robust_ to some modifications, introduced by [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. There is additionally a _zero-bit PRC_ which does not allow for a message. Both variations are useful for constructing cryptographic watermarking of generative AI.
+A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encryption|SKE]] that requires ciphertext decoding to be _robust_ to some modifications ([[prc-to-ske-cg24|PRC ⇒ SKE]]), introduced by [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. There is additionally a _zero-bit PRC_ which does not allow for a message. Both variations are useful for constructing cryptographic watermarking of generative AI.
 
 ## Syntax
 
@@ -47,7 +47,7 @@ A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\ha
 
 ## Adaptive robustness
 
-A PRC with **adaptive robustness** strengthens the robustness property to allow the channel $\calE$ to be chosen _after_ seeing the codeword $c = \Enc_k(m)$, rather than being fixed in advance. Formally, the adversarial channel $\calE$ may depend on $c$ (but not on $k$ or $m$ directly). This models a stronger adversary who can tailor the corruption pattern to the specific codeword.
+A PRC with **adaptive robustness** strengthens the robustness property to allow the channel $\calE$ to be chosen _after_ seeing the codeword $c = \Enc_k(m)$, rather than being fixed in advance ([[adaptive-robustness-to-prc|Adaptive robustness ⇒ PRC]]). Formally, the adversarial channel $\calE$ may depend on $c$ (but not on $k$ or $m$ directly). This models a stronger adversary who can tailor the corruption pattern to the specific codeword.
 
 ## Ideal PRC
 

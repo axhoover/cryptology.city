@@ -61,7 +61,7 @@ $$
 \Pr\!\left[\calA(1^\secpar, N) \in \{p, q\}\right]
 $$
 
-is negligible. Squaring modulo a Blum integer permutes $\QR_N$ — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]] — which makes Rabin's function, whose inversion is as hard as factoring — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]] — a trapdoor permutation; Blum integers also underlie the Blum–Blum–Shub generator — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
+is negligible. Squaring modulo a Blum integer permutes $\QR_N$ — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]] — which makes Rabin's function, whose inversion is as hard as factoring — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]] — a trapdoor permutation ([[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]]); Blum integers also underlie the Blum–Blum–Shub generator — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
 
 # Attacks
 

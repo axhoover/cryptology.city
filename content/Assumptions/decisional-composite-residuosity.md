@@ -14,7 +14,7 @@ variants:
 
 # Decisional composite residuosity assumption
 
-The _decisional composite residuosity (DCR) assumption_ states that it is computationally hard to distinguish a random $n$-th power residue modulo $n^2$ from a uniformly random element of $\ZZ_{n^2}^*$, where $n = pq$ is an RSA modulus. Introduced by Paillier as the hardness basis for an additively homomorphic encryption scheme — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
+The _decisional composite residuosity (DCR) assumption_ states that it is computationally hard to distinguish a random $n$-th power residue modulo $n^2$ from a uniformly random element of $\ZZ_{n^2}^*$, where $n = pq$ is an RSA modulus. Introduced by Paillier as the hardness basis for an additively homomorphic encryption scheme ([[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]]) — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
 
 ## Assumption
 
@@ -40,7 +40,7 @@ where $b \getsr \bits$, $c_0 := r^n \bmod n^2$ for $r \getsr \ZZ_n^*$ (a uniform
 
 ## $d$-th Composite Residuosity
 
-Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]. For a fixed $d \ge 1$ and $n$ as above, **$d$-th composite residuosity is hard** if for all efficient $\calA$, $\left|2\Pr\!\left[\calA(1^\secpar, n, c_b) = b\right] - 1\right|$ is negligible, where $b \getsr \bits$, $c_0 := r^{n^d} \bmod n^{d+1}$ for $r \getsr \ZZ_n^*$ (a uniformly random $n^d$-th power), and $c_1 \getsr \ZZ_{n^{d+1}}^*$; the case $d = 1$ is DCR. Gives homomorphism for messages modulo $n^d$.
+Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]. For a fixed $d \ge 1$ and $n$ as above, **$d$-th composite residuosity is hard** if for all efficient $\calA$, $\left|2\Pr\!\left[\calA(1^\secpar, n, c_b) = b\right] - 1\right|$ is negligible, where $b \getsr \bits$, $c_0 := r^{n^d} \bmod n^{d+1}$ for $r \getsr \ZZ_n^*$ (a uniformly random $n^d$-th power), and $c_1 \getsr \ZZ_{n^{d+1}}^*$; the case $d = 1$ is DCR. Gives homomorphism for messages modulo $n^d$ ([$d$-th Composite Residuosity ⇒ Additively homomorphic encryption](d-th-composite-residuosity-to-he)).
 
 ## DCR with safe-prime moduli
 
