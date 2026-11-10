@@ -13,7 +13,7 @@ variants:
 
 # Verifiable delay function
 
-A verifiable delay function is a function, fixed by public parameters for a delay $T$, whose value at each input takes parallel time $T$ to compute and comes with a proof verified in time $\poly(\log T, \secpar)$; every adversary running in time $\poly(T, \secpar)$ finds an input and a verifying output other than its value only with negligible probability, and every adversary that precomputes on the public parameters in time $\poly(T, \secpar)$ and then runs in parallel time $\sigma(T)$ on at most $p(T)$ processors computes the value at a uniformly random input only with negligible probability. The definitions below are those of [[BBBF18 - Verifiable Delay Functions|BBBF18]].
+A verifiable delay function is a function, fixed by public parameters for a delay $T$, whose value at each input takes parallel time $T$ to compute and comes with a proof verified in time $\poly(\log T, \secpar)$; every adversary running in time $\poly(T, \secpar)$ finds an input and a verifying output other than its value only with negligible probability, and every adversary that precomputes on the public parameters in time $\poly(T, \secpar)$ and then runs in parallel time $\sigma(T) \ge T^{\delta}$, for a constant $\delta > 0$, on any polynomial number of processors computes the value at a uniformly random input only with negligible probability. The syntax and the correctness, soundness and $(p, \sigma)$-sequentiality definitions below are those of [[BBBF18 - Verifiable Delay Functions|BBBF18]].
 
 ## Syntax
 
@@ -83,6 +83,8 @@ $$
 $$
 
 is negligible — [[BBBF18 - Verifiable Delay Functions|BBBF18]]. The bound on $\calA_1$ is necessary because $\Eval$ computes $y$ in parallel time $T$.
+
+$\mathsf{VDF}$ is **sequential** if, for some $\sigma$ with $\sigma(T) \ge T^{\delta}$ for a constant $\delta > 0$, it is $(p, \sigma)$-sequential for every polynomial $p$ and every polynomial delay $T = T(\secpar)$. MSW20 state sequentiality for parallel time $\sigma < T$ on $\poly(T, \secpar)$ parallel processors, with $\sigma = T^{1/10}$ as their example — [[MSW20 - Can Verifiable Delay Functions Be Based on Random Oracles|MSW20]].
 
 # Variations
 

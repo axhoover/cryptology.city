@@ -30903,14 +30903,17 @@
      "class": "fixed-construction"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "abe-selective-security"
+   ],
    "circumventedBy": [],
    "source": [
     "folklore"
    ],
    "rationale": {
-    "class": "The counterexample is one scheme that is selectively but not adaptively secure, which refutes the identity map on schemes and no other construction."
+    "class": "The counterexample is one scheme that is selectively but not adaptively secure, which refutes the identity map on schemes and no other construction.",
+    "strength": "The counterexample modifies a given selectively secure CP-ABE scheme for a superpolynomial-size policy family, so it assumes one exists; without one, the identity-map implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
