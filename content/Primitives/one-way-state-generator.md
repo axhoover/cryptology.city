@@ -69,12 +69,12 @@ A **pure** one-way state generator is one whose $\mathsf{StateGen}(k)$ outputs t
 
 # Other results
 
-- [[owf-to-owsg|OWF ⇒ OWSG]]: a [[hash-function#preimage-resistance-one-wayness|one-way function]] $f$ secure against quantum adversaries gives the pure generator $\mathsf{StateGen}(k) := |f(k)\rangle$, verified by measuring and comparing with $f(k')$ — folklore.
+- [[owf-to-owsg|Quantum-secure OWF ⇒ OWSG]]: a [[hash-function#quantum-secure-one-wayness|quantum-secure one-way function]] $f$ gives the pure generator $\mathsf{StateGen}(k) := |f(k)\rangle$, verified by measuring and comparing with $f(k')$ — folklore.
 - [[prs-to-owsg-my22a|PRS ⇒ OWSG]]: a [[pseudorandom-quantum-state|pseudorandom quantum state]] generator with $\secpar$-bit keys and output length $n \ge c\secpar$ for a constant $c > 1$, verified by projection onto $|\phi_{k'}\rangle$, is a pure one-way state generator — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
 - [[owsg-to-qm|Pure-state QM ⇒ OWSG]]: private-key [[quantum-money#pure-money-states|quantum money with pure money states]] yields pure one-way state generators, whose states are the banknotes — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
 - [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]]: one-way state generators exist if and only if [[digital-signature#one-time-signatures-with-quantum-public-keys|one-time-secure digital signatures with quantum public keys]] do — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. The direction from generators to signatures is due to [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], for pure generators with uniformly random keys and verification by projection.
 
-<!-- BEGIN GENERATED participates-in fed17366eb35 -->
+<!-- BEGIN GENERATED participates-in 0c903b822580 -->
 
 ## Participates in
 
@@ -85,7 +85,7 @@ A **pure** one-way state generator is one whose $\mathsf{StateGen}(k)$ outputs t
 
 **Produces One-way state generator**
 
-- [[owf-to-owsg|OWF ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
+- [[owf-to-owsg|Quantum-secure OWF ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
 - [[prs-to-owsg-my22a|PRS ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])
 - [[pure-owsg-to-owsg|Pure OWSG ⇒ OWSG]]
 - [[owsg-to-qm|Pure-state QM ⇒ OWSG]] (via [[one-way-state-generator#pure-owsgs|Pure OWSGs]])

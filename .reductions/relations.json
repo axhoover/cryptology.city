@@ -5885,6 +5885,19 @@
    "unlisted": false
   },
   {
+   "id": "quantum-secure-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#quantum-secure-one-wayness",
+   "of": "hash-function",
+   "title": "Quantum-secure one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "quasi-polynomial-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -19464,7 +19477,7 @@
    "id": "red-owf-to-prs-jls18",
    "kind": "implication",
    "hypotheses": [
-    "owf"
+    "quantum-secure-owf"
    ],
    "conclusion": "linear-output-prs",
    "class": "unstated",
@@ -19485,13 +19498,13 @@
    "page": "content/Reductions/owf-to-prs-jls18.md",
    "slug": "owf-to-prs-jls18",
    "graphSlug": "Reductions/owf-to-prs-jls18",
-   "title": "OWF ⇒ PRS"
+   "title": "Quantum-secure OWF ⇒ PRS"
   },
   {
    "id": "red-owf-to-pure-one-way-state-generator",
    "kind": "implication",
    "hypotheses": [
-    "owf"
+    "quantum-secure-owf"
    ],
    "conclusion": "pure-one-way-state-generator",
    "class": "fully-black-box",
@@ -19513,7 +19526,7 @@
    "page": "content/Reductions/owf-to-owsg.md",
    "slug": "owf-to-owsg",
    "graphSlug": "Reductions/owf-to-owsg",
-   "title": "OWF ⇒ OWSG"
+   "title": "Quantum-secure OWF ⇒ OWSG"
   },
   {
    "id": "red-owf-to-statistical-zk-argument-nov06",
@@ -23048,6 +23061,34 @@
    "title": "Pure-state QM ⇒ OWSG"
   },
   {
+   "id": "red-quantum-secure-owf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "quantum-secure-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function, and the reduction forwards any inverter unchanged.",
+    "model": "The hypothesis' adversaries are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/quantum-secure-owf-to-owf.md",
+   "slug": "quantum-secure-owf-to-owf",
+   "graphSlug": "Reductions/quantum-secure-owf-to-owf",
+   "title": "Quantum-secure OWF ⇒ OWF"
+  },
+  {
    "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -23738,7 +23779,7 @@
    "hypotheses": [
     "classical-serial-quantum-money-mini-scheme"
    ],
-   "conclusion": "owf",
+   "conclusion": "quantum-secure-owf",
    "class": "fully-black-box",
    "model": "quantum",
    "models": [
@@ -30167,7 +30208,7 @@
    "hypotheses": [
     "prs"
    ],
-   "conclusion": "owf",
+   "conclusion": "quantum-secure-owf",
    "class": "fully-black-box",
    "consequences": [
     {

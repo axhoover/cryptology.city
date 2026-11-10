@@ -5,7 +5,7 @@ title: "No fully-black-box reduction from PRS to OWF"
 aliases: []
 id: bar-prs-to-owf-kre21
 hypotheses: [prs]
-conclusion: owf
+conclusion: quantum-secure-owf
 class: fully-black-box
 consequences:
   - kind: contradiction
@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-No construction of a [[hash-function#preimage-resistance-one-wayness|one-way function]] secure against quantum adversaries from [[pseudorandom-quantum-state|pseudorandom quantum state generators]] relativizes with respect to quantum oracles, so in particular none is fully black-box. The oracle is a pair $(\calU, C)$: $\calU = \{U_n\}_{n \in \NN}$, where $U_n |k\rangle|\psi\rangle = |k\rangle U_{n,k}|\psi\rangle$ for $2^n$ independent Haar-random $n$-qubit unitaries $U_{n,k}$, $k \in \bits^n$; and $C$ is a classical language, constructed recursively and independently of $\calU$, that accepts the description $x$ of a $\classQMA$ verifier with oracle access to $(\calU, C)$ exactly when the verifier runs in time less than $|x|$ and the average, over Haar-random unitaries in place of $\calU$, of its maximum acceptance probability over witnesses exceeds $1/2$. With probability $1$ over $\calU$, $\mathrm{Promise}\classBQP = \mathrm{Promise}\classQMA$ relative to $(\calU, C)$, and $\{U_{n,k}\}_{k \in \bits^n}$ is a family of pseudorandom unitaries with $n = \secpar$, which gives PRS generators with output length $n = \secpar$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]]. Relative to that oracle every function computable in bounded-error quantum polynomial time with oracle access is inverted in quantum polynomial time: whether a preimage with a given prefix exists is decided in $\mathrm{Promise}\classQCMA \subseteq \mathrm{Promise}\classQMA = \mathrm{Promise}\classBQP$, and a search over prefixes finds one — standard.
+No construction of a [[hash-function#quantum-secure-one-wayness|one-way function secure against quantum adversaries]] from [[pseudorandom-quantum-state|pseudorandom quantum state generators]] relativizes with respect to quantum oracles, so in particular none is fully black-box. The oracle is a pair $(\calU, C)$: $\calU = \{U_n\}_{n \in \NN}$, where $U_n |k\rangle|\psi\rangle = |k\rangle U_{n,k}|\psi\rangle$ for $2^n$ independent Haar-random $n$-qubit unitaries $U_{n,k}$, $k \in \bits^n$; and $C$ is a classical language, constructed recursively and independently of $\calU$, that accepts the description $x$ of a $\classQMA$ verifier with oracle access to $(\calU, C)$ exactly when the verifier runs in time less than $|x|$ and the average, over Haar-random unitaries in place of $\calU$, of its maximum acceptance probability over witnesses exceeds $1/2$. With probability $1$ over $\calU$, $\mathrm{Promise}\classBQP = \mathrm{Promise}\classQMA$ relative to $(\calU, C)$, and $\{U_{n,k}\}_{k \in \bits^n}$ is a family of pseudorandom unitaries with $n = \secpar$, which gives PRS generators with output length $n = \secpar$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]]. Relative to that oracle every function computable in bounded-error quantum polynomial time with oracle access is inverted in quantum polynomial time: whether a preimage with a given prefix exists is decided in $\mathrm{Promise}\classQCMA \subseteq \mathrm{Promise}\classQMA = \mathrm{Promise}\classBQP$, and a search over prefixes finds one — standard.
 
 ## Notes
 
