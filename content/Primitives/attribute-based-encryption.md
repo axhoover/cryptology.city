@@ -130,14 +130,14 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
 - The [[bdh-to-abe-gpsw06|GPSW06 KP-ABE]] supports delegation of private keys, which subsumes [[hierarchical-identity-based-encryption|HIBE]] — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]
 - [[abe-to-be|ABE ⇒ BE]]
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-abe-gpsw06|DBDH ⇒ ABE]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (generic bilinear group model)
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13)
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
 
-<!-- BEGIN GENERATED participates-in 5688cf05fce9 -->
+<!-- BEGIN GENERATED participates-in 55f2b891957c -->
 
 ## Participates in
 
@@ -149,7 +149,7 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 
 **Produces Attribute-based encryption**
 
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-abe-gpsw06|DBDH ⇒ ABE]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (via [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE: IND-CPA Security]])
 - [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]]
 - [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]]
