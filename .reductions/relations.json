@@ -12888,7 +12888,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "DLOG success $\\ge (\\varepsilon - 1/|C|)^2$ for impersonation success $\\varepsilon$",
+   "securityLoss": "DLOG success $\\ge (\\varepsilon - 1/|C|)^2$ for impersonation success $\\varepsilon \\ge 1/|C|$",
    "rationale": {
     "class": "One fixed protocol uses only the group operation, and the reduction runs the impersonator only as an oracle, rewinding it to two accepting transcripts with a common commitment."
    },
