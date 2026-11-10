@@ -9,6 +9,7 @@ title: Decisional Diffie-Hellman
 id: ddh
 variants:
   prime-order-ddh: "#ddh-in-prime-order-groups"
+  paired-group-ddh: "#ddh-in-paired-groups"
   subexponential-ddh: "#sub-exponential-ddh"
   decisional-linear: "#dlin"
   matrix-dh: "#matrix-diffie-hellman"
@@ -78,6 +79,10 @@ deterministically.
 
 **DDH is hard in prime-order groups** for $\GrGen$ if every group $\GrGen$ outputs has prime order $p$ and DDH is hard for $\GrGen$. Exponents then form the field $\ZZ_p$, and the Chaum–Pedersen proof that a tuple is a Diffie–Hellman tuple is sound — standard.
 
+## DDH in paired groups
+
+A _paired group generator_ outputs two prime-order groups $(\GG, g, p)$ and $(\hat\GG, \hat g, q)$ in which $\hat\GG$ is the subgroup of order $q$ of $\ZZ_p^*$, so that $q$ divides $p - 1$. **DDH is hard in paired groups** for such a generator if DDH is hard both in the groups $\GG$ and in the groups $\hat\GG$ it outputs — [[PR07 - Rerandomizable RCCA Encryption|PR07]]. Keeping only the first group gives a group generator for which DDH is hard ([[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]]) — folklore.
+
 ## Sub-exponential DDH
 
 DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$ suffices for NIZK arguments for $\classNP$, and no pairing is needed — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
@@ -129,7 +134,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in e10e80120aeb -->
+<!-- BEGIN GENERATED participates-in 662f67269ba2 -->
 
 ## Participates in
 
@@ -154,12 +159,13 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
-- [[ddh-to-rerandomizable-rcca-encryption-pr07|DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)]]
+- [[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
+- [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-leakage-resilient-pke-ns09|DDH ⇒ LR-PKE]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
@@ -178,6 +184,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 **Produces Decisional Diffie-Hellman**
 
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
+- [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]]
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]]
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]]
 - [[subexponential-sxdh-to-subexponential-ddh|Sub-exponential SXDH ⇒ Sub-exponential DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])

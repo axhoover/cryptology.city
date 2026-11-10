@@ -4889,6 +4889,19 @@
    "unlisted": false
   },
   {
+   "id": "paired-group-ddh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#ddh-in-paired-groups",
+   "of": "ddh",
+   "title": "DDH in paired groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pake",
    "kind": "object",
    "type": "primitive",
@@ -11985,7 +11998,7 @@
    "id": "red-ddh-to-rerandomizable-rcca-encryption-pr07",
    "kind": "implication",
    "hypotheses": [
-    "ddh"
+    "paired-group-ddh"
    ],
    "conclusion": "rerandomizable-rcca-encryption",
    "class": "unstated",
@@ -12003,7 +12016,7 @@
    "page": "content/Reductions/ddh-to-rerandomizable-rcca-encryption-pr07.md",
    "slug": "ddh-to-rerandomizable-rcca-encryption-pr07",
    "graphSlug": "Reductions/ddh-to-rerandomizable-rcca-encryption-pr07",
-   "title": "DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)"
+   "title": "Paired-group DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)"
   },
   {
    "id": "red-ddh-to-tdh-dgi-19",
@@ -19706,6 +19719,33 @@
    "slug": "p-to-zpp",
    "graphSlug": "Reductions/p-to-zpp",
    "title": "P ⊆ ZPP"
+  },
+  {
+   "id": "red-paired-group-ddh-to-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "paired-group-ddh"
+   ],
+   "conclusion": "ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps the first group of the pair, and the reduction forwards any DDH distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/paired-group-ddh-to-ddh.md",
+   "slug": "paired-group-ddh-to-ddh",
+   "graphSlug": "Reductions/paired-group-ddh-to-ddh",
+   "title": "Paired-group DDH ⇒ DDH"
   },
   {
    "id": "red-partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
