@@ -12,7 +12,7 @@ variants:
 
 # Computational Diffie-Hellman
 
-The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is implied by the [[decisional-diffie-hellman|DDH]] assumption: an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group — folklore.
+The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is implied by the [[decisional-diffie-hellman|DDH]] assumption: an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group ([[ddh-to-cdh|DDH ⇒ CDH]]) — folklore.
 
 ## Assumption
 
