@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "OWF ⇒ PRS"
+title: "Quantum-secure OWF ⇒ PRS"
 aliases: []
 id: red-owf-to-prs-jls18
 kind: implication
-hypotheses: [owf]
+hypotheses: [quantum-secure-owf]
 conclusion: linear-output-prs
 class: unstated
 model: quantum
@@ -16,11 +16,11 @@ rationale:
   model: "The adversary is quantum, so the one-way function must be one-way against efficient quantum adversaries, and the construction evaluates a pseudorandom function in superposition."
 ---
 
-# OWF ⇒ PRS
+# Quantum-secure OWF ⇒ PRS
 
 ## Statement
 
-If [[hash-function#preimage-resistance-one-wayness|one-way functions]] secure against efficient quantum adversaries exist, then [[pseudorandom-quantum-state|pseudorandom quantum state generators]] exist for every polynomial output length $n(\secpar)$, in particular [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|with output length linear in the key]] — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The construction outputs the pseudorandom phase state
+If [[hash-function#quantum-secure-one-wayness|one-way functions secure against efficient quantum adversaries]] exist, then [[pseudorandom-quantum-state|pseudorandom quantum state generators]] exist for every polynomial output length $n(\secpar)$, in particular [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|with output length linear in the key]] — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The construction outputs the pseudorandom phase state
 
 $$
 |\phi_k\rangle := \frac{1}{\sqrt{N}} \sum_{x \in [N]} \omega_N^{F_k(x)} |x\rangle, \qquad N = 2^n,\ \omega_N = e^{2\pi i/N},

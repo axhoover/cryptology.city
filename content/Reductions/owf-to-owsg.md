@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "OWF ⇒ OWSG"
+title: "Quantum-secure OWF ⇒ OWSG"
 aliases: []
 id: red-owf-to-pure-one-way-state-generator
 kind: implication
-hypotheses: [owf]
+hypotheses: [quantum-secure-owf]
 conclusion: pure-one-way-state-generator
 class: fully-black-box
 model: quantum
@@ -16,11 +16,11 @@ rationale:
   model: "The adversary is quantum, so the function must be one-way against efficient quantum adversaries."
 ---
 
-# OWF ⇒ OWSG
+# Quantum-secure OWF ⇒ OWSG
 
 ## Statement
 
-If $f$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] against efficient quantum adversaries, then $\KeyGen(1^\secpar) := k \getsr \bits^\secpar$, $\mathsf{StateGen}(k) := |f(k)\rangle$, and $\Vrfy(k', \sigma)$, which measures $\sigma$ in the computational basis and accepts iff the outcome is $f(k')$, form a perfectly correct [[one-way-state-generator#pure-owsgs|pure one-way state generator]] — folklore.
+If $f$ is a [[hash-function#quantum-secure-one-wayness|one-way function against efficient quantum adversaries]], then $\KeyGen(1^\secpar) := k \getsr \bits^\secpar$, $\mathsf{StateGen}(k) := |f(k)\rangle$, and $\Vrfy(k', \sigma)$, which measures $\sigma$ in the computational basis and accepts iff the outcome is $f(k')$, form a perfectly correct [[one-way-state-generator#pure-owsgs|pure one-way state generator]] — folklore.
 
 ## Sketch
 

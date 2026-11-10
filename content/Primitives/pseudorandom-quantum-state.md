@@ -73,7 +73,7 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 
 # Other results
 
-- [[owf-to-prs-jls18|OWF ⇒ PRS]]: [[hash-function#preimage-resistance-one-wayness|one-way functions]] secure against quantum adversaries yield PRS generators, by random phase states — [[JLS18 - Pseudorandom Quantum States|JLS18]].
+- [[owf-to-prs-jls18|Quantum-secure OWF ⇒ PRS]]: [[hash-function#quantum-secure-one-wayness|one-way functions secure against quantum adversaries]] yield PRS generators, by random phase states — [[JLS18 - Pseudorandom Quantum States|JLS18]].
 - [[prs-to-quantum-money-jls18|PRS ⇒ QM]]: with $\mathsf{Mint}(k) := |\phi_k\rangle$ and verification by projection onto $|\phi_k\rangle$, a PRS generator is a private-key [[quantum-money#pure-money-states|quantum money scheme with pure money states]] — [[JLS18 - Pseudorandom Quantum States|JLS18]].
 - [[prs-to-owsg-my22a|PRS ⇒ OWSG]]: a PRS generator, with verification by projection onto $|\phi_{k'}\rangle$, is a [[one-way-state-generator#pure-owsgs|pure one-way state generator]] — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
 - If PRS generators exist, non-interactive quantum bit commitments for classical messages with computational hiding and statistical binding exist, and so do one-time-secure digital signatures with quantum public keys — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
@@ -81,7 +81,7 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 - [[no-single-copy-prs-to-owf-kqst23|No relativizing reduction from single-copy PRS to OWF]]: relative to a classical oracle, $\classP = \classNP$ and single-copy-secure PRS generators with $n > \secpar$ exist — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
 - If $\classBQP = \classPP$, no PRS generator with $n = \omega(\log \secpar)$ exists — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
 
-<!-- BEGIN GENERATED participates-in b2e2fb874f79 -->
+<!-- BEGIN GENERATED participates-in ed16e0f89396 -->
 
 ## Participates in
 
@@ -96,7 +96,7 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 
 - [[exponential-dimension-prs-to-prs|Exponential-dimension PRS ⇒ PRS]]
 - [[linear-output-prs-to-exponential-dimension-prs|Linear-output PRS ⇒ Exponential-dimension PRS]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])
-- [[owf-to-prs-jls18|OWF ⇒ PRS]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
+- [[owf-to-prs-jls18|Quantum-secure OWF ⇒ PRS]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
 
 **Barriers**
 

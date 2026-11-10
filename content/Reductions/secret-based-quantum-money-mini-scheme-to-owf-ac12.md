@@ -6,7 +6,7 @@ aliases: []
 id: red-secret-based-quantum-money-mini-scheme-to-owf-ac12
 kind: implication
 hypotheses: [classical-serial-quantum-money-mini-scheme]
-conclusion: owf
+conclusion: quantum-secure-owf
 class: fully-black-box
 model: quantum
 source:
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ be a [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]], whose $\mathsf{Mint}(1^\secpar)$ samples a uniform classical string $r$ and then generates a banknote $(s_r, \rho_r)$ determined by $r$, with [[quantum-money#classical-serial-numbers|classical serial numbers]]: a deterministic classical polynomial-time algorithm computes $s_r$ from $r$. If $\mathsf{MS}$ is [[quantum-money#mini-schemes|unforgeable]] and has completeness error at most $1/3$, then $r \mapsto s_r$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] against efficient quantum adversaries — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+Let $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ be a [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]], whose $\mathsf{Mint}(1^\secpar)$ samples a uniform classical string $r$ and then generates a banknote $(s_r, \rho_r)$ determined by $r$, with [[quantum-money#classical-serial-numbers|classical serial numbers]]: a deterministic classical polynomial-time algorithm computes $s_r$ from $r$. If $\mathsf{MS}$ is [[quantum-money#mini-schemes|unforgeable]] and has completeness error at most $1/3$, then $r \mapsto s_r$ is a [[hash-function#quantum-secure-one-wayness|one-way function against efficient quantum adversaries]] — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
 
 ## Sketch
 
