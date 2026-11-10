@@ -17,7 +17,7 @@ cryptobib_key: C:DGIMMO19
 
 ## Abstract
 
-We introduce a new primitive, called trapdoor hash functions (TDH), which are hash functions $H: \{0,1\}^n \rightarrow \{0,1\}^\textrm{sec}$ with additional trapdoor function-like properties. Specifically, given an index $i\in[n]$, TDHs allow for sampling an encoding key $\textrm{ek}$ (that hides $i$) along with a corresponding trapdoor. Furthermore, given $\mathsf{H}(x)$, a hint value $\mathsf{E}(\textrm{ek},x)$, and the trapdoor corresponding to $\textrm{ek}$, the $i^{th}$ bit of $x$ can be efficiently recovered. In this setting, one of our main questions is: How small can the hint value $\mathsf{E}(\textrm{ek},x)$ be? We obtain constructions where the hint is only one bit long based on DDH, QR, DCR, or LWE.
+We introduce a new primitive, called trapdoor hash functions (TDH), which are hash functions $H: \{0,1\}^n \rightarrow \{0,1\}^\lambda$ with additional trapdoor function-like properties. Specifically, given an index $i\in[n]$, TDHs allow for sampling an encoding key $\textrm{ek}$ (that hides $i$) along with a corresponding trapdoor. Furthermore, given $\mathsf{H}(x)$, a hint value $\mathsf{E}(\textrm{ek},x)$, and the trapdoor corresponding to $\textrm{ek}$, the $i^{th}$ bit of $x$ can be efficiently recovered. In this setting, one of our main questions is: How small can the hint value $\mathsf{E}(\textrm{ek},x)$ be? We obtain constructions where the hint is only one bit long based on DDH, QR, DCR, or LWE.
 
 This primitive opens a floodgate of applications for low-communication secure computation.
 

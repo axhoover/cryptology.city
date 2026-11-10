@@ -46,7 +46,7 @@ We extend our impossibility result in a number of ways, including
 even obfuscators that (a) are not necessarily computable in
 polynomial time, (b) only _approximately_ preserve the
 functionality, and (c) only need to work for very restricted
-models of computation ($TC_0$). We also rule out several
+models of computation ($TC^0$). We also rule out several
 potential applications of obfuscators, by constructing
 “unobfuscatable” signature schemes, encryption schemes, and
 pseudorandom function families.
