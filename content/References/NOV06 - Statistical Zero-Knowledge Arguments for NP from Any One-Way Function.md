@@ -17,7 +17,7 @@ cryptobib_key: FOCS:NguOngVad06
 
 ## Abstract
 
-We show that every language in NP has a \*statistical\* zero-knowledge
+We show that every language in NP has a _statistical_ zero-knowledge
 argument system under the (minimal) complexity assumption that
 one-way functions exist. In such protocols, even a computationally
 unbounded verifier cannot learn anything other than the fact that the

@@ -23,8 +23,8 @@ We define several variants of pIO, using different approaches to formalizing the
 
 We then move on to show a number of applications of pIO:
 
-\* We give a general and natural methodology to achieve leveled homomorphic encryption (LHE) from variants of semantically secure encryption schemes and of pIO. In particular, we propose instantiations from lossy and re-randomizable encryption schemes, assuming the two weakest notions of pIO.
+- We give a general and natural methodology to achieve leveled homomorphic encryption (LHE) from variants of semantically secure encryption schemes and of pIO. In particular, we propose instantiations from lossy and re-randomizable encryption schemes, assuming the two weakest notions of pIO.
 
-\* We enhance the above constructions to obtain a full-fledged (i.e., non-leveled) FHE scheme under the same (or slightly stronger) assumptions. In particular, this constitutes the first construction of full-fledged FHE that does not rely on encryption with circular security.
+- We enhance the above constructions to obtain a full-fledged (i.e., non-leveled) FHE scheme under the same (or slightly stronger) assumptions. In particular, this constitutes the first construction of full-fledged FHE that does not rely on encryption with circular security.
 
-\* Finally, we show that assuming sub-exponentially secure puncturable PRFs computable in NC1, sub-exponentially-secure indistinguishability obfuscation for (deterministic) NC1 circuits can be bootstrapped to obtain indistinguishability obfuscation for arbitrary (deterministic) poly-size circuits.
+- Finally, we show that assuming sub-exponentially secure puncturable PRFs computable in NC1, sub-exponentially-secure indistinguishability obfuscation for (deterministic) NC1 circuits can be bootstrapped to obtain indistinguishability obfuscation for arbitrary (deterministic) poly-size circuits.

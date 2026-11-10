@@ -19,7 +19,7 @@ cryptobib_key: C:BelMin99
 
 We describe a digital signature scheme in which the
 public key is fixed but the secret signing key is updated at regular
-intervals so as to provide a \<i>forward security\</i> property:
+intervals so as to provide a _forward security_ property:
 compromise of the current secret key does not enable an adversary to
 forge signatures pertaining to the past. This can be useful to
 mitigate the damage caused by key exposure without requiring
