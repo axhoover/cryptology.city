@@ -21,6 +21,8 @@ variants:
   structure-preserving-signature: "#structure-preserving-signatures"
   short-structure-preserving-signature: "#optimally-short-structure-preserving-signatures"
   one-time-quantum-public-key-signature: "#one-time-signatures-with-quantum-public-keys"
+  post-quantum-ds: "#security-against-quantum-adversaries"
+  nonadaptive-post-quantum-ds: "#nonadaptive-queries"
 ---
 
 # Digital signature
@@ -275,6 +277,47 @@ Lattice-based signatures rest on [[learning-with-errors|LWE]]-, [[shortest-integ
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
+## Security against quantum adversaries
+
+$\DS = (\KeyGen, \Sign, \Vrfy)$ is a classical scheme, and the game is $\Game^{\eufcma}_{\DS,\calA}$ of [[#Existential Unforgeability|existential unforgeability]] with $\calA$ quantum: $\calA$ queries the signing oracle $\calO$ classically, and its queries may be adaptive. $\DS$ is **post-quantum EUF-CMA unforgeable** if for all efficient quantum $\calA$,
+
+$$
+\Adv^{\eufcma}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\eufcma}_{\DS,\calA}(\secpar) = 1\right]
+$$
+
+is negligible — standard. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1) use the weaker nonadaptive form below, in which the forger submits one classical list of messages.
+
+### Nonadaptive queries
+
+A quantum forger with **nonadaptive** classical queries submits one classical list of messages to the signing oracle, receives a signature on each, and outputs a forgery.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
+\State $((m_1, \ldots, m_q), \stA) \gets \calA(1^\secpar, \vk)$
+\Comment{one classical list, chosen before any signature is seen}
+\State $\sigma_i \gets \Sign(\sk, m_i)$ for each $i \in [q]$
+\State $(\hat{m}, \hat{\sigma}) \gets \calA(\stA, \sigma_1, \ldots, \sigma_q)$
+\If{$\hat{m} \in \{m_1, \ldots, m_q\}$}
+\Comment{$\hat{m}$ cannot repeat}
+\Return $0$
+\EndIf
+\Return $[\Vrfy(\vk,\hat{m},\hat{\sigma})]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$\DS$ is **secure against nonadaptive quantum chosen-message attacks** if for all efficient quantum $\calA$,
+
+$$
+\Adv^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar) = 1\right]
+$$
+
+is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1). [[AC12 - Quantum Money from Hidden Subspaces|AC12]] also require completeness error at most $1/3$. A nonadaptive forger is an adaptive one that makes all its queries at once, so post-quantum EUF-CMA unforgeability implies this notion ([[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]]) — folklore.
+
 ## One-time signatures with quantum public keys
 
 A signature scheme with quantum public keys is a tuple of quantum polynomial-time algorithms $\DS = (\KeyGen, \mathsf{PKGen}, \Sign, \Vrfy)$:
@@ -323,7 +366,7 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. In the or
 - For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another — [[MP18 - On the Security Loss of Unique Signatures|MP18]] — loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]], [[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]].
 - For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by simple reductions from any non-interactive assumption in a very general class, unless that assumption is false — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in ee3e64986802 -->
+<!-- BEGIN GENERATED participates-in 8563ca9b6df7 -->
 
 ## Participates in
 
@@ -338,7 +381,9 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. In the or
 - [[edl-signature-to-ds|EDL signatures ⇒ DS]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 - [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
-- [[quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12|Mini-scheme + DS ⇒ Public-key QM]]
+- [[post-quantum-ds-to-ds|Post-quantum DS ⇒ DS]] (via [[digital-signature#security-against-quantum-adversaries|Security against quantum adversaries]])
+- [[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#security-against-quantum-adversaries|Security against quantum adversaries]])
+- [[quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12|Mini-scheme + DS ⇒ Public-key QM]] (via [[digital-signature#nonadaptive-queries|Nonadaptive queries]])
 - [[schnorr-signature-to-ds|Schnorr signatures ⇒ DS]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[short-structure-preserving-signature-to-structure-preserving-signature|Optimally short structure-preserving signatures ⇒ Structure-preserving signatures]] (via [[digital-signature#optimally-short-structure-preserving-signatures|Optimally short structure-preserving signatures]])
 - [[structure-preserving-signature-to-ds|Structure-preserving signatures ⇒ DS]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
@@ -368,6 +413,9 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. In the or
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]] (via [[digital-signature#one-time-signatures-with-quantum-public-keys|One-time signatures with quantum public keys]])
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
+- [[post-quantum-ds-to-ds|Post-quantum DS ⇒ DS]]
+- [[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#nonadaptive-queries|Nonadaptive queries]])
+- [[post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12|Post-quantum OWF ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#nonadaptive-queries|Nonadaptive queries]])
 - [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[digital-signature#eddsa|EdDSA]])

@@ -77,7 +77,7 @@ For $\ell = 0$ the game asks that each block be pseudorandom given the previous 
 
 # Other results
 
-- The output of any PRG has high HILL pseudoentropy even when bounded information about its seed is leaked; [[DP08 - Leakage-Resilient Cryptography|DP08]] prove this lemma and combine it with alternating extraction to build a leakage-resilient stream cipher from any PRG ([[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]]).
+- The output of any PRG has high HILL pseudoentropy even when bounded information about its seed is leaked; [[DP08 - Leakage-Resilient Cryptography|DP08]] prove this lemma and combine it with alternating extraction to build a leakage-resilient stream cipher from any [[pseudorandom-generator#security-against-non-uniform-adversaries|PRG secure against non-uniform adversaries]] ([[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]]).
 - [[pseudorandom-function#weak-prfs|Weak PRFs]] are seed-incompressible: the output of a weak PRF on random inputs stays pseudorandom when a bounded amount of information about the key is leaked — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. PRF security does not survive one bit of leakage: $f(k) :=$ the first bit of $\Eval(k, x_0)$, with a query at $x_0$, distinguishes — standard. A simple mode of operation of any weak PRF is a leakage-resilient stream cipher ([[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]]) — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]].
 
 <!-- BEGIN GENERATED participates-in 305210964954 -->

@@ -20,6 +20,7 @@ variants:
   distributional-owf: "#distributional-one-wayness"
   subexponential-owf: "#sub-exponential-one-wayness"
   size-verifiable-owf: "#size-verifiable-one-wayness"
+  post-quantum-owf: "#one-wayness-against-quantum-adversaries"
   crhf: "#collision-resistance"
   uowhf: "#target-collision-resistance-universal-one-wayness"
 ---
@@ -109,6 +110,10 @@ $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$.
 
 A one-way function $f$ is **size-verifiable** if the preimage-size problem $\{(y, s) : |f^{-1}(y)| = s\}$ lies in $\classAM$ — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]], [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]. It is _approximately_ size-verifiable, a weaker condition, if the promise problem with yes-instances $(y, s, 1^a)$ such that $|f^{-1}(y)| \le s$ and no-instances $(y, s, 1^a)$ such that $|f^{-1}(y)| > (1 + 1/a)s$ lies in $\classAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]. A [[one-way-permutation|one-way permutation]] is size-verifiable, since every $y \in \bits^n$ has exactly one preimage — standard. [[size-verifiable-owf-to-owf|A size-verifiable one-way function is a one-way function]].
 
+### One-wayness against quantum adversaries
+
+A function $\hash$, computable in classical polynomial time, is **one-way against quantum adversaries** (post-quantum one-way) if for all efficient quantum $\calA$, $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar)$ is negligible — standard. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] call such a function a classical one-way function secure against quantum attack.
+
 ### Collision resistance
 
 When $|\calR|/|\calD|$ is negligible, collision resistance implies preimage
@@ -191,7 +196,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in c5ccbd8ba63f -->
+<!-- BEGIN GENERATED participates-in 833a5637911d -->
 
 ## Participates in
 
@@ -238,6 +243,8 @@ TODO: definition and game.
 - [[owf-to-uowhf-rom90|OWF ⇒ UOWHF (Rompel)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-witness-indistinguishable-proof-fs90|OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12|Post-quantum OWF ⇒ Nonadaptive post-quantum DS]] (via [[hash-function#one-wayness-against-quantum-adversaries|One-wayness against quantum adversaries]])
+- [[post-quantum-owf-to-owf|Post-quantum OWF ⇒ OWF]] (via [[hash-function#one-wayness-against-quantum-adversaries|One-wayness against quantum adversaries]])
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[size-verifiable-owf-to-owf|Size-verifiable OWF ⇒ OWF]] (via [[hash-function#size-verifiable-one-wayness|Size-verifiable one-wayness]])
 - [[snark-and-crhf-to-fully-succinct-snark-bcct13|SNARK + CRHF ⇒ Fully succinct SNARK (bootstrapping)]] (via [[hash-function#collision-resistance|Collision resistance]])
@@ -275,9 +282,10 @@ TODO: definition and game.
 - [[owp-to-size-verifiable-owf|OWP ⇒ Size-verifiable OWF]] (via [[hash-function#size-verifiable-one-wayness|Size-verifiable one-wayness]])
 - [[owp-to-uowhf-ny89|OWP ⇒ UOWHF (Naor–Yung)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[pke-to-hash-function|PKE ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[post-quantum-owf-to-owf|Post-quantum OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[prg-to-hash-function|PRG ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ring-sis-to-crhf-lm06|Ring-SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme with classical serial numbers ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme with classical serial numbers ⇒ OWF]] (via [[hash-function#one-wayness-against-quantum-adversaries|One-wayness against quantum adversaries]])
 - [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[size-verifiable-owf-to-owf|Size-verifiable OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ske-to-owf-il89|SKE ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])

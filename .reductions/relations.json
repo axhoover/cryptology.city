@@ -4471,6 +4471,19 @@
    "unlisted": false
   },
   {
+   "id": "non-uniform-prg",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-generator.md",
+   "slug": "pseudorandom-generator",
+   "graphSlug": "Primitives/pseudorandom-generator",
+   "anchor": "#security-against-non-uniform-adversaries",
+   "of": "prg",
+   "title": "Security against non-uniform adversaries",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nonadaptive-nizk-argument-for-np",
    "kind": "variant",
    "type": "primitive",
@@ -4480,6 +4493,19 @@
    "anchor": "#non-adaptively-sound-nizk-arguments-for-np",
    "of": "nizk",
    "title": "Non-adaptively sound NIZK arguments for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "nonadaptive-post-quantum-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#nonadaptive-queries",
+   "of": "ds",
+   "title": "Nonadaptive queries",
    "aliases": [],
    "unlisted": false
   },
@@ -5302,6 +5328,32 @@
    "anchor": "#lwe-with-polynomial-modulus-to-noise-ratio",
    "of": "lwe",
    "title": "LWE with polynomial modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "post-quantum-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#security-against-quantum-adversaries",
+   "of": "ds",
+   "title": "Security against quantum adversaries",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "post-quantum-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#one-wayness-against-quantum-adversaries",
+   "of": "hash-function",
+   "title": "One-wayness against quantum adversaries",
    "aliases": [],
    "unlisted": false
   },
@@ -18366,6 +18418,33 @@
    "title": "NM commitment ⇒ COM"
   },
   {
+   "id": "red-non-uniform-prg-to-prg",
+   "kind": "implication",
+   "hypotheses": [
+    "non-uniform-prg"
+   ],
+   "conclusion": "prg",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and a uniform PPT distinguisher is a non-uniform one with empty advice, forwarded unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-uniform-prg-to-prg.md",
+   "slug": "non-uniform-prg-to-prg",
+   "graphSlug": "Reductions/non-uniform-prg-to-prg",
+   "title": "Non-uniform PRG ⇒ PRG"
+  },
+  {
    "id": "red-notable-problems-to-qma",
    "kind": "inclusion",
    "hypotheses": [
@@ -20922,6 +21001,118 @@
    "title": "LWE with polynomial ratio ⇒ SNARG for P"
   },
   {
+   "id": "red-post-quantum-ds-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-ds"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any PPT forger unchanged as an efficient quantum forger making classical queries.",
+    "model": "The hypothesis is security against quantum forgers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/post-quantum-ds-to-ds.md",
+   "slug": "post-quantum-ds-to-ds",
+   "graphSlug": "Reductions/post-quantum-ds-to-ds",
+   "title": "Post-quantum DS ⇒ DS"
+  },
+  {
+   "id": "red-post-quantum-ds-to-nonadaptive-post-quantum-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-ds"
+   ],
+   "conclusion": "nonadaptive-post-quantum-ds",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any nonadaptive quantum forger unchanged as an adaptive one that submits its list of messages as its queries.",
+    "model": "Both notions are security against quantum forgers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/post-quantum-ds-to-nonadaptive-post-quantum-ds.md",
+   "slug": "post-quantum-ds-to-nonadaptive-post-quantum-ds",
+   "graphSlug": "Reductions/post-quantum-ds-to-nonadaptive-post-quantum-ds",
+   "title": "Post-quantum DS ⇒ Nonadaptive post-quantum DS"
+  },
+  {
+   "id": "red-post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-owf"
+   ],
+   "conclusion": "nonadaptive-post-quantum-ds",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "AC12 note that Rompel's security reduction, from breaking the signature scheme to inverting the one-way function, is black-box and relativizing, and the construction evaluates the one-way function only as an oracle.",
+    "model": "The forgers and the inverters are quantum, and the signing queries are classical."
+   },
+   "status": "draft",
+   "page": "content/Reductions/post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12.md",
+   "slug": "post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12",
+   "graphSlug": "Reductions/post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12",
+   "title": "Post-quantum OWF ⇒ Nonadaptive post-quantum DS"
+  },
+  {
+   "id": "red-post-quantum-owf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "post-quantum-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any PPT inverter unchanged as an efficient quantum inverter.",
+    "model": "The hypothesis is one-wayness against quantum inverters."
+   },
+   "status": "draft",
+   "page": "content/Reductions/post-quantum-owf-to-owf.md",
+   "slug": "post-quantum-owf-to-owf",
+   "graphSlug": "Reductions/post-quantum-owf-to-owf",
+   "title": "Post-quantum OWF ⇒ OWF"
+  },
+  {
    "id": "red-pp-to-pspace",
    "kind": "inclusion",
    "hypotheses": [
@@ -21504,7 +21695,7 @@
    "id": "red-prg-to-leakage-resilient-stream-cipher-dp08",
    "kind": "implication",
    "hypotheses": [
-    "prg"
+    "non-uniform-prg"
    ],
    "conclusion": "leakage-resilient-stream-cipher",
    "class": "unstated",
@@ -22918,9 +23109,10 @@
    ],
    "conclusion": "unclonable-indistinguishable-encryption",
    "class": "free",
-   "model": "rom",
+   "model": "other",
    "models": [
-    "rom"
+    "rom",
+    "quantum"
    ],
    "source": [
     "[[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]]"
@@ -22930,7 +23122,7 @@
    "securityLoss": "",
    "rationale": {
     "class": "The theorem holds for every cloning adversary making polynomially many quantum queries to the oracle, which is the free class scoped by the model.",
-    "model": "The proof holds in the quantum random-oracle model, against quantum cloning adversaries that query the random oracle in superposition, and the Statement names the quantum access."
+    "model": "The proof holds in the quantum random-oracle model: the ciphertext is a coset state, and the cloning adversaries are quantum and query the random oracle in superposition, so the edge records rom, which scopes its conclusion, and quantum."
    },
    "status": "draft",
    "page": "content/Reductions/qrom-to-unclonable-encryption-akl22.md",
@@ -22998,7 +23190,7 @@
    "kind": "implication",
    "hypotheses": [
     "quantum-money-mini-scheme",
-    "ds"
+    "nonadaptive-post-quantum-ds"
    ],
    "conclusion": "public-key-quantum-money",
    "class": "fully-black-box",
@@ -23738,7 +23930,7 @@
    "hypotheses": [
     "classical-serial-quantum-money-mini-scheme"
    ],
-   "conclusion": "owf",
+   "conclusion": "post-quantum-owf",
    "class": "fully-black-box",
    "model": "quantum",
    "models": [
@@ -23751,7 +23943,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The function runs the mini-scheme's minting procedure on its input and keeps the serial number, and the counterfeiter calls an arbitrary inverter once as an oracle on the challenge serial number and then mints from the string it returns.",
+    "class": "The function is the scheme's classical serial-number algorithm, called as an oracle, and the counterfeiter calls an arbitrary inverter once as an oracle on the challenge serial number and then runs the scheme's generation procedure on the returned string.",
     "model": "The inverter and the counterfeiter are quantum, so the function is one-way against efficient quantum adversaries."
    },
    "status": "draft",
