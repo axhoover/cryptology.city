@@ -27485,6 +27485,34 @@
    "title": "Zero-bit PRC ⇒ Watermarking"
   },
   {
+   "id": "red-zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness",
+   "kind": "implication",
+   "hypotheses": [
+    "zkp",
+    "np-not-in-io-bpp"
+   ],
+   "conclusion": "czk-worst-case-hardness",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: a PPT algorithm deciding the language contradicts NP ⊄ io-BPP unchanged",
+   "rationale": {
+    "class": "One hypothesis and the conclusion are worst-case complexity separations rather than RTV04 primitives."
+   },
+   "status": "draft",
+   "page": "content/Reductions/zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness.md",
+   "slug": "zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness",
+   "graphSlug": "Reductions/zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness",
+   "title": "ZKP + NP ⊄ io-BPP ⇒ CZK ⊄ BPP"
+  },
+  {
    "id": "red-zkp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
