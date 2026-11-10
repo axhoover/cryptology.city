@@ -17,4 +17,5 @@ cryptobib_key: EC:BJMM12
 
 ## Abstract
 
-TODO — abstract.
+Decoding random linear codes is a well studied problem with many applications in complexity theory and cryptography. The security of almost all coding and LPN/LWE-based schemes relies on the assumption that it is hard to decode random linear codes.
+Recently, there has been progress in improving the running time of the best decoding algorithms for binary random codes. The ball collision technique of Bernstein, Lange and Peters lowered the complexity of Stern's information set decoding algorithm to $2^{0.0556n}$. Using _representations_ this bound was improved to $2^{0.0537n}$ by May, Meurer and Thomae. We show how to further increase the number of representations and propose a new information set decoding algorithm with running time $2^{0.0494n}$.

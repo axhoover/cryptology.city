@@ -17,4 +17,15 @@ cryptobib_key: EC:HowJou10
 
 ## Abstract
 
-TODO — abstract.
+In this paper, we
+study the complexity of solving hard knapsack problems, i.e.,
+knapsacks with a density close to $1$ where lattice-based low
+density attacks are not an option. For such knapsacks, the current
+state-of-the-art is a 31-year old algorithm by Schroeppel and Shamir
+which is based on birthday paradox techniques and yields a running
+time of $\tilde{O}(2^{n/2})$ for knapsacks of $n$ elements and uses
+$\tilde{O}(2^{n/4})$ storage. We propose here two new algorithms
+which improve on this bound, finally lowering the running time down
+to $\tilde{O} (2^{0.3113\, n})$ for almost all knapsacks of density $1$.
+We also demonstrate the practicality
+of these algorithms with an implementation.
