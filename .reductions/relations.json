@@ -28389,12 +28389,12 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "for an $\\varepsilon$-secure weak PRF with $\\varepsilon \\ge n \\cdot 2^{-n/3}$, leakage of $\\log(1/\\varepsilon)/6$ bits per round and next-block advantage at most $8q \\cdot \\varepsilon^{1/12}$ after $q$ rounds",
    "status": "draft",
    "page": "content/Reductions/weak-prf-to-leakage-resilient-stream-cipher-pie09.md",
    "slug": "weak-prf-to-leakage-resilient-stream-cipher-pie09",
    "graphSlug": "Reductions/weak-prf-to-leakage-resilient-stream-cipher-pie09",
-   "title": "Weak PRF ⇒ Leakage-resilient stream cipher"
+   "title": "Key-expanding weak PRF ⇒ Leakage-resilient stream cipher"
   },
   {
    "id": "red-witness-encryption-and-prg-to-pke-ggsw13",

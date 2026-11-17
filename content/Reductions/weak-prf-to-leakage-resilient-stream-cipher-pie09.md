@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Weak PRF ⇒ Leakage-resilient stream cipher"
+title: "Key-expanding weak PRF ⇒ Leakage-resilient stream cipher"
 aliases: []
 id: red-weak-prf-to-leakage-resilient-stream-cipher-pie09
 kind: implication
@@ -11,14 +11,14 @@ class: unstated
 model: standard
 source:
   - "[[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]"
-security-loss: ""
+security-loss: "for an $\\varepsilon$-secure weak PRF with $\\varepsilon \\ge n \\cdot 2^{-n/3}$, leakage of $\\log(1/\\varepsilon)/6$ bits per round and next-block advantage at most $8q \\cdot \\varepsilon^{1/12}$ after $q$ rounds"
 ---
 
-# Weak PRF ⇒ Leakage-resilient stream cipher
+# Key-expanding weak PRF ⇒ Leakage-resilient stream cipher
 
 ## Statement
 
-Let $F : \bits^\kappa \times \bits^n \to \bits^{\kappa + n}$ be a [[pseudorandom-function#key-expanding-weak-prfs|key-expanding weak PRF]]: a weak PRF with $n = \omega(\log \secpar)$ whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^\kappa$. The stream cipher with initial state $(K_0, K_1, X_0)$, for uniform $K_0, K_1 \in \bits^\kappa$ and $X_0 \in \bits^n$, whose round $i$ computes $(K_{i+1}, X_i) := F(K_{i-1}, X_{i-1})$ and outputs $X_i$, is [$\ell$-leakage-resilient](leakage-resilient-stream-cipher#leakage-resilience) — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. Round $i$ reads only $(K_{i-1}, X_{i-1})$; the key $K_i$ of the next round is not accessed. The leakage $\ell$ tolerated per round grows with the security of $F$, and is logarithmic in $\secpar$ for a weak PRF secure against all efficient adversaries — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]].
+Let $F : \bits^\kappa \times \bits^n \to \bits^{\kappa + n}$ be a [[pseudorandom-function#key-expanding-weak-prfs|key-expanding weak PRF]]: a weak PRF secure against non-uniform adversaries, with $n = \omega(\log \secpar)$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^\kappa$. The stream cipher with initial state $(K_0, K_1, X_0)$, for uniform $K_0, K_1 \in \bits^\kappa$ and $X_0 \in \bits^n$, whose round $i$ computes $(K_{i+1}, X_i) := F(K_{i-1}, X_{i-1})$ and outputs $X_i$, is [$\ell$-leakage-resilient](leakage-resilient-stream-cipher#leakage-resilience) — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. Round $i$ reads only $(K_{i-1}, X_{i-1})$; the key $K_i$ of the next round is not accessed. Quantitatively, if $F$ is $\varepsilon$-secure, with $\varepsilon \ge n \cdot 2^{-n/3}$, against circuits within the size and query bounds of Pie09's Theorem 2, the cipher tolerates $\ell = \log(1/\varepsilon)/6$ bits of leakage per round, and the next block after $q$ rounds is distinguishable with advantage at most $8q \cdot \varepsilon^{1/12}$ — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. For a weak PRF secure against all polynomial-size circuits, this leakage is logarithmic in $\secpar$ — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]].
 
 ## Notes
 

@@ -155,7 +155,7 @@ is negligible.
 
 ### Key-expanding weak PRFs
 
-A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] with $\calK = \bits^\kappa$, $\calD = \bits^n$ and $\calR = \bits^{\kappa+n}$, for polynomials $\kappa = \kappa(\secpar)$ and $n = n(\secpar)$ with $n = \omega(\log \secpar)$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^\kappa$. Its security is the weak-PRF game above, unchanged. Each output splits into a key and an input, which the mode of [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Pie09]] feeds back.
+A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] with $\calK = \bits^\kappa$, $\calD = \bits^n$ and $\calR = \bits^{\kappa+n}$, for polynomials $\kappa = \kappa(\secpar)$ and $n = n(\secpar)$ with $n = \omega(\log \secpar)$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^\kappa$. It is secure against [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversaries]]: for every family $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ of polynomial-size circuits playing the weak-PRF game above, the advantage is negligible. Pie09's adversaries and reduction are non-uniform, so this premise is the one its theorem uses — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. Each output splits into a key and an input, which the mode of [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Pie09]] feeds back.
 
 # Other results
 
@@ -164,7 +164,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in fd63895b7448 -->
+<!-- BEGIN GENERATED participates-in c6668a42f6ab -->
 
 ## Participates in
 
@@ -189,7 +189,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]]
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]]
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]]
-- [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
+- [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Key-expanding weak PRF ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
 
 **Produces Pseudorandom function**
 
