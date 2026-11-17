@@ -5,12 +5,13 @@ title: "HVZK ⇒ NIZK (Fiat–Shamir)"
 aliases: []
 id: red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk
 kind: implication
-hypotheses: [honest-verifier-zero-knowledge]
-conclusion: nizk
+hypotheses: [constant-round-public-coin-hvzk-proof]
+conclusion: nizk-argument-for-np
 class: fully-black-box
 model: rom
 source:
-  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+  - folklore
+  - "[[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]]"
 via:
   - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: "soundness: factor $O(q^r)$ over the interactive soundness error for a $q$-query prover and $r$ challenge rounds, $q + 1$ for three-move protocols; zero knowledge: the HVZK simulation error plus the probability that a programmed oracle point was queried before"
@@ -24,11 +25,11 @@ rationale:
 
 ## Statement
 
-The [[fiat-shamir-heuristic|Fiat–Shamir transform]] replaces each verifier challenge of a public-coin protocol by a hash of the statement and the transcript so far — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. Applied to a constant-round public-coin interactive proof that is [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] with negligible soundness error, it yields a [[non-interactive-zero-knowledge|NIZK]] argument in the [[random-oracle-model|random-oracle model]] — standard. For $\Sigma$-protocols the argument is zero-knowledge in the ROM, and with quasi-unique responses it is also simulation-sound and weakly simulation-extractable, hence non-malleable — [[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]].
+The [[fiat-shamir-heuristic|Fiat–Shamir transform]] replaces each verifier challenge of a public-coin protocol by a hash of the statement and the transcript so far — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. Applied to a perfectly complete constant-round public-coin interactive proof for an $\classNP$-complete language that is [[zero-knowledge-proof#constant-round-public-coin-hvzk-proofs|honest-verifier zero-knowledge]] with negligible soundness error, and whose first prover message has min-entropy $\omega(\log \secpar)$, it yields a [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK argument]] for $\classNP$ in the [[random-oracle-model|random-oracle model]] — standard. For $\Sigma$-protocols whose first message has super-logarithmic min-entropy, the argument is zero-knowledge in the ROM, and with quasi-unique responses it is also simulation-sound and weakly simulation-extractable, hence non-malleable — [[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]].
 
 ## Sketch
 
-Zero knowledge: the compiled challenges are uniform, exactly the honest verifier's, so the simulator runs the HVZK simulator and programs the random oracle to return its challenges. Soundness: each oracle query fixes a prefix before its challenge is revealed, so a $q$-query prover gains at most a $\poly(q)$ factor over the interactive soundness error when the round count is constant.
+Zero knowledge: the compiled challenges are uniform, exactly the honest verifier's, so the simulator runs the HVZK simulator and programs the random oracle to return its challenges, which fails only if the adversary queried a programmed point beforehand, an event of negligible probability by the min-entropy condition. Soundness: each oracle query fixes the statement and a prefix before its challenge is revealed, so a $q$-query prover gains at most a $\poly(q)$ factor over the interactive soundness error when the round count is constant.
 
 ## Notes
 
