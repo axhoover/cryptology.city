@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Subset sum ⇒ Decision subset sum"
+title: "Subset sum at constant density below one ⇒ Decision subset sum"
 aliases: []
 id: red-subset-sum-to-decision-subset-sum-in96
 kind: implication
-hypotheses: [subset-sum]
+hypotheses: [subset-sum-constant-density-below-one]
 conclusion: decision-subset-sum
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Subset sum ⇒ Decision subset sum
+# Subset sum at constant density below one ⇒ Decision subset sum
 
 ## Statement
 
-Let $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ for a constant $c > 0$, so that the density is $1/(1+c) < 1$. If [[subset-sum|subset sum]] is hard for $(n, M)$, that is, $f(\mathbf{a}, \mathbf{s}) = (\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is one-way, then [[subset-sum#decision-subset-sum|decision subset sum]] is hard for $(n, M)$: $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is indistinguishable from $(\mathbf{a}, u)$ for uniform $u \in \ZZ_M$ — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
+Let $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ for a constant $c > 0$, so that the density is $1/(1+c) < 1$. If [[subset-sum#subset-sum-at-constant-density-below-one|subset sum is hard at constant density below one]] for this $(n, M)$, that is, $f(\mathbf{a}, \mathbf{s}) = (\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is one-way, then [[subset-sum#decision-subset-sum|decision subset sum]] is hard for $(n, M)$: $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is indistinguishable from $(\mathbf{a}, u)$ for uniform $u \in \ZZ_M$ — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
 
 ## Notes
 

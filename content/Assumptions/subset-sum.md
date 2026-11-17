@@ -10,6 +10,8 @@ id: subset-sum
 variants:
   decision-subset-sum: "#decision-subset-sum"
   lps10-subset-sum: "#subset-sum-at-the-lps10-parameters"
+  subset-sum-constant-density-below-one: "#subset-sum-at-constant-density-below-one"
+  subset-sum-above-density-one: "#subset-sum-above-density-one"
 ---
 
 # Subset sum
@@ -18,7 +20,7 @@ The _subset sum_ assumption states that, given $n$ uniformly random elements $a_
 
 ## Assumption
 
-The assumption is parameterized by the number of elements $n$, which also serves as the security parameter, and a modulus $M = M(n)$. The **density** of an instance is $d := n / \log_2 M$. For $\mathbf{a} = (a_1, \dots, a_n) \in \ZZ_M^n$ and $\mathbf{s} \in \bits^n$ write $\langle \mathbf{a}, \mathbf{s} \rangle := \sum_i s_i a_i \bmod M$. Hardness of the search game below is [[hash-function#preimage-resistance-one-wayness|one-wayness]] of the function $f(\mathbf{a}, \mathbf{s}) = (\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$, the form in which [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]] state it, with $M = 2^{\ell(n)}$.
+The assumption is parameterized by the number of elements $n$, which also serves as the security parameter, and a modulus $M = M(n)$. The **density** of an instance is $d := n / \log_2 M$. For $\mathbf{a} = (a_1, \dots, a_n) \in \ZZ_M^n$ and $\mathbf{s} \in \bits^n$ write $\langle \mathbf{a}, \mathbf{s} \rangle := \sum_i s_i a_i \bmod M$. Hardness of the search game below is [[hash-function#preimage-resistance-one-wayness|one-wayness]] of the function $f(\mathbf{a}, \mathbf{s}) = (\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ ([[subset-sum-to-owf|Subset sum ⇒ OWF]]), the form in which [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]] state it, with $M = 2^{\ell(n)}$.
 
 For $\mathbf{s} \neq \mathbf{s}'$ the difference $\langle \mathbf{a}, \mathbf{s} \rangle - \langle \mathbf{a}, \mathbf{s}' \rangle$ has a coefficient $\pm 1$, so it is uniform over $\ZZ_M$ for uniform $\mathbf{a}$ and $\mathbf{s} \mapsto \langle \mathbf{a}, \mathbf{s} \rangle$ is a universal hash family. At density $d < 1$ the planted $\mathbf{s}$ is therefore the only solution except with probability at most $2^n/M$; at $d > 1$ the expected number of solutions, $1 + (2^n - 1)/M$, exceeds $2^{n(1-1/d)}$, and for $\log_2 M \le n - \omega(\log n)$ the pair $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is statistically close to uniform by the [[leftover-hash-lemma|leftover hash lemma]] — standard.
 
@@ -78,14 +80,22 @@ Deciding whether some subset of given positive integers sums exactly to a given 
 
 ### Search–decision equivalence
 
-For $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ and a constant $c > 0$, hardness of search subset sum implies hardness of decision subset sum — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]] ([[subset-sum-to-decision-subset-sum-in96|Subset sum ⇒ Decision subset sum]]). The converse holds whenever $2^n/M$ is negligible: run the search algorithm and check its answer, since a uniform $u$ has a solution with probability at most $2^n/M$ — standard. Once $\log_2 M \le n - \omega(\log n)$ the decision problem is statistically hard, so the equivalence is meaningful only below density $1$ — standard.
+Hardness of search subset sum [[subset-sum#subset-sum-at-constant-density-below-one|at constant density below one]], with $M = 2^{\ell(n)}$ and $\ell(n) = (1+c)n$ for a constant $c > 0$, implies hardness of decision subset sum for the same $(n, M)$ — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]] ([[subset-sum-to-decision-subset-sum-in96|Subset sum at constant density below one ⇒ Decision subset sum]]). The converse holds whenever $2^n/M$ is negligible: run the search algorithm and check its answer, since a uniform $u$ has a solution with probability at most $2^n/M$ — standard. Once $\log_2 M \le n - \omega(\log n)$ the decision problem is statistically hard, so the equivalence is meaningful only below density $1$ — standard.
 
 ### Constructions
 
-- One-wayness at $\ell(n) = (1+c)n$ makes $f$ itself a PRG ([[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]), and one-wayness at $\ell(n) < n$ makes $\mathbf{s} \mapsto \langle \mathbf{a}, \mathbf{s} \rangle$, keyed by $\mathbf{a}$, a [[hash-function#target-collision-resistance-universal-one-wayness|UOWHF]] ([[subset-sum-to-uowhf-in96|Subset sum ⇒ UOWHF]]) — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. Each evaluation of $f$ yields or hashes many bits at once — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. A PRG gives [[commitment-scheme|bit commitment]] ([[prg-to-com-naor91|PRG ⇒ COM]]) — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+- One-wayness at $\ell(n) = (1+c)n$, [[subset-sum#subset-sum-at-constant-density-below-one|constant density below one]], makes $f$ itself a PRG ([[subset-sum-to-prg-in96|Subset sum at constant density below one ⇒ PRG]]), and one-wayness at $\ell(n) < n$, [[subset-sum#subset-sum-above-density-one|above density one]], makes $\mathbf{s} \mapsto \langle \mathbf{a}, \mathbf{s} \rangle$, keyed by $\mathbf{a}$, a [[hash-function#target-collision-resistance-universal-one-wayness|UOWHF]] ([[subset-sum-to-uowhf-in96|Subset sum above density one ⇒ UOWHF]]) — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. Each evaluation of $f$ yields or hashes many bits at once — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. A PRG gives [[commitment-scheme|bit commitment]] ([[prg-to-com-naor91|PRG ⇒ COM]]) — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 - At the [[subset-sum#subset-sum-at-the-lps10-parameters|low density of the parameters in LPS10]], subset sum gives IND-CPA [[public-key-encryption|PKE]] ([[subset-sum-to-pke-lps10|Subset sum at the LPS10 parameters ⇒ PKE]]) and semi-honest [[oblivious-transfer|OT]] ([[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]]) — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]].
 
 # Variations
+
+## Subset sum at constant density below one
+
+**Subset sum is hard at constant density below one** if, for a constant $c > 0$, subset sum is hard for $(n, M)$ with $M = 2^{\ell(n)}$ and $\ell(n) = (1+c)n$, a density $1/(1+c) < 1$. This is the regime of the PRG and search-to-decision theorems of [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
+
+## Subset sum above density one
+
+**Subset sum is hard above density one** if subset sum is hard for $(n, M)$ with $M = 2^{\ell(n)}$ and $\ell(n) < n$, a density above $1$, the regime of the UOWHF theorem of [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
 
 ## Subset sum at the LPS10 parameters
 
@@ -99,20 +109,25 @@ For $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ and a constant $c > 0$, hardness o
 - **Subexponential algorithms at vanishing density.** A BKW-style algorithm solves random instances of density $o(1)$ in subexponential time; the parameters of the [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]] encryption scheme, with $M^{1/n} > 10 n \log^2 n$, fall in time $2^{(\ln 2/2 + o(1))\, n / \log\log n}$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 - **Merkle–Hellman.** The Merkle–Hellman knapsack cryptosystem publishes a superincreasing sequence disguised by a modular multiplication — [[MH78 - Hiding Information and Signatures in Trapdoor Knapsacks|MH78]]. Shamir's polynomial-time algorithm breaks the basic, singly iterated scheme — [[Sha82 - A Polynomial Time Algorithm for Breaking the Basic Merkle-Hellman Cryptosystem|Sha82]]. The attack exploits the trapdoor structure of the public weights and does not apply to random instances — standard.
 
-<!-- BEGIN GENERATED participates-in 028400403b1a -->
+<!-- BEGIN GENERATED participates-in 67a535c25476 -->
 
 ## Participates in
 
 **Builds on Subset sum**
 
-- [[subset-sum-to-decision-subset-sum-in96|Subset sum ⇒ Decision subset sum]]
+- [[subset-sum-above-density-one-to-subset-sum|Subset sum above density one ⇒ Subset sum]] (via [[subset-sum#subset-sum-above-density-one|Subset sum above density one]])
+- [[subset-sum-constant-density-below-one-to-subset-sum|Subset sum at constant density below one ⇒ Subset sum]] (via [[subset-sum#subset-sum-at-constant-density-below-one|Subset sum at constant density below one]])
+- [[subset-sum-to-decision-subset-sum-in96|Subset sum at constant density below one ⇒ Decision subset sum]] (via [[subset-sum#subset-sum-at-constant-density-below-one|Subset sum at constant density below one]])
 - [[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]] (via [[subset-sum#subset-sum-at-the-lps10-parameters|Subset sum at the LPS10 parameters]])
+- [[subset-sum-to-owf|Subset sum ⇒ OWF]]
 - [[subset-sum-to-pke-lps10|Subset sum at the LPS10 parameters ⇒ PKE]] (via [[subset-sum#subset-sum-at-the-lps10-parameters|Subset sum at the LPS10 parameters]])
-- [[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]
-- [[subset-sum-to-uowhf-in96|Subset sum ⇒ UOWHF]]
+- [[subset-sum-to-prg-in96|Subset sum at constant density below one ⇒ PRG]] (via [[subset-sum#subset-sum-at-constant-density-below-one|Subset sum at constant density below one]])
+- [[subset-sum-to-uowhf-in96|Subset sum above density one ⇒ UOWHF]] (via [[subset-sum#subset-sum-above-density-one|Subset sum above density one]])
 
 **Produces Subset sum**
 
-- [[subset-sum-to-decision-subset-sum-in96|Subset sum ⇒ Decision subset sum]] (via [[subset-sum#decision-subset-sum|Decision subset sum]])
+- [[subset-sum-above-density-one-to-subset-sum|Subset sum above density one ⇒ Subset sum]]
+- [[subset-sum-constant-density-below-one-to-subset-sum|Subset sum at constant density below one ⇒ Subset sum]]
+- [[subset-sum-to-decision-subset-sum-in96|Subset sum at constant density below one ⇒ Decision subset sum]] (via [[subset-sum#decision-subset-sum|Decision subset sum]])
 
 <!-- END GENERATED participates-in -->

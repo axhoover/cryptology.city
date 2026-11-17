@@ -25,4 +25,4 @@ Given a [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of
 ## Notes
 
 - A variant of the protocol needs no erasures — [[CF01 - Universally Composable Commitments|CF01]].
-- With a fresh reference string for each commitment, trapdoor permutations suffice ([[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+- With a fresh reference string for each commitment, trapdoor permutations over bit strings suffice ([[tdp-to-uc-commitment-cf01|TDP over bit strings ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].

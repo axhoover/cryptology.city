@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Subset sum ⇒ UOWHF"
+title: "Subset sum above density one ⇒ UOWHF"
 aliases: []
 id: red-subset-sum-to-uowhf-in96
 kind: implication
-hypotheses: [subset-sum]
+hypotheses: [subset-sum-above-density-one]
 conclusion: uowhf
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Subset sum ⇒ UOWHF
+# Subset sum above density one ⇒ UOWHF
 
 ## Statement
 
-Let $M = 2^{\ell(n)}$ with $\ell(n) < n$, so that the density exceeds $1$. If [[subset-sum|subset sum]] is hard for $(n, M)$, then the family $h_{\mathbf{a}}(\mathbf{s}) = \langle \mathbf{a}, \mathbf{s} \rangle$ from $\bits^n$ to $\ZZ_M$, keyed by uniform $\mathbf{a} \in \ZZ_M^n$, is [[hash-function#target-collision-resistance-universal-one-wayness|target collision resistant]] — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. One evaluation compresses $n$ bits to $\ell(n)$ bits using only additions — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
+Let $M = 2^{\ell(n)}$ with $\ell(n) < n$, so that the density exceeds $1$. If [[subset-sum#subset-sum-above-density-one|subset sum is hard above density one]] for this $(n, M)$, then the family $h_{\mathbf{a}}(\mathbf{s}) = \langle \mathbf{a}, \mathbf{s} \rangle$ from $\bits^n$ to $\ZZ_M$, keyed by uniform $\mathbf{a} \in \ZZ_M^n$, is [[hash-function#target-collision-resistance-universal-one-wayness|target collision resistant]] — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. One evaluation compresses $n$ bits to $\ell(n)$ bits using only additions — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
 
 ## Notes
 

@@ -154,11 +154,11 @@ A linkable ring signature scheme has a further public algorithm that decides whe
 
 # Other results
 
-- [[trapdoor-permutation|Trapdoor permutations]] give ring signatures with fixed-ring unforgeability when a symmetric cipher is modeled as an ideal cipher and a hash function as a random oracle; signer ambiguity is unconditional, and each ring member costs one evaluation of a permutation and one cipher call ([[tdp-to-fixed-ring-ring-signature-rst01|TDP ⇒ Ring signatures with fixed-ring unforgeability]]) — [[RST01 - How to Leak a Secret|RST01]]. The construction paradigm is secure in the random-oracle model, without an ideal cipher — [[BSS02 - Threshold Ring Signatures and Applications to Ad-hoc Groups|BSS02]].
+- [[trapdoor-permutation#trapdoor-permutations-over-bit-strings|Trapdoor permutations over bit strings]] give ring signatures with fixed-ring unforgeability when a symmetric cipher is modeled as an ideal cipher and a hash function as a random oracle; signer ambiguity is unconditional, and each ring member costs one evaluation of a permutation and one cipher call ([[tdp-to-fixed-ring-ring-signature-rst01|TDP over bit strings ⇒ Ring signatures with fixed-ring unforgeability]]) — [[RST01 - How to Leak a Secret|RST01]]. The construction paradigm is secure in the random-oracle model, without an ideal cipher — [[BSS02 - Threshold Ring Signatures and Applications to Ad-hoc Groups|BSS02]].
 - Without random oracles and without setup, ring signatures that are anonymous against full key exposure and unforgeable with respect to insider corruption exist under generic assumptions, among them a semantically secure [[public-key-encryption|PKE]] scheme, a [[digital-signature|signature scheme]] and a [[zero-knowledge-proof#zaps|zap]] for $\classNP$ — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]].
 - For rings of two users, a more efficient scheme without random oracles, based on [[digital-signature#waters-signatures|Waters signatures]], is unforgeable against chosen-subring attacks and unconditionally anonymous against full key exposure — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]].
 
-<!-- BEGIN GENERATED participates-in 650058e7ff53 -->
+<!-- BEGIN GENERATED participates-in 12e034edd9ab -->
 
 ## Participates in
 
@@ -169,6 +169,6 @@ A linkable ring signature scheme has a further public algorithm that decides whe
 **Produces Ring signature**
 
 - [[ring-signature-to-fixed-ring-ring-signature|Ring signatures ⇒ Ring signatures with fixed-ring unforgeability]] (via [[ring-signature#fixed-ring-unforgeability|Fixed-ring unforgeability]])
-- [[tdp-to-fixed-ring-ring-signature-rst01|TDP ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)]] (via [[ring-signature#fixed-ring-unforgeability|Fixed-ring unforgeability]])
+- [[tdp-to-fixed-ring-ring-signature-rst01|TDP over bit strings ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)]] (via [[ring-signature#fixed-ring-unforgeability|Fixed-ring unforgeability]])
 
 <!-- END GENERATED participates-in -->

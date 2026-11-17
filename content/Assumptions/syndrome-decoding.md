@@ -9,6 +9,7 @@ id: syndrome-decoding
 variants:
   goppa-code-indistinguishability: "#goppa-code-indistinguishability"
   mceliece-ow-cpa: "#one-wayness-of-mceliece-encryption"
+  fs96-syndrome-decoding: "#syndrome-decoding-at-the-fs96-parameters"
 ---
 
 # Syndrome decoding
@@ -52,11 +53,15 @@ $m$ samples of [[learning-parity-with-noise|LPN]] in dimension $k$ with noise ra
 
 ### Constructions
 
-- If SD is hard at suitable parameters, there is a [[pseudorandom-generator|PRG]] each application of which yields a linear number of output bits in quadratic time ([[syndrome-decoding-to-prg-fs96|SD ⇒ PRG]]) — [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]].
+- If SD is hard [[syndrome-decoding#syndrome-decoding-at-the-fs96-parameters|at the FS96 parameters]], there is a [[pseudorandom-generator|PRG]] each application of which yields a linear number of output bits in quadratic time ([[syndrome-decoding-to-prg-fs96|SD at the FS96 parameters ⇒ PRG]]) — [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]].
 - SD and [[#Goppa code indistinguishability|Goppa code indistinguishability]] together make McEliece encryption one-way ([[syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa|SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encryption]]) — folklore.
 - Padding the plaintext with a random bit string makes McEliece and Niederreiter encryption [[public-key-encryption#cpa-security|IND-CPA]] without random oracles, assuming Goppa code indistinguishability and the pseudorandomness that LPN implies ([[KS06 - Parallel and Concurrent Security of the HB and HB+ Protocols|KS06]]) — [[NIKM08 - Semantic Security for the McEliece Cryptosystem without Random Oracles|NIKM08]].
 
 # Variations
+
+## Syndrome decoding at the FS96 parameters
+
+**SD is hard at the FS96 parameters** if SD is hard for $(n, k, w)$ in the parameter family of the [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]] generator.
 
 ## Goppa code indistinguishability
 
@@ -117,17 +122,20 @@ The scheme is not IND-CPA: a Goppa code correcting $t$ errors has minimum distan
 - **Information-set decoding.** Prange's algorithm picks a random set $I$ of $n - k$ coordinates with $\mathbf{H}_I$ invertible and outputs $\mathbf{H}_I^{-1}\mathbf{y}$ on $I$ and $\mathbf{0}$ elsewhere — [[Pra62 - The Use of Information Sets in Decoding Cyclic Codes|Pra62]]. It succeeds when $\mathbf{e}$ is supported on $I$, with probability $\binom{n-k}{w}/\binom{n}{w}$ per trial — standard. Stern's variant allows a few errors on the complementary information set, split in two halves and matched by a birthday collision — [[Ste88 - A Method for Finding Codewords of Small Weight|Ste88]]. Representation techniques bring information-set decoding to time $2^{0.0494n}$ for half-distance decoding — [[BJMM12 - Decoding Random Binary Linear Codes in 2n20 How 1 + 1 = 0 Improves Information Set Decoding|BJMM12]].
 - **Distinguishing high-rate Goppa codes.** There is a polynomial-time distinguisher for alternant and Goppa codes of sufficiently high rate over any field; it distinguishes the public keys of the CFS signature scheme for all parameters considered secure, and some McEliece parameters — [[FGO+13 - A Distinguisher for High-Rate McEliece Cryptosystems|FGO+13]]. It refutes [[#Goppa code indistinguishability|Goppa code indistinguishability]] at those rates only, and is a distinguisher, not a key-recovery or decryption attack — [[FGO+13 - A Distinguisher for High-Rate McEliece Cryptosystems|FGO+13]].
 
-<!-- BEGIN GENERATED participates-in e32eef44848f -->
+<!-- BEGIN GENERATED participates-in 762e502eb538 -->
 
 ## Participates in
 
 **Builds on Syndrome decoding**
 
+- [[fs96-syndrome-decoding-to-syndrome-decoding|SD at the FS96 parameters ⇒ SD]] (via [[syndrome-decoding#syndrome-decoding-at-the-fs96-parameters|Syndrome decoding at the FS96 parameters]])
 - [[syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa|SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encryption]]
-- [[syndrome-decoding-to-prg-fs96|SD ⇒ PRG]]
+- [[syndrome-decoding-to-owf|SD ⇒ OWF]]
+- [[syndrome-decoding-to-prg-fs96|SD at the FS96 parameters ⇒ PRG]] (via [[syndrome-decoding#syndrome-decoding-at-the-fs96-parameters|Syndrome decoding at the FS96 parameters]])
 
 **Produces Syndrome decoding**
 
+- [[fs96-syndrome-decoding-to-syndrome-decoding|SD at the FS96 parameters ⇒ SD]]
 - [[syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa|SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encryption]] (via [[syndrome-decoding#one-wayness-of-mceliece-encryption|One-wayness of McEliece encryption]])
 
 <!-- END GENERATED participates-in -->
