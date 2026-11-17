@@ -23,4 +23,4 @@ If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, ev
 ## Notes
 
 - Statistically hiding commitments from one-way functions followed — [[HR07 - Statistically-hiding commitment from any one-way function|HR07]] — and give the same arguments through [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|statistically hiding COM ⇒ statistical ZK arguments]] — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
-- Computational zero-knowledge proofs for $\classNP$ follow from one-way functions as well ([[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]].
+- Computational zero-knowledge proofs for $\classNP$ follow from one-way functions secure against non-uniform adversaries ([[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]].

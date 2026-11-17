@@ -4575,6 +4575,19 @@
    "unlisted": true
   },
   {
+   "id": "non-uniform-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#one-wayness-against-non-uniform-adversaries",
+   "of": "hash-function",
+   "title": "One-wayness against non-uniform adversaries",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "non-uniform-prg",
    "kind": "variant",
    "type": "primitive",
@@ -9335,6 +9348,30 @@
    "title": "Four-message black-box ZK proofs ⊆ coMA"
   },
   {
+   "id": "red-bb-zk-four-message-proof-to-czk",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-four-message-proof"
+   ],
+   "conclusion": "czk",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-four-message-proof-to-czk.md",
+   "slug": "bb-zk-four-message-proof-to-czk",
+   "graphSlug": "Reductions/bb-zk-four-message-proof-to-czk",
+   "title": "Four-message black-box ZK proofs ⊆ CZK"
+  },
+  {
    "id": "red-bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
    "kind": "inclusion",
    "hypotheses": [
@@ -11742,7 +11779,7 @@
    "id": "red-czk-to-ip-bgg-90",
    "kind": "implication",
    "hypotheses": [
-    "owf",
+    "non-uniform-owf",
     "ip"
    ],
    "conclusion": "czk",
@@ -11766,7 +11803,7 @@
    "page": "content/Reductions/czk-to-ip-bgg-90.md",
    "slug": "czk-to-ip-bgg-90",
    "graphSlug": "Reductions/czk-to-ip-bgg-90",
-   "title": "OWF + IP ⇒ CZK"
+   "title": "Non-uniform OWF + IP ⇒ CZK"
   },
   {
    "id": "red-d-th-composite-residuosity-to-he",
@@ -15447,10 +15484,10 @@
    "id": "red-hash-function-to-czk",
    "kind": "implication",
    "hypotheses": [
-    "owf"
+    "non-uniform-owf"
    ],
    "conclusion": "czk",
-   "class": "fully-black-box",
+   "class": "unstated",
    "model": "standard",
    "models": [
     "standard"
@@ -15462,13 +15499,13 @@
    "heuristic": false,
    "securityLoss": "polynomial: zero knowledge reduces to commitment hiding by a hybrid over the polynomially many unopened commitments, on top of the polynomial loss of the commitment from the one-way function",
    "rationale": {
-    "class": "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 chain from a one-way function to the commitment is fully black-box, soundness needs only statistical binding, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
+    "class": "The protocol uses the commitment, and through HILL99 and Naor91 the one-way function, only as oracles, but the zero-knowledge reduction hard-wires the instance and a 3-coloring of it as non-uniform advice, and the vocabulary has no non-uniform class."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-czk.md",
    "slug": "hash-function-to-czk",
    "graphSlug": "Reductions/hash-function-to-czk",
-   "title": "OWF ⇒ CZK"
+   "title": "Non-uniform OWF ⇒ CZK"
   },
   {
    "id": "red-hash-function-to-ds",
@@ -15635,10 +15672,10 @@
    "id": "red-hash-function-to-zkp-gmw91",
    "kind": "implication",
    "hypotheses": [
-    "owf"
+    "non-uniform-owf"
    ],
    "conclusion": "zkp",
-   "class": "fully-black-box",
+   "class": "unstated",
    "model": "standard",
    "models": [
     "standard"
@@ -15650,13 +15687,13 @@
    "heuristic": false,
    "securityLoss": "polynomial: soundness is statistical, and zero knowledge reduces to commitment hiding by a hybrid over the polynomially many unopened commitments, on top of the polynomial loss of the commitment from the one-way function",
    "rationale": {
-    "class": "The protocol uses the commitment only as an oracle and Naor's commitment on the HILL generator uses the one-way function only as an oracle; soundness is statistical, and the zero-knowledge reduction runs any simulation distinguisher only as an oracle to break hiding, hence to invert the function."
+    "class": "The protocol uses the commitment, and through HILL99 and Naor91 the one-way function, only as oracles, but the zero-knowledge reduction hard-wires the instance and a 3-coloring of it as non-uniform advice, and the vocabulary has no non-uniform class."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-zkp-gmw91.md",
    "slug": "hash-function-to-zkp-gmw91",
    "graphSlug": "Reductions/hash-function-to-zkp-gmw91",
-   "title": "OWF ⇒ ZKP"
+   "title": "Non-uniform OWF ⇒ ZKP"
   },
   {
    "id": "red-hash-proof-system-to-pke-cpa-security-cs02",
@@ -19204,6 +19241,33 @@
    "slug": "non-trivial-canonical-identification-scheme-to-identification-scheme",
    "graphSlug": "Reductions/non-trivial-canonical-identification-scheme-to-identification-scheme",
    "title": "Non-trivial canonical ID ⇒ ID"
+  },
+  {
+   "id": "red-non-uniform-owf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "non-uniform-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and a uniform PPT inverter is a non-uniform one with empty advice, forwarded unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-uniform-owf-to-owf.md",
+   "slug": "non-uniform-owf-to-owf",
+   "graphSlug": "Reductions/non-uniform-owf-to-owf",
+   "title": "Non-uniform OWF ⇒ OWF"
   },
   {
    "id": "red-non-uniform-prg-to-prg",
