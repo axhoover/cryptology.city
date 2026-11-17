@@ -58,7 +58,7 @@ $$
 
 where $\pp \gets \Setup(1^\secpar, 1^n)$, $(q, \st) \gets \Query(\pp, i)$ and the probability is also over the coins of $\Answer$.
 
-TODO: state what a PIR scheme denotes as an object. With $\varepsilon$ free, an empty query and answer with $\Decode := 0$ meet the base notion with no assumption. A $(1 - \negl(\secpar))$-correct, query-private scheme with no communication bound is met by the trivial PIR with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]; [[tdh-to-cpir-amr25|TDH ⇒ cPIR]] gives that level only once the trapdoor hash function's error $\tau$ is bounded and its hints are one bit.
+TODO: state what a PIR scheme denotes as an object. With $\varepsilon$ free, an empty query and answer with $\Decode := 0$ meet the base notion with no assumption. A $(1 - \negl(\secpar))$-correct, query-private scheme with no communication bound is met by the trivial PIR with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]; [[tdh-to-cpir-amr25|TDH ⇒ cPIR]] gives that level only once the trapdoor hash function's error $\tau$ is bounded; its hypothesis has one-bit hints.
 
 ### Query Privacy
 
