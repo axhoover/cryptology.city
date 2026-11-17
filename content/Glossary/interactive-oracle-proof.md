@@ -26,7 +26,7 @@ A [[probabilistically-checkable-proofs|PCP]] is a one-round IOP, and an [[intera
 
 ## Succinct IOPs with state-restoration knowledge soundness
 
-Let $\calR_U = \{((M, x, T), w) : M \text{ accepts } (x, w) \text{ within } T \text{ steps}\}$ be the universal relation. A public-coin IOP for $\calR_U$, parameterized by $\secpar$, is **succinct with state-restoration knowledge soundness** if
+Let $\calR_U = \{((M, x, T), w) : M \text{ accepts } (x, w) \text{ within } T \text{ steps}\}$ be the universal relation. A public-coin IOP for $\calR_U$, parameterized by $\secpar$ and complete as in [[#Definition|§ Definition]], is **succinct with state-restoration knowledge soundness** if
 
 - the honest prover, given $w$, runs in time $\poly(\secpar, |M|, |x|, T)$;
 - the verifier runs in time $\poly(\secpar, |M|, |x|, \log T)$, which bounds the number of rounds, the number of queries and the size of each queried symbol;
