@@ -4435,6 +4435,19 @@
    "unlisted": false
   },
   {
+   "id": "na-sim-secure-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#non-adaptive-simulation-security",
+   "of": "functional-encryption",
+   "title": "Non-adaptive simulation security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nexp",
    "kind": "object",
    "type": "complexity-class",
@@ -6746,9 +6759,9 @@
    "page": "content/Primitives/functional-encryption.md",
    "slug": "functional-encryption",
    "graphSlug": "Primitives/functional-encryption",
-   "anchor": "#simulation-based-security",
+   "anchor": "#adaptive-simulation-security",
    "of": "functional-encryption",
-   "title": "Simulation-based security",
+   "title": "Adaptive simulation security",
    "aliases": [],
    "unlisted": false
   },
