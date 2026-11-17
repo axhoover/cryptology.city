@@ -22,13 +22,13 @@ rationale:
 
 ## Statement
 
-Let $\mathsf{HPS}$ be an $\varepsilon$-[[hash-proof-system#universality|universal]] [[hash-proof-system|hash proof system]] for a hard subset membership problem $\calM$, with hash values in $\Pi$, and let $\mathsf{Ext} : \Pi \times \bits^d \to \bits^m$ be a pairwise-independent hash function indexed by its seed $\sigma \in \bits^d$, an average-case strong randomness extractor by the [[leftover-hash-lemma#average-min-entropy|average-case leftover hash lemma]] — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]. The scheme below, with message space $\bits^m$, is [$\ell$-leakage-resilient](leakage-resilient-public-key-encryption#leakage-resilient-cpa-security) for
+Let $\mathsf{HPS}$ be an $\varepsilon$-[[hash-proof-system#universality|universal]] [[hash-proof-system|hash proof system]] with [[hash-proof-system#ideal-families-and-approximation|key approximation error]] $\delta_H$ for a hard subset membership problem $\calM$, with hash values in $\Pi$, and let $\mathsf{Ext} : \Pi \times \bits^d \to \bits^m$ be a pairwise-independent hash function indexed by its seed $\sigma \in \bits^d$, an average-case strong randomness extractor by the [[leftover-hash-lemma#average-min-entropy|average-case leftover hash lemma]] — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]. The scheme below, with message space $\bits^m$, is [$\ell$-leakage-resilient](leakage-resilient-public-key-encryption#leakage-resilient-cpa-security) for
 
 $$
-\ell \le \log(1/\varepsilon) - m - \omega(\log \secpar),
+\ell \le \log(1/(\varepsilon + 2\delta_H)) - m - \omega(\log \secpar),
 $$
 
-with no assumption beyond the hardness of $\calM$, and its efficiency is that of $\mathsf{HPS}$ — [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
+with no assumption beyond the hardness of $\calM$, and its efficiency is that of $\mathsf{HPS}$. For $\delta_H = 0$ this is the bound $\ell \le \log(1/\varepsilon) - m - \omega(\log \secpar)$ of [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]]; for $\delta_H > 0$ the same argument applies with the average guessing probability below — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -46,7 +46,7 @@ with no assumption beyond the hardness of $\calM$, and its efficiency is that of
 
 ## Sketch
 
-Projectivity lets the reduction, which holds $k$ and so answers every leakage query, compute the challenge mask from $\mathsf{Priv}(k, x)$; replacing the sampled $x$ by $x \getsr L$ costs the sampler's statistical distance from uniform, and replacing $x \getsr L$ by $x \getsr X \setminus L$ costs the subset-membership advantage. For $x \notin L$, $H_k(x)$ has min-entropy at least $\log(1/\varepsilon)$ given $\pk$, and $\ell$ bits of leakage on $k$ lower its average min-entropy by at most $\ell$, so by the leftover hash lemma $\mathsf{Ext}(H_k(x), \sigma)$ is statistically close to uniform given $\calA$'s view when $\log(1/\varepsilon) - \ell - m = \omega(\log \secpar)$.
+Projectivity lets the reduction, which holds $k$ and so answers every leakage query, compute the challenge mask from $\mathsf{Priv}(k, x)$; replacing the sampled $x$ by $x \getsr L$ costs the subset error $\delta_L$ on instances in the support of the instance distribution, the others having probability at most $\delta_{\mathsf{I}}$, and replacing $x \getsr L$ by $x \getsr X \setminus L$ costs the subset-membership advantage. For $x \notin L$ and an instance in the support of the instance distribution, the probability of predicting $H_k(x)$ from $\alpha(k)$, averaged over $\alpha(k)$, is at most $\varepsilon$ for the ideal family and so at most $\varepsilon + 2\delta_H$ for $\mathbf{H}$; so $H_k(x)$ has average min-entropy at least $\log(1/(\varepsilon + 2\delta_H))$ given $\pk$, and $\ell$ bits of leakage on $k$ lower it by at most $\ell$, so by the leftover hash lemma $\mathsf{Ext}(H_k(x), \sigma)$ is statistically close to uniform given $\calA$'s view when $\log(1/(\varepsilon + 2\delta_H)) - \ell - m = \omega(\log \secpar)$.
 
 ## Notes
 

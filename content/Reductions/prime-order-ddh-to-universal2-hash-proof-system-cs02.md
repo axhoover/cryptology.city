@@ -25,6 +25,8 @@ Let $\GrGen$ output groups $(\GG, g_1, q)$ of prime order $q$, with membership i
 - smooth: $k = (k_1, k_2) \in \ZZ_q^2$, $\alpha(k) = g_1^{k_1} g_2^{k_2}$, $H_k(u_1, u_2) = u_1^{k_1} u_2^{k_2}$, so $H_k(g_1^r, g_2^r) = \alpha(k)^r$;
 - extended universal-2 for tags $e$: a hash proof system for the same language whose hash takes $(u_1, u_2, e)$ as input; it handles tags of any length with more key components, so no hash function is needed.
 
+The instance, subset and key [[hash-proof-system#ideal-families-and-approximation|approximation errors]] are $0$: $\Lambda$ is sampled exactly, $r \getsr \ZZ_q$ makes $(g_1^r, g_2^r)$ uniform on $L$, and keys are uniform vectors over $\ZZ_q$, so the properties hold for the families themselves — standard.
+
 ## Sketch
 
 Hardness: with $g_2 = g_1^a$, a DDH challenge $(g_1, g_1^a, g_1^r, g_1^{ar'})$ gives the element $(g_1^r, g_1^{ar'})$, which lies in $L$ when $r' = r$ and is uniform in $X \setminus L$ when $r'$ is uniform conditioned on $r' \neq r$, which is $1/q$-close to uniform. Smoothness: for $(u_1, u_2) = (g_1^r, g_2^{r'})$ with $r' \ne r$, the exponents of $\alpha(k)$ and $H_k(u_1, u_2)$ in base $g_1$ are $k_1 + a k_2$ and $r k_1 + a r' k_2$, linearly independent functions of $k$, so $H_k(u_1, u_2)$ is uniform given $\alpha(k)$.

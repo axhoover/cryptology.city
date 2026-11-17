@@ -15594,7 +15594,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the IND-CPA advantage is at most twice the sum of the subset-membership advantage, the smoothness error and the sampler's distance from uniform",
+   "securityLoss": "additive: the IND-CPA advantage is at most twice the sum of the subset-membership advantage, the smoothness error, twice the key approximation error, the subset error and twice the instance error",
    "rationale": {
     "class": "The scheme calls the hash proof system's algorithms only as oracles, and the reduction runs any IND-CPA adversary once as an oracle on a challenge built from its subset-membership instance and a hash key it samples itself."
    },
@@ -29067,7 +29067,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: twice the subset-membership advantage, plus statistical terms in the smoothness and universal-2 errors, one of them linear in the number of decryption queries, and the sampler's distance from uniform",
+   "securityLoss": "additive: twice the subset-membership advantage, plus statistical terms in the smoothness and universal-2 errors, one of them linear in the number of decryption queries, the key approximation errors of both hash proof systems, and the instance and subset errors",
    "rationale": {
     "class": "The scheme calls the two hash proof systems only as oracles, and the reduction answers decryption queries with hash keys it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
    },

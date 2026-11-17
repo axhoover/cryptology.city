@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR is hard for safe-prime moduli]] $n = pq$, there is a [[hash-proof-system#universal-2-hash-proof-systems|universal-2 hash proof system]] for a subset membership problem in $\ZZ_{n^2}^*$ whose hardness follows from DCR — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+If [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR is hard for safe-prime moduli]] $n = pq$, there is a [[hash-proof-system#universal-2-hash-proof-systems|universal-2 hash proof system]] for a subset membership problem in $\ZZ_{n^2}^*$ whose hardness follows from DCR — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]. The system is universal-2 up to [[hash-proof-system#ideal-families-and-approximation|approximation]]: CS02 obtain it from ideal smooth and universal-2 families by sampling keys from an efficiently sampleable key set in place of the ideal one, at negligible statistical distance, so its key approximation error is negligible but not $0$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 
 ## Notes
 
