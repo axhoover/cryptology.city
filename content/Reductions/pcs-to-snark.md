@@ -5,7 +5,7 @@ title: "Extractable PCS ⇒ SNARK"
 aliases: []
 id: red-pcs-to-snark
 kind: implication
-hypotheses: [extractable-pcs]
+hypotheses: [succinct-extractable-pcs]
 conclusion: snark
 class: unstated
 model: rom
@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-Any [[polynomial-commitment#extractability|extractable polynomial commitment scheme]] (PCS) with succinct commitments and evaluation proofs yields a preprocessing [[succinct-argument|SNARK]] for NP in the random-oracle model: the prover of a polynomial IOP for NP, which exists unconditionally, commits to each round's polynomials and answers the verifier's evaluation queries with evaluation proofs, and [[fiat-shamir-heuristic|Fiat–Shamir]] makes the resulting public-coin argument non-interactive; [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] compile algebraic holographic proofs and [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] polynomial IOPs. The setup of the PCS carries over, so a transparent PCS yields a transparent SNARK, and a hiding PCS with zero-knowledge evaluation proofs, compiling a zero-knowledge polynomial IOP, yields a zk-SNARK — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]], [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]].
+Any [[polynomial-commitment#succinct-extractability|succinct extractable polynomial commitment scheme]] (PCS), one whose commitments, evaluation proofs and verification are bounded by a polynomial in $\secpar + \log d$ for degree bound $d$, yields a preprocessing [[succinct-argument|SNARK]] for NP in the random-oracle model: the prover of a polynomial IOP for NP, which exists unconditionally, commits to each round's polynomials and answers the verifier's evaluation queries with evaluation proofs, and [[fiat-shamir-heuristic|Fiat–Shamir]] makes the resulting public-coin argument non-interactive; [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] compile algebraic holographic proofs and [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] polynomial IOPs. The setup of the PCS carries over, so a transparent PCS yields a transparent SNARK, and a hiding PCS with zero-knowledge evaluation proofs, compiling a zero-knowledge polynomial IOP, yields a zk-SNARK — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]], [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]].
 
 ## Sketch
 

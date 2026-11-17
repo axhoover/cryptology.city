@@ -7610,6 +7610,19 @@
    "unlisted": false
   },
   {
+   "id": "succinct-extractable-pcs",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/polynomial-commitment.md",
+   "slug": "polynomial-commitment",
+   "graphSlug": "Primitives/polynomial-commitment",
+   "anchor": "#succinct-extractability",
+   "of": "pcs",
+   "title": "Succinct extractability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -21255,7 +21268,7 @@
    "id": "red-pcs-to-snark",
    "kind": "implication",
    "hypotheses": [
-    "extractable-pcs"
+    "succinct-extractable-pcs"
    ],
    "conclusion": "snark",
    "class": "unstated",
@@ -27830,6 +27843,33 @@
    "title": "Subset sum at constant density above one ⇒ UOWHF"
   },
   {
+   "id": "red-succinct-extractable-pcs-to-extractable-pcs",
+   "kind": "implication",
+   "hypotheses": [
+    "succinct-extractable-pcs"
+   ],
+   "conclusion": "extractable-pcs",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any adversary against extractability unchanged, with its extractor."
+   },
+   "status": "draft",
+   "page": "content/Reductions/succinct-extractable-pcs-to-extractable-pcs.md",
+   "slug": "succinct-extractable-pcs-to-extractable-pcs",
+   "graphSlug": "Reductions/succinct-extractable-pcs-to-extractable-pcs",
+   "title": "Succinct extractable PCS ⇒ Extractable PCS"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
@@ -28728,6 +28768,33 @@
    "slug": "tpke-cpa-security-to-threshold-encryption",
    "graphSlug": "Reductions/tpke-cpa-security-to-threshold-encryption",
    "title": "TPKE CPA Security ⇒ TPKE"
+  },
+  {
+   "id": "red-transparent-succinct-argument-to-snark",
+   "kind": "implication",
+   "hypotheses": [
+    "transparent-succinct-argument"
+   ],
+   "conclusion": "snark",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any adversary against knowledge soundness unchanged, with its extractor."
+   },
+   "status": "draft",
+   "page": "content/Reductions/transparent-succinct-argument-to-snark.md",
+   "slug": "transparent-succinct-argument-to-snark",
+   "graphSlug": "Reductions/transparent-succinct-argument-to-snark",
+   "title": "STARK ⇒ SNARK"
   },
   {
    "id": "red-twisted-edwards-dlog-to-prime-order-dlog",
@@ -29862,6 +29929,33 @@
    "slug": "zero-bit-prc-to-watermarking-cg24",
    "graphSlug": "Reductions/zero-bit-prc-to-watermarking-cg24",
    "title": "Zero-bit PRC ⇒ Watermarking"
+  },
+  {
+   "id": "red-zk-snark-to-snark",
+   "kind": "implication",
+   "hypotheses": [
+    "zk-snark"
+   ],
+   "conclusion": "snark",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any adversary against knowledge soundness unchanged, with its extractor."
+   },
+   "status": "draft",
+   "page": "content/Reductions/zk-snark-to-snark.md",
+   "slug": "zk-snark-to-snark",
+   "graphSlug": "Reductions/zk-snark-to-snark",
+   "title": "zk-SNARK ⇒ SNARK"
   },
   {
    "id": "red-zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness",
