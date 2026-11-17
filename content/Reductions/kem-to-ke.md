@@ -5,7 +5,7 @@ title: "KEM ⇒ KE"
 aliases: []
 id: red-kem-to-ke
 kind: implication
-hypotheses: [kem]
+hypotheses: [ind-cpa-kem]
 conclusion: ke
 class: fully-black-box
 model: standard
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \Encap, \Decap)$ yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \Encap(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\Decap(\sk, c)$. If the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]], the protocol is secure against eavesdroppers — folklore.
+A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \Encap, \Decap)$ yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \Encap(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\Decap(\sk, c)$. If the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]], the protocol is secure against eavesdroppers, and it is $(1-\varepsilon)$-correct when the KEM is — folklore.
 
 ## Sketch
 

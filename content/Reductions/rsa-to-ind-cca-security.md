@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ and derives the key $\hash(r)$. If the [[rsa-assumption|RSA]] assumption holds, RSA-KEM is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random oracle model]] — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]].
+RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ and derives the key $\hash(r)$, for a hash function $\hash$ with range $\bits^{\ell(\secpar)}$, $\secpar \le \ell(\secpar) \le \poly(\secpar)$; decapsulation computes $c^d \bmod N$ and hashes it. RSA-KEM is perfectly correct because $(r^e)^d = r \bmod N$ for every $r \in \ZZ_N$ — standard. If the [[rsa-assumption|RSA]] assumption holds, RSA-KEM is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random oracle model]] — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]].
 
 ## Sketch
 
