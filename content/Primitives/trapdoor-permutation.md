@@ -70,11 +70,11 @@ An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \c
 
 ## Claw-free permutations
 
-A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for uniform $x_1$ yields a claw — standard.
+A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. $\Gen$ comes with a $\PPT$ sampler that, given $(f_0, f_1)$, outputs an element of $\calD$ within negligible statistical distance of uniform. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for $x_1$ output by the sampler yields a claw — standard.
 
 ### Claw-free trapdoor permutations
 
-A _claw-free pair of trapdoor permutations_ is a claw-free pair $(f_0, f_1)$ whose generator also outputs trapdoors $\td_0, \td_1$ with which $f_0^{-1}$ and $f_1^{-1}$ are efficiently computable — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then a trapdoor permutation, one-way by the argument above — standard.
+A _claw-free pair of trapdoor permutations_ is a claw-free pair $(f_0, f_1)$ whose generator also outputs trapdoors $\td_0, \td_1$ with which $f_0^{-1}$ and $f_1^{-1}$ are efficiently computable — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Dropping the trapdoors leaves a claw-free pair ([[claw-free-trapdoor-permutations-to-claw-free-permutations|Claw-free TDP ⇒ Claw-free permutations]]) — folklore. Each $f_b$ is a trapdoor permutation, one-way by the argument above ([[claw-free-trapdoor-permutations-to-tdp|Claw-free TDP ⇒ TDP]]) — folklore.
 
 ## Lossy trapdoor functions
 
@@ -90,7 +90,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 9b0612a56f84 -->
+<!-- BEGIN GENERATED participates-in afbdea3e71bd -->
 
 ## Participates in
 
@@ -102,6 +102,8 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
 - [[claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00|Claw-free TDP ⇒ Chameleon hash (Krawczyk–Rabin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
+- [[claw-free-trapdoor-permutations-to-claw-free-permutations|Claw-free TDP ⇒ Claw-free permutations]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
+- [[claw-free-trapdoor-permutations-to-tdp|Claw-free TDP ⇒ TDP]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures (BMW)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
@@ -126,6 +128,8 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 **Produces Trapdoor permutation**
 
 - [[bit-string-tdp-to-tdp|TDP over bit strings ⇒ TDP]]
+- [[claw-free-trapdoor-permutations-to-claw-free-permutations|Claw-free TDP ⇒ Claw-free permutations]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
+- [[claw-free-trapdoor-permutations-to-tdp|Claw-free TDP ⇒ TDP]]
 - [[dcr-to-highly-lossy-trapdoor-function-fgkrs10|DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Highly lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])

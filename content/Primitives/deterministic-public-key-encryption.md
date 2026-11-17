@@ -7,8 +7,6 @@ aliases:
   - Deterministic public-key encryption
 title: Deterministic public-key encryption
 id: dpke
-variants:
-  block-source-dpke: "#security-for-block-sources"
 ---
 
 # Deterministic public-key encryption
@@ -63,11 +61,15 @@ $$
 
 is negligible. In the random oracle model both $\calA_m$ and $\calA_g$ query the oracle — [[BBO07 - Deterministic and Efficiently Searchable Encryption|BBO07]]. Distinct components and $\mu = \omega(\log \secpar)$ are necessary: equal messages have equal ciphertexts, and for $\mu = O(\log \secpar)$, $\calA_g$ can encrypt a likely message itself and compare; the length condition plays the role of $|m_0| = |m_1|$ in CPA security — standard.
 
+As an object, D-PKE denotes a $(1-\negl(\secpar))$-correct scheme that is PRIV-secure for every $\mu = \omega(\log \secpar)$ — [[BBO07 - Deterministic and Efficiently Searchable Encryption|BBO07]] — and whose message space contains $\bits^{n(\secpar)}$ for some $n(\secpar) = \omega(\log \secpar)$; without the length bound no message finder is admissible and PRIV is vacuous — standard.
+
 # Variations
 
 ## Security for block sources
 
-A vector $\mathbf{x}$ of messages is a **block source** with min-entropy $\mu$ if each $x[i]$ has min-entropy at least $\mu$ conditioned on every value of $(x[1], \ldots, x[i-1])$. PRIV security for block sources restricts $\calA_m$ to such vectors, so it is weaker than PRIV, which lets the components be arbitrarily correlated as long as each has min-entropy $\mu$ — [[BFO08 - On Notions of Security for Deterministic Encryption, and Efficient Constructions without Random Oracles|BFO08]]. BFO08 show it equivalent to single-message and indistinguishability-based formulations, and construct CPA- and CCA-secure D-PKE for block sources in the standard model, extending the [[trapdoor-permutation#lossy-trapdoor-functions|lossy-trapdoor-function]] framework of [[PW08 - Lossy trapdoor functions and their applications|PW08]], with instantiations under number-theoretic assumptions — [[BFO08 - On Notions of Security for Deterministic Encryption, and Efficient Constructions without Random Oracles|BFO08]].
+A vector $\mathbf{x}$ of messages is a **block source** with min-entropy $\mu$ if each $x[i]$ has min-entropy at least $\mu$ conditioned on every value of $(x[1], \ldots, x[i-1])$. PRIV security for block sources restricts admissible $\calA_m$ to block sources, so it is weaker than PRIV, which lets the components be arbitrarily correlated as long as each has min-entropy $\mu$ — [[BFO08 - On Notions of Security for Deterministic Encryption, and Efficient Constructions without Random Oracles|BFO08]]. BFO08 show it equivalent to single-message and indistinguishability-based formulations, and construct CPA- and CCA-secure D-PKE for block sources in the standard model, extending the [[trapdoor-permutation#lossy-trapdoor-functions|lossy-trapdoor-function]] framework of [[PW08 - Lossy trapdoor functions and their applications|PW08]], with instantiations under number-theoretic assumptions — [[BFO08 - On Notions of Security for Deterministic Encryption, and Efficient Constructions without Random Oracles|BFO08]].
+
+TODO: the min-entropy regime of PRIV security for block sources, stated from [[BFO08 - On Notions of Security for Deterministic Encryption, and Efficient Constructions without Random Oracles|BFO08]]: which $\mu$, relative to the message length $n$, the definition and the constructions quantify over, and whether security holds for every such $\mu$ or for one. Register the notion as a variant once the regime is stated, with a weakening edge from D-PKE if the regime lies within $\mu = \omega(\log \secpar)$.
 
 # Other results
 

@@ -911,19 +911,6 @@
    "unlisted": false
   },
   {
-   "id": "block-source-dpke",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/deterministic-public-key-encryption.md",
-   "slug": "deterministic-public-key-encryption",
-   "graphSlug": "Primitives/deterministic-public-key-encryption",
-   "anchor": "#security-for-block-sources",
-   "of": "dpke",
-   "title": "Security for block sources",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "boneh-lynn-shacham-signature",
    "kind": "variant",
    "type": "primitive",
@@ -2042,19 +2029,6 @@
    "anchor": "#designated-verifier-delegation-for-p",
    "of": "snark",
    "title": "Designated-verifier delegation for P",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
-   "id": "dynamic-accumulator",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/accumulator.md",
-   "slug": "accumulator",
-   "graphSlug": "Primitives/accumulator",
-   "anchor": "#dynamic-accumulators",
-   "of": "accumulator",
-   "title": "Dynamic accumulators",
    "aliases": [],
    "unlisted": false
   },
@@ -10728,6 +10702,60 @@
    "slug": "claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
    "graphSlug": "Reductions/claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
    "title": "Claw-free TDP ⇒ Chameleon hash (Krawczyk–Rabin)"
+  },
+  {
+   "id": "red-claw-free-trapdoor-permutations-to-claw-free-permutations",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-trapdoor-permutations"
+   ],
+   "conclusion": "claw-free-permutations",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the pair, and the reduction forwards any claw finder unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/claw-free-trapdoor-permutations-to-claw-free-permutations.md",
+   "slug": "claw-free-trapdoor-permutations-to-claw-free-permutations",
+   "graphSlug": "Reductions/claw-free-trapdoor-permutations-to-claw-free-permutations",
+   "title": "Claw-free TDP ⇒ Claw-free permutations"
+  },
+  {
+   "id": "red-claw-free-trapdoor-permutations-to-tdp",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-trapdoor-permutations"
+   ],
+   "conclusion": "tdp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "negligible additive: the sampler's statistical distance",
+   "rationale": {
+    "class": "One fixed construction uses the pair's algorithms only as oracles, and the reduction runs the inverter once."
+   },
+   "status": "draft",
+   "page": "content/Reductions/claw-free-trapdoor-permutations-to-tdp.md",
+   "slug": "claw-free-trapdoor-permutations-to-tdp",
+   "graphSlug": "Reductions/claw-free-trapdoor-permutations-to-tdp",
+   "title": "Claw-free TDP ⇒ TDP"
   },
   {
    "id": "red-cls-hardness-to-ppad-hardness-dp11",
@@ -26150,7 +26178,7 @@
    "hypotheses": [
     "strong-rsa-safe-primes"
    ],
-   "conclusion": "dynamic-accumulator",
+   "conclusion": "accumulator",
    "class": "unstated",
    "model": "standard",
    "models": [
