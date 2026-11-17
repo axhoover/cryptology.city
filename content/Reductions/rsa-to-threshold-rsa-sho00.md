@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "RSA ⇒ Threshold RSA signatures (Shoup)"
+title: "RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)"
 aliases: []
 id: red-rsa-to-threshold-rsa-sho00
 kind: implication
-hypotheses: [rsa]
+hypotheses: [rsa-safe-primes]
 conclusion: threshold-rsa
 class: unstated
 model: rom
@@ -18,11 +18,11 @@ rationale:
   model: "Both the full-domain hash and the hash of the non-interactive share-correctness proofs are modeled as random oracles."
 ---
 
-# RSA ⇒ Threshold RSA signatures (Shoup)
+# RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)
 
 ## Statement
 
-Let $N = pq$ for primes $p = 2p'+1$ and $q = 2q'+1$ with $p'$ and $q'$ prime, let $e$ be a prime greater than the number $n$ of parties, and let $H$ hash messages into $\ZZ_N^*$. In [[threshold-signature#threshold-rsa|Shoup's threshold RSA scheme]] a trusted dealer shares the RSA signing exponent among the $n$ parties, and any $k$ honestly generated signature shares combine into the RSA full-domain-hash signature $y$ with $y^e = H(m) \bmod N$. Against a static adversary corrupting $t$ parties, with $k = t+1$ and $n - t \ge k$, the scheme is [[threshold-signature#unforgeability|unforgeable]] and [[threshold-signature#robustness|robust]] in the [[random-oracle-model|random-oracle model]] if the [[rsa-assumption|RSA problem]] is hard for such moduli and exponents — [[Sho00 - Practical Threshold Signatures|Sho00]].
+Let $N = pq$ for primes $p = 2p'+1$ and $q = 2q'+1$ with $p'$ and $q'$ prime, let $e$ be a prime greater than the number $n$ of parties, and let $H$ hash messages into $\ZZ_N^*$. In [[threshold-signature#threshold-rsa|Shoup's threshold RSA scheme]] a trusted dealer shares the RSA signing exponent among the $n$ parties, and any $k$ honestly generated signature shares combine into the RSA full-domain-hash signature $y$ with $y^e = H(m) \bmod N$. Against a static adversary corrupting $t$ parties, with $k = t+1$ and $n - t \ge k$, the scheme is [[threshold-signature#unforgeability|unforgeable]] and [[threshold-signature#robustness|robust]] in the [[random-oracle-model|random-oracle model]] if the [[rsa-assumption#rsa-with-safe-prime-moduli|RSA problem is hard for such moduli and exponents]] — [[Sho00 - Practical Threshold Signatures|Sho00]].
 
 ## Notes
 

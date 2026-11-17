@@ -39,7 +39,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 432cb8d5bc49 -->
+<!-- BEGIN GENERATED participates-in 888fddaeffbe -->
 
 ## Participates in
 
@@ -98,7 +98,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[qr-to-ind-id-cpa-coc01|QR ⇒ IBE (Cocks, random oracle model)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
-- [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]]
+- [[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)]]
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
