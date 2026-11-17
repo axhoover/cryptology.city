@@ -20712,7 +20712,7 @@
    "hypotheses": [
     "paired-group-ddh"
    ],
-   "conclusion": "ddh",
+   "conclusion": "prime-order-ddh",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -20731,7 +20731,7 @@
    "page": "content/Reductions/paired-group-ddh-to-ddh.md",
    "slug": "paired-group-ddh-to-ddh",
    "graphSlug": "Reductions/paired-group-ddh-to-ddh",
-   "title": "Paired-group DDH ⇒ DDH"
+   "title": "Paired-group DDH ⇒ prime-order DDH"
   },
   {
    "id": "red-partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
@@ -21268,6 +21268,33 @@
    "slug": "pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
    "graphSlug": "Reductions/pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
    "title": "NM-CCA2 ⇔ IND-CCA2"
+  },
+  {
+   "id": "red-pke-nm-cca2-security-to-pke-nm-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-nm-cca2-security"
+   ],
+   "conclusion": "pke-nm-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the NM-CPA adversary once, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-nm-cca2-security-to-pke-nm-cpa-security.md",
+   "slug": "pke-nm-cca2-security-to-pke-nm-cpa-security",
+   "graphSlug": "Reductions/pke-nm-cca2-security-to-pke-nm-cpa-security",
+   "title": "NM-CCA2 ⇒ NM-CPA"
   },
   {
    "id": "red-pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
@@ -21965,6 +21992,33 @@
    "slug": "prc-to-ske-cg24",
    "graphSlug": "Reductions/prc-to-ske-cg24",
    "title": "PRC ⇒ SKE"
+  },
+  {
+   "id": "red-pre-cca-to-pre",
+   "kind": "implication",
+   "hypotheses": [
+    "pre-cca"
+   ],
+   "conclusion": "pre",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the CPA adversary once, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pre-cca-to-pre.md",
+   "slug": "pre-cca-to-pre",
+   "graphSlug": "Reductions/pre-cca-to-pre",
+   "title": "CCA-secure PRE ⇒ PRE"
   },
   {
    "id": "red-prf-to-garbled-circuits-bhr12",

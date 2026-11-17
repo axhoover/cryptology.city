@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] with domain $\calN$ and range $\bits^\tau$, write $F_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently sampleable and computable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calM \to \bits^\tau$. The Wegman–Carter MAC has key $(k, h)$ with $k \gets \KeyGen(1^\secpar)$ and $h \getsr \calH$, nonce space $\calN$, and
+Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] with range $\bits^\tau$ whose domain $\calN = \calN_\secpar$ has size superpolynomial in $\secpar$, as the nonce space of a [[message-authentication-code#nonce-based-macs|nonce-based MAC]] does, write $F_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently sampleable and computable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calM \to \bits^\tau$. The Wegman–Carter MAC has key $(k, h)$ with $k \gets \KeyGen(1^\secpar)$ and $h \getsr \calH$, nonce space $\calN$, and
 
 $$
 \Tag((k, h), n, m) := F_k(n) \oplus h(m), \qquad \Vrfy((k, h), n, m, t) := [t = F_k(n) \oplus h(m)].
