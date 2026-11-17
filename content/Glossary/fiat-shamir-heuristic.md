@@ -38,15 +38,14 @@ If one-way functions exist, there is a secure 3-round public-coin identification
 
 ### Natural Protocols (KRS25)
 
-Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits ([[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]).
+Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that, for every hash function, the Fiat-Shamir transform applied to a corresponding instantiation of the [[gkr-protocol#gkr-based-succinct-arguments|GKR-based succinct interactive argument]] for non-deterministic bounded-depth computation lets an efficient prover prove a _false_ statement for an explicit circuit — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. Unlike the interactive proof of [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]] for deterministic computation, this argument relies on cryptographic primitives — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]].
 
-<!-- BEGIN GENERATED participates-in 28d642cfd062 -->
+<!-- BEGIN GENERATED participates-in de3477f857d8 -->
 
 ## Participates in
 
 **Barriers**
 
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 - [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 - [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 

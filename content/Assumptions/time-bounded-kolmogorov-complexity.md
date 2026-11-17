@@ -9,7 +9,7 @@ id: kt-mild-average-case-hardness
 
 # Time-bounded Kolmogorov complexity
 
-The $t$-time-bounded Kolmogorov complexity $K^t(x)$ of a string $x$ is the length of the shortest program that outputs $x$ within $t(|x|)$ steps. The assumption is that every efficient algorithm fails to compute $K^t(x)$ on at least an inverse-polynomial fraction of uniformly random $x$.
+The $t$-time-bounded Kolmogorov complexity $K^t(x)$ of a string $x$ is the length of the shortest program that outputs $x$ within $t(|x|)$ steps. The assumption is that, for some polynomial time bound $t(n) \ge (1+\varepsilon)n$ with a constant $\varepsilon > 0$, every efficient algorithm fails to compute $K^t(x)$ on at least an inverse-polynomial fraction of uniformly random $x$.
 
 ## Assumption
 
@@ -40,6 +40,8 @@ $$
 $$
 
 — [[LP20 - On One-way Functions and Kolmogorov Complexity|LP20]].
+
+The assumption is that there are a constant $\varepsilon > 0$ and a polynomial $t(n) \ge (1+\varepsilon)n$ such that $K^t$ is mildly hard on average; by the [[kt-mild-average-case-hardness-to-owf-lp20|equivalence with one-way functions]] this is equivalent to its holding for every such $t$ — [[LP20 - On One-way Functions and Kolmogorov Complexity|LP20]].
 
 ## Known Results
 

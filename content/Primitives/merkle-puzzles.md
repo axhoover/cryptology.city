@@ -10,13 +10,13 @@ id: merkle-puzzles
 
 # Merkle puzzles
 
-Merkle's Puzzles is a [[key-exchange|key-agreement]] protocol in the [[random-oracle-model|random oracle model]] in which the honest parties make $O(n)$ oracle queries and any eavesdropper recovering the key with constant probability makes $\Omega(n^2)$ queries — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]].
+Merkle's Puzzles is a [[key-exchange|key-agreement]] protocol in the [[random-oracle-model|random oracle model]] with a parameter $1 \le n(\secpar) \le \poly(\secpar)$, in which the honest parties make $O(n)$ oracle queries and any eavesdropper recovering the key with constant probability makes $\Omega(n^2)$ queries — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]].
 
 ## Syntax
 
 A random-oracle key-agreement protocol $\Pi = (A, B)$ is a pair of interactive oracle algorithms with access to a uniformly random function $H : \calD \to \calR$. On input $1^\secpar$ they exchange messages over a public channel, the sequence of messages being the transcript $\tau$, and output keys $k_A, k_B \in \calK \cup \{\bot\}$; write $(\tau, k_A, k_B) \gets \langle A^H(1^\secpar), B^H(1^\secpar) \rangle$. The protocol has **query complexity** $n$ if each of $A$ and $B$ makes at most $n$ queries to $H$ — standard.
 
-**Merkle's puzzles** with parameter $n$ uses $H : [n^2] \to \bits^\secpar$ and key space $\calK = [n^2]$. Each party queries $H$ at $n$ random points and sends the answers; a point both parties queried is the key.
+**Merkle's puzzles** with parameter $n = n(\secpar)$, for a function $1 \le n(\secpar) \le \poly(\secpar)$, uses $H : [n^2] \to \bits^\secpar$ and key space $\calK = [n^2]$. Each party queries $H$ at $n$ random points and sends the answers; a point both parties queried is the key.
 
 ```pseudocode
 \begin{algorithm}
@@ -47,7 +47,7 @@ $$
 \Pr\!\left[k_A = k_B \ne \bot\right] \ge \rho,
 $$
 
-over $H$ and the coins of $A$ and $B$. If $H$ is injective, Merkle's puzzles agrees exactly when the two sets of points intersect, which fails with probability $\prod_{t=0}^{n-1} \frac{n^2 - n - t}{n^2 - t} \le (1 - 1/n)^n \le 1/e$. $H$ fails to be injective with probability at most $n^4 / 2^{\secpar + 1}$, so Merkle's puzzles is $(1 - 1/e - n^4/2^{\secpar+1})$-correct — standard.
+over $H$ and the coins of $A$ and $B$. If $H$ is injective, Merkle's puzzles agrees exactly when the two sets of points intersect, which fails with probability $\prod_{t=0}^{n-1} \frac{n^2 - n - t}{n^2 - t} \le (1 - 1/n)^n \le 1/e$. $H$ fails to be injective with probability at most $n^4 / 2^{\secpar + 1}$, so Merkle's puzzles is $(1 - 1/e - n^4/2^{\secpar+1})$-correct, and for $n(\secpar) \le \poly(\secpar)$ the bound is $1 - 1/e - \negl(\secpar)$ — standard.
 
 ### Security
 
@@ -74,6 +74,8 @@ $$
 $$
 
 Merkle's puzzles is $(q, (q+1)/n^2)$-secure for every $q$, so an eavesdropper that recovers the key with constant probability makes $\Omega(n^2)$ queries, while the honest parties make $n$ each — standard; the protocol and its quadratic gap are from [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]. The joint distribution of the parties' points and $H$ is unchanged by relabelling the points of $[n^2]$ with a permutation $\pi$, mapping each point $x$ to $\pi(x)$ and $H$ to $H \circ \pi^{-1}$; such a relabelling leaves the transcript unchanged, and if $\pi$ fixes the points queried so far, also the eavesdropper's answers. Conditioned on the transcript, on those answers and on the key not having been queried yet, the key is therefore uniform over the points not yet queried. The eavesdropper finds it among its $q$ queries with probability at most $q/n^2$, and otherwise guesses it with probability at most $1/(n^2 - q)$, for a total of at most $(q+1)/n^2$ — standard.
+
+As an object, Merkle's puzzles denotes this protocol for every such $n$: it is $(1 - 1/e - \negl(\secpar))$-correct and $(q, (q+1)/n^2)$-secure for every $q$ — standard.
 
 # Variations
 

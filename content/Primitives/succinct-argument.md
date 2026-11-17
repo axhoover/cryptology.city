@@ -204,7 +204,7 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces tightly to the $q$-DLOG assumption ([[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK]]) — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 466461f25bf8 -->
+<!-- BEGIN GENERATED participates-in 93dd9ce297bf -->
 
 ## Participates in
 
@@ -247,6 +247,5 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 **Barriers**
 
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to fully succinct SNARKs]] (via [[succinct-argument#fully-succinct-snarks|Fully succinct SNARKs]])
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 
 <!-- END GENERATED participates-in -->

@@ -24,16 +24,12 @@ $$
 
 The summand is a polynomial of degree at most $2$ in each of its $s_i + 2 s_{i+1}$ variables — [[Tha13 - Time-Optimal Interactive Proofs for Circuit Evaluation|Tha13]], so by the [[schwartz-zippel-lemma|Schwartz–Zippel lemma]] a cheating prover survives each layer's sum-check with probability $O((s_i + s_{i+1})/|\FF|)$ and the line step with probability $O(s_{i+1}/|\FF|)$, for a total soundness error $O(d \log \max_i S_i / |\FF|)$ — standard.
 
+## GKR-based succinct arguments
+
+The standard interactive succinct argument based on the GKR protocol verifies a non-deterministic bounded-depth computation and, unlike the interactive proof above, relies on underlying cryptographic primitives — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. For every hash function, a corresponding instantiation of this argument is not adaptively sound after the [[fiat-shamir-heuristic|Fiat–Shamir]] transform: there is an explicit circuit, depending on the hash function, for which an efficient prover produces an accepting non-interactive proof of a false statement — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. More generally, for every circuit $C$ and output $y$ there is a functionally equivalent circuit $C^*$ for which an accepting proof that $C^*$ outputs $y$ can be produced, whether or not it does — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. Versions of the attack also break non-adaptive soundness, with an attacking circuit independent of the underlying cryptographic objects, but either the circuit has very large depth or the attack makes additional assumptions on the underlying primitives — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. The attacked argument is a standard protocol, unlike earlier counterexamples to Fiat–Shamir, which are protocols built to fail ([[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]) — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]].
+
+TODO: before this argument is registered as a variant and the KRS25 barrier against Fiat–Shamir applied to it is restored, state from KRS25's body how the witness is committed and by which commitment, how the verifier checks the final input-layer claim on the witness part, and what binding or soundness the commitment has, so that the protocol is a sound interactive argument, and which instantiation the attack breaks.
+
 # Other results
 
 For log-space-uniform $\mathrm{NC}$ the verifier runs in time $n \cdot \polylog(n)$ with $\polylog(n)$ communication, and all of $\classP$ has public-coin interactive proofs with log-space, polynomial-time verifiers — [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]. With the Kalai–Raz transformation from public-coin interactive proofs to 1-round arguments, log-space-uniform $\mathrm{NC}$ has designated-verifier non-interactive [[succinct-argument|arguments]] in the public-key model with polylogarithmic communication and quasi-linear verification, sound if [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]] exists — [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]], [[KR09 - Probabilistically Checkable Arguments|KR09]]. Every language decidable in polynomial time and bounded polynomial space has an interactive proof with a polynomial-time prover, an almost-linear-time verifier and a constant number of rounds — [[RRR16 - Constant-round interactive proofs for delegating computation|RRR16]].
-
-<!-- BEGIN GENERATED participates-in 2cbb9e33bbd3 -->
-
-## Participates in
-
-**Barriers**
-
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
-
-<!-- END GENERATED participates-in -->

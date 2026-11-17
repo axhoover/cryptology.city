@@ -33,7 +33,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 - [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
+- [[gkr-protocol#gkr-based-succinct-arguments|Fiat–Shamir and the GKR-based succinct argument]]: for every hash function, a corresponding instantiation of the argument is not adaptively sound after the transform — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]].
 
 - [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]

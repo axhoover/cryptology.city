@@ -425,7 +425,7 @@ is negligible. As an object, succinct LWE denotes: there are such $n$, $q$ and $
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 89acae1a8e6d -->
+<!-- BEGIN GENERATED participates-in 4e8d2e8892cd -->
 
 ## Participates in
 
@@ -435,7 +435,6 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]
 - [[evasive-lwe-to-be-wee22|Evasive LWE + LWE ⇒ Selectively secure BE]]
-- [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-depir-lmw23|Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe-with-quasi-polynomial-approximation-factors|Ring LWE with quasi-polynomial approximation factors]])
 - [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ Selectively secure HIBE (bonsai trees)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
