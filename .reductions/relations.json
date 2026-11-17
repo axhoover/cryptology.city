@@ -3585,6 +3585,19 @@
    "unlisted": false
   },
   {
+   "id": "large-universe-fuzzy-ibe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/fuzzy-identity-based-encryption.md",
+   "slug": "fuzzy-identity-based-encryption",
+   "graphSlug": "Primitives/fuzzy-identity-based-encryption",
+   "anchor": "#large-universe-fuzzy-ibe",
+   "of": "fuzzy-ibe",
+   "title": "Large-universe Fuzzy IBE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "latex-macros",
    "kind": "object",
    "type": "glossary",
@@ -14853,7 +14866,7 @@
    "id": "red-fuzzy-ibe-to-ibe",
    "kind": "implication",
    "hypotheses": [
-    "fuzzy-ibe"
+    "large-universe-fuzzy-ibe"
    ],
    "conclusion": "ibe",
    "class": "fully-black-box",
@@ -17384,6 +17397,33 @@
    "slug": "kt-mild-average-case-hardness-to-owf-lp20",
    "graphSlug": "Reductions/kt-mild-average-case-hardness-to-owf-lp20",
    "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
+  },
+  {
+   "id": "red-large-universe-fuzzy-ibe-to-fuzzy-ibe",
+   "kind": "implication",
+   "hypotheses": [
+    "large-universe-fuzzy-ibe"
+   ],
+   "conclusion": "fuzzy-ibe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme itself, and the reduction forwards any IND-FIBE-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/large-universe-fuzzy-ibe-to-fuzzy-ibe.md",
+   "slug": "large-universe-fuzzy-ibe-to-fuzzy-ibe",
+   "graphSlug": "Reductions/large-universe-fuzzy-ibe-to-fuzzy-ibe",
+   "title": "Large-universe Fuzzy IBE ⇒ Fuzzy IBE"
   },
   {
    "id": "red-leakage-resilient-pke-to-pke-cpa-security",
