@@ -5,7 +5,7 @@ title: "OPRF ⇒ OT"
 aliases: []
 id: red-oprf-to-ot
 kind: implication
-hypotheses: [oprf]
+hypotheses: [group-range-oprf]
 conclusion: ot
 class: fully-black-box
 model: standard
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $(\PRF, \Pi)$ be a [[oblivious-prf#semi-honest-security|semi-honest secure]] [[oblivious-prf|OPRF]], $\PRF = (\KeyGen, \Eval)$, whose domain contains two distinct points $z_0, z_1$ and whose range $\calR$ is a finite group with $|\calR| \ge 2$ and efficiently computable operation and inverse, written additively. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\calR$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1)$ and $c$, the sender samples $k \gets \KeyGen(1^\secpar)$, the parties run $\Pi$ with server input $k$ and client input $z_c$, the sender sends $(x_0 + \Eval(k, z_0), x_1 + \Eval(k, z_1))$, and the receiver subtracts its OPRF output from the $c$-th entry — folklore.
+Let $(\PRF, \Pi)$ be a [[oblivious-prf#semi-honest-security|semi-honest secure]] [[oblivious-prf#oprf-with-a-group-range|OPRF]], $\PRF = (\KeyGen, \Eval)$, whose domain contains two distinct points $z_0, z_1$ and whose range $\calR$ is a finite group with $|\calR| \ge 2$ and efficiently computable operation and inverse, written additively. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\calR$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1)$ and $c$, the sender samples $k \gets \KeyGen(1^\secpar)$, the parties run $\Pi$ with server input $k$ and client input $z_c$, the sender sends $(x_0 + \Eval(k, z_0), x_1 + \Eval(k, z_1))$, and the receiver subtracts its OPRF output from the $c$-th entry — folklore.
 
 ## Sketch
 

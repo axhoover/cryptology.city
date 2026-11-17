@@ -12,6 +12,8 @@ variants:
   verifiable-oprf: "#verifiable-oprf"
   uc-oprf: "#uc-secure-oprf"
   partially-oblivious-prf: "#partially-oblivious-prf"
+  group-range-oprf: "#oprf-with-a-group-range"
+  super-polynomial-range-oprf: "#oprf-with-super-polynomial-range"
 ---
 
 # Oblivious pseudorandom function
@@ -86,6 +88,14 @@ An OPRF $(\PRF, \Pi)$ has **malicious security** if $\PRF$ is pseudorandom and $
 
 # Variations
 
+## OPRF with a group range
+
+An **OPRF with a group range** is a semi-honest secure OPRF $(\PRF, \Pi)$ whose domain $\calD$ contains two distinct efficiently computable points $z_0, z_1$ and whose range $\calR$ is a finite group with $|\calR| \ge 2$ and efficiently computable operation and inverse.
+
+## OPRF with super-polynomial range
+
+An **OPRF with super-polynomial range** is a semi-honest secure, $(1 - \negl(\secpar))$-correct OPRF $(\PRF, \Pi)$ whose domain $\calD$ contains $\bits^{\ell}$ for a polynomial $\ell = \ell(\secpar) \ge 1$ and whose range $\calR$ has $1/|\calR|$ negligible.
+
 ## Verifiable OPRF
 
 In a **verifiable OPRF** the server publishes a value that binds its key, and the client outputs either the function value under the bound key or $\bot$, so a malicious server cannot evaluate different inputs under different keys. [[JKK14 - Round-Optimal Password-Protected Secret Sharing and T-PAKE in the Password-Only Model|JKK14]] define verifiable OPRFs (V-OPRFs) by a [[universal-composability-framework|UC]]-style ideal functionality, with realizations in the [[random-oracle-model|random-oracle model]] and instantiations in the standard model, and build one from the 2HashDH function below, the server publishing $g^k$ and proving in zero knowledge that its reply is computed with the same exponent.
@@ -107,24 +117,28 @@ In a **partially oblivious PRF** the input is a pair $(t, x)$ of which the serve
 # Other results
 
 - Given a PRF, a protocol securely computing $f_\PRF$ is an OPRF: semi-honest 2PC gives a semi-honest secure OPRF ([[semi-honest-two-party-computation-and-prf-to-oprf|semi-honest 2PC + PRF ⇒ OPRF]]) and 2PC with abort an OPRF with malicious security ([[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ malicious OPRF]]) — folklore.
-- A semi-honest secure OPRF gives semi-honest [[oblivious-transfer|OT]]: the sender masks $x_0$ and $x_1$ with $\Eval(k, z_0)$ and $\Eval(k, z_1)$, and the receiver obtains the mask of $x_c$ from the OPRF on input $z_c$ ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
+- A semi-honest secure [[#OPRF with a group range|OPRF with a group range]] gives semi-honest [[oblivious-transfer|OT]]: the sender masks $x_0$ and $x_1$ with $\Eval(k, z_0)$ and $\Eval(k, z_1)$, and the receiver obtains the mask of $x_c$ from the OPRF on input $z_c$ ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] base their general protocols for keyword search, in which a client retrieves the database records associated with a keyword and privacy is required for both the client and the server, on OPRFs.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] evaluate the Naor–Reingold PRF ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) obliviously with one 1-out-of-2 [[oblivious-transfer|OT]] per input bit. For the key $(a_0, a_1, \ldots, a_n)$ and input $x \in \bits^n$, the server samples $r_1, \ldots, r_n \getsr \ZZ_p^*$, the client obtains $v_i = a_i^{x_i} r_i$ from the $i$-th OT with choice bit $x_i$, the server sends $g^{a_0 / \prod_i r_i}$, and the client raises it to $\prod_i v_i$, obtaining $g^{a_0 \prod_{i : x_i = 1} a_i}$.
 - [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] give an OPRF for the Dodis–Yampolskiy PRF $x \mapsto g^{1/(k + x)}$ ([[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]]) and apply it to adaptive oblivious transfer and to secure computation of [[private-set-intersection|set intersection]].
 - [[JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks|JKX18]] build strong [[password-authenticated-key-exchange#asymmetric-pake|asymmetric PAKE]] from a [[#UC-secure OPRF|UC-secure OPRF]] together with either any asymmetric PAKE or any authenticated key-exchange protocol secure against key-compromise impersonation; OPAQUE instantiates the second construction.
 
-<!-- BEGIN GENERATED participates-in fb740562e327 -->
+<!-- BEGIN GENERATED participates-in a5e90d7213df -->
 
 ## Participates in
 
 **Builds on Oblivious pseudorandom function**
 
-- [[oprf-to-ot|OPRF ⇒ OT]]
-- [[oprf-to-psi|OPRF ⇒ PSI]]
+- [[group-range-oprf-to-oprf|OPRF with a group range ⇒ OPRF]] (via [[oblivious-prf#oprf-with-a-group-range|OPRF with a group range]])
+- [[oprf-to-ot|OPRF ⇒ OT]] (via [[oblivious-prf#oprf-with-a-group-range|OPRF with a group range]])
+- [[oprf-to-psi|OPRF ⇒ PSI]] (via [[oblivious-prf#oprf-with-super-polynomial-range|OPRF with super-polynomial range]])
+- [[super-polynomial-range-oprf-to-oprf|OPRF with super-polynomial range ⇒ OPRF]] (via [[oblivious-prf#oprf-with-super-polynomial-range|OPRF with super-polynomial range]])
 
 **Produces Oblivious pseudorandom function**
 
+- [[group-range-oprf-to-oprf|OPRF with a group range ⇒ OPRF]]
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]]
+- [[super-polynomial-range-oprf-to-oprf|OPRF with super-polynomial range ⇒ OPRF]]
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]] (via [[oblivious-prf#malicious-security|Malicious security]])
 
 <!-- END GENERATED participates-in -->

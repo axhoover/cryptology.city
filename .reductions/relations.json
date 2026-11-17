@@ -2711,6 +2711,19 @@
    "unlisted": false
   },
   {
+   "id": "group-range-oprf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "anchor": "#oprf-with-a-group-range",
+   "of": "oprf",
+   "title": "OPRF with a group range",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "group-signature",
    "kind": "object",
    "type": "primitive",
@@ -7489,6 +7502,19 @@
    "anchor": "#strong-unforgeability",
    "of": "mac",
    "title": "Strong unforgeability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "super-polynomial-range-oprf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "anchor": "#oprf-with-super-polynomial-range",
+   "of": "oprf",
+   "title": "OPRF with super-polynomial range",
    "aliases": [],
    "unlisted": false
   },
@@ -14806,6 +14832,33 @@
    "title": "GGM with preprocessing ⇒ DLOG"
   },
   {
+   "id": "red-group-range-oprf-to-oprf",
+   "kind": "implication",
+   "hypotheses": [
+    "group-range-oprf"
+   ],
+   "conclusion": "oprf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/group-range-oprf-to-oprf.md",
+   "slug": "group-range-oprf-to-oprf",
+   "graphSlug": "Reductions/group-range-oprf-to-oprf",
+   "title": "OPRF with a group range ⇒ OPRF"
+  },
+  {
    "id": "red-group-signature-to-cpa-anonymous-group-signature",
    "kind": "implication",
    "hypotheses": [
@@ -17867,7 +17920,7 @@
    "securityLoss": "non-tight in the ROM: forking lemma on the Module-SIS step",
    "rationale": {
     "class": "The proof rewinds the forger via the forking lemma in the random-oracle model, and no source places it in the RTV04 taxonomy.",
-    "model": "The Fiat–Shamir-with-aborts challenge hash is modeled as a classical or quantum random oracle."
+    "model": "The reduction forks the forger on the Fiat–Shamir-with-aborts challenge hash, modeled as a classical random oracle."
    },
    "status": "draft",
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
@@ -19109,7 +19162,7 @@
    "id": "red-oprf-to-ot",
    "kind": "implication",
    "hypotheses": [
-    "oprf"
+    "group-range-oprf"
    ],
    "conclusion": "ot",
    "class": "fully-black-box",
@@ -19136,7 +19189,7 @@
    "id": "red-oprf-to-psi",
    "kind": "implication",
    "hypotheses": [
-    "oprf"
+    "super-polynomial-range-oprf"
    ],
    "conclusion": "psi",
    "class": "fully-black-box",
@@ -26481,6 +26534,33 @@
    "slug": "succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
    "graphSlug": "Reductions/succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
    "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
+  },
+  {
+   "id": "red-super-polynomial-range-oprf-to-oprf",
+   "kind": "implication",
+   "hypotheses": [
+    "super-polynomial-range-oprf"
+   ],
+   "conclusion": "oprf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/super-polynomial-range-oprf-to-oprf.md",
+   "slug": "super-polynomial-range-oprf-to-oprf",
+   "graphSlug": "Reductions/super-polynomial-range-oprf-to-oprf",
+   "title": "OPRF with super-polynomial range ⇒ OPRF"
   },
   {
    "id": "red-sxdh-symmetric-external-diffie-hellman-to-nizk",

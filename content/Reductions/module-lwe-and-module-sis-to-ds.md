@@ -16,7 +16,7 @@ via:
 security-loss: "non-tight in the ROM: forking lemma on the Module-SIS step"
 rationale:
   class: "The proof rewinds the forger via the forking lemma in the random-oracle model, and no source places it in the RTV04 taxonomy."
-  model: "The Fiat–Shamir-with-aborts challenge hash is modeled as a classical or quantum random oracle."
+  model: "The reduction forks the forger on the Fiat–Shamir-with-aborts challenge hash, modeled as a classical random oracle."
 ---
 
 # Module LWE + Module-SIS ⇒ DS

@@ -5,7 +5,7 @@ title: "OPRF ⇒ PSI"
 aliases: []
 id: red-oprf-to-psi
 kind: implication
-hypotheses: [oprf]
+hypotheses: [super-polynomial-range-oprf]
 conclusion: psi
 class: fully-black-box
 model: standard
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $(\PRF, \Pi)$ be a [[oblivious-prf#semi-honest-security|semi-honest secure]], $(1 - \negl(\secpar))$-correct [[oblivious-prf|OPRF]], $\PRF = (\KeyGen, \Eval)$, whose domain contains $U = \bits^{\ell}$ and whose range $\calR$ has $1/|\calR|$ negligible. The following is a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for $U$ and size bounds $n_S$ and $n_R$, with reference string $(\pp_1, \ldots, \pp_{n_R})$ made of independent reference strings of $\Pi$: the sender samples $k \gets \KeyGen(1^\secpar)$; for the $j$-th element $y_j$ of $Y$ the parties run $\Pi$ on $\pp_j$ with server input $k$ and client input $y_j$, and the receiver obtains $v_j$; the sender sends the sorted list $L$ of the values $\Eval(k, x)$ for $x \in X$ and outputs the number of executions of $\Pi$; the receiver outputs $(\{y_j : v_j \in L\}, |L|)$ — folklore.
+Let $(\PRF, \Pi)$ be a [[oblivious-prf#semi-honest-security|semi-honest secure]], $(1 - \negl(\secpar))$-correct [[oblivious-prf#oprf-with-super-polynomial-range|OPRF]], $\PRF = (\KeyGen, \Eval)$, whose domain contains $U = \bits^{\ell}$ and whose range $\calR$ has $1/|\calR|$ negligible. The following is a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for $U$ and size bounds $n_S$ and $n_R$, with reference string $(\pp_1, \ldots, \pp_{n_R})$ made of independent reference strings of $\Pi$: the sender samples $k \gets \KeyGen(1^\secpar)$; for the $j$-th element $y_j$ of $Y$ the parties run $\Pi$ on $\pp_j$ with server input $k$ and client input $y_j$, and the receiver obtains $v_j$; the sender sends the sorted list $L$ of the values $\Eval(k, x)$ for $x \in X$ and outputs the number of executions of $\Pi$; the receiver outputs $(\{y_j : v_j \in L\}, |L|)$ — folklore.
 
 ## Sketch
 
@@ -28,4 +28,4 @@ Correctness fails only if an execution of $\Pi$ errs or $\Eval(k, x) = \Eval(k, 
 ## Notes
 
 - [[HL08 - Efficient Protocols for Set Intersection and Pattern Matching with Security Against Malicious and Covert Adversaries|HL08]] base set intersection on secure evaluation of a pseudorandom function, with one protocol secure against malicious adversaries under a relaxed definition (simulatable when one party is corrupted, only private in an indistinguishability sense when the other is) and one fully simulatable against covert adversaries, and [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] obtain set intersection secure against malicious adversaries from an OPRF for the Dodis–Yampolskiy PRF.
-- A semi-honest secure OPRF also gives semi-honest [[oblivious-transfer|OT]] directly ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
+- An [[oblivious-prf#oprf-with-a-group-range|OPRF with a group range]] also gives semi-honest [[oblivious-transfer|OT]] directly ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
