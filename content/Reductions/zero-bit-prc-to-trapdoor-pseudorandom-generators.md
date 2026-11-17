@@ -7,10 +7,12 @@ id: red-zero-bit-prc-to-trapdoor-pseudorandom-generators
 kind: implication
 hypotheses: [zero-bit-prc]
 conclusion: trapdoor-pseudorandom-generator
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the pseudorandomness advantage is preserved"
+rationale:
+  class: "The trapdoor PRG runs the PRC's key generator, its encoder on the caller's coins and its decoder only as oracles, and the identity reduction runs any distinguisher only as an oracle."
 ---
 
 # Zero-bit PRC ⇒ Trapdoor pseudorandom generators

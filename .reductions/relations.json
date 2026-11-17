@@ -28336,7 +28336,7 @@
     "zero-bit-prc"
    ],
    "conclusion": "trapdoor-pseudorandom-generator",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -28346,7 +28346,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: the pseudorandomness advantage is preserved",
+   "rationale": {
+    "class": "The trapdoor PRG runs the PRC's key generator, its encoder on the caller's coins and its decoder only as oracles, and the identity reduction runs any distinguisher only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
    "slug": "zero-bit-prc-to-trapdoor-pseudorandom-generators",
