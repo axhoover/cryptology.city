@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "RSA ⇒ PKE"
+title: "RSA ⇒ CPA-secure PKE"
 aliases: []
 id: red-rsa-to-pke-rsa78
 kind: implication
 hypotheses: [rsa]
-conclusion: pke
+conclusion: pke-cpa-security
 class: unstated
 model: standard
 source:
@@ -14,11 +14,11 @@ source:
 security-loss: "polynomial: a CPA adversary with advantage $\\varepsilon$ predicts the least-significant bit of $x$ from $(n, e, x^e \\bmod n)$ with the same advantage, and ACGS88 turn such a predictor into an RSA inverter running in time $\\poly(\\log n, 1/\\varepsilon)$"
 ---
 
-# RSA ⇒ PKE
+# RSA ⇒ CPA-secure PKE
 
 ## Statement
 
-The [[rsa-assumption|RSA assumption]] implies [[public-key-encryption|PKE]]. The scheme of [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]], $\Enc(\pk, m) = m^e \bmod n$ and $\Dec(\sk, c) = c^d \bmod n$, is one-way under the RSA assumption but deterministic, hence not [[public-key-encryption#cpa-security|CPA-secure]]. Encrypting a bit $b$ as $(x^e \bmod n,\; b \oplus h(x))$ for $x \getsr \ZZ_n^*$ is CPA-secure under the RSA assumption when $h$ is a hard-core predicate of the RSA function; the least-significant bit is one, since predicting it from $(n, e, x^e \bmod n)$ with non-negligible advantage yields an RSA inverter — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
+The [[rsa-assumption|RSA assumption]] implies [[public-key-encryption#cpa-security|CPA-secure PKE]]. The scheme of [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]], $\Enc(\pk, m) = m^e \bmod n$ and $\Dec(\sk, c) = c^d \bmod n$, is one-way under the RSA assumption but deterministic, hence not CPA-secure. Encrypting a bit $b$ as $(c_1, c_2) = (x^e \bmod n,\; b \oplus h(x))$ for $x \getsr \ZZ_n^*$ is CPA-secure under the RSA assumption when $h$ is a hard-core predicate of the RSA function; the least-significant bit is one, since predicting it from $(n, e, x^e \bmod n)$ with non-negligible advantage yields an RSA inverter — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]]. With $h = \mathrm{lsb}$, decryption recovers $b = c_2 \oplus \mathrm{lsb}(c_1^d \bmod n)$, so the scheme is perfectly correct, and its message space $\{0, 1\}$ holds two distinct equal-length messages — standard.
 
 ## Sketch
 

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
-security-loss: "tight: one factoring call; the RSA advantage for GrGen_R is at least the factoring advantage minus Pr[p = q], which is negligible"
+security-loss: "tight: one factoring call; the factoring advantage on the factoring game is within Pr[p = q], which is negligible, of the RSA advantage for GrGen_R"
 rationale:
   class: "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
 ---
@@ -28,5 +28,5 @@ Given an RSA challenge $(n, e, y)$, run the factoring algorithm on $n$; if it re
 
 ## Notes
 
-- The reduction preserves the modulus distribution of $\GrGen$. This is the distribution of the factoring game (independent uniform $\secpar$-bit primes) when $\GrGen$ samples $p, q$ that way and then picks $e$ coprime to $\phi(n)$, as $\GrGen_R$ does up to the event $p = q$. A $\GrGen$ with fixed $e$, such as that of [[rsa-assumption#low-exponent-rsa|low-exponent RSA]], conditions $p, q$ on $\gcd(e, \phi(n)) = 1$, and the generator of [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]] outputs only products of safe primes, so RSA hardness for either gives hardness of factoring only its own moduli — folklore.
+- The reduction preserves the modulus distribution of $\GrGen$. The moduli of $\GrGen_R$ are within statistical distance $\Pr[p = q]$ of those of the factoring game, so the factoring advantage of an algorithm on the factoring game is within $\Pr[p = q]$ of the RSA advantage of the reduction for $\GrGen_R$ — standard. A $\GrGen$ with fixed $e$, such as that of [[rsa-assumption#low-exponent-rsa|low-exponent RSA]], conditions $p, q$ on $\gcd(e, \phi(n)) = 1$, and the generator of [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]] outputs only products of safe primes, so RSA hardness for either gives hardness of factoring only its own moduli — folklore.
 - Whether factoring hardness implies RSA hardness is open in the standard model; against generic ring algorithms the two are equivalent ([[rsa-to-fac-dlo24|RSA ⇔ FAC]]) — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]].

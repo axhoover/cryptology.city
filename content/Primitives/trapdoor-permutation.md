@@ -91,7 +91,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 451a2ad8a54b -->
+<!-- BEGIN GENERATED participates-in e2730117c68c -->
 
 ## Participates in
 
@@ -142,6 +142,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[phi-hiding-to-lossy-trapdoor-function-kos10|Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[qr-to-lossy-trapdoor-function-fgkrs10|QR ⇒ Lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[rsa-to-bit-string-tdp-rst01|RSA ⇒ TDP over bit strings]] (via [[trapdoor-permutation#trapdoor-permutations-over-bit-strings|Trapdoor permutations over bit strings]])
+- [[rsa-to-claw-free-trapdoor-permutations|RSA ⇒ Claw-free TDP]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)]]
 - [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])

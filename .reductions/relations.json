@@ -2072,6 +2072,19 @@
    "unlisted": false
   },
   {
+   "id": "efficiently-represented-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-efficiently-represented-groups",
+   "of": "dlog",
+   "title": "DLOG in efficiently represented groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "enhanced-trapdoor-permutation",
    "kind": "variant",
    "type": "primitive",
@@ -13470,7 +13483,7 @@
    "id": "red-dlog-to-pwpp-hv21",
    "kind": "inclusion",
    "hypotheses": [
-    "dlog"
+    "efficiently-represented-dlog"
    ],
    "conclusion": "pwpp",
    "class": "free",
@@ -13891,6 +13904,33 @@
    "slug": "edl-signature-to-ds",
    "graphSlug": "Reductions/edl-signature-to-ds",
    "title": "EDL signatures ⇒ DS"
+  },
+  {
+   "id": "red-efficiently-represented-dlog-to-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "efficiently-represented-dlog"
+   ],
+   "conclusion": "dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/efficiently-represented-dlog-to-dlog.md",
+   "slug": "efficiently-represented-dlog-to-dlog",
+   "graphSlug": "Reductions/efficiently-represented-dlog-to-dlog",
+   "title": "Efficiently represented DLOG ⇒ DLOG"
   },
   {
    "id": "red-enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87",
@@ -25352,6 +25392,33 @@
    "title": "RSA ⇒ TDP over bit strings"
   },
   {
+   "id": "red-rsa-to-claw-free-trapdoor-permutations",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "claw-free-trapdoor-permutations",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The pair uses only the generator's output and arithmetic modulo n, and one fixed reduction embeds the RSA challenge as y and runs the claw finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rsa-to-claw-free-trapdoor-permutations.md",
+   "slug": "rsa-to-claw-free-trapdoor-permutations",
+   "graphSlug": "Reductions/rsa-to-claw-free-trapdoor-permutations",
+   "title": "RSA ⇒ Claw-free TDP"
+  },
+  {
    "id": "red-rsa-to-ds-hw09",
    "kind": "implication",
    "hypotheses": [
@@ -25420,7 +25487,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one factoring call; the RSA advantage for GrGen_R is at least the factoring advantage minus Pr[p = q], which is negligible",
+   "securityLoss": "tight: one factoring call; the factoring advantage on the factoring game is within Pr[p = q], which is negligible, of the RSA advantage for GrGen_R",
    "rationale": {
     "class": "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
    },
@@ -25491,7 +25558,7 @@
    "hypotheses": [
     "rsa"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -25507,7 +25574,7 @@
    "page": "content/Reductions/rsa-to-pke-rsa78.md",
    "slug": "rsa-to-pke-rsa78",
    "graphSlug": "Reductions/rsa-to-pke-rsa78",
-   "title": "RSA ⇒ PKE"
+   "title": "RSA ⇒ CPA-secure PKE"
   },
   {
    "id": "red-rsa-to-tdp-rsa78",
@@ -30512,6 +30579,33 @@
    "slug": "zp-star-dlog-to-dlog",
    "graphSlug": "Reductions/zp-star-dlog-to-dlog",
    "title": "Prime-field DLOG ⇒ DLOG"
+  },
+  {
+   "id": "red-zp-star-dlog-to-efficiently-represented-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "zp-star-dlog"
+   ],
+   "conclusion": "efficiently-represented-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/zp-star-dlog-to-efficiently-represented-dlog.md",
+   "slug": "zp-star-dlog-to-efficiently-represented-dlog",
+   "graphSlug": "Reductions/zp-star-dlog-to-efficiently-represented-dlog",
+   "title": "Prime-field DLOG ⇒ efficiently represented DLOG"
   },
   {
    "id": "red-zpp-to-rp",

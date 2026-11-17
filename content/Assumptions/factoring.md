@@ -51,7 +51,7 @@ $$
 
 ## Strong RSA assumption
 
-The [[rsa-assumption#strong-rsa|strong RSA assumption]] lets the adversary choose the exponent: given $N$ and a random $y \in \ZZ_N^*$, it must output $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{N}$ — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]], [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. Its hardness implies [[rsa-assumption|RSA]] hardness whenever the RSA exponent $e$ can be sampled efficiently given $N$, as for a fixed $e$ or a random prime ([[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]) — folklore.
+The [[rsa-assumption#strong-rsa|strong RSA assumption]] lets the adversary choose the exponent: given $N$ and a random $y \in \ZZ_N^*$, it must output $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{N}$ — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]], [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. Its hardness for a generator implies [[rsa-assumption|RSA]] hardness for the generator with the same moduli and a uniform prime exponent in $(N, 2N)$ ([[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]) — folklore.
 
 ## Factoring Blum integers
 
