@@ -23,8 +23,8 @@ The KEM-DEM hybrid of an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]]
 
 ## Sketch
 
-Replace the encapsulated key by an independent uniform key, indistinguishable by KEM IND-CPA security; the challenge is then a one-time encryption under a uniform key.
+Replace the encapsulated key by an independent uniform key, indistinguishable by KEM IND-CPA security; the challenge is then a one-time encryption under a key that $\SKE.\KeyGen(1^{\secpar'})$ generates on uniform coins.
 
 ## Notes
 
-- With the one-time pad as DEM, which needs no assumption, an IND-CPA KEM alone gives IND-CPA PKE for messages of the key's length — folklore.
+- With the one-time pad as DEM, which needs no assumption, an IND-CPA KEM alone gives IND-CPA PKE for messages of the key's length ([[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]]) — folklore.

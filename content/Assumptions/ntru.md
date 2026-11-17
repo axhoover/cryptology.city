@@ -93,13 +93,15 @@ NTRU encryption encrypts a message $m$ in $\calM = \{m \in R : \text{coefficient
 \end{algorithm}
 ```
 
-**NTRU encryption is one-way** for parameters $(n, p, q, d_f, d_g)$ if for all efficient $\calA$,
+**NTRU encryption is one-way** if there are parameters $n(\secpar), p, q(\secpar), d_f(\secpar), d_g(\secpar)$, each bounded by $\poly(\secpar)$, at which decryption is perfectly correct and for all efficient $\calA$,
 
 $$
 \Adv^{\text{ntru-ow}}_{n,p,q,d_f,d_g,\calA}(\secpar) := \Pr\!\left[\Game^{\text{ntru-ow}}_{n,p,q,d_f,d_g,\calA}(\secpar) = 1\right]
 $$
 
-is negligible.
+is negligible. Decryption is perfectly correct when, for all $f, g$ in the support of key generation, $r$ in the support of the coins and $m \in \calM$, every coefficient of $p \cdot r \cdot g + f \cdot m \in R$ lies in $[-q/2, q/2)$, so that $f \cdot c \bmod q = p \cdot r \cdot g + f \cdot m$ over $R$ ([[ntru-to-pke-hps98|NTRU ⇒ PKE]]).
+
+TODO — check the key, coin and message distributions and the ring of [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]], who describe their scheme as "a slightly simplified version of textbook NTRU" and use $\Phi_n$, against the game above.
 
 ## Related results
 

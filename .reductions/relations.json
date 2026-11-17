@@ -16432,7 +16432,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive in the random-oracle model from IND-CPA: a constant multiple of the IND-CPA advantage plus terms of order $q\\delta$ and $q/|\\calM|$ for $q$ random-oracle queries, and $q_D 2^{-\\gamma}$ for $q_D$ decapsulation queries with explicit rejection; from one-wayness, a factor $O(q)$",
+   "securityLoss": "additive in the random-oracle model from IND-CPA: a constant multiple of the IND-CPA advantage plus terms of order $q\\delta$ and $q/|\\calM|$ for $q$ random-oracle queries, and $q_D 2^{-\\gamma}$ for $q_D$ decapsulation queries with explicit rejection; from one-wayness, a factor $O(q)$; a CPA-secure base scheme with only two messages, first converted bitwise to message space $\\bits^\\secpar$, multiplies the IND-CPA advantage term by $\\secpar$",
    "rationale": {
     "class": "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption.",
     "model": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known.",
@@ -16443,6 +16443,33 @@
    "slug": "ind-cpa-kem-to-ind-cca-security",
    "graphSlug": "Reductions/ind-cpa-kem-to-ind-cca-security",
    "title": "IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)"
+  },
+  {
+   "id": "red-ind-cpa-kem-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "ind-cpa-kem"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor 2: the IND-CPA advantage is at most twice the KEM IND-CPA advantage",
+   "rationale": {
+    "class": "The construction calls KeyGen, Encap and Decap only as oracles, and the fixed reduction runs any IND-CPA adversary once as an oracle on the KEM challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ind-cpa-kem-to-pke-cpa-security.md",
+   "slug": "ind-cpa-kem-to-pke-cpa-security",
+   "graphSlug": "Reductions/ind-cpa-kem-to-pke-cpa-security",
+   "title": "IND-CPA KEM ⇒ IND-CPA PKE"
   },
   {
    "id": "red-ind-dollar-cpa-security-to-cpa-security",
@@ -17270,7 +17297,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: twice the KEM CCA advantage plus twice the KEM bad-key-pair probability plus the DEM one-time CCA advantage",
+   "securityLoss": "additive: twice the KEM CCA advantage plus twice the KEM decapsulation error plus the DEM one-time CCA advantage",
    "rationale": {
     "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
    },
@@ -17284,7 +17311,7 @@
    "id": "red-kem-to-ke",
    "kind": "implication",
    "hypotheses": [
-    "kem"
+    "ind-cpa-kem"
    ],
    "conclusion": "ke",
    "class": "fully-black-box",
@@ -21772,9 +21799,9 @@
    "id": "red-pke-to-kem",
    "kind": "implication",
    "hypotheses": [
-    "pke"
+    "pke-cpa-security"
    ],
-   "conclusion": "kem",
+   "conclusion": "ind-cpa-kem",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -21785,9 +21812,9 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: advantage and decryption-query count are preserved",
+   "securityLoss": "tight when $\\calM \\supseteq \\calK$; a factor $\\ell(\\secpar)$ on the IND-CPA advantage for bitwise encapsulation",
    "rationale": {
-    "class": "Encapsulation and decapsulation call the PKE algorithms only as oracles, and one fixed reduction runs any KEM adversary as an oracle, forwarding its decapsulation queries to the decryption oracle with a challenge embedding fixed in advance."
+    "class": "Encapsulation and decapsulation call the PKE algorithms only as oracles, and one fixed reduction runs any IND-CPA KEM adversary as an oracle, embedding its CPA challenge in the encapsulation, at a uniformly chosen bit position for bitwise encapsulation."
    },
    "status": "draft",
    "page": "content/Reductions/pke-to-kem.md",

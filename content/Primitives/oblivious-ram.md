@@ -178,7 +178,7 @@ In a **balls-and-bins** ORAM, $\calB_2 = \calB_1 \cup \{b_0\}$, so each physical
 
 ### Sublogarithmic-overhead balls-and-bins ORAM
 
-A **sublogarithmic-overhead balls-and-bins ORAM** is a statistically secure offline balls-and-bins ORAM with $O(1)$ blocks of client memory at every step and amortized bandwidth blowup $o(\log N_1)$ over sequences of $q \ge N_1$ operations. None exists ([[no-oram-to-sublogarithmic-balls-and-bins-oram-go96|No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM]]) — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]].
+A **sublogarithmic-overhead balls-and-bins ORAM** is a statistically secure offline balls-and-bins ORAM that, for every $N_1$ with $\secpar \le N_1 \le \poly(\secpar)$, has $O(1)$ blocks of client memory at every step, the constant independent of $N_1$ and $\secpar$, and amortized bandwidth blowup at most $f(N_1)$ for a function $f = o(\log N_1)$ independent of $\secpar$, over sequences of $q \ge N_1$ operations. None exists ([[no-oram-to-sublogarithmic-balls-and-bins-oram-go96|No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM]]) — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]].
 
 ## One-round ORAM
 
@@ -206,7 +206,7 @@ In an **ORAM with server computation**, $\Ops_2$ also contains evaluation reques
 
 ### Constant-bandwidth ORAM
 
-A **constant-bandwidth ORAM** is an efficient ORAM with server computation, secure against a semi-honest server, with worst-case bandwidth blowup $O(1)$ and client storage of $\polylog(N_1)$ blocks, for some block length $\beta_1 \le \poly(\secpar, \log N_1)$. Onion ORAM is one if DCR holds ([[dcr-to-constant-bandwidth-oram-ddf-16|DCR ⇒ constant-bandwidth ORAM (Onion ORAM)]]) — [[DDF+16 - Onion ORAM A Constant Bandwidth Blowup Oblivious RAM|DDF+16]].
+A **constant-bandwidth ORAM** is an efficient ORAM with server computation, secure against a semi-honest server, with worst-case bandwidth blowup $O(1)$ and client storage of $\polylog(N_1)$ blocks for every $N_1$ with $\secpar \le N_1 \le \poly(\secpar)$, the constants in $O(1)$ and $\polylog$ independent of $N_1$ and $\secpar$, for some block length $\beta_1 \le \poly(\secpar, \log N_1)$. Onion ORAM is one if DCR holds ([[dcr-to-constant-bandwidth-oram-ddf-16|DCR ⇒ constant-bandwidth ORAM (Onion ORAM)]]) — [[DDF+16 - Onion ORAM A Constant Bandwidth Blowup Oblivious RAM|DDF+16]].
 
 # Other results
 
