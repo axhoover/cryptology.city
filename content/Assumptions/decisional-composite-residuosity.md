@@ -44,7 +44,7 @@ Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisatio
 
 ## DCR with safe-prime moduli
 
-DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where $p', q'$ are distinct uniform $\secpar$-bit primes subject to the primality of $2p' + 1$ and $2q' + 1$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]. **DCR is hard for safe-prime moduli** if for all efficient $\calA$ the DCR advantage above, with $n$ sampled this way, is negligible.
+DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where $p', q'$ are distinct uniform $\secpar$-bit primes subject to the primality of $2p' + 1$ and $2q' + 1$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]. **DCR is hard for safe-prime moduli** if there is a $\PPT$ algorithm whose output on $1^\secpar$ is within negligible statistical distance of this distribution, and for all efficient $\calA$ the DCR advantage above, with $n$ sampled this way, is negligible. Rejection sampling is such an algorithm if $\secpar$-bit Sophie Germain primes have density $1/\poly(\secpar)$, which is unproven — standard.
 
 # Attacks
 

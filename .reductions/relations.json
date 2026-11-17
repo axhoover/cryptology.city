@@ -1590,6 +1590,19 @@
    "unlisted": false
   },
   {
+   "id": "cp-abe-selective-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/attribute-based-encryption.md",
+   "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
+   "anchor": "#selective-cp-abe-security",
+   "of": "abe",
+   "title": "Selective CP-ABE security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "cpa-anonymous-group-signature",
    "kind": "variant",
    "type": "primitive",
@@ -8555,6 +8568,19 @@
    "unlisted": false
   },
   {
+   "id": "very-selective-cp-abe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/attribute-based-encryption.md",
+   "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
+   "anchor": "#very-selective-security",
+   "of": "abe",
+   "title": "Very selective security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "virtual-black-box-obfuscation",
    "kind": "variant",
    "type": "primitive",
@@ -8833,7 +8859,7 @@
    "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
    "rationale": {
-    "class": "The BE algorithms call the CP-ABE algorithms as oracles on locally computed singleton attribute sets and disjunctive policies, and the reduction runs the BE adversary once as an oracle, forwarding each key query and the challenge unchanged."
+    "class": "The BE algorithms call the ABE algorithms as oracles on locally computed singleton attribute sets and disjunctive policies (CP) or one-attribute policies and recipient sets (KP), and the reduction runs the BE adversary once as an oracle, forwarding each key query and the challenge unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/abe-to-be.md",
@@ -8860,7 +8886,7 @@
    "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
    "rationale": {
-    "class": "The Fuzzy IBE algorithms call the KP-ABE algorithms as oracles on a locally computed threshold policy, and the reduction runs any Fuzzy IBE adversary as an oracle, forwarding its key queries and challenge unchanged."
+    "class": "The Fuzzy IBE algorithms call the ABE algorithms as oracles on a locally computed threshold policy, placed in the key (KP) or the ciphertext (CP), and the reduction runs any Fuzzy IBE adversary as an oracle, forwarding its key queries and challenge unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/abe-to-fuzzy-ibe.md",
@@ -13117,7 +13143,7 @@
    "hypotheses": [
     "unkeyed-depir"
    ],
-   "conclusion": "cpir",
+   "conclusion": "total-nontrivial-cpir",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -13130,13 +13156,13 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The construction is the identity, and any PIR privacy adversary runs unchanged, as an oracle, as an unkeyed DEPIR privacy adversary."
+    "class": "The construction is the identity with the coins of the response algorithm fixed, and any PIR privacy adversary runs unchanged, as an oracle, as an unkeyed DEPIR privacy adversary."
    },
    "status": "draft",
    "page": "content/Reductions/depir-to-cpir.md",
    "slug": "depir-to-cpir",
    "graphSlug": "Reductions/depir-to-cpir",
-   "title": "Unkeyed DEPIR ⇒ cPIR"
+   "title": "Unkeyed DEPIR ⇒ cPIR with total communication below n"
   },
   {
    "id": "red-differing-inputs-obfuscation-dio-to-io",
@@ -33320,7 +33346,7 @@
   {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
    "hypotheses": [
-    "abe-selective-security"
+    "cp-abe-selective-security"
    ],
    "conclusion": "cp-abe-adaptive-security",
    "class": "fixed-construction",
@@ -33333,7 +33359,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "abe-selective-security"
+    "cp-abe-selective-security"
    ],
    "circumventedBy": [],
    "source": [
@@ -33341,7 +33367,7 @@
    ],
    "rationale": {
     "class": "The counterexample is one scheme that is selectively but not adaptively secure, which refutes the identity map on schemes and no other construction.",
-    "strength": "The counterexample modifies a given selectively secure CP-ABE scheme for a superpolynomial-size policy family, so it assumes one exists; without one, the identity-map implication holds vacuously."
+    "strength": "The counterexample modifies a given selectively secure CP-ABE scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",

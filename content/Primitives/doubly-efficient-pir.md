@@ -120,13 +120,13 @@ In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, 
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ OLDC]], and [[oblivious-locally-decodable-code-to-passive-sk-depir|OLDC ⇒ Passive-server SK-DEPIR]]: BIPW17's oblivious locally decodable code from secretly permuted Reed–Muller codes has communication complexity $\secpar^m \cdot \tilde O(n^{1/m})$ for a constant $m \ge 2$ — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] (Proposition 4.3).
 - Secret-key DEPIR in which the server and the client each do polylogarithmic work per query after preprocessing follows from one-way functions for a bounded number of queries, and for an unbounded number from new assumptions related to the hardness of solving a system of noisy linear equations; a natural and general approach towards public preprocessing is doomed to fail — [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]]. For a bound $B$ on the number of queries, the first scheme is statistically $2^{-\secpar}$-secure with truly random permutations in its key (Theorem 1), and pseudorandom functions and permutations compress that key to $\secpar$ bits; its preprocessed database has size $\tilde O(B + \poly(N))$, and the per-query client and server work are $\secpar \cdot \polylog(N, B)$ and $\polylog(N, B)$. The second rests on the new hidden permutation with noise (HPN) assumption — [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]]. A $B$-query statistically secure designated-client scheme with answers of length $o(N)$, correctness error $o(1)$ and security error $o(1)$ needs a key of $\Omega(B)$ bits — [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]] (Theorem 3). HPY26 list CHR17 among the secret-key DEPIR schemes — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 
-<!-- BEGIN GENERATED participates-in efc837789f44 -->
+<!-- BEGIN GENERATED participates-in efddbb712e5a -->
 
 ## Participates in
 
 **Builds on Doubly-efficient PIR**
 
-- [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
+- [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR with total communication below n]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
 - [[passive-sk-depir-independent-key-to-passive-sk-depir|Passive-server SK-DEPIR with a database-independent key ⇒ Passive-server SK-DEPIR]] (via [[doubly-efficient-pir#passive-server-sk-depir-with-a-database-independent-key|Passive-server SK-DEPIR with a database-independent key]])
 - [[passive-sk-depir-to-sk-depir|Passive-server SK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#passive-server-sk-depir|Passive-server SK-DEPIR]])
 - [[pk-depir-sublinear-key-to-pk-depir|PK-DEPIR with a sublinear key ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|PK-DEPIR with a sublinear key]])
