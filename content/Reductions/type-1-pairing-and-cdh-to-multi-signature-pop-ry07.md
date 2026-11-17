@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-[[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]] define a registered-key model that covers both the knowledge-of-secret-key assumption and key registration with a proof of possession (POP). In it, Boldyreva's [[multi-signature|multisignature]] over a [[pairings#type-1|symmetric pairing]] group in which [[computational-diffie-hellman|CDH]] is hard, with each public key registered under a simple POP, is unforgeable in the random oracle model ([[multi-signature#proof-of-possession-model|POP model]]) — [[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]].
+[[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]] define a registered-key model that covers both the knowledge-of-secret-key assumption and key registration with a proof of possession (POP). In it, Boldyreva's [[multi-signature|multisignature]] over a [[pairings#type-1|symmetric pairing]] group in which [[computational-diffie-hellman|CDH]] is hard, with each public key registered under a simple POP, is unforgeable in the random oracle model ([[multi-signature#proof-of-possession-model|POP model]]) — [[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]]. The scheme is perfectly correct: signer $i$ holds $x_i$ with $\pk_i = g^{x_i}$, the multisignature on $m$ is $\prod_i H(m)^{x_i}$, and $e(\prod_i H(m)^{x_i}, g) = e(H(m), \prod_i \pk_i)$ — standard.
 
 ## Notes
 

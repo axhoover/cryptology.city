@@ -129,13 +129,15 @@ The scheme has two further algorithms, $\PopProve(\pp, \sk, \pk) \to \pi$ and a 
 
 The scheme is **unforgeable in the POP model** if for all efficient $\calA$, the probability that it wins this game is negligible.
 
+As an object, a multi-signature scheme denotes a [[#Correctness|perfectly correct]] scheme unforgeable in the plain public-key model; the KOSK and POP variants denote perfectly correct schemes unforgeable in the KOSK and POP models.
+
 # Variations
 
 The schemes below work in a group of prime order $p$ with generator $g$, with signer $i$ holding $(x_i, X_i = g^{x_i})$, and hash functions $H_{\mathrm{agg}}, H_{\mathrm{com}}, H_{\mathrm{non}}, H_{\mathrm{sig}}$ modeled as random oracles. Each aggregates keys as $a_i = H_{\mathrm{agg}}(L, X_i)$ and $\KeyAgg(L) = \tilde X = \prod_i X_i^{a_i}$, and outputs $\sigma = (R, s)$ that verifies as a [[digital-signature#schnorr-signatures|Schnorr signature]] under $\tilde X$ with the key included in the hash: $g^s = R \tilde X^{c}$ with $c = H_{\mathrm{sig}}(\tilde X, R, m)$.
 
 ## MuSig
 
-Signing takes three rounds. Signer $i$ samples $r_i \getsr \ZZ_p$, sets $R_i = g^{r_i}$, and sends $t_i = H_{\mathrm{com}}(R_i)$; once all commitments have arrived, it sends $R_i$ and checks every $R_j$ against $t_j$; with $R = \prod_i R_i$ and $c = H_{\mathrm{sig}}(\tilde X, R, m)$ it sends $s_i = r_i + c a_i x_i \bmod p$, and $s = \sum_i s_i$ — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]].
+Signing takes three rounds. Signer $i$ samples $r_i \getsr \ZZ_p$, sets $R_i = g^{r_i}$, and sends $t_i = H_{\mathrm{com}}(R_i)$; once all commitments have arrived, it sends $R_i$ and checks every $R_j$ against $t_j$; with $R = \prod_i R_i$ and $c = H_{\mathrm{sig}}(\tilde X, R, m)$ it sends $s_i = r_i + c a_i x_i \bmod p$, and $s = \sum_i s_i$ — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]]. As an object, MuSig denotes this scheme with unforgeability in the plain public-key model.
 
 ## Two-round MuSig
 
@@ -143,9 +145,9 @@ MuSig without the commitment round: signer $i$ sends $R_i$ directly and then $s_
 
 ## MuSig2
 
-Signing takes two rounds, and the first can run before the message is known. Signer $i$ samples $r_{i,1}, \ldots, r_{i,\nu} \getsr \ZZ_p$ and sends $R_{i,j} = g^{r_{i,j}}$ for $j \in [\nu]$. With $R_j = \prod_i R_{i,j}$, $b = H_{\mathrm{non}}(\tilde X, (R_1, \ldots, R_\nu), m)$, $R = \prod_j R_j^{b^{j-1}}$ and $c = H_{\mathrm{sig}}(\tilde X, R, m)$, it sends $s_i = \sum_j r_{i,j} b^{j-1} + c a_i x_i \bmod p$, and $s = \sum_i s_i$ — [[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]. With $\nu = 1$ this is two-round MuSig. The scheme is proved secure in the random-oracle model with $\nu = 4$, and in the combination of the [[algebraic-group-model|algebraic group model]] and the random-oracle model with $\nu = 2$ — [[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]. As an object, MuSig2 denotes the scheme with $\nu = 4$.
+Signing takes two rounds, and the first can run before the message is known. Signer $i$ samples $r_{i,1}, \ldots, r_{i,\nu} \getsr \ZZ_p$ and sends $R_{i,j} = g^{r_{i,j}}$ for $j \in [\nu]$. With $R_j = \prod_i R_{i,j}$, $b = H_{\mathrm{non}}(\tilde X, (R_1, \ldots, R_\nu), m)$, $R = \prod_j R_j^{b^{j-1}}$ and $c = H_{\mathrm{sig}}(\tilde X, R, m)$, it sends $s_i = \sum_j r_{i,j} b^{j-1} + c a_i x_i \bmod p$, and $s = \sum_i s_i$ — [[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]. With $\nu = 1$ this is two-round MuSig. The scheme is proved secure in the random-oracle model with $\nu = 4$, and in the combination of the [[algebraic-group-model|algebraic group model]] and the random-oracle model with $\nu = 2$ — [[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]. As an object, MuSig2 denotes the scheme with $\nu = 4$, unforgeable in the plain public-key model.
 
-<!-- BEGIN GENERATED participates-in 825da5fe4efa -->
+<!-- BEGIN GENERATED participates-in ec5e569784b3 -->
 
 ## Participates in
 
@@ -153,12 +155,16 @@ Signing takes two rounds, and the first can run before the message is known. Sig
 
 - [[multi-signature-pop-to-multi-signature-kosk|Multi-signatures with proofs of possession ⇒ Multi-signatures in the KOSK model]] (via [[multi-signature#proof-of-possession-model|Proof-of-possession model]])
 - [[multi-signature-to-multi-signature-kosk|Multi-signatures in the plain public-key model ⇒ Multi-signatures in the KOSK model]]
+- [[musig-to-multi-signature|MuSig ⇒ Multi-signature]] (via [[multi-signature#musig|MuSig]])
+- [[musig2-to-multi-signature|MuSig2 ⇒ Multi-signature]] (via [[multi-signature#musig2|MuSig2]])
 
 **Produces Multi-signature**
 
 - [[co-cdh-star-to-multi-signature-bdn18|co-CDH ⇒ BLS multi-signatures with public-key aggregation]]
 - [[multi-signature-pop-to-multi-signature-kosk|Multi-signatures with proofs of possession ⇒ Multi-signatures in the KOSK model]] (via [[multi-signature#knowledge-of-secret-key-model|Knowledge-of-secret-key model]])
 - [[multi-signature-to-multi-signature-kosk|Multi-signatures in the plain public-key model ⇒ Multi-signatures in the KOSK model]] (via [[multi-signature#knowledge-of-secret-key-model|Knowledge-of-secret-key model]])
+- [[musig-to-multi-signature|MuSig ⇒ Multi-signature]]
+- [[musig2-to-multi-signature|MuSig2 ⇒ Multi-signature]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[multi-signature#musig2|MuSig2]])
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]] (via [[multi-signature#musig|MuSig]])
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]] (via [[multi-signature#knowledge-of-secret-key-model|Knowledge-of-secret-key model]])

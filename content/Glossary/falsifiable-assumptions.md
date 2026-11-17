@@ -49,9 +49,9 @@ A **non-interactive assumption** is a pair $(\calI, \calV)$ of efficient algorit
 
 # Other results
 
-- Let $L$ be an $\classNP$ language with a sub-exponentially hard subset-membership problem. If a reduction that uses the cheating prover only as an oracle proves the adaptive soundness of a [[succinct-argument|SNARG]] for $L$ from a falsifiable assumption, then the assumption is false; the separation covers designated-verifier SNARGs and SNARGs whose proofs are only sublinear in the statement and witness length ([[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]). The proof uses that the challenger is efficient: an efficient prover whose outputs are indistinguishable from those of an inefficient cheating prover makes the reduction win the assumption's game with nearly the same probability — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+- Let $L$ be an $\classNP$ language with a sub-exponentially hard subset-membership problem. If a reduction that uses the cheating prover only as an oracle proves the adaptive soundness of a [[succinct-argument|SNARG]] for $L$ from a falsifiable assumption, then the assumption is false; the separation covers designated-verifier SNARGs and SNARGs whose proofs are only sublinear in the statement and witness length ([[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to fully succinct SNARKs]]). The proof uses that the challenger is efficient: an efficient prover whose outputs are indistinguishable from those of an inefficient cheating prover makes the reduction win the assumption's game with nearly the same probability — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
 
-<!-- BEGIN GENERATED participates-in 8540edafdc28 -->
+<!-- BEGIN GENERATED participates-in 50457e608209 -->
 
 ## Participates in
 
@@ -59,7 +59,7 @@ A **non-interactive assumption** is a pair $(\calI, \calV)$ of efficient algorit
 
 - [[no-bounded-round-assumption-to-concurrent-schnorr-identification-pas11|No fully-black-box reduction from bounded-round assumptions to Schnorr identification under concurrent attack]] (via [[falsifiable-assumptions#bounded-round-assumptions|Bounded-round assumptions]])
 - [[no-bounded-round-assumption-to-omdl-pas11|No fully-black-box reduction from bounded-round assumptions to OMDL]] (via [[falsifiable-assumptions#bounded-round-assumptions|Bounded-round assumptions]])
-- [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
+- [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to fully succinct SNARKs]]
 - [[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|No tight simple reduction from non-interactive assumptions to BLS signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]]) — circumvented by [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]], [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[no-non-interactive-assumption-to-short-structure-preserving-signature-ago11|No algebraic reduction from non-interactive assumptions to optimally short structure-preserving signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]])
 - [[no-tight-non-interactive-assumption-to-waters-signature-hjk12|No tight simple reduction from non-interactive assumptions to Waters signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]]) — circumvented by [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]]
