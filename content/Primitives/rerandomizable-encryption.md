@@ -17,6 +17,8 @@ variants:
 
 An IND-CPA-secure [[public-key-encryption|public-key encryption]] scheme with an efficient public algorithm $\mathsf{ReRand}$ such that for every $\pk$ output by $\KeyGen$, every message $m$ and every ciphertext $c$ in the support of $\Enc(\pk, m)$, $\mathsf{ReRand}(\pk, c)$ is distributed exactly as $\Enc(\pk, m)$.
 
+As an object, rerandomizable encryption denotes a $(1-\negl)$-[[#Correctness|correct]], [[#CPA security|CPA-secure]], [[#Rerandomization|perfectly rerandomizable]] scheme.
+
 ## Syntax
 
 A rerandomizable encryption scheme is a tuple of efficient algorithms $\mathsf{RE} = (\KeyGen, \Enc, \Dec, \mathsf{ReRand})$ such that $(\KeyGen, \Enc, \Dec)$ is a [[public-key-encryption|PKE]] scheme with message space $\calM$ and ciphertext space $\calC$, together with
@@ -73,7 +75,7 @@ An IND-CPA-secure public-key encryption scheme with an efficient public algorith
 
 ## Security against slightly super-polynomial adversaries
 
-A rerandomizable encryption scheme is **secure against slightly super-polynomial adversaries** if for some $T(\secpar) = \secpar^{\omega(1)}$ every adversary running in time $T(\secpar)$ has IND-CPA advantage at most $1/T(\secpar)$. It strengthens ordinary IND-CPA security; [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]] assume it, together with [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]], to build [[homomorphic-encryption#compact-fhe|compact FHE]] without circular security.
+A rerandomizable encryption scheme is **secure against slightly super-polynomial adversaries** if for some $T(\secpar) = \secpar^{\omega(1)}$ every adversary running in time $T(\secpar)$ has IND-CPA advantage at most $1/T(\secpar)$. As an object, it denotes a $(1-\negl)$-[[#Correctness|correct]], [[#Rerandomization|perfectly rerandomizable]] scheme with this security. It strengthens ordinary IND-CPA security; [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]] assume it, together with [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]], to build [[homomorphic-encryption#compact-fhe|compact FHE]] without circular security.
 
 ## Rerandomizable RCCA encryption
 
@@ -118,7 +120,7 @@ $$
 
 is negligible — [[CKN03 - Relaxing Chosen-Ciphertext Security|CKN03]]. Without the $\mathsf{test}$ answers, $\calA$ would win by submitting $c^*$ itself. For perfectly correct schemes, [[public-key-encryption#cca-security|CCA security]] implies RCCA security, which implies [[public-key-encryption#cpa-security|CPA security]]; appending to every ciphertext of a perfectly correct CCA-secure scheme a bit that decryption ignores gives a scheme that is RCCA-secure but not CCA-secure — standard.
 
-A **rerandomizable RCCA** scheme is perfectly rerandomizable and RCCA-secure. [[Gro04 - Rerandomizable and Replayable Adaptive Chosen Ciphertext Attack Secure Cryptosystems|Gro04]] constructs perfectly rerandomizable schemes whose RCCA security is proved only in an idealized group model.
+As an object, a **rerandomizable RCCA** scheme denotes a $(1-\negl)$-[[#Correctness|correct]] scheme that is [[#Rerandomization|perfectly rerandomizable]] and RCCA-secure. [[Gro04 - Rerandomizable and Replayable Adaptive Chosen Ciphertext Attack Secure Cryptosystems|Gro04]] constructs perfectly rerandomizable schemes whose RCCA security is proved only in an idealized group model.
 
 # Other results
 
@@ -128,13 +130,14 @@ A **rerandomizable RCCA** scheme is perfectly rerandomizable and RCCA-secure. [[
 - Sub-exponentially secure iO and rerandomizable encryption secure against slightly super-polynomial adversaries give compact FHE without circular security ([[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE]]) — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
 - The Double-strand Cramer–Shoup scheme, an extension of Cramer–Shoup encryption, is perfectly rerandomizable and RCCA-secure if [[decisional-diffie-hellman#ddh-in-paired-groups|DDH is hard in paired groups]], a group of prime order $p$ and the subgroup of prime order $q$ of $\ZZ_p^*$ ([[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption]]) — [[PR07 - Rerandomizable RCCA Encryption|PR07]].
 
-<!-- BEGIN GENERATED participates-in 599ddc4e3e44 -->
+<!-- BEGIN GENERATED participates-in 60e5b8d84360 -->
 
 ## Participates in
 
 **Builds on Rerandomizable encryption**
 
 - [[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]]
+- [[rerandomizable-rcca-encryption-to-rerandomizable-encryption|Rerandomizable RCCA encryption ⇒ RE]] (via [[rerandomizable-encryption#rerandomizable-rcca-encryption|Rerandomizable RCCA encryption]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|Security against slightly super-polynomial adversaries]])
 
 **Produces Rerandomizable encryption**
@@ -142,5 +145,6 @@ A **rerandomizable RCCA** scheme is perfectly rerandomizable and RCCA-secure. [[
 - [[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)]] (via [[rerandomizable-encryption#rerandomizable-rcca-encryption|Rerandomizable RCCA encryption]])
 - [[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]] (via [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|Statistical rerandomization of honest ciphertexts]])
 - [[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]] (via [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|Statistical rerandomization of honest ciphertexts]])
+- [[rerandomizable-rcca-encryption-to-rerandomizable-encryption|Rerandomizable RCCA encryption ⇒ RE]]
 
 <!-- END GENERATED participates-in -->
