@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] $(\Gen, \Enc, \Dec)$ is a pseudorandom [[pseudorandom-generator#trapdoor-pseudorandom-generators|trapdoor PRG]] with the PRC key as trapdoor $\td$, the encoder's coins as key $k$, $\Eval(\td,k)$ running $\Enc_{\td}$ on coins $k$, and $\Invert(\td,r) = [\Dec_{\td}(r) \neq \bot]$. It is $(1-\nu)$-complete and $(1-\nu)$-sound for a negligible $\nu$, and if the PRC is $\varepsilon$-robust, $\Pr[\Invert(\td, \calE(\Eval(\td,k))) = 1] \ge 1 - \nu$ for every $\varepsilon$-bounded channel $\calE$ — folklore.
+A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] $(\Gen, \Enc, \Dec)$ is a pseudorandom [[pseudorandom-generator#trapdoor-pseudorandom-generators|trapdoor PRG]] with the PRC key as trapdoor $\td$, the encoder's coins as key $k$, $\Eval(\td,k)$ running $\Enc_{\td}$ on coins $k$, and $\Invert(\td,r) = [\Dec_{\td}(r) \neq \bot]$. It is $(1-\nu)$-complete and $(1-\nu)$-sound for a negligible $\nu$, and if the PRC is $\varepsilon$-robust, then for every $\varepsilon$-bounded channel $\calE$ there is a negligible $\nu_{\calE}$ with $\Pr[\Invert(\td, \calE(\Eval(\td,k))) = 1] \ge 1 - \nu_{\calE}$ — folklore.
 
 ## Sketch
 

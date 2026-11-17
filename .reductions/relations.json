@@ -7584,6 +7584,19 @@
    "unlisted": false
   },
   {
+   "id": "substitution-robust-zero-bit-prc",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-error-correcting-code.md",
+   "slug": "pseudorandom-error-correcting-code",
+   "graphSlug": "Primitives/pseudorandom-error-correcting-code",
+   "anchor": "#substitution-robust-zero-bit-prc",
+   "of": "prc",
+   "title": "Substitution-robust zero-bit PRC",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -18308,7 +18321,7 @@
    "hypotheses": [
     "subexponential-lpn"
    ],
-   "conclusion": "zero-bit-prc",
+   "conclusion": "substitution-robust-zero-bit-prc",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -18324,7 +18337,7 @@
    "page": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
    "slug": "lwe-to-zero-bit-prc-cg24",
    "graphSlug": "Reductions/lwe-to-zero-bit-prc-cg24",
-   "title": "Subexponential LPN ⇒ Zero-bit PRC"
+   "title": "Subexponential LPN ⇒ Substitution-robust zero-bit PRC"
   },
   {
    "id": "red-ma-to-am",
@@ -27750,6 +27763,33 @@
    "title": "Subset sum at constant density above one ⇒ UOWHF"
   },
   {
+   "id": "red-substitution-robust-zero-bit-prc-to-zero-bit-prc",
+   "kind": "implication",
+   "hypotheses": [
+    "substitution-robust-zero-bit-prc"
+   ],
+   "conclusion": "zero-bit-prc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps the code for one constant p, and the reduction forwards every pseudorandomness or soundness adversary and every channel unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/substitution-robust-zero-bit-prc-to-zero-bit-prc.md",
+   "slug": "substitution-robust-zero-bit-prc-to-zero-bit-prc",
+   "graphSlug": "Reductions/substitution-robust-zero-bit-prc-to-zero-bit-prc",
+   "title": "Substitution-robust zero-bit PRC ⇒ Zero-bit PRC"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
@@ -29760,7 +29800,7 @@
    "id": "red-zero-bit-prc-to-watermarking-cg24",
    "kind": "implication",
    "hypotheses": [
-    "zero-bit-prc"
+    "substitution-robust-zero-bit-prc"
    ],
    "conclusion": "language-model-watermarking",
    "class": "fully-black-box",
@@ -29781,7 +29821,7 @@
    "page": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
    "slug": "zero-bit-prc-to-watermarking-cg24",
    "graphSlug": "Reductions/zero-bit-prc-to-watermarking-cg24",
-   "title": "Zero-bit PRC ⇒ Watermarking"
+   "title": "Substitution-robust zero-bit PRC ⇒ Watermarking"
   },
   {
    "id": "red-zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness",

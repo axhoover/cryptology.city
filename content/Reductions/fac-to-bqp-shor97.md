@@ -22,7 +22,7 @@ security-loss: ""
 
 ## Sketch
 
-Factoring $N$ reduces classically to finding the multiplicative order $r$ of a random $a \in \ZZ_N^*$: for odd $N$ that is not a prime power, the other cases being handled classically, with probability at least $1/2$ the order $r$ is even, $a^{r/2} \not\equiv -1 \pmod N$, and $\gcd(a^{r/2} - 1, N)$ is a nontrivial factor. The order is the period of $x \mapsto a^x \bmod N$, which the quantum Fourier transform over $\ZZ_{2^m}$ with $2^m \approx N^2$ recovers through continued fractions — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
+Factoring $N$ reduces classically to finding the multiplicative order $r$ of a random $a \in \ZZ_N^*$: for odd $N$ that is not a prime power, the other cases being handled classically, with probability at least $1/2$ the order $r$ is even, $a^{r/2} \not\equiv -1 \pmod N$, and $\gcd(a^{r/2} - 1, N)$ is a nontrivial factor. The order is the period of $x \mapsto a^x \bmod N$, which the quantum Fourier transform over $\ZZ_{2^m}$ with $2^m \approx N^2$ recovers through continued fractions — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. Over the gate set $\{H, \mathrm{CNOT}, T\}$ of BQP, modular exponentiation is a reversible classical circuit and hence exact, while each controlled phase rotation of the Fourier transform is approximated within $1/\poly(n)$ in operator norm by a polynomial-size circuit over the gate set that is computable in polynomial time, which moves the success probability by at most $1/\poly(n)$ — standard.
 
 ## Notes
 

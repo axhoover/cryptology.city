@@ -20,18 +20,18 @@ rationale:
 
 ## Statement
 
-A [[distributed-point-function|DPF]] for domain $[N]$ and range $\ZZ_2$ yields a 2-server [[multi-server-private-information-retrieval#computational-multi-server-pir|computational PIR]] for an $N$-bit database $D$ in which each query is one DPF key and each answer one bit: the client sends $(k_0, k_1) \gets \Gen(1^\secpar, i, 1)$, one key to each server; server $b$ returns $a_b = \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j)$; and $D[i] = a_0 + a_1$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]].
+A [[distributed-point-function|DPF]] with range $\GG$ yields a 2-server [[multi-server-private-information-retrieval#computational-multi-server-pir|computational PIR]] for an $N$-bit database $D$ in which each query is one DPF key and each answer one element of $\GG$. Let $n = \lceil \log_2 N \rceil$, identify $[N]$ with a subset of $\bits^n$, and fix $g \in \GG \setminus \{0\}$: the client sends $(k_0, k_1) \gets \Gen(1^\secpar, 1^n, i, g)$, one key to each server; server $b$ returns $a_b = \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j) \in \GG$; and $D[i] = [a_0 + a_1 = g]$. When $\GG = \ZZ_2$, which the PRG-based DPF of GI14 allows, each answer is one bit — [[GI14 - Distributed Point Functions and Their Applications|GI14]].
 
 ## Sketch
 
-Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctness. Privacy: server $b$'s entire view of a query is $k_b$, so a distinguisher between queries for $i$ and $i'$ is an adversary against [[distributed-point-function#hiding-security|DPF hiding]] for key $k_b$ with the same advantage.
+Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,g}(j) = D[i] \cdot g$ by DPF correctness, which equals $g$ iff $D[i] = 1$ since $g \ne 0$. Privacy: server $b$'s entire view of a query is $k_b$, so a distinguisher between queries for $i$ and $i'$ is an adversary against [[distributed-point-function#hiding-security|DPF hiding]] for key $k_b$ with the same advantage.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Algorithm}
 \caption{$\Query(i)$}
 \begin{algorithmic}
-\State $(k_0, k_1) \gets \Gen(1^\secpar, i, 1)$
+\State $(k_0, k_1) \gets \Gen(1^\secpar, 1^n, i, g)$
 \Return $(k_0, k_1)$
 \end{algorithmic}
 \end{algorithm}
@@ -41,7 +41,7 @@ Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctnes
 \caption{$\Answer(b, k_b, D)$}
 \begin{algorithmic}
 \State $a_b \gets \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j)$
-\Comment{sum in $\ZZ_2$}
+\Comment{sum in $\GG$}
 \Return $a_b$
 \end{algorithmic}
 \end{algorithm}
@@ -50,7 +50,7 @@ Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctnes
 \algname{Algorithm}
 \caption{$\Recon(i, a_0, a_1)$}
 \begin{algorithmic}
-\Return $a_0 + a_1$
+\Return $[a_0 + a_1 = g]$
 \end{algorithmic}
 \end{algorithm}
 ```

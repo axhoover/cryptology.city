@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-For distinct points $\alpha_1, \ldots, \alpha_t \in [N]$ and values $\beta_1, \ldots, \beta_t \in \GG$, the multi-point function $\sum_{i=1}^{t} f_{\alpha_i, \beta_i}$ is shared by running the key generation of a [[distributed-point-function|DPF]] independently on each $(\alpha_i, \beta_i)$: party $b$ holds $(k_{b,1}, \ldots, k_{b,t})$ and evaluates $\sum_{i=1}^{t} \Eval(b, k_{b,i}, x)$. This is a correct [[distributed-point-function#multi-point-functions|multi-point FSS]], hiding between any two multi-point functions with the same number $t$ of points if the DPF is hiding: for every efficient $\calA$ there is an efficient $\calB$ whose DPF hiding advantage is at least a $1/t$ fraction of $\calA$'s — folklore.
+For distinct points $\alpha_1, \ldots, \alpha_t \in \bits^n$ and values $\beta_1, \ldots, \beta_t \in \GG$, the multi-point function $\sum_{i=1}^{t} f_{\alpha_i, \beta_i}$ is shared by running the key generation $\Gen(1^\secpar, 1^n, \alpha_i, \beta_i)$ of a [[distributed-point-function|DPF]] with range $\GG$ independently on each $(\alpha_i, \beta_i)$: party $b$ holds $(k_{b,1}, \ldots, k_{b,t})$ and evaluates $\sum_{i=1}^{t} \Eval(b, k_{b,i}, x)$. This is a correct [[distributed-point-function#multi-point-functions|multi-point FSS]] with keys of length $t \cdot p(\secpar, n, \log |\GG|)$, for the polynomial $p$ bounding the DPF keys, and it is hiding if the DPF is hiding: for every efficient $\calA$ against the multi-point hiding game, with two lists of $t$ points over $\bits^n$, there is an efficient $\calB$ whose DPF hiding advantage is at least a $1/t$ fraction of $\calA$'s — folklore.
 
 ## Sketch
 

@@ -24,4 +24,4 @@ A quantum Turing machine simulates every bounded-error probabilistic polynomial-
 
 ## Sketch
 
-Each deterministic step of the probabilistic machine is executed reversibly, and each coin toss is a fresh qubit put into an equal superposition of $0$ and $1$; measuring at the end reproduces the acceptance probabilities.
+Each deterministic step of the probabilistic machine is executed reversibly, and each coin toss is a fresh qubit put into an equal superposition of $0$ and $1$; measuring at the end reproduces the acceptance probabilities. Over the gate set $\{H, \mathrm{CNOT}, T\}$ of BQP this is exact: a coin is $H$ applied to $|0\rangle$, $X = H T^4 H$, and the Toffoli gate, which with $X$ and ancillas computes every classical circuit reversibly, is an exact circuit over $H$, $\mathrm{CNOT}$, $T$ and $T^7 = T^{-1}$ — standard.

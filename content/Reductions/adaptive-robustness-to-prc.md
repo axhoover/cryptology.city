@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[pseudorandom-error-correcting-code|PRC]] with [[pseudorandom-error-correcting-code#adaptive-robustness|adaptive robustness]] is a PRC: robustness quantifies over $\varepsilon$-bounded channels fixed before the codeword, adaptive robustness over channels chosen after seeing it, and a fixed channel is the adaptive choice that is constant in the codeword; pseudorandomness and soundness are the same properties in both notions — folklore.
+A [[pseudorandom-error-correcting-code|PRC]] with [[pseudorandom-error-correcting-code#adaptive-robustness|adaptive robustness]] is a PRC (pseudorandom, sound and $\varepsilon$-robust for some constant $\varepsilon > 0$) that is in addition adaptively $\delta$-robust, for some constant $\delta > 0$, in the sense of [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]]; dropping adaptive robustness leaves a PRC — folklore.
