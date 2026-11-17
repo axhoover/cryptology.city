@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-diffie-hellman|DDH]] is hard for a group generator $\GrGen$, then [[computational-diffie-hellman|CDH]] is hard for $\GrGen$: for every CDH adversary $\calA$ there is a DDH adversary $\calB$, making one call to $\calA$, with $\Adv^{\text{ddh}}_{\GrGen,\calB}(\secpar) \ge \Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) - 1/p$, $p$ the group order — folklore.
+If [[decisional-diffie-hellman|DDH]] is hard for a group generator $\GrGen$, then [[computational-diffie-hellman|CDH]] is hard for $\GrGen$: for every CDH adversary $\calA$ there is a DDH adversary $\calB$, making one call to $\calA$, with $\Adv^{\text{ddh}}_{\GrGen,\calB}(\secpar) \ge \Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) - 1/p$, $p$ the group order — folklore. Hardness of [[decisional-diffie-hellman#assumption|DDH]] makes $1/p$ negligible, since every group $\GrGen$ outputs has order $p \ge 2$ and exhaustive search for $x$ decides DDH with advantage $1 - 1/p \ge 1/2$ whenever $p$ is polynomial — standard. The $-1/p$ term is therefore negligible, and CDH is hard.
 
 ## Sketch
 
