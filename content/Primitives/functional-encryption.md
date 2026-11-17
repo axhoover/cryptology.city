@@ -71,6 +71,8 @@ $$
 
 is negligible — [[BSW11 - Functional Encryption Definitions and Challenges|BSW11]].
 
+As an object, FE denotes, for every pair of polynomials $n = n(\secpar) \ge 1$ and $s = s(\secpar)$, a $(1-\negl(\secpar))$-[[#Correctness|correct]] and IND-secure scheme with $\calM = \bits^{n}$ and $\calF$ the circuits of size at most $s$ on $n$-bit inputs. Each variant below denotes a scheme with the same message space, function class and correctness, carrying the security notion its section names, or IND security where it names none, unless its section states otherwise. Without correctness the object is trivial: with $\Enc(\pp, m) := 0$, $c^*$ does not depend on $b$ — standard.
+
 # Variations
 
 ## Selective security
@@ -94,7 +96,7 @@ The adversary announces $(m_0, m_1)$ before $\Setup$ runs; admissibility is as i
 \end{algorithm}
 ```
 
-$\mathsf{FE}$ is **selectively IND-secure** if for all efficient admissible $\calA$, $\Adv^{\mathrm{sel}}_{\mathsf{FE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sel}}_{\mathsf{FE},\calA}(\secpar) = 1\right] - 1\right|$ is negligible. Every IND-secure scheme is selectively IND-secure — standard.
+$\mathsf{FE}$ is **selectively IND-secure** if for all efficient admissible $\calA$, $\Adv^{\mathrm{sel}}_{\mathsf{FE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sel}}_{\mathsf{FE},\calA}(\secpar) = 1\right] - 1\right|$ is negligible. Every IND-secure scheme is selectively IND-secure ([[functional-encryption-to-fe-selective-security|IND-secure FE ⇒ selectively secure FE]]) — standard.
 
 ## Bounded-collusion FE
 
@@ -132,16 +134,18 @@ In _predicate encryption with public index_, a message is a pair $(x, \mu)$, the
 - Single-key FE for all circuits of depth $d$ from [[learning-with-errors|LWE]], whose ciphertexts grow with $d$ and the output length but not with the circuit size; security extends to an a priori bounded number of keys. A ciphertext holds an [[homomorphic-encryption|FHE]] encryption $\psi$ of $m$, a [[garbled-circuit|garbled circuit]] for FHE decryption, and [[attribute-based-encryption|ABE]] encryptions of its input labels with attribute $\psi$; the key for $f$ releases, for each bit of the homomorphic evaluation of $f$ on $\psi$, the label matching that bit — [[GKPVZ13a - Reusable Garbled Circuits and Succinct Functional Encryption|GKPVZ13a]].
 - For every bound $q$ fixed at setup, $q$-bounded-collusion FE for all polynomial-size circuits from semantically secure [[public-key-encryption|PKE]] and [[pseudorandom-generator|PRGs]] computable by low-depth circuits, secure under an adaptive [[functional-encryption#adaptive-simulation-security|simulation-based]] definition; for $q$-bounded-collusion predicate encryption with public index, semantically secure PKE alone suffices — [[GVW12 - Functional Encryption with Bounded Collusions via Multi-Party Computation|GVW12]].
 
-<!-- BEGIN GENERATED participates-in 54cbf315e47b -->
+<!-- BEGIN GENERATED participates-in 09d4d8044641 -->
 
 ## Participates in
 
 **Builds on Functional encryption**
 
 - [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]] (via [[functional-encryption#sub-exponentially-secure-weakly-compact-fe|Sub-exponentially secure weakly compact FE]])
+- [[functional-encryption-to-fe-selective-security|IND-secure FE ⇒ selectively secure FE]]
 
 **Produces Functional encryption**
 
+- [[functional-encryption-to-fe-selective-security|IND-secure FE ⇒ selectively secure FE]] (via [[functional-encryption#selective-security|Selective security]])
 - [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]] (via [[functional-encryption#selective-security|Selective security]])
 - [[owf-and-io-to-fe-wat15|OWF + iO ⇒ FE]]
 

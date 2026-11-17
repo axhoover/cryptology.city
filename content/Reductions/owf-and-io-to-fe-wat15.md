@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies an [[functional-encryption#indistinguishability-based-security|IND-secure]] (adaptively secure) [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits, with a polynomial security loss and no complexity leveraging; outside the obfuscated programs the construction uses only primitives built from pseudorandom generators — [[Wat15 - A Punctured Programming Approach to Adaptively Secure Functional Encryption|Wat15]].
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies a [[functional-encryption#correctness|correct]], [[functional-encryption#indistinguishability-based-security|IND-secure]] (adaptively secure) [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits, with a polynomial security loss and no complexity leveraging; outside the obfuscated programs the construction uses only primitives built from pseudorandom generators — [[Wat15 - A Punctured Programming Approach to Adaptively Secure Functional Encryption|Wat15]].
 
 ## Notes
 

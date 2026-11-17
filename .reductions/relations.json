@@ -1986,20 +1986,6 @@
    "unlisted": false
   },
   {
-   "id": "doubly-efficient-ram-mpc",
-   "kind": "object",
-   "type": "primitive",
-   "page": "content/Primitives/doubly-efficient-ram-mpc.md",
-   "slug": "doubly-efficient-ram-mpc",
-   "graphSlug": "Primitives/doubly-efficient-ram-mpc",
-   "title": "Doubly-efficient RAM MPC",
-   "aliases": [
-    "DE-RAM-MPC",
-    "Doubly-efficient RAM MPC"
-   ],
-   "unlisted": true
-  },
-  {
    "id": "doubly-enhanced-certified-tdp",
    "kind": "variant",
    "type": "primitive",
@@ -15209,6 +15195,33 @@
    "title": "Function secret sharing (FSS) ⇒ DPF"
   },
   {
+   "id": "red-functional-encryption-to-fe-selective-security",
+   "kind": "implication",
+   "hypotheses": [
+    "functional-encryption"
+   ],
+   "conclusion": "fe-selective-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs the selective adversary unchanged inside the IND game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/functional-encryption-to-fe-selective-security.md",
+   "slug": "functional-encryption-to-fe-selective-security",
+   "graphSlug": "Reductions/functional-encryption-to-fe-selective-security",
+   "title": "IND-secure FE ⇒ selectively secure FE"
+  },
+  {
    "id": "red-fuzzy-ibe-to-ibe",
    "kind": "implication",
    "hypotheses": [
@@ -18656,33 +18669,6 @@
    "slug": "lsn-to-secret-key-pir-sk-pir-cimr25",
    "graphSlug": "Reductions/lsn-to-secret-key-pir-sk-pir-cimr25",
    "title": "LSN ⇒ Secret-Key PIR (SK-PIR)"
-  },
-  {
-   "id": "red-lwe-to-de-ram-mpc-lmw24",
-   "kind": "implication",
-   "hypotheses": [
-    "ring-lwe"
-   ],
-   "conclusion": "doubly-efficient-ram-mpc",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The conclusion bundles an efficiency requirement, sublinear online time, with security, and that requirement lies outside the RTV04 axes."
-   },
-   "status": "draft",
-   "page": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
-   "slug": "lwe-to-de-ram-mpc-lmw24",
-   "graphSlug": "Reductions/lwe-to-de-ram-mpc-lmw24",
-   "title": "Ring-LWE ⇒ DE-RAM-MPC"
   },
   {
    "id": "red-lwe-to-depir-lmw23",
@@ -25735,7 +25721,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "success probability $O(q/n^2)$ for an eavesdropper making $q$ oracle queries",
+   "securityLoss": "success probability at most $(q+1)/n^2$ for an eavesdropper making $q$ oracle queries",
    "rationale": {
     "securityLoss": "The transcript fixes the key only as the preimage of one revealed oracle answer, which is uniform over the domain points the eavesdropper has not queried, so each query finds it with probability $O(1/n^2)$."
    },
@@ -31893,36 +31879,6 @@
    "slug": "no-falsifiable-assumption-to-snark-gro16",
    "graphSlug": "Barriers/no-falsifiable-assumption-to-snark-gro16",
    "title": "No fully-black-box reduction from Falsifiable assumption to fully succinct SNARKs"
-  },
-  {
-   "id": "bar-fiat-shamir-and-gkr-to-snark-krs25",
-   "hypotheses": [
-    "fiat-shamir",
-    "gkr-protocol"
-   ],
-   "conclusion": "snark",
-   "class": "fixed-construction",
-   "consequences": [
-    {
-     "kind": "contradiction",
-     "target": "",
-     "class": "fixed-construction"
-    }
-   ],
-   "strength": "unconditional",
-   "conditionalOn": [],
-   "circumventedBy": [],
-   "source": [
-    "[[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]"
-   ],
-   "rationale": {
-    "class": "The construction is Fiat–Shamir applied to the GKR-based argument, and an attack against every hash function refutes that construction only; SNARKs built by other means are not ruled out."
-   },
-   "status": "draft",
-   "page": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
-   "slug": "no-fiat-shamir-and-gkr-to-snark-krs25",
-   "graphSlug": "Barriers/no-fiat-shamir-and-gkr-to-snark-krs25",
-   "title": "No fixed-construction reduction from Fiat-Shamir + GKR to SNARK"
   },
   {
    "id": "bar-fiat-shamir-and-hash-function-to-ds-gk03",
