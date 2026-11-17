@@ -1486,6 +1486,19 @@
    "unlisted": false
   },
   {
+   "id": "constant-round-public-coin-hvzk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#constant-round-public-coin-hvzk-proofs",
+   "of": "zkp",
+   "title": "Constant-round public-coin HVZK proofs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "constant-round-zk-argument",
    "kind": "variant",
    "type": "primitive",
@@ -11209,6 +11222,33 @@
    "title": "Constant-round NM commitment ⇒ NM commitment"
   },
   {
+   "id": "red-constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge",
+   "kind": "implication",
+   "hypotheses": [
+    "constant-round-public-coin-hvzk-proof"
+   ],
+   "conclusion": "honest-verifier-zero-knowledge",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity map on proof systems, and the protocol and every adversary are forwarded unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge.md",
+   "slug": "constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge",
+   "graphSlug": "Reductions/constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge",
+   "title": "Constant-round public-coin HVZK proof ⇒ HVZK"
+  },
+  {
    "id": "red-continual-leakage-resilient-pke-to-leakage-resilient-pke",
    "kind": "implication",
    "hypotheses": [
@@ -14360,16 +14400,17 @@
    "id": "red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "kind": "implication",
    "hypotheses": [
-    "honest-verifier-zero-knowledge"
+    "constant-round-public-coin-hvzk-proof"
    ],
-   "conclusion": "nizk",
+   "conclusion": "nizk-argument-for-np",
    "class": "fully-black-box",
    "model": "rom",
    "models": [
     "rom"
    ],
    "source": [
-    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+    "folklore",
+    "[[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]]"
    ],
    "via": [
     "[[fiat-shamir-heuristic|Fiat–Shamir]]"
