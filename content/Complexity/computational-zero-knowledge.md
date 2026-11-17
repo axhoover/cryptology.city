@@ -21,7 +21,7 @@ variants:
 
 # Computational zero-knowledge
 
-CZK is the class of languages $L$ with an [[interactive-proof-systems|interactive proof]] $(P, V)$, with completeness $2/3$ and soundness error $1/3$ against every prover, such that for every PPT verifier $V^*$ there is a simulator $\Sim$ running in expected polynomial time for which the ensembles $\{\Sim(x)\}_{x \in L}$ and $\{\View_{V^*}\langle P, V^* \rangle(x)\}_{x \in L}$ are computationally indistinguishable by every [[bounded-error-probabilistic-polynomial-time|BPP]] distinguisher, which receives $x$. The view consists of $V^*$'s coins and the messages it receives. CZK differs from [[statistical-zero-knowledge|SZK]] only in asking for computational rather than statistical closeness — standard.
+CZK is the class of languages $L$ with an [[interactive-proof-systems|interactive proof]] $(P, V)$, with completeness $2/3$ and soundness error $1/3$ against every prover, such that for every non-uniform PPT verifier $V^*$, a PPT algorithm with an advice string of polynomial length that absorbs any auxiliary input, there is a non-uniform simulator $\Sim$ running in expected polynomial time for which the ensembles $\{\Sim(x)\}_{x \in L}$ and $\{\View_{V^*}\langle P, V^* \rangle(x)\}_{x \in L}$ are indistinguishable by every family of polynomial-size circuits, which receives $x$ — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]. The view consists of $V^*$'s coins and the messages it receives. Vad06 adopt this non-uniform formulation; analogues of their results for uniform verifiers and distinguishers are not known — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]. CZK differs from [[statistical-zero-knowledge|SZK]] only in asking for computational rather than statistical closeness — standard.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#czk).
 
@@ -83,7 +83,7 @@ The languages with a $k(n)$-round interactive proof or argument with negligible 
 
 ## Honest-verifier CZK
 
-$\mathbf{HVCZK}$ is the class of languages with an interactive proof that is computational zero-knowledge against the honest verifier only: a $\Sim$ running in expected polynomial time outputs, for every $x \in L$, a distribution computationally indistinguishable from the view of the verifier that follows the protocol — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]].
+$\mathbf{HVCZK}$ is the class of languages with an interactive proof that is computational zero-knowledge against the honest verifier only: a $\Sim$ running in expected polynomial time outputs, for every $x \in L$, a distribution indistinguishable by every family of polynomial-size circuits, which receives $x$, from the view of the verifier that follows the protocol — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]].
 
 ## Worst-case hardness
 
