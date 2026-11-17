@@ -23,7 +23,7 @@ For every finite field $\FF$ with $\poly(\secpar)$-bit elements and efficient op
 
 ## Sketch
 
-$P(\alpha)$ is computed from the coefficients and $\alpha$ by $d$ multiplications and $d$ additions in $\FF$ (Horner's rule), so $f_{\mathrm{OPE}}$ is computed by a polynomial-size circuit and has a protocol secure against semi-honest adversaries; for each corrupted party the OPE semi-honest game is the semi-honest 2PC game for $f_{\mathrm{OPE}}$ — standard.
+$P(\alpha)$ is computed from the coefficients and $\alpha$ by $d$ multiplications and $d$ additions in $\FF$ (Horner's rule), so $f_{\mathrm{OPE}}$ is a polynomial-time functionality and has a protocol secure against semi-honest adversaries; for each corrupted party the OPE semi-honest game is the semi-honest 2PC game for $f_{\mathrm{OPE}}$ — standard.
 
 ## Notes
 

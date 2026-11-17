@@ -23,7 +23,7 @@ Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] with key space 
 
 ## Sketch
 
-$\Eval$ is efficient and its inputs have fixed polynomial lengths, so $f_\PRF$ is computed by a polynomial-size circuit and has a protocol. An input that the simulator substitutes for a corrupted party in the ideal execution of $f_\PRF$ is a string of length $\kappa$ or $n$, so it lies in $\calK$ or $\calD$ as the [[oblivious-prf#malicious-security|malicious OPRF]]'s ideal execution requires, and malicious security of the OPRF is security with abort of that protocol for $f_\PRF$, together with pseudorandomness of $\PRF$, which is the hypothesis — standard.
+$\Eval$ is efficient and its inputs have fixed polynomial lengths, so $f_\PRF$ is a polynomial-time functionality and has a protocol. An input that the simulator substitutes for a corrupted party in the ideal execution of $f_\PRF$ is a string of length $\kappa$ or $n$, so it lies in $\calK$ or $\calD$ as the [[oblivious-prf#malicious-security|malicious OPRF]]'s ideal execution requires, and malicious security of the OPRF is security with abort of that protocol for $f_\PRF$, together with pseudorandomness of $\PRF$, which is the hypothesis — standard.
 
 ## Notes
 
