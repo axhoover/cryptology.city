@@ -84,7 +84,7 @@ is negligible. Up to pseudorandomness of $\PRF$, this is [[secure-multi-party-co
 
 ### Malicious security
 
-An OPRF $(\PRF, \Pi)$ has **malicious security** if $\PRF$ is pseudorandom and $\Pi$ securely computes $f_\PRF$ with abort against $t = 1$ corruptions, in the sense of [[secure-multi-party-computation#security-with-abort|security with abort]] for $n = 2$ ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]): for all efficient $\calA$ corrupting at most one party and deviating arbitrarily there is an efficient $\Sim$ such that for all efficient $\calD$, $\Adv^{\mathrm{mpc}}_{\Pi,f_\PRF,\calA,\Sim,\calD}(\secpar)$ is negligible. In the ideal execution a corrupted server hands the trusted party a key $k' \in \calK$ of the simulator's choice and may then make the client output $\bot$, and a corrupted client hands it an input $x' \in \calD$ of the simulator's choice and receives $\Eval(k, x')$.
+An OPRF $(\PRF, \Pi)$ has **malicious security** if $\PRF$ is pseudorandom and $\Pi$ securely computes $f_\PRF$ with abort against $t = 1$ corruptions, in the sense of [[secure-multi-party-computation#security-with-abort|security with abort]] for $n = 2$ ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]): for all efficient $\calA$ corrupting one of the two parties and deviating arbitrarily there is an efficient $\Sim$ such that for all efficient $\calD$, $\Adv^{\mathrm{mpc}}_{\Pi,f_\PRF,\calA,\Sim,\calD}(\secpar)$ is negligible. In the ideal execution a corrupted server hands the trusted party a key $k' \in \calK$ of the simulator's choice and may then make the client output $\bot$, and a corrupted client hands it an input $x' \in \calD$ of the simulator's choice and receives $\Eval(k, x')$.
 
 # Variations
 

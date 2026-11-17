@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\ell$, $n_S$ and $n_R$ be polynomials in $\secpar$, and let $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|))$ over the universe $\bits^{\ell}$ with size bounds $n_S$ and $n_R$, each set encoded as a string of a fixed length and an input that encodes no admissible set replaced by $\emptyset$. A protocol that securely computes $f_{\mathrm{PSI}}$ with abort against a malicious adversary corrupting at most one party, which exists when [[secure-multi-party-computation#two-party-computation-2pc|2PC]] is achieved, is a [[private-set-intersection|PSI]] protocol with [[private-set-intersection#malicious-security|malicious security]] — folklore.
+Let $\ell$, $n_S$ and $n_R$ be polynomials in $\secpar$, and let $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|))$ over the universe $\bits^{\ell}$ with size bounds $n_S$ and $n_R$, each set encoded as a string of a fixed length and an input that encodes no admissible set replaced by $\emptyset$. A protocol that securely computes $f_{\mathrm{PSI}}$ with abort against a malicious adversary corrupting either party, which exists when [[secure-multi-party-computation#two-party-computation-2pc|2PC]] is achieved, is a [[private-set-intersection|PSI]] protocol with [[private-set-intersection#malicious-security|malicious security]] — folklore.
 
 ## Sketch
 

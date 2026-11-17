@@ -73,7 +73,7 @@ is negligible. This is [[secure-multi-party-computation#semi-honest-two-party-co
 
 ### Malicious security
 
-An OPE $\Pi$ has **malicious security** if it securely computes $f_{\mathrm{OPE}}$ with abort against $t = 1$ corruptions, in the sense of [[secure-multi-party-computation#security-with-abort|security with abort]] for $n = 2$ ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]): for all efficient $\calA$ corrupting at most one party and deviating arbitrarily there is an efficient $\Sim$ such that for all efficient $\calD$, $\Adv^{\mathrm{mpc}}_{\Pi,f_{\mathrm{OPE}},\calA,\Sim,\calD}(\secpar)$ is negligible. In the ideal execution a corrupted sender hands the trusted party a polynomial $P'$ of degree at most $d$ of the simulator's choice and may then make the receiver output $\bot$, and a corrupted receiver hands it an input $\alpha' \in \FF$ of the simulator's choice and receives $P(\alpha')$.
+An OPE $\Pi$ has **malicious security** if it securely computes $f_{\mathrm{OPE}}$ with abort against $t = 1$ corruptions, in the sense of [[secure-multi-party-computation#security-with-abort|security with abort]] for $n = 2$ ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]): for all efficient $\calA$ corrupting one of the two parties and deviating arbitrarily there is an efficient $\Sim$ such that for all efficient $\calD$, $\Adv^{\mathrm{mpc}}_{\Pi,f_{\mathrm{OPE}},\calA,\Sim,\calD}(\secpar)$ is negligible. In the ideal execution a corrupted sender hands the trusted party a polynomial $P'$ of degree at most $d$ of the simulator's choice and may then make the receiver output $\bot$, and a corrupted receiver hands it an input $\alpha' \in \FF$ of the simulator's choice and receives $P(\alpha')$.
 
 # Variations
 
