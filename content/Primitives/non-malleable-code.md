@@ -30,9 +30,7 @@ A tampering family $\calF$ is a set of functions $f : \bits^n \to \bits^n$. The 
 
 ### Correctness
 
-A coding scheme $\Pi = (\Enc, \Dec)$ is **perfectly correct** if for all $m \in \calM$, $\Pr\!\left[\Dec(\Enc(m)) = m\right] = 1$ over the coins of $\Enc$. Every code on this page is perfectly correct.
-
-TODO: the number of the definition of a coding scheme in [[DPW10 - Non-Malleable Codes|DPW10]], and whether it requires perfect correctness.
+A coding scheme $\Pi = (\Enc, \Dec)$ is **perfectly correct** if for all $m \in \calM$, $\Pr\!\left[\Dec(\Enc(m)) = m\right] = 1$ over the coins of $\Enc$. Every code on this page is perfectly correct, as the definition of a coding scheme requires — [[DPW10 - Non-Malleable Codes|DPW10]], Definition 3.1.
 
 ### Non-malleability
 
