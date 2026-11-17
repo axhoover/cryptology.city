@@ -237,7 +237,7 @@ test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-r
 });
 
 test("PLONK's conclusions keep both the AGM and the random oracle", () => {
-  const r = live(["bilinear-pairing", "q-dlog"]);
+  const r = live(["type-3-pairing", "q-dlog"]);
   for (const x of ["universal-snark", "snark"])
     assert.deepEqual(scopesOf(r, x), ["rom+algebraic-group"], x);
 });
