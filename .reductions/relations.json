@@ -25786,6 +25786,33 @@
    "title": "Statistically hiding COM ⇒ Statistical ZK arguments for NP"
   },
   {
+   "id": "red-statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk",
+   "kind": "implication",
+   "hypotheses": [
+    "statistically-simulation-sound-nizk-for-np"
+   ],
+   "conclusion": "statistically-simulation-sound-nizk",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system and simulator for one fixed NP relation, and the reductions forward any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk.md",
+   "slug": "statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk",
+   "graphSlug": "Reductions/statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk",
+   "title": "SSS-NIZK for NP ⇒ SSS-NIZK"
+  },
+  {
    "id": "red-strong-pseudorandom-permutation-to-strong-tweakable-block-cipher-lrw02",
    "kind": "implication",
    "hypotheses": [
@@ -28017,6 +28044,33 @@
    "title": "TPKE CCA Security ⇒ TPKE CPA Security"
   },
   {
+   "id": "red-tpke-cpa-security-to-threshold-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "tpke-cpa-security"
+   ],
+   "conclusion": "threshold-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the threshold encryption algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tpke-cpa-security-to-threshold-encryption.md",
+   "slug": "tpke-cpa-security-to-threshold-encryption",
+   "graphSlug": "Reductions/tpke-cpa-security-to-threshold-encryption",
+   "title": "TPKE CPA Security ⇒ TPKE"
+  },
+  {
    "id": "red-twisted-edwards-dlog-to-prime-order-dlog",
    "kind": "implication",
    "hypotheses": [
@@ -28856,6 +28910,33 @@
    "slug": "uowhf-and-ots-to-ds-ny89",
    "graphSlug": "Reductions/uowhf-and-ots-to-ds-ny89",
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
+  },
+  {
+   "id": "red-vdf-to-weak-vdf",
+   "kind": "implication",
+   "hypotheses": [
+    "vdf"
+   ],
+   "conclusion": "weak-vdf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on (Setup, Eval, Vrfy), and the reductions forward any soundness or sequentiality adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/vdf-to-weak-vdf.md",
+   "slug": "vdf-to-weak-vdf",
+   "graphSlug": "Reductions/vdf-to-weak-vdf",
+   "title": "VDF ⇒ Weak VDF"
   },
   {
    "id": "red-verifiable-prime-order-dlog-to-prime-order-dlog",

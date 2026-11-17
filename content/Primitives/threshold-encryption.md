@@ -126,17 +126,19 @@ In [[homomorphic-encryption#threshold-fhe|threshold FHE]] the decryption shares 
 - Threshold Paillier encryption, with a trusted dealer and decryption shares carrying non-interactive proofs of correctness, is CPA-secure against an active, static adversary under [[decisional-composite-residuosity|DCR]] in the random oracle model ([[dkg-and-he-to-tpke|DCR ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]; [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]] give a threshold variant of their generalisation of Paillier's scheme.
 - [[SG98 - Securing Threshold Cryptosystems against Chosen Ciphertext Attack|SG98]] give two non-interactive threshold schemes in prime-order groups, TDH1 and TDH2, and prove them CCA-secure against static corruption in the random oracle model.
 
-<!-- BEGIN GENERATED participates-in a60f7e6791fd -->
+<!-- BEGIN GENERATED participates-in 6c7f14715a54 -->
 
 ## Participates in
 
 **Builds on Threshold encryption**
 
 - [[tpke-cca-security-to-tpke-cpa-security|TPKE CCA Security ⇒ TPKE CPA Security]] (via [[threshold-encryption#cca-security|CCA security]])
+- [[tpke-cpa-security-to-threshold-encryption|TPKE CPA Security ⇒ TPKE]] (via [[threshold-encryption#cpa-security|CPA security]])
 
 **Produces Threshold encryption**
 
 - [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
 - [[tpke-cca-security-to-tpke-cpa-security|TPKE CCA Security ⇒ TPKE CPA Security]] (via [[threshold-encryption#cpa-security|CPA security]])
+- [[tpke-cpa-security-to-threshold-encryption|TPKE CPA Security ⇒ TPKE]]
 
 <!-- END GENERATED participates-in -->
