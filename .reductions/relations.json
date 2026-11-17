@@ -8255,6 +8255,19 @@
    "unlisted": false
   },
   {
+   "id": "verifiable-prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-verifiable-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in verifiable prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "verifiable-random-function",
    "kind": "object",
    "type": "primitive",
@@ -12037,7 +12050,7 @@
    "id": "red-ddh-and-uowhf-to-pke-cca2-security-cs98",
    "kind": "implication",
    "hypotheses": [
-    "ddh",
+    "prime-order-ddh",
     "uowhf"
    ],
    "conclusion": "pke-cca2-security",
@@ -12747,7 +12760,7 @@
    "id": "red-dlog-to-com-ped91",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-dlog"
+    "verifiable-prime-order-dlog"
    ],
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
@@ -12762,7 +12775,7 @@
    "heuristic": false,
    "securityLoss": "tight: one call to the binding adversary yields $\\log_g h$",
    "rationale": {
-    "class": "One fixed construction uses the group only through its generator and group operations, and the fixed reduction plants the DLOG challenge as h and runs the binding adversary once as an oracle."
+    "class": "One fixed construction uses the group only through its generator, its group-checking algorithm and group operations, and the fixed reduction plants the DLOG challenge as h and runs the binding adversary once as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/dlog-to-com-ped91.md",
@@ -27992,6 +28005,33 @@
    "slug": "uowhf-and-ots-to-ds-ny89",
    "graphSlug": "Reductions/uowhf-and-ots-to-ds-ny89",
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
+  },
+  {
+   "id": "red-verifiable-prime-order-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "verifiable-prime-order-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/verifiable-prime-order-dlog-to-prime-order-dlog.md",
+   "slug": "verifiable-prime-order-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/verifiable-prime-order-dlog-to-prime-order-dlog",
+   "title": "Verifiable prime-order DLOG ⇒ Prime-order DLOG"
   },
   {
    "id": "red-verifiable-type-1-pairing-to-type-1-pairing",

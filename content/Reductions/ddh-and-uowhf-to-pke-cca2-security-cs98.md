@@ -6,7 +6,7 @@ aliases:
   - Cramer–Shoup cryptosystem
 id: red-ddh-and-uowhf-to-pke-cca2-security-cs98
 kind: implication
-hypotheses: [ddh, uowhf]
+hypotheses: [prime-order-ddh, uowhf]
 conclusion: pke-cca2-security
 class: fully-black-box
 model: standard
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\GG$ be a group of prime order $q$ in which [[decisional-diffie-hellman|DDH]] holds, and let $\hash$ be a [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash function]] family mapping $\GG^3$ into $\ZZ_q$. The Cramer–Shoup cryptosystem below is [[public-key-encryption#cca-security|IND-CCA2-secure]] — [[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]].
+Let $\GG$ be a group of prime order $q$ in which [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH]] holds, and let $\hash$ be a [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash function]] family mapping $\GG^3$ into $\ZZ_q$. The Cramer–Shoup cryptosystem below is [[public-key-encryption#cca-security|IND-CCA2-secure]] — [[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]].
 
 ```pseudocode
 \begin{algorithm}
