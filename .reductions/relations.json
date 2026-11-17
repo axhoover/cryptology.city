@@ -1100,19 +1100,6 @@
    "unlisted": false
   },
   {
-   "id": "circular-evasive-lwe",
-   "kind": "variant",
-   "type": "assumption",
-   "page": "content/Assumptions/learning-with-errors.md",
-   "slug": "learning-with-errors",
-   "graphSlug": "Assumptions/learning-with-errors",
-   "anchor": "#circular-evasive-lwe",
-   "of": "lwe",
-   "title": "Circular evasive LWE",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "circular-secure-bootstrappable-she",
    "kind": "variant",
    "type": "primitive",
@@ -7863,19 +7850,6 @@
    "unlisted": false
   },
   {
-   "id": "tensor-lwe",
-   "kind": "variant",
-   "type": "assumption",
-   "page": "content/Assumptions/learning-with-errors.md",
-   "slug": "learning-with-errors",
-   "graphSlug": "Assumptions/learning-with-errors",
-   "anchor": "#tensor-lwe",
-   "of": "lwe",
-   "title": "Tensor LWE",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "tfnp",
    "kind": "object",
    "type": "complexity-class",
@@ -13044,6 +13018,33 @@
    "title": "DDH ⇒ TDH"
   },
   {
+   "id": "red-decision-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "decision-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/decision-lwe-to-lwe.md",
+   "slug": "decision-lwe-to-lwe",
+   "graphSlug": "Reductions/decision-lwe-to-lwe",
+   "title": "Decision LWE ⇒ LWE"
+  },
+  {
    "id": "red-decision-lwe-to-search-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -14151,62 +14152,11 @@
    "title": "Evasive LWE + LWE ⇒ Succinct LWE"
   },
   {
-   "id": "red-evasive-lwe-to-abe",
-   "kind": "implication",
-   "hypotheses": [
-    "circular-evasive-lwe"
-   ],
-   "conclusion": "abe",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The hypothesis is an implication between two indistinguishability conditions quantified over samplers, not a primitive or a single problem that a reduction can use as an oracle."
-   },
-   "status": "draft",
-   "page": "content/Reductions/evasive-lwe-to-abe.md",
-   "slug": "evasive-lwe-to-abe",
-   "graphSlug": "Reductions/evasive-lwe-to-abe",
-   "title": "Evasive circular LWE ⇒ ABE"
-  },
-  {
-   "id": "red-evasive-lwe-to-abe-wee22",
-   "kind": "implication",
-   "hypotheses": [
-    "evasive-lwe",
-    "tensor-lwe"
-   ],
-   "conclusion": "abe",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/evasive-lwe-to-abe-wee22.md",
-   "slug": "evasive-lwe-to-abe-wee22",
-   "graphSlug": "Reductions/evasive-lwe-to-abe-wee22",
-   "title": "Evasive LWE + Tensor LWE ⇒ ABE"
-  },
-  {
    "id": "red-evasive-lwe-to-be-wee22",
    "kind": "implication",
    "hypotheses": [
-    "evasive-lwe"
+    "evasive-lwe",
+    "lwe"
    ],
    "conclusion": "be-selective",
    "class": "unstated",
@@ -14224,7 +14174,7 @@
    "page": "content/Reductions/evasive-lwe-to-be-wee22.md",
    "slug": "evasive-lwe-to-be-wee22",
    "graphSlug": "Reductions/evasive-lwe-to-be-wee22",
-   "title": "Evasive LWE ⇒ Selectively secure BE"
+   "title": "Evasive LWE + LWE ⇒ Selectively secure BE"
   },
   {
    "id": "red-exp-to-nexp",

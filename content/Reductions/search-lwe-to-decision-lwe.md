@@ -26,4 +26,4 @@ To test the guess $s_i = \ell$, map each sample $(\mathbf{a}, b)$ to $(\mathbf{a
 
 ## Notes
 
-- The converse holds for every modulus, given an error distribution with efficiently recognizable support and enough samples — folklore; see [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]].
+- The converse holds for every modulus, given enough samples and Gaussian error of width at most $q/4$ or an error distribution with efficiently recognizable support — folklore; see [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]].

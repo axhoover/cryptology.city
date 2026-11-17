@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Evasive LWE ⇒ Selectively secure BE"
+title: "Evasive LWE + LWE ⇒ Selectively secure BE"
 aliases: []
 id: red-evasive-lwe-to-be-wee22
 kind: implication
-hypotheses: [evasive-lwe]
+hypotheses: [evasive-lwe, lwe]
 conclusion: be-selective
 class: unstated
 model: standard
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Evasive LWE ⇒ Selectively secure BE
+# Evasive LWE + LWE ⇒ Selectively secure BE
 
 ## Statement
 

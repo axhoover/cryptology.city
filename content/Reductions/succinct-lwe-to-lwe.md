@@ -19,11 +19,11 @@ rationale:
 
 ## Statement
 
-For every $\ell$, if $\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] is hard for $(n, q, \chi, m)$, then [[learning-with-errors|LWE]] is hard for the same $(n, q, \chi, m)$ — folklore.
+For every $\ell$, if $\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] is hard for $(n, q, \chi, m, \sigma)$, then [[learning-with-errors|LWE]] is hard for $(n, q, \chi, m')$ for every $m' \le m$ — folklore. So if succinct LWE holds with witness $(n, q, \alpha)$, LWE holds with the same witness: for every $m' \le \poly(\secpar)$, decision LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m')$, from $\ell$-succinct LWE at $m = \max\{m', m_0(n, q)\}$ for any one $\ell$, where $m_0(n, q)$ is the least width at which $\mathrm{TrapGen}(1^n, 1^m, q)$ is defined.
 
 ## Sketch
 
-On a succinct-LWE challenge $(\mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$, run the LWE distinguisher on $(\mathbf{B}^\top, \mathbf{u}_b^\top)$ and output its guess, ignoring $(\mathbf{W}, T)$. The $\mathbf{B}$ output by $\mathrm{TrapGen}$ is statistically close to uniform, so the only loss is additive in that statistical distance.
+On a succinct-LWE challenge $(\mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$, run the LWE distinguisher on the first $m'$ columns of $\mathbf{B}$ and coordinates of $\mathbf{u}_b$, transposed, and output its guess, ignoring $(\mathbf{W}, T)$. The $\mathbf{B}$ output by $\mathrm{TrapGen}$ is statistically close to uniform, so the only loss is additive in that statistical distance.
 
 ## Notes
 

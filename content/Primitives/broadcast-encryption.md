@@ -113,7 +113,7 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 - BE is orthogonal to [[identity-based-encryption|IBE]] in expressiveness: IBE matches a single identity exactly, while BE handles arbitrary subsets; neither is a special case of the other
 - [[bdh-to-be-bgw05|n-BDHE ⇒ Selectively secure BE]]
 
-<!-- BEGIN GENERATED participates-in 0955a1d3f65c -->
+<!-- BEGIN GENERATED participates-in af1f05d71493 -->
 
 ## Participates in
 
@@ -126,6 +126,6 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 - [[abe-to-be|ABE ⇒ BE]]
 - [[bdh-to-be-bgw05|n-BDHE ⇒ Selectively secure BE]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
 - [[be-to-be-selective|BE ⇒ Selectively secure BE]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
-- [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ Selectively secure BE]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
+- [[evasive-lwe-to-be-wee22|Evasive LWE + LWE ⇒ Selectively secure BE]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
 
 <!-- END GENERATED participates-in -->
