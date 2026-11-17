@@ -199,7 +199,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 0c9f8d64a78a -->
+<!-- BEGIN GENERATED participates-in 30c56ef17597 -->
 
 ## Participates in
 
@@ -250,6 +250,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[ggm-to-omdl-bfp21|GGM ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-cdh-to-prime-order-dlog|Prime-order CDH ⇒ prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
 - [[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]

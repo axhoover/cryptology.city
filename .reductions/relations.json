@@ -22949,6 +22949,33 @@
    "title": "Prime-order CDH ⇒ EDL signatures"
   },
   {
+   "id": "red-prime-order-cdh-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-cdh"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: one DLOG call, advantage-preserving",
+   "rationale": {
+    "class": "The group generator is unchanged, and the fixed reduction calls the DLOG solver once as an oracle and then exponentiates, never using the solver's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-cdh-to-prime-order-dlog.md",
+   "slug": "prime-order-cdh-to-prime-order-dlog",
+   "graphSlug": "Reductions/prime-order-cdh-to-prime-order-dlog",
+   "title": "Prime-order CDH ⇒ prime-order DLOG"
+  },
+  {
    "id": "red-prime-order-ddh-to-ddh",
    "kind": "implication",
    "hypotheses": [
@@ -23083,6 +23110,33 @@
    "slug": "prime-order-ddh-to-pre",
    "graphSlug": "Reductions/prime-order-ddh-to-pre",
    "title": "DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)"
+  },
+  {
+   "id": "red-prime-order-ddh-to-prime-order-cdh",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "prime-order-cdh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "rationale": {
+    "class": "The group generator is unchanged, and the fixed reduction runs any CDH adversary once as an oracle and compares its output with the challenge element."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-prime-order-cdh.md",
+   "slug": "prime-order-ddh-to-prime-order-cdh",
+   "graphSlug": "Reductions/prime-order-ddh-to-prime-order-cdh",
+   "title": "Prime-order DDH ⇒ prime-order CDH"
   },
   {
    "id": "red-prime-order-ddh-to-universal2-hash-proof-system-cs02",

@@ -174,7 +174,7 @@ Let $\GrGen$ output an asymmetric bilinear group $\Pi = (\GG_1, \GG_2, \GG_T, g_
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 7f12439434d0 -->
+<!-- BEGIN GENERATED participates-in 9cbe524c13af -->
 
 ## Participates in
 
@@ -212,6 +212,7 @@ Let $\GrGen$ output an asymmetric bilinear group $\Pi = (\GG_1, \GG_2, \GG_T, g_
 - [[prime-order-ddh-to-leakage-resilient-pke-ns09|DDH ⇒ LR-PKE]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-matrix-dh-ehk13|Prime-order DDH ⇒ Matrix DH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-pre|DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
+- [[prime-order-ddh-to-prime-order-cdh|Prime-order DDH ⇒ prime-order CDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH in prime-order groups with decidable membership]])
 - [[recognizable-prime-order-ddh-to-prime-order-ddh|Prime-order DDH with decidable membership ⇒ Prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH in prime-order groups with decidable membership]])
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
