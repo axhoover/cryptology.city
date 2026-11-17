@@ -115,7 +115,7 @@ In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to c
 
 ## Syntactic Duality of KP-ABE and CP-ABE
 
-KP-ABE and CP-ABE are syntactically dual: swapping the roles of $\KeyGen$ and $\Enc$ converts one definition into the other. The correspondence is between definitions, not a transformation of schemes. Selective security does not imply adaptive security in either flavor — folklore; see [[no-selective-security-to-cp-abe-ind-cpa-security]].
+KP-ABE and CP-ABE are syntactically dual: swapping the roles of $\KeyGen$ and $\Enc$ converts one definition into the other. The correspondence is between definitions, not a transformation of schemes. If selectively secure schemes for a superpolynomial-size policy or attribute family exist, selective security does not imply adaptive security in either flavor — folklore; see [[no-selective-security-to-cp-abe-ind-cpa-security]] for CP-ABE.
 
 ## Large-Universe ABE
 

@@ -11,9 +11,11 @@ consequences:
   - kind: contradiction
     target: ""
     class: fixed-construction
-strength: unconditional
+strength: conditional
+conditional-on: [cpa-security]
 source: folklore
 rationale:
+  strength: "The counterexample modifies a given CPA-secure scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
   class: "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself IND$-CPA-secure; building some other IND$-CPA-secure scheme from a CPA-secure one is not ruled out."
 ---
 
@@ -21,7 +23,7 @@ rationale:
 
 ## Statement
 
-The identity map is not a reduction from [[symmetric-key-encryption#cpa-security|CPA security]] to [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA security]] of [[symmetric-key-encryption|SKE]]: appending a constant bit to every ciphertext of a CPA-secure $\SKE$, so that the ciphertext space becomes $\calC \times \bits$, preserves CPA security, while an IND\$-CPA adversary that checks the bit on one query has advantage $1/2$ — folklore.
+If a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme exists, the identity map is not a reduction from CPA security to [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA security]]: appending a constant bit to every ciphertext of a CPA-secure $\SKE$, so that the ciphertext space becomes $\calC \times \bits$, preserves CPA security, while an IND\$-CPA adversary that checks the bit on one query has advantage $1/2$ — folklore.
 
 ## Sketch
 

@@ -28731,14 +28731,17 @@
      "class": "fixed-construction"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "cpa-security"
+   ],
    "circumventedBy": [],
    "source": [
     "folklore"
    ],
    "rationale": {
-    "class": "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself IND$-CPA-secure; building some other IND$-CPA-secure scheme from a CPA-secure one is not ruled out."
+    "class": "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself IND$-CPA-secure; building some other IND$-CPA-secure scheme from a CPA-secure one is not ruled out.",
+    "strength": "The counterexample modifies a given CPA-secure scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
@@ -29164,14 +29167,17 @@
      "class": "fixed-construction"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "hibe-selective-security"
+   ],
    "circumventedBy": [],
    "source": [
     "folklore"
    ],
    "rationale": {
-    "class": "The counterexample refutes the identity map, selective security of a scheme implying adaptive security of the same scheme, and does not rule out building an adaptively secure HIBE from a selectively secure one by another construction."
+    "class": "The counterexample refutes the identity map, selective security of a scheme implying adaptive security of the same scheme, and does not rule out building an adaptively secure HIBE from a selectively secure one by another construction.",
+    "strength": "The counterexample modifies a given selectively secure HIBE scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",

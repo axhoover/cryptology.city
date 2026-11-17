@@ -11,9 +11,11 @@ consequences:
   - kind: contradiction
     target: ""
     class: fixed-construction
-strength: unconditional
+strength: conditional
+conditional-on: [hibe-selective-security]
 source: folklore
 rationale:
+  strength: "The counterexample modifies a given selectively secure HIBE scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
   class: "The counterexample refutes the identity map, selective security of a scheme implying adaptive security of the same scheme, and does not rule out building an adaptively secure HIBE from a selectively secure one by another construction."
 ---
 
@@ -21,7 +23,7 @@ rationale:
 
 ## Statement
 
-When the identity-vector space $\Sigma^{\le d}$ is superpolynomial, selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a [[hierarchical-identity-based-encryption|HIBE]] scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security, so the identity map is no reduction from selective to adaptive security: any selectively secure $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate — folklore.
+If a selectively secure [[hierarchical-identity-based-encryption|HIBE]] scheme with a superpolynomial identity-vector space $\Sigma^{\le d}$ exists, then selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a HIBE scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security, so the identity map is no reduction from selective to adaptive security: any such $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate — folklore.
 
 ## Sketch
 
