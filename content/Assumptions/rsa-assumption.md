@@ -76,7 +76,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 
 ## RSA with safe-prime moduli
 
-The RSA problem, for a polynomial $\ell = \ell(\secpar)$, for a generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$, sets $n = pq$, and outputs a prime public exponent $e > \ell$ with $\gcd(e, \phi(n)) = 1$, chosen by any efficient rule, and $d \equiv e^{-1} \pmod{\phi(n)}$: the key distribution of the dealer in [[threshold-signature#threshold-rsa|Shoup's threshold RSA]] for $\ell$ parties. **RSA is hard for safe-prime moduli and prime exponents greater than $\ell$** if RSA is hard for such a $\GrGen$.
+For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the primes $p', q'$, outputs a prime $e > \ell$ with $\gcd(e, \phi(n)) = 1$, let $\GrGen_{R,\ell}$ sample distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$, set $n = pq$, compute $e \gets R(1^\secpar, \ell(\secpar), p', q')$, and output $(n, e, d)$ with $d \equiv e^{-1} \pmod{\phi(n)}$. This is the dealer's key distribution in [[threshold-signature#threshold-rsa|Shoup's threshold RSA]] for $\ell$ parties. **RSA is hard for safe-prime moduli and prime exponents greater than the number of parties** if there is such a rule $R$ for which, for every polynomial $\ell = \ell(\secpar)$, RSA is hard for $\GrGen_{R,\ell}$.
 
 # Attacks
 

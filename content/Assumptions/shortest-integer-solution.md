@@ -24,7 +24,7 @@ The _Shortest Integer Solution (SIS)_ problem is a lattice problem used as the h
 
 Informally, SIS asks: given a random matrix $\mathbf{A} \in \ZZ_q^{n \times m}$, find a nonzero short integer vector $\mathbf{z} \in \ZZ^m$ in the kernel of $\mathbf{A}$ modulo $q$. Such a vector always exists when $m > n \log q$ (by a pigeonhole argument), so the hardness lies purely in _finding_ one efficiently.
 
-The assumption is parameterized by a lattice dimension $n$, a column count $m$, a modulus $q$, and a norm bound $\beta$. Typical parameters satisfy $q = \poly(n)$, $m = \Theta(n \log q)$, and $\beta \ll q$.
+The assumption is parameterized by a lattice dimension $n = n(\secpar)$, a column count $m = m(\secpar)$, a modulus $q = q(\secpar)$, and a norm bound $\beta = \beta(\secpar)$: functions of the security parameter, computable in time $\poly(\secpar)$, with $n, m, \lceil \log q \rceil \le \poly(\secpar)$, so that the condition $\beta < q$ of the hardness statement below also gives $\lceil \log \beta \rceil \le \poly(\secpar)$. The variants below bound their parameters in the same way. Typical parameters satisfy $q = \poly(n)$, $m = \Theta(n \log q)$, and $\beta \ll q$.
 
 ```pseudocode
 \begin{algorithm}
@@ -68,7 +68,7 @@ For $m \ge n \log q + 1$, the function family $\{f_\mathbf{A} : \mathbf{z} \maps
 
 ## Bit-compressing SIS
 
-**Bit-compressing SIS** is SIS restricted to $m \ge n \log q + 1$ and $\sqrt{m} \le \beta < q$. Then $q^n \le 2^{m-1}$, so $\mathbf{z} \mapsto \mathbf{A}\mathbf{z} \bmod q$, with its value written as an integer below $q^n$, maps $\bits^m$ into $\bits^{m-1}$. **Bit-compressing SIS is hard** for such $(n, m, q, \beta)$ if for all efficient $\calA$, $\Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar)$ is negligible. For $n \log q < m < n \log q + 1$, inside the SIS regime, $q^n < 2^m$ but the integers below $q^n$ need $m$ bits.
+**Bit-compressing SIS** is SIS restricted to $m \ge n \log q + 1$ and $\sqrt{m} \le \beta < q$. Then $q^n \le 2^{m-1}$, so $\mathbf{z} \mapsto \mathbf{A}\mathbf{z} \bmod q$, with its value written as an integer below $q^n$, maps $\bits^m$ into $\bits^{m-1}$. **Bit-compressing SIS is hard** for such polynomially bounded $(n, m, q, \beta)$ if for all efficient $\calA$, $\Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar)$ is negligible. For $n \log q < m < n \log q + 1$, inside the SIS regime, $q^n < 2^m$ but the integers below $q^n$ need $m$ bits.
 
 ## ISIS (Inhomogeneous SIS)
 

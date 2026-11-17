@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Hardness of [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]] and prime exponents greater than $\ell$ is hardness of [[rsa-assumption|RSA]] for one generator $\GrGen$, a safe-prime generator of that section, with the same advantage — folklore.
+Hardness of [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]] and prime exponents greater than the number of parties is hardness of [[rsa-assumption|RSA]] for one generator, $\GrGen_{R,\ell}$ for any fixed polynomial $\ell$, with the same advantage — folklore.

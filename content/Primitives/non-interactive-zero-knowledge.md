@@ -122,7 +122,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|si
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in c55991d6d454 -->
+<!-- BEGIN GENERATED participates-in f895116816a5 -->
 
 ## Participates in
 
@@ -136,6 +136,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|si
 - [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
+- [[statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk|SSS-NIZK for NP ⇒ SSS-NIZK]] (via [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-for-np|Statistically simulation-sound NIZK for NP]])
 - [[subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16|LWE + NIZK ⇒ Two-round MPC in the CRS model (Mukherjee–Wichs)]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 
 **Produces Non-interactive zero-knowledge**
@@ -152,6 +153,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|si
 - [[nizk-for-np-to-nizk-argument-for-np|NIZK proof for NP ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 - [[qr-to-common-random-string-nizk-proof-bdmp91|QR ⇒ NIZK proofs with a common random string (Blum–De Santis–Micali–Persiano)]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 - [[snark-to-nizk|Sublinear SNARG + OWF ⇒ NIZK argument]] (via [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptively sound NIZK arguments for NP]])
+- [[statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk|SSS-NIZK for NP ⇒ SSS-NIZK]] (via [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-sss-nizk|Statistically simulation-sound NIZK (SSS-NIZK)]])
 - [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 - [[subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a|Subgroup decision ⇒ Perfect NIZK arguments for NP]] (via [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptively sound NIZK arguments for NP]])
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]

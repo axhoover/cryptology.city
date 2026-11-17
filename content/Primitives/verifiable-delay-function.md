@@ -99,9 +99,17 @@ A **weak VDF** is defined as above except that $\Eval$ may use $\poly(T, \secpar
 - Wesolowski's VDF is built on groups of unknown order, such as an RSA group or the class group of an imaginary quadratic field; its output and its proof are each a single group element — [[Wes19 - Efficient Verifiable Delay Functions|Wes19]]. BBF18 prove Wesolowski's proof of exponentiation sound in groups satisfying the _adaptive root assumption_, that no efficient adversary that outputs a group element $w \ne 1$ and then receives a random prime $\ell$ can output $u$ with $u^\ell = w$, and show that the adaptive root assumption implies the _low order assumption_, that no efficient adversary outputs an element $\mu \ne 1$ together with a small positive integer $d$ such that $\mu^d = 1$ — [[BBF18 - A Survey of Two Verifiable Delay Functions|BBF18]].
 - [[no-rom-to-vdf-gry25|No reduction from ROM to VDF]]: with running time measured in oracle queries and parallel time in rounds of oracle queries, VDFs do not exist relative to a [[random-oracle-model|random oracle]] alone — [[GRY25 - Breaking Verifiable Delay Functions in the Random Oracle Model|GRY25]], [[AAK+25 - Impossibility of VDFs in the ROM The Complete Picture|AAK+25]].
 
-<!-- BEGIN GENERATED participates-in 7cda28dc49a1 -->
+<!-- BEGIN GENERATED participates-in 6773f75d72fc -->
 
 ## Participates in
+
+**Builds on Verifiable delay function**
+
+- [[vdf-to-weak-vdf|VDF ⇒ Weak VDF]]
+
+**Produces Verifiable delay function**
+
+- [[vdf-to-weak-vdf|VDF ⇒ Weak VDF]] (via [[verifiable-delay-function#weak-vdfs|Weak VDFs]])
 
 **Barriers**
 
