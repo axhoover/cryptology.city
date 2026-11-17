@@ -2059,19 +2059,6 @@
    "unlisted": false
   },
   {
-   "id": "dynamic-sse",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/searchable-symmetric-encryption.md",
-   "slug": "searchable-symmetric-encryption",
-   "graphSlug": "Primitives/searchable-symmetric-encryption",
-   "anchor": "#dynamic-sse",
-   "of": "sse",
-   "title": "Dynamic SSE",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "eddsa",
    "kind": "variant",
    "type": "primitive",
@@ -2909,19 +2896,6 @@
    "anchor": "#highly-lossy-trapdoor-functions",
    "of": "tdp",
    "title": "Highly lossy trapdoor functions",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
-   "id": "homomorphic-time-lock-puzzle",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/time-lock-puzzle.md",
-   "slug": "time-lock-puzzle",
-   "graphSlug": "Primitives/time-lock-puzzle",
-   "anchor": "#homomorphic-time-lock-puzzles",
-   "of": "time-lock-puzzle",
-   "title": "Homomorphic time-lock puzzles",
    "aliases": [],
    "unlisted": false
   },
@@ -6209,6 +6183,19 @@
    "anchor": "#receiver-deniability",
    "of": "deniable-encryption",
    "title": "Receiver deniability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "recognizable-prime-order-ddh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#ddh-in-prime-order-groups-with-decidable-membership",
+   "of": "ddh",
+   "title": "DDH in prime-order groups with decidable membership",
    "aliases": [],
    "unlisted": false
   },
@@ -12288,7 +12275,7 @@
    "id": "red-ddh-and-uowhf-to-pke-cca2-security-cs98",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-ddh",
+    "recognizable-prime-order-ddh",
     "uowhf"
    ],
    "conclusion": "pke-cca2-security",
@@ -15579,7 +15566,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the IND-CPA advantage is at most twice the sum of the subset-membership advantage and the smoothness error",
+   "securityLoss": "additive: the IND-CPA advantage is at most twice the sum of the subset-membership advantage, the smoothness error and the sampler's distance from uniform",
    "rationale": {
     "class": "The scheme calls the hash proof system's algorithms only as oracles, and the reduction runs any IND-CPA adversary once as an oracle on a challenge built from its subset-membership instance and a hash key it samples itself."
    },
@@ -22850,7 +22837,7 @@
    "id": "red-prime-order-ddh-to-universal2-hash-proof-system-cs02",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-ddh"
+    "recognizable-prime-order-ddh"
    ],
    "conclusion": "universal2-hash-proof-system",
    "class": "fully-black-box",
@@ -24283,6 +24270,33 @@
    "slug": "random-ot-to-ot",
    "graphSlug": "Reductions/random-ot-to-ot",
    "title": "Random OT ⇒ OT"
+  },
+  {
+   "id": "red-recognizable-prime-order-ddh-to-prime-order-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "recognizable-prime-order-ddh"
+   ],
+   "conclusion": "prime-order-ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DDH distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/recognizable-prime-order-ddh-to-prime-order-ddh.md",
+   "slug": "recognizable-prime-order-ddh-to-prime-order-ddh",
+   "graphSlug": "Reductions/recognizable-prime-order-ddh-to-prime-order-ddh",
+   "title": "Prime-order DDH with decidable membership ⇒ Prime-order DDH"
   },
   {
    "id": "red-rerandomizable-encryption-to-statistically-rerandomizable-encryption",
@@ -28998,7 +29012,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: twice the subset-membership advantage, plus statistical terms in the smoothness and universal-2 errors, one of them linear in the number of decryption queries",
+   "securityLoss": "additive: twice the subset-membership advantage, plus statistical terms in the smoothness and universal-2 errors, one of them linear in the number of decryption queries, and the sampler's distance from uniform",
    "rationale": {
     "class": "The scheme calls the two hash proof systems only as oracles, and the reduction answers decryption queries with hash keys it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
    },

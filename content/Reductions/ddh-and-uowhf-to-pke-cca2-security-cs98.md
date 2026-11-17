@@ -6,7 +6,7 @@ aliases:
   - Cramer–Shoup cryptosystem
 id: red-ddh-and-uowhf-to-pke-cca2-security-cs98
 kind: implication
-hypotheses: [prime-order-ddh, uowhf]
+hypotheses: [recognizable-prime-order-ddh, uowhf]
 conclusion: pke-cca2-security
 class: fully-black-box
 model: standard
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\GG$ be a group of prime order $q$ in which [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH]] holds, and let $\hash$ be a [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash function]] family mapping $\GG^3$ into $\ZZ_q$. The Cramer–Shoup cryptosystem below is [[public-key-encryption#cca-security|IND-CCA2-secure]] — [[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]].
+Let $\GG$ be a group of prime order $q$, with membership in $\GG$ decidable in polynomial time, in which [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH]] holds, and let $\hash$ be a [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash function]] family mapping $\GG^3$ into $\ZZ_q$. The Cramer–Shoup cryptosystem below is [[public-key-encryption#cca-security|IND-CCA2-secure]] — [[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]]. Decidable membership is what defines $\Dec$ on arbitrary strings: its first step rejects every ciphertext outside $\GG^4$.
 
 ```pseudocode
 \begin{algorithm}
@@ -32,7 +32,11 @@ Let $\GG$ be a group of prime order $q$ in which [[decisional-diffie-hellman#ddh
 \State $\pk := (g_1, g_2, c = g_1^{x_1} g_2^{x_2}, d = g_1^{y_1} g_2^{y_2}, h = g_1^{z}, k)$; $\sk := (x_1, x_2, y_1, y_2, z)$
 \State $\Enc(\pk, m)$: $r \getsr \ZZ_q$; $u_1 := g_1^r$; $u_2 := g_2^r$; $e := h^r m$; $\alpha := \hash_k(u_1, u_2, e)$; $v := c^r d^{r\alpha}$
 \Return $(u_1, u_2, e, v)$
-\State $\Dec(\sk, (u_1, u_2, e, v))$: $\alpha := \hash_k(u_1, u_2, e)$
+\State $\Dec(\sk, (u_1, u_2, e, v))$:
+\If{$(u_1, u_2, e, v) \notin \GG^4$}
+\Return $\bot$
+\EndIf
+\State $\alpha := \hash_k(u_1, u_2, e)$
 \If{$u_1^{x_1 + y_1 \alpha} u_2^{x_2 + y_2 \alpha} \ne v$}
 \Return $\bot$
 \EndIf

@@ -8,7 +8,6 @@ title: Searchable symmetric encryption
 id: sse
 variants:
   non-adaptive-sse: "#non-adaptive-security"
-  dynamic-sse: "#dynamic-sse"
 ---
 
 # Searchable symmetric encryption
@@ -73,6 +72,8 @@ $$
 
 is negligible. [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]] introduce adaptive security with the simulator given their trace; [[CK10 - Structured Encryption and Controlled Disclosure|CK10]] state it for an arbitrary leakage function.
 
+As an object, SSE denotes a $(1-\varepsilon)$-[[#Correctness|correct]] scheme with $\varepsilon$ negligible that is $\calL$-adaptively secure for the trace $\calL$ of [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]] defined in [[#Leakage|Leakage]].
+
 ### Non-adaptive security
 
 The adversary fixes the collection and all its keywords before seeing any part of the encryption, and receives either the real index, documents and tokens or a simulation from their leakage — [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
@@ -102,11 +103,15 @@ $$
 
 is negligible.
 
+As an object, a non-adaptively secure SSE scheme denotes a $(1-\varepsilon)$-[[#Correctness|correct]] scheme with $\varepsilon$ negligible that is $\calL$-non-adaptively secure for the trace $\calL$ of [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
+
 # Variations
 
 ## Dynamic SSE
 
 A dynamic SSE scheme adds an update protocol with which the client adds documents to, and deletes documents from, the encrypted collection by sending update tokens; security adds a leakage function for updates, and the adversary interleaves searches and updates — [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]]. KPR12 construct a dynamic scheme, adaptively secure in the [[random-oracle-model|random-oracle model]], whose search time is linear in $|\mathbf{D}(w)|$ — [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]].
+
+TODO: encode the dynamic SSE definition of [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]] (search, add and delete tokens, correctness, and the adaptive real/ideal game with an update oracle, quantified over all efficient $\calA$ with an efficient $\Sim$ for fixed setup, search, add and delete leakage functions), then register it as a variant.
 
 ## Structured encryption
 

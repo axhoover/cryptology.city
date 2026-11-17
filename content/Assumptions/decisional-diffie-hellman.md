@@ -9,6 +9,7 @@ title: Decisional Diffie-Hellman
 id: ddh
 variants:
   prime-order-ddh: "#ddh-in-prime-order-groups"
+  recognizable-prime-order-ddh: "#ddh-in-prime-order-groups-with-decidable-membership"
   paired-group-ddh: "#ddh-in-paired-groups"
   subexponential-ddh: "#sub-exponential-ddh"
   decisional-linear: "#dlin"
@@ -79,6 +80,10 @@ deterministically.
 
 **DDH is hard in prime-order groups** for $\GrGen$ if every group $\GrGen$ outputs has prime order $p$ and DDH is hard for $\GrGen$. Exponents then form the field $\ZZ_p$, and the Chaum–Pedersen proof that a tuple is a Diffie–Hellman tuple is sound — standard.
 
+## DDH in prime-order groups with decidable membership
+
+**DDH is hard in prime-order groups with decidable membership** for $\GrGen$ if DDH is hard in prime-order groups for $\GrGen$ and a deterministic polynomial-time algorithm decides, given any $(\GG, g, p)$ that $\GrGen$ outputs and a string, whether the string encodes an element of $\GG$. Only membership of elements is decided, for groups that $\GrGen$ itself outputs; [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]] also checks an arbitrary group description. The order-$p$ subgroup of $\ZZ_P^*$ for a prime $P$ with $p \mid P - 1$ qualifies, since an integer $x \in [1, P-1]$ lies in it if and only if $x^p \equiv 1 \pmod P$ — standard. Dropping the membership test gives DDH in prime-order groups ([[recognizable-prime-order-ddh-to-prime-order-ddh|Prime-order DDH with decidable membership ⇒ Prime-order DDH]]) — folklore.
+
 ## DDH in paired groups
 
 A _paired group generator_ outputs two prime-order groups $(\GG, g, p)$ and $(\hat\GG, \hat g, q)$ in which $\hat\GG$ is the subgroup of order $q$ of $\ZZ_p^*$, so that $q$ divides $p - 1$. **DDH is hard in paired groups** for such a generator if DDH is hard in each group given the description of both: for every efficient $\calA$, $\left|2\Pr[\hat b = b] - 1\right|$ is negligible in the [[#Assumption|DDH game]] run in $(\GG, g, p)$ in which $\calA$ receives the generator's full output $(\GG, g, p, \hat\GG, \hat g, q)$ in place of $(\GG, g, p)$, together with the challenge $(X, Y, Z_b) \in \GG^3$, and likewise in the DDH game run in $(\hat\GG, \hat g, q)$, given the same full output and a challenge in $\hat\GG^3$. The Double-strand Cramer–Shoup scheme is rerandomizable and RCCA-secure under this assumption ([[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption]]) — [[PR07 - Rerandomizable RCCA Encryption|PR07]]. Keeping only the first group gives a group generator for which DDH is hard in prime-order groups ([[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]]) — folklore.
@@ -136,7 +141,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 135ea85cefd0 -->
+<!-- BEGIN GENERATED participates-in 86c615b976f4 -->
 
 ## Participates in
 
@@ -149,7 +154,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
-- [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
+- [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH in prime-order groups with decidable membership]])
 - [[ddh-to-anonymous-public-key-encryption-bbdp01|DDH ⇒ Key-hiding PKE (ElGamal)]]
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[ddh-to-client-preprocessing-pir-chk22|DDH ⇒ PIR with client preprocessing (CHK22)]]
@@ -173,7 +178,8 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[prime-order-ddh-to-leakage-resilient-pke-ns09|DDH ⇒ LR-PKE]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-matrix-dh-ehk13|Prime-order DDH ⇒ Matrix DH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-pre|DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
-- [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
+- [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH in prime-order groups with decidable membership]])
+- [[recognizable-prime-order-ddh-to-prime-order-ddh|Prime-order DDH with decidable membership ⇒ Prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH in prime-order groups with decidable membership]])
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-ddh-to-ppad-hardness-klv23|Sub-exponential DDH ⇒ PPAD hardness]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
@@ -190,6 +196,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]]
 - [[prime-order-ddh-to-matrix-dh-ehk13|Prime-order DDH ⇒ Matrix DH]] (via [[decisional-diffie-hellman#matrix-diffie-hellman|Matrix Diffie-Hellman]])
+- [[recognizable-prime-order-ddh-to-prime-order-ddh|Prime-order DDH with decidable membership ⇒ Prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]]
 - [[subexponential-sxdh-to-subexponential-ddh|Sub-exponential SXDH ⇒ Sub-exponential DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
