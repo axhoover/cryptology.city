@@ -19,8 +19,8 @@ rationale:
 
 ## Statement
 
-[[symmetric-private-information-retrieval-multi-server|Multi-server SPIR]] strengthens [[multi-server-private-information-retrieval|multi-server PIR]] by data privacy — the client learns nothing about the database beyond the retrieved entry — and keeps its correctness and per-server query-privacy requirements, so every SPIR protocol is an IT-PIR protocol, with the servers' shared randomness that information-theoretic SPIR uses folded into the answer algorithm — folklore.
+[[symmetric-private-information-retrieval-multi-server|Multi-server SPIR]] strengthens [[multi-server-private-information-retrieval|multi-server PIR]] by data privacy — the client learns nothing about the database beyond the retrieved entry — and keeps its correctness, per-server query-privacy, efficiency and communication requirements, so every SPIR protocol is an IT-PIR protocol with the same number of servers and communication, with the servers' shared string $\rho$ fixed to a constant, which keeps correctness since SPIR is correct for every $\rho$ — folklore.
 
 ## Sketch
 
-Drop the data-privacy requirement from the SPIR definition; what remains is the multi-server PIR definition, met by the same queries and answers.
+Drop the data-privacy requirement from the SPIR definition; what remains is the multi-server PIR definition, met by the same queries and answers with $\rho$ fixed.

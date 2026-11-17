@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[distributed-point-function|DPF]] for domain $[N]$ and range $\ZZ_2$ yields a 2-server [[multi-server-private-information-retrieval#computational-multi-server-pir|computational PIR]] for an $N$-bit database $D$ in which each query is one DPF key and each answer one bit: the client sends $(k_0, k_1) \gets \Gen(1^\secpar, i, 1)$, one key to each server; server $b$ returns $a_b = \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j)$; and $D[i] = a_0 + a_1$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]].
+A [[distributed-point-function|DPF]] for domain $[N]$ and range $\ZZ_2$ yields a 2-server [[multi-server-private-information-retrieval#computational-multi-server-pir|computational PIR]] for an $N$-bit database $D$ in which each query is one DPF key and each answer one bit: the client sends $(k_0, k_1) \gets \Gen(1^\secpar, i, 1)$, one key to each server; server $b$ returns $a_b = \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j)$; and $D[i] = a_0 + a_1$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]]. DPF correctness makes the scheme correct for every key pair, and with the DPF's key-length polynomial $p$ the total communication is at most $2p(\secpar, \log N) + 2$, which for every constant $c > 0$ is at most $p_c(\secpar) \cdot N^c$ for a polynomial $p_c$ — standard.
 
 ## Sketch
 
