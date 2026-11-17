@@ -35,11 +35,9 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 
-- [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
-- [[oihf-to-ot-bh26|OIHF ⇒ OT]]
-- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
+- [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 75d35af9f248 -->
+<!-- BEGIN GENERATED participates-in a85e7390b960 -->
 
 ## Participates in
 
@@ -50,7 +48,6 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[qrom-to-zk-snark-cms19|QROM ⇒ zk-SNARK (Micali's construction in the QROM)]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
-- [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
 - [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 
 **Barriers**
@@ -81,7 +78,6 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
-- [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
 - [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]

@@ -23,3 +23,5 @@ security-loss: ""
 ## Notes
 
 - First candidate optimal BE that is plausibly post-quantum secure — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
+- LWE establishes the pre-condition of evasive LWE, so it is assumed at the parameters at which evasive LWE is applied — standard.
+- Decryption error is negligible: the error term is the product of the short trapdoor preimage with the LWE noise of the ciphertext, which the scheme's parameters keep below $q/4$ — standard.

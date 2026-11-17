@@ -139,13 +139,13 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - CP-ABE for circuits of a-priori bounded polynomial depth from [[learning-with-errors#evasive-lwe|evasive LWE]], [[learning-with-errors#tensor-lwe|tensor LWE]] and [[learning-with-errors|LWE]], very selectively secure: the adversary fixes the challenge policy and all its key queries before setup — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]
 - ABE for circuits of unbounded depth from public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]] — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]; that assumption is false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]
 
-<!-- BEGIN GENERATED participates-in 9713269ceda7 -->
+<!-- BEGIN GENERATED participates-in 1c6643cc5d70 -->
 
 ## Participates in
 
 **Builds on Attribute-based encryption**
 
-- [[abe-to-be|ABE ⇒ BE]]
+- [[abe-to-be|CP-ABE ⇒ BE]] (via [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE: IND-CPA Security]])
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
 - [[abe-to-ibe|ABE ⇒ IBE]]
 

@@ -251,7 +251,7 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in eff4212f0fb2 -->
+<!-- BEGIN GENERATED participates-in 450d341f17f1 -->
 
 ## Participates in
 
@@ -271,7 +271,6 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[ot-to-ke|OT ⇒ KE]]
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
-- [[ot-to-oihf-bh26|OT ⇒ OIHF]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[ot-to-semi-honest-security-gmw87|Semi-honest OT ⇒ Semi-honest MPC (GMW)]]
@@ -296,7 +295,6 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[malicious-ot-security-to-malicious-ot-with-expected-time-simulation|Malicious OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|Malicious security with expected polynomial-time simulation]])
 - [[ope-to-ot|OPE ⇒ OT]]
-- [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[oprf-to-ot|OPRF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
@@ -319,7 +317,6 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 
 **Barriers**
 
-- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]] — circumvented by [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
 - [[no-owf-to-ot-ir89|No relativizing reduction from OWF to OT]]

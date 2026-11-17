@@ -4810,19 +4810,6 @@
    "unlisted": false
   },
   {
-   "id": "ntru-sis",
-   "kind": "variant",
-   "type": "assumption",
-   "page": "content/Assumptions/ntru.md",
-   "slug": "ntru",
-   "graphSlug": "Assumptions/ntru",
-   "anchor": "#sis-over-ntru-lattices",
-   "of": "ntru",
-   "title": "SIS over NTRU lattices",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "oblivious-interactive-hash-function",
    "kind": "object",
    "type": "primitive",
@@ -8805,7 +8792,7 @@
    "id": "red-abe-to-be",
    "kind": "implication",
    "hypotheses": [
-    "abe"
+    "cp-abe-adaptive-security"
    ],
    "conclusion": "be",
    "class": "fully-black-box",
@@ -8826,7 +8813,7 @@
    "page": "content/Reductions/abe-to-be.md",
    "slug": "abe-to-be",
    "graphSlug": "Reductions/abe-to-be",
-   "title": "ABE ⇒ BE"
+   "title": "CP-ABE ⇒ BE"
   },
   {
    "id": "red-abe-to-fuzzy-ibe",
@@ -19917,35 +19904,6 @@
    "title": "NP ⊆ PSPACE"
   },
   {
-   "id": "red-ntru-to-ds",
-   "kind": "implication",
-   "hypotheses": [
-    "ntru",
-    "ntru-sis"
-   ],
-   "conclusion": "ds",
-   "class": "unstated",
-   "model": "rom",
-   "models": [
-    "rom"
-   ],
-   "source": [
-    "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "tight up to statistical terms: the reduction programs every hash value as the image of a short vector it samples, so a forgery yields an SIS solution over the NTRU lattice without guessing",
-   "rationale": {
-    "model": "The GPV hash-and-sign reduction programs the random oracle on every message, and the Falcon proof is in the classical or quantum random-oracle model.",
-    "securityLoss": "In the GPV reduction no query is guessed, and the conditional min-entropy of a preimage makes the forgery differ from the programmed preimage except with negligible probability."
-   },
-   "status": "draft",
-   "page": "content/Reductions/ntru-to-ds.md",
-   "slug": "ntru-to-ds",
-   "graphSlug": "Reductions/ntru-to-ds",
-   "title": "NTRU + NTRU-SIS ⇒ DS"
-  },
-  {
    "id": "red-ntru-to-kem",
    "kind": "implication",
    "hypotheses": [
@@ -20052,33 +20010,6 @@
    "slug": "ope-to-ot",
    "graphSlug": "Reductions/ope-to-ot",
    "title": "OPE ⇒ OT"
-  },
-  {
-   "id": "red-oihf-to-ot-bh26",
-   "kind": "implication",
-   "hypotheses": [
-    "oblivious-interactive-hash-function"
-   ],
-   "conclusion": "ot",
-   "class": "free",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "BH26 call the reduction non-black-box without placing it in the RTV04 hierarchy, so only the implication itself is recorded."
-   },
-   "status": "draft",
-   "page": "content/Reductions/oihf-to-ot-bh26.md",
-   "slug": "oihf-to-ot-bh26",
-   "graphSlug": "Reductions/oihf-to-ot-bh26",
-   "title": "OIHF ⇒ OT"
   },
   {
    "id": "red-okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme",
@@ -20519,30 +20450,6 @@
    "slug": "ot-to-mpc-hiklp10",
    "graphSlug": "Reductions/ot-to-mpc-hiklp10",
    "title": "Semi-honest OT ⇒ MPC (HIKLP)"
-  },
-  {
-   "id": "red-ot-to-oihf-bh26",
-   "kind": "implication",
-   "hypotheses": [
-    "ot"
-   ],
-   "conclusion": "oblivious-interactive-hash-function",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/ot-to-oihf-bh26.md",
-   "slug": "ot-to-oihf-bh26",
-   "graphSlug": "Reductions/ot-to-oihf-bh26",
-   "title": "OT ⇒ OIHF"
   },
   {
    "id": "red-ot-to-optimally-fair-coin-flipping-mns09",
@@ -25261,33 +25168,6 @@
    "slug": "rom-to-merkle-puzzles-mer78",
    "graphSlug": "Reductions/rom-to-merkle-puzzles-mer78",
    "title": "ROM ⇒ Merkle puzzles"
-  },
-  {
-   "id": "red-rom-to-oihf-bh26",
-   "kind": "implication",
-   "hypotheses": [
-    "rom"
-   ],
-   "conclusion": "oblivious-interactive-hash-function",
-   "class": "free",
-   "model": "rom",
-   "models": [
-    "rom"
-   ],
-   "source": [
-    "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The construction is proved secure unconditionally in the random-oracle model, which is the free class scoped by the model, and BH26 do not classify it in RTV04 terms."
-   },
-   "status": "draft",
-   "page": "content/Reductions/rom-to-oihf-bh26.md",
-   "slug": "rom-to-oihf-bh26",
-   "graphSlug": "Reductions/rom-to-oihf-bh26",
-   "title": "ROM ⇒ OIHF"
   },
   {
    "id": "red-rom-to-snark-mic00",
@@ -32081,37 +31961,6 @@
    "slug": "no-np-to-size-verifiable-owf-bb15",
    "graphSlug": "Barriers/no-np-to-size-verifiable-owf-bb15",
    "title": "No fully-black-box reduction from NP to size-verifiable OWF"
-  },
-  {
-   "id": "bar-oihf-to-ot-bh26",
-   "hypotheses": [
-    "oblivious-interactive-hash-function"
-   ],
-   "conclusion": "ot",
-   "class": "fully-black-box",
-   "consequences": [
-    {
-     "kind": "contradiction",
-     "target": "",
-     "class": "fully-black-box"
-    }
-   ],
-   "strength": "unconditional",
-   "conditionalOn": [],
-   "circumventedBy": [
-    "red-oihf-to-ot-bh26"
-   ],
-   "source": [
-    "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
-   ],
-   "rationale": {
-    "class": "The composition with the random-oracle OIHF needs the OT construction to use the OIHF, and its security proof the OT adversary, only as oracles."
-   },
-   "status": "draft",
-   "page": "content/Barriers/no-oihf-to-ot-bh26.md",
-   "slug": "no-oihf-to-ot-bh26",
-   "graphSlug": "Barriers/no-oihf-to-ot-bh26",
-   "title": "No fully-black-box reduction from OIHF to OT"
   },
   {
    "id": "bar-omdl-to-two-round-musig-def19",

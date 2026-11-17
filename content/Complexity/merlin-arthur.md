@@ -21,10 +21,10 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:M#m
 
 ## Known relationships
 
-- $\classNP \subseteq \classMA \subseteq \classAM$: any NP proof works as Merlin's message (Arthur just checks it deterministically), and any MA protocol can be converted to an AM protocol by having Arthur send random coins first (Merlin's optimal strategy is independent of those coins for a constant-round protocol).
+- $\classNP \subseteq \classMA \subseteq \classAM$: any NP proof works as Merlin's message (Arthur just checks it deterministically), and [[ma-to-am|MA ⊆ AM]] — [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]: amplify the soundness error below $2^{-\ell}/3$, where $\ell$ bounds the length of Merlin's message, then let Arthur send the random coins first, and bound the soundness error of the swapped protocol by a union bound over Merlin's $2^{\ell}$ possible messages.
 - $\classMA \subseteq \classPP$ ([[ma-to-pp|MA ⊆ PP]]) — [[Ver92 - On the Power of PP|Ver92]].
 - $\classMA \subseteq \mathbf{\Sigma_2^P} \cap \mathbf{\Pi_2^P}$, placing MA in the second level of the polynomial-time hierarchy.
-- It is not known whether MA = NP or whether MA = AM. Showing MA ≠ NP would require circuit lower bounds beyond what is currently known.
+- It is not known whether MA = NP or whether MA = AM.
 
 <!-- BEGIN GENERATED participates-in 3ede9aef55db -->
 

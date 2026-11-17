@@ -215,10 +215,10 @@ the general case, `Q = P ≠ NP`. One type covers both.
 | `complexity`    | a key of `propositions`                            |
 | `reduction`     | a `reductions[].id` — these chain into the closure |
 
-`circumventedBy` lists reductions that get around the barrier — BH26's
-non-black-box OIHF ⇒ OT is `circumventedBy` on the fully-black-box barrier
-`bar-oihf-to-ot-bh26`. A circumventing reduction need not share the barrier's
-hyperedge. A consumer must not read a barrier as the last word on its
+`circumventedBy` lists reductions that get around the barrier — DG17a's
+CDH ⇒ IBE, which runs the group inside garbled circuits, is `circumventedBy`
+on PRV12's fully-black-box barrier `bar-ddh-to-ibe-prv12`. A circumventing
+reduction need not share the barrier's hyperedge. A consumer must not read a barrier as the last word on its
 conclusion without checking this list. A circumventing reduction from an ideal
 resource is listed in `circumventedByHybrid` instead, so `circumventedBy`
 always resolves within `reductions`: IPS08's `{ideal-ot, prg} => uc-mpc` gets
@@ -372,8 +372,9 @@ which COM ⇒ OWF does not consume. So `{ideal-ot}` derives
 `two-party-computation`, `malicious-ot-security` and `com`, all `[ideal-ot]`,
 and no one-way function. These edges are listed in `hybridReductions`, which
 states the rule for consumers (§ `hybridReductions`). A consumer computing its
-own closure should apply the same rules: without them, `{rom}` reaches key exchange through
-the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
+own closure should apply the same rules: without them, `{ggm}` reaches IBE
+through `{ggm} => cdh` and DG17a's `free` CDH ⇒ IBE, although PRV12 break every
+IBE scheme that uses a generic group only through its group-operation oracle.
 
 `--redundant` lists reductions whose conclusion already follows from their own
 hypotheses without them, with the chain that reaches it. These are **reported,
