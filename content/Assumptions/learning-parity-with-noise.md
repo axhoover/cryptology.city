@@ -119,8 +119,8 @@ The noise distribution $D_r(p)$ of [[JLS21 - Indistinguishability obfuscation fr
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]]
-- [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]
-- [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]]
+- [[subexponential-lpn-to-prc-cg24|Polylogarithmic-dimension LPN ⇒ PRC]]
+- [[lwe-to-zero-bit-prc-cg24|Polylogarithmic-dimension LPN ⇒ Substitution-robust zero-bit PRC]]
 
 # Variations
 
@@ -198,7 +198,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
 - **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
-<!-- BEGIN GENERATED participates-in bc96b0a260b8 -->
+<!-- BEGIN GENERATED participates-in f6e9f5116d66 -->
 
 ## Participates in
 
@@ -211,7 +211,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
-- [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
+- [[lwe-to-zero-bit-prc-cg24|Polylogarithmic-dimension LPN ⇒ Substitution-robust zero-bit PRC]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
@@ -222,7 +222,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
 - [[subexponential-lpn-to-polylog-dimension-lpn|Subexponential LPN ⇒ Polylogarithmic-dimension LPN]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
-- [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
+- [[subexponential-lpn-to-prc-cg24|Polylogarithmic-dimension LPN ⇒ PRC]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
 
 **Produces Learning parity with noise**
 

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[bounded-error-quantum-polynomial-time|BQP]] $\subseteq$ [[probabilistic-polynomial-time|PP]]: every language decided with bounded error by a polynomial-time quantum machine with algebraic transition amplitudes is decided by an unbounded-error probabilistic polynomial-time machine — [[ADH97 - Quantum Computability|ADH97]].
+[[bounded-error-quantum-polynomial-time|BQP]] $\subseteq$ [[probabilistic-polynomial-time|PP]]: every language decided with bounded error by a polynomial-time quantum machine with algebraic transition amplitudes is decided by an unbounded-error probabilistic polynomial-time machine — [[ADH97 - Quantum Computability|ADH97]]. The gates $H$, $\mathrm{CNOT}$ and $T$ that define BQP have entries in $\mathbb{Q}(e^{i\pi/4})$, and a polynomial-time uniform family of circuits over them is simulated by a polynomial-time quantum Turing machine with amplitudes in that field — standard.
 
 ## Sketch
 

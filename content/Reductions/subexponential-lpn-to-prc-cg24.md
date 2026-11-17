@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Subexponential LPN ⇒ PRC"
+title: "Polylogarithmic-dimension LPN ⇒ PRC"
 aliases: []
 id: red-subexponential-lpn-to-prc-cg24
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Subexponential LPN ⇒ PRC
+# Polylogarithmic-dimension LPN ⇒ PRC
 
 ## Statement
 

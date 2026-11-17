@@ -22,4 +22,4 @@ If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, ev
 
 ## Notes
 
-- Undetectable watermarks whose detection survives cropping and a constant rate of random substitutions and deletions follow from pseudorandom codes ([[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]) — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
+- Undetectable watermarks whose detection survives cropping and a constant rate of random substitutions follow from [[pseudorandom-error-correcting-code#substitution-robust-zero-bit-prc|substitution-robust zero-bit pseudorandom codes]] ([[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Watermarking]]), and survive a constant rate of random deletions as well if, on every high-entropy substring of a response, the embedding of the codeword acts as a binary symmetric channel — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].

@@ -79,19 +79,19 @@ is negligible — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
 
 ## Robust watermarks
 
-A watermark is **robust** if detection survives edits to the text, such as cropping, substitutions, insertions and deletions. Undetectable watermarks robust to cropping and a constant rate of random substitutions and deletions follow from [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit pseudorandom codes]] ([[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]) — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. Undetectable watermarks robust to a constant fraction of adversarial insertions, substitutions and deletions exist for language models whose alphabet size is polynomial in $\secpar$ — [[GM24 - Edit Distance Robust Watermarks for Language Models|GM24]].
+A watermark is **robust** if detection survives edits to the text, such as cropping, substitutions, insertions and deletions. Undetectable watermarks robust to cropping and a constant rate of random substitutions follow from [[pseudorandom-error-correcting-code#substitution-robust-zero-bit-prc|substitution-robust zero-bit pseudorandom codes]] ([[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Watermarking]]), and are also robust to a constant rate of random deletions if, on every high-entropy substring of a response, the embedding of the codeword acts as a binary symmetric channel — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. Undetectable watermarks robust to a constant fraction of adversarial insertions, substitutions and deletions exist for language models whose alphabet size is polynomial in $\secpar$ — [[GM24 - Edit Distance Robust Watermarks for Language Models|GM24]].
 
 # Other results
 
 - Undetectable watermarks exist if [[hash-function#preimage-resistance-one-wayness|one-way functions]] do ([[owf-to-language-model-watermarking-cgz24|OWF ⇒ Watermarking]]) — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
 
-<!-- BEGIN GENERATED participates-in dc715708da57 -->
+<!-- BEGIN GENERATED participates-in e388c36e5945 -->
 
 ## Participates in
 
 **Produces Language model watermarking**
 
 - [[owf-to-language-model-watermarking-cgz24|OWF ⇒ Watermarking]]
-- [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]
+- [[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Watermarking]]
 
 <!-- END GENERATED participates-in -->

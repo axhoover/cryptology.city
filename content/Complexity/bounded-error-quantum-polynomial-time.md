@@ -10,7 +10,7 @@ id: bqp
 
 # Bounded-Error Quantum Polynomial-Time
 
-The class of decision problems solvable by a uniform family of polynomial-size quantum circuits with two-sided bounded error:
+The class of decision problems decided by a polynomial-time uniform family $\{C_n\}$ of polynomial-size quantum circuits over the gate set $\{H, \mathrm{CNOT}, T\}$, measured in the computational basis, with two-sided bounded error:
 
 1. If the answer is "yes," the circuit accepts with probability at least 2/3.
 2. If the answer is "no," the circuit accepts with probability at most 1/3.
