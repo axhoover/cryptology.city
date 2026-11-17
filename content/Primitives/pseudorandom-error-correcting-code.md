@@ -101,10 +101,10 @@ A **substitution-robust zero-bit PRC** is, for every constant $p \in (0, 1/2)$, 
 # Other results
 
 - PRCs were introduced in [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] motivated by undetectable watermarking of AI-generated content
-- [[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Watermarking]] — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
+- [[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Substring-complete watermarking]] — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
 - [[subexponential-lpn-to-prc-cg24|Polylogarithmic-dimension LPN ⇒ PRC]] and [[lwe-to-zero-bit-prc-cg24|Polylogarithmic-dimension LPN ⇒ Substitution-robust zero-bit PRC]] — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
 
-<!-- BEGIN GENERATED participates-in 9899a592a5e5 -->
+<!-- BEGIN GENERATED participates-in 61f4b2aee59b -->
 
 ## Participates in
 
@@ -114,7 +114,7 @@ A **substitution-robust zero-bit PRC** is, for every constant $p \in (0, 1/2)$, 
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[substitution-robust-zero-bit-prc-to-zero-bit-prc|Substitution-robust zero-bit PRC ⇒ Zero-bit PRC]] (via [[pseudorandom-error-correcting-code#substitution-robust-zero-bit-prc|Substitution-robust zero-bit PRC]])
 - [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
-- [[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Watermarking]] (via [[pseudorandom-error-correcting-code#substitution-robust-zero-bit-prc|Substitution-robust zero-bit PRC]])
+- [[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Substring-complete watermarking]] (via [[pseudorandom-error-correcting-code#substitution-robust-zero-bit-prc|Substitution-robust zero-bit PRC]])
 
 **Produces Pseudorandom error-correcting code**
 

@@ -3179,6 +3179,32 @@
    "unlisted": true
   },
   {
+   "id": "ideal-svp-poly-factor",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/ideal-svp.md",
+   "slug": "ideal-svp",
+   "graphSlug": "Assumptions/ideal-svp",
+   "anchor": "#polynomial-factors",
+   "of": "ideal-svp",
+   "title": "Polynomial factors",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
+   "id": "ideal-svp-poly-factor-quantum",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/ideal-svp.md",
+   "slug": "ideal-svp",
+   "graphSlug": "Assumptions/ideal-svp",
+   "anchor": "#polynomial-factors-against-quantum-algorithms",
+   "of": "ideal-svp",
+   "title": "Polynomial factors against quantum algorithms",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "identification-scheme",
    "kind": "object",
    "type": "primitive",
@@ -7788,6 +7814,19 @@
    "anchor": "#substitution-robust-zero-bit-prc",
    "of": "prc",
    "title": "Substitution-robust zero-bit PRC",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "substring-complete-language-model-watermarking",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/language-model-watermarking.md",
+   "slug": "language-model-watermarking",
+   "graphSlug": "Primitives/language-model-watermarking",
+   "anchor": "#substring-complete-watermarks",
+   "of": "language-model-watermarking",
+   "title": "Substring-complete watermarks",
    "aliases": [],
    "unlisted": false
   },
@@ -16760,10 +16799,64 @@
    "title": "ID ⇒ DS"
   },
   {
+   "id": "red-ideal-svp-poly-factor-quantum-to-ideal-svp-poly-factor",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-svp-poly-factor-quantum"
+   ],
+   "conclusion": "ideal-svp-poly-factor",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on Ideal-SVP instances, and the reduction forwards any classical algorithm, run as a quantum one, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ideal-svp-poly-factor-quantum-to-ideal-svp-poly-factor.md",
+   "slug": "ideal-svp-poly-factor-quantum-to-ideal-svp-poly-factor",
+   "graphSlug": "Reductions/ideal-svp-poly-factor-quantum-to-ideal-svp-poly-factor",
+   "title": "Quantum polynomial-factor Ideal-SVP ⇒ Ideal-SVP for polynomial factors"
+  },
+  {
+   "id": "red-ideal-svp-poly-factor-to-ideal-svp",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-svp-poly-factor"
+   ],
+   "conclusion": "ideal-svp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on Ideal-SVP instances, and the reduction forwards any algorithm unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ideal-svp-poly-factor-to-ideal-svp.md",
+   "slug": "ideal-svp-poly-factor-to-ideal-svp",
+   "graphSlug": "Reductions/ideal-svp-poly-factor-to-ideal-svp",
+   "title": "Ideal-SVP for polynomial factors ⇒ Ideal-SVP"
+  },
+  {
    "id": "red-ideal-svp-to-ring-lwe-lpr10",
    "kind": "implication",
    "hypotheses": [
-    "ideal-svp"
+    "ideal-svp-poly-factor-quantum"
    ],
    "conclusion": "ring-lwe",
    "class": "fully-black-box",
@@ -16785,13 +16878,13 @@
    "page": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
    "slug": "ideal-svp-to-ring-lwe-lpr10",
    "graphSlug": "Reductions/ideal-svp-to-ring-lwe-lpr10",
-   "title": "Ideal-SVP ⇒ Ring LWE"
+   "title": "Quantum polynomial-factor Ideal-SVP ⇒ Ring LWE"
   },
   {
    "id": "red-ideal-svp-to-ring-sis-lm06",
    "kind": "implication",
    "hypotheses": [
-    "ideal-svp"
+    "ideal-svp-poly-factor"
    ],
    "conclusion": "ring-sis",
    "class": "fully-black-box",
@@ -16812,7 +16905,7 @@
    "page": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
    "slug": "ideal-svp-to-ring-sis-lm06",
    "graphSlug": "Reductions/ideal-svp-to-ring-sis-lm06",
-   "title": "Ideal-SVP ⇒ Ring-SIS"
+   "title": "Polynomial-factor Ideal-SVP ⇒ Ring-SIS"
   },
   {
    "id": "red-identification-scheme-to-owf-il89",
@@ -31006,7 +31099,7 @@
    "hypotheses": [
     "substitution-robust-zero-bit-prc"
    ],
-   "conclusion": "language-model-watermarking",
+   "conclusion": "substring-complete-language-model-watermarking",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -31025,7 +31118,7 @@
    "page": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
    "slug": "zero-bit-prc-to-watermarking-cg24",
    "graphSlug": "Reductions/zero-bit-prc-to-watermarking-cg24",
-   "title": "Substitution-robust zero-bit PRC ⇒ Watermarking"
+   "title": "Substitution-robust zero-bit PRC ⇒ Substring-complete watermarking"
   },
   {
    "id": "red-zk-snark-to-snark",
