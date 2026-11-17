@@ -6,6 +6,8 @@ aliases:
   - Broadcast encryption
 title: Broadcast encryption
 id: be
+variants:
+  be-selective-security: "#ind-sbe-cpa-security-selective"
 ---
 
 # Broadcast encryption
@@ -64,7 +66,34 @@ is negligible. The admissibility constraint requires full collusion resistance: 
 
 ### IND-sBE-CPA Security (Selective)
 
-In the **selective** variant, the adversary commits to $S^*$ before $\Setup$ runs.
+In the **selective** variant, the adversary outputs $S^*$ before $\Setup$ runs, and the IND-BE-CPA game then runs with $S^*$ fixed.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(S^*, \stA) \gets \calA(1^\secpar)$
+\Comment{$\calA$ commits to $S^* \subseteq [n]$ before seeing $\pp$}
+\State $(\pp, \msk) \gets \Setup(1^\secpar, n)$; $b \getsr \bits$
+\State $\calO_{\mathrm{key}}(i) := \KeyGen(\msk, i)$
+\State $(m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}}(\pp, \stA)$
+\Comment{$\calA$ may not query $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
+\State $c^* \gets \Enc(\pp, S^*, m_b)$
+\State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
+\Comment{$\calA$ may not query $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A BE scheme $\mathsf{BE}$ is **IND-sBE-CPA-secure** if for all efficient admissible $\calA$,
+
+$$
+\Adv^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. As an object, selectively secure BE denotes a correct and IND-sBE-CPA-secure BE scheme. Every IND-BE-CPA-secure scheme is IND-sBE-CPA-secure ([[be-to-be-selective-security|IND-BE-CPA Security ⇒ IND-sBE-CPA Security (Selective)]]) — folklore.
 
 # Variations
 
@@ -80,16 +109,21 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 
 - [[abe-to-be|ABE ⇒ BE]]
 - BE is orthogonal to [[identity-based-encryption|IBE]] in expressiveness: IBE matches a single identity exactly, while BE handles arbitrary subsets; neither is a special case of the other
-- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]]
+- [[bdh-to-be-bgw05|n-BDHE ⇒ Selectively secure BE]]
 
-<!-- BEGIN GENERATED participates-in 554dc6972809 -->
+<!-- BEGIN GENERATED participates-in bc6c5152a07f -->
 
 ## Participates in
+
+**Builds on Broadcast encryption**
+
+- [[be-to-be-selective-security|IND-BE-CPA Security ⇒ IND-sBE-CPA Security (Selective)]]
 
 **Produces Broadcast encryption**
 
 - [[abe-to-be|ABE ⇒ BE]]
-- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]]
-- [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ BE]]
+- [[bdh-to-be-bgw05|n-BDHE ⇒ Selectively secure BE]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
+- [[be-to-be-selective-security|IND-BE-CPA Security ⇒ IND-sBE-CPA Security (Selective)]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
+- [[evasive-lwe-to-be-wee22|Evasive LWE + LWE ⇒ Selectively secure BE]] (via [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA Security (Selective)]])
 
 <!-- END GENERATED participates-in -->

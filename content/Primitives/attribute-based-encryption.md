@@ -136,8 +136,10 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13)
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
+- CP-ABE for circuits of a-priori bounded polynomial depth from [[learning-with-errors#evasive-lwe|evasive LWE]], [[learning-with-errors#tensor-lwe|tensor LWE]] and [[learning-with-errors|LWE]], very selectively secure: the adversary fixes the challenge policy and all its key queries before setup — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]
+- ABE for circuits of unbounded depth from public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]] — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]; that assumption is false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]
 
-<!-- BEGIN GENERATED participates-in b7790e5cd40e -->
+<!-- BEGIN GENERATED participates-in 9713269ceda7 -->
 
 ## Participates in
 
@@ -151,8 +153,6 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 
 - [[bdh-to-abe-gpsw06|DBDH ⇒ Selectively secure ABE]] (via [[attribute-based-encryption#selective-security|Selective Security]])
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (via [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE: IND-CPA Security]])
-- [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]]
-- [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]]
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13)
 - [[subexponential-modulus-lwe-to-abe-selective-security-gvw13|LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)]] (via [[attribute-based-encryption#selective-security|Selective Security]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]]

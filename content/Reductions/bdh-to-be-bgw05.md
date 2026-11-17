@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "n-BDHE ⇒ BE"
+title: "n-BDHE ⇒ Selectively secure BE"
 aliases: []
 id: red-bdh-to-be-bgw05
 kind: implication
 hypotheses: [n-bdhe]
-conclusion: be
+conclusion: be-selective-security
 class: fully-black-box
 model: standard
 source:
@@ -16,7 +16,7 @@ rationale:
   class: "One fixed construction uses the bilinear group only through group operations and the pairing, and the static reduction programs the public key and the revoked users' keys around the committed target set from a decision n-BDHE instance and runs the adversary once as an oracle."
 ---
 
-# n-BDHE ⇒ BE
+# n-BDHE ⇒ Selectively secure BE
 
 ## Statement
 
