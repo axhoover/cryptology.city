@@ -327,7 +327,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in 29c2ab8d2541 -->
+<!-- BEGIN GENERATED participates-in 7afe17ecbd1b -->
 
 ## Participates in
 
@@ -350,7 +350,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[additively-homomorphic-encryption-to-cpir-ste98|Additively homomorphic encryption ⇒ cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[dcr-to-cpir-cha04|DCR ⇒ One-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[ddh-to-client-preprocessing-pir-chk22|DDH ⇒ PIR with client preprocessing (CHK22)]] (via [[single-server-private-information-retrieval#pir-with-client-preprocessing|PIR with client preprocessing]])
-- [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]]
+- [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR with total communication below n]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05|Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])

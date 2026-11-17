@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hard, then for every depth $d$ fixed at setup there is a [[attribute-based-encryption#selective-security|selectively secure]] key-policy [[attribute-based-encryption|ABE]] scheme for all circuits of depth $d$, whose public parameters and ciphertexts grow linearly in $d$ — [[GVW13 - Attribute-based encryption for circuits|GVW13]].
+If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hard, then for every depth $d$ fixed at setup there is a [[attribute-based-encryption#selective-security|selectively secure]] key-policy [[attribute-based-encryption|ABE]] scheme for all circuits of depth $d$, whose public parameters and ciphertexts grow linearly in $d$ — [[GVW13 - Attribute-based encryption for circuits|GVW13]]. With the attribute length and every polynomial depth given at $\Setup$, its policies contain every polynomial-size monotone formula of threshold gates; messages are bits, and correctness follows from the noise bound — standard.
 
 ## Notes
 

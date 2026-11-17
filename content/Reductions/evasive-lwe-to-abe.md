@@ -20,9 +20,10 @@ rationale:
 
 ## Statement
 
-Assuming public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]], a circular variant of [[learning-with-errors#evasive-lwe|evasive LWE]], there is a lattice-based [[attribute-based-encryption|ABE]] scheme for circuits of unbounded depth — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]].
+Assuming public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]], a circular variant of [[learning-with-errors#evasive-lwe|evasive LWE]], there is a lattice-based [[attribute-based-encryption|ABE]] scheme for circuits of unbounded depth — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]. Its policies, circuits over attributes of a length given at $\Setup$, contain every polynomial-size monotone formula of threshold gates; messages are bits, and correctness follows from the noise bound — standard.
 
 ## Notes
 
 - The master public key and ciphertexts have size linear in the attribute length, and secret keys have constant size, independent of the circuit's depth and size — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]].
 - Public-coin circular evasive LWE as HLL23 state it is false: [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]] exhibit a sampler for which the pre-condition holds but the post-condition fails.
+- TODO: state whether HLL23 prove adaptive security or only a selective notion.
