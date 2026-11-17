@@ -1,11 +1,11 @@
 ---
 type: barrier
 status: draft
-title: "No fully-black-box reduction from Falsifiable assumption to SNARK"
+title: "No fully-black-box reduction from Falsifiable assumption to fully succinct SNARKs"
 aliases: []
 id: bar-falsifiable-assumption-to-snark-gro16
 hypotheses: [falsifiable-assumption]
-conclusion: snark
+conclusion: fully-succinct-snark
 class: fully-black-box
 consequences:
   - kind: contradiction
@@ -20,11 +20,11 @@ rationale:
   class: "GW11 allow any SNARG construction and rule out every reduction that uses the cheating prover only as an oracle, which contains the fully-black-box reductions; reductions that use the adversary's code, as semi- and weakly-black-box ones may, are untouched."
 ---
 
-# No fully-black-box reduction from Falsifiable assumption to SNARK
+# No fully-black-box reduction from Falsifiable assumption to fully succinct SNARKs
 
 ## Statement
 
-Let $L$ be an NP language with a sub-exponentially hard subset-membership problem. If a reduction that uses the cheating prover only as an oracle proves the adaptive soundness of a [[succinct-argument|SNARG]] for $L$ in the CRS model from a [[falsifiable-assumptions|falsifiable assumption]], then the assumption is false; the separation covers designated-verifier SNARGs and slightly succinct ones, whose proofs need only be sublinear in the statement and witness length — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+Let $L$ be an NP language with a sub-exponentially hard subset-membership problem. If a reduction that uses the cheating prover only as an oracle proves the adaptive soundness of a [[succinct-argument|SNARG]] for $L$ in the CRS model from a [[falsifiable-assumptions|falsifiable assumption]], then the assumption is false; the separation covers designated-verifier SNARGs and slightly succinct ones, whose proofs need only be sublinear in the statement and witness length — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]. A [[succinct-argument#fully-succinct-snarks|fully succinct SNARK]] gives such a SNARG for $L$: its $\crs$ comes from $\Setup(1^\secpar)$ alone, for an NP verifier $M_L$ of $L$ running in time $t$, a proof that $x \in L$ is a proof for $(M_L, x, t(|x|))$ of size at most $p(\secpar + \log t(|x|))$ for the polynomial $p$ fixed with the scheme, polylogarithmic in $|x|$, and knowledge soundness for adaptively chosen statements implies adaptive soundness ([[fully-succinct-snark-to-sublinear-snarg-for-np|Fully succinct SNARK ⇒ SNARG for NP with sublinear proofs]]), so a reduction that proves its knowledge soundness using the prover only as an oracle proves this SNARG adaptively sound in the same way — folklore.
 
 ## Sketch
 
