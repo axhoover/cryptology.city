@@ -13,7 +13,7 @@ source:
   - "[[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]"
 security-loss: "polynomial: a factor $m$ from Yao's next-bit hybrid, and a polynomial loss in turning a low-order-bit predictor into a factoring algorithm"
 rationale:
-  class: "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor."
+  class: "The construction samples the Blum integer from part of its seed and only squares modulo it, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor."
   security-loss: "VV84 extract square roots modulo $N$, and hence factor $N$, from a low-order-bit predictor in time polynomial in $\\log N$ and the inverse of its advantage."
 ---
 
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. Its security under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers is [[qr-to-prg-bbs86|QR ⇒ PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
+If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for $N$ sampled as in [[factoring#factoring-blum-integers|the factoring game]] and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ for $m = m(\secpar)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. The seed consists of the coins that sample $N$ and those that sample $x$, and the output omits $N$; with $m(\secpar)$ above the seed length, the generator is an unkeyed PRG — standard. Its security under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers is [[qr-to-prg-bbs86|QR ⇒ PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
 
 ## Sketch
 

@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-The KEM-DEM hybrid of an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] and a one-time IND-CPA [[symmetric-key-encryption|SKE]] scheme, $\Enc(\pk, m) := (c_1, \SKE.\Enc(k, m))$ for $(c_1, k) \gets \Encap(\pk)$, is [[public-key-encryption#cpa-security|IND-CPA]] secure — folklore.
+The KEM-DEM hybrid of an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] and a [[symmetric-key-encryption#one-time-security|one-time IND-CPA]] [[symmetric-key-encryption|SKE]] scheme, $\Enc(\pk, m) := (c_1, \SKE.\Enc(\SKE.\KeyGen(1^\secpar; k), m))$ for $(c_1, k) \gets \Encap(\pk)$, which uses the encapsulated key as the coins of $\SKE.\KeyGen$, is [[public-key-encryption#cpa-security|IND-CPA]] secure — folklore. It has the message space of $\SKE$, and it is $(1-\varepsilon)$-correct for a perfectly correct KEM and a $(1-\varepsilon)$-correct $\SKE$ — standard.
 
 ## Sketch
 

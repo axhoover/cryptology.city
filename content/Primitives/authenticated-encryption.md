@@ -134,6 +134,8 @@ $$
 
 is negligible. An **authenticated encryption scheme** is a SKE scheme that is CPA-secure and INT-CTXT-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
+As an object, AE denotes a SKE scheme that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$, has two distinct messages of equal length in every $\calM_\secpar$, and is CPA- and INT-CTXT-secure. Without correctness, $\Enc(k, m) := 0$ with $\Dec(k, c) := \bot$ is CPA- and INT-CTXT-secure.
+
 For a perfectly correct scheme INT-CTXT security implies INT-PTXT security, since every output of $\calE$ decrypts to a message submitted to $\calE$ — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. CPA security and INT-CTXT security together imply [[symmetric-key-encryption#cca-security|CCA security]] ([[authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00|AE ⇒ CCA-secure SKE]]) — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. Concurrently and independently, [[KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation|KY00]] define _unforgeable_ encryption, in which no efficient adversary with an encryption oracle outputs a valid ciphertext that the oracle did not return, and prove that unforgeability together with CPA security implies CCA security.
 
 # Variations

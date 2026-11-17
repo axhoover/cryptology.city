@@ -8630,6 +8630,19 @@
    "unlisted": false
   },
   {
+   "id": "zp-star-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-multiplicative-groups-modulo-a-prime",
+   "of": "dlog",
+   "title": "DLOG in multiplicative groups modulo a prime",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "zpp",
    "kind": "object",
    "type": "complexity-class",
@@ -10241,6 +10254,33 @@
    "slug": "byzantine-broadcast-to-byzantine-broadcast-t-lt-n-over-3",
    "graphSlug": "Reductions/byzantine-broadcast-to-byzantine-broadcast-t-lt-n-over-3",
    "title": "Byzantine broadcast ⇒ Broadcast against $t < n/3$"
+  },
+  {
+   "id": "red-cca-secure-symmetric-key-encryption-to-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "cca-secure-symmetric-key-encryption"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any CPA adversary unchanged as a CCA adversary that makes no decryption queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cca-secure-symmetric-key-encryption-to-cpa-security.md",
+   "slug": "cca-secure-symmetric-key-encryption-to-cpa-security",
+   "graphSlug": "Reductions/cca-secure-symmetric-key-encryption-to-cpa-security",
+   "title": "CCA-secure SKE ⇒ CPA-secure SKE"
   },
   {
    "id": "red-cca-security-to-cca1-security",
@@ -13088,6 +13128,33 @@
    "title": "DLOG ⇒ CRHF"
   },
   {
+   "id": "red-dlog-to-hash-function",
+   "kind": "implication",
+   "hypotheses": [
+    "dlog"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $2^{-\\secpar}$: an inverter with success probability $\\varepsilon$ gives a DLOG solver with success probability at least $\\varepsilon - 2^{-\\secpar}$",
+   "rationale": {
+    "class": "The function calls the group generator and the group operation only as oracles, and the reduction runs any inverter once as an oracle and reduces the exponent it returns modulo p."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dlog-to-hash-function.md",
+   "slug": "dlog-to-hash-function",
+   "graphSlug": "Reductions/dlog-to-hash-function",
+   "title": "DLOG ⇒ OWF"
+  },
+  {
    "id": "red-dlog-to-np",
    "kind": "inclusion",
    "hypotheses": [
@@ -13143,7 +13210,7 @@
    "id": "red-dlog-to-prg-bm84",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "zp-star-dlog"
    ],
    "conclusion": "prg",
    "class": "fully-black-box",
@@ -13158,7 +13225,7 @@
    "heuristic": false,
    "securityLoss": "polynomial: a factor $m$ for $m$ output bits from the next-bit hybrid, composed with the polynomial loss of recovering the discrete logarithm from a predictor for the half-interval bit",
    "rationale": {
-    "class": "The construction uses only the group operation, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
+    "class": "The construction runs the group generator on part of its seed and otherwise computes only modulo P, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
    },
    "status": "draft",
    "page": "content/Reductions/dlog-to-prg-bm84.md",
@@ -14293,7 +14360,7 @@
    "heuristic": false,
    "securityLoss": "polynomial: a factor $m$ from Yao's next-bit hybrid, and a polynomial loss in turning a low-order-bit predictor into a factoring algorithm",
    "rationale": {
-    "class": "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor.",
+    "class": "The construction samples the Blum integer from part of its seed and only squares modulo it, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor.",
     "securityLoss": "VV84 extract square roots modulo $N$, and hence factor $N$, from a low-order-bit predictor in time polynomial in $\\log N$ and the inverse of its advantage."
    },
    "status": "draft",
@@ -22499,7 +22566,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "hiding: at most twice the PRG advantage; binding: statistical, error at most $2^{-\\secpar}$",
+   "securityLoss": "hiding: at most twice the PRG advantage of the length-tripling $G$, and stretching a given PRG to $G$ adds its own loss; binding: statistical, error at most $2^{-\\secpar}$",
    "rationale": {
     "class": "The committer calls the PRG only as an oracle, the hiding reduction runs any distinguisher as an oracle in two PRG hybrids, and binding is statistical and needs no reduction."
    },
@@ -22526,7 +22593,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "polynomial: a factor the number of PRG invocations in key generation, from the hybrid over them",
+   "securityLoss": "polynomial: a factor the number of PRG invocations in key generation, from the hybrid over them, for the PRG at the output length the construction uses; stretching a given PRG to that length adds its own loss",
    "rationale": {
     "class": "GI14 use the PRG only as an oracle, replacing random key portions at each recursion level by seeds expanded at evaluation time, and prove hiding by a hybrid over PRG invocations that runs the DPF adversary only as an oracle."
    },
@@ -22631,7 +22698,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "factor $q\\ell$ for $q$ queries on $\\ell$-bit inputs: a hybrid over the $\\ell$ tree levels, each step a hybrid over the at most $q$ nodes queried at that level",
+   "securityLoss": "factor $q\\ell$ for $q$ queries on $\\ell$-bit inputs: a hybrid over the $\\ell$ tree levels, each step a hybrid over the at most $q$ nodes queried at that level; this is for the length-doubling $G$, and stretching a given PRG to $G$ adds its own loss",
    "rationale": {
     "class": "The construction calls the length-doubling PRG only as an oracle, once per input bit, and the hybrid reduction runs any PRF distinguisher only as an oracle to build a PRG distinguisher."
    },
@@ -22660,7 +22727,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor 2n for input length n: n PRG hybrids, one per level of the path to $x^*$, from each of the real and ideal worlds to the world where the sibling seeds and the challenge are independent and uniform",
+   "securityLoss": "a factor 2n for input length n: n PRG hybrids, one per level of the path to $x^*$, from each of the real and ideal worlds to the world where the sibling seeds and the challenge are independent and uniform; this is for the length-doubling $G$, and stretching a given PRG to $G$ adds its own loss",
    "rationale": {
     "class": "The GGM construction calls the length-doubling PRG only as an oracle, and the reduction embeds its PRG challenge at one level of the path to the punctured point, running the adversary once as an oracle."
    },
@@ -23999,7 +24066,7 @@
    "heuristic": false,
    "securityLoss": "a factor m in the output length, from Yao's next-bit hybrid",
    "rationale": {
-    "class": "The generator only squares modulo the sampled Blum integer, and the reduction runs any distinguisher only as an oracle to predict the low-order bit, which decides quadratic residuosity."
+    "class": "The generator samples the Blum integer from part of its seed and only squares modulo it, and the reduction runs any distinguisher only as an oracle to predict the low-order bit, which decides quadratic residuosity."
    },
    "status": "draft",
    "page": "content/Reductions/qr-to-prg-bbs86.md",
@@ -29336,7 +29403,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}",
+   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}, for the length-doubling G; stretching a given PRG to G adds its own loss",
    "rationale": {
     "class": "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code; the security proof uses the adversary only as an oracle."
    },
@@ -29479,6 +29546,33 @@
    "slug": "zkp-to-hash-function",
    "graphSlug": "Reductions/zkp-to-hash-function",
    "title": "CZK ⊄ BPP ⇒ Auxiliary-input OWF"
+  },
+  {
+   "id": "red-zp-star-dlog-to-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "zp-star-dlog"
+   ],
+   "conclusion": "dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the solver and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/zp-star-dlog-to-dlog.md",
+   "slug": "zp-star-dlog-to-dlog",
+   "graphSlug": "Reductions/zp-star-dlog-to-dlog",
+   "title": "DLOG modulo a prime ⇒ DLOG"
   },
   {
    "id": "red-zpp-to-rp",

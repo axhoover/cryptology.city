@@ -49,6 +49,8 @@ $$
 
 is negligible.
 
+A PRG $\bits^n \to \bits^m$ with $m(\secpar) > n(\secpar)$ yields, for every polynomial $p(\secpar) > n(\secpar)$, a PRG $\bits^n \to \bits^{p(\secpar)}$: output the last $m - n$ bits of $\PRG(s)$, re-seed with the first $n$, repeat, and keep the first $p$ output bits. A [[hybrid-argument|hybrid]] over the iterations loses a factor of their number — standard. For other $\calS$ and $\calR$, $\PRG$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] on $\calS$, since the argument of [[prg-to-hash-function|PRG ⇒ OWF]] uses only $|\calR| \ge 2|\calS|$, and [[owf-to-prg-hill99|OWF ⇒ PRG]] then gives a PRG on bit strings — standard.
+
 ### Next-bit unpredictability
 
 Let $\PRG$ output $m = m(\secpar)$ bits.
@@ -100,7 +102,7 @@ A trapdoor PRG is **pseudorandom** if for all efficient $\calA$,
 $\left|\Pr\!\left[\calA^{\calO_{\td}}(1^\secpar) = 1\right] - \Pr\!\left[\calA^{R}(1^\secpar) = 1\right]\right|$
 is negligible, where $\td \gets \Gen(1^\secpar)$, each query to $\calO_{\td}$
 samples a fresh $k \getsr \calK$ and returns $\Eval(\td,k)$, and each query to
-$R$ returns a fresh uniform $r \getsr \calR$. Beyond that, a trapdoor PRG should be
+$R$ returns a fresh uniform $r \getsr \calR$. As an object, a trapdoor PRG denotes a pseudorandom $(\Gen, \Eval, \Invert)$ that is $(1-\varepsilon)$-complete and $(1-\delta)$-sound for negligible functions $\varepsilon(\secpar)$, $\delta(\secpar)$:
 
 - $(1-\varepsilon)$-**complete**: for all $\secpar \in \NN,$
   $$

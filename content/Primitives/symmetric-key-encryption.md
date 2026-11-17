@@ -32,6 +32,10 @@ A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ w
   takes a key $k \in \calK$ and ciphertext $c \in \calC$,
   outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
+Every SKE scheme on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length. Without correctness, a scheme whose $\Enc$ outputs a fresh uniform string of length depending only on $|m|$ and whose $\Dec$ outputs $\bot$ meets every security notion below. Without two such messages, so does a scheme with $\calM_\secpar = \{m_0\}$ that decrypts every string to $m_0$.
+
+As an object, SKE denotes such a scheme that is [[#One-time security|one-time secure]].
+
 ## Properties
 
 ### Correctness
@@ -73,6 +77,10 @@ $$
 $$
 
 is negligible.
+
+### One-time security
+
+The one-time game is the [[#CPA Security|CPA game]] $\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ played by an admissible $\calA$ that makes at most one query to $\calO_b$. A SKE scheme $\SKE$ is **one-time secure** if for all such efficient $\calA$, the CPA advantage $\Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ is negligible. The one-time pad on $\calM_\secpar = \bits^\secpar$ is perfectly correct and one-time secure with advantage $0$ — folklore.
 
 ### IND\$-CPA Security
 
@@ -138,12 +146,13 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[searchable-symmetric-encryption|Searchable symmetric encryption]]: an encrypted index that a server searches with keyword tokens, learning only a specified leakage function — [[SWP00 - Practical Techniques for Searches on Encrypted Data|SWP00]], [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
 - [[order-preserving-encryption|Order-preserving and order-revealing encryption]]: deterministic encryption whose ciphertexts reveal the order of the plaintexts — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]], [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
-<!-- BEGIN GENERATED participates-in 7a1d5093e28d -->
+<!-- BEGIN GENERATED participates-in b66935153652 -->
 
 ## Participates in
 
 **Builds on Symmetric key encryption**
 
+- [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]]
@@ -155,6 +164,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 **Produces Symmetric key encryption**
 
 - [[authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00|AE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
