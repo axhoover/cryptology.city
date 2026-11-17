@@ -19,8 +19,8 @@ rationale:
 
 ## Statement
 
-Every [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous HIBE]] is itself a [[hierarchical-identity-based-encryption|HIBE]]: anonymity requires ciphertexts to hide the recipient identity vector $\vec{\mathit{id}}$ in addition to the payload — folklore.
+Every [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous HIBE]] is itself a [[hierarchical-identity-based-encryption|HIBE]]: an anonymous HIBE is by definition $(1-\negl(\secpar))$-correct and IND-HIBE-CPA-secure, and ANO-HIBE-CPA security, which hides the recipient identity vector, is an additional requirement — folklore.
 
 ## Sketch
 
-The construction is the identity; a HIBE adversary is forwarded unchanged to the anonymous HIBE game, whose payload-indistinguishability requirement it breaks with the same advantage.
+The construction is the identity; an IND-HIBE-CPA adversary against the scheme is forwarded unchanged and has the same advantage.
