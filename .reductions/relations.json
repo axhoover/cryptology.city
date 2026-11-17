@@ -1486,6 +1486,19 @@
    "unlisted": false
   },
   {
+   "id": "constant-depth-selective-hibe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hierarchical-identity-based-encryption.md",
+   "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
+   "anchor": "#constant-depth-selective-security",
+   "of": "hibe",
+   "title": "Constant-depth selective security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "constant-round-non-malleable-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -16133,10 +16146,64 @@
    "title": "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
   },
   {
-   "id": "red-hibe-selective-security-to-ind-sid-cpa",
+   "id": "red-hibe-adaptive-security-to-hibe",
+   "kind": "equivalence",
+   "hypotheses": [
+    "hibe-adaptive-security"
+   ],
+   "conclusion": "hibe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity map on HIBE schemes in both directions, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-adaptive-security-to-hibe.md",
+   "slug": "hibe-adaptive-security-to-hibe",
+   "graphSlug": "Reductions/hibe-adaptive-security-to-hibe",
+   "title": "IND-HIBE-CPA-secure HIBE ⇔ HIBE"
+  },
+  {
+   "id": "red-hibe-selective-security-to-constant-depth-selective-hibe",
    "kind": "implication",
    "hypotheses": [
     "hibe-selective-security"
+   ],
+   "conclusion": "constant-depth-selective-hibe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity map on HIBE schemes, and the reduction forwards any selective adversary at a constant depth unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-selective-security-to-constant-depth-selective-hibe.md",
+   "slug": "hibe-selective-security-to-constant-depth-selective-hibe",
+   "graphSlug": "Reductions/hibe-selective-security-to-constant-depth-selective-hibe",
+   "title": "Selectively secure HIBE ⇒ constant-depth selectively secure HIBE"
+  },
+  {
+   "id": "red-hibe-selective-security-to-ind-sid-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "constant-depth-selective-hibe"
    ],
    "conclusion": "ind-sid-cpa",
    "class": "fully-black-box",
@@ -16158,6 +16225,60 @@
    "slug": "hibe-selective-security-to-ind-sid-cpa",
    "graphSlug": "Reductions/hibe-selective-security-to-ind-sid-cpa",
    "title": "Selectively secure HIBE ⇒ Selectively secure IBE"
+  },
+  {
+   "id": "red-hibe-subexp-selective-security-to-hibe-selective-security",
+   "kind": "implication",
+   "hypotheses": [
+    "hibe-subexp-selective-security"
+   ],
+   "conclusion": "hibe-selective-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity map on HIBE schemes, and the reduction forwards any efficient selective adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-subexp-selective-security-to-hibe-selective-security.md",
+   "slug": "hibe-subexp-selective-security-to-hibe-selective-security",
+   "graphSlug": "Reductions/hibe-subexp-selective-security-to-hibe-selective-security",
+   "title": "Sub-exponentially selective HIBE ⇒ Selectively secure HIBE"
+  },
+  {
+   "id": "red-hibe-to-hibe-selective-security",
+   "kind": "implication",
+   "hypotheses": [
+    "hibe"
+   ],
+   "conclusion": "hibe-selective-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the two advantages are equal",
+   "rationale": {
+    "class": "The construction is the identity map on HIBE schemes, and the reduction runs the selective adversary once as an oracle, submitting its pre-committed identity vector as the adaptive challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-to-hibe-selective-security.md",
+   "slug": "hibe-to-hibe-selective-security",
+   "graphSlug": "Reductions/hibe-to-hibe-selective-security",
+   "title": "HIBE ⇒ Selectively secure HIBE"
   },
   {
    "id": "red-hibe-to-ibe",
@@ -18397,7 +18518,7 @@
    "hypotheses": [
     "polynomial-ratio-lwe"
    ],
-   "conclusion": "hibe-selective-security",
+   "conclusion": "constant-depth-selective-hibe",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -27462,7 +27583,7 @@
    "heuristic": false,
    "securityLoss": "multiplicative $|\\Sigma^{\\le d}|$",
    "rationale": {
-    "class": "The construction runs the selective scheme at security parameter $\\lceil \\secpar^{2/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sHIBE-CPA-secure scheme."
+    "class": "The construction runs the selective scheme at security parameter $\\lceil (\\secpar(d+1))^{1/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sHIBE-CPA-secure scheme."
    },
    "status": "draft",
    "page": "content/Reductions/subexp-selective-hibe-to-adaptive-hibe.md",

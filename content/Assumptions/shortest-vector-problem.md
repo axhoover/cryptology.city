@@ -18,7 +18,7 @@ variants:
 
 The promise problem of deciding, given a lattice basis and a parameter $d$, whether the lattice's shortest nonzero vector is shorter than $d$ or longer than $\gamma \cdot d$, for an approximation factor $\gamma$.
 
-TODO: syntax and security definition.
+An instance of $\mathrm{GapSVP}_\gamma$ is a basis $B$ of an $n$-dimensional lattice $L$ and a rational $d > 0$, with $\lambda_1(L) \le d$ (yes) or $\lambda_1(L) > \gamma(n) \cdot d$ (no). GapSVP is **hard** if there is a polynomial-time computable $\gamma(n) \ge 1$ such that for every probabilistic polynomial-time classical algorithm and all sufficiently large $n$, some $n$-dimensional instance $(B, d)$ meeting the promise is answered wrongly with probability above $1/3$. $\mathrm{GapSVP}_\gamma$ is not hard for every $\gamma$: LLL basis reduction solves $\mathrm{GapSVP}_{2^{n/2}}$ in polynomial time — standard.
 
 # Variations
 

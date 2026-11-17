@@ -5,7 +5,7 @@ title: "Selectively secure HIBE ⇒ Selectively secure IBE"
 aliases: []
 id: red-hibe-selective-security-to-ind-sid-cpa
 kind: implication
-hypotheses: [hibe-selective-security]
+hypotheses: [constant-depth-selective-hibe]
 conclusion: ind-sid-cpa
 class: fully-black-box
 model: standard
@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-If $\HIBE = (\Setup, \Extract, \Delegate, \Enc, \Dec)$ over alphabet $\Sigma \supseteq \bits^{\secpar}$ is [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA-secure]], then the [[identity-based-encryption|IBE]] scheme with identity space $\Sigma$ that runs $\Setup(1^\secpar, 1)$ and uses $\Extract$, $\Enc$ and $\Dec$ on identity vectors of length $1$ is [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]], with the same advantage: at maximum depth $1$ an identity vector is a single identity, an identity is a prefix of the challenge identity only if it equals it, and the two selective games coincide — folklore.
+If $\HIBE = (\Setup, \Extract, \Delegate, \Enc, \Dec)$ over alphabet $\Sigma \supseteq \bits^{\secpar}$ is [[hierarchical-identity-based-encryption#constant-depth-selective-security|IND-sHIBE-CPA-secure at constant depth]], then the [[identity-based-encryption|IBE]] scheme with identity space $\Sigma$ that runs $\Setup(1^\secpar, 1)$ and uses $\Extract$, $\Enc$ and $\Dec$ on identity vectors of length $1$ is $(1-\negl(\secpar))$-correct, since the HIBE is at depth $1$, and [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]], with the same advantage: at maximum depth $1$ an identity vector is a single identity, an identity is a prefix of the challenge identity only if it equals it, and the two selective games coincide — folklore.

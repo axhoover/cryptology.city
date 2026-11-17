@@ -6,7 +6,7 @@ aliases: []
 id: red-lwe-to-hibe-selective-security-chkp10
 kind: implication
 hypotheses: [polynomial-ratio-lwe]
-conclusion: hibe-selective-security
+conclusion: constant-depth-selective-hibe
 class: fully-black-box
 model: standard
 source:
@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|selectively secure]] [[hierarchical-identity-based-encryption|HIBE]] scheme of every constant depth $d$ in the standard model: depth $d$ uses modulus and inverse error rate $n^{O(d)}$, since each level of delegation multiplies the Gaussian parameter by a $\poly(n)$ factor — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]], [[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[hierarchical-identity-based-encryption|HIBE]] scheme that is [[hierarchical-identity-based-encryption#constant-depth-selective-security|selectively secure at every constant depth]] in the standard model: depth $d$ uses modulus and inverse error rate $n^{O(d)}$, since each level of delegation multiplies the Gaussian parameter by a $\poly(n)$ factor — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]], [[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]].
 
 ## Sketch
 
@@ -32,4 +32,4 @@ A short basis of $\Lambda_q^{\perp}(\mathbf{A})$ yields a short basis of $\Lambd
 ## Notes
 
 - Efficiency: the lattice dimension grows linearly with the total identity length in CHKP10 and with the depth alone in ABB10 — [[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]].
-- A HIBE of depth one is an IBE: [[hibe-to-ibe|HIBE ⇒ IBE]]. In the random-oracle model a simpler IBE is [[lwe-to-ibe-gpv08|the GPV scheme]] — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+- A HIBE of depth one is an IBE, selectively secure when the HIBE is: [[hibe-selective-security-to-ind-sid-cpa|Selectively secure HIBE ⇒ Selectively secure IBE]]. In the random-oracle model a simpler IBE is [[lwe-to-ibe-gpv08|the GPV scheme]] — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
