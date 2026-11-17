@@ -5,7 +5,7 @@ title: "SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encrypt
 aliases: []
 id: red-syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa
 kind: implication
-hypotheses: [syndrome-decoding, goppa-code-indistinguishability]
+hypotheses: [mceliece-assumptions]
 conclusion: mceliece-ow-cpa
 class: fully-black-box
 model: standard
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $k$ be the dimension, assumed to depend only on $(n, m, t)$, of the binary Goppa codes of length $n$ and degree $t$ over $\FF_{2^m}$ used by McEliece encryption — [[McE78 - A Public-Key Cryptosystem Based on Algebraic Coding Theory|McE78]]. If [[syndrome-decoding#goppa-code-indistinguishability|Goppa codes are indistinguishable]] for $(n, m, t)$ and [[syndrome-decoding|syndrome decoding]] is hard for $(n, k, t)$, then [[syndrome-decoding#one-wayness-of-mceliece-encryption|McEliece encryption is one-way]] for $(n, m, t)$: for all efficient $\calA$ there are efficient $\calB$ and $\calC$ with
+Let $k$ be the dimension, assumed to depend only on $(n, m, t)$, of the binary Goppa codes of length $n$ and degree $t$ over $\FF_{2^m}$ used by McEliece encryption — [[McE78 - A Public-Key Cryptosystem Based on Algebraic Coding Theory|McE78]]. If [[syndrome-decoding#mceliece-assumptions|the McEliece assumptions]] hold for $(n, m, t)$, that is, [[syndrome-decoding#goppa-code-indistinguishability|Goppa codes are indistinguishable]] for $(n, m, t)$ and [[syndrome-decoding|syndrome decoding]] is hard for $(n, k, t)$, then [[syndrome-decoding#one-wayness-of-mceliece-encryption|McEliece encryption is one-way]] for $(n, m, t)$: for all efficient $\calA$ there are efficient $\calB$ and $\calC$ with
 
 $$
 \Adv^{\mathrm{mce\text{-}ow}}_{n,m,t,\calA}(\secpar) \le \Adv^{\mathrm{goppa}}_{n,m,t,\calB}(\secpar) + \Adv^{\mathrm{sd}}_{n,k,t,\calC}(\secpar) + 2^{-k} + 2^{k-n}

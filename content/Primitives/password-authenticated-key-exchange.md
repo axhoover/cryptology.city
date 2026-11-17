@@ -9,7 +9,6 @@ title: Password-authenticated key exchange
 id: pake
 variants:
   uc-pake: "#uc-secure-pake"
-  asymmetric-pake: "#asymmetric-pake"
 ---
 
 # Password-authenticated key exchange
@@ -86,11 +85,13 @@ $$
 
 ## UC-secure PAKE
 
-A **UC-secure PAKE** [[universal-composability-framework#uc-emulation|UC-realizes]] the password-based key-exchange functionality $\calF_{\mathrm{pwKE}}$ of [[CHKLM05 - Universally Composable Password-Based Key Exchange|CHKLM05]]. The environment hands each party its password, so no distribution on passwords is assumed, nor independence between the passwords of different parties. The adversary may test one password guess per session instance, and a correct guess lets it choose that instance's key; two instances of a session whose passwords match and that the adversary did not attack receive the same uniform key — [[CHKLM05 - Universally Composable Password-Based Key Exchange|CHKLM05]]. CHKLM05 realize $\calF_{\mathrm{pwKE}}$ in the common reference string model under standard number-theoretic assumptions, and show that it cannot be realized in the plain model — [[CHKLM05 - Universally Composable Password-Based Key Exchange|CHKLM05]].
+A **UC-secure PAKE** [[universal-composability-framework#uc-emulation|UC-realizes]] the password-based key-exchange functionality $\calF_{\mathrm{pwKE}}$ of [[CHKLM05 - Universally Composable Password-Based Key Exchange|CHKLM05]] against a malicious adversary that corrupts parties statically, possibly in a hybrid model such as the common reference string model; a result against adaptive corruptions says so. The environment hands each party its password, so no distribution on passwords is assumed, nor independence between the passwords of different parties. The adversary may test one password guess per session instance, and a correct guess lets it choose that instance's key; two instances of a session whose passwords match and that the adversary did not attack receive the same uniform key — [[CHKLM05 - Universally Composable Password-Based Key Exchange|CHKLM05]]. CHKLM05 realize $\calF_{\mathrm{pwKE}}$ in the common reference string model under standard number-theoretic assumptions, and show that it cannot be realized in the plain model — [[CHKLM05 - Universally Composable Password-Based Key Exchange|CHKLM05]].
 
 ## Asymmetric PAKE
 
 In an **asymmetric PAKE** (aPAKE) the server stores a mapping of the password rather than the password, and security is required even after the server is compromised: apart from impersonating the server to its users, the only attack the compromise allows is an offline exhaustive dictionary attack against each user's password. A **strong** aPAKE is in addition secure against pre-computation attacks, which deterministic password mappings and salts sent in the clear allow — [[JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks|JKX18]]. JKX18 define strong aPAKE in the UC framework and build it from an [[oblivious-prf|OPRF]] together with either any aPAKE or any authenticated key-exchange protocol secure against key-compromise impersonation. OPAQUE, their instantiation of the second construction, is UC-secure in the [[random-oracle-model|random-oracle model]] and has two messages, three with mutual authentication — [[JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks|JKX18]].
+
+TODO: the UC aPAKE functionality of [[GMR06 - A Method for Making Password-Based Key Exchange Resilient to Server Compromise|GMR06]], the defining paper as JKX18 cite it, stated from the paper: its server-compromise interface, its offline password tests, and whether those tests may precede the compromise, which separates aPAKE from strong aPAKE. aPAKE becomes a node only once this functionality is encoded.
 
 # Other results
 

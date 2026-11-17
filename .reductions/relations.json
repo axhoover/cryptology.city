@@ -542,19 +542,6 @@
    "unlisted": false
   },
   {
-   "id": "asymmetric-pake",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/password-authenticated-key-exchange.md",
-   "slug": "password-authenticated-key-exchange",
-   "graphSlug": "Primitives/password-authenticated-key-exchange",
-   "anchor": "#asymmetric-pake",
-   "of": "pake",
-   "title": "Asymmetric PAKE",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "asymmetric-q-sdh",
    "kind": "variant",
    "type": "assumption",
@@ -4120,6 +4107,19 @@
    "anchor": "#maurers-formulation",
    "of": "ggm",
    "title": "Maurer's Formulation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "mceliece-assumptions",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/syndrome-decoding.md",
+   "slug": "syndrome-decoding",
+   "graphSlug": "Assumptions/syndrome-decoding",
+   "anchor": "#mceliece-assumptions",
+   "of": "syndrome-decoding",
+   "title": "McEliece assumptions",
    "aliases": [],
    "unlisted": false
   },
@@ -18232,6 +18232,60 @@
    "title": "Malicious OT ⇒ 2PC by cut-and-choose (Lindell–Pinkas)"
   },
   {
+   "id": "red-mceliece-assumptions-to-goppa-code-indistinguishability",
+   "kind": "implication",
+   "hypotheses": [
+    "mceliece-assumptions"
+   ],
+   "conclusion": "goppa-code-indistinguishability",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps one component of the pair, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/mceliece-assumptions-to-goppa-code-indistinguishability.md",
+   "slug": "mceliece-assumptions-to-goppa-code-indistinguishability",
+   "graphSlug": "Reductions/mceliece-assumptions-to-goppa-code-indistinguishability",
+   "title": "McEliece assumptions ⇒ Goppa code indistinguishability"
+  },
+  {
+   "id": "red-mceliece-assumptions-to-syndrome-decoding",
+   "kind": "implication",
+   "hypotheses": [
+    "mceliece-assumptions"
+   ],
+   "conclusion": "syndrome-decoding",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps one component of the pair, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/mceliece-assumptions-to-syndrome-decoding.md",
+   "slug": "mceliece-assumptions-to-syndrome-decoding",
+   "graphSlug": "Reductions/mceliece-assumptions-to-syndrome-decoding",
+   "title": "McEliece assumptions ⇒ SD"
+  },
+  {
    "id": "red-mip-to-nexp-bfl90",
    "kind": "equivalence",
    "hypotheses": [
@@ -27388,8 +27442,7 @@
    "id": "red-syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa",
    "kind": "implication",
    "hypotheses": [
-    "syndrome-decoding",
-    "goppa-code-indistinguishability"
+    "mceliece-assumptions"
    ],
    "conclusion": "mceliece-ow-cpa",
    "class": "fully-black-box",
