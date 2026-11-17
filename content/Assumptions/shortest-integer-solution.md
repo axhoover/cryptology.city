@@ -14,6 +14,7 @@ variants:
   module-sis: "#module-sis"
   inhomogeneous-sis: "#isis-inhomogeneous-sis"
   ring-sis: "#ring-sis"
+  trapdoor-sampling-sis: "#sis-at-trapdoor-sampling-parameters"
 ---
 
 # Shortest Integer Solution
@@ -70,11 +71,23 @@ For $m \ge n \log q + 1$, the function family $\{f_\mathbf{A} : \mathbf{z} \maps
 
 **Bit-compressing SIS** is SIS restricted to $m \ge n \log q + 1$ and $\sqrt{m} \le \beta < q$. Then $q^n \le 2^{m-1}$, so $\mathbf{z} \mapsto \mathbf{A}\mathbf{z} \bmod q$, with its value written as an integer below $q^n$, maps $\bits^m$ into $\bits^{m-1}$. **Bit-compressing SIS is hard** for such polynomially bounded $(n, m, q, \beta)$ if for all efficient $\calA$, $\Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar)$ is negligible. For $n \log q < m < n \log q + 1$, inside the SIS regime, $q^n < 2^m$ but the integers below $q^n$ need $m$ bits.
 
+## SIS at trapdoor-sampling parameters
+
+**SIS is hard at trapdoor-sampling parameters** for polynomially bounded $(n, m, q, \beta)$ and $L = L(\secpar)$, with $q$ prime, $m \ge 2n \log q$ and $\sqrt{m} \le \beta < q$, if three conditions hold: (i) an efficient algorithm outputs $\mathbf{A}$ within negligible statistical distance of uniform on $\ZZ_q^{n \times m}$, together with a basis $\mathbf{T}$ of $\Lambda^\perp_q(\mathbf{A})$ with $\|\tilde{\mathbf{T}}\| \le L$ ([[lattice-trapdoor#definitions|Gram–Schmidt quality]]); (ii) $\beta = 2s\sqrt{m}$ with $s = L \cdot g(m)$ for some function $g(m) = \omega(\sqrt{\log m})$; and (iii) for all efficient $\calA$, $\Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar)$ is negligible. Such generators exist for $m \ge C n \log q$ with a suitable constant $C$ ([[lattice-trapdoor#generation|lattice trapdoors]]) — [[Ajt99 - Generating Hard Instances of the Short Basis Problem|Ajt99]], [[AP09 - Generating Shorter Bases for Hard Random Lattices|AP09]] — so condition (i) can be met.
+
 ## ISIS (Inhomogeneous SIS)
 
 **Inhomogeneous SIS (ISIS)** generalizes SIS by replacing the homogeneous target $\mathbf{0}$ with an arbitrary syndrome. Given $\mathbf{A} \getsr \ZZ_q^{n \times m}$ and a target $\mathbf{t} \getsr \ZZ_q^n$, find a short $\mathbf{z} \in \ZZ^m$ with $\mathbf{Az} = \mathbf{t} \pmod{q}$ and $\|\mathbf{z}\| \leq \beta$.
 
-ISIS is polynomially equivalent to SIS under mild parameter conditions ([[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]), and is the hard-preimage problem underlying lattice-based digital signatures: a signature on a message $\mu$ is a short preimage $\mathbf{z}$ satisfying $\mathbf{Az} = H(\mu) \pmod q$ for a hash function $H$ — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+**ISIS is hard** for $(n, m, q, \beta)$, bounded as for SIS, with $m + 1 > n \log q$, $\sqrt{m} \le \beta$ and $\beta^2 + 1 < q^2$, if for all efficient $\calA$,
+
+$$
+\Pr\!\left[\mathbf{A}\mathbf{z} = \mathbf{t} \pmod{q} \;\wedge\; \|\mathbf{z}\| \le \beta\right]
+$$
+
+is negligible, where $\mathbf{A} \getsr \ZZ_q^{n \times m}$, $\mathbf{t} \getsr \ZZ_q^n$ and $\mathbf{z} \gets \calA(1^\secpar, \mathbf{A}, \mathbf{t})$. In this regime a solution exists with probability above $1/3$, for every $q$: the number $N$ of $\mathbf{z} \in \bits^m$ with $\mathbf{A}\mathbf{z} = \mathbf{t}$ has $\mathbb{E}[N] = 2^m/q^n > 1/2$, the events $\mathbf{A}\mathbf{z} = \mathbf{t}$ for distinct such $\mathbf{z}$ are pairwise independent because two distinct vectors in $\bits^m$ differ by a vector with a $\pm 1$ entry, so $\Pr[N > 0] \ge \mathbb{E}[N]/(1 + \mathbb{E}[N]) > 1/3$, and every such $\mathbf{z}$ has norm at most $\sqrt{m} \le \beta$ — standard.
+
+SIS hardness for $(n, m+1, q, \sqrt{\beta^2+1})$ implies ISIS hardness for $(n, m, q, \beta)$ ([[isis-inhomogeneous-sis-to-sis|SIS ⇒ ISIS]]) — folklore. ISIS is the hard-preimage problem underlying lattice-based digital signatures: a signature on a message $\mu$ is a short preimage $\mathbf{z}$ satisfying $\mathbf{Az} = H(\mu) \pmod q$ for a hash function $H$ — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 
 ## Ring-SIS
 
@@ -90,29 +103,31 @@ The instance is parameterized by $(n, k, \ell, q, \beta)$, with $R = \ZZ[x]/\lan
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices ([[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-<!-- BEGIN GENERATED participates-in 558283887f51 -->
+<!-- BEGIN GENERATED participates-in 3c3219c50a30 -->
 
 ## Participates in
 
 **Builds on Shortest Integer Solution**
 
 - [[bit-compressing-sis-to-sis|Bit-compressing SIS ⇒ SIS]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
-- [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]] (via [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS (Inhomogeneous SIS)]])
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[module-sis-to-crhf|Module-SIS ⇒ CRHF]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[ring-sis-to-crhf-lm06|Ring-SIS ⇒ CRHF]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
-- [[sis-to-ds|SIS ⇒ DS]]
+- [[sis-to-ds|SIS ⇒ DS]] (via [[shortest-integer-solution#sis-at-trapdoor-sampling-parameters|SIS at trapdoor-sampling parameters]])
 - [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
+- [[isis-inhomogeneous-sis-to-sis|SIS ⇒ ISIS (Inhomogeneous SIS)]]
 - [[sis-to-pwpp-szz18|SIS ∈ PWPP]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
+- [[trapdoor-sampling-sis-to-sis|SIS at trapdoor-sampling parameters ⇒ SIS]] (via [[shortest-integer-solution#sis-at-trapdoor-sampling-parameters|SIS at trapdoor-sampling parameters]])
 
 **Produces Shortest Integer Solution**
 
 - [[bit-compressing-sis-to-sis|Bit-compressing SIS ⇒ SIS]]
 - [[gapsvp-to-sis-ajt96|Polynomial-factor GapSVP ⇒ SIS]]
 - [[ideal-svp-to-ring-sis-lm06|Ideal-SVP ⇒ Ring-SIS]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
-- [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]
 - [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
+- [[isis-inhomogeneous-sis-to-sis|SIS ⇒ ISIS (Inhomogeneous SIS)]] (via [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS (Inhomogeneous SIS)]])
 - [[sivp-to-sis-ajt96|SIVP ⇒ SIS]]
+- [[trapdoor-sampling-sis-to-sis|SIS at trapdoor-sampling parameters ⇒ SIS]]
 
 <!-- END GENERATED participates-in -->

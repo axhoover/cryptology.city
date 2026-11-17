@@ -7936,6 +7936,19 @@
    "unlisted": false
   },
   {
+   "id": "trapdoor-sampling-sis",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-integer-solution.md",
+   "slug": "shortest-integer-solution",
+   "graphSlug": "Assumptions/shortest-integer-solution",
+   "anchor": "#sis-at-trapdoor-sampling-parameters",
+   "of": "sis",
+   "title": "SIS at trapdoor-sampling parameters",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "tweakable-block-cipher",
    "kind": "object",
    "type": "primitive",
@@ -16872,33 +16885,6 @@
    "title": "IPPE ⇒ Payload-only hiding"
   },
   {
-   "id": "red-isis-inhomogeneous-sis-to-sis",
-   "kind": "equivalence",
-   "hypotheses": [
-    "inhomogeneous-sis"
-   ],
-   "conclusion": "sis",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "Each direction calls a solver for the other problem only as an oracle, on instances derived from its own, and post-processes the answers."
-   },
-   "status": "draft",
-   "page": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
-   "slug": "isis-inhomogeneous-sis-to-sis",
-   "graphSlug": "Reductions/isis-inhomogeneous-sis-to-sis",
-   "title": "ISIS (Inhomogeneous SIS) ⇔ SIS"
-  },
-  {
    "id": "red-it-pir-to-computational-multi-server-pir",
    "kind": "implication",
    "hypotheses": [
@@ -19518,6 +19504,33 @@
    "slug": "oihf-to-ot-bh26",
    "graphSlug": "Reductions/oihf-to-ot-bh26",
    "title": "OIHF ⇒ OT"
+  },
+  {
+   "id": "red-okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme",
+   "kind": "implication",
+   "hypotheses": [
+    "okamoto-identification-protocol"
+   ],
+   "conclusion": "non-trivial-canonical-identification-scheme",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity construction; the reduction runs any passive impersonator as an oracle, producing its transcripts by playing the honest verifier in sequential prover sessions."
+   },
+   "status": "draft",
+   "page": "content/Reductions/okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme.md",
+   "slug": "okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme",
+   "graphSlug": "Reductions/okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme",
+   "title": "Okamoto identification protocol ⇒ Non-trivial canonical ID"
   },
   {
    "id": "red-omdl-and-ros-to-blind-schnorr-signature-fps20",
@@ -25043,6 +25056,33 @@
    "title": "RSA with uniform-prime moduli ⇒ RSA"
   },
   {
+   "id": "red-schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme",
+   "kind": "implication",
+   "hypotheses": [
+    "schnorr-identification-protocol"
+   ],
+   "conclusion": "non-trivial-canonical-identification-scheme",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity construction; the reduction forwards any passive impersonator unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme.md",
+   "slug": "schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme",
+   "graphSlug": "Reductions/schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme",
+   "title": "Schnorr identification protocol ⇒ Non-trivial canonical ID"
+  },
+  {
    "id": "red-schnorr-identification-protocol-to-schnorr-signature-aabn02",
    "kind": "implication",
    "hypotheses": [
@@ -25585,7 +25625,7 @@
    "id": "red-sis-to-ds",
    "kind": "implication",
    "hypotheses": [
-    "sis"
+    "trapdoor-sampling-sis"
    ],
    "conclusion": "ds",
    "class": "fully-black-box",
@@ -25635,6 +25675,33 @@
    "slug": "sis-to-hash-function-ajt96",
    "graphSlug": "Reductions/sis-to-hash-function-ajt96",
    "title": "SIS ⇒ CRHF"
+  },
+  {
+   "id": "red-sis-to-inhomogeneous-sis",
+   "kind": "implication",
+   "hypotheses": [
+    "sis"
+   ],
+   "conclusion": "inhomogeneous-sis",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: one oracle call on an exactly uniform ISIS instance",
+   "rationale": {
+    "class": "The reduction splits off the last column of its SIS instance as a uniform ISIS target and calls an arbitrary ISIS solver once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
+   "slug": "isis-inhomogeneous-sis-to-sis",
+   "graphSlug": "Reductions/isis-inhomogeneous-sis-to-sis",
+   "title": "SIS ⇒ ISIS (Inhomogeneous SIS)"
   },
   {
    "id": "red-sis-to-pwpp-szz18",
@@ -28425,6 +28492,33 @@
    "slug": "tpke-cpa-security-to-threshold-encryption",
    "graphSlug": "Reductions/tpke-cpa-security-to-threshold-encryption",
    "title": "TPKE CPA Security ⇒ TPKE"
+  },
+  {
+   "id": "red-trapdoor-sampling-sis-to-sis",
+   "kind": "implication",
+   "hypotheses": [
+    "trapdoor-sampling-sis"
+   ],
+   "conclusion": "sis",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on parameters, and the reduction forwards any SIS solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/trapdoor-sampling-sis-to-sis.md",
+   "slug": "trapdoor-sampling-sis-to-sis",
+   "graphSlug": "Reductions/trapdoor-sampling-sis-to-sis",
+   "title": "SIS at trapdoor-sampling parameters ⇒ SIS"
   },
   {
    "id": "red-twisted-edwards-dlog-to-prime-order-dlog",
