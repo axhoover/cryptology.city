@@ -64,7 +64,7 @@ The **strong RSA assumption** strengthens the standard assumption by allowing th
 
 ## Strong RSA with safe-prime moduli
 
-Strong RSA for the generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$ and outputs $n = pq$, with $e$ and $d$ as above. **Strong RSA is hard for safe-prime moduli** if for all efficient $\calA$ the strong-RSA success probability above, with $n$ sampled this way and $y \getsr \ZZ_n^*$, is negligible.
+Strong RSA for the generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$ and outputs $n = pq$ together with an exponent pair $(e, d)$, as the generator's syntax requires; the strong-RSA adversary does not see $e$. **Strong RSA is hard for safe-prime moduli** if for all efficient $\calA$ the strong-RSA success probability above, with $n$ sampled this way and $y \getsr \ZZ_n^*$, is negligible.
 
 ## Φ-Hiding
 
