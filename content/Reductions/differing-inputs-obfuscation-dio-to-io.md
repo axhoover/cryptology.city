@@ -19,11 +19,11 @@ rationale:
 
 ## Statement
 
-A [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|differing-inputs obfuscator]] for a circuit class is an [[indistinguishability-obfuscation|indistinguishability obfuscator]] for the same class, with the same advantage — folklore.
+Take [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|differing-inputs obfuscation]] against non-uniform samplers, difference-finders and distinguishers. Then a differing-inputs obfuscator for a circuit class is an [[indistinguishability-obfuscation|indistinguishability obfuscator]] for the same class, with the same advantage — folklore.
 
 ## Sketch
 
-Functionally equivalent circuits $C_0, C_1$ have no differing input, so the sampler that always outputs $(C_0, C_1)$ is differing-inputs-hard, and the diO guarantee for it is the iO guarantee for the pair.
+For functionally equivalent circuit families $\{C_{0,\secpar}\}_\secpar, \{C_{1,\secpar}\}_\secpar$, the sampler that hard-wires the pair and outputs $(C_{0,\secpar}, C_{1,\secpar})$ with empty auxiliary input is efficient as a non-uniform algorithm, and it is differing-inputs-hard because no input differs. Under the identity map, the diO guarantee for this sampler is the iO guarantee for the pair, and an iO distinguisher is used unchanged as a diO distinguisher. The families need not be computable, so a uniform sampler need not exist for them.
 
 ## Notes
 

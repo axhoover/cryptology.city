@@ -20,18 +20,25 @@ A **key encapsulation mechanism** (KEM) is a public-key primitive that allows a 
 
 ## Syntax
 
-A KEM is a tuple of efficient algorithms $(\KeyGen, \Encap, \Decap)$ with key space $\calK$:
+A KEM is a tuple of efficient algorithms $(\KeyGen, \Encap, \Decap)$ with key space $\calK = \calK_\secpar = \bits^{\ell(\secpar)}$ for a polynomial $\ell$ with $\ell(\secpar) \ge \secpar$:
 
 - $\KeyGen(1^\secpar) \to (\pk, \sk),$ is a randomized algorithm that generates a public/secret key pair.
-- $\Encap(\pk) \to (c, k),$ is a randomized algorithm that takes a public key and outputs a ciphertext $c$ and a symmetric key $k \in \calK$.
-- $\Decap(\sk, c) \to k,$ is a deterministic algorithm that recovers the symmetric key from the ciphertext.
+- $\Encap(\pk) \to (c, k),$ is a randomized algorithm that takes a public key and outputs a ciphertext $c$ and a symmetric key $k \in \calK_\secpar$.
+- $\Decap(\sk, c) \to k,$ is a deterministic algorithm that recovers the symmetric key from the ciphertext, or outputs $\bot$.
+
+Every KEM on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$. Without the bound on $\calK_\secpar$, the perfectly correct KEM with $\calK = \{0\}$ whose $\Encap$ outputs the empty ciphertext and the key $0$ meets every security notion below, and without correctness so does the KEM whose $\Encap$ outputs the empty ciphertext and a uniform key — standard.
 
 ## Properties
 
 ### Correctness
 
-For all $\secpar \in \NN$ and $(\pk, \sk) \gets \KeyGen(1^\secpar)$:
-$$\Pr[(c, k) \gets \Encap(\pk) : \Decap(\sk, c) = k] = 1.$$
+A KEM $(\KeyGen, \Encap, \Decap)$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$,
+
+$$
+\Pr\!\left[\Decap(\sk, c) = k\right] \ge 1 - \varepsilon,
+$$
+
+over $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and $(c, k) \gets \Encap(\pk)$. When $\varepsilon = 0$, the KEM is **perfectly correct**.
 
 ### IND-CCA security
 

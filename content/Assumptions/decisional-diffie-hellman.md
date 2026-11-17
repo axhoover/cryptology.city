@@ -27,7 +27,9 @@ The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryp
 Informally, the DDH assumption concerns a cyclic group generation algorithm
 $\GrGen,$ which takes as input a security parameter $1^{\secpar}$ and outputs
 a succinct[^1] description of a cyclic group $(\GG,g,p),$ where $\GG$ is the group
-set, $g$ is a generator for the group, and $p$ is the order of the group.
+set, $g$ is a generator for the group, and $p \ge 2$ is the order of the group,
+for every $\secpar$. On the trivial group ($p = 1$) DDH would hold unconditionally,
+since $Z_0 = Z_1$.
 
 ```pseudocode
 \begin{algorithm}
@@ -52,7 +54,7 @@ $$
 \Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) := \left|2 \cdot \Pr\!\left[\Game^{\text{ddh}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible.
+is negligible. DDH hardness then forces $p$ to exceed every polynomial except with negligible probability: for each constant $c$, the adversary that, when $p \le \secpar^c$, finds $x$ by trying every exponent in $[\secpar^c]$ and outputs $0$ iff $Z_b = Y^x$, and otherwise guesses, has advantage $1 - 1/p \ge 1/2$ whenever $p \le \secpar^c$, and so advantage at least $\frac{1}{2}\Pr[p \le \secpar^c]$ — standard.
 
 ## Known Results
 
@@ -94,7 +96,13 @@ DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsil
 
 ## DLIN
 
-Given $(u, v, h, u^a, v^b, h^c) \in \GG^6$ for $u, v, h \getsr \GG$ and $a, b \getsr \ZZ_p$, distinguish $c = a + b$ from $c \getsr \ZZ_p$ — [[BBS04 - Short Group Signatures|BBS04]].
+Given $(u, v, h, u^a, v^b, h^c) \in \GG^6$ for $u, v, h \getsr \GG$ and $a, b \getsr \ZZ_p$, distinguish $c = a + b$ from $c \getsr \ZZ_p$ — [[BBS04 - Short Group Signatures|BBS04]]. Formally, for a group generator $\GrGen$ that outputs groups $(\GG, g, p)$ of prime order $p$, **DLIN is hard** for $\GrGen$ if for all efficient $\calA$,
+
+$$
+\left|\Pr\!\left[\calA(1^\secpar, \GG, g, p, u, v, h, u^a, v^b, h^{a+b}) = 1\right] - \Pr\!\left[\calA(1^\secpar, \GG, g, p, u, v, h, u^a, v^b, h^{c}) = 1\right]\right|
+$$
+
+is negligible, over $(\GG, g, p) \gets \GrGen(1^\secpar)$, $u, v, h \getsr \GG$ and $a, b, c \getsr \ZZ_p$.
 
 ## k-Lin
 

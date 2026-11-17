@@ -5,7 +5,7 @@ title: "PC + Search noisy $k$-LIN ⇒ PKE"
 aliases: []
 id: red-pc-and-search-noisy-k-lin-to-pke-ghjs25
 kind: implication
-hypotheses: [pc, search-noisy-k-lin]
+hypotheses: [ghjs25-planted-clique, search-noisy-k-lin]
 conclusion: pke
 class: unstated
 model: standard
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If the [[planted-clique|planted clique]] conjecture holds and the [search variant of noisy $k$-LIN over expanders](noisy-k-lin-over-expanders#search-noisy-k-lin), recovering $\mathbf{s}$ from $(\mathbf{M}, \mathbf{M}\mathbf{s}+\mathbf{e})$ for an expanding sparse $\mathbf{M}$, is hard, then semantically secure [[public-key-encryption|PKE]] exists — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8.
+If the [[planted-clique#ghjs25-planted-clique-conjecture|GHJS25 planted clique conjecture]] holds, the same conjecture as in Theorem 5.12, and the [search variant of noisy $k$-LIN over expanders](noisy-k-lin-over-expanders#search-noisy-k-lin), recovering $\mathbf{s}$ from $(\mathbf{M}, \mathbf{M}\mathbf{s}+\mathbf{e})$ for an expanding sparse $\mathbf{M}$, is hard, then semantically secure [[public-key-encryption|PKE]] exists — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8.
 
 ## Notes
 

@@ -5,7 +5,7 @@ title: "Noisy k-LIN + PC ⇒ PKE"
 aliases: []
 id: red-noisy-k-lin-and-pc-to-pke-ghjs25
 kind: implication
-hypotheses: [noisy-k-lin, pc]
+hypotheses: [noisy-k-lin, ghjs25-planted-clique]
 conclusion: pke
 class: unstated
 model: standard
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If the [[planted-clique|planted clique]] conjecture holds against non-uniform circuits of size $n^{\log^\alpha n}$ for some $\alpha \in (0,1)$, and [noisy $k$-LIN](noisy-k-lin-over-expanders) holds over $(\gamma, \Omega(\log n), 2^{(\log n)^\alpha})$-expanding matrices over $\FF_p$, then there is a [[public-key-encryption|PKE]] scheme semantically secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12.
+If the [[planted-clique#ghjs25-planted-clique-conjecture|GHJS25 planted clique conjecture]] holds — for some constants $\alpha \in (0,1)$ and $\delta \in (0, 1/2)$, every algorithm of size $n^{O((\log n)^\alpha)}$ distinguishes $\calG(n, 1/2)$ from $\calG(n, 1/2)$ with a planted clique on $n^\delta$ vertices with advantage at most $1/3$ — and [noisy $k$-LIN](noisy-k-lin-over-expanders) holds over $(\gamma, \Omega(\log n), 2^{(\log n)^\alpha})$-expanding matrices over $\FF_p$, then there is a [[public-key-encryption|PKE]] scheme semantically secure against adversaries of polynomial size — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12.
 
 ## Notes
 

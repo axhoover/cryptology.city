@@ -11,6 +11,7 @@ variants:
   lpn-low-noise: "#low-noise-lpn"
   subexponential-lpn: "#subexponential-lpn"
   subexponential-lpn-fp: "#sub-exponential-lpn-over-large-fields"
+  polylog-dimension-lpn: "#polylogarithmic-dimension-lpn"
   lpn-mid-noise: "#mid-noise-lpn"
   ring-lpn: "#ring-lpn"
   sparse-ring-lpn: "#sparse-ring-lpn"
@@ -24,7 +25,7 @@ The _learning parity with noise (LPN)_ assumption states that noisy random linea
 
 ## Assumption
 
-For a dimension $k = k(\secpar)$ polynomially related to $\secpar$, noise rate $0 < \varepsilon < 1/2$, and sample count $m \in \poly(\secpar)$, the LPN game asks an adversary to distinguish a noisy linear system $(\mathbf{A}, \mathbf{As}+\mathbf{e})$ from a uniformly random pair.
+For a dimension $k = k(\secpar)$ polynomially related to $\secpar$, noise rate $\varepsilon = \varepsilon(k)$ with $0 < \varepsilon < 1/2$ and $1/2 - \varepsilon(k) \ge 1/p(k)$ for a polynomial $p$, and sample count $m \in \poly(\secpar)$, the LPN game asks an adversary to distinguish a noisy linear system $(\mathbf{A}, \mathbf{As}+\mathbf{e})$ from a uniformly random pair. The bound on $1/2 - \varepsilon$ excludes noise rates such as $1/2 - 2^{-k}$, at which $m$ samples are within statistical distance $m \cdot 2^{-k}$ of uniform and LPN would hold unconditionally — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -82,9 +83,19 @@ The trapdoor hash function of AMR25 assumes $(k,\varepsilon)$-LPN hard, against 
 
 ### Subexponential LPN
 
-$(k,\varepsilon)$-LPN is **$T$-hard** if every adversary running in time $T$ has advantage at most $1/T$. _Subexponential LPN_ assumes $T$-hardness for $T = 2^{k^{\alpha}}$ for a constant $\alpha \in (0,1)$. Each result fixes its own exponent: [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]] assumes constant-noise LPN that is $2^{\omega(k^{1/2})}$-hard, [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]] constant-noise LPN that is $2^{k^{1/2+\Omega(1)}}$-hard, and [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] LPN that is $2^{O(\sqrt{k})}$-hard.
+$(k,\varepsilon)$-LPN is **$T$-hard** if every adversary running in time $T$ has advantage at most $1/T$. _Subexponential LPN_ assumes $T$-hardness for $T = 2^{k^{\alpha}}$ for a constant $\alpha \in (0,1)$. Each result fixes its own exponent: [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]] assumes constant-noise LPN that is $2^{\omega(k^{1/2})}$-hard, [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]] constant-noise LPN that is $2^{k^{1/2+\Omega(1)}}$-hard, and [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] the [[#Polylogarithmic-dimension LPN|polylogarithmic-dimension LPN]] below.
 
 The standard assumption bounds only polynomial-time adversaries.
+
+#### Polylogarithmic-dimension LPN
+
+For a constant $\eta \in (0, 1/2)$ and a function $g : \NN \to \NN$, the $\mathrm{LPN}_{g,\eta}$ assumption states that for every $n \in \NN$ and every polynomial-time adversary $\calA$,
+
+$$
+\left|\Pr\!\left[\calA(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e}) = 1\right] - \Pr\!\left[\calA(\mathbf{A}, \mathbf{u}) = 1\right]\right| \le \negl(n),
+$$
+
+over $\mathbf{A} \getsr \FF_2^{n \times g(n)}$, $\mathbf{s} \getsr \FF_2^{g(n)}$, $\mathbf{e} \gets \mathrm{Ber}(\eta)^n$ and $\mathbf{u} \getsr \FF_2^n$: the secret has dimension $g(n)$, and the number $n$ of samples is the security parameter. **Polylogarithmic-dimension LPN** is the assumption that there is a constant $\eta \in (0, 1/2)$ such that $\mathrm{LPN}_{g,\eta}$ holds for every function $g(n) = \Omega(\log^2 n)$ — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]], Assumptions 1 and 2. At secret dimension $k = g(n) = \Theta(\log^2 n)$ the adversary has $n = 2^{\Theta(\sqrt{k})}$ samples and time $2^{O(\sqrt{k})}$, which is the sense of the $2^{O(\sqrt{n})}$-hardness of LPN, for secret dimension $n$, in CG24's abstract — standard. It implies pseudorandom error-correcting codes ([[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]) — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
 
 #### Sub-exponential LPN over large fields
 
@@ -187,7 +198,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
 - **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
-<!-- BEGIN GENERATED participates-in 3ae1a88d304a -->
+<!-- BEGIN GENERATED participates-in adc89273f60b -->
 
 ## Participates in
 
@@ -201,7 +212,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
-- [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
+- [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
@@ -211,7 +222,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
-- [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
+- [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
 
 **Produces Learning parity with noise**
 
