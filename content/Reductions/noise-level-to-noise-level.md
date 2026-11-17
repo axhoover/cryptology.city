@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-If $(k,\varepsilon)$-[[learning-parity-with-noise|LPN]] is hard at noise rate $\varepsilon = \log^c(k)/k$ for a constant $c > 1$ (the [[learning-parity-with-noise#low-noise-lpn|low-noise regime]]), then $(k,\varepsilon')$-LPN is hard at noise rate $\varepsilon' = k^{-\gamma}$ for every constant $1/2 \le \gamma < 1$ (the [[learning-parity-with-noise#mid-noise-lpn|mid-noise regime]]): $\varepsilon < \varepsilon'$ for all large $k$, and LPN hardness is monotone in the noise rate — folklore.
+If $(k,\varepsilon)$-[[learning-parity-with-noise|LPN]] is hard at noise rate $\varepsilon = \log^c(k)/k$ for every constant $c > 1$ (the [[learning-parity-with-noise#low-noise-lpn|low-noise regime]]), then $(k,\varepsilon')$-LPN is hard at noise rate $\varepsilon' = k^{-\gamma}$ for every constant $1/2 \le \gamma < 1$ (the [[learning-parity-with-noise#mid-noise-lpn|mid-noise regime]]): for any one such $c$, $\varepsilon < \varepsilon'$ for all large $k$, and LPN hardness is monotone in the noise rate — folklore.
 
 ## Sketch
 

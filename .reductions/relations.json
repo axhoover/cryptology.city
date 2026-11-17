@@ -7504,19 +7504,6 @@
    "unlisted": false
   },
   {
-   "id": "sublinear-tdh",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/trapdoor-hash-function.md",
-   "slug": "trapdoor-hash-function",
-   "graphSlug": "Primitives/trapdoor-hash-function",
-   "anchor": "#slightly-sublinear-trapdoor-hash-functions",
-   "of": "tdh",
-   "title": "Slightly sublinear trapdoor hash functions",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "sublogarithmic-balls-and-bins-oram",
    "kind": "variant",
    "type": "primitive",
@@ -18881,30 +18868,6 @@
    "title": "Mid-noise LPN ⇒ PKE"
   },
   {
-   "id": "red-noise-level-to-tdh-amr25",
-   "kind": "implication",
-   "hypotheses": [
-    "lpn-low-noise"
-   ],
-   "conclusion": "sublinear-tdh",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/noise-level-to-tdh-amr25.md",
-   "slug": "noise-level-to-tdh-amr25",
-   "graphSlug": "Reductions/noise-level-to-tdh-amr25",
-   "title": "Low-noise LPN ⇒ Slightly sublinear TDH"
-  },
-  {
    "id": "red-noisy-k-lin-and-pc-to-pke-ghjs25",
    "kind": "implication",
    "hypotheses": [
@@ -24184,6 +24147,33 @@
    "slug": "rerandomizable-encryption-to-statistically-rerandomizable-encryption",
    "graphSlug": "Reductions/rerandomizable-encryption-to-statistically-rerandomizable-encryption",
    "title": "RE ⇒ Statistically rerandomizable encryption"
+  },
+  {
+   "id": "red-rerandomizable-rcca-encryption-to-rerandomizable-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "rerandomizable-rcca-encryption"
+   ],
+   "conclusion": "rerandomizable-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme and its rerandomizer, and the reduction runs a CPA adversary unchanged as an RCCA adversary that makes no decryption queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rerandomizable-rcca-encryption-to-rerandomizable-encryption.md",
+   "slug": "rerandomizable-rcca-encryption-to-rerandomizable-encryption",
+   "graphSlug": "Reductions/rerandomizable-rcca-encryption-to-rerandomizable-encryption",
+   "title": "Rerandomizable RCCA encryption ⇒ RE"
   },
   {
    "id": "red-ring-lpn-to-pseudorandom-correlation-generators-pcg",
