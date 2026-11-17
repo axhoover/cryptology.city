@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for circuits of any depth fixed at key generation. Its security therefore rests on worst-case lattice problems with the approximation factors of plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions and $\tilde{O}(n^{2+\varepsilon})$ under classical ones, for any constant $\varepsilon > 0$ — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for circuits of any depth fixed at key generation. Its security therefore rests on worst-case lattice problems with the approximation factors of plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions and $\tilde{O}(n^{2+\varepsilon})$ under classical ones, for any constant $\varepsilon > 0$ — [[BV14 - Lattice-based FHE as secure as PKE|BV14]]. Its messages are bits — standard.
 
 ## Sketch
 

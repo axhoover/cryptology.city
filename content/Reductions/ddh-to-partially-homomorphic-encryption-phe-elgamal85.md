@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-The ElGamal scheme of [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] over $(\GG, g, p) \gets \GrGen(1^\secpar)$, with $\pk = y = g^x$ and $\Enc(\pk, m; r) = (g^r, m \cdot y^r)$ for $m \in \GG$, is [[homomorphic-encryption#multiplicatively-homomorphic-encryption|multiplicatively homomorphic]]: the componentwise product of encryptions of $m_1$ and $m_2$ is distributed exactly as a fresh encryption of $m_1 m_2$ — standard. It is semantically secure iff [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$ — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
+The ElGamal scheme of [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] over $(\GG, g, p) \gets \GrGen(1^\secpar)$, with $\pk = y = g^x$ and $\Enc(\pk, m; r) = (g^r, m \cdot y^r)$ for $m \in \GG$, is [[homomorphic-encryption#multiplicatively-homomorphic-encryption|multiplicatively homomorphic]]: the componentwise product of encryptions of $m_1$ and $m_2$ is distributed exactly as a fresh encryption of $m_1 m_2$ — standard. It is semantically secure iff [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$ — [[TY98 - On the Security of ElGamal Based Encryption|TY98]]. With each group element's encoding padded to the maximum length, a polynomial in $\secpar$, all messages have one length; under DDH, $(g^r, m \cdot y^r)$ is indistinguishable from a pair of independent uniform elements of $\GG$ whatever $m$ is, so the scheme is IND-CPA-secure for every pair of group elements — standard.
 
 ## Sketch
 

@@ -20,7 +20,7 @@ security-loss: "additive: at most twice the sum of one LWE advantage per secret 
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hard, with modulus $q = 2^{n^{\varepsilon}}$ and polynomial noise, and [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] is hard in the smaller dimension $k$ that dimension–modulus reduction switches to, there is a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] somewhat homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
+If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hard, with modulus $q = 2^{n^{\varepsilon}}$ and polynomial noise, and [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] is hard in the smaller dimension $k$ that dimension–modulus reduction switches to, there is a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] somewhat homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]. Its messages are bits — standard.
 
 ## Sketch
 

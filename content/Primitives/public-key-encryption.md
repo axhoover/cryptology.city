@@ -262,7 +262,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 86b43d1f4292 -->
+<!-- BEGIN GENERATED participates-in 085013a813da -->
 
 ## Participates in
 
@@ -334,6 +334,7 @@ is negligible.
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
+- [[semi-homomorphic-encryption-to-pke-cpa-security|Semi-homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[somewhat-homomorphic-encryption-to-pke-cpa-security|SHE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[strongly-homomorphic-encryption-to-pke-cpa-security|Strongly homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])

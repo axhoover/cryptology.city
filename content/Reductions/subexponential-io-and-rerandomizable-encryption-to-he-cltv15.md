@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and a [[rerandomizable-encryption|re-randomizable PKE]] scheme [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|secure against slightly super-polynomial adversaries]] exist, then [[homomorphic-encryption#compact-fhe|compact fully homomorphic encryption]] exists, with no circular-security assumption — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
+If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and a [[rerandomizable-encryption|re-randomizable PKE]] scheme [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|secure against slightly super-polynomial adversaries]] exist, then [[homomorphic-encryption#compact-fhe|compact fully homomorphic encryption]] exists, with no circular-security assumption — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]]. It encrypts bits as two distinct messages of equal length of the rerandomizable scheme and evaluates circuits gate by gate — standard.
 
 ## Notes
 

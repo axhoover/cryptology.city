@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Under [[decisional-composite-residuosity|DCR]], the Damgård–Jurik generalisation of Paillier's scheme is a [length-flexible additively homomorphic encryption](homomorphic-encryption#length-flexible-additively-homomorphic-encryption) scheme: one RSA modulus $N$ serves every block length $s \ge 1$, chosen after the public key is fixed, with plaintexts in $\ZZ_{N^s}$, ciphertexts in $\ZZ_{N^{s+1}}^*$, and the product of two ciphertexts encrypting the sum of their plaintexts; at each length the scheme is as secure as Paillier's — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].
+Under [[decisional-composite-residuosity|DCR]], the Damgård–Jurik generalisation of Paillier's scheme is a [length-flexible additively homomorphic encryption](homomorphic-encryption#length-flexible-additively-homomorphic-encryption) scheme: one RSA modulus $N$ serves every block length $s \ge 1$, chosen after the public key is fixed, with plaintexts in $\ZZ_{N^s}$, ciphertexts in $\ZZ_{N^{s+1}}^*$, and the product of two ciphertexts encrypting the sum of their plaintexts; at each length the scheme is as secure as Paillier's — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]. At length $s$ its plaintexts are encoded as $\lceil \log N^s \rceil$-bit strings, all of one length — standard.
 
 ## Notes
 
