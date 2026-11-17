@@ -47,7 +47,7 @@ Predicates $b_1, \ldots, b_\ell$ are **simultaneously hardcore** for $f$ if $(f(
 
 A hardcore predicate of a [[one-way-permutation|one-way permutation]] gives a [[pseudorandom-generator|PRG]] ([[owp-to-prg-yao82a-gl89|OWP ⇒ PRG]]) — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; a hardcore predicate of a [[trapdoor-permutation|trapdoor permutation]] gives a [[public-key-encryption#cpa-security|CPA-secure PKE]] ([[tdp-to-pke|TDP ⇒ PKE]]) — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
 
-<!-- BEGIN GENERATED participates-in 3d6086afd489 -->
+<!-- BEGIN GENERATED participates-in 3a6b7ec65739 -->
 
 ## Participates in
 
@@ -58,6 +58,6 @@ A hardcore predicate of a [[one-way-permutation|one-way permutation]] gives a [[
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]]
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
-- [[tdp-to-pke|TDP ⇒ PKE]]
+- [[tdp-to-pke|TDP ⇒ CPA-secure PKE]]
 
 <!-- END GENERATED participates-in -->

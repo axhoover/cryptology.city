@@ -28190,7 +28190,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -28211,7 +28211,7 @@
    "page": "content/Reductions/tdp-to-pke.md",
    "slug": "tdp-to-pke",
    "graphSlug": "Reductions/tdp-to-pke",
-   "title": "TDP ⇒ PKE"
+   "title": "TDP ⇒ CPA-secure PKE"
   },
   {
    "id": "red-tdp-to-uc-commitment-cf01",

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "TDP ⇒ PKE"
+title: "TDP ⇒ CPA-secure PKE"
 aliases: []
 id: red-tdp-to-pke
 kind: implication
 hypotheses: [tdp]
-conclusion: pke
+conclusion: pke-cpa-security
 class: fully-black-box
 model: standard
 source:
@@ -18,7 +18,7 @@ rationale:
   class: "The construction calls the permutation's sampler, evaluator, inverter and hard-core predicate only as oracles, and the reduction runs any CPA adversary only as an oracle to predict the hard-core bit; for the Goldreich–Levin predicate, the list decoder turns that predictor into an inverter."
 ---
 
-# TDP ⇒ PKE
+# TDP ⇒ CPA-secure PKE
 
 ## Statement
 
