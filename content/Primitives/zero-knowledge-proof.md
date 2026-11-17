@@ -37,7 +37,7 @@ A zero-knowledge proof system for a language $L \subseteq \bits^*$ is an interac
 - $V$ is a probabilistic polynomial-time algorithm that receives input $x$ and outputs $\mathrm{accept}$ or $\mathrm{reject}$
 - The transcript of the interaction is a sequence of messages $(\alpha_1, \beta_1, \ldots, \alpha_k, \beta_k)$
 
-A zero-knowledge proof without further qualification means a computational zero-knowledge proof system for every language in $\classNP$, as one-way functions give through statistically binding commitments ([[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. For a single language in $\classBPP$ the notion is trivial: the verifier decides $x$ alone — standard.
+A zero-knowledge proof without further qualification means a computational zero-knowledge proof system for every language in $\classNP$, as one-way functions secure against non-uniform adversaries give through statistically binding commitments ([[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. For a single language in $\classBPP$ the notion is trivial: the verifier decides $x$ alone — standard.
 
 ## Properties
 
@@ -137,7 +137,7 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
   - Assuming either almost-optimal hardness of search [[learning-with-errors|LWE]] or a circular-secure [[homomorphic-encryption|fully homomorphic encryption]] scheme with standard security, the quadratic residuosity protocol of [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]] is not zero-knowledge when repeated in parallel; under either assumption the same paper gives NIZK arguments for $\classNP$ in the common reference string model — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in cedc8dc4bf9f -->
+<!-- BEGIN GENERATED participates-in a4a33aae6e0a -->
 
 ## Participates in
 
@@ -156,7 +156,7 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge|Constant-round public-coin HVZK proof ⇒ HVZK]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])
-- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]
 - [[injective-one-way-function-to-four-message-zk-argument-hv18|Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)]] (via [[zero-knowledge-proof#four-message-zero-knowledge-arguments|Four-message zero-knowledge arguments]])
 - [[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 - [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[zero-knowledge-proof#zaps|Zaps]])
