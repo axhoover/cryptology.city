@@ -6,7 +6,7 @@ aliases: []
 id: red-bdh-to-hve-bw07
 kind: implication
 hypotheses: [bdh]
-conclusion: hve
+conclusion: hve-selective-attribute-hiding
 class: unstated
 model: standard
 source:
@@ -18,4 +18,4 @@ security-loss: ""
 
 ## Statement
 
-In bilinear groups of composite order, [[hidden-vector-encryption|HVE]], and hence conjunctive equality, comparison, subset and range queries on encrypted data, exists with selective payload- and attribute-hiding security under three assumptions jointly: the decisional bilinear Diffie–Hellman assumption ([[bilinear-map-assumptions|DBDH]]), the bilinear subgroup decision assumption, and the composite 3-party Diffie–Hellman assumption (C3DH, introduced there) — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
+In bilinear groups of composite order, [[hidden-vector-encryption|HVE]], and hence conjunctive equality, comparison, subset and range queries on encrypted data, exists with [[hidden-vector-encryption#selective-attribute-hiding-security|selective payload- and attribute-hiding security]] under three assumptions jointly: the decisional bilinear Diffie–Hellman assumption ([[bilinear-map-assumptions|DBDH]]), the bilinear subgroup decision assumption, and the composite 3-party Diffie–Hellman assumption (C3DH, introduced there) — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]. Its decryption equation holds exactly under a key for a matching pattern, so the scheme is perfectly correct — standard.

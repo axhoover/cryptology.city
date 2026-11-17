@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Every [[multi-server-private-information-retrieval|IT-PIR]] scheme is a [[multi-server-private-information-retrieval#computational-multi-server-pir|computational multi-server PIR]]: per-server query distributions that are identical for every pair of indices are in particular computationally indistinguishable — folklore.
+Every [[multi-server-private-information-retrieval|IT-PIR]] scheme, with algorithms that ignore $1^\secpar$, is a [[multi-server-private-information-retrieval#computational-multi-server-pir|computational multi-server PIR]] with the same number of servers $k$, the same exponent $c$ and the constant polynomial $p = C$: correctness carries over, and per-server query distributions that are identical for every pair of indices give every adversary advantage $0$ — folklore.

@@ -3018,6 +3018,19 @@
    "unlisted": false
   },
   {
+   "id": "hve-selective-attribute-hiding",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hidden-vector-encryption.md",
+   "slug": "hidden-vector-encryption",
+   "graphSlug": "Primitives/hidden-vector-encryption",
+   "anchor": "#selective-attribute-hiding-security",
+   "of": "hve",
+   "title": "Selective attribute-hiding security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "hybrid-argument",
    "kind": "object",
    "type": "folklore",
@@ -9537,7 +9550,7 @@
    "hypotheses": [
     "bdh"
    ],
-   "conclusion": "hve",
+   "conclusion": "hve-selective-attribute-hiding",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -13925,6 +13938,33 @@
    "title": "Exponential-dimension PRS ⇒ PRS"
   },
   {
+   "id": "red-extractable-pcs-to-pcs",
+   "kind": "implication",
+   "hypotheses": [
+    "extractable-pcs"
+   ],
+   "conclusion": "pcs",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on polynomial commitment schemes, and the reduction forwards any evaluation-binding adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/extractable-pcs-to-pcs.md",
+   "slug": "extractable-pcs-to-pcs",
+   "graphSlug": "Reductions/extractable-pcs-to-pcs",
+   "title": "Extractable PCS ⇒ PCS"
+  },
+  {
    "id": "red-fac-to-bqp-shor97",
    "kind": "inclusion",
    "hypotheses": [
@@ -15958,6 +15998,87 @@
    "title": "HVSZK = SZK"
   },
   {
+   "id": "red-hve-attribute-hiding-to-hve-selective-attribute-hiding",
+   "kind": "implication",
+   "hypotheses": [
+    "hve-attribute-hiding"
+   ],
+   "conclusion": "hve-selective-attribute-hiding",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on HVE schemes, and the reduction runs any selective adversary unchanged as an adaptive one, using it only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hve-attribute-hiding-to-hve-selective-attribute-hiding.md",
+   "slug": "hve-attribute-hiding-to-hve-selective-attribute-hiding",
+   "graphSlug": "Reductions/hve-attribute-hiding-to-hve-selective-attribute-hiding",
+   "title": "Attribute-hiding HVE ⇒ selectively attribute-hiding HVE"
+  },
+  {
+   "id": "red-hve-payload-hiding-to-hve",
+   "kind": "implication",
+   "hypotheses": [
+    "hve-payload-hiding"
+   ],
+   "conclusion": "hve",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on HVE schemes, and the reduction runs any selective payload-hiding adversary unchanged as an adaptive one, using it only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hve-payload-hiding-to-hve.md",
+   "slug": "hve-payload-hiding-to-hve",
+   "graphSlug": "Reductions/hve-payload-hiding-to-hve",
+   "title": "Payload-hiding HVE ⇒ HVE"
+  },
+  {
+   "id": "red-hve-selective-attribute-hiding-to-hve",
+   "kind": "implication",
+   "hypotheses": [
+    "hve-selective-attribute-hiding"
+   ],
+   "conclusion": "hve",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on HVE schemes, and the reduction runs any selective payload-hiding adversary unchanged with both challenge attribute vectors set to its x*, using it only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hve-selective-attribute-hiding-to-hve.md",
+   "slug": "hve-selective-attribute-hiding-to-hve",
+   "graphSlug": "Reductions/hve-selective-attribute-hiding-to-hve",
+   "title": "Selectively attribute-hiding HVE ⇒ HVE"
+  },
+  {
    "id": "red-hve-to-subset-and-range-queries",
    "kind": "implication",
    "hypotheses": [
@@ -16809,8 +16930,8 @@
    "hypotheses": [
     "ippe"
    ],
-   "conclusion": "hve",
-   "class": "unstated",
+   "conclusion": "hve-selective-attribute-hiding",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -16820,9 +16941,9 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to an additive $2q/p$ for $q$ key queries when the challenge attributes are fixed first: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$",
+   "securityLoss": "tight up to an additive $2q/p$ in winning probability for $q$ key queries: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$",
    "rationale": {
-    "class": "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$.",
+    "class": "One fixed construction calls the IPPE algorithms once each on encoded vectors, and one fixed reduction runs any selective HVE adversary as an oracle, translating its queries through the encoding.",
     "securityLoss": "The coefficients $r_i$ are sampled after the challenge attributes are fixed, so each non-matching key's encoded inner product is uniform in $\\ZZ_p$ on each of them."
    },
    "status": "draft",

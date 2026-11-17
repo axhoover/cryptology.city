@@ -19,8 +19,10 @@ A Byzantine broadcast protocol lets a designated sender hand a value to $n$ part
 
 A broadcast protocol for $n$ parties, with sender index $s \in [n]$, value space $\calM$, $|\calM| \ge 2$, and round bound $r(\secpar, n)$, is a tuple $\Pi = (\Setup, P_1, \ldots, P_n)$ of efficient algorithms:
 
-- $\Setup(1^\secpar, n) \to (\pp, k_1, \ldots, k_n)$, a trusted setup giving every party $\pp$ and party $P_i$ the private value $k_i$. In the plain model it is trivial; in a public-key infrastructure $k_i$ is $P_i$'s signing key and $\pp$ lists every party's verification key.
+- $\Setup(1^\secpar, n) \to (\pp, k_1, \ldots, k_n)$, which outputs $\pp = 1^\secpar$ and empty $k_1, \ldots, k_n$: there is no setup.
 - $P_i(\pp, k_i)$, and $P_s(\pp, k_s, m)$ for the sender's input $m \in \calM$, interactive algorithms that run for $r(\secpar, n)$ synchronous rounds over [[interactive-protocol#authenticated-channels|authenticated point-to-point channels]], after which $P_i$ outputs $y_i \in \calM$.
+
+Byzantine broadcast and broadcast against $t < n/3$ denote the notions in this plain model. A protocol that uses a setup, a public-key infrastructure in which $k_i$ is $P_i$'s signing key and $\pp$ lists every party's verification key, or a trusted dealer of [[interactive-protocol#correlated-randomness|correlated randomness]], runs that setup before the execution and is a broadcast protocol in that setup model: the game below is unchanged, with $\Setup$ replaced by the setup.
 
 ## Properties
 

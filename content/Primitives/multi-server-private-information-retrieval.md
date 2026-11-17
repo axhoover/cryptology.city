@@ -16,11 +16,13 @@ Private Information Retrieval (PIR) is a primitive that allows a client to acces
 
 ## Syntax
 
-A $k$-server Private Information Retrieval (PIR) for a database of size $n$ is a tuple of efficient functions $(\Query, \Answer, \mathsf{Compute})$, with respect to randomness space $R$ such that:
+A one-round $k$-server Private Information Retrieval (PIR) for databases $D \in \bits^n$ is a tuple of algorithms $(\Query, \Answer, \Recon)$, each running in time polynomial in $n$, with respect to a randomness space $R$:
 
-- Generally, we consider the size of the initial queries to be $u$ bits each and the answers to be $d$ bits each.
-- In general, we can consider the total communication of a PIR as $k(u + d)$.
-- A PIR is non-trivial only so long as the communication is less than $n$.
+- $\Query(i; r) \to (q_1, \ldots, q_k)$ takes an index $i \in [n]$ and coins $r \in R$, outputting one query per server;
+- $\Answer(s, q_s, D) \to a_s$ is deterministic and takes a server index $s \in [k]$, that server's query $q_s$ and the database $D$, outputting an answer $a_s$;
+- $\Recon(i, a_1, \ldots, a_k; r) \to x$ outputs a bit $x \in \bits$.
+
+The total communication is the maximum of $\sum_{s \in [k]} (|q_s| + |a_s|)$ over $i$, $r$ and $D$. The scheme in which one server sends all of $D$ is correct and private with communication $n$, so a PIR is non-trivial only with communication below $n$ — standard.
 
 ## Properties
 
@@ -30,15 +32,39 @@ A PIR is correct if for all $D \in \bits^n$, $i \in [n]$, and $r \in R$ $$\Recon
 
 ### Privacy
 
-A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and $q \in \bits^u$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
+A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and every query $q$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
 
 Intuitively, this means that each server observes the same query uploaded with the same probability.
+
+As an object, IT-PIR denotes, for some constant $k \ge 2$, some constant $c < 1$ and some constant $C$, all fixed before $n$, a $k$-server scheme for every $n$ that is correct and private as defined above, both perfectly, with total communication at most $C \cdot n^c$.
 
 # Variations
 
 ## Computational Multi-server PIR
 
-Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers ([[it-pir-to-computational-multi-server-pir|IT-PIR ⇒ Computational Multi-server PIR]]). In this setting, the syntax remains the same, but now the query distribution is only required to be computationally indistinguishable for any two index pairs.
+Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers ([[it-pir-to-computational-multi-server-pir|IT-PIR ⇒ Computational Multi-server PIR]]). The syntax is that of IT-PIR with a security parameter: $\Query(1^\secpar, i; r)$, $\Answer(1^\secpar, s, q_s, D)$ and $\Recon(1^\secpar, i, a_1, \ldots, a_k; r)$ run in time polynomial in $\secpar$ and $n$, and correctness is required for every $\secpar$. For each server $s \in [k]$, the privacy game asks $\calA$ to tell which of two indices of its choice server $s$'s query encodes.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{priv}}_{\Pi,s,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(i_0, i_1, \stA) \gets \calA(1^\secpar)$; $b \getsr \bits$
+\Comment{$i_0, i_1 \in [n]$}
+\State $(q_1, \ldots, q_k) \gets \Query(1^\secpar, i_b)$
+\State $b' \gets \calA(q_s, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A scheme $\Pi$ is **computationally private** if for every $s \in [k]$ and all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{priv}}_{\Pi,s,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{priv}}_{\Pi,s,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. As an object, computational multi-server PIR denotes, for some constant $k \ge 2$, a polynomial $p$ and a constant $c < 1$, all fixed before $n$, a perfectly correct and computationally private $k$-server scheme for every $n = n(\secpar) \le \poly(\secpar)$ with total communication at most $p(\secpar) \cdot n^c$.
 
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
