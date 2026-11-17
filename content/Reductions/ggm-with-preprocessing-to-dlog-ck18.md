@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In the [[generic-group-model#preprocessing|generic group model with preprocessing]], let a generic [[discrete-logarithm|DLOG]] algorithm in a group of prime order $N$ get $S$ bits of advice from an unbounded preprocessing phase and make $T$ online group-oracle queries. If it succeeds with probability $\varepsilon$, then $ST^2 = \tilde\Omega(\varepsilon N)$, and the bound is tight up to logarithmic factors — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]. The same techniques give lower bounds for CDH, DDH and the multiple-discrete-logarithm problem — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]].
+In the [[generic-group-model#preprocessing|generic group model with preprocessing]], let a generic [[discrete-logarithm|DLOG]] algorithm in a group of prime order $N$ get $S$ bits of advice from an unbounded preprocessing phase and make $T$ online group-oracle queries. If it succeeds with probability $\varepsilon$, then $ST^2 = \tilde\Omega(\varepsilon N)$, and the bound is tight up to logarithmic factors — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]. For $\GrGen$ of prime order $N = \secpar^{\omega(1)}$ and $S, T \le \poly(\secpar)$, the bound gives $\varepsilon = \tilde O(ST^2/N)$, which is negligible since its logarithmic factors are at most $\poly(\secpar)$, so DLOG holds in the model — standard. The same techniques give lower bounds for CDH, DDH and the multiple-discrete-logarithm problem — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]].
 
 ## Notes
 

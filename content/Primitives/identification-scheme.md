@@ -132,7 +132,7 @@ The Schnorr identification protocol, required to be secure against impersonation
 
 The public parameters are independent generators $g_1, g_2$ of a group of prime order $p$. The secret key is $(x_1, x_2) \getsr \ZZ_p^2$ and the public key is $X = g_1^{x_1} g_2^{x_2}$. The prover sends $A = g_1^{r_1} g_2^{r_2}$ for $r_1, r_2 \getsr \ZZ_p$, receives $e \getsr C$ from a challenge space $C \subseteq \ZZ_p$ with $1/|C|$ negligible, and replies $z_j = r_j + e x_j \bmod p$ for $j = 1, 2$; the verifier accepts iff $g_1^{z_1} g_2^{z_2} = A X^e$ — [[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]]. Each public key has $p$ secret keys, and the transcripts of every phase-1 session are distributed independently of which one the prover holds: the protocol is perfectly witness-indistinguishable — standard. As an object, the Okamoto identification protocol denotes this protocol with security against impersonation under active attack.
 
-<!-- BEGIN GENERATED participates-in fe9ecf63b211 -->
+<!-- BEGIN GENERATED participates-in 4805ec4a1417 -->
 
 ## Participates in
 
@@ -142,6 +142,8 @@ The public parameters are independent generators $g_1, g_2$ of a group of prime 
 - [[id-and-rom-to-ds|ID ⇒ DS]] (via [[identification-scheme#non-trivial-canonical-identification-schemes|Non-trivial canonical identification schemes]])
 - [[identification-scheme-to-owf-il89|ID ⇒ OWF]]
 - [[non-trivial-canonical-identification-scheme-to-identification-scheme|Non-trivial canonical ID ⇒ ID]] (via [[identification-scheme#non-trivial-canonical-identification-schemes|Non-trivial canonical identification schemes]])
+- [[okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme|Okamoto identification protocol ⇒ Non-trivial canonical ID]] (via [[identification-scheme#okamoto-identification-protocol|Okamoto identification protocol]])
+- [[schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme|Schnorr identification protocol ⇒ Non-trivial canonical ID]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 
 **Produces Identification scheme**
@@ -150,8 +152,10 @@ The public parameters are independent generators $g_1, g_2$ of a group of prime 
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 - [[factoring-blum-integers-to-identification-scheme-ffs88|Factoring ⇒ ID (Feige–Fiat–Shamir)]]
 - [[non-trivial-canonical-identification-scheme-to-identification-scheme|Non-trivial canonical ID ⇒ ID]]
+- [[okamoto-identification-protocol-to-non-trivial-canonical-identification-scheme|Okamoto identification protocol ⇒ Non-trivial canonical ID]] (via [[identification-scheme#non-trivial-canonical-identification-schemes|Non-trivial canonical identification schemes]])
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification under concurrent attack]])
 - [[prime-order-dlog-to-okamoto-identification-protocol-oka92|DLOG ⇒ Okamoto identification protocol]] (via [[identification-scheme#okamoto-identification-protocol|Okamoto identification protocol]])
+- [[schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme|Schnorr identification protocol ⇒ Non-trivial canonical ID]] (via [[identification-scheme#non-trivial-canonical-identification-schemes|Non-trivial canonical identification schemes]])
 
 **Barriers**
 

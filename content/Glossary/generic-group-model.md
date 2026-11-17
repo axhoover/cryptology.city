@@ -40,17 +40,23 @@ Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] arg
 
 ## The Structured GGM
 
-Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest. The main result ([[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]) is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
+Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest, in a way that CHW26 define precisely; the formal structure oracle is that of [[CHW26 - The Structured Generic-Group Model|CHW26]]. As an object, the structured GGM denotes the model of CHW26 in which every algorithm exploits the group's structure, in the sense CHW26 define, on at most a $\delta(\secpar)$ fraction of group elements for a negligible $\delta$ ($1/\delta = \secpar^{\omega(1)}$), and is generic on all other elements; the result below holds for every such $\delta$.
+
+TODO: encode the formal structure oracle of [[CHW26 - The Structured Generic-Group Model|CHW26]] once the full text is read.
+
+The main result ([[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]) is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
 
 $$
 \Omega\!\left(\min\!\left(\sqrt{p},\; \frac{1}{\delta}\right)\right).
 $$
 
-This yields tight subexponential lower bounds applicable to index-calculus algorithms, bridging the gap between fully generic lower bounds and structured algorithm analyses.
+As an application, CHW26 prove a tight subexponential-time lower bound against discrete-log algorithms that exploit the multiplicative structure of smooth integers but are otherwise generic, which applies to a broad class of index-calculus algorithms — [[CHW26 - The Structured Generic-Group Model|CHW26]].
 
 ## Preprocessing
 
 A **generic algorithm with preprocessing** is a pair $(\calA_0, \calA_1)$ in Shoup's model, for a fixed handle function $\sigma$. The preprocessing algorithm $\calA_0$ is computationally unbounded, may query the group oracle arbitrarily often, and outputs an advice string of $S$ bits; the online algorithm $\calA_1$ gets the advice and the challenge and makes $T$ group-oracle queries. Bounds in this model are stated in terms of $S$, $T$ and the group order — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]. Generic DLOG algorithms with preprocessing must satisfy $ST^2 = \tilde\Omega(\varepsilon N)$ in groups of prime order $N$ ([[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]).
+
+As an object, the GGM with preprocessing denotes the model whose adversaries are, for all polynomials $S(\secpar)$ and $T(\secpar)$, the pairs $(\calA_0, \calA_1)$ in which $\calA_0$ is computationally unbounded, makes unlimited group-oracle queries and outputs at most $S(\secpar)$ bits of advice, and $\calA_1$ is efficient, gets the advice and the challenge, and makes at most $T(\secpar)$ group-oracle queries. Since $\calA_1$ is efficient, its online time, the quantity that CK18's bound counts as $T$, is also $\poly(\secpar)$.
 
 ## Generic bilinear groups
 
