@@ -25,13 +25,14 @@ A _trapdoor permutation (TDP)_ is a permutation that is easy to compute but hard
 
 ## Syntax
 
-A _trapdoor permutation family_ is a tuple of efficient algorithms $\mathsf{TDP} = (\Gen, \Eval, \Invert)$ with respect to a domain $\calD$ and trapdoor space $\calT$:
+A _trapdoor permutation family_ is a tuple of efficient algorithms $\mathsf{TDP} = (\Gen, \mathsf{Samp}, \Eval, \Invert)$ with respect to a domain $\calD$, which may depend on the index $f$, and trapdoor space $\calT$:
 
 - $\Gen(1^\secpar) \to (f, \td),$ is a randomized key generation algorithm that samples a function index $f$ and a trapdoor $\td \in \calT,$
+- $\mathsf{Samp}(f) \to x,$ is a randomized domain sampler whose output, for every index $f$ output by $\Gen(1^\secpar)$, is within statistical distance $\nu(\secpar)$ of uniform on $\calD$, for a negligible function $\nu$,
 - $\Eval(f, x) \to y,$ is a deterministic algorithm that evaluates $f : \calD \to \calD$ on input $x \in \calD$, outputting $y \in \calD,$
 - $\Invert(\td, y) \to x,$ is a deterministic algorithm that inverts $f$ on input $y$ given trapdoor $\td,$ outputting $x \in \calD.$
 
-We require that $f$ defines a bijection (permutation) on $\calD$.
+We require that $f$ defines a bijection (permutation) on $\calD$. The domain sampler is part of the collection, as in [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]], Definition 2.4.5: without it a construction that must pick $x \in \calD$, such as encryption with a hard-core bit, need not be efficient.
 
 ## Properties
 
