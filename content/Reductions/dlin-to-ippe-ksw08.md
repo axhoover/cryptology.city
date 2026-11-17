@@ -24,4 +24,5 @@ If [[decisional-diffie-hellman#dlin|DLIN]] holds in prime-order [[pairings|bilin
 
 ## Notes
 
+- The scheme is perfectly correct, since its decryption equation recovers $m$ whenever $\langle v, x \rangle = 0$; its messages lie in the target group $\GG_T$, of prime order $q \ge 2$, whose identity and a generator are computed from the group description in the public parameters; and its prime is the order $q$ of the bilinear group that its setup samples, for which $\mathbb{E}[1/q]$ is negligible, since DLIN fails by exhaustive search whenever $q \le t(\secpar)$ for a polynomial $t$ with non-negligible probability — standard.
 - The first IPPE scheme, [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]], works in composite-order bilinear groups and is only selectively attribute-hiding, under two new assumptions that KSW08 justify in the generic group model; it is not a DLIN result.

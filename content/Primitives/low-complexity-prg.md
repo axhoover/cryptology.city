@@ -51,7 +51,7 @@ is negligible in $n$.
 
 ## Polynomial-stretch PRG in NC0
 
-A _polynomial-stretch_ PRG in $\mathrm{NC}^0$ is a PRG $G : \bits^n \to \bits^{m(n)}$ in $\mathrm{NC}^0$ with $m(n) = n^{1+\tau}$ for a constant $\tau > 0$.
+A _polynomial-stretch_ PRG in $\mathrm{NC}^0$ is a PRG $G : \bits^n \to \bits^{m(n)}$ in $\mathrm{NC}^0$ with $m(n) = n^{1+\tau}$ for some constant $\tau > 0$.
 
 ### Sub-exponential security
 
@@ -62,17 +62,20 @@ A polynomial-stretch PRG in $\mathrm{NC}^0$ is **sub-exponentially secure** if t
 - Goldreich's candidate: a sequence of $d$-tuples $S_1, \ldots, S_m \in [n]^d$ and a predicate $P : \bits^d \to \bits$ define $G(x)_i = P(x_{S_i})$, with $x_{S_i} \in \bits^d$ the bits of $x$ at the indices of $S_i$, in order; for $m = n$, a highly expanding set system and a non-degenerate $P$, it was proposed as a candidate one-way function — [[Gol00 - Candidate One-Way Functions Based on Expander Graphs|Gol00]].
 - Conditional on the claimed algorithm of [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (see [[exponential-time-hypothesis#attacks|ETH]]): for every fixed $d$, every $G : \bits^n \to \bits^m$ whose output bits each depend on at most $d$ input bits can be inverted on every point of its image, and $|G^{-1}(y)|$ computed exactly, in deterministic time $(n + m)^{O_d(1)} 2^{O_d(n (\log\log n)^2 / \sqrt{\log n})}$ and space $(n + m)^{O_d(1)}$ — [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (Corollary C.2). For $m > n$, testing $|G^{-1}(y)| > 0$ distinguishes $G(x)$ from uniform $y$ with advantage at least $1 - 2^{n-m} \ge 1/2$, so no PRG in $\mathrm{NC}^0$ is secure against distinguishers running in time $2^{\varepsilon n}$ for a constant $\varepsilon > 0$. The running time is $2^{n^{1-o(1)}}$, so sub-exponential security as defined above is unaffected.
 
-<!-- BEGIN GENERATED participates-in fba1f53a0ecd -->
+<!-- BEGIN GENERATED participates-in 6fb7dc9c7ec0 -->
 
 ## Participates in
 
 **Builds on Low-complexity pseudorandom generator**
 
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[low-complexity-prg#sub-exponential-security|Sub-exponential security]])
+- [[low-complexity-prg-nc0-to-prg-in-nc1|NC0 PRG ⇒ NC1 PRG]]
+- [[prg-in-nc0-to-low-complexity-prg-nc0|Polynomial-stretch NC0 PRG ⇒ NC0 PRG]] (via [[low-complexity-prg#polynomial-stretch-prg-in-nc0|Polynomial-stretch PRG in NC0]])
 - [[subexponential-prg-in-nc0-to-prg-in-nc0|Sub-exponentially secure NC0 PRG ⇒ NC0 PRG]] (via [[low-complexity-prg#sub-exponential-security|Sub-exponential security]])
 
 **Produces Low-complexity pseudorandom generator**
 
+- [[prg-in-nc0-to-low-complexity-prg-nc0|Polynomial-stretch NC0 PRG ⇒ NC0 PRG]]
 - [[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0 (AIK)]]
 - [[subexponential-prg-in-nc0-to-prg-in-nc0|Sub-exponentially secure NC0 PRG ⇒ NC0 PRG]] (via [[low-complexity-prg#polynomial-stretch-prg-in-nc0|Polynomial-stretch PRG in NC0]])
 

@@ -13,7 +13,7 @@ consequences:
     class: fixed-construction
 strength: conditional
 conditional-on:
-  - "SXDH extended to multilinear groups of degree at least c log p, for a constant c > 1 and group order p"
+  - "SXDH extended to multilinear groups of order p and degree at least c log p, for some constant c > 1"
 source:
   - "[[Rot13 - On the Circular Security of Bit-Encryption|Rot13]]"
 rationale:
@@ -25,7 +25,7 @@ rationale:
 
 ## Statement
 
-Under an extension of the Symmetric External Diffie–Hellman assumption from bilinear groups to $\ell$-multilinear groups of order $p$ with $\ell \ge c \log p$ for a constant $c > 1$, there is a public-key bit-encryption scheme that is [[public-key-encryption#cpa-security|IND-CPA-secure]] but not [[circular-security#circular-security-of-bit-encryption|circular secure for bit encryption]]: given encryptions of the bits of its own secret key, an efficient attack recovers the whole key — [[Rot13 - On the Circular Security of Bit-Encryption|Rot13]]. So, unless that assumption fails, the identity map is no reduction from IND-CPA security to circular security of bit encryption.
+Under an extension of the Symmetric External Diffie–Hellman assumption from bilinear groups to $\ell$-multilinear groups of order $p$ with $\ell \ge c \log p$ for some constant $c > 1$, there is a public-key bit-encryption scheme that is [[public-key-encryption#cpa-security|IND-CPA-secure]] but not [[circular-security#circular-security-of-bit-encryption|circular secure for bit encryption]]: given encryptions of the bits of its own secret key, an efficient attack recovers the whole key — [[Rot13 - On the Circular Security of Bit-Encryption|Rot13]]. So, unless that assumption fails, the identity map is no reduction from IND-CPA security to circular security of bit encryption.
 
 ## Notes
 

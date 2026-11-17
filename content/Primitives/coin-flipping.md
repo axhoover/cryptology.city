@@ -27,7 +27,7 @@ A coin-flipping protocol is a pair of efficient [[interactive-protocol|interacti
 
 ### Correctness
 
-When both parties follow the protocol, $c_A = c_B \in \bits$ and the common bit is uniform.
+A protocol is **correct** if, when both parties follow the protocol, $c_A = c_B \in \bits$ except with negligible probability and the common bit is within negligible statistical distance of uniform. It is **perfectly correct** if $c_A = c_B \in \bits$ always and the common bit is uniform.
 
 ### Security
 
@@ -52,7 +52,9 @@ $$
 \Pr\!\left[\Game^{\mathrm{coin}}_{\calA}(\secpar) = 1\right] \le \frac{1}{2} + \negl(\secpar).
 $$
 
-It is **$\varepsilon$-fair**, or has **bias** at most $\varepsilon$, if the honest party outputs a bit even when the other party aborts and $\Pr\!\left[\Game^{\mathrm{coin}}_{\calA}(\secpar) = 1\right] \le 1/2 + \varepsilon(\secpar)$ for all efficient $\calA$.
+It is **$\varepsilon$-fair**, or has **bias** at most $\varepsilon$, if the honest party outputs a bit even when the other party aborts and $\Pr\!\left[\Game^{\mathrm{coin}}_{\calA}(\secpar) = 1\right] \le 1/2 + \varepsilon(\secpar)$ for all efficient $\calA$ and all sufficiently large $\secpar$.
+
+Every protocol on this page, including each variation, is correct as defined under [[#Correctness|Correctness]]; [[#Coin flipping with constant bias|constant-bias]] protocols are moreover perfectly correct, which the constant-bias ⇒ OWF theorem needs — [[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]] (arXiv 2105.01400v1, Remark 2.11). Without correctness, the protocol in which each party outputs its own uniform coin has bias $0$. As an object, coin flipping denotes a correct protocol that is secure with abort.
 
 # Variations
 
@@ -62,13 +64,19 @@ Fair coin flipping asks for negligible bias without abort. It is impossible: in 
 
 ## Optimally fair coin flipping
 
-An $r$-round protocol is optimally fair if its bias is $O(1/r)$, matching Cleve's bound — [[MNS09 - An Optimally Fair Coin Toss|MNS09]].
+Optimally fair coin flipping is a family $\{\Pi_r\}$ of correct protocols, one for each polynomial $r = r(\secpar) \ge 1$, and a constant $C > 0$, such that for every polynomial $r$, $\Pi_r$ runs in $r(\secpar)$ rounds, the honest party outputs a bit even when the other party aborts, and
+
+$$
+\Pr\!\left[\Game^{\mathrm{coin}}_{\calA}(\secpar) = 1\right] \le \frac{1}{2} + \frac{C}{r(\secpar)} + \negl(\secpar)
+$$
+
+for all efficient $\calA$ corrupting either party of $\Pi_r$. The bias $O(1/r)$ matches [[#Fair coin flipping|Cleve's bound]] — [[MNS09 - An Optimally Fair Coin Toss|MNS09]]. The member with $r = \lceil 4C \rceil$ rounds has bias at most $1/4 + \negl(\secpar)$, so it has [[#Coin flipping with constant bias|constant bias]] when it is perfectly correct — standard.
 
 No fully-black-box construction from a [[hash-function#preimage-resistance-one-wayness|one-way function]] is optimally fair with $r = o(n / \log n)$ rounds, for the input length $n$ of the one-way function — [[DLMM11 - On the Black-Box Complexity of Optimally-Fair Coin Tossing|DLMM11]]. The round restriction is removed for function-oblivious constructions, whose honest output, for fixed random tapes, does not depend on which one-way function is used — [[DMM14 - Can Optimally-Fair Coin Tossing Be Based on One-Way Functions|DMM14]].
 
 ## Coin flipping with constant bias
 
-A protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $1/2$ is trivial, since one party can choose the outcome — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]].
+A perfectly correct protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $1/2$ is trivial, since one party can choose the outcome — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]].
 
 <!-- BEGIN GENERATED participates-in c6fab308f169 -->
 

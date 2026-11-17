@@ -61,7 +61,7 @@ An [[public-key-encryption#cpa-security|IND-CPA-secure]] public-key encryption s
 
 ## Symmetric-key bit encryption
 
-A [[symmetric-key-encryption#cpa-security|CPA-secure]] symmetric-key bit-encryption scheme with key $k \in \bits^\ell$ is **circular secure** if $(\Enc(k, k[i]))_{i \in [\ell]}$ is indistinguishable from $(\Enc(k, 0))_{i \in [\ell]}$ to an adversary with access to an encryption oracle under $k$.
+A symmetric-key bit-encryption scheme, with message space containing $\bits$ and key $k \in \bits^\ell$, that is $(1-\varepsilon)$-[[symmetric-key-encryption#correctness|correct]] for a negligible $\varepsilon(\secpar)$ and [[symmetric-key-encryption#cpa-security|CPA-secure]] is **circular secure** if $(\Enc(k, k[i]))_{i \in [\ell]}$ is indistinguishable from $(\Enc(k, 0))_{i \in [\ell]}$ to an adversary with access to an encryption oracle under $k$.
 
 # Attacks
 

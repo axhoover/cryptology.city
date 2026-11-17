@@ -203,10 +203,10 @@ Subset and range predicates reduce to HVE over $\Sigma = \bits$ by fixed encodin
 
 # Other results
 
-- [[ippe-to-hve|IPPE ⇒ HVE]]
+- [[ippe-to-hve|IPPE ⇒ Selectively attribute-hiding HVE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 
-<!-- BEGIN GENERATED participates-in edf8ccb71c5f -->
+<!-- BEGIN GENERATED participates-in f39a81ce431c -->
 
 ## Participates in
 
@@ -226,6 +226,6 @@ Subset and range predicates reduce to HVE over $\Sigma = \bits$ by fixed encodin
 - [[hve-payload-hiding-to-hve|Payload-hiding HVE ⇒ HVE]]
 - [[hve-selective-attribute-hiding-to-hve|Selectively attribute-hiding HVE ⇒ HVE]]
 - [[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]] (via [[hidden-vector-encryption#subset-and-range-queries|Subset and range queries]])
-- [[ippe-to-hve|IPPE ⇒ HVE]] (via [[hidden-vector-encryption#selective-attribute-hiding-security|Selective attribute-hiding security]])
+- [[ippe-to-hve|IPPE ⇒ Selectively attribute-hiding HVE]] (via [[hidden-vector-encryption#selective-attribute-hiding-security|Selective attribute-hiding security]])
 
 <!-- END GENERATED participates-in -->
