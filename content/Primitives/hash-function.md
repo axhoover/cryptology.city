@@ -186,11 +186,15 @@ $$
 
 is negligible — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
 Collision resistance implies target collision resistance — standard. As for CRHFs,
-$|\calR| < |\calD|$ does not suffice: keyed by a uniform pair $(a, b)$ of
-distinct $n$-bit strings, the map that sends $b$ to $a$ and fixes every other
-input has $2^n - 1$ values and is target collision resistant with no
-assumption, since the committed target lies in $\{a, b\}$ with probability
-$2/2^n$ — standard.
+$|\calR| < |\calD|$ does not suffice. Take $\calD = \{0, \ldots, N-1\}$ and
+the fixed $\calR = \{0, \ldots, N-2\}$ for $N = 2^n$, key $k = (a, b)$ a
+uniform pair of distinct elements of $\calD$, and let
+$\rho_b : \calD \setminus \{b\} \to \calR$ be the order-preserving bijection,
+$\rho_b(x) = x$ for $x < b$ and $\rho_b(x) = x - 1$ for $x > b$. The map with
+$\hash(k, b) = \rho_b(a)$ and $\hash(k, x) = \rho_b(x)$ for $x \ne b$ has
+$\{a, b\}$ as its only collision, so it is target collision resistant with no
+assumption: the committed target lies in $\{a, b\}$ with probability exactly
+$2/N$ — standard.
 
 ### Distributional collision resistance
 
