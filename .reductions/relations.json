@@ -9665,6 +9665,33 @@
    "title": "k-Lin ⇒ VRF"
   },
   {
+   "id": "red-best-possible-ore-to-ore-first-differing-bit",
+   "kind": "implication",
+   "hypotheses": [
+    "best-possible-ore"
+   ],
+   "conclusion": "ore-first-differing-bit",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on ORE schemes, and the simulator runs the given simulator, as a black box, on part of its leakage."
+   },
+   "status": "draft",
+   "page": "content/Reductions/best-possible-ore-to-ore-first-differing-bit.md",
+   "slug": "best-possible-ore-to-ore-first-differing-bit",
+   "graphSlug": "Reductions/best-possible-ore-to-ore-first-differing-bit",
+   "title": "Best-possible ORE ⇒ ORE leaking the first differing bit"
+  },
+  {
    "id": "red-bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10",
    "kind": "implication",
    "hypotheses": [

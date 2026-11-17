@@ -139,7 +139,7 @@ $$
 \calL_{\mathrm{f}}(m_1, \ldots, m_i) := \left([m_j < m_k],\ \mathrm{ind}_{\mathrm{diff}}(m_j, m_k)\right)_{j, k \in [i]}
 $$
 
-adds the position of the first differing bit to the order — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]. Any [[pseudorandom-function|PRF]] yields an $\calL_{\mathrm{f}}$-secure ORE scheme ([[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE]]) — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
+adds the position of the first differing bit to the order — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]. Since $\calL_{\mathrm{ord}}$ is a component of $\calL_{\mathrm{f}}$, best-possible security implies $\calL_{\mathrm{f}}$-security ([[best-possible-ore-to-ore-first-differing-bit|Best-possible ORE ⇒ ORE leaking the first differing bit]]) — folklore. Any [[pseudorandom-function|PRF]] yields an $\calL_{\mathrm{f}}$-secure ORE scheme ([[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE]]) — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
 ## Mutable order-preserving encoding
 
@@ -155,12 +155,17 @@ Modular OPE prepends a secret shift modulo $M$ to an OPE scheme, so that the joi
 - For uniformly distributed plaintexts and suitable parameters, encryption under a uniformly random order-preserving function hides the exact value of each plaintext and the exact distance between two plaintexts, but reveals both to within a range of size roughly $\sqrt{M}$ — [[BCO11 - Order-Preserving Encryption Revisited Improved Security Analysis and Alternative Solutions|BCO11]].
 - Against database columns encrypted under deterministic or order-preserving encryption, auxiliary data on the plaintext distribution recovers a large fraction of the plaintexts: frequency analysis and $\ell_p$-optimization attack deterministic encryption, and the sorting and cumulative attacks attack OPE; the sorting attack recovers every plaintext of a dense column, in which every value of the domain occurs — [[NKW15 - Inference Attacks on Property-Preserving Encrypted Databases|NKW15]].
 
-<!-- BEGIN GENERATED participates-in 9ff6460014dd -->
+<!-- BEGIN GENERATED participates-in 0afa9f00d2c3 -->
 
 ## Participates in
 
+**Builds on Order-preserving encryption**
+
+- [[best-possible-ore-to-ore-first-differing-bit|Best-possible ORE ⇒ ORE leaking the first differing bit]] (via [[order-preserving-encryption#best-possible-security|Best-possible security]])
+
 **Produces Order-preserving encryption**
 
+- [[best-possible-ore-to-ore-first-differing-bit|Best-possible ORE ⇒ ORE leaking the first differing bit]] (via [[order-preserving-encryption#leakage-of-the-first-differing-bit|Leakage of the first differing bit]])
 - [[prf-to-ope-bclo09|PRF ⇒ OPE (BCLO09)]]
 - [[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE leaking the first differing bit (CLWW16)]] (via [[order-preserving-encryption#leakage-of-the-first-differing-bit|Leakage of the first differing bit]])
 
