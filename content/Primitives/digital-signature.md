@@ -23,6 +23,7 @@ variants:
   one-time-quantum-public-key-signature: "#one-time-signatures-with-quantum-public-keys"
   post-quantum-ds: "#security-against-quantum-adversaries"
   nonadaptive-post-quantum-ds: "#nonadaptive-queries"
+  ds-arbitrary-length: "#arbitrary-length-messages"
 ---
 
 # Digital signature
@@ -277,6 +278,12 @@ Lattice-based signatures rest on [[learning-with-errors|LWE]]-, [[shortest-integ
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
+## Arbitrary-length messages
+
+A signature scheme for **arbitrary-length messages** has message space $\calM = \bits^*$, with $\Sign$ and $\Vrfy$ running in time polynomial in $\secpar$ and $|m|$. As an object, it denotes such a scheme that is $(1-\negl(\secpar))$-[[#Correctness|correct]] and [[#Existential Unforgeability|EUF-CMA-unforgeable]].
+
+TODO: no standard-model edge yet produces this variant; retarget a producer whose source signs $\bits^*$ (e.g. [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]'s OWF ⇒ DS, once read) so that OWF ⇒ IBS is derivable again.
+
 ## Security against quantum adversaries
 
 $\DS = (\KeyGen, \Sign, \Vrfy)$ is a classical scheme, and the game is $\Game^{\eufcma}_{\DS,\calA}$ of [[#Existential Unforgeability|existential unforgeability]] with $\calA$ quantum: $\calA$ queries the signing oracle $\calO$ classically, and its queries may be adaptive. $\DS$ is **post-quantum EUF-CMA unforgeable** if for all efficient quantum $\calA$,
@@ -367,17 +374,18 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3,
 - For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another — [[MP18 - On the Security Loss of Unique Signatures|MP18]] — loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]], [[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]].
 - For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by simple reductions from any non-interactive assumption in a very general class, unless that assumption is false — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in a7049e83385b -->
+<!-- BEGIN GENERATED participates-in 3f042523f607 -->
 
 ## Participates in
 
 **Builds on Digital signature**
 
 - [[boneh-lynn-shacham-signature-to-ds|BLS signatures ⇒ DS]] (via [[digital-signature#bls-signatures|BLS signatures]])
+- [[ds-arbitrary-length-to-ds|DS for arbitrary-length messages ⇒ DS]] (via [[digital-signature#arbitrary-length-messages|Arbitrary-length messages]])
 - [[ds-to-byzantine-broadcast-ds83|Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)]]
 - [[ds-to-forward-secure-signature|DS ⇔ Forward-secure signature]]
 - [[ds-to-hash-function|DS ⇒ OWF]]
-- [[ds-to-identity-based-signature-bnn04|DS ⇒ IBS (certificates)]]
+- [[ds-to-identity-based-signature-bnn04|DS ⇒ IBS (certificates)]] (via [[digital-signature#arbitrary-length-messages|Arbitrary-length messages]])
 - [[eddsa-to-ds|EdDSA ⇒ DS]] (via [[digital-signature#eddsa|EdDSA]])
 - [[edl-signature-to-ds|EDL signatures ⇒ DS]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[digital-signature#one-time-signatures|One-time signatures]])
@@ -399,6 +407,7 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3,
 - [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]])
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]])
+- [[ds-arbitrary-length-to-ds|DS for arbitrary-length messages ⇒ DS]]
 - [[eddsa-to-ds|EdDSA ⇒ DS]]
 - [[edl-signature-to-ds|EDL signatures ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
