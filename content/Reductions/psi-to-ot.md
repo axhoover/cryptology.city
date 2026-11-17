@@ -5,7 +5,7 @@ title: "PSI ⇒ OT"
 aliases: []
 id: red-psi-to-ot
 kind: implication
-hypotheses: [psi]
+hypotheses: [non-degenerate-psi]
 conclusion: ot
 class: fully-black-box
 model: standard
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\Pi$ be a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for a universe $U = \bits^{\ell}$ with $\ell \ge 2$ and size bounds $n_S \ge 2$ and $n_R \ge 1$, where a pair of bits is read as an element of $U$ by padding. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\bits$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1) \in \bits^2$ and $c \in \bits$, the parties run $\Pi$ with sender set $X = \{(0, x_0), (1, x_1)\}$ and receiver set $Y = \{(c, 0)\}$, and the receiver outputs $0$ if its output set contains $(c, 0)$ and $1$ otherwise — folklore.
+Let $\Pi$ be a [[private-set-intersection#non-degenerate-psi|non-degenerate]] [[private-set-intersection|PSI]] protocol, that is, a [[private-set-intersection#semi-honest-security|semi-honest secure]] PSI protocol for a universe $U = \bits^{\ell}$ with $\ell \ge 2$ and size bounds $n_S \ge 2$ and $n_R \ge 1$, where a pair of bits is read as an element of $U$ by padding. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\bits$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1) \in \bits^2$ and $c \in \bits$, the parties run $\Pi$ with sender set $X = \{(0, x_0), (1, x_1)\}$ and receiver set $Y = \{(c, 0)\}$, and the receiver outputs $0$ if its output set contains $(c, 0)$ and $1$ otherwise — folklore.
 
 ## Sketch
 

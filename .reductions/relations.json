@@ -4495,6 +4495,19 @@
    "unlisted": false
   },
   {
+   "id": "non-degenerate-psi",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/private-set-intersection.md",
+   "slug": "private-set-intersection",
+   "graphSlug": "Primitives/private-set-intersection",
+   "anchor": "#non-degenerate-psi",
+   "of": "psi",
+   "title": "Non-degenerate PSI",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "non-interactive-assumption",
    "kind": "variant",
    "type": "glossary",
@@ -18715,6 +18728,33 @@
    "title": "Noisy k-LIN + PC ⇒ PKE"
   },
   {
+   "id": "red-non-degenerate-psi-to-psi",
+   "kind": "implication",
+   "hypotheses": [
+    "non-degenerate-psi"
+   ],
+   "conclusion": "psi",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-degenerate-psi-to-psi.md",
+   "slug": "non-degenerate-psi-to-psi",
+   "graphSlug": "Reductions/non-degenerate-psi-to-psi",
+   "title": "Non-degenerate PSI ⇒ PSI"
+  },
+  {
    "id": "red-non-interactive-key-exchange-to-ke",
    "kind": "implication",
    "hypotheses": [
@@ -19363,7 +19403,7 @@
    "hypotheses": [
     "super-polynomial-range-oprf"
    ],
-   "conclusion": "psi",
+   "conclusion": "non-degenerate-psi",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -22889,7 +22929,7 @@
    "id": "red-psi-to-ot",
    "kind": "implication",
    "hypotheses": [
-    "psi"
+    "non-degenerate-psi"
    ],
    "conclusion": "ot",
    "class": "fully-black-box",

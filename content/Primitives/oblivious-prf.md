@@ -94,11 +94,11 @@ An **OPRF with a group range** is a semi-honest secure OPRF $(\PRF, \Pi)$ whose 
 
 ## OPRF with super-polynomial range
 
-An **OPRF with super-polynomial range** is a semi-honest secure, $(1 - \negl(\secpar))$-correct OPRF $(\PRF, \Pi)$ whose domain $\calD$ contains $\bits^{\ell}$ for a polynomial $\ell = \ell(\secpar) \ge 1$ and whose range $\calR$ has $1/|\calR|$ negligible.
+An **OPRF with super-polynomial range** is a semi-honest secure, $(1 - \negl(\secpar))$-correct OPRF $(\PRF, \Pi)$ whose domain $\calD$ contains $\bits^{\ell}$ for a polynomial $\ell = \ell(\secpar) \ge 2$, whose range $\calR$ has $1/|\calR|$ negligible, and for which the maximum over distinct $x, y \in \bits^{\ell}$ of $\Pr_{k \gets \KeyGen(1^\secpar)}\!\left[\Eval(k, x) = \Eval(k, y)\right]$ is negligible. Pseudorandomness against [[uniform-and-non-uniform-adversaries|non-uniform adversaries]] implies the last condition: the circuit with a pair $x \ne y$ hard-wired queries both points and outputs whether the answers agree, so the probability for that pair is at most $1/|\calR|$ plus its advantage — folklore.
 
 ## Verifiable OPRF
 
-In a **verifiable OPRF** the server publishes a value that binds its key, and the client outputs either the function value under the bound key or $\bot$, so a malicious server cannot evaluate different inputs under different keys. [[JKK14 - Round-Optimal Password-Protected Secret Sharing and T-PAKE in the Password-Only Model|JKK14]] define verifiable OPRFs (V-OPRFs) by a [[universal-composability-framework|UC]]-style ideal functionality, with realizations in the [[random-oracle-model|random-oracle model]] and instantiations in the standard model, and build one from the 2HashDH function below, the server publishing $g^k$ and proving in zero knowledge that its reply is computed with the same exponent.
+A **verifiable OPRF** (V-OPRF) is an OPRF $(\PRF, \Pi)$ whose protocol $\Pi$ [[universal-composability-framework#uc-emulation|UC-realizes]] the V-OPRF ideal functionality of [[JKK14 - Round-Optimal Password-Protected Secret Sharing and T-PAKE in the Password-Only Model|JKK14]]. Informally, the server publishes a value that binds its key, and the client outputs either the function value under the bound key or $\bot$, so a malicious server cannot evaluate different inputs under different keys. [[JKK14 - Round-Optimal Password-Protected Secret Sharing and T-PAKE in the Password-Only Model|JKK14]] give realizations of the functionality in the [[random-oracle-model|random-oracle model]] and instantiations in the standard model, and build one from the 2HashDH function below, the server publishing $g^k$ and proving in zero knowledge that its reply is computed with the same exponent.
 
 ## UC-secure OPRF
 
@@ -112,11 +112,40 @@ The client sends $a = H_1(x)^r$ for $r \getsr \ZZ_p^*$, the server replies $b = 
 
 ## Partially oblivious PRF
 
-In a **partially oblivious PRF** the input is a pair $(t, x)$ of which the server learns $t$ and nothing about $x$. [[ECSJR15 - The Pythia PRF Service|ECSJR15]] introduce verifiable partially oblivious PRFs and build one, from [[pairings|bilinear pairings]] and [[zero-knowledge-proof|zero-knowledge proofs]], that supports bulk rotation of previously obtained outputs to a new key.
+A **partially oblivious PRF** is a pair $(\PRF, \Pi)$ of a PRF $\PRF = (\KeyGen, \Eval)$ with domain $\calD = \calT \times \calX$ and a [[interactive-protocol|two-party protocol]] $\Pi = (\Setup, S, R)$, with server input $k \in \calK$, client input $(t, x) \in \calD$, server output $t$ and client output $y \in \calR \cup \{\bot\}$, that securely computes $f^{\mathrm{po}}_\PRF(k, (t, x)) := (t, \Eval(k, (t, x)))$ against semi-honest adversaries: the server learns $t$ and nothing about $x$. Compared with the [[#semi-honest-security|semi-honest game]] above, a corrupted server's simulator also receives $t$, and a corrupted client's view is paired with the honest server's output.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{po}}_{\Pi,\PRF,P,\Sim,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $b \getsr \bits$; $\pp_0 \gets \Setup(1^\secpar)$; $\pp_1 \gets \Sim(1^\secpar)$
+\Comment{$P \in \{S, R\}$ is the corrupted party; $\Sim$ is stateful}
+\State $(k, (t, x), \stA) \gets \calA(1^\secpar, \pp_b)$
+\State Run $\langle S(\pp_0, k), R(\pp_0, (t, x)) \rangle$; let $s$ and $y$ be the outputs of $S$ and $R$ and $\View_P$ be $P$'s view
+\State $y^* := \Eval(k, (t, x))$
+\If{$P = S$}
+\State $\mathit{out}_0 := (\View_S, y)$; $\mathit{out}_1 := (\Sim(k, t), y^*)$
+\Else
+\State $\mathit{out}_0 := (\View_R, s)$; $\mathit{out}_1 := (\Sim((t, x), y^*), t)$
+\EndIf
+\State $b' \gets \calA(\stA, \mathit{out}_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+Formally, $(\PRF, \Pi)$ is a partially oblivious PRF if $\PRF$ is pseudorandom and for each $P \in \{S, R\}$ there is an efficient $\Sim$ such that for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{po}}_{\Pi,\PRF,P,\Sim,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{po}}_{\Pi,\PRF,P,\Sim,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. [[ECSJR15 - The Pythia PRF Service|ECSJR15]] introduce verifiable partially oblivious PRFs and build one, from [[pairings|bilinear pairings]] and [[zero-knowledge-proof|zero-knowledge proofs]], that supports bulk rotation of previously obtained outputs to a new key.
 
 # Other results
 
-- Given a PRF, a protocol securely computing $f_\PRF$ is an OPRF: semi-honest 2PC gives a semi-honest secure OPRF ([[semi-honest-two-party-computation-and-prf-to-oprf|semi-honest 2PC + PRF ⇒ OPRF]]) and 2PC with abort an OPRF with malicious security ([[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ malicious OPRF]]) — folklore.
+- Given a PRF with $\calK \subseteq \bits^{\kappa(\secpar)}$ and $\calD \subseteq \bits^{n(\secpar)}$ for polynomials $\kappa$ and $n$, with equality for malicious security, a protocol securely computing $f_\PRF$ is an OPRF: semi-honest 2PC gives a semi-honest secure OPRF ([[semi-honest-two-party-computation-and-prf-to-oprf|semi-honest 2PC + PRF ⇒ OPRF]]) and 2PC with abort an OPRF with malicious security ([[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ malicious OPRF]]) — folklore.
 - A semi-honest secure [[#OPRF with a group range|OPRF with a group range]] gives semi-honest [[oblivious-transfer|OT]]: the sender masks $x_0$ and $x_1$ with $\Eval(k, z_0)$ and $\Eval(k, z_1)$, and the receiver obtains the mask of $x_c$ from the OPRF on input $z_c$ ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] base their general protocols for keyword search, in which a client retrieves the database records associated with a keyword and privacy is required for both the client and the server, on OPRFs.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] evaluate the Naor–Reingold PRF ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) obliviously with one 1-out-of-2 [[oblivious-transfer|OT]] per input bit. For the key $(a_0, a_1, \ldots, a_n)$ and input $x \in \bits^n$, the server samples $r_1, \ldots, r_n \getsr \ZZ_p^*$, the client obtains $v_i = a_i^{x_i} r_i$ from the $i$-th OT with choice bit $x_i$, the server sends $g^{a_0 / \prod_i r_i}$, and the client raises it to $\prod_i v_i$, obtaining $g^{a_0 \prod_{i : x_i = 1} a_i}$.
