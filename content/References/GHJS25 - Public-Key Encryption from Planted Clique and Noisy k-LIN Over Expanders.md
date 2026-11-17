@@ -13,7 +13,7 @@ cryptobib_key: STOC:GHJS25
 
 # [GHJS25] Using the Planted Clique Conjecture for Cryptography: Public-Key Encryption from Planted Clique and Noisy k-LIN over Expanders
 
-**Authors:** Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai | **Venue:** STOC 2025 | [Source](https://eprint.iacr.org/2025/1501)
+**Authors:** Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai | **Venue:** STOC 2025 | [Source](https://eprint.iacr.org/2025/1501) | arXiv version: [2611.11701](https://arxiv.org/abs/2611.11701), titled _Using the Planted Clique Conjecture for Cryptography: Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders_
 
 ## Abstract
 
