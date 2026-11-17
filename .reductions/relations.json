@@ -13000,33 +13000,6 @@
    "title": "DLOG ⊆ TFNP"
   },
   {
-   "id": "red-dlog-to-verifiable-secret-sharing-vss-ped91",
-   "kind": "implication",
-   "hypotheses": [
-    "prime-order-dlog"
-   ],
-   "conclusion": "verifiable-secret-sharing",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none: hiding is perfect, and two sets of accepted shares interpolating different secrets yield $\\log_g h$",
-   "rationale": {
-    "model": "The scheme uses no idealised oracle, only public generators whose discrete-logarithm relation the dealer does not know and a broadcast channel for the commitments."
-   },
-   "status": "draft",
-   "page": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
-   "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
-   "graphSlug": "Reductions/com-and-ss-to-verifiable-secret-sharing-vss",
-   "title": "DLOG ⇒ Verifiable secret sharing (VSS)"
-  },
-  {
    "id": "red-doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
    "kind": "implication",
    "hypotheses": [
@@ -31224,6 +31197,37 @@
    "slug": "correlated-randomness-to-uc-mpc-bdoz11",
    "graphSlug": "Reductions/correlated-randomness-to-uc-mpc-bdoz11",
    "title": "Correlated randomness ⇒ UC MPC (BDOZ online phase)"
+  },
+  {
+   "id": "red-dlog-to-verifiable-secret-sharing-vss-ped91",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog",
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "verifiable-secret-sharing",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: hiding is perfect, and two sets of accepted shares interpolating different secrets yield $\\log_g h$",
+   "rationale": {
+    "model": "The public generator $h$ must be chosen so that no party, the dealer included, knows $\\log_g h$: a dealer that knows it can open its commitments to inconsistent shares, so $h$ is a common reference string from a trusted setup rather than the dealer's choice."
+   },
+   "status": "draft",
+   "page": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
+   "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
+   "graphSlug": "Reductions/com-and-ss-to-verifiable-secret-sharing-vss",
+   "title": "DLOG + secure channels ⇒ Verifiable secret sharing (VSS)"
   },
   {
    "id": "red-he-to-mpc-with-preprocessing-spdz-etc",
