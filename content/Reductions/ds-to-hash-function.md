@@ -1,31 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "DS ⇒ OWF"
+title: "DS ⇒ Distributional OWF"
 aliases: []
-id: red-ds-to-hash-function
+id: red-ds-to-distributional-owf
 kind: implication
 hypotheses: [ds]
-conclusion: owf
+conclusion: distributional-owf
 class: fully-black-box
 model: standard
-source:
-  - "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
-security-loss: "tight: one inverter call, and the forger succeeds whenever the inverter does, with no signing query"
+source: folklore
+security-loss: "one inverter call and no signing query"
 rationale:
-  class: "The one-way function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
+  class: "The function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
 ---
 
-# DS ⇒ OWF
+# DS ⇒ Distributional OWF
 
 ## Statement
 
-If a perfectly correct [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable [[digital-signature|signature scheme]] exists, so does a [[hash-function#preimage-resistance-one-wayness|one-way function]]: $f(r) := \vk$, where $(\sk, \vk) := \KeyGen(1^\secpar; r)$, is one-way — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+Let $\DS = (\KeyGen, \Sign, \Vrfy)$ be a [[digital-signature|signature scheme]] that is $(1-\negl(\secpar))$-[[digital-signature#correctness|correct]] and [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable and has a [[digital-signature#properties|non-trivial message space]], and let $\ell(\secpar)$ be the number of coins of $\KeyGen(1^\secpar)$. Then $f(r) := \vk$ for $r \in \bits^{\ell(\secpar)}$, where $(\sk, \vk) := \KeyGen(1^\secpar; r)$, is [[hash-function#distributional-one-wayness|distributionally one-way]] with $p := 2$ — standard.
 
 ## Sketch
 
-Given $\vk$, an inverter returns $r'$ with $\KeyGen(1^\secpar; r') = (\sk', \vk)$, and perfect correctness makes $\Sign(\sk', m)$ verify under $\vk$ for every $m$: a forgery with no signing query. A forger therefore succeeds with at least the inverter's probability, which unforgeability makes negligible.
+Let an efficient inverter, given $\vk = f(r)$, output $r'$ within statistical distance $\delta$ of a uniform preimage of $\vk$, averaged over $\vk$. Then $(\sk', \vk)$, with $\sk'$ the signing key of $\KeyGen(1^\secpar; r')$, is within $\delta$ of an honest key pair, so $\Sign(\sk', m)$, for a message $m \in \calM_\secpar$ computed efficiently from $1^\secpar$ or $\vk$, verifies under $\vk$ with probability at least $1 - \negl(\secpar) - \delta$: a forgery with no signing query. EUF-CMA unforgeability therefore forces $\delta \ge 1/2$ for all sufficiently large $\secpar$.
 
 ## Notes
 
+- With [[distributional-owf-to-owf-il89|Distributional OWF ⇒ OWF]], signature schemes imply [[hash-function#preimage-resistance-one-wayness|one-way functions]] — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
+- For perfectly correct schemes, $f$ itself is one-way: every preimage $r'$ of $\vk$ gives a signing key whose signatures verify under $\vk$ — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
 - Conversely, one-way functions give EUF-CMA-unforgeable signatures ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].

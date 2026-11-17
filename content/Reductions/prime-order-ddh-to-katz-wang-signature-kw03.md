@@ -21,11 +21,11 @@ rationale:
 
 ## Statement
 
-The [[digital-signature#katz-wang-signatures|Katz–Wang signature scheme]] has public key $(g, h, y_1 = g^x, y_2 = h^x)$ in a group of prime order $p$, and a signature on $m$ is a Fiat–Shamir proof that $(g, h, y_1, y_2)$ is a Diffie–Hellman tuple: $(c, s)$ with $c = H(\pk, g^r, h^r, m)$ and $s = r + cx \bmod p$. The scheme is EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH]] is hard in prime-order groups, with a tight reduction — [[KW03 - Efficiency Improvements for Signature Schemes with Tight Security Reductions|KW03]].
+The [[digital-signature#katz-wang-signatures|Katz–Wang signature scheme]] has public key $(g, h, y_1 = g^x, y_2 = h^x)$ in a group of prime order $p$, and a signature on $m$ is a Fiat–Shamir proof that $(g, h, y_1, y_2)$ is a Diffie–Hellman tuple: $(c, s)$ with $c = H(\pk, g^r, h^r, m) \in C$, for a challenge space $C \subseteq \ZZ_p$ with $1/|C|$ negligible, and $s = r + cx \bmod p$. The scheme is EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH]] is hard in prime-order groups, with a tight reduction — [[KW03 - Efficiency Improvements for Signature Schemes with Tight Security Reductions|KW03]].
 
 ## Sketch
 
-Given a tuple $(g, h, y_1, y_2)$, the distinguisher uses it as the public key, answers signing queries with the HVZK simulator by programming $H$, and outputs "Diffie–Hellman" iff the forgery verifies. On a Diffie–Hellman tuple the simulation is perfect up to programming collisions. On a random tuple a valid signature is a proof of a false statement, which the soundness of the Chaum–Pedersen proof bounds by about $q_H/p$ for $q_H$ hash queries.
+Given a tuple $(g, h, y_1, y_2)$, the distinguisher uses it as the public key, answers signing queries with the HVZK simulator by programming $H$, and outputs "Diffie–Hellman" iff the forgery verifies. On a Diffie–Hellman tuple the simulation is perfect up to programming collisions. On a random tuple a valid signature is a proof of a false statement, which the soundness of the Chaum–Pedersen proof bounds by about $q_H/|C|$ for $q_H$ hash queries and challenge space $C$.
 
 ## Notes
 

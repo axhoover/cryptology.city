@@ -90,7 +90,9 @@ $$
 \Adv^{\mathrm{fs}}_{\mathsf{FSS},\calA}(\secpar, T) := \Pr\!\left[\Game^{\mathrm{fs}}_{\mathsf{FSS},\calA}(\secpar, T) = 1\right]
 $$
 
-is negligible. For $T \ge 2$ the period-$1$ algorithms of a forward-secure scheme form an [[digital-signature#existential-unforgeability|EUF-CMA-secure]] signature scheme ([[ds-to-forward-secure-signature|DS ⇔ Forward-secure signature]]) — folklore.
+is negligible.
+
+As an object, a forward-secure signature scheme denotes a forward-secure scheme that, for every polynomially bounded $T = T(\secpar)$, is $(1-\negl(\secpar))$-[[#Correctness|correct]] in every period $i \in [T]$, and whose message space is non-trivial as for [[digital-signature#properties|signature schemes]]: for every $\secpar$ it contains two distinct messages that an efficient algorithm outputs on input $1^\secpar$, or on input $\vk$ when the message space depends on the key, in which case correctness is required for the messages so computed. For $T \ge 2$ the period-$1$ algorithms of a forward-secure scheme form an [[digital-signature#existential-unforgeability|EUF-CMA-secure]] signature scheme ([[ds-to-forward-secure-signature|DS ⇔ Forward-secure signature]]) — folklore.
 
 # Variations
 

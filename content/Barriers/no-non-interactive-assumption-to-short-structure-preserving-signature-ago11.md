@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-Let $S$ be a [[digital-signature#structure-preserving-signatures|structure-preserving signature]] scheme in a Type 3 bilinear group whose signatures consist of three group elements, the minimum of [[AGHO11 - Optimal Structure-Preserving Signatures in Asymmetric Bilinear Groups|AGHO11]]. If an algebraic reduction proves $S$ existentially unforgeable under adaptive chosen-message attack from a [[falsifiable-assumptions#non-interactive-assumptions|non-interactive assumption]], then the assumption is false. A reduction is algebraic if every group element it outputs comes with its representation in the group elements it was given — [[AGO11 - Separating Short Structure-Preserving Signatures from Non-Interactive Assumptions|AGO11]].
+Let $S$ be a correct [[digital-signature#structure-preserving-signatures|structure-preserving signature]] scheme in a Type 3 bilinear group whose signatures consist of three group elements, the minimum of [[AGHO11 - Optimal Structure-Preserving Signatures in Asymmetric Bilinear Groups|AGHO11]]. If an algebraic reduction proves $S$ existentially unforgeable under adaptive chosen-message attack from a [[falsifiable-assumptions#non-interactive-assumptions|non-interactive assumption]], then the assumption is false. A reduction is algebraic if every group element it outputs comes with its representation in the group elements it was given — [[AGO11 - Separating Short Structure-Preserving Signatures from Non-Interactive Assumptions|AGO11]].
 
 ## Notes
 

@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, then for every polynomially bounded $T$ the Bellare–Miner scheme with $\ell = \omega(\log \secpar)$ key components (and $\ell$-bit challenges) is a [[forward-secure-signature|forward-secure signature]] scheme with $T$ periods in the [[random-oracle-model|random-oracle model]] — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]. The scheme is a Fiat–Shamir-type scheme modulo a Blum integer $N$: the secret key is a vector of $\ell$ elements of $\ZZ_N^*$, and $\mathsf{Update}$ squares each component, so the key of period $i$ determines the keys of all later periods, while computing an earlier one requires square roots modulo $N$ — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]].
+If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, then for every polynomially bounded $T$ the Bellare–Miner scheme with $\ell = \omega(\log \secpar)$ key components (and $\ell$-bit challenges) is a [[forward-secure-signature|forward-secure signature]] scheme with $T$ periods in the [[random-oracle-model|random-oracle model]] — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]. The scheme is a Fiat–Shamir-type scheme modulo a Blum integer $N$: the secret key is a vector of $\ell$ elements of $\ZZ_N^*$, and $\mathsf{Update}$ squares each component, so the key of period $i$ determines the keys of all later periods, while computing an earlier one requires square roots modulo $N$ — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]. Honest signatures satisfy its verification equation in every period, so it is perfectly correct, and the random oracle hashes the message, so it signs bit strings — standard.
 
 ## Notes
 

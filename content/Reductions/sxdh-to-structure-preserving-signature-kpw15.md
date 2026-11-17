@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] holds in a Type 3 bilinear group, there is a [[digital-signature#structure-preserving-signatures|structure-preserving signature]] scheme that is EUF-CMA in the standard model, with shorter signatures than earlier structure-preserving signatures from standard assumptions — [[KPW15 - Structure-Preserving Signatures from Standard Assumptions, Revisited|KPW15]].
+If [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] holds in a Type 3 bilinear group, there is a [[digital-signature#structure-preserving-signatures|structure-preserving signature]] scheme that is EUF-CMA in the standard model, with shorter signatures than earlier structure-preserving signatures from standard assumptions — [[KPW15 - Structure-Preserving Signatures from Standard Assumptions, Revisited|KPW15]]. The scheme is correct, since honest signatures satisfy its pairing-product verification equations — standard.
 
 ## Notes
 

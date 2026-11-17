@@ -28,6 +28,6 @@ A UOWHF compresses messages for a one-time signature, and a tree of fresh one-ti
 
 ## Notes
 
-- Conversely, perfectly correct signatures imply one-way functions ([[ds-to-hash-function|DS ⇒ OWF]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+- Conversely, signatures imply distributionally one-way functions ([[ds-to-hash-function|DS ⇒ Distributional OWF]]) — standard, and hence one-way functions ([[distributional-owf-to-owf-il89|Distributional OWF ⇒ OWF]]) — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
 - Signatures from one-to-one one-way functions, via UOWHFs, predate Rompel's result — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
 - Rompel's STOC paper gives the proof only in outline; the first complete proof is [[KK05 - On Constructing Universal One-Way Hash Functions from Arbitrary One-Way Functions|KK05]].

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "OWF + iO ⇒ DS"
+title: "OWF + iO ⇒ Selectively unforgeable DS"
 aliases: []
 id: red-hash-function-and-io-to-ds-sw14
 kind: implication
 hypotheses: [owf, io]
-conclusion: ds
+conclusion: selective-ds
 class: free
 model: standard
 source:
@@ -16,11 +16,11 @@ rationale:
   class: "The verification key obfuscates a circuit containing the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
 ---
 
-# OWF + iO ⇒ DS
+# OWF + iO ⇒ Selectively unforgeable DS
 
 ## Statement
 
-If [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits and a [[hash-function#preimage-resistance-one-wayness|one-way function]] exist, there is a [[digital-signature|signature scheme]] with short signatures that is selectively unforgeable under chosen-message attack: for all efficient $\calA$ that commit to a target message $m^*$ before seeing $\vk$ and then query signatures on messages other than $m^*$, the probability that $\calA$ outputs a valid signature on $m^*$ is negligible — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+If [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits and a [[hash-function#preimage-resistance-one-wayness|one-way function]] exist, there is a [[digital-signature|signature scheme]] with short signatures that is [[digital-signature#selective-unforgeability|selectively unforgeable]] under chosen-message attack: for all efficient $\calA$ that commit to a target message $m^*$ before seeing $\vk$ and then query signatures on messages other than $m^*$, the probability that $\calA$ outputs a valid signature on $m^*$ is negligible — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]. The scheme is perfectly correct by the functionality preservation of iO — standard.
 
 ## Sketch
 

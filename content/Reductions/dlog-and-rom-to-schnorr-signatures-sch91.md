@@ -28,7 +28,7 @@ rationale:
 
 ## Sketch
 
-The reduction, given $\pk = g^x$, answers signing queries with the HVZK simulator (sample $c, s \getsr \ZZ_p$, set $R = g^s \pk^{-c}$, program $H(R \| m) := c$) and forks the forger: rerunning it on the same coins with $H$ reprogrammed from the query behind the forgery yields two forgeries $(R, c, s)$, $(R, c', s')$ with $c \ne c'$, and $x = (s - s')/(c - c') \bmod p$.
+The reduction, given $\pk = g^x$, answers signing queries with the HVZK simulator (sample $c \getsr C$ and $s \getsr \ZZ_p$, set $R = g^s \pk^{-c}$, program $H(R \| m) := c$) and forks the forger: rerunning it on the same coins with $H$ reprogrammed from the query behind the forgery yields two forgeries $(R, c, s)$, $(R, c', s')$ with $c \ne c'$, and $x = (s - s')/(c - c') \bmod p$.
 
 ## Notes
 
