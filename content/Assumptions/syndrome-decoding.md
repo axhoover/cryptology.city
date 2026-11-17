@@ -61,7 +61,7 @@ $m$ samples of [[learning-parity-with-noise|LPN]] in dimension $k$ with noise ra
 
 ## Syndrome decoding at the FS96 parameters
 
-**SD is hard at the FS96 parameters** if SD is hard for $(n, k, w)$ in the parameter family of the [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]] generator.
+**SD is hard at the FS96 parameters** if SD is hard for the family of parameters $(n, k, w)$ for which [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]] prove their generator pseudorandom. Each such parameter satisfies $n - k > \lceil \log_2 \binom{n}{w} \rceil$, below the Gilbert–Varshamov bound, since otherwise the generator $(\mathbf{H}, \mathbf{x}) \mapsto (\mathbf{H}, \mathbf{H}\mathbf{x})$ does not stretch — standard. The node is narrower than that inequality: whether FS96's theorem covers every parameter satisfying it is not recorded here.
 
 ## Goppa code indistinguishability
 
