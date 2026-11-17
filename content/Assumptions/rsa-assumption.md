@@ -66,7 +66,7 @@ The **strong RSA assumption** strengthens the standard assumption by allowing th
 
 ## Strong RSA with safe-prime moduli
 
-Strong RSA for the generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$ and outputs $n = pq$ together with an exponent pair $(e, d)$, as the generator's syntax requires; the strong-RSA adversary does not see $e$. **Strong RSA is hard for safe-prime moduli** if for all efficient $\calA$ the strong-RSA success probability above, with $n$ sampled this way and $y \getsr \ZZ_n^*$, is negligible.
+Strong RSA for the generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$ and outputs $n = pq$ together with an exponent pair $(e, d)$, as the generator's syntax requires; the strong-RSA adversary does not see $e$. **Strong RSA is hard for safe-prime moduli** if there is a $\PPT$ algorithm whose output on $1^\secpar$ is within negligible statistical distance of this distribution of $n$, and for all efficient $\calA$ the strong-RSA success probability above, with $n$ sampled this way and $y \getsr \ZZ_n^*$, is negligible. Rejection sampling is such an algorithm if $\secpar$-bit Sophie Germain primes have density $1/\poly(\secpar)$, which is unproven — standard.
 
 ## Φ-Hiding
 
@@ -78,7 +78,7 @@ For a fixed odd integer $e \ge 3$, such as $e = 3$, independent of $\secpar$, le
 
 ## RSA with safe-prime moduli
 
-For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the primes $p', q'$, outputs a prime $e > \ell$ with $\gcd(e, \phi(n)) = 1$, let $\GrGen_{R,\ell}$ sample distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$, set $n = pq$, compute $e \gets R(1^\secpar, \ell(\secpar), p', q')$, and output $(n, e, d)$ with $d \equiv e^{-1} \pmod{\phi(n)}$. This is the dealer's key distribution in [[threshold-signature#threshold-rsa|Shoup's threshold RSA]] for $\ell$ parties. **RSA is hard for safe-prime moduli and prime exponents greater than the number of parties** if there is such a rule $R$ for which, for every polynomial $\ell = \ell(\secpar)$, RSA is hard for $\GrGen_{R,\ell}$.
+For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the primes $p', q'$, outputs a prime $e > \ell$ with $\gcd(e, \phi(n)) = 1$, let $\GrGen_{R,\ell}$ sample distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$, set $n = pq$, compute $e \gets R(1^\secpar, \ell(\secpar), p', q')$, and output $(n, e, d)$ with $d \equiv e^{-1} \pmod{\phi(n)}$. This is the dealer's key distribution in [[threshold-signature#threshold-rsa|Shoup's threshold RSA]] for $\ell$ parties. **RSA is hard for safe-prime moduli and prime exponents greater than the number of parties** if there is such a rule $R$ for which, for every polynomial $\ell = \ell(\secpar)$, RSA is hard for $\GrGen_{R,\ell}$, and a $\PPT$ algorithm whose output on $1^\secpar$ is within negligible statistical distance of the distribution of $(p', q')$ above. Rejection sampling is such an algorithm if $\secpar$-bit Sophie Germain primes have density $1/\poly(\secpar)$, which is unproven — standard.
 
 ## RSA with uniform-prime moduli
 
