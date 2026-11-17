@@ -7597,19 +7597,6 @@
    "unlisted": false
   },
   {
-   "id": "succinct-randomized-encoding",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/randomized-encoding.md",
-   "slug": "randomized-encoding",
-   "graphSlug": "Primitives/randomized-encoding",
-   "anchor": "#succinct-randomized-encodings",
-   "of": "randomized-encoding",
-   "title": "Succinct randomized encodings",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "succinct-state-restoration-iop",
    "kind": "variant",
    "type": "glossary",

@@ -320,14 +320,14 @@ is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3,
 
 ## One-time signatures with quantum public keys
 
-A signature scheme with quantum public keys is a tuple of quantum polynomial-time algorithms $\DS = (\KeyGen, \mathsf{PKGen}, \Sign, \Vrfy)$:
+A signature scheme with quantum public keys for one-bit messages is a tuple of quantum polynomial-time algorithms $\DS = (\KeyGen, \mathsf{PKGen}, \Sign, \Vrfy)$:
 
 - $\KeyGen(1^\secpar) \to \sk$, outputting a classical secret key;
 - $\mathsf{PKGen}(\sk) \to \pk$, outputting a quantum public key, so that $t$ independent runs give $\pk^{\otimes t}$;
-- $\Sign(\sk, m) \to \sigma$, outputting a classical signature;
-- $\Vrfy(\pk, m, \sigma) \to \top/\bot$.
+- $\Sign(\sk, m) \to \sigma$ for $m \in \bits$, outputting a classical signature;
+- $\Vrfy(\pk, m, \sigma) \to \top/\bot$ for $m \in \bits$.
 
-Correctness requires $\Pr[\Vrfy(\pk, m, \sigma) = \top : \sk \gets \KeyGen(1^\secpar),\ \pk \gets \mathsf{PKGen}(\sk),\ \sigma \gets \Sign(\sk, m)] \ge 1 - \negl(\secpar)$ for every message $m$.
+Correctness requires $\Pr[\Vrfy(\pk, m, \sigma) = \top : \sk \gets \KeyGen(1^\secpar),\ \pk \gets \mathsf{PKGen}(\sk),\ \sigma \gets \Sign(\sk, m)] \ge 1 - \negl(\secpar)$ for every $m \in \bits$.
 
 ```pseudocode
 \begin{algorithm}
@@ -337,9 +337,10 @@ Correctness requires $\Pr[\Vrfy(\pk, m, \sigma) = \top : \sk \gets \KeyGen(1^\se
 \State $\sk \gets \KeyGen(1^\secpar)$
 \State run $\mathsf{PKGen}(\sk)$ $t+1$ times, obtaining $\pk^{\otimes (t+1)}$
 \State $(m, \stA) \gets \calA(1^\secpar, \pk^{\otimes t})$
-\Comment{$\calA$ receives $t$ of the copies}
+\Comment{$\calA$ receives $t$ of the copies; $m \in \bits$}
 \State $\sigma \gets \Sign(\sk, m)$
 \State $(m', \sigma') \gets \calA(\stA, \sigma)$
+\Comment{$m' \in \bits$}
 \State $d \gets \Vrfy(\pk, m', \sigma')$
 \Comment{run on the remaining copy}
 \Return $[d = \top \wedge m' \ne m]$
@@ -353,7 +354,7 @@ $$
 \Adv^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar) := \Pr\!\left[\Game^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar) = 1\right]
 $$
 
-is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. In the original definition of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], $\KeyGen$ is classical, $\Sign$ is classical and deterministic, and correctness is perfect. One-time-secure schemes yield $q$-time-secure ones, which allow $q$ signing queries and a forgery on a fresh message, for every polynomial $q$ — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3, Definition 4.1). That definition leaves the message space open, and both directions of the equivalence with [[one-way-state-generator|one-way state generators]] are proved for one-bit messages — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3, Theorem 4.4). In the original definition of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], $\KeyGen$ is classical, $\Sign$ is classical and deterministic, and correctness is perfect. One-time-secure schemes yield $q$-time-secure ones over the same message space, which allow $q$ signing queries and a forgery on a fresh message, for every polynomial $q$ — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3, Theorem 4.3).
 
 - [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]]
 
