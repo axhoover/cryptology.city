@@ -30,4 +30,4 @@ Let $u = \prod_{y \in X} y$. A witness $w$ for a prime $x \notin X$ satisfies $w
 ## Notes
 
 - Arbitrary elements are accumulated by first mapping them to primes, injectively or with a hash for which finding two inputs with the same prime is hard — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]].
-- The accumulator is also dynamic: [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA ⇒ dynamic accumulator]] — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
+- The accumulator is also dynamic: [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]] — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
