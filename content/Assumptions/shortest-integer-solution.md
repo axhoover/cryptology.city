@@ -103,7 +103,7 @@ The instance is parameterized by $(n, k, \ell, q, \beta)$, with $R = \ZZ[x]/\lan
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices ([[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-<!-- BEGIN GENERATED participates-in 3c3219c50a30 -->
+<!-- BEGIN GENERATED participates-in 921a61b50679 -->
 
 ## Participates in
 
@@ -123,7 +123,7 @@ Hardness of Module-SIS reduces to worst-case problems on module lattices ([[modu
 
 - [[bit-compressing-sis-to-sis|Bit-compressing SIS ⇒ SIS]]
 - [[gapsvp-to-sis-ajt96|Polynomial-factor GapSVP ⇒ SIS]]
-- [[ideal-svp-to-ring-sis-lm06|Ideal-SVP ⇒ Ring-SIS]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
+- [[ideal-svp-to-ring-sis-lm06|Polynomial-factor Ideal-SVP ⇒ Ring-SIS]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
 - [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
 - [[isis-inhomogeneous-sis-to-sis|SIS ⇒ ISIS (Inhomogeneous SIS)]] (via [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS (Inhomogeneous SIS)]])

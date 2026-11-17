@@ -63,7 +63,7 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 - [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]], including zero-bit PRCs — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
 
-<!-- BEGIN GENERATED participates-in f7e313e54f70 -->
+<!-- BEGIN GENERATED participates-in 7e3caccc17c0 -->
 
 ## Participates in
 
@@ -72,7 +72,7 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 - [[adaptive-robustness-to-prc|Adaptive robustness ⇒ PRC]] (via [[pseudorandom-error-correcting-code#adaptive-robustness|Adaptive robustness]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
-- [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
+- [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Substring-complete watermarking]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
 
 **Produces Pseudorandom error-correcting code**
 

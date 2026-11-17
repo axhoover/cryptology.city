@@ -58,7 +58,7 @@ A secret sharing scheme in which each party can check, even against a malicious 
 
 ## Linear secret sharing schemes (LSSS)
 
-A secret sharing scheme is linear if the shares are linear functions of the secret and randomness. Equivalent to monotone span programs over $\FF$ ([[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]).
+For a finite field $\FF$, $n \ge 1$ and a monotone access structure $\Gamma \subseteq 2^{[n]}$, a **linear secret-sharing scheme** for $\Gamma$ over $\FF$ has secret space $\FF$. The dealer samples $r$ uniformly from $\FF^{e-1}$, for some $e \ge 1$, and gives party $i$ the share $L_i(s, r) \in \FF^{m_i}$, for $\FF$-linear maps $L_i : \FF^e \to \FF^{m_i}$; its size is $\sum_i m_i$. Every $A \in \Gamma$ recovers $s$ from its shares with probability $1$, and for every $A \notin \Gamma$ the distribution of $(L_i(s, r))_{i \in A}$ is independent of $s$ — standard. For $\Gamma = \{A : |A| \ge t\}$ it is a $(t, n)$ scheme in the sense of [[#Syntax|Syntax]], and [[#Shamir secret sharing|Shamir's scheme]] over $\FF_p$ with $p > n$ is one. For other $\Gamma$ it is not a $(t, n)$ scheme, so this variant is not a refinement of the page's base notion. Equivalent to monotone span programs over $\FF$ ([[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]).
 
 # Other results
 

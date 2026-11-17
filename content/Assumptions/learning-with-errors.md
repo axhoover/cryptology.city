@@ -425,7 +425,7 @@ is negligible. As an object, succinct LWE denotes: there are such $n$, $q$ and $
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 89acae1a8e6d -->
+<!-- BEGIN GENERATED participates-in 39ff53e139c2 -->
 
 ## Participates in
 
@@ -482,7 +482,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]]
 - [[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]]
 - [[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]]
-- [[ideal-svp-to-ring-lwe-lpr10|Ideal-SVP ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
+- [[ideal-svp-to-ring-lwe-lpr10|Quantum polynomial-factor Ideal-SVP ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]]
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
