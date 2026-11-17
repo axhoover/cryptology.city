@@ -2671,6 +2671,19 @@
    "unlisted": false
   },
   {
+   "id": "ghjs25-planted-clique",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/planted-clique.md",
+   "slug": "planted-clique",
+   "graphSlug": "Assumptions/planted-clique",
+   "anchor": "#ghjs25-planted-clique-conjecture",
+   "of": "pc",
+   "title": "GHJS25 planted clique conjecture",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "gkr-protocol",
    "kind": "object",
    "type": "glossary",
@@ -5432,6 +5445,19 @@
    "anchor": "#pir-with-polylogarithmic-communication",
    "of": "cpir",
    "title": "PIR with polylogarithmic communication",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "polylog-dimension-lpn",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-parity-with-noise.md",
+   "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
+   "anchor": "#polylogarithmic-dimension-lpn",
+   "of": "lpn",
+   "title": "Polylogarithmic-dimension LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -9139,6 +9165,33 @@
    "slug": "anonymous-ibe-unbounded-identities-to-anonymous-ibe",
    "graphSlug": "Reductions/anonymous-ibe-unbounded-identities-to-anonymous-ibe",
    "title": "Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE"
+  },
+  {
+   "id": "red-anonymous-public-key-encryption-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "anonymous-public-key-encryption"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/anonymous-public-key-encryption-to-pke-cpa-security.md",
+   "slug": "anonymous-public-key-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/anonymous-public-key-encryption-to-pke-cpa-security",
+   "title": "Key-hiding PKE ⇒ CPA-secure PKE"
   },
   {
    "id": "red-approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
@@ -18306,7 +18359,7 @@
    "id": "red-lwe-to-zero-bit-prc-cg24",
    "kind": "implication",
    "hypotheses": [
-    "subexponential-lpn"
+    "polylog-dimension-lpn"
    ],
    "conclusion": "zero-bit-prc",
    "class": "unstated",
@@ -19192,7 +19245,7 @@
    "kind": "implication",
    "hypotheses": [
     "noisy-k-lin",
-    "pc"
+    "ghjs25-planted-clique"
    ],
    "conclusion": "pke",
    "class": "unstated",
@@ -21126,7 +21179,7 @@
    "id": "red-pc-and-search-noisy-k-lin-to-pke-ghjs25",
    "kind": "implication",
    "hypotheses": [
-    "pc",
+    "ghjs25-planted-clique",
     "search-noisy-k-lin"
    ],
    "conclusion": "pke",
@@ -27072,7 +27125,7 @@
    "id": "red-subexponential-lpn-to-prc-cg24",
    "kind": "implication",
    "hypotheses": [
-    "subexponential-lpn"
+    "polylog-dimension-lpn"
    ],
    "conclusion": "prc",
    "class": "unstated",

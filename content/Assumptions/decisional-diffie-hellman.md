@@ -54,7 +54,7 @@ $$
 \Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) := \left|2 \cdot \Pr\!\left[\Game^{\text{ddh}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible.
+is negligible. DDH hardness then forces $p$ to exceed every polynomial except with negligible probability: for each constant $c$, the adversary that, when $p \le \secpar^c$, finds $x$ by trying every exponent in $[\secpar^c]$ and outputs $0$ iff $Z_b = Y^x$, and otherwise guesses, has advantage $1 - 1/p \ge 1/2$ whenever $p \le \secpar^c$, and so advantage at least $\frac{1}{2}\Pr[p \le \secpar^c]$ — standard.
 
 If DDH is hard for $\GrGen$, then $1/p$ is negligible, in expectation over $\GrGen$: for each constant $c$, the adversary that finds $x$ by exhaustive search when $p \le \secpar^c$ and outputs $[Z_b \ne Y^x]$, and otherwise guesses, has advantage $1 - 1/p \ge 1/2$ conditioned on any group with $p \le \secpar^c$, so $\Pr[p \le \secpar^c]$ is negligible — standard.
 
@@ -98,7 +98,13 @@ DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsil
 
 ## DLIN
 
-Given $(u, v, h, u^a, v^b, h^c) \in \GG^6$ for $u, v, h \getsr \GG$ and $a, b \getsr \ZZ_p$, distinguish $c = a + b$ from $c \getsr \ZZ_p$ — [[BBS04 - Short Group Signatures|BBS04]].
+Given $(u, v, h, u^a, v^b, h^c) \in \GG^6$ for $u, v, h \getsr \GG$ and $a, b \getsr \ZZ_p$, distinguish $c = a + b$ from $c \getsr \ZZ_p$ — [[BBS04 - Short Group Signatures|BBS04]]. Formally, for a group generator $\GrGen$ that outputs groups $(\GG, g, p)$ of prime order $p$, **DLIN is hard** for $\GrGen$ if for all efficient $\calA$,
+
+$$
+\left|\Pr\!\left[\calA(1^\secpar, \GG, g, p, u, v, h, u^a, v^b, h^{a+b}) = 1\right] - \Pr\!\left[\calA(1^\secpar, \GG, g, p, u, v, h, u^a, v^b, h^{c}) = 1\right]\right|
+$$
+
+is negligible, over $(\GG, g, p) \gets \GrGen(1^\secpar)$, $u, v, h \getsr \GG$ and $a, b, c \getsr \ZZ_p$.
 
 For a group generator $\GrGen$ as in [[#Assumption|the DDH assumption]]:
 

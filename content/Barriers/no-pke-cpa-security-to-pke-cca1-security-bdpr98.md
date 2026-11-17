@@ -28,7 +28,7 @@ If an [[public-key-encryption#cpa-security|IND-CPA]]-secure [[public-key-encrypt
 
 ## Sketch
 
-Given an IND-CPA-secure $\PKE = (\KeyGen, \Enc, \Dec)$, let $\Enc'(\pk, m) = 0 \| \Enc(\pk, m)$ and $\Dec'(\sk, 0 \| c) = \Dec(\sk, c)$, and let $\Dec'$ return $\sk$ on the designated ciphertext $1$, which $\Enc'$ never outputs. The CPA game never calls $\Dec'$, so $\PKE'$ is IND-CPA-secure; a CCA1 adversary queries $1$ in Phase 1, receives $\sk$, and decrypts $c^*$ — standard.
+Given an IND-CPA-secure $\PKE = (\KeyGen, \Enc, \Dec)$, fix two distinct messages $m^{(0)}, m^{(1)} \in \calM$ of equal length, as [[public-key-encryption#syntax|PKE § Syntax]] provides. Let $\Enc'(\pk, m) = 0 \| \Enc(\pk, m)$ and $\Dec'(\sk, 0 \| c) = \Dec(\sk, c)$, let $\Dec'$ return $m^{(s_i)}$ on the string $1 \| i$ for $i \le |\sk|$, where $s_i$ is bit $i$ of $\sk$, and let $\Dec'$ return $\bot$ on every other string. $\PKE'$ has the message space and the correctness of $\PKE$. The CPA game never calls $\Dec'$, and $\Enc'$ never outputs a string $1 \| i$, so $\PKE'$ is IND-CPA-secure. A CCA1 adversary queries $1 \| i$ for $i = 1, 2, \ldots$ in Phase 1 until $\Dec'$ returns $\bot$, reassembles $\sk$, and decrypts $c^*$ — standard. Unlike the [[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|separation of NM-CPA from CCA1 security]], no masking string is needed, because the CPA game makes no decryption queries.
 
 ## Notes
 

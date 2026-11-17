@@ -262,12 +262,13 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 34f1471f9d08 -->
+<!-- BEGIN GENERATED participates-in 7bfb87703aa0 -->
 
 ## Participates in
 
 **Builds on Public key encryption**
 
+- [[anonymous-public-key-encryption-to-pke-cpa-security|Key-hiding PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#key-hiding|Key-hiding]])
 - [[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -291,6 +292,7 @@ is negligible.
 
 **Produces Public key encryption**
 
+- [[anonymous-public-key-encryption-to-pke-cpa-security|Key-hiding PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[circuit-private-he-nc1-to-pke-cpa-security|Circuit-private HE for NC1 ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])

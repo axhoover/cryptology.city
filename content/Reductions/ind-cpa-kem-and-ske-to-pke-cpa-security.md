@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-The KEM-DEM hybrid of an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] and a [[symmetric-key-encryption#one-time-security|one-time IND-CPA]] [[symmetric-key-encryption|SKE]] scheme, $\Enc(\pk, m) := (c_1, \SKE.\Enc(\SKE.\KeyGen(1^\secpar; k), m))$ for $(c_1, k) \gets \Encap(\pk)$, which uses the encapsulated key as the coins of $\SKE.\KeyGen$, is [[public-key-encryption#cpa-security|IND-CPA]] secure — folklore. It has the message space of $\SKE$, and it is $(1-\varepsilon)$-correct for a perfectly correct KEM and a $(1-\varepsilon)$-correct $\SKE$ — standard.
+The KEM-DEM hybrid of an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] and a [[symmetric-key-encryption#one-time-security|one-time IND-CPA]] [[symmetric-key-encryption|SKE]] scheme, $\Enc(\pk, m) := (c_1, \SKE.\Enc(k', m))$ for $(c_1, k) \gets \Encap(\pk)$, is [[public-key-encryption#cpa-security|IND-CPA]] secure — folklore. Here $k'$ is the output of $\SKE.\KeyGen(1^\secpar)$ on the first $r(\secpar)$ bits of $k$ as its coins, where $\SKE.\KeyGen(1^\secpar)$ uses $r(\secpar)$ coins and the KEM is run at a security parameter $\secpar^* \ge \secpar$ with $\ell(\secpar^*) \ge r(\secpar)$ ($\secpar^* = \max(\secpar, r(\secpar))$ suffices, since the KEM's keys have length $\ell(\secpar^*) \ge \secpar^*$); this makes the SKE a one-time IND-CPA DEM keyed by uniform strings — standard. It has the message space of $\SKE$, and it is $(1-\varepsilon_{\mathrm{KEM}}-\varepsilon_{\SKE})$-correct for a $(1-\varepsilon_{\mathrm{KEM}})$-correct KEM and a $(1-\varepsilon_{\SKE})$-correct $\SKE$, by a union bound — standard.
 
 ## Sketch
 
