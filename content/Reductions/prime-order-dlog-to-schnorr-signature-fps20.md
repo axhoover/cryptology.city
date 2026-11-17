@@ -24,7 +24,7 @@ In the [[algebraic-group-model|algebraic group model]], with the hash modeled as
 
 ## Sketch
 
-The reduction embeds the DLOG instance as $\pk$ and answers signing queries with the HVZK simulator, programming $H$. An algebraic forger outputs, with each group element it outputs or queries to $H$, a representation over the elements it has received; substituting $R_i = g^{s_i}\pk^{-c_i}$ for the simulated commitments turns it into $R^* = g^{a}\pk^{b}$, fixed before $c^* = H(R^* \| m^*)$ is sampled. A valid forgery $g^{s^*} = R^*\pk^{c^*}$ then gives $\log_g \pk = (s^* - a)/(b + c^*) \bmod p$ unless $c^* = -b$, which happens with probability $1/p$ per hash query.
+The reduction embeds the DLOG instance as $\pk$ and answers signing queries with the HVZK simulator, programming $H$. An algebraic forger outputs, with each group element it outputs or queries to $H$, a representation over the elements it has received; substituting $R_i = g^{s_i}\pk^{-c_i}$ for the simulated commitments turns it into $R^* = g^{a}\pk^{b}$, fixed before $c^* = H(R^* \| m^*)$ is sampled. A valid forgery $g^{s^*} = R^*\pk^{c^*}$ then gives $\log_g \pk = (s^* - a)/(b + c^*) \bmod p$ unless $c^* = -b$, which happens with probability at most $1/|C|$ per hash query, for the challenge space $C$.
 
 ## Notes
 

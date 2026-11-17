@@ -6679,6 +6679,19 @@
    "unlisted": false
   },
   {
+   "id": "selective-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#selective-unforgeability",
+   "of": "ds",
+   "title": "Selective unforgeability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "selective-node-bte",
    "kind": "variant",
    "type": "primitive",
@@ -13957,6 +13970,33 @@
    "title": "Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)"
   },
   {
+   "id": "red-ds-to-distributional-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "distributional-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "one inverter call and no signing query",
+   "rationale": {
+    "class": "The function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-hash-function.md",
+   "slug": "ds-to-hash-function",
+   "graphSlug": "Reductions/ds-to-hash-function",
+   "title": "DS ⇒ Distributional OWF"
+  },
+  {
    "id": "red-ds-to-forward-secure-signature",
    "kind": "equivalence",
    "hypotheses": [
@@ -13984,33 +14024,6 @@
    "title": "DS ⇔ Forward-secure signature"
   },
   {
-   "id": "red-ds-to-hash-function",
-   "kind": "implication",
-   "hypotheses": [
-    "ds"
-   ],
-   "conclusion": "owf",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "tight: one inverter call, and the forger succeeds whenever the inverter does, with no signing query",
-   "rationale": {
-    "class": "The one-way function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
-   },
-   "status": "draft",
-   "page": "content/Reductions/ds-to-hash-function.md",
-   "slug": "ds-to-hash-function",
-   "graphSlug": "Reductions/ds-to-hash-function",
-   "title": "DS ⇒ OWF"
-  },
-  {
    "id": "red-ds-to-identity-based-signature-bnn04",
    "kind": "implication",
    "hypotheses": [
@@ -14036,6 +14049,33 @@
    "slug": "ds-to-identity-based-signature-bnn04",
    "graphSlug": "Reductions/ds-to-identity-based-signature-bnn04",
    "title": "DS ⇒ IBS (certificates)"
+  },
+  {
+   "id": "red-ds-to-selective-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "selective-ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any selective forger unchanged as an EUF-CMA forger."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-selective-ds.md",
+   "slug": "ds-to-selective-ds",
+   "graphSlug": "Reductions/ds-to-selective-ds",
+   "title": "DS ⇒ Selectively unforgeable DS"
   },
   {
    "id": "red-eddsa-to-ds",
@@ -15786,7 +15826,7 @@
     "owf",
     "io"
    ],
-   "conclusion": "ds",
+   "conclusion": "selective-ds",
    "class": "free",
    "model": "standard",
    "models": [
@@ -15805,7 +15845,7 @@
    "page": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
    "slug": "hash-function-and-io-to-ds-sw14",
    "graphSlug": "Reductions/hash-function-and-io-to-ds-sw14",
-   "title": "OWF + iO ⇒ DS"
+   "title": "OWF + iO ⇒ Selectively unforgeable DS"
   },
   {
    "id": "red-hash-function-and-io-to-nizk-sw14",
@@ -23626,7 +23666,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight",
+   "securityLoss": "tight up to an additive term from a signing salt colliding with an earlier H-query, negligible when 2^{-k} is",
    "rationale": {
     "class": "The scheme is fixed, and the reduction runs the forger once as an oracle and programs the random oracle.",
     "model": "The reduction programs the random oracles to embed the CDH instance and to simulate signatures."

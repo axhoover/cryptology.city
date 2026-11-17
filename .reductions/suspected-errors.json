@@ -704,7 +704,7 @@
    "problem": "SUSPECTED ERROR IN THE SKETCH (reported, not fixed): the parenthetical 'knowing the message and signature reveals nothing useful about the key' is a secrecy statement, which is not what one-wayness of signing means and is not the argument. The real argument builds a OWF from $\\KeyGen$'s randomness (or from $(\\sk, m) \\mapsto \\Sign(\\sk,m)$ for a fixed $m$) and inverts it to forge.",
    "severity": "low",
    "affectsEdges": [
-    "red-ds-to-hash-function"
+    "red-ds-to-distributional-owf"
    ]
   },
   {

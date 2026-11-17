@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash function]] family and a [[digital-signature#one-time-signatures|one-time signature]] scheme for messages of fixed length together yield an [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable [[digital-signature|signature scheme]] — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
+A [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash function]] family and a [[digital-signature#one-time-signatures|one-time signature]] scheme for messages of fixed length together yield an [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable [[digital-signature|signature scheme]] — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]. The scheme is $(1-\negl(\secpar))$-correct when the one-time scheme is, since a signature carries polynomially many one-time signatures, each verifying except with negligible probability — standard.
 
 ## Sketch
 

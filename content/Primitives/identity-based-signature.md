@@ -90,6 +90,8 @@ $$
 
 is negligible.
 
+As an object, an identity-based signature scheme denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]], [[#Existential unforgeability|EUF-ID-CMA-unforgeable]] scheme whose identity space contains an identity, and whose message space two distinct messages, that an efficient algorithm outputs on input $1^\secpar$ or $\mpk$; correctness is required for the identities and messages so computed.
+
 # Other results
 
 - Identity-based signatures were proposed together with [[identity-based-encryption|identity-based encryption]], with a signature scheme based on [[rsa-assumption|RSA]] — [[Sha84 - Identity-Based Cryptosystems and Signature Schemes|Sha84]].

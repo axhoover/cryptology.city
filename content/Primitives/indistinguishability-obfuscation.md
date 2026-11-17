@@ -76,7 +76,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 657e1a0eed2f -->
+<!-- BEGIN GENERATED participates-in 10fb8b6d38bc -->
 
 ## Participates in
 
@@ -84,7 +84,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]] (via [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|Differing-inputs obfuscation (diO)]])
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
-- [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]]
+- [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ Selectively unforgeable DS]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[io-and-np-not-in-io-bpp-to-owf-kmnpry14|iO + NP ⊄ io-BPP ⇒ OWF]]

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[hash-function#collision-resistance|collision-resistant hash function]] and a [[digital-signature#one-time-signatures|one-time signature]] scheme yield a stateful many-time [[digital-signature|signature]] scheme: the public key is the root of a Merkle tree over $2^h$ one-time verification keys — a single $O(\secpar)$-bit hash — and the $i$-th signature is a one-time signature under the $i$-th key together with that key and its authentication path of $h$ hashes, so signatures have size $O(h \secpar)$ plus one one-time key and signature — [[Mer89 - A Certified Digital Signature|Mer89]].
+A [[hash-function#collision-resistance|collision-resistant hash function]] and a [[digital-signature#one-time-signatures|one-time signature]] scheme yield a stateful many-time [[digital-signature|signature]] scheme: the public key is the root of a Merkle tree over $2^h$ one-time verification keys — a single $O(\secpar)$-bit hash — and the $i$-th signature is a one-time signature under the $i$-th key together with that key and its authentication path of $h$ hashes, so signatures have size $O(h \secpar)$ plus one one-time key and signature — [[Mer89 - A Certified Digital Signature|Mer89]]. The scheme is $(1-\negl(\secpar))$-correct when the one-time scheme is, since an honest authentication path always hashes to the root — standard.
 
 ## Sketch
 
