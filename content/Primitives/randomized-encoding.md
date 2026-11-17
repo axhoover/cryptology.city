@@ -8,7 +8,6 @@ title: Randomized encoding
 id: randomized-encoding
 variants:
   perfect-randomized-encoding: "#perfect-randomized-encodings"
-  succinct-randomized-encoding: "#succinct-randomized-encodings"
 ---
 
 # Randomized encoding
@@ -69,6 +68,8 @@ A perfect randomized encoding is perfectly correct and perfectly private, and in
 ## Succinct randomized encodings
 
 A succinct randomized encoding, for a space bound $S$ and an output length $m$ fixed in advance, is a randomized encoding of the output of a program $M$ on an input $x$, given a time bound $T$ such that $M$ halts on $x$ within $T$ steps using space at most $S$ and outputs $m$ bits; it is computable in time $\poly(\secpar, |M|, |x|, S, m, \log T)$, and its privacy hides $M$ as well as $x$ — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]]. Such encodings exist assuming [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]]. One-time succinct garbling of RAM programs, with garbled programs of size proportional to the maximum space of the program up to polylogarithmic factors and a factor in $\secpar$, follows from iO and [[injective-one-way-function|injective one-way functions]] — [[CHJV15 - Succinct Garbling and Indistinguishability Obfuscation for RAM Programs|CHJV15]]. With a non-parallelizing language, succinct randomized encodings give [[time-lock-puzzle|time-lock puzzles]] — [[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]].
+
+TODO: the syntax and privacy game of [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]], stated from the paper: whether the encoder takes $T$ as input; whether a single polynomial, independent of $T$, bounds the encoding time; the range of $T$; the running time of the decoder, which the base syntax requires to be $\poly(\secpar)$; and what the simulator receives ($M(x)$, and which of $|M|$, $|x|$, $S$, $m$ and $T$). Register the notion as a variant once the game is encoded.
 
 # Other results
 
