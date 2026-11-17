@@ -19,7 +19,7 @@ A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encrypti
 
 ## Syntax
 
-An $L$-bit PRC is a tuple of efficient algorithms $(\Gen, \Enc, \Dec)$, with respect to key space $\calK$, message space $\bits^L$, and ciphertext space $\bits^n$ such that
+An $L$-bit PRC, for $L = L(\secpar) \ge 1$, is a tuple of efficient algorithms $(\Gen, \Enc, \Dec)$, with respect to key space $\calK$, message space $\bits^L$, and ciphertext space $\bits^n$ such that
 
 - $\Gen(1^\secpar) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \calK$,
 - $\Enc_k(m) \to c$, is a randomized algorithm that takes a key $k\in \calK$ and message $m\in \bits^L$, and outputs a ciphertext $c \in \bits^n$,

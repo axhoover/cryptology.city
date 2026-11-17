@@ -13,14 +13,14 @@ source:
   - "[[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]"
 security-loss: "a factor m in the output length, from Yao's next-bit hybrid"
 rationale:
-  class: "The generator only squares modulo the sampled Blum integer, and the reduction runs any distinguisher only as an oracle to predict the low-order bit, which decides quadratic residuosity."
+  class: "The generator samples the Blum integer from part of its seed and only squares modulo it, and the reduction runs any distinguisher only as an oracle to predict the low-order bit, which decides quadratic residuosity."
 ---
 
 # QR ⇒ PRG (Blum–Blum–Shub)
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard for Blum integers, the generator that squares a uniform quadratic residue $x_0$ modulo $N$ repeatedly, $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ is a [[pseudorandom-generator|PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
+If [[quadratic-residuosity|QR]] is hard for Blum integers, then for $N$ sampled as in the [[quadratic-residuosity#assumption|QR game]], the generator that squares a uniform quadratic residue $x_0$ modulo $N$ repeatedly, $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ for $m = m(\secpar)$ is a [[pseudorandom-generator|PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]. The seed consists of the coins that sample $N$ and those that sample $x_0$, and the output omits $N$; with $m(\secpar)$ above the seed length, the generator is an unkeyed PRG — standard.
 
 ## Sketch
 

@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|symmetric-key encryption]] scheme, with the same algorithms, is a symmetric-key encryption scheme: the weaker notion only drops security guarantees — folklore.
+A [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|symmetric-key encryption]] scheme, with the same algorithms, is [[symmetric-key-encryption#one-time-security|one-time secure]]: a one-time adversary is a CPA adversary that makes one query, so CPA security implies one-time security with the same advantage — folklore.
 
 ## Notes
 

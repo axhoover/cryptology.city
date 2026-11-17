@@ -19,11 +19,11 @@ rationale:
 
 ## Statement
 
-Every [[pseudorandom-generator|PRG]] $G : \bits^n \to \bits^m$ with $m > n$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]]: an efficient inverter for $G$ with success probability $\varepsilon$ yields an efficient PRG distinguisher with advantage at least $(1 - 2^{n-m})\varepsilon \ge \varepsilon/2$ — folklore.
+Every [[pseudorandom-generator|PRG]] $G : \calS \to \calR$ with $|\calR| \ge 2|\calS|$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] with a trivial key, domain $\calS$ and range $\calR$: an efficient inverter for $G$ with success probability $\varepsilon$ yields an efficient PRG distinguisher with advantage at least $(1 - |\calS|/|\calR|)\varepsilon \ge \varepsilon/2$ — folklore.
 
 ## Sketch
 
-Given an inverter $\calA$, the distinguisher $D(y)$ runs $\hat{x} \gets \calA(y)$ and outputs $1$ iff $G(\hat{x}) = y$. On $y = G(s)$ it outputs $1$ with probability $\varepsilon$; on uniform $y$ with probability at most $2^{n-m}\varepsilon$, since each $y$ in the image of $G$ has probability $2^{-m} \le 2^{n-m}\Pr_s[G(s) = y]$.
+Given an inverter $\calA$, the distinguisher $D(y)$ runs $\hat{x} \gets \calA(y)$ and outputs $1$ iff $G(\hat{x}) = y$. On $y = G(s)$ it outputs $1$ with probability $\varepsilon$; on uniform $y$ with probability at most $(|\calS|/|\calR|)\varepsilon$, since each $y$ in the image of $G$ has probability $1/|\calR| \le (|\calS|/|\calR|)\Pr_s[G(s) = y]$.
 
 ## Notes
 

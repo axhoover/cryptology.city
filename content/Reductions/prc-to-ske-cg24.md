@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-An $L$-bit [[pseudorandom-error-correcting-code|PRC]] $(\Gen, \Enc, \Dec)$ is an [[symmetric-key-encryption|SKE]] scheme with message space $\bits^L$ and ciphertext space $\bits^n$: robustness against the identity channel gives $(1-\negl(\secpar))$-correctness, and PRC pseudorandomness is [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA]] security, which implies [[symmetric-key-encryption#cpa-security|CPA]] security — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
+An $L$-bit [[pseudorandom-error-correcting-code|PRC]] $(\Gen, \Enc, \Dec)$, for $L = L(\secpar) \ge 1$, is an [[symmetric-key-encryption|SKE]] scheme with message space $\bits^L$, which has two distinct messages of equal length, and ciphertext space $\bits^n$: robustness against the identity channel gives $(1-\negl(\secpar))$-correctness, and PRC pseudorandomness is [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA]] security, which implies [[symmetric-key-encryption#cpa-security|CPA]] security and hence [[symmetric-key-encryption#one-time-security|one-time]] security — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
 
 ## Sketch
 

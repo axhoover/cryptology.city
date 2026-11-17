@@ -27,7 +27,7 @@ If a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryp
 
 ## Sketch
 
-The appended bit is independent of the message, so a CPA adversary against the modified scheme yields one against the original; a uniform ciphertext carries the constant bit only with probability $1/2$.
+The appended bit is independent of the message, so a CPA adversary against the modified scheme yields one against the original; a uniform ciphertext carries the constant bit only with probability $1/2$. Decryption strips the bit, so the modified scheme keeps the correctness and the message space of $\SKE$.
 
 ## Notes
 
