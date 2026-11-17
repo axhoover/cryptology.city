@@ -77,6 +77,8 @@ $$
 
 is negligible. BIPW17 state the game with one challenge pair $i_0 \ne i_1$ and oracle access to $\Query(\sk, \cdot)$, which implies the game above by a hybrid argument (Remark 3.2) — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
 
+As an object, an oblivious locally decodable code denotes a perfectly correct, doubly efficient and oblivious code.
+
 # Other results
 
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ OLDC]] — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]

@@ -159,7 +159,7 @@ Sparse LPN yields, in the random-oracle model, pseudorandom correlation function
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse LPN ⇒ PCG]]
 - [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]]
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
-- The $\FF_p$ generalization over expanding matrices, [[noisy-k-lin-over-expanders|noisy k-LIN over expanders]], together with [[planted-clique|planted clique]] gives PKE ([[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]) — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
+- [[noisy-k-lin-over-expanders|Noisy k-LIN over expanders]], a worst-case-support analogue over $\FF_p$ with $p = n^{\Omega(1)}$ and advantage bounded by $1/4$ rather than an instance of this page's Sparse LPN, together with [[planted-clique|planted clique]] gives PKE ([[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]) — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
 
 ## Ring-LPN
 

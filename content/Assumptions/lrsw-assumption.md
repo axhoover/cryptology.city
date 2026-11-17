@@ -11,7 +11,7 @@ unlisted: true
 
 # LRSW assumption
 
-Given $X = g^x$, $Y = g^y$ and an oracle that answers each query $m$ with $(a, a^y, a^{x + mxy})$ for a fresh random $a$, no efficient adversary can output such a triple, with $a \ne 1$, for a nonzero $m$ it never queried.
+Given $X = g^x$, $Y = g^y$ and an oracle that answers each query $m \in \ZZ_p$ with $(a, a^y, a^{x + mxy})$ for a fresh random $a$, no efficient adversary can output such a triple, with $a \ne 1$, for a nonzero $m \in \ZZ_p$ it never queried.
 
 ## Assumption
 
@@ -24,7 +24,7 @@ The assumption concerns a group generator $\GrGen$ that on input $1^\secpar$ out
 \begin{algorithmic}
 \State $(\GG, p, g) \gets \GrGen(1^\secpar)$; $x, y \getsr \ZZ_p$; $\calQ \gets \{\}$
 \State $(m, a, b, c) \gets \calA^{\calO}(1^\secpar, \GG, p, g, g^x, g^y)$
-\Return $[m \notin \calQ \wedge m \ne 0 \wedge a \ne 1 \wedge b = a^y \wedge c = a^{x + mxy}]$
+\Return $[m \in \ZZ_p \setminus \{0\} \wedge m \notin \calQ \wedge a \ne 1 \wedge b = a^y \wedge c = a^{x + mxy}]$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -34,6 +34,9 @@ The assumption concerns a group generator $\GrGen$ that on input $1^\secpar$ out
 \algname{Oracle}
 \caption{$\calO(m)$}
 \begin{algorithmic}
+\If{$m \notin \ZZ_p$}
+\Return $\bot$
+\EndIf
 \State $a \getsr \GG$; $\calQ \gets \calQ \cup \{m\}$
 \Return $(a, a^y, a^{x + mxy})$
 \end{algorithmic}
@@ -48,7 +51,7 @@ $$
 
 is negligible.
 
-The assumption is from [[LRSW99 - Pseudonym Systems|LRSW99]], and [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]] use it in groups with a bilinear map. It is interactive: the adversary queries an oracle. Both exclusions in the winning condition are needed, since $(g, g^y, g^x)$ is a valid triple for $m = 0$ and $(1, 1, 1)$ for every $m$ — standard.
+The assumption is from [[LRSW99 - Pseudonym Systems|LRSW99]], and [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]] use it in groups with a bilinear map. It is interactive: the adversary queries an oracle. Both exclusions in the winning condition are needed, since $(g, g^y, g^x)$ is a valid triple for $m = 0$ and $(1, 1, 1)$ for every $m$, and so is the restriction to $m \in \ZZ_p$, since an integer $m \equiv m' \pmod p$ has the same valid triples as $m'$, which may be $0$ or a queried message — standard.
 
 <!-- BEGIN GENERATED participates-in 177e779d771d -->
 
