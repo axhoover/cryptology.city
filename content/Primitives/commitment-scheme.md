@@ -174,7 +174,7 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], then [[prg-to-com-naor91|PRG ⇒ COM]] — [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
 - [[pke-to-com|PKE ⇒ COM]] — folklore
-- [[dlog-to-com-ped91|DLOG ⇒ statistically hiding COM]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]
+- [[dlog-to-com-ped91|DLOG in verifiable prime-order groups ⇒ statistically hiding COM]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]
 
 <!-- BEGIN GENERATED participates-in 964bc85ba46a -->
 
