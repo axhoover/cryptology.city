@@ -70,15 +70,17 @@ $$
 
 is negligible — standard. With $t = 1$ fixed, $\calA$ must turn one banknote into at least two states that pass verification; the bound below for Wiesner's scheme is stated for counterfeiters that output exactly two registers.
 
+As an object, quantum money denotes a [[#Correctness|correct]] ($\varepsilon$ negligible) and unforgeable private-key scheme.
+
 # Variations
 
 ## Pure money states
 
-$\mathsf{QM}$ has **pure money states** if for every key $\sk$ there is a pure state $|\psi_\sk\rangle$ that $\mathsf{Mint}(\sk)$ outputs on every run. All banknotes under one key are then identical, and $\calA$ in $\Game^{\mathrm{qm}}$ receives $|\psi_\sk\rangle^{\otimes t}$.
+$\mathsf{QM}$ has **pure money states** if for every key $\sk$ there is a pure state $|\psi_\sk\rangle$ that $\mathsf{Mint}(\sk)$ outputs on every run. All banknotes under one key are then identical, and $\calA$ in $\Game^{\mathrm{qm}}$ receives $|\psi_\sk\rangle^{\otimes t}$. As an object, pure-state quantum money denotes a correct and unforgeable private-key scheme with pure money states.
 
 ## Public-key quantum money
 
-In a **public-key** scheme $\mathsf{QM} = (\KeyGen, \mathsf{Mint}, \Vrfy)$, $\KeyGen(1^\secpar) \to (\sk, \pk)$, minting uses $\sk$, and $\Vrfy(\pk, \sigma) \to \top/\bot$ uses only the public key. Unforgeability is $\Game^{\mathrm{qm}}$ with $\pk$ given to $\calA$ and verification run under $\pk$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+In a **public-key** scheme $\mathsf{QM} = (\KeyGen, \mathsf{Mint}, \Vrfy)$, $\KeyGen(1^\secpar) \to (\sk, \pk)$, minting uses $\sk$, and $\Vrfy(\pk, \sigma) \to \top/\bot$ uses only the public key. Unforgeability is $\Game^{\mathrm{qm}}$ with $\pk$ given to $\calA$ and verification run under $\pk$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. As an object, public-key quantum money denotes a scheme that is [[#Correctness|correct]] ($\varepsilon$ negligible), with $\Vrfy(\pk, \cdot)$ in place of $\Vrfy(\sk, \cdot)$, and unforgeable.
 
 ### Pointwise completeness
 
@@ -110,15 +112,15 @@ $$
 \Adv^{\mathrm{mini}}_{\mathsf{MS},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{mini}}_{\mathsf{MS},\calA}(\secpar) = 1\right]
 $$
 
-is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] call $\mathsf{MS}$ secure if it is unforgeable and has completeness error at most $1/3$.
+is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] call $\mathsf{MS}$ secure if it is unforgeable and has completeness error at most $1/3$. As an object, a mini-scheme denotes a correct ($\varepsilon$ negligible) and unforgeable mini-scheme.
 
 ### Secret-based mini-schemes
 
-A mini-scheme is **secret-based** if $\mathsf{Mint}(1^\secpar)$ first samples a uniform classical string $r$ and then runs a generation algorithm on $r$, which outputs a banknote $(s_r, \rho_r)$ determined by $r$, so that reusing $r$ gives identical banknotes — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. The mini-schemes of [[AC12 - Quantum Money from Hidden Subspaces|AC12]] are secret-based; those of [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]] are not, since their serial number is obtained only as the outcome of a quantum measurement — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+A mini-scheme is **secret-based** if $\mathsf{Mint}(1^\secpar)$ first samples a uniform classical string $r$ and then runs a generation algorithm on $r$, which outputs a banknote $(s_r, \rho_r)$ determined by $r$, so that reusing $r$ gives identical banknotes — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. The mini-schemes of [[AC12 - Quantum Money from Hidden Subspaces|AC12]] are secret-based; those of [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]] are not, since their serial number is obtained only as the outcome of a quantum measurement — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. As an object, a secret-based mini-scheme denotes a correct and unforgeable mini-scheme that is secret-based.
 
 #### Classical serial numbers
 
-A secret-based mini-scheme has **classical serial numbers** if it includes a deterministic classical polynomial-time algorithm $S$ with $S(r) = s_r$. $\mathsf{Mint}$ itself may be quantum, so a secret-based mini-scheme in general guarantees only that $r \mapsto s_r$ is computable in quantum polynomial time; the oracle mini-scheme of [[AC12 - Quantum Money from Hidden Subspaces|AC12]], whose $\mathsf{Mint}$ reads $s_r$ off a classical oracle, has classical serial numbers — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+A secret-based mini-scheme has **classical serial numbers** if it includes a deterministic classical polynomial-time algorithm $S$ with $S(r) = s_r$. $\mathsf{Mint}$ itself may be quantum, so a secret-based mini-scheme in general guarantees only that $r \mapsto s_r$ is computable in quantum polynomial time; the oracle mini-scheme of [[AC12 - Quantum Money from Hidden Subspaces|AC12]], whose $\mathsf{Mint}$ reads $s_r$ off a classical oracle, has classical serial numbers — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. As an object, a mini-scheme with classical serial numbers denotes a correct and unforgeable secret-based mini-scheme with classical serial numbers.
 
 ## Quantum lightning
 

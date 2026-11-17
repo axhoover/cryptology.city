@@ -20,4 +20,4 @@ rationale:
 
 ## Statement
 
-A [[digital-signature#security-against-quantum-adversaries|signature scheme that is EUF-CMA unforgeable against efficient quantum forgers making classical signing queries]] is [[digital-signature#nonadaptive-queries|secure against nonadaptive quantum chosen-message attacks]], with the same advantage for every forger: a forger that submits one classical list of messages is an adaptive forger that makes all its queries at once — folklore.
+A [[digital-signature#security-against-quantum-adversaries|signature scheme that is EUF-CMA unforgeable against efficient quantum forgers making classical signing queries]] is [[digital-signature#nonadaptive-queries|secure against nonadaptive quantum chosen-message attacks]], with the same correctness and the same advantage for every forger: a forger that submits one classical list of messages is an adaptive forger that makes all its queries at once — folklore.

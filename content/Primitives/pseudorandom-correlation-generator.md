@@ -19,7 +19,7 @@ A correlation generator $\calC$ is a $\PPT$ algorithm that on input $1^\secpar$ 
 - $\Gen(1^\secpar) \to (k_0, k_1)$, a randomized algorithm outputting a pair of seeds.
 - $\Eval(\sigma, k_\sigma) \to R_\sigma$, a deterministic algorithm taking a party index $\sigma \in \bits$ and the seed $k_\sigma$, outputting party $\sigma$'s output $R_\sigma$.
 
-$\Eval$ is called Expand in [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]]. Seeds as long as outputs make both properties trivial: $\Gen$ that samples $(R_0, R_1) \gets \calC(1^\secpar)$ and outputs $k_\sigma := R_\sigma$, with $\Eval(\sigma, k_\sigma) := k_\sigma$, has advantage $0$ in the correctness game and is secure by reverse-sampleability of $\calC$, so the object of interest is a PCG with $|k_\sigma|$ much smaller than $|R_\sigma|$.
+$\Eval$ is called Expand in [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]]. Seeds as long as outputs make both properties trivial: $\Gen$ that samples $(R_0, R_1) \gets \calC(1^\secpar)$ and outputs $k_\sigma := R_\sigma$, with $\Eval(\sigma, k_\sigma) := k_\sigma$, has advantage $0$ in the correctness game and is secure by reverse-sampleability of $\calC$.
 
 ## Properties
 

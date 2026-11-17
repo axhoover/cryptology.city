@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If there is a classical function that is [[hash-function#quantum-secure-one-wayness|one-way against quantum adversaries]], there is a [[digital-signature|signature scheme]] that is [[digital-signature#nonadaptive-queries|secure against nonadaptive quantum chosen-message attacks]] — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Theorem 2). The scheme is Rompel's construction of signatures from any one-way function — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]] — and its security reduction is black-box, so nothing in it depends on the forger being classical — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+If there is a classical function that is [[hash-function#quantum-secure-one-wayness|one-way against quantum adversaries]], there is a [[digital-signature|signature scheme]] that is [[digital-signature#nonadaptive-queries|secure against nonadaptive quantum chosen-message attacks]] — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Theorem 2). The scheme is Rompel's construction of signatures from any one-way function — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]] — and its security reduction is black-box, so nothing in it depends on the forger being classical — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. Honest signatures in Rompel's scheme always verify, so it is perfectly [[digital-signature#correctness|correct]] — standard.
 
 ## Notes
 

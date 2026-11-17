@@ -18,7 +18,7 @@ The _planted clique assumption_ conjectures that no efficient adversary can dist
 
 ## Assumption
 
-Let $\calG(n,1/2)$ denote the Erdős–Rényi distribution on $n$-vertex graphs where each edge appears independently with probability $1/2$. A planted $k$-clique instance is produced by sampling $G \sim \calG(n,1/2)$ and then forcing all edges within a uniformly random $k$-subset $S \subset [n]$ to be present. The number of vertices $n = n(\secpar)$ is polynomially related to $\secpar$, and $k = k(\secpar)$.
+Let $\calG(n,1/2)$ denote the Erdős–Rényi distribution on $n$-vertex graphs where each edge appears independently with probability $1/2$. A planted $k$-clique instance is produced by sampling $G \sim \calG(n,1/2)$ and then forcing all edges within a uniformly random $k$-subset $S \subset [n]$ to be present. The game takes $n$ and $k$ as parameters; hardness below sets $n = \secpar$ and $k = \lceil n^\delta \rceil$.
 
 ```pseudocode
 \begin{algorithm}
@@ -39,15 +39,19 @@ Let $\calG(n,1/2)$ denote the Erdős–Rényi distribution on $n$-vertex graphs 
 \end{algorithm}
 ```
 
-**$(n,k)$-planted clique is hard** if for all efficient $\calA$,
+Let
 
 $$
-\Adv^{\mathrm{pc}}_{n,k,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pc}}_{n,k,\calA}(\secpar) = 1\right] - 1\right|
+\Adv^{\mathrm{pc}}_{n,k,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pc}}_{n,k,\calA}(\secpar) = 1\right] - 1\right|.
 $$
 
-is negligible.
+**Planted clique is hard** if for every constant $\delta \in (0, 1/2)$, every efficient $\calA$ and all sufficiently large $n$, with $n = \secpar$,
 
-As an object, planted clique denotes the assumption that for some constant $\delta \in (0, 1/2)$, $(n, n^\delta)$-planted clique is hard for all efficient $\calA$. For large $n$, a clique of size $n^\delta$ exceeds $2\log_2 n$, which bounds the clique number of $\calG(n, 1/2)$ except with probability $o(1)$, so the two distributions are statistically far apart and the assumption is not information-theoretic — standard.
+$$
+\Adv^{\mathrm{pc}}_{n,\lceil n^\delta \rceil,\calA}(\secpar) \le \frac{1}{3}.
+$$
+
+The bound cannot be negligible: for $k \le \sqrt{n}$, comparing the edge count of $\mathbf{G}$ with its mean $\binom{n}{2}/2$ under $\calG(n, 1/2)$ has advantage $\Theta(k^2/n)$, which is $\Theta(n^{2\delta - 1})$ for $k = \lceil n^\delta \rceil$ — standard. As an object, planted clique denotes this assumption. For large $n$, a clique of size $n^\delta$ exceeds $2\log_2 n$, which bounds the clique number of $\calG(n, 1/2)$ except with probability $o(1)$, so the two distributions are statistically far apart and the assumption is not information-theoretic — standard.
 
 ## Known Results
 
@@ -59,13 +63,13 @@ As an object, planted clique denotes the assumption that for some constant $\del
 
 ## GHJS25 planted clique conjecture
 
-Let $\calG(n, 1/2, n^\delta)$ be the distribution that samples $G \sim \calG(n, 1/2)$ and plants a clique on $n^\delta$ uniformly random vertices. The **GHJS25 planted clique conjecture** states that there exist constants $\alpha \in (0, 1)$ and $\delta \in (0, 1/2)$ such that for all algorithms $\calA$ of size $n^{O((\log n)^\alpha)}$,
+Let $\calG(n, 1/2, n^\delta)$ be the distribution that samples $G \sim \calG(n, 1/2)$ and plants a clique on $n^\delta$ uniformly random vertices. The **GHJS25 planted clique conjecture** states that there exist constants $\alpha \in (0, 1)$ and $\delta \in (0, 1/2)$ such that for every constant $c > 0$, all sufficiently large $n$ and every algorithm $\calA$ of size at most $n^{c(\log n)^\alpha}$,
 
 $$
 \left|\Pr\!\left[\calA(G) = 1 : G \gets \calG(n, 1/2)\right] - \Pr\!\left[\calA(G) = 1 : G \gets \calG(n, 1/2, n^\delta)\right]\right| \le \frac{1}{3}
 $$
 
-— [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Conjecture 4.1. The conjecture is stated in the graph size $n$, not in a security parameter; the size bound $n^{O((\log n)^\alpha)} = 2^{O((\log n)^{1+\alpha})}$ exceeds every polynomial in $n$ and is below $2^{n^\epsilon}$ for every $\epsilon > 0$. It bounds the advantage by the constant $1/3$ rather than a negligible function, so it does not by definition strengthen the base assumption. GHJS25 take $n = 2^{(\log \secpar)^{1/(1+\alpha)}}$, so that adversaries of size $\poly(\secpar)$ have size $n^{O((\log n)^\alpha)}$, build a public-key bit encryption scheme with constant distinguishing advantage, and amplify it to a semantically secure one — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]].
+— [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] (arXiv v1, Conjectures 1.1 and 4.1), who write the size bound as $n^{O((\log n)^\alpha)}$. The left-hand side is $\Adv^{\mathrm{pc}}_{n,\lceil n^\delta \rceil,\calA}$, reading $n^\delta$ as $\lceil n^\delta \rceil$. The conjecture is stated in the graph size $n$, not in a security parameter; the size bound $n^{O((\log n)^\alpha)} = 2^{O((\log n)^{1+\alpha})}$ exceeds every polynomial in $n$ and is below $2^{n^\epsilon}$ for every $\epsilon > 0$. It is stated for one $\delta$ against adversaries of size $n^{O((\log n)^\alpha)}$, while the base assumption quantifies every $\delta \in (0, 1/2)$ against polynomial-size adversaries, so neither contains the other by definition. GHJS25 take $n = 2^{(\log \secpar)^{1/(1+\alpha)}}$, so that adversaries of size $\poly(\secpar)$ have size $n^{O((\log n)^\alpha)}$, build a public-key bit encryption scheme with constant distinguishing advantage, and amplify it to a semantically secure one — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]].
 
 ## Standard planted clique ($k = \Theta(\sqrt{n})$)
 
