@@ -23,7 +23,7 @@ Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] with key space 
 
 ## Sketch
 
-$\Eval$ is efficient and its inputs have fixed polynomial lengths, so $f_\PRF$ is computed by a polynomial-size circuit and has a protocol; for each corrupted party, the OPRF's semi-honest security game is the semi-honest 2PC game for $f_\PRF$, and pseudorandomness is the hypothesis on $\PRF$ — standard.
+$\Eval$ is efficient and its inputs have fixed polynomial lengths, so $f_\PRF$ is a polynomial-time functionality and has a protocol; for each corrupted party, the OPRF's semi-honest security game is the semi-honest 2PC game for $f_\PRF$, and pseudorandomness is the hypothesis on $\PRF$ — standard.
 
 ## Notes
 

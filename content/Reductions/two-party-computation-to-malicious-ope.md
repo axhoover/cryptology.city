@@ -23,7 +23,7 @@ For every finite field $\FF$ with $\poly(\secpar)$-bit elements and efficient op
 
 ## Sketch
 
-$f_{\mathrm{OPE}}$, with the replacement of inadmissible inputs, is computed by a polynomial-size circuit, and the coefficient encoding admits only polynomials of degree at most $d$, so malicious security of the OPE is security with abort of the general protocol for $f_{\mathrm{OPE}}$ — standard.
+$f_{\mathrm{OPE}}$, with the replacement of inadmissible inputs, is a polynomial-time functionality, and the coefficient encoding admits only polynomials of degree at most $d$, so malicious security of the OPE is security with abort of the general protocol for $f_{\mathrm{OPE}}$ — standard.
 
 ## Notes
 

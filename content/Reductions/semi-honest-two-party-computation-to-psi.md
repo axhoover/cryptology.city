@@ -23,7 +23,7 @@ A protocol that securely computes $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|
 
 ## Sketch
 
-$f_{\mathrm{PSI}}$ is computed by a circuit of size polynomial in $\ell$, $n_S$ and $n_R$, so the general protocol applies to it, and for each corrupted party the PSI semi-honest game is the semi-honest 2PC game for $f_{\mathrm{PSI}}$ — standard.
+$f_{\mathrm{PSI}}$ is computed in time polynomial in $\ell$, $n_S$ and $n_R$, so the general protocol applies to it, and for each corrupted party the PSI semi-honest game is the semi-honest 2PC game for $f_{\mathrm{PSI}}$ — standard.
 
 ## Notes
 

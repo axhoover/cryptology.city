@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-In the OT-hybrid model ([[oblivious-transfer#ideal-ot-functionality|ideal OT]]), given a [[pseudorandom-generator|PRG]] used only as a black box, every functionality has a computationally UC-secure protocol with a constant number of rounds against a static malicious adversary corrupting any number of parties ([[secure-multi-party-computation#universal-composability-uc|UC MPC]]). For three or more parties these are the first constant-round protocols that use cryptographic primitives only as black boxes, and they avoid zero-knowledge proofs. The compiler combines a protocol secure with an honest majority with a protocol secure against semi-honest parties without an honest majority — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]].
+In the OT-hybrid model ([[oblivious-transfer#ideal-ot-functionality|ideal OT]]), given a [[pseudorandom-generator|PRG]] used only as a black box, every functionality has a computationally UC-secure protocol with a constant number of rounds against a static malicious adversary corrupting any number of parties ([[secure-multi-party-computation#universal-composability-uc|UC MPC]]). For three or more parties these are the first constant-round protocols that use cryptographic primitives only as black boxes, and they avoid zero-knowledge proofs. The compiler combines a protocol secure with an honest majority with a protocol secure against semi-honest parties without an honest majority — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]. The protocols are non-trivial: with no party corrupted and every message delivered, every party outputs its value of $f$ — standard.
 
 ## Notes
 

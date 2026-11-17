@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A family of protocols that securely computes, for every $n$, every $n$-party functionality with abort against $t = n - 1$ corruptions ([[secure-multi-party-computation#security-with-abort|MPC]]) contains, for $n = 2$, a protocol that securely computes every two-party functionality with abort against a malicious adversary corrupting either party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]) — folklore.
+A family of protocols that securely computes, for every $n$, every $n$-party functionality with abort against $t = n - 1$ corruptions ([[secure-multi-party-computation#security-with-abort|MPC]]) contains, for $n = 2$, a protocol that securely computes every two-party functionality with abort against a malicious adversary corrupting at most one party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]) — folklore.

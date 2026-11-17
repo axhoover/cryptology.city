@@ -23,7 +23,7 @@ Let $\ell$, $n_S$ and $n_R$ be polynomials in $\secpar$, and let $f_{\mathrm{PSI
 
 ## Sketch
 
-$f_{\mathrm{PSI}}$, with the replacement of inadmissible inputs, is computed by a circuit of size polynomial in $\ell$, $n_S$ and $n_R$, and malicious security of a PSI protocol is by definition security with abort for $f_{\mathrm{PSI}}$ — standard.
+$f_{\mathrm{PSI}}$, with the replacement of inadmissible inputs, is computed in time polynomial in $\ell$, $n_S$ and $n_R$, and malicious security of a PSI protocol is by definition security with abort for $f_{\mathrm{PSI}}$ — standard.
 
 ## Notes
 
