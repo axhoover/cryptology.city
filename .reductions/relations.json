@@ -23372,6 +23372,33 @@
    "title": "Public-key QM ⇒ Mini-scheme"
   },
   {
+   "id": "red-publicly-deniable-encryption-to-deniable-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "publicly-deniable-encryption"
+   ],
+   "conclusion": "deniable-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the sender-deniability advantage is at most the CPA advantage plus the explanation advantage",
+   "rationale": {
+    "class": "The construction sets Fake to run Explain on the ciphertext as an oracle, and the two hybrid reductions run the deniability adversary as a black box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/publicly-deniable-encryption-to-deniable-encryption.md",
+   "slug": "publicly-deniable-encryption-to-deniable-encryption",
+   "graphSlug": "Reductions/publicly-deniable-encryption-to-deniable-encryption",
+   "title": "Publicly deniable encryption ⇒ Deniable encryption"
+  },
+  {
    "id": "red-pure-one-way-state-generator-to-one-way-state-generator",
    "kind": "implication",
    "hypotheses": [

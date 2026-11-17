@@ -68,9 +68,38 @@ An adversary that outputs $1$ exactly when $\Enc(\pk, m'; \rho_b) \ne c_b$ has a
 
 ## Public deniability
 
-A scheme is **publicly deniable** if $\mathsf{Fake}$ sees $m$ and $r$ only through the ciphertext: $\mathsf{Fake}(\pk, m, r, m') = \mathsf{Explain}(\pk, \Enc(\pk, m; r), m')$ for an efficient randomized algorithm $\mathsf{Explain}$, so that anyone can explain any ciphertext as an encryption of any message; [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] call this algorithm $\mathsf{Explain}$. The scheme has **indistinguishable explanations** if for every $m \in \calM$, every efficient algorithm has negligible advantage in distinguishing $(\pk, c, r)$ from $(\pk, c, \mathsf{Explain}(\pk, c, m))$, for $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $r \getsr \calR$ and $c = \Enc(\pk, m; r)$; [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] call the requirement indistinguishability of explanation. As an object, publicly deniable encryption denotes a $(1-\negl(\secpar))$-correct, CPA-secure, publicly deniable scheme with indistinguishable explanations.
+A scheme is **publicly deniable** if $\mathsf{Fake}$ sees $m$ and $r$ only through the ciphertext: $\mathsf{Fake}(\pk, m, r, m') = \mathsf{Explain}(\pk, \Enc(\pk, m; r), m')$ for an efficient randomized algorithm $\mathsf{Explain}$, so that anyone can explain any ciphertext as an encryption of any message — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]. Indistinguishability of explanation lets the adversary choose the message after seeing $\pk$; in world 0 it receives an encryption of $m$ with its true coins, in world 1 the same ciphertext with coins that $\mathsf{Explain}$ produces for $m$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]], Definition 3.
 
-Such a scheme is sender-deniable for $m, m'$ fixed before $\KeyGen$: CPA security replaces $\Enc(\pk, m; r)$ by $\Enc(\pk, m'; r)$ under $\mathsf{Explain}(\pk, \cdot, m')$, and indistinguishability of explanations for $m'$ then replaces the explanation by $r$ — standard. With explanations indistinguishable also for $m$ chosen after $\pk$, the same hybrids give sender deniability as defined above — standard. The fixed-message form does not suffice for that when $\bits^\secpar \subseteq \calM$: append a uniform $u \getsr \bits^\secpar$ to the public key of any such scheme and let $\mathsf{Explain}$ output a fixed $\bar r \in \calR$ on fake message $u$. Correctness, CPA security and indistinguishability of explanations for each fixed $m$ survive, the last up to an additive $2^{-\secpar}$, but the adversary that submits $m' = u$ and outputs $[\rho_b = \bar r]$ has $\Adv^{\mathrm{deny}}_{\mathsf{DE},\calA}(\secpar) = 1 - 1/|\calR|$.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ioe}}_{\mathsf{DE},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(m, \stA) \gets \calA(1^\secpar, \pk)$
+\Comment{$m \in \calM$}
+\State $r \getsr \calR$; $c \gets \Enc(\pk, m; r)$
+\State $\rho_0 \gets r$
+\Comment{World 0: the true coins}
+\State $\rho_1 \gets \mathsf{Explain}(\pk, c, m)$
+\Comment{World 1: an explanation of $c$ as an encryption of $m$}
+\State $b' \gets \calA(c, \rho_b, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A publicly deniable scheme has **indistinguishable explanations** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ioe}}_{\mathsf{DE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ioe}}_{\mathsf{DE},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]], Definition 3. As an object, publicly deniable encryption denotes a $(1-\negl(\secpar))$-correct, CPA-secure, publicly deniable scheme with indistinguishable explanations.
+
+Such a scheme is sender-deniable: with $\mathsf{Fake} := \mathsf{Explain}(\pk, \Enc(\pk, m; r), m')$, CPA security replaces $\Enc(\pk, m; r)$ by $\Enc(\pk, m'; r)$, since $\mathsf{Explain}$ needs only $\pk$ and the ciphertext, and indistinguishability of explanations for the message $m'$, chosen after $\pk$, then replaces the explanation by $r$, so $\Adv^{\mathrm{deny}} \le \Adv^{\mathrm{cpa}} + \Adv^{\mathrm{ioe}}$ ([[publicly-deniable-encryption-to-deniable-encryption|Publicly deniable encryption ⇒ Deniable encryption]]) — folklore.
+
+The condition with $m$ fixed before $\KeyGen$ follows from this one but does not give sender deniability when $\bits^\secpar \subseteq \calM$: append a uniform $u \getsr \bits^\secpar$ to the public key of any publicly deniable scheme with indistinguishable explanations, and let $\mathsf{Explain}$ output a fixed $\bar r \in \calR$ on message $u$. Correctness, CPA security and the fixed-message condition survive, the last up to an additive $2^{-\secpar}$, but the adversary in $\Game^{\mathrm{ioe}}$ that submits $m = u$ and outputs $[\rho_b = \bar r]$ has advantage $1 - 1/|\calR|$, and the same choice $m' = u$ in $\Game^{\mathrm{deny}}$ breaks sender deniability with advantage $1 - 1/|\calR|$ — standard.
 
 ## Receiver deniability
 
@@ -119,12 +148,17 @@ TODO: the syntax and security game of [[OPW11 - Bi-Deniable Public-Key Encryptio
 - [[CDNO97 - Deniable Encryption|CDNO97]] construct $\delta$-sender-deniable schemes for inverse-polynomial $\delta$ from translucent sets, which exist if [[trapdoor-permutation|trapdoor permutations]] do; the ciphertext length grows as $\delta$ decreases.
 - [[BNNO11 - Lower and Upper Bounds for Deniable Public-Key Encryption|BNNO11]] prove that no non-interactive public-key encryption scheme in which the parties run the prescribed algorithms is receiver-deniable with negligible distinguishing advantage, hence none is bi-deniable either; they bound the distinguishing advantage from below in terms of the key length, and give constructions that bound it from above.
 
-<!-- BEGIN GENERATED participates-in 4435ddd74f94 -->
+<!-- BEGIN GENERATED participates-in 9ad7e9ad1987 -->
 
 ## Participates in
+
+**Builds on Deniable encryption**
+
+- [[publicly-deniable-encryption-to-deniable-encryption|Publicly deniable encryption ⇒ Deniable encryption]] (via [[deniable-encryption#public-deniability|Public deniability]])
 
 **Produces Deniable encryption**
 
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
+- [[publicly-deniable-encryption-to-deniable-encryption|Publicly deniable encryption ⇒ Deniable encryption]]
 
 <!-- END GENERATED participates-in -->
