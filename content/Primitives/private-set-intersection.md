@@ -8,6 +8,7 @@ title: Private set intersection
 id: psi
 variants:
   malicious-psi: "#malicious-security"
+  non-degenerate-psi: "#non-degenerate-psi"
 ---
 
 # Private set intersection
@@ -84,6 +85,10 @@ A PSI protocol $\Pi$ has **malicious security** if it securely computes $f_{\mat
 
 # Variations
 
+## Non-degenerate PSI
+
+A **non-degenerate** PSI protocol is a [[#semi-honest-security|semi-honest secure]] PSI protocol for $U = \bits^{\ell}$ with $\ell \ge 2$ and size bounds $n_S \ge 2$ and $n_R \ge 1$. For $\ell = 1$, PSI is perfectly realizable with no assumption: $R$ sends $|Y|$, and $S$ sends $X$ if $|Y| \ge 1$ and $|X|$ otherwise; for $|Y| \ge 1$, the receiver's output $(X \cap Y, |X|)$ determines $X \subseteq \bits$ — folklore.
+
 ## Two-sided PSI
 
 In **two-sided** (or mutual) PSI both parties learn the intersection: the functionality hands $(X \cap Y, |Y|)$ to $S$ and $(X \cap Y, |X|)$ to $R$. Semi-honest and malicious security are defined as above for this functionality; with abort, the corrupted party receives the intersection before the simulator decides whether the honest party receives it.
@@ -99,24 +104,26 @@ In **size-hiding** PSI one party's set has no a priori polynomial bound on its s
 # Other results
 
 - The general protocol run on $f_{\mathrm{PSI}}$ is a semi-honest secure PSI protocol when it comes from [[secure-multi-party-computation#semi-honest-two-party-computation|semi-honest 2PC]] ([[semi-honest-two-party-computation-to-psi|semi-honest 2PC ⇒ PSI]]) and one with malicious security when it comes from [[secure-multi-party-computation#two-party-computation-2pc|2PC]] ([[two-party-computation-to-malicious-psi|2PC ⇒ malicious PSI]]) — folklore.
-- A semi-honest secure [[oblivious-prf|OPRF]] with a range of [[oblivious-prf#oprf-with-super-polynomial-range|super-polynomial size]] gives semi-honest PSI: the sender sends the sorted list of the [[pseudorandom-function|PRF]] values of its elements under its key, and the receiver obtains the PRF value of each of its elements from one OPRF execution and keeps the elements whose values were sent ([[oprf-to-psi|OPRF ⇒ PSI]]) — folklore. [[HL08 - Efficient Protocols for Set Intersection and Pattern Matching with Security Against Malicious and Covert Adversaries|HL08]] base set intersection on secure evaluation of a pseudorandom function rather than on polynomials.
-- Semi-honest PSI gives semi-honest [[oblivious-transfer|OT]] with message space $\bits$: with sender set $\{(0, x_0), (1, x_1)\}$ and receiver set $\{(c, 0)\}$, the intersection, $\{(c, 0)\}$ if $x_c = 0$ and $\emptyset$ otherwise, reveals $x_c$ and nothing about $x_{1-c}$, and the sender learns nothing about $c$ ([[psi-to-ot|PSI ⇒ OT]]) — folklore.
+- A semi-honest secure [[oblivious-prf|OPRF]] with a range of super-polynomial size and a PRF that collides on each pair of distinct inputs with negligible probability over the key ([[oblivious-prf#oprf-with-super-polynomial-range|OPRF with super-polynomial range]]) gives [[#Non-degenerate PSI|non-degenerate]] PSI: the sender sends the sorted list of the [[pseudorandom-function|PRF]] values of its elements under its key, and the receiver obtains the PRF value of each of its elements from one OPRF execution and keeps the elements whose values were sent ([[oprf-to-psi|OPRF ⇒ PSI]]) — folklore. [[HL08 - Efficient Protocols for Set Intersection and Pattern Matching with Security Against Malicious and Covert Adversaries|HL08]] base set intersection on secure evaluation of a pseudorandom function rather than on polynomials.
+- [[#Non-degenerate PSI|Non-degenerate PSI]] gives semi-honest [[oblivious-transfer|OT]] with message space $\bits$: with sender set $\{(0, x_0), (1, x_1)\}$ and receiver set $\{(c, 0)\}$, the intersection, $\{(c, 0)\}$ if $x_c = 0$ and $\emptyset$ otherwise, reveals $x_c$ and nothing about $x_{1-c}$, and the sender learns nothing about $c$ ([[psi-to-ot|PSI ⇒ OT]]) — folklore.
 - [[FNP04 - Efficient Private Matching and Set Intersection|FNP04]] compute set intersection with an [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]] encryption scheme, such as Paillier's ([[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]): the receiver encrypts under its own key the coefficients of $Q(z) = \prod_{y \in Y} (z - y)$; for each $x \in X$ the sender computes from them an encryption of $r_x Q(x) + x$ for a uniform $r_x$ and sends these ciphertexts in random order; and the receiver decrypts and outputs the plaintexts that lie in $Y$. The protocol is secure against semi-honest adversaries in the standard model, and a variant is secure against malicious adversaries in the [[random-oracle-model|random oracle model]]; with balanced allocation hashing, sets of size $k$ cost $O(k)$ communication and $O(k \ln \ln k)$ computation.
 - Of the set intersection protocols of [[HL08 - Efficient Protocols for Set Intersection and Pattern Matching with Security Against Malicious and Covert Adversaries|HL08]], one is secure against malicious adversaries under a relaxed definition, simulatable when one party is corrupted and only private, in an indistinguishability sense, when the other is; another is fully simulatable against covert adversaries, which may cheat but are then caught with probability at least the protocol's deterrence factor.
 - [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] obtain secure computation of set intersection against malicious adversaries from an [[oblivious-prf|OPRF]] for the Dodis–Yampolskiy PRF $x \mapsto g^{1/(k + x)}$ ([[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]]).
 - [[KKRT16 - Efficient Batched Oblivious PRF with Applications to Private Set Intersection|KKRT16]] build a batched, related-key OPRF, which gives the receiver the values at inputs of its choice of many PRF instances with related keys, by adapting 1-out-of-2 [[oblivious-transfer#ot-extension|OT extension]] protocols, secure against semi-honest adversaries; with cuckoo hashing it gives semi-honest PSI whose cost does not depend on the bit length of the elements.
 
-<!-- BEGIN GENERATED participates-in 1038cb36a8e5 -->
+<!-- BEGIN GENERATED participates-in a6a29cb4a70f -->
 
 ## Participates in
 
 **Builds on Private set intersection**
 
-- [[psi-to-ot|PSI ⇒ OT]]
+- [[non-degenerate-psi-to-psi|Non-degenerate PSI ⇒ PSI]] (via [[private-set-intersection#non-degenerate-psi|Non-degenerate PSI]])
+- [[psi-to-ot|PSI ⇒ OT]] (via [[private-set-intersection#non-degenerate-psi|Non-degenerate PSI]])
 
 **Produces Private set intersection**
 
-- [[oprf-to-psi|OPRF ⇒ PSI]]
+- [[non-degenerate-psi-to-psi|Non-degenerate PSI ⇒ PSI]]
+- [[oprf-to-psi|OPRF ⇒ PSI]] (via [[private-set-intersection#non-degenerate-psi|Non-degenerate PSI]])
 - [[semi-honest-two-party-computation-to-psi|Semi-honest 2PC ⇒ PSI]]
 - [[two-party-computation-to-malicious-psi|2PC ⇒ Malicious PSI]] (via [[private-set-intersection#malicious-security|Malicious security]])
 
