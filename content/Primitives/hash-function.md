@@ -172,8 +172,11 @@ find a second input colliding with it.
 \end{algorithm}
 ```
 
-A compressing family $\hash$ ($|\calR| < |\calD|$) is a **universal one-way
-hash function (UOWHF)**, or **target collision resistant**, if for all efficient
+A family $\hash$ that compresses as in the CRHF definition, from
+$\calD = \bits^{n(\secpar)}$ to $\calR = \bits^{m(\secpar)}$ with
+$m(\secpar) < n(\secpar)$ or on other finite sets through the same binary
+encodings, is a **universal one-way hash function (UOWHF)**, or **target
+collision resistant**, if for all efficient
 $\calA = (\calA_1, \calA_2)$,
 
 $$
@@ -182,7 +185,12 @@ $$
 $$
 
 is negligible — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
-Collision resistance implies target collision resistance — standard.
+Collision resistance implies target collision resistance — standard. As for CRHFs,
+$|\calR| < |\calD|$ does not suffice: keyed by a uniform pair $(a, b)$ of
+distinct $n$-bit strings, the map that sends $b$ to $a$ and fixes every other
+input has $2^n - 1$ values and is target collision resistant with no
+assumption, since the committed target lies in $\{a, b\}$ with probability
+$2/2^n$ — standard.
 
 ### Distributional collision resistance
 
