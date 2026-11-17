@@ -88,13 +88,13 @@ $$
 \Adv^{\mathrm{popf\text{-}cca}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{popf\text{-}cca}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. As an object, OPE denotes a correct, order-preserving and POPF-CCA-secure scheme. A uniformly random $g \in \mathrm{OPF}_{M,N}$ is sampled lazily by binary search over $[N]$: the number of plaintexts that $g$ maps into $\{1, \ldots, y\}$ follows a hypergeometric distribution — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]].
+is negligible. As an object, OPE denotes, for all $M = M(\secpar)$ and $N = N(\secpar)$ computable in time $\poly(\secpar)$ with $M \le N$ and $\log N \le \poly(\secpar)$, a correct, order-preserving and POPF-CCA-secure scheme with plaintext space $[M]$ and ciphertext space $[N]$. A uniformly random $g \in \mathrm{OPF}_{M,N}$ is sampled lazily by binary search over $[N]$: the number of plaintexts that $g$ maps into $\{1, \ldots, y\}$ follows a hypergeometric distribution — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]].
 
 # Variations
 
 ## Order-revealing encryption
 
-An order-revealing encryption (ORE) scheme drops the requirement that ciphertexts be ordered integers and compares them with a public algorithm instead — [[BLR+15 - Semantically Secure Order-Revealing Encryption Multi-input Functional Encryption Without Obfuscation|BLR+15]]. An ORE scheme on $\bits^n$ is a tuple of efficient algorithms $\Pi = (\KeyGen, \Enc, \mathsf{Cmp})$ — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]:
+An order-revealing encryption (ORE) scheme drops the requirement that ciphertexts be ordered integers and compares them with a public algorithm instead — [[BLR+15 - Semantically Secure Order-Revealing Encryption Multi-input Functional Encryption Without Obfuscation|BLR+15]]. For every $n = n(\secpar) \le \poly(\secpar)$ computable in time $\poly(\secpar)$, an ORE scheme on $\bits^n$ is a tuple of efficient algorithms $\Pi = (\KeyGen, \Enc, \mathsf{Cmp})$ — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]:
 
 - $\KeyGen(1^\secpar) \to \sk$, a randomized algorithm outputting a secret key.
 - $\Enc(\sk, m) \to \mathit{ct}$, a possibly randomized algorithm encrypting $m \in \bits^n$, read as an integer.
@@ -125,7 +125,7 @@ $$
 \Adv^{\mathrm{ore}}_{\Pi,\calA,\Sim,\calL}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ore}}_{\Pi,\calA,\Sim,\calL}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible.
+is negligible. As objects, [[#Best-possible security|best-possible ORE]] and [[#Leakage of the first differing bit|ORE leaking the first differing bit]] denote, for every such $n$, a correct ORE scheme on $\bits^n$ that is $\calL_{\mathrm{ord}}$-secure, respectively $\calL_{\mathrm{f}}$-secure, for the leakage functions defined below.
 
 ### Best-possible security
 
