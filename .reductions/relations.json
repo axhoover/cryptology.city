@@ -9089,6 +9089,33 @@
    "title": "Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE"
   },
   {
+   "id": "red-approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "approximate-he-ind-cpa-d"
+   ],
+   "conclusion": "approximate-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the scheme with the query bound fixed to 1, and the reduction forwards any IND-CPA adversary's challenge pair to the encryption oracle unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption.md",
+   "slug": "approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
+   "graphSlug": "Reductions/approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
+   "title": "IND-CPA-D approximate HE ⇒ Approximate HE"
+  },
+  {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
    "kind": "implication",
    "hypotheses": [
@@ -25219,6 +25246,33 @@
    "title": "Semi-homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
   },
   {
+   "id": "red-semi-homomorphic-encryption-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-homomorphic-encryption"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption restricted to the plaintexts 0 and 1, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-homomorphic-encryption-to-pke-cpa-security.md",
+   "slug": "semi-homomorphic-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/semi-homomorphic-encryption-to-pke-cpa-security",
+   "title": "Semi-homomorphic encryption ⇒ IND-CPA PKE"
+  },
+  {
    "id": "red-semi-honest-security-and-owf-to-mpc-gmw87",
    "kind": "implication",
    "hypotheses": [
@@ -30307,7 +30361,7 @@
    ],
    "rationale": {
     "class": "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme.",
-    "strength": "The appended-bit counterexample modifies an existing HE scheme with two distinct messages of equal length, so it assumes one exists; without one, every admissible IND-CCA2 challenge has m_0 = m_1, so every HE scheme is IND-CCA2-secure and the identity-map implication holds."
+    "strength": "The appended-bit counterexample modifies an existing HE scheme, so it assumes one exists."
    },
    "status": "draft",
    "page": "content/Barriers/no-he-to-cca-security.md",
