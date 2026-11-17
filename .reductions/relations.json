@@ -18031,30 +18031,6 @@
    "title": "Subset sum at the LPS10 parameters ⇒ Subset sum"
   },
   {
-   "id": "red-lsn-to-lpn-cimr25",
-   "kind": "implication",
-   "hypotheses": [
-    "learning-subspace-with-noise"
-   ],
-   "conclusion": "lpn",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/lsn-to-lpn-cimr25.md",
-   "slug": "lsn-to-lpn-cimr25",
-   "graphSlug": "Reductions/lsn-to-lpn-cimr25",
-   "title": "LSN ⇒ LPN"
-  },
-  {
    "id": "red-lsn-to-secret-key-pir-sk-pir-cimr25",
    "kind": "implication",
    "hypotheses": [

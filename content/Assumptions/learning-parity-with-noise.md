@@ -198,7 +198,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
 - **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
-<!-- BEGIN GENERATED participates-in 78e069470676 -->
+<!-- BEGIN GENERATED participates-in bc96b0a260b8 -->
 
 ## Participates in
 
@@ -228,7 +228,6 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[lpn-high-noise-to-lpn-constant-noise|High-noise LPN ⇒ Constant-noise LPN]] (via [[learning-parity-with-noise#constant-noise-lpn|Constant-noise LPN]])
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
-- [[lsn-to-lpn-cimr25|LSN ⇒ LPN]]
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[subexponential-lpn-above-half-to-subexponential-lpn|Subexponential LPN with exponent above 1/2 ⇒ Subexponential LPN]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
 - [[subexponential-lpn-to-polylog-dimension-lpn|Subexponential LPN ⇒ Polylogarithmic-dimension LPN]] (via [[learning-parity-with-noise#polylogarithmic-dimension-lpn|Polylogarithmic-dimension LPN]])
