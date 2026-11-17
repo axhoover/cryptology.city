@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[public-key-encryption-with-keyword-search#consistency|consistent]] [[public-key-encryption-with-keyword-search|PEKS]] scheme, with the same algorithms, is a correct and IND-CKA-secure PEKS scheme: consistency only adds a requirement — folklore.
+A [[public-key-encryption-with-keyword-search#consistency|consistent]] [[public-key-encryption-with-keyword-search|PEKS]] scheme, with the same algorithms, is a $(1-\negl(\secpar))$-correct and IND-CKA-secure PEKS scheme: consistency only adds a requirement — folklore.

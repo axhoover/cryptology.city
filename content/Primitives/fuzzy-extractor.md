@@ -8,7 +8,6 @@ title: Fuzzy extractor
 id: fuzzy-extractor
 variants:
   secure-sketch: "#secure-sketches"
-  computational-fuzzy-extractor: "#computational-fuzzy-extractors"
 ---
 
 # Fuzzy extractor
@@ -64,7 +63,9 @@ A **robust** fuzzy extractor lets $\mathsf{Rep}$ detect, with high probability, 
 
 ## Computational fuzzy extractors
 
-A **computational** fuzzy extractor for a family of sources on $\calW$ requires $(R, P)$ to be computationally indistinguishable from $(U_\ell, P)$ for every source $W$ in the family — [[FMR13 - Computational Fuzzy Extractors|FMR13]]. Secure sketches defined with computational entropy notions, conditional HILL entropy or unpredictability entropy, are still subject to the coding-theoretic lower bounds of information-theoretic sketches for high-entropy Hamming-metric sources; analyzed directly, a computational fuzzy extractor from [[learning-with-errors|LWE]] outputs a key as long as the source's entropy, which is impossible information-theoretically, for uniform and symbol-fixing sources — [[FMR13 - Computational Fuzzy Extractors|FMR13]].
+A **computational** fuzzy extractor for a family of sources on $\calW$ requires $(R, P)$ to be computationally indistinguishable from $(U_\ell, P)$ for every source $W$ in the family — [[FMR13 - Computational Fuzzy Extractors|FMR13]]. Secure sketches defined with conditional HILL pseudoentropy imply error-correcting codes, so they are subject to the coding-theoretic bounds of information-theoretic sketches — [[FMR13 - Computational Fuzzy Extractors|FMR13]]. Analyzed directly, a computational fuzzy extractor from [[learning-with-errors|LWE]] outputs a key as long as the source's entropy, which is impossible information-theoretically, for uniform and symbol-fixing sources — [[FMR13 - Computational Fuzzy Extractors|FMR13]].
+
+TODO: the definition of [[FMR13 - Computational Fuzzy Extractors|FMR13]], stated from the paper: the source family, key length $\ell$, error tolerance $t$, correctness error, and the distinguisher size and advantage bound. Also state the regime of its LWE theorem (source class, key length), before this notion is registered as a variant.
 
 # Other results
 

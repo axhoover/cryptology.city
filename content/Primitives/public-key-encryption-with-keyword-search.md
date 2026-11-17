@@ -59,11 +59,11 @@ $$
 \Adv^{\mathrm{consist}}_{\Pi,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{consist}}_{\Pi,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. ABC+05 also define **statistical** consistency, which asks the same of computationally unbounded adversaries — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, consistent PEKS denotes a correct, IND-CKA-secure and computationally consistent scheme.
+is negligible. ABC+05 also define **statistical** consistency, which asks the same of computationally unbounded adversaries — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, consistent PEKS denotes a $(1-\negl(\secpar))$-correct, IND-CKA-secure and computationally consistent scheme.
 
 #### Perfect consistency
 
-A PEKS scheme $\Pi$ is **perfectly consistent** if $\Adv^{\mathrm{consist}}_{\Pi,\calA}(\secpar) = 0$ for all $\secpar \in \NN$ and all computationally unbounded $\calA$ — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]: for every key pair $(\pk, \sk)$ in the support of $\KeyGen(1^\secpar)$ and all keywords $W \ne W'$, $\mathsf{Test}(\pk, \mathsf{PEKS}(\pk, W), \mathsf{Trapdoor}(\sk, W')) = 0$ with probability $1$. The definition of [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]], in which $\mathsf{Test}$ outputs $0$ on every non-matching keyword, is perfect consistency — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, perfectly consistent PEKS denotes a correct, IND-CKA-secure and perfectly consistent scheme.
+A PEKS scheme $\Pi$ is **perfectly consistent** if $\Adv^{\mathrm{consist}}_{\Pi,\calA}(\secpar) = 0$ for all $\secpar \in \NN$ and all computationally unbounded $\calA$ — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]: for every key pair $(\pk, \sk)$ in the support of $\KeyGen(1^\secpar)$ and all keywords $W \ne W'$, $\mathsf{Test}(\pk, \mathsf{PEKS}(\pk, W), \mathsf{Trapdoor}(\sk, W')) = 0$ with probability $1$. The definition of [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]], in which $\mathsf{Test}$ outputs $0$ on every non-matching keyword, is perfect consistency — [[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]. As an object, perfectly consistent PEKS denotes a $(1-\negl(\secpar))$-correct, IND-CKA-secure and perfectly consistent scheme.
 
 ### Security against chosen-keyword attacks
 
@@ -92,7 +92,7 @@ $$
 \Adv^{\mathrm{ind\text{-}cka}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\text{-}cka}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. The restriction is necessary: with $T_{W_0}$, $\calA$ wins against every correct and consistent scheme by computing $\mathsf{Test}(\pk, S^*, T_{W_0})$. As an object, PEKS denotes a correct and IND-CKA-secure scheme. Without consistency the object exists unconditionally: the scheme with $\mathsf{PEKS}(\pk, W) := \bot$, $\mathsf{Trapdoor}(\sk, W) := \bot$ and $\mathsf{Test}(\pk, S, T_W) := 1$ is perfectly correct, and its IND-CKA advantage is $0$ since $S^*$ does not depend on $b$.
+is negligible. The restriction is necessary: with $T_{W_0}$, $\calA$ wins against every correct and consistent scheme by computing $\mathsf{Test}(\pk, S^*, T_{W_0})$. As an object, PEKS denotes a $(1-\negl(\secpar))$-correct and IND-CKA-secure scheme. Without consistency the object exists unconditionally: the scheme with $\mathsf{PEKS}(\pk, W) := \bot$, $\mathsf{Trapdoor}(\sk, W) := \bot$ and $\mathsf{Test}(\pk, S, T_W) := 1$ is perfectly correct, and its IND-CKA advantage is $0$ since $S^*$ does not depend on $b$.
 
 # Variations
 
