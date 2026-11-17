@@ -94,15 +94,35 @@ TODO: the syntax and security game, stated from [[PPY22 - Anamorphic Encryption 
 
 ## Fully asymmetric anamorphic encryption
 
-[[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]] split the double key into an encryption component, which $\mathsf{aEnc}$ uses and which allows only the encryption of covert messages, and a decryption component, which $\mathsf{aDec}$ uses, so that a receiver can set up several independent covert channels for a single covert key. A fully asymmetric anamorphic extension of $\PKE$ is a triple of efficient algorithms with the types of [[#Syntax|the base syntax]]:
+[[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]] split the double key into an encryption component $\mathsf{dk}$, which $\mathsf{aEnc}$ uses, and a decryption component $\mathsf{tk}$, which $\mathsf{aDec}$ also needs, so that a receiver can set up several independent covert channels for a single covert key. A fully asymmetric anamorphic extension of $\PKE$ is a triple of efficient algorithms:
 
-- $\mathsf{aGen}(1^\secpar) \to (\pk, \sk, \mathsf{ek}, \mathsf{dk})$, a randomized algorithm outputting a key pair for $\PKE$, a covert encryption key $\mathsf{ek}$ and a covert decryption key $\mathsf{dk}$,
-- $\mathsf{aEnc}(\pk, \mathsf{ek}, m, \hat m) \to c$, a randomized, possibly stateful, algorithm,
-- $\mathsf{aDec}(\mathsf{dk}, c) \to \hat m$, a deterministic algorithm.
+- $\mathsf{aGen}(1^\secpar) \to (\pk, \sk, \mathsf{dk}, \mathsf{tk})$, a randomized algorithm outputting a key pair for $\PKE$, a covert encryption key $\mathsf{dk}$ and a covert decryption key $\mathsf{tk}$,
+- $\mathsf{aEnc}(\pk, \mathsf{dk}, m, \hat m) \to c$, a randomized algorithm taking $m \in \calM$ and $\hat m \in \hat\calM$,
+- $\mathsf{aDec}(\mathsf{dk}, \mathsf{tk}, \sk, c) \to \hat m$, a deterministic algorithm.
 
-It is a fully asymmetric anamorphic encryption scheme if it meets the [[#Anamorphic encryption schemes|requirements of an anamorphic encryption scheme]], with $\mathsf{aEnc}(\pk, \mathsf{ek}, m, \hat m)$ in the correctness condition and $(\pk_1, \sk_1, \mathsf{ek}, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and $\calO_1(m, \hat m) := \mathsf{aEnc}(\pk_1, \mathsf{ek}, m, \hat m)$ in $\Game^{\mathrm{anam}}$, and if in addition $\mathsf{ek}$ allows only the encryption of covert messages — [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]].
+These are the algorithms of [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]], who write $\mathsf{apk}, \mathsf{ask}$ for $\pk, \sk$. It is $(1-\varepsilon)$-correct if $\Pr[\mathsf{aDec}(\mathsf{dk}, \mathsf{tk}, \sk, \mathsf{aEnc}(\pk, \mathsf{dk}, m, \hat m)) = \hat m] \ge 1 - \varepsilon$ for all $\secpar$, $m \in \calM$ and $\hat m \in \hat\calM$, over $\mathsf{aGen}$ and the randomness of $\mathsf{aEnc}$. Anamorphic security is $\Game^{\mathrm{anam}}$ with $(\pk_1, \sk_1, \mathsf{dk}, \mathsf{tk}) \gets \mathsf{aGen}(1^\secpar)$ and $\calO_1(m, \hat m) := \mathsf{aEnc}(\pk_1, \mathsf{dk}, m, \hat m)$, the dictator holding $(\pk_b, \sk_b)$ but neither covert key. Asymmetry is a separate game, in which the adversary holds the covert encryption key:
 
-TODO: the covert-message confidentiality game against a holder of $\mathsf{ek}$, from [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]]: whether the adversary also gets $\sk$, whether it has an $\mathsf{aEnc}$ oracle, and whether CGM24a define one level of the notion or two.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{fa}}_{\mathsf{AME},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\pk, \sk, \mathsf{dk}, \mathsf{tk}) \gets \mathsf{aGen}(1^\secpar)$; $b \getsr \bits$
+\State $(m_0, m_1, \hat m_0, \hat m_1, \stA) \gets \calA(1^\secpar, \pk, \mathsf{dk})$
+\State $c^* \gets \mathsf{aEnc}(\pk, \mathsf{dk}, m_b, \hat m_b)$
+\State $b' \gets \calA(c^*, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+The adversary gets no oracle and not $\sk$; holding $\mathsf{dk}$, it can compute $\mathsf{aEnc}$ itself. The extension is a **fully asymmetric anamorphic encryption scheme** if $\PKE$ is IND-CPA-secure, $|\hat\calM(\secpar)| \ge 2$, it is $(1-\varepsilon)$-correct for a negligible $\varepsilon$ and anamorphically secure, and for all efficient $\calA$
+
+$$
+\Adv^{\mathrm{fa}}_{\mathsf{AME},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{fa}}_{\mathsf{AME},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]] (Definition 10). An extension whose $\mathsf{dk}$ contains $\mathsf{tk}$, and whose $\mathsf{aDec}$ does not need $\sk$, can be anamorphically secure and still fail this game: with $m_0 = m_1$ and $\hat m_0 \ne \hat m_1$, the adversary decrypts $c^*$ — standard.
 
 In this setting, called _fully asymmetric_ in [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]] and [[CGM25 - Generic Anamorphic Encryption, Revisited New Limitations and Constructions|CGM25]] and _asymmetric_ in [[CGM24b - Limits of Black-Box Anamorphic Encryption|CGM24b]], a party able to send covert messages need not be able to read them — [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]].
 
