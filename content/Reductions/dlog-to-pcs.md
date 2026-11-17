@@ -5,7 +5,7 @@ title: "DLOG ⇒ PCS"
 aliases: []
 id: red-dlog-to-pcs
 kind: implication
-hypotheses: [dlog]
+hypotheses: [prime-order-dlog]
 conclusion: pcs
 class: fully-black-box
 model: rom
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[discrete-logarithm|DLOG]] is hard in a prime-order group, a transparent [[polynomial-commitment|polynomial commitment scheme]] exists: commit to the coefficient vector of a degree-$d$ polynomial $f$ with a Pedersen vector commitment and prove $f(z) = y$ with the recursive inner-product argument, giving $O(\log d)$-size openings and $O(d)$ verifier time — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]. The non-interactive scheme $\mathrm{PC}_{\mathrm{DL}}$ applies [[fiat-shamir-heuristic|Fiat–Shamir]] to the public-coin protocol and is secure under DLOG in the [[random-oracle-model|ROM]] — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]].
+If [[discrete-logarithm#dlog-in-prime-order-groups|DLOG is hard in prime-order groups]] for a group generator, a transparent [[polynomial-commitment|polynomial commitment scheme]] exists: commit to the coefficient vector of a degree-$d$ polynomial $f$ with a Pedersen vector commitment and prove $f(z) = y$ with the recursive inner-product argument, giving $O(\log d)$-size openings and $O(d)$ verifier time — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]. The non-interactive scheme $\mathrm{PC}_{\mathrm{DL}}$ applies [[fiat-shamir-heuristic|Fiat–Shamir]] to the public-coin protocol and is secure under DLOG in the [[random-oracle-model|ROM]] — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]].
 
 ## Sketch
 

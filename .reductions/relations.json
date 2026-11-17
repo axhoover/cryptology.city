@@ -3403,6 +3403,19 @@
    "unlisted": false
   },
   {
+   "id": "jls21-common-prime-assumptions",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#sxdh-lwe-and-lpn-over-a-common-prime",
+   "of": "ddh",
+   "title": "SXDH, LWE and LPN over a common prime",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "k-linear-assumption",
    "kind": "variant",
    "type": "assumption",
@@ -8669,6 +8682,19 @@
    "unlisted": false
   },
   {
+   "id": "zp-star-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-the-multiplicative-group-of-a-prime-field",
+   "of": "dlog",
+   "title": "DLOG in the multiplicative group of a prime field",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "zpp",
    "kind": "object",
    "type": "complexity-class",
@@ -12365,9 +12391,7 @@
    "id": "red-ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
    "kind": "implication",
    "hypotheses": [
-    "subexponential-sxdh",
-    "subexponential-lwe-subexponential-ratio",
-    "subexponential-lpn-fp",
+    "jls21-common-prime-assumptions",
     "subexponential-prg-in-nc0"
    ],
    "conclusion": "io",
@@ -12381,7 +12405,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "requires sub-exponential hardness of all four hypotheses",
+   "securityLoss": "requires sub-exponential hardness of SXDH, LWE and LPN over the common prime and sub-exponential security of the NC0 PRG",
    "rationale": {
     "class": "The construction builds functional encryption from the hypotheses and applies the FE-to-iO transformation, which runs the FE encryption algorithm inside function keys, so it is not black-box in the hypotheses."
    },
@@ -13103,7 +13127,7 @@
    "id": "red-dlog-to-cdh-fkl18",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "cdh",
    "class": "unstated",
@@ -13229,10 +13253,37 @@
    "title": "DLOG ⊆ NP"
   },
   {
-   "id": "red-dlog-to-pcs",
+   "id": "red-dlog-to-owf",
    "kind": "implication",
    "hypotheses": [
     "dlog"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $2^{-\\secpar}$, the statistical distance of $x \\bmod p$ from uniform on $\\ZZ_p$",
+   "rationale": {
+    "class": "One fixed function uses only the group generator and exponentiation, and the reduction forwards its DLOG challenge to any inverter as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dlog-to-owf.md",
+   "slug": "dlog-to-owf",
+   "graphSlug": "Reductions/dlog-to-owf",
+   "title": "DLOG ⇒ OWF"
+  },
+  {
+   "id": "red-dlog-to-pcs",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
    ],
    "conclusion": "pcs",
    "class": "fully-black-box",
@@ -13260,7 +13311,7 @@
    "id": "red-dlog-to-prg-bm84",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "zp-star-dlog"
    ],
    "conclusion": "prg",
    "class": "fully-black-box",
@@ -13275,7 +13326,7 @@
    "heuristic": false,
    "securityLoss": "polynomial: a factor $m$ for $m$ output bits from the next-bit hybrid, composed with the polynomial loss of recovering the discrete logarithm from a predictor for the half-interval bit",
    "rationale": {
-    "class": "The construction uses only the group operation, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
+    "class": "The construction is fixed over $\\ZZ_P^*$ and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
    },
    "status": "draft",
    "page": "content/Reductions/dlog-to-prg-bm84.md",
@@ -13362,7 +13413,7 @@
    "id": "red-dlog-to-tfnp",
    "kind": "inclusion",
    "hypotheses": [
-    "dlog"
+    "verifiable-prime-order-dlog"
    ],
    "conclusion": "tfnp",
    "class": "free",
@@ -16961,6 +17012,33 @@
    "slug": "it-pir-to-computational-multi-server-pir",
    "graphSlug": "Reductions/it-pir-to-computational-multi-server-pir",
    "title": "IT-PIR ⇒ Computational Multi-server PIR"
+  },
+  {
+   "id": "red-jls21-common-prime-assumptions-to-subexponential-sxdh",
+   "kind": "implication",
+   "hypotheses": [
+    "jls21-common-prime-assumptions"
+   ],
+   "conclusion": "subexponential-sxdh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the bilinear group generator, and the reduction forwards any DDH adversary in either source group unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/jls21-common-prime-assumptions-to-subexponential-sxdh.md",
+   "slug": "jls21-common-prime-assumptions-to-subexponential-sxdh",
+   "graphSlug": "Reductions/jls21-common-prime-assumptions-to-subexponential-sxdh",
+   "title": "SXDH, LWE and LPN over a common prime ⇒ Sub-exponential SXDH"
   },
   {
    "id": "red-k-linear-assumption-to-abe-rw13",
@@ -29678,6 +29756,33 @@
    "slug": "zkp-to-hash-function",
    "graphSlug": "Reductions/zkp-to-hash-function",
    "title": "CZK ⊄ BPP ⇒ Auxiliary-input OWF"
+  },
+  {
+   "id": "red-zp-star-dlog-to-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "zp-star-dlog"
+   ],
+   "conclusion": "dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/zp-star-dlog-to-dlog.md",
+   "slug": "zp-star-dlog-to-dlog",
+   "graphSlug": "Reductions/zp-star-dlog-to-dlog",
+   "title": "Prime-field DLOG ⇒ DLOG"
   },
   {
    "id": "red-zpp-to-rp",

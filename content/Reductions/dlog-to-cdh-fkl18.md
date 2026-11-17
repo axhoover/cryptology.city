@@ -5,7 +5,7 @@ title: "DLOG ⇒ CDH"
 aliases: []
 id: red-dlog-to-cdh-fkl18
 kind: implication
-hypotheses: [dlog]
+hypotheses: [prime-order-dlog]
 conclusion: cdh
 class: unstated
 model: algebraic-group
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-In the [[algebraic-group-model|algebraic group model]], [[computational-diffie-hellman|CDH]] is as hard as [[discrete-logarithm|DLOG]]: for every prime-order group generator $\GrGen$ and every algebraic CDH adversary $\calA$ there is a DLOG adversary $\calB$ with $\Adv^{\text{dl}}_{\GrGen,\calB}(\secpar) \ge \Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar)$ and essentially the running time of $\calA$ — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+In the [[algebraic-group-model|algebraic group model]], [[computational-diffie-hellman|CDH]] is as hard as [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]: for every prime-order group generator $\GrGen$ and every algebraic CDH adversary $\calA$ there is a DLOG adversary $\calB$ with $\Adv^{\text{dl}}_{\GrGen,\calB}(\secpar) \ge \Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar)$ and essentially the running time of $\calA$ — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
 ## Sketch
 

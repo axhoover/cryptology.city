@@ -16,6 +16,7 @@ variants:
   matrix-dh: "#matrix-diffie-hellman"
   sxdh: "#sxdh-symmetric-external-diffie-hellman"
   subexponential-sxdh: "#sub-exponential-sxdh"
+  jls21-common-prime-assumptions: "#sxdh-lwe-and-lpn-over-a-common-prime"
 ---
 
 # Decisional Diffie-Hellman
@@ -27,7 +28,8 @@ The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryp
 Informally, the DDH assumption concerns a cyclic group generation algorithm
 $\GrGen,$ which takes as input a security parameter $1^{\secpar}$ and outputs
 a succinct[^1] description of a cyclic group $(\GG,g,p),$ where $\GG$ is the group
-set, $g$ is a generator for the group, and $p$ is the order of the group.
+set, $g$ is a generator for the group, and $p$ is the order of the group. Every
+group $\GrGen$ outputs is non-trivial: $p \ge 2$ for every $\secpar$.
 
 ```pseudocode
 \begin{algorithm}
@@ -53,6 +55,8 @@ $$
 $$
 
 is negligible.
+
+If DDH is hard for $\GrGen$, then $1/p$ is negligible, in expectation over $\GrGen$: for each constant $c$, the adversary that finds $x$ by exhaustive search when $p \le \secpar^c$ and outputs $[Z_b \ne Y^x]$, and otherwise guesses, has advantage $1 - 1/p \ge 1/2$ conditioned on any group with $p \le \secpar^c$, so $\Pr[p \le \secpar^c]$ is negligible — standard.
 
 ## Known Results
 
@@ -96,6 +100,31 @@ DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsil
 
 Given $(u, v, h, u^a, v^b, h^c) \in \GG^6$ for $u, v, h \getsr \GG$ and $a, b \getsr \ZZ_p$, distinguish $c = a + b$ from $c \getsr \ZZ_p$ — [[BBS04 - Short Group Signatures|BBS04]].
 
+For a group generator $\GrGen$ as in [[#Assumption|the DDH assumption]]:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{dlin}}_{\GrGen,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\GG, g, p) \gets \GrGen(1^\secpar)$
+\State $u, v, h \getsr \GG$ ; $a, b, z \getsr \ZZ_p$
+\State $\beta \getsr \bits$
+\State $c_0 \gets a + b$ ; $c_1 \gets z$
+\State $\beta' \gets \calA(1^\secpar, \GG, g, p, u, v, h, u^a, v^b, h^{c_\beta})$
+\Return $[\beta' = \beta]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**DLIN is hard** for $\GrGen$ if every group $\GrGen$ outputs has prime order $p$ and for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{dlin}}_{\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{dlin}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
+
 ## k-Lin
 
 The $k$-Linear assumption is defined on [[bilinear-map-assumptions#k-linear-assumption|Bilinear map assumptions]].
@@ -137,11 +166,15 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairin
 
 SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary of size at most $2^{\secpar^{\varepsilon}}$ has advantage at most $2^{-\secpar^{\varepsilon}}$ against DDH in each of $\GG_1$ and $\GG_2$.
 
+### SXDH, LWE and LPN over a common prime
+
+Let $\GrGen$ output an asymmetric bilinear group $\Pi = (\GG_1, \GG_2, \GG_T, g_1, g_2, e, p)$: groups of prime order $p$ with $2^{\secpar - 1} \le p < 2^{\secpar}$, generators $g_1$ of $\GG_1$ and $g_2$ of $\GG_2$, and an efficiently computable non-degenerate [[pairings|bilinear pairing]] $e : \GG_1 \times \GG_2 \to \GG_T$. **SXDH, LWE and LPN are sub-exponentially hard over a common prime** for $\GrGen$ if there are constants $\varepsilon, \delta \in (0, 1)$ and $c > 0$ and polynomials $w$ and $\ell_0$ with $w(\secpar) \ge 2\sqrt{k}$ for $k := \lceil \secpar^{1/\varepsilon} \rceil$ such that, for every polynomial $m$ and every polynomial $\ell \ge \ell_0$, for all sufficiently large $\secpar$, every adversary of size at most $2^{\secpar^{c}}$ that receives $\Pi$ with its challenge has advantage at most $2^{-\secpar^{c}}$ in each of three problems: (i) DDH in $\GG_1$ and DDH in $\GG_2$, as in the [[#Assumption|DDH game]]; (ii) [[learning-with-errors#decision-lwe|decision LWE]] over $\ZZ_p$ with secret dimension $k$, $m$ samples and discrete-Gaussian error of width $w$, so that the modulus-to-noise ratio $p/w$ is below $2^{k^{\varepsilon}}$; (iii) [[learning-parity-with-noise#assumption|LPN]] over $\ZZ_p$ with secret dimension $\ell$ and $m$ samples, each noise coordinate $0$ with probability $1 - \ell^{-\delta}$ and uniform in $\ZZ_p$ otherwise. This is the joint premise of [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]] (arXiv v1, Theorem 5.5): sub-exponential hardness of SXDH in bilinear groups of order $p$, of LWE with modulus-to-noise ratio $2^{k^{\varepsilon}}$ and of $\mathrm{LPN}(\ell, n, \ell^{-\delta}, p)$ for $\ell = n^{1/\lceil d/2 \rceil}$, for one efficiently samplable $\secpar$-bit prime $p$; the construction sets $k = \Theta(\secpar^{1/\varepsilon})$ and polynomial noise, so that $p/\poly(\secpar) \le 2^{k^{\varepsilon}}$ (Appendix B) — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]. Problem (i) alone is [[#Sub-exponential SXDH|sub-exponential SXDH]] for the same generator ([[jls21-common-prime-assumptions-to-subexponential-sxdh|SXDH, LWE and LPN over a common prime ⇒ Sub-exponential SXDH]]) — folklore.
+
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 86c615b976f4 -->
+<!-- BEGIN GENERATED participates-in 7f12439434d0 -->
 
 ## Participates in
 
@@ -152,7 +185,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10|Bilinear pairing + DLIN ⇒ CLR-PKE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sxdh-lwe-and-lpn-over-a-common-prime|SXDH, LWE and LPN over a common prime]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH in prime-order groups with decidable membership]])
 - [[ddh-to-anonymous-public-key-encryption-bbdp01|DDH ⇒ Key-hiding PKE (ElGamal)]]
@@ -171,6 +204,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-nizk-gro16|Type 1 pairing + DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[jls21-common-prime-assumptions-to-subexponential-sxdh|SXDH, LWE and LPN over a common prime ⇒ Sub-exponential SXDH]] (via [[decisional-diffie-hellman#sxdh-lwe-and-lpn-over-a-common-prime|SXDH, LWE and LPN over a common prime]])
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
@@ -193,6 +227,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 **Produces Decisional Diffie-Hellman**
 
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
+- [[jls21-common-prime-assumptions-to-subexponential-sxdh|SXDH, LWE and LPN over a common prime ⇒ Sub-exponential SXDH]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]]
 - [[prime-order-ddh-to-matrix-dh-ehk13|Prime-order DDH ⇒ Matrix DH]] (via [[decisional-diffie-hellman#matrix-diffie-hellman|Matrix Diffie-Hellman]])

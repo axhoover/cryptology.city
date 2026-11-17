@@ -187,13 +187,12 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
 - **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
-<!-- BEGIN GENERATED participates-in 3ae1a88d304a -->
+<!-- BEGIN GENERATED participates-in c1b3339b8fdf -->
 
 ## Participates in
 
 **Builds on Learning parity with noise**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[learning-parity-with-noise#sub-exponential-lpn-over-large-fields|Sub-exponential LPN over large fields]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
 - [[lpn-constant-noise-to-prg-bfkl93|Constant-noise LPN ⇒ PRG]] (via [[learning-parity-with-noise#constant-noise-lpn|Constant-noise LPN]])
 - [[lpn-high-noise-to-lpn-constant-noise|High-noise LPN ⇒ Constant-noise LPN]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])

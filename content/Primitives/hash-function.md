@@ -234,7 +234,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in 5cfb31e92c0f -->
+<!-- BEGIN GENERATED participates-in b903de04fa87 -->
 
 ## Participates in
 
@@ -307,6 +307,7 @@ TODO: definition and game.
 - [[czk-hardness-to-owf-ow93|Average-case-hard CZK ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[distributional-owf-to-owf-il89|Distributional OWF ⇒ OWF (Impagliazzo–Luby)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[dlog-to-owf|DLOG ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ds-to-hash-function|DS ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[identification-scheme-to-owf-il89|ID ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[injective-one-way-function-to-owf|Injective OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
