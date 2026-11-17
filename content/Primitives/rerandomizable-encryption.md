@@ -130,7 +130,7 @@ As an object, a **rerandomizable RCCA** scheme denotes a $(1-\negl)$-[[#Correctn
 - Sub-exponentially secure iO and rerandomizable encryption secure against slightly super-polynomial adversaries give compact FHE without circular security ([[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE]]) — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
 - The Double-strand Cramer–Shoup scheme, an extension of Cramer–Shoup encryption, is perfectly rerandomizable and RCCA-secure if [[decisional-diffie-hellman#ddh-in-paired-groups|DDH is hard in paired groups]], a group of prime order $p$ and the subgroup of prime order $q$ of $\ZZ_p^*$ ([[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption]]) — [[PR07 - Rerandomizable RCCA Encryption|PR07]].
 
-<!-- BEGIN GENERATED participates-in 60e5b8d84360 -->
+<!-- BEGIN GENERATED participates-in 969ef53e80dc -->
 
 ## Participates in
 
@@ -139,6 +139,7 @@ As an object, a **rerandomizable RCCA** scheme denotes a $(1-\negl)$-[[#Correctn
 - [[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]]
 - [[rerandomizable-rcca-encryption-to-rerandomizable-encryption|Rerandomizable RCCA encryption ⇒ RE]] (via [[rerandomizable-encryption#rerandomizable-rcca-encryption|Rerandomizable RCCA encryption]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|Security against slightly super-polynomial adversaries]])
+- [[superpolynomially-secure-rerandomizable-encryption-to-rerandomizable-encryption|Superpolynomially secure RE ⇒ RE]] (via [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|Security against slightly super-polynomial adversaries]])
 
 **Produces Rerandomizable encryption**
 
@@ -146,5 +147,6 @@ As an object, a **rerandomizable RCCA** scheme denotes a $(1-\negl)$-[[#Correctn
 - [[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]] (via [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|Statistical rerandomization of honest ciphertexts]])
 - [[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]] (via [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|Statistical rerandomization of honest ciphertexts]])
 - [[rerandomizable-rcca-encryption-to-rerandomizable-encryption|Rerandomizable RCCA encryption ⇒ RE]]
+- [[superpolynomially-secure-rerandomizable-encryption-to-rerandomizable-encryption|Superpolynomially secure RE ⇒ RE]]
 
 <!-- END GENERATED participates-in -->

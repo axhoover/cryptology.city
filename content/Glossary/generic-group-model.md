@@ -19,7 +19,7 @@ The _Generic Group Model (GGM)_ is a model for analyzing the security of group-b
 
 ## Shoup's Formulation
 
-Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. A **handle function** is a random injection $\sigma: \GG \to \bits^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
+Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p = \secpar^{\omega(1)}$, so that $1/p$ is negligible. A **handle function** is a random injection $\sigma: \GG \to \bits^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
 
 - **Group operation:** $\calO_{\mathsf{op}}(\sigma(X), \sigma(Y)) \to \sigma(X \cdot Y)$
 - **Inversion:** $\calO_{\mathsf{inv}}(\sigma(X)) \to \sigma(X^{-1})$
@@ -60,7 +60,7 @@ As an object, the GGM with preprocessing denotes the model whose adversaries are
 
 ## Generic bilinear groups
 
-Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e)$ of prime order $p$. Elements of each of the three groups are given by handles under independent random injections $\sigma_1, \sigma_2, \sigma_T$, and the algorithm has a group-operation oracle for each group and a pairing oracle that maps $(\sigma_1(P), \sigma_2(Q))$ to $\sigma_T(e(P, Q))$ — [[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]].
+Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e) \gets \GrGen(1^\secpar)$ of prime order $p = \secpar^{\omega(1)}$. Elements of each of the three groups are given by handles under independent random injections $\sigma_1, \sigma_2, \sigma_T$, and the algorithm has a group-operation oracle for each group and a pairing oracle that maps $(\sigma_1(P), \sigma_2(Q))$ to $\sigma_T(e(P, Q))$ — [[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]].
 
 ## Comparison with the AGM
 
