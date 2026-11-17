@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\Pi$ be a [[oblivious-polynomial-evaluation#semi-honest-security|semi-honest secure]] [[oblivious-polynomial-evaluation|OPE]] over a finite field $\FF$ with degree bound $d \ge 1$. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\FF$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1) \in \FF^2$ and $c \in \bits$, the parties run $\Pi$ with sender polynomial $P(z) = x_0 + (x_1 - x_0) z$ and receiver input $c \in \{0, 1\} \subseteq \FF$, and the receiver outputs its OPE output — folklore.
+Let $\Pi$ be a [[oblivious-polynomial-evaluation#semi-honest-security|semi-honest secure]] [[oblivious-polynomial-evaluation|OPE]] over a finite field $\FF$ with degree bound $d \ge 1$. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\FF$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1) \in \FF^2$ and $c \in \bits$, the parties run $\Pi$ with sender polynomial $P(z) = x_0 + (x_1 - x_0) z$ and receiver input $c \in \bits \subseteq \FF$, and the receiver outputs its OPE output — folklore.
 
 ## Sketch
 
@@ -27,4 +27,4 @@ $P(c) = x_c$, so a $(1-\varepsilon)$-correct OPE gives a $(1-\varepsilon)$-corre
 
 ## Notes
 
-- The construction does not give [[oblivious-transfer#malicious-security|malicious security]] when $|\FF| > 2$, even when $\Pi$ has [[oblivious-polynomial-evaluation#malicious-security|malicious security]]: a corrupted receiver can input $\alpha \notin \{0, 1\}$ and learn $(1 - \alpha) x_0 + \alpha x_1$, which depends on both messages — folklore.
+- The construction does not give [[oblivious-transfer#malicious-security|malicious security]] when $|\FF| > 2$, even when $\Pi$ has [[oblivious-polynomial-evaluation#malicious-security|malicious security]]: a corrupted receiver can input $\alpha \notin \bits$ and learn $(1 - \alpha) x_0 + \alpha x_1$, which depends on both messages — folklore.

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Every [[hidden-vector-encryption|HVE]] scheme over $\Sigma = \{0,1\}$ supports [[hidden-vector-encryption#subset-and-range-queries|subset and range queries]] through fixed encodings of attributes and predicates into vectors and wildcard patterns: membership $x \in T$ by encoding $x$ as its indicator vector over the domain and $T$ as the pattern with wildcards exactly on $T$ and $0$ elsewhere; comparison $x \ge a$ over a domain of size $n$ by encoding $x$ in unary and $a$ as the pattern with a single non-wildcard position; ranges $a \le x \le b$ as conjunctions of comparisons. The encodings preserve every predicate outcome, so the derived scheme inherits the HVE scheme's security with the same advantage. Ciphertext size is linear in the domain size — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
+Every [[hidden-vector-encryption|HVE]] scheme over $\Sigma = \bits$ supports [[hidden-vector-encryption#subset-and-range-queries|subset and range queries]] through fixed encodings of attributes and predicates into vectors and wildcard patterns: membership $x \in T$ by encoding $x$ as its indicator vector over the domain and $T$ as the pattern with wildcards exactly on $T$ and $0$ elsewhere; comparison $x \ge a$ over a domain of size $n$ by encoding $x$ in unary and $a$ as the pattern with a single non-wildcard position; ranges $a \le x \le b$ as conjunctions of comparisons. The encodings preserve every predicate outcome, so the derived scheme inherits the HVE scheme's security with the same advantage. Ciphertext size is linear in the domain size — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
 
 ## Sketch
 
