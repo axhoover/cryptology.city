@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\Pi$ be a secure [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol with long-term key-generation algorithm $\KeyGen$. The protocol in which $A$ and $B$ sample $(\pk_A, \sk_A), (\pk_B, \sk_B) \gets \KeyGen(1^\secpar)$, send their public keys, and run one session of $\Pi$, $A$ as an initiator instance with intended peer $B$ and $B$ as a responder instance, each outputting its session key, is a [[key-exchange|key exchange]] secure against eavesdroppers whose parties output the same key except with negligible probability — folklore.
+Let $\Pi$ be a secure [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol with long-term key-generation algorithm $\KeyGen$. The protocol in which $A$ and $B$ sample $(\pk_A, \sk_A), (\pk_B, \sk_B) \gets \KeyGen(1^\secpar)$, send their public keys, and run one session of $\Pi$ for the party set $\calU = \{A, B\}$ ($N = 2$), $A$ as an initiator instance with intended peer $B$ and $B$ as a responder instance, each outputting its session key, is a [[key-exchange|key exchange]] secure against eavesdroppers whose parties output the same key except with negligible probability — folklore.
 
 ## Sketch
 

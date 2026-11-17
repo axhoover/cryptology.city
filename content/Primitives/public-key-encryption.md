@@ -262,7 +262,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 86b43d1f4292 -->
+<!-- BEGIN GENERATED participates-in 74d2b6cfc048 -->
 
 ## Participates in
 
@@ -284,7 +284,7 @@ is negligible.
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
-- [[pke-to-com|PKE ⇒ COM]]
+- [[pke-to-com|Perfectly correct PKE ⇒ COM]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[pke-to-ke|PKE ⇒ KE]]
 - [[pke-to-kem|PKE ⇒ KEM]]

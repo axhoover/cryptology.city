@@ -10,22 +10,28 @@ conclusion: pke
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: "tight: one NIKE challenge per run of the CPA adversary"
+security-loss: "a factor λ for the bit encryption; tight for a group key space"
 rationale:
-  class: "The scheme calls Gen and Combine only as oracles, and the fixed reduction runs the CPA adversary once as an oracle."
+  class: "The scheme calls Setup, Gen, Combine and the key-space sampler only as oracles, and the fixed hybrid reduction runs the CPA adversary once as an oracle."
 ---
 
 # NIKE ⇒ PKE
 
 ## Statement
 
-Let $(\Gen, \Combine)$ be a [[key-exchange#non-interactive-key-exchange-nike|NIKE]] with key space $\calK = \bits^\ell$ whose shared key is indistinguishable from uniform given both honestly generated public keys. Then $\KeyGen := \Gen$, $\Enc(\pk, m) := (\pk', \Combine(\sk', \pk) \oplus m)$ for fresh $(\pk', \sk') \gets \Gen(1^\secpar)$, and $\Dec(\sk, (\pk', c)) := \Combine(\sk, \pk') \oplus c$ is an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] with $\calM = \bits^\ell$ — folklore.
+Let $(\Setup, \Gen, \Combine)$ be a [[key-exchange#non-interactive-key-exchange-nike|NIKE]] with $(1-\varepsilon)$-correctness and key space $\calK$, $|\calK| \ge 2$. The following scheme encrypts bits:
+
+- $\KeyGen(1^\secpar)$ samples $\pp \gets \Setup(1^\secpar)$ and independent $(\pk_i, \sk_i) \gets \Gen(\pp)$ for $i \le \secpar$, and outputs $\pk^* = (\pp, (\pk_i)_{i \le \secpar})$ and $\sk^* = (\sk_i)_{i \le \secpar}$;
+- $\Enc(\pk^*, b)$, for $b \in \bits$, samples fresh $(\pk'_i, \sk'_i) \gets \Gen(\pp)$ for $i \le \secpar$, sets $c_i := \Combine(\sk'_i, \pk_i)$ if $b = 0$ and $c_i \getsr \calK$ if $b = 1$, and outputs $(\pk'_i, c_i)_{i \le \secpar}$;
+- $\Dec(\sk^*, (\pk'_i, c_i)_{i \le \secpar})$ outputs $0$ iff $c_i = \Combine(\sk_i, \pk'_i)$ for every $i \le \secpar$.
+
+Its correctness error is at most $\secpar\varepsilon + |\calK|^{-\secpar} \le \secpar\varepsilon + 2^{-\secpar}$, and it is [[public-key-encryption#cpa-security|IND-CPA-secure]], so it is a [[public-key-encryption|PKE]] with $\calM = \bits$ — folklore.
 
 ## Sketch
 
-Correctness is NIKE correctness. Given a NIKE challenge $(\pk, \pk', k)$, the reduction gives $\calA$ the public key $\pk$ and the challenge ciphertext $(\pk', k \oplus m_b)$ for its own bit $b$, and outputs $[b' = b]$: for the real shared key this is the CPA game, and for uniform $k$ the ciphertext is independent of $b$.
+An encryption of $0$ decrypts wrongly only if one of the $\secpar$ honest pairs disagrees, and an encryption of $1$ only if every uniform $c_i$ equals the corresponding honest key. For CPA security, hybrid $j$ makes $c_i$ uniform for $i \le j$ in the encryption of $0$; the reduction for step $j$ plants its NIKE challenge $(\pp, \pk, \pk', k)$ as $(\pk_j, \pk'_j, c_j)$ and generates the other pairs under the same $\pp$, so the CPA advantage is at most $\secpar$ times the NIKE advantage.
 
 ## Notes
 
-- Instantiated with Diffie–Hellman, with $\oplus$ replaced by the group operation, the construction is ElGamal encryption ([[ddh-to-pke-elgamal85|DDH ⇒ PKE]]) — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]].
+- If $\calK$ is a finite group with efficient operations and $|\calK| \ge 2$, one instance suffices: $\KeyGen$ outputs $\pk^* = (\pp, \pk)$, $\Enc(\pk^*, m) := (\pk', \Combine(\sk', \pk) \cdot m)$ for fresh $(\pk', \sk') \gets \Gen(\pp)$ encrypts $m \in \calM = \calK$, and the reduction to one NIKE challenge is tight — folklore. For $\calK = \bits^\ell$ under $\oplus$ this is the one-time-pad scheme; instantiated with Diffie–Hellman it is ElGamal encryption ([[ddh-to-pke-elgamal85|DDH ⇒ PKE]]) — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]].
 - The same construction works from any two-message [[key-exchange|key exchange]], with the initiator's message as the public key — folklore.

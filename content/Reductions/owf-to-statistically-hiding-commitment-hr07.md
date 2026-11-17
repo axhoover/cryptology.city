@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Every [[hash-function#preimage-resistance-one-wayness|one-way function]] yields an interactive bit-commitment scheme that is statistically [[commitment-scheme#hiding|hiding]] and computationally [[commitment-scheme#binding|binding]] — [[HR07 - Statistically-hiding commitment from any one-way function|HR07]].
+Every [[hash-function#preimage-resistance-one-wayness|one-way function]] yields an interactive bit-commitment scheme that is [[commitment-scheme#statistically-hiding-commitments|statistically hiding]] and computationally [[commitment-scheme#binding|binding]] — [[HR07 - Statistically-hiding commitment from any one-way function|HR07]].
 
 ## Notes
 

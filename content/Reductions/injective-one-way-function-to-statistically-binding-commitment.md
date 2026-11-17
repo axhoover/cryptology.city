@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-For an [[injective-one-way-function|injective one-way function]] $f$, the non-interactive bit commitment $\Com(b; x, r) = (f(x), r, \langle x, r \rangle \oplus b)$ with $x, r \getsr \bits^\secpar$, opened by revealing $(x, r, b)$, is perfectly [[commitment-scheme#binding|binding]] and computationally [[commitment-scheme#hiding|hiding]] — folklore.
+For an [[injective-one-way-function|injective one-way function]] $f$, the non-interactive bit commitment $\Com(b; x, r) = (f(x), r, \langle x, r \rangle \oplus b)$ with $x, r \getsr \bits^\secpar$, opened by revealing $(x, r, b)$, which always verifies, is [[commitment-scheme#statistically-binding-commitments|perfectly binding]] and computationally [[commitment-scheme#hiding|hiding]] — folklore.
 
 ## Sketch
 

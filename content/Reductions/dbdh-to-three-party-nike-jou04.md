@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In Joux's protocol over a symmetric pairing group $e : \GG \times \GG \to \GG_T$, three parties publish $g^a$, $g^b$ and $g^c$ for their secrets $a, b, c \getsr \ZZ_q$ and each derives $K = e(g,g)^{abc}$, the first as $e(g^b, g^c)^a$ — [[Jou04 - A One Round Protocol for Tripartite Diffie–Hellman|Jou04]]. If [[bilinear-map-assumptions#decisional-bdh|decisional BDH]] holds, $K$ is pseudorandom given the three messages, so this is a [[key-exchange#three-party-nike|three-party NIKE]] — standard.
+In Joux's protocol over a symmetric pairing group $e : \GG \times \GG \to \GG_T$, three parties publish $g^a$, $g^b$ and $g^c$ for their secrets $a, b, c \getsr \ZZ_q$ and each derives $K = e(g,g)^{abc}$, the first as $e(g^b, g^c)^a$ — [[Jou04 - A One Round Protocol for Tripartite Diffie–Hellman|Jou04]]. As a [[key-exchange#three-party-nike|three-party NIKE]], $\Setup$ outputs the pairing group, $\mathsf{Publish}$ ignores the party's index, and the three keys agree with probability $1$; if [[bilinear-map-assumptions#decisional-bdh|decisional BDH]] holds, $K$ is pseudorandom given the group and the three messages, so the three-party NIKE is secure — standard.
 
 ## Sketch
 

@@ -21,11 +21,11 @@ rationale:
 
 ## Statement
 
-Every [[one-way-permutation|one-way permutation]] $\pi$ on $\bits^n$ yields an interactive bit-commitment scheme that is perfectly [[commitment-scheme#hiding|hiding]] and computationally [[commitment-scheme#binding|binding]], with $n - 1$ rounds of interactive hashing — [[NOVY98 - Perfect Zero-Knowledge Arguments for NP Using Any One-Way Permutation|NOVY98]].
+Every [[one-way-permutation|one-way permutation]] $\pi$ on $\bits^n$ yields an interactive bit-commitment scheme that is [[commitment-scheme#statistically-hiding-commitments|perfectly hiding]] and computationally [[commitment-scheme#binding|binding]], with $n - 1$ rounds of interactive hashing — [[NOVY98 - Perfect Zero-Knowledge Arguments for NP Using Any One-Way Permutation|NOVY98]].
 
 ## Sketch
 
-To commit to $\beta$, the committer samples $x \getsr \bits^n$ and sets $y := \pi(x)$; in round $i < n$ the receiver sends a uniform $h_i \in \bits^n$ linearly independent of $h_1, \ldots, h_{i-1}$ and the committer replies $\langle h_i, y \rangle$. Exactly two strings $y_0 < y_1$ are consistent with the answers, and the committer sends $\beta \oplus c$ where $y = y_c$; to open, it reveals $x$. The transcript is identically distributed whether $y = y_0$ or $y = y_1$, so hiding is perfect, and opening both ways requires preimages of both $y_0$ and $y_1$, which the interactive hashing makes as hard as inverting $\pi$ at a uniform point.
+To commit to $\beta$, the committer samples $x \getsr \bits^n$ and sets $y := \pi(x)$; in round $i < n$ the receiver sends a uniform $h_i \in \bits^n$ linearly independent of $h_1, \ldots, h_{i-1}$ and the committer replies $\langle h_i, y \rangle$. Exactly two strings $y_0 < y_1$ are consistent with the answers, and the committer sends $\beta \oplus c$ where $y = y_c$; to open, it reveals $x$, which always verifies. The transcript is identically distributed whether $y = y_0$ or $y = y_1$, so hiding is perfect, and opening both ways requires preimages of both $y_0$ and $y_1$, which the interactive hashing makes as hard as inverting $\pi$ at a uniform point.
 
 ## Notes
 

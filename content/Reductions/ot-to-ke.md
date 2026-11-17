@@ -19,11 +19,11 @@ rationale:
 
 ## Statement
 
-A semi-honest secure [[oblivious-transfer|1-out-of-2 OT]] protocol yields a [[key-exchange|key-agreement]] protocol secure against eavesdroppers: Alice and Bob run the OT with Alice as sender on uniform bits $(x_0, x_1)$ and Bob as receiver on a uniform choice bit $c$; Bob then sends $c$, and both output $x_c$ — folklore.
+A semi-honest secure [[oblivious-transfer|1-out-of-2 OT]] protocol yields a [[key-exchange|key-agreement]] protocol secure against eavesdroppers: Alice and Bob run the OT with Alice as sender on uniform bits $(x_0, x_1)$ and Bob as receiver on a uniform choice bit $c$; Bob then sends $c$, Alice outputs $x_c$, and Bob outputs the receiver's output of the OT, which equals $x_c$ except with negligible probability by the OT's correctness — folklore.
 
 ## Sketch
 
-Bob learns $x_c$ by correctness. An eavesdropper sees the OT transcript $\tau$ and then $c$. Receiver privacy makes $\tau$ independent of $c$ given $(x_0, x_1)$, and sender privacy makes $\tau$ independent of $x_{1-c}$ given $(c, x_c)$, both computationally; the two together make $\tau$ computationally independent of $(x_0, x_1, c)$, so $x_c$ is pseudorandom given $(\tau, c)$. Repetition gives a longer key.
+An eavesdropper sees the OT transcript $\tau$ and then $c$. Receiver privacy makes $\tau$ independent of $c$ given $(x_0, x_1)$, and sender privacy makes $\tau$ independent of $x_{1-c}$ given $(c, x_c)$, both computationally; the two together make $\tau$ computationally independent of $(x_0, x_1, c)$, so $x_c$ is pseudorandom given $(\tau, c)$. Repetition gives a longer key.
 
 ## Notes
 

@@ -24,7 +24,7 @@ A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3
 
 ## Sketch
 
-Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so commitments to $0$ and $1$ are two hybrids apart. Binding: opening to both bits requires seeds $s_0, s_1$ with $G(s_0) \oplus G(s_1) = \pp$; at most $2^{2\secpar}$ of the $2^{3\secpar}$ strings $\pp$ admit such a pair, so binding fails with probability at most $2^{-\secpar}$ over the receiver's message.
+An honest opening always verifies. Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so commitments to $0$ and $1$ are two hybrids apart. Binding: opening to both bits requires seeds $s_0, s_1$ with $G(s_0) \oplus G(s_1) = \pp$; at most $2^{2\secpar}$ of the $2^{3\secpar}$ strings $\pp$ admit such a pair, so binding fails with probability at most $2^{-\secpar}$ over the receiver's message.
 
 ## Notes
 
