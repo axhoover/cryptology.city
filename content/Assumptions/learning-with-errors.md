@@ -257,7 +257,7 @@ The hardness depends sensitively on the number and precision of hints: few low-p
 
 ## Evasive LWE
 
-**Evasive LWE** is a non-standard strengthening of decision LWE, introduced by Wee — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]] — to construct optimal [[broadcast-encryption|broadcast encryption]] ([[evasive-lwe-to-be-wee22|Evasive LWE ⇒ BE]]) and [[attribute-based-encryption|attribute-based encryption]]. Unlike a single-game hardness assumption, it is stated as an **implication** between two indistinguishability conditions, quantified over a PPT sampler.
+**Evasive LWE** is a non-standard strengthening of decision LWE, introduced by Wee — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]] — to construct optimal [[broadcast-encryption|broadcast encryption]] ([[evasive-lwe-to-be-wee22|Evasive LWE ⇒ Selectively secure BE]]) and [[attribute-based-encryption|attribute-based encryption]]. Unlike a single-game hardness assumption, it is stated as an **implication** between two indistinguishability conditions, quantified over a PPT sampler.
 
 The assumption is parameterized by a PPT sampler $\mathrm{Samp}$ that on input $1^\secpar$ produces:
 
