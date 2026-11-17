@@ -83,6 +83,8 @@ $$
 
 is negligible. Without $\calE$ the game is the [[public-key-encryption#cpa-security|CPA game]] of $(\KeyGen, \Enc)$ with $t-1$ key shares revealed; $\calE$ also reveals the decryption shares of honestly generated ciphertexts, as published when such ciphertexts are decrypted — standard.
 
+Every threshold encryption scheme on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], with $\varepsilon = \varepsilon(\secpar)$ negligible for all polynomially bounded $n = n(\secpar)$ and $t = t(\secpar)$ with $1 \le t \le n$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length that an efficient algorithm outputs on input $1^\secpar$, or on input $\pk$ when the message space depends on the public key, as $\calM = \ZZ_n$ does in threshold Paillier. As an object, threshold encryption denotes such a scheme that is CPA-secure against admissible adversaries that make no $\calE$ query, that is, whose $(\KeyGen, \Enc)$ is CPA-secure with $t-1$ key shares revealed. TPKE CPA security and TPKE CCA security denote such schemes that are CPA-secure in the game above and [[#CCA security|CCA-secure]], respectively. Without correctness, a scheme whose $\Enc$ ignores its message meets every security notion on this page, and without two such messages so does the scheme that outputs $m$ in the clear.
+
 ### CCA security
 
 In a chosen-ciphertext game following [[SG98 - Securing Threshold Cryptosystems against Chosen Ciphertext Attack|SG98]], stated here without its labels, $\calA$ instead has an oracle $\calD$ that returns the decryption shares of every uncorrupted party on any ciphertext of its choice. An admissible adversary submits equal-length messages in $\calM$ and, after receiving $c^*$, may not query $\calD$ on $c^*$: one uncorrupted share of $c^*$ together with the $t-1$ corrupted key shares decrypts it.
@@ -123,10 +125,10 @@ In [[homomorphic-encryption#threshold-fhe|threshold FHE]] the decryption shares 
 # Other results
 
 - Threshold cryptosystems originate with [[DF89 - Threshold Cryptosystems|DF89]].
-- Threshold Paillier encryption, with a trusted dealer and decryption shares carrying non-interactive proofs of correctness, is CPA-secure against an active, static adversary under [[decisional-composite-residuosity|DCR]] in the random oracle model ([[dkg-and-he-to-tpke|DCR ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]; [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]] give a threshold variant of their generalisation of Paillier's scheme.
+- Threshold Paillier encryption, with a trusted dealer, a modulus $n = pq$ for safe primes $p = 2p' + 1$ and $q = 2q' + 1$, and decryption shares carrying non-interactive proofs of correctness, is CPA-secure against an active, static adversary under [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR with safe-prime moduli]] in the random oracle model ([[dkg-and-he-to-tpke|DCR (safe-prime moduli) ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]; [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]] give a threshold variant of their generalisation of Paillier's scheme.
 - [[SG98 - Securing Threshold Cryptosystems against Chosen Ciphertext Attack|SG98]] give two non-interactive threshold schemes in prime-order groups, TDH1 and TDH2, and prove them CCA-secure against static corruption in the random oracle model.
 
-<!-- BEGIN GENERATED participates-in 6c7f14715a54 -->
+<!-- BEGIN GENERATED participates-in 6aa9602af1ba -->
 
 ## Participates in
 
@@ -137,7 +139,7 @@ In [[homomorphic-encryption#threshold-fhe|threshold FHE]] the decryption shares 
 
 **Produces Threshold encryption**
 
-- [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
+- [[dkg-and-he-to-tpke|DCR (safe-prime moduli) ⇒ TPKE]]
 - [[tpke-cca-security-to-tpke-cpa-security|TPKE CCA Security ⇒ TPKE CPA Security]] (via [[threshold-encryption#cpa-security|CPA security]])
 - [[tpke-cpa-security-to-threshold-encryption|TPKE CPA Security ⇒ TPKE]]
 

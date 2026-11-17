@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[threshold-encryption#cpa-security|CPA-secure]] [[threshold-encryption|threshold encryption]] scheme, with the same algorithms, is a threshold encryption scheme: the named notion only adds a security guarantee — folklore.
+A [[threshold-encryption#cpa-security|CPA-secure]] [[threshold-encryption|threshold encryption]] scheme, with the same algorithms, is a threshold encryption scheme: the identity carries correctness and the message space over, and an admissible adversary that makes no $\calE$ query is an admissible adversary in the CPA game, so its advantage is negligible — folklore.
