@@ -122,7 +122,7 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]) — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $\PRG(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 92181de63a8e -->
+<!-- BEGIN GENERATED participates-in bcd75a9af095 -->
 
 ## Participates in
 
@@ -149,8 +149,8 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
 - [[qr-to-prg-bbs86|QR ⇒ PRG (Blum–Blum–Shub)]]
-- [[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]
-- [[syndrome-decoding-to-prg-fs96|SD ⇒ PRG]]
+- [[subset-sum-to-prg-in96|Subset sum at constant density below one ⇒ PRG]]
+- [[syndrome-decoding-to-prg-fs96|SD at the FS96 parameters ⇒ PRG]]
 - [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-generator#trapdoor-pseudorandom-generators|Trapdoor pseudorandom generators]])
 
 <!-- END GENERATED participates-in -->

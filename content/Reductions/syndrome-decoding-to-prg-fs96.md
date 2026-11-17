@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "SD ⇒ PRG"
+title: "SD at the FS96 parameters ⇒ PRG"
 aliases: []
 id: red-syndrome-decoding-to-prg-fs96
 kind: implication
-hypotheses: [syndrome-decoding]
+hypotheses: [fs96-syndrome-decoding]
 conclusion: prg
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# SD ⇒ PRG
+# SD at the FS96 parameters ⇒ PRG
 
 ## Statement
 
-If [[syndrome-decoding|syndrome decoding]] is hard at suitable parameters $(n, k, w)$, there is a [[pseudorandom-generator|PRG]] as secure as syndrome decoding at those parameters, each application of which yields a linear number of output bits in quadratic time — [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]].
+If [[syndrome-decoding|syndrome decoding]] is hard [[syndrome-decoding#syndrome-decoding-at-the-fs96-parameters|at the FS96 parameters]] $(n, k, w)$, there is a [[pseudorandom-generator|PRG]] as secure as syndrome decoding at those parameters, each application of which yields a linear number of output bits in quadratic time — [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]].
 
 ## Notes
 

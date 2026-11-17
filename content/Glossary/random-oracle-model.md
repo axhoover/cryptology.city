@@ -39,7 +39,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 888fddaeffbe -->
+<!-- BEGIN GENERATED participates-in 75d35af9f248 -->
 
 ## Participates in
 
@@ -104,6 +104,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 - [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
+- [[tdp-to-fixed-ring-ring-signature-rst01|TDP over bit strings ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)]]
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]]
 - [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]]
 

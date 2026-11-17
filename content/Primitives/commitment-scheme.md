@@ -117,7 +117,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 
 The bit-commitment functionality $\calF_{\mathrm{COM}}$ serves one commitment from a committer $P_i$ to a receiver $P_j$. On input $(\mathsf{Commit}, \mathit{sid}, P_i, P_j, b)$ from $P_i$, with $b \in \bits$, it records $b$, sends $(\mathsf{Receipt}, \mathit{sid}, P_i, P_j)$ to $P_j$ and to the adversary, and ignores later Commit inputs. On input $(\mathsf{Open}, \mathit{sid}, P_i, P_j)$ from $P_i$, if it has recorded a bit $b$, it sends $(\mathsf{Open}, \mathit{sid}, P_i, P_j, b)$ to $P_j$ and to the adversary and halts — [[CF01 - Universally Composable Commitments|CF01]]. A **UC commitment** is a two-party protocol in which, with non-negligible probability, the receiver accepts a commitment of the honest committer and outputs a receipt, and which [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{COM}}$ against a malicious adversary that statically corrupts either party, possibly in a hybrid model such as the common reference string model; a result against adaptive corruptions says so. In the common reference string model each session of $\calF_{\mathrm{COM}}$ has its own reference string, so such a protocol uses a fresh string for every commitment — [[CF01 - Universally Composable Commitments|CF01]].
 
-Over [[interactive-protocol#authenticated-channels|authenticated channels]] without setup, no protocol in which only the committer and the receiver take part is a UC commitment ([[no-authenticated-channels-to-uc-commitment-cf01|no UC commitment from authenticated channels]]) — [[CF01 - Universally Composable Commitments|CF01]]. In the common reference string model [[trapdoor-permutation|trapdoor permutations]] suffice ([[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+Over [[interactive-protocol#authenticated-channels|authenticated channels]] without setup, no protocol in which only the committer and the receiver take part is a UC commitment ([[no-authenticated-channels-to-uc-commitment-cf01|no UC commitment from authenticated channels]]) — [[CF01 - Universally Composable Commitments|CF01]]. In the common reference string model [[trapdoor-permutation#trapdoor-permutations-over-bit-strings|trapdoor permutations over bit strings]] suffice ([[tdp-to-uc-commitment-cf01|TDP over bit strings ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
 
 ### UC multi-commitment
 
@@ -176,7 +176,7 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 - [[pke-to-com|PKE ⇒ COM]] — folklore
 - [[dlog-to-com-ped91|DLOG in verifiable prime-order groups ⇒ statistically hiding COM]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]
 
-<!-- BEGIN GENERATED participates-in 964bc85ba46a -->
+<!-- BEGIN GENERATED participates-in faffa450515a -->
 
 ## Participates in
 
@@ -213,11 +213,11 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 - [[prg-to-com-naor91|PRG ⇒ COM]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
 - [[qr-to-com|QR ⇒ COM]]
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]]
-- [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-commitment|UC commitment]])
+- [[tdp-to-uc-commitment-cf01|TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-commitment|UC commitment]])
 - [[three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment|Three-round NM commitment ⇒ Constant-round NM commitment]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
 
 **Barriers**
 
-- [[no-authenticated-channels-to-uc-commitment-cf01|No reduction from authenticated channels to UC commitment]] (via [[commitment-scheme#uc-commitment|UC commitment]]) — circumvented by [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]]
+- [[no-authenticated-channels-to-uc-commitment-cf01|No reduction from authenticated channels to UC commitment]] (via [[commitment-scheme#uc-commitment|UC commitment]]) — circumvented by [[tdp-to-uc-commitment-cf01|TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)]]
 
 <!-- END GENERATED participates-in -->

@@ -33,5 +33,5 @@ Let $\calA$ corrupt the committer at the outset and relay messages between $\cal
 ## Notes
 
 - The protocol must be bilateral: with third parties taking part, a majority of the participants honest, protocols that UC-realize $\calF_{\mathrm{COM}}$ exist in the plain model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]], [[CF01 - Universally Composable Commitments|CF01]].
-- A common reference string circumvents the barrier: [[trapdoor-permutation|trapdoor permutations]] then give UC commitments ([[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+- A common reference string circumvents the barrier: [[trapdoor-permutation#trapdoor-permutations-over-bit-strings|trapdoor permutations over bit strings]] then give UC commitments ([[tdp-to-uc-commitment-cf01|TDP over bit strings ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
 - Straight-line extraction of a corrupted party's input also rules out UC protocols for large classes of two-party functionalities over authenticated channels ([[no-authenticated-channels-to-uc-mpc-ckl03|no UC MPC from authenticated channels]]) — [[CKL03 - On the Limitations of Universally Composable Two-Party Computation without Set-up Assumptions|CKL03]].

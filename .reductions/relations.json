@@ -855,6 +855,19 @@
    "unlisted": false
   },
   {
+   "id": "bit-string-tdp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#trapdoor-permutations-over-bit-strings",
+   "of": "tdp",
+   "title": "Trapdoor permutations over bit strings",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "black-box-separation",
    "kind": "object",
    "type": "glossary",
@@ -2464,6 +2477,19 @@
    "anchor": "#frost",
    "of": "threshold-signature",
    "title": "FROST",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "fs96-syndrome-decoding",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/syndrome-decoding.md",
+   "slug": "syndrome-decoding",
+   "graphSlug": "Assumptions/syndrome-decoding",
+   "anchor": "#syndrome-decoding-at-the-fs96-parameters",
+   "of": "syndrome-decoding",
+   "title": "Syndrome decoding at the FS96 parameters",
    "aliases": [],
    "unlisted": false
   },
@@ -7493,6 +7519,32 @@
    "unlisted": false
   },
   {
+   "id": "subset-sum-above-density-one",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/subset-sum.md",
+   "slug": "subset-sum",
+   "graphSlug": "Assumptions/subset-sum",
+   "anchor": "#subset-sum-above-density-one",
+   "of": "subset-sum",
+   "title": "Subset sum above density one",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subset-sum-constant-density-below-one",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/subset-sum.md",
+   "slug": "subset-sum",
+   "graphSlug": "Assumptions/subset-sum",
+   "anchor": "#subset-sum-at-constant-density-below-one",
+   "of": "subset-sum",
+   "title": "Subset sum at constant density below one",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -9851,6 +9903,33 @@
    "slug": "bit-compressing-sis-to-sis",
    "graphSlug": "Reductions/bit-compressing-sis-to-sis",
    "title": "Bit-compressing SIS ⇒ SIS"
+  },
+  {
+   "id": "red-bit-string-tdp-to-tdp",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-tdp"
+   ],
+   "conclusion": "tdp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-tdp-to-tdp.md",
+   "slug": "bit-string-tdp-to-tdp",
+   "graphSlug": "Reductions/bit-string-tdp-to-tdp",
+   "title": "TDP over bit strings ⇒ TDP"
   },
   {
    "id": "red-boneh-lynn-shacham-signature-to-ds",
@@ -14276,6 +14355,33 @@
    "slug": "four-round-ot-to-malicious-ot-security",
    "graphSlug": "Reductions/four-round-ot-to-malicious-ot-security",
    "title": "Four-round OT ⇒ Malicious OT with expected-time simulation"
+  },
+  {
+   "id": "red-fs96-syndrome-decoding-to-syndrome-decoding",
+   "kind": "implication",
+   "hypotheses": [
+    "fs96-syndrome-decoding"
+   ],
+   "conclusion": "syndrome-decoding",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the instance distribution, and the reduction forwards any solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fs96-syndrome-decoding-to-syndrome-decoding.md",
+   "slug": "fs96-syndrome-decoding-to-syndrome-decoding",
+   "graphSlug": "Reductions/fs96-syndrome-decoding-to-syndrome-decoding",
+   "title": "SD at the FS96 parameters ⇒ SD"
   },
   {
    "id": "red-fully-succinct-snark-to-sublinear-snarg-for-np",
@@ -24099,6 +24205,33 @@
    "title": "RSA with safe-prime moduli ⇒ RSA"
   },
   {
+   "id": "red-rsa-to-bit-string-tdp-rst01",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "bit-string-tdp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RST01 - How to Leak a Secret|RST01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $n/2^b + 1 - \\phi(n)/n$: an inverter of $g$ with advantage $\\varepsilon$ gives an RSA solver with advantage at least $\\varepsilon - n/2^b - (1 - \\phi(n)/n)$",
+   "rationale": {
+    "class": "One fixed extension uses only the modulus generator and $x \\mapsto x^e \\bmod n$, and one fixed reduction passes each RSA challenge, shifted by a uniform multiple of $n$, to any inverter of $g$ as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rsa-to-bit-string-tdp-rst01.md",
+   "slug": "rsa-to-bit-string-tdp-rst01",
+   "graphSlug": "Reductions/rsa-to-bit-string-tdp-rst01",
+   "title": "RSA ⇒ TDP over bit strings"
+  },
+  {
    "id": "red-rsa-to-ds-hw09",
    "kind": "implication",
    "hypotheses": [
@@ -26485,10 +26618,64 @@
    "title": "Subgroup decision ⇒ SHE (degree 2)"
   },
   {
+   "id": "red-subset-sum-above-density-one-to-subset-sum",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum-above-density-one"
+   ],
+   "conclusion": "subset-sum",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the instance distribution, and the reduction forwards any solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-above-density-one-to-subset-sum.md",
+   "slug": "subset-sum-above-density-one-to-subset-sum",
+   "graphSlug": "Reductions/subset-sum-above-density-one-to-subset-sum",
+   "title": "Subset sum above density one ⇒ Subset sum"
+  },
+  {
+   "id": "red-subset-sum-constant-density-below-one-to-subset-sum",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum-constant-density-below-one"
+   ],
+   "conclusion": "subset-sum",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the instance distribution, and the reduction forwards any solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-constant-density-below-one-to-subset-sum.md",
+   "slug": "subset-sum-constant-density-below-one-to-subset-sum",
+   "graphSlug": "Reductions/subset-sum-constant-density-below-one-to-subset-sum",
+   "title": "Subset sum at constant density below one ⇒ Subset sum"
+  },
+  {
    "id": "red-subset-sum-to-decision-subset-sum-in96",
    "kind": "implication",
    "hypotheses": [
-    "subset-sum"
+    "subset-sum-constant-density-below-one"
    ],
    "conclusion": "decision-subset-sum",
    "class": "unstated",
@@ -26506,7 +26693,7 @@
    "page": "content/Reductions/subset-sum-to-decision-subset-sum-in96.md",
    "slug": "subset-sum-to-decision-subset-sum-in96",
    "graphSlug": "Reductions/subset-sum-to-decision-subset-sum-in96",
-   "title": "Subset sum ⇒ Decision subset sum"
+   "title": "Subset sum at constant density below one ⇒ Decision subset sum"
   },
   {
    "id": "red-subset-sum-to-ot-lps10",
@@ -26531,6 +26718,33 @@
    "slug": "subset-sum-to-ot-lps10",
    "graphSlug": "Reductions/subset-sum-to-ot-lps10",
    "title": "Subset sum at the LPS10 parameters ⇒ OT"
+  },
+  {
+   "id": "red-subset-sum-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "One fixed function $f$ uses only the instance sampler, and the reduction forwards its challenge to any inverter as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-owf.md",
+   "slug": "subset-sum-to-owf",
+   "graphSlug": "Reductions/subset-sum-to-owf",
+   "title": "Subset sum ⇒ OWF"
   },
   {
    "id": "red-subset-sum-to-pke-lps10",
@@ -26560,7 +26774,7 @@
    "id": "red-subset-sum-to-prg-in96",
    "kind": "implication",
    "hypotheses": [
-    "subset-sum"
+    "subset-sum-constant-density-below-one"
    ],
    "conclusion": "prg",
    "class": "unstated",
@@ -26578,13 +26792,13 @@
    "page": "content/Reductions/subset-sum-to-prg-in96.md",
    "slug": "subset-sum-to-prg-in96",
    "graphSlug": "Reductions/subset-sum-to-prg-in96",
-   "title": "Subset sum ⇒ PRG"
+   "title": "Subset sum at constant density below one ⇒ PRG"
   },
   {
    "id": "red-subset-sum-to-uowhf-in96",
    "kind": "implication",
    "hypotheses": [
-    "subset-sum"
+    "subset-sum-above-density-one"
    ],
    "conclusion": "uowhf",
    "class": "unstated",
@@ -26602,7 +26816,7 @@
    "page": "content/Reductions/subset-sum-to-uowhf-in96.md",
    "slug": "subset-sum-to-uowhf-in96",
    "graphSlug": "Reductions/subset-sum-to-uowhf-in96",
-   "title": "Subset sum ⇒ UOWHF"
+   "title": "Subset sum above density one ⇒ UOWHF"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",
@@ -26875,10 +27089,37 @@
    "title": "SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encryption"
   },
   {
-   "id": "red-syndrome-decoding-to-prg-fs96",
+   "id": "red-syndrome-decoding-to-owf",
    "kind": "implication",
    "hypotheses": [
     "syndrome-decoding"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $2^{-\\secpar}$, the statistical distance of $\\theta(r)$ from uniform on $S_{n,w}$",
+   "rationale": {
+    "class": "One fixed function uses only the SD instance sampler, and the reduction forwards its challenge to any inverter as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/syndrome-decoding-to-owf.md",
+   "slug": "syndrome-decoding-to-owf",
+   "graphSlug": "Reductions/syndrome-decoding-to-owf",
+   "title": "SD ⇒ OWF"
+  },
+  {
+   "id": "red-syndrome-decoding-to-prg-fs96",
+   "kind": "implication",
+   "hypotheses": [
+    "fs96-syndrome-decoding"
    ],
    "conclusion": "prg",
    "class": "unstated",
@@ -26896,7 +27137,7 @@
    "page": "content/Reductions/syndrome-decoding-to-prg-fs96.md",
    "slug": "syndrome-decoding-to-prg-fs96",
    "graphSlug": "Reductions/syndrome-decoding-to-prg-fs96",
-   "title": "SD ⇒ PRG"
+   "title": "SD at the FS96 parameters ⇒ PRG"
   },
   {
    "id": "red-szk-hardness-to-owf-ost91",
@@ -27129,12 +27370,13 @@
    "id": "red-tdp-to-fixed-ring-ring-signature-rst01",
    "kind": "implication",
    "hypotheses": [
-    "tdp"
+    "bit-string-tdp"
    ],
    "conclusion": "fixed-ring-ring-signature",
    "class": "unstated",
    "model": "other",
    "models": [
+    "rom",
     "other"
    ],
    "source": [
@@ -27144,13 +27386,13 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "The proof models the symmetric cipher as an ideal cipher, a family of independent random permutations that every party can query in both directions, and the hash h as a random oracle; no named model covers the two together."
+    "model": "The ideal cipher, a family of independent random permutations that every party can query in both directions, is none of the named models."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-fixed-ring-ring-signature-rst01.md",
    "slug": "tdp-to-fixed-ring-ring-signature-rst01",
    "graphSlug": "Reductions/tdp-to-fixed-ring-ring-signature-rst01",
-   "title": "TDP ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)"
+   "title": "TDP over bit strings ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)"
   },
   {
    "id": "red-tdp-to-hash-function",
@@ -27268,7 +27510,7 @@
    "id": "red-tdp-to-uc-commitment-cf01",
    "kind": "implication",
    "hypotheses": [
-    "tdp"
+    "bit-string-tdp"
    ],
    "conclusion": "uc-commitment",
    "class": "unstated",
@@ -27289,7 +27531,7 @@
    "page": "content/Reductions/tdp-to-uc-commitment-cf01.md",
    "slug": "tdp-to-uc-commitment-cf01",
    "graphSlug": "Reductions/tdp-to-uc-commitment-cf01",
-   "title": "TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)"
+   "title": "TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)"
   },
   {
    "id": "red-three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment",

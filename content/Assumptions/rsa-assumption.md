@@ -89,7 +89,7 @@ The RSA problem, for a polynomial $\ell = \ell(\secpar)$, for a generator $\GrGe
 - **Håstad's broadcast attack**: given $x^e \bmod n_i$ for $e$ public keys $(n_i, e)$ with pairwise coprime moduli $n_i > x$, the Chinese Remainder Theorem yields $x^e \bmod \prod_i n_i$, which is $x^e$ over the integers, and its integer $e$-th root is $x$ — standard; [[Has85 - On Using RSA with Low Exponent in a Public Key Network|Has85]] extends the attack to messages that are known polynomial functions of one plaintext, given enough ciphertexts.
 - **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme, and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
 
-<!-- BEGIN GENERATED participates-in 76814e2e42f6 -->
+<!-- BEGIN GENERATED participates-in 98ba04f3e9e8 -->
 
 ## Participates in
 
@@ -100,6 +100,7 @@ The RSA problem, for a polynomial $\ell = \ell(\secpar)$, for a generator $\GrGe
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]] (via [[rsa-assumption#φ-hiding|Φ-Hiding]])
 - [[phi-hiding-to-lossy-trapdoor-function-kos10|Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)]] (via [[rsa-assumption#φ-hiding|Φ-Hiding]])
 - [[rsa-safe-primes-to-rsa|RSA with safe-prime moduli ⇒ RSA]] (via [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]])
+- [[rsa-to-bit-string-tdp-rst01|RSA ⇒ TDP over bit strings]]
 - [[rsa-to-ds-hw09|RSA ⇒ DS (Hohenberger–Waters, short and stateless)]]
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]]

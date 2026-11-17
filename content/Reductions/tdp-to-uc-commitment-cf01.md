@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)"
+title: "TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)"
 aliases: []
 id: red-tdp-to-uc-commitment-cf01
 kind: implication
-hypotheses: [tdp]
+hypotheses: [bit-string-tdp]
 conclusion: uc-commitment
 class: unstated
 model: crs
@@ -16,11 +16,11 @@ rationale:
   model: "The protocol UC-realizes the commitment functionality given a common reference string for each commitment; without setup, CF01 show that no terminating protocol between the committer and the receiver alone UC-realizes it."
 ---
 
-# TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)
+# TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)
 
 ## Statement
 
-If [[trapdoor-permutation|trapdoor permutations]] exist, then in the common reference string model there is a protocol that UC-realizes the bit-commitment functionality $\calF_{\mathrm{COM}}$ ([[commitment-scheme#uc-commitment|UC commitment]]), each commitment using its own reference string — [[CF01 - Universally Composable Commitments|CF01]]. The commit phase and the opening are each a single message from the committer to the receiver — [[CF01 - Universally Composable Commitments|CF01]].
+If [[trapdoor-permutation#trapdoor-permutations-over-bit-strings|trapdoor permutations over bit strings]] exist, then in the common reference string model there is a protocol that UC-realizes the bit-commitment functionality $\calF_{\mathrm{COM}}$ ([[commitment-scheme#uc-commitment|UC commitment]]), each commitment using its own reference string — [[CF01 - Universally Composable Commitments|CF01]]. The commit phase and the opening are each a single message from the committer to the receiver — [[CF01 - Universally Composable Commitments|CF01]].
 
 ## Sketch
 
