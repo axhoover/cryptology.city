@@ -25966,7 +25966,7 @@
    "hypotheses": [
     "subexponential-lwe"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -25987,7 +25987,7 @@
    "page": "content/Reductions/subexponential-lwe-to-pke-reg05.md",
    "slug": "subexponential-lwe-to-pke-reg05",
    "graphSlug": "Reductions/subexponential-lwe-to-pke-reg05",
-   "title": "Sub-exponential LWE ⇒ PKE"
+   "title": "Sub-exponential LWE ⇒ CPA-secure PKE"
   },
   {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
