@@ -458,9 +458,7 @@
    "claim": "The SIDH key exchange works as follows: 1. Both parties fix supersingular $E / \\FF_{p^2}$ with $\\#E(\\FF_{p^2}) = (p+1)^2$, chosen so that $p + 1 = 2^{e_A} 3^{e_B}$ 2. Alice chooses a secret $\\ell_A$-isogeny $\\phi_A : E \\to E_A$; Bob chooses $\\phi_B : E \\to E_B$ 3. They exchange $E_A$, $E_B$ and images of each other's torsion points 4. Shared key: $j(E_{AB}) = j(\\phi_B(E_A)) = j(\\phi_A(E_B))$, the ",
    "problem": "SUSPECTED ERROR (report only): the shared-key line \"j(E_AB) = j(phi_B(E_A)) = j(phi_A(E_B))\" applies each party’s OWN isogeny to the other party’s curve. The correct objects are the pushed-forward isogenies (phi_B′ : E_A -> E_AB and phi_A′ : E_B -> E_AB) computed from the transmitted torsion-point images; as written the composition is not defined. || SUSPECTED ERROR (report only) at line 18: the SIDH problem is stated with E′ = E/<P> for \"a random l-torsion point\" P while {P, Q} is called a basis of the l^n-torsion, and the auxiliary images are written phi(Q) for that basis. In SIDH the kernel is <P + [s]Q> for a secret s and BOTH basis images of the OTHER party’s torsion group are published; the statement as written is inconsistent about l vs l^n and about which points are revealed.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-sidh-to-ke-jdf11"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
