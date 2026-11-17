@@ -25,7 +25,7 @@ Any [[succinct-argument|SNARK]] for NP composes with itself, each proof attestin
 
 ## Sketch
 
-For a step function $F$, the prover at step $t$ proves with the SNARK that there exist $s_{t-1}$ and $\pi_{t-1}$ with $\Vrfy(\crs, (t-1, s_{t-1}), \pi_{t-1}) = 1$ and $s_t = F(s_{t-1})$. Knowledge soundness applies the SNARK extractor to the outer proof to recover the inner one and repeats down the chain; each nesting costs a polynomial blow-up in extraction time, so the depth of direct composition must be constant.
+For a step function $F$, the prover at step $t$ proves with the SNARK that there exist $s_{t-1}$ and $\pi_{t-1}$ with $\Vrfy(\crs, t-1, s_{t-1}, \pi_{t-1}) = 1$ and $s_t = F(s_{t-1})$. Knowledge soundness applies the SNARK extractor to the outer proof to recover the inner one and repeats down the chain; each nesting costs a polynomial blow-up in extraction time, so the depth of direct composition must be constant.
 
 ## Notes
 

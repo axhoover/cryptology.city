@@ -11,6 +11,7 @@ title: Polynomial commitment scheme
 id: pcs
 variants:
   extractable-pcs: "#extractability"
+  succinct-extractable-pcs: "#succinct-extractability"
   fri: "#fri-fast-reed-solomon-iop-of-proximity"
   kzg-polynomial-commitment: "#kzg-kate-zaverucha-goldberg"
 ---
@@ -48,6 +49,10 @@ $$
 $$
 
 is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$, $(C, z, y, \pi) \gets \calA(\mathsf{srs})$, and $(f, r) \gets \calE(\mathsf{srs})$ run on the random coins of $\calA$, where $C_{f,r}$ is the commitment output by $\mathsf{Commit}(\mathsf{srs}, f)$ on randomness $r$. For interactive evaluation, [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] require the evaluation protocol to be an argument of knowledge of such $(f, r)$.
+
+### Succinct extractability
+
+An extractable PCS is **succinct** if a polynomial $p$, fixed with the scheme, bounds the commitment size, the evaluation-proof size and the running time of $\Vrfy$ by $p(\secpar + \log d)$. For an interactive evaluation protocol, $p$ bounds its communication and the verifier's running time. The bound holds for the DARK commitment, whose evaluation proofs and verification time are logarithmic in the number of coefficients — [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]], and for KZG, whose commitments and opening proofs are single group elements checked with two pairings — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
 
 ### Hiding (optional)
 
@@ -93,19 +98,21 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
-<!-- BEGIN GENERATED participates-in 657755f17028 -->
+<!-- BEGIN GENERATED participates-in e1c69db92113 -->
 
 ## Participates in
 
 **Builds on Polynomial commitment scheme**
 
-- [[pcs-to-snark|Extractable PCS ⇒ SNARK]] (via [[polynomial-commitment#extractability|Extractability]])
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]] (via [[polynomial-commitment#succinct-extractability|Succinct extractability]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
+- [[succinct-extractable-pcs-to-extractable-pcs|Succinct extractable PCS ⇒ Extractable PCS]] (via [[polynomial-commitment#succinct-extractability|Succinct extractability]])
 
 **Produces Polynomial commitment scheme**
 
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[hash-function-to-pcs-bbhr18|ROM ⇒ PCS (FRI)]]
+- [[succinct-extractable-pcs-to-extractable-pcs|Succinct extractable PCS ⇒ Extractable PCS]] (via [[polynomial-commitment#extractability|Extractability]])
 
 <!-- END GENERATED participates-in -->
