@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Take a CP-[[attribute-based-encryption|ABE]] scheme over attribute universe $[n]$ whose policy class contains disjunctions. Give user $i$ the ABE key for the singleton attribute set $\{i\}$, and encrypt to $S \subseteq [n]$ under the policy $f_S(x) = [x \cap S \neq \emptyset]$, the disjunction of the attributes in $S$, so $f_S(\{i\}) = [i \in S]$. If the scheme is [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA-secure]], the resulting [[broadcast-encryption|BE]] for $n$ users is [[broadcast-encryption#ind-be-cpa-security|IND-BE-CPA-secure]]: every BE adversary is verbatim a CP-ABE adversary with the same advantage — folklore.
+Take a CP-[[attribute-based-encryption|ABE]] scheme over attribute universe $[n]$ whose policy class contains disjunctions. Give user $i$ the ABE key for the singleton attribute set $\{i\}$, and encrypt to $S \subseteq [n]$ under the policy $f_S(x) = [x \cap S \neq \emptyset]$, the disjunction of the attributes in $S$, so $f_S(\{i\}) = [i \in S]$. If the scheme is [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA-secure]], the resulting [[broadcast-encryption|BE]] for $n$ users is [[broadcast-encryption#ind-be-cpa-security|IND-BE-CPA-secure]]: every BE adversary is verbatim a CP-ABE adversary with the same advantage — folklore. Correctness carries over: for $i \in S$, the key for $\{i\}$ satisfies $f_S$, so a $(1-\varepsilon)$-correct CP-ABE scheme gives a $(1-\varepsilon)$-correct BE scheme — standard.
 
 ## Sketch
 

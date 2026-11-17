@@ -6,7 +6,7 @@ aliases:
   - Naor–Yung double encryption
 id: red-pke-cpa-security-and-nizk-to-pke-cca1-security-ny90
 kind: implication
-hypotheses: [perfectly-correct-pke-cpa-security, nizk-for-np]
+hypotheses: [perfectly-correct-pke-cpa-security, adaptive-zk-nizk-for-np]
 conclusion: pke-cca1-security
 class: free
 model: standard
@@ -21,11 +21,11 @@ rationale:
 
 ## Statement
 
-A [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and an adaptively sound [[non-interactive-zero-knowledge#nizk-for-np|NIZK]] proof system for $\classNP$ yield an [[public-key-encryption#cca1-security|IND-CCA1-secure]] scheme — [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]]. The public key is two independent public keys $\pk_0, \pk_1$ and a common random string $\sigma$; a ciphertext is $(c_0, c_1, \pi)$ with $c_b \gets \Enc(\pk_b, m)$ and $\pi$ a NIZK proof under $\sigma$ that $c_0$ and $c_1$ encrypt the same message; decryption verifies $\pi$ and decrypts $c_0$.
+A [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and an adaptively sound, [[non-interactive-zero-knowledge#adaptively-zero-knowledge-nizk-for-np|adaptively zero-knowledge]] [[non-interactive-zero-knowledge|NIZK]] proof system for $\classNP$ yield an [[public-key-encryption#cca1-security|IND-CCA1-secure]] scheme — [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]]. The public key is two independent public keys $\pk_0, \pk_1$ and a common random string $\sigma$; a ciphertext is $(c_0, c_1, \pi)$ with $c_b \gets \Enc(\pk_b, m)$ and $\pi$ a NIZK proof under $\sigma$ that $c_0$ and $c_1$ encrypt the same message; decryption verifies $\pi$ and decrypts $c_0$. The challenge statement, that $c_0$ and $c_1$ encrypt one message $m_b$, is chosen after $\sigma$, since the adversary picks $m_0, m_1$ after seeing the public key; zero knowledge is therefore needed for statements chosen after the reference string — standard.
 
 ## Sketch
 
-The hybrids simulate the challenge proof, switch $c_1$ from $m_0$ to $m_1$ by a reduction to the CPA security of $\pk_1$ that knows $\sk_0$, and switch $c_0$ symmetrically with $\sk_1$. Decrypting with either key answers a query correctly unless its proof is accepted and its two ciphertexts encrypt different messages; this event is negligible under a real common string by soundness, and, being checkable with both keys, stays negligible under a simulated one by zero knowledge. Only the challenge proof is simulated, so single-theorem zero knowledge suffices, and every decryption query precedes it, so plain soundness suffices — [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]].
+The hybrids simulate the challenge proof, switch $c_1$ from $m_0$ to $m_1$ by a reduction to the CPA security of $\pk_1$ that knows $\sk_0$, and switch $c_0$ symmetrically with $\sk_1$. Decrypting with either key answers a query correctly unless its proof is accepted and its two ciphertexts encrypt different messages; this event is negligible under a real common string by soundness, and, being checkable with both keys, stays negligible under a simulated one by zero knowledge. Only the challenge proof is simulated, so single-theorem zero knowledge for a statement chosen after $\sigma$ suffices, and every decryption query precedes it, so plain soundness suffices — [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]].
 
 ## Notes
 
