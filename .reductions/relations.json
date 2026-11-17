@@ -21297,9 +21297,9 @@
    ],
    "conclusion": "injective-one-way-function",
    "class": "fully-black-box",
-   "model": "standard",
+   "model": "quantum",
    "models": [
-    "standard"
+    "quantum"
    ],
    "source": [
     "folklore"
@@ -21308,7 +21308,8 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged."
+    "class": "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged.",
+    "model": "The hypothesis' adversaries are quantum."
    },
    "status": "draft",
    "page": "content/Reductions/post-quantum-injective-owf-to-injective-one-way-function.md",
@@ -21380,9 +21381,9 @@
    ],
    "conclusion": "io",
    "class": "fully-black-box",
-   "model": "standard",
+   "model": "quantum",
    "models": [
-    "standard"
+    "quantum"
    ],
    "source": [
     "folklore"
@@ -21391,7 +21392,8 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged."
+    "class": "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged.",
+    "model": "The hypothesis' adversaries are quantum."
    },
    "status": "draft",
    "page": "content/Reductions/post-quantum-io-to-io.md",

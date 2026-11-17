@@ -8,11 +8,12 @@ kind: implication
 hypotheses: [post-quantum-injective-owf]
 conclusion: injective-one-way-function
 class: fully-black-box
-model: standard
+model: quantum
 source: folklore
 security-loss: "none"
 rationale:
   class: "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged."
+  model: "The hypothesis' adversaries are quantum."
 ---
 
 # Post-quantum injective OWF ⇒ Injective OWF
