@@ -27,4 +27,4 @@ The eavesdropper's input, the transcript $(\pk, c)$ with the real or a uniform k
 
 ## Notes
 
-- A bare KEM gives unauthenticated key exchange, not [[key-exchange#authenticated-key-exchange-ake|AKE]], which requires mutual authentication — folklore.
+- A bare KEM exchange is not a secure [[key-exchange#authenticated-key-exchange-ake|AKE]]: an active adversary sends its own public key or encapsulation in an honest party's name, and the accepting instance is fresh — folklore.

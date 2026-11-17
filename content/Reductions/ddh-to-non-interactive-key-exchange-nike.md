@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-In the Diffie–Hellman [[key-exchange#non-interactive-key-exchange-nike|NIKE]] of [[DH76 - New Directions in Cryptography|DH76]], over $(\GG, g, p) \gets \GrGen(1^\secpar)$ party $i$ samples $x_i \getsr [p]$ and publishes $\pk_i = g^{x_i}$, and parties $i$ and $j$ each compute $k_{ij} = \pk_j^{x_i} = \pk_i^{x_j} = g^{x_i x_j}$. If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, then for honestly generated keys $k_{ij}$ is indistinguishable from a uniform element of $\GG$ given $(\pk_i, \pk_j)$ — folklore.
+In the Diffie–Hellman [[key-exchange#non-interactive-key-exchange-nike|NIKE]] of [[DH76 - New Directions in Cryptography|DH76]], over $(\GG, g, p) \gets \GrGen(1^\secpar)$ party $i$ samples $x_i \getsr [p]$ and publishes $\pk_i = g^{x_i}$, and parties $i$ and $j$ each compute $k_{ij} = \pk_j^{x_i} = \pk_i^{x_j} = g^{x_i x_j}$, so the NIKE is perfectly correct, with $\Setup = \GrGen$ and key space $\GG$. If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, then for honestly generated keys $k_{ij}$ is indistinguishable from a uniform element of $\GG$ given $(\pk_i, \pk_j)$ — folklore.
 
 ## Sketch
 

@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Two-party [[key-exchange|key exchange]] secure against eavesdroppers implies $n$-party [[key-exchange#multi-party-key-exchange|multi-party key exchange]] secure against eavesdroppers: a designated party runs an independent two-party session with each of the other $n-1$ parties, samples a group key $K$ uniformly, and sends $K$ one-time-padded under each session key — folklore.
+Two-party [[key-exchange|key exchange]] secure against eavesdroppers implies, for every polynomial $n = n(\secpar) \ge 2$, $n$-party [[key-exchange#multi-party-key-exchange|multi-party key exchange]] secure against eavesdroppers: a designated party $P_1$ runs an independent two-party session with each of the other $n-1$ parties, playing $A$ in each, samples a group key $K$ uniformly, and sends $K$ one-time-padded under each of its session keys. All parties output $K$ except with probability at most $(n-1)\varepsilon$ for a two-party correctness error $\varepsilon$, by a union bound over the sessions — folklore.
 
 ## Sketch
 

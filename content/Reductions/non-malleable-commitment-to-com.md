@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[commitment-scheme#non-malleable-commitments|non-malleable]] tag-based commitment scheme, with the tag fixed to some efficiently computable $t_\secpar \in \bits^\secpar$ (e.g. $0^\secpar$), is a [[commitment-scheme|commitment scheme]] that is statistically [[commitment-scheme#binding|binding]] and computationally [[commitment-scheme#hiding|hiding]] against a malicious receiver — folklore. Both hiding games compare messages of equal length.
+A [[commitment-scheme#non-malleable-commitments|non-malleable]] tag-based commitment scheme, with the tag fixed to some efficiently computable $t_\secpar \in \bits^\secpar$ (e.g. $0^\secpar$), is a [[commitment-scheme|commitment scheme]] that is [[commitment-scheme#statistically-binding-commitments|statistically binding]] and computationally [[commitment-scheme#hiding|hiding]] against a malicious receiver — folklore. Both hiding games compare messages of equal length, and correctness and the message space are those of the non-malleable scheme.
 
 ## Sketch
 

@@ -7172,9 +7172,9 @@
    "page": "content/Primitives/commitment-scheme.md",
    "slug": "commitment-scheme",
    "graphSlug": "Primitives/commitment-scheme",
-   "anchor": "#binding",
+   "anchor": "#statistically-binding-commitments",
    "of": "com",
-   "title": "Binding",
+   "title": "Statistically binding commitments",
    "aliases": [],
    "unlisted": false
   },
@@ -7185,9 +7185,9 @@
    "page": "content/Primitives/commitment-scheme.md",
    "slug": "commitment-scheme",
    "graphSlug": "Primitives/commitment-scheme",
-   "anchor": "#hiding",
+   "anchor": "#statistically-hiding-commitments",
    "of": "com",
-   "title": "Hiding",
+   "title": "Statistically hiding commitments",
    "aliases": [],
    "unlisted": false
   },
@@ -17402,9 +17402,9 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one NIKE challenge per run of the CPA adversary",
+   "securityLoss": "a factor λ for the bit encryption; tight for a group key space",
    "rationale": {
-    "class": "The scheme calls Gen and Combine only as oracles, and the fixed reduction runs the CPA adversary once as an oracle."
+    "class": "The scheme calls Setup, Gen, Combine and the key-space sampler only as oracles, and the fixed hybrid reduction runs the CPA adversary once as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/ke-to-pke-dh76.md",
@@ -19108,6 +19108,60 @@
    "title": "MPC with preprocessing ⇒ MPC"
   },
   {
+   "id": "red-multi-party-key-exchange-to-ke",
+   "kind": "implication",
+   "hypotheses": [
+    "multi-party-key-exchange"
+   ],
+   "conclusion": "ke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the protocol for n = 2, and the reduction forwards the eavesdropper unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/multi-party-key-exchange-to-ke.md",
+   "slug": "multi-party-key-exchange-to-ke",
+   "graphSlug": "Reductions/multi-party-key-exchange-to-ke",
+   "title": "Multi-party key exchange ⇒ KE"
+  },
+  {
+   "id": "red-multi-party-nike-to-three-party-nike",
+   "kind": "implication",
+   "hypotheses": [
+    "multi-party-nike"
+   ],
+   "conclusion": "three-party-nike",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme for N = 3, and the reduction forwards any eavesdropper unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/multi-party-nike-to-three-party-nike.md",
+   "slug": "multi-party-nike-to-three-party-nike",
+   "graphSlug": "Reductions/multi-party-nike-to-three-party-nike",
+   "title": "Multiparty NIKE ⇒ Three-party NIKE"
+  },
+  {
    "id": "red-multi-signature-pop-to-multi-signature-kosk",
    "kind": "implication",
    "hypotheses": [
@@ -19525,7 +19579,7 @@
    "heuristic": false,
    "securityLoss": "tight: the NIKE challenge is forwarded unchanged",
    "rationale": {
-    "class": "The protocol calls Gen and Combine only as oracles, and the fixed reduction forwards its NIKE challenge as transcript and candidate key and runs the eavesdropper once as an oracle."
+    "class": "The protocol calls Setup, Gen and Combine only as oracles, and the fixed reduction forwards its NIKE challenge as transcript and candidate key and runs the eavesdropper once as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/non-interactive-key-exchange-to-ke.md",
@@ -21931,7 +21985,7 @@
    "id": "red-pke-to-com",
    "kind": "implication",
    "hypotheses": [
-    "pke"
+    "perfectly-correct-pke-cpa-security"
    ],
    "conclusion": "com",
    "class": "fully-black-box",
@@ -21944,15 +21998,15 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "hiding: tight, the hiding advantage equals the CPA advantage; binding: perfect",
    "rationale": {
-    "class": "The commitment algorithms call KeyGen and Enc only as oracles, the hiding reduction runs any commitment distinguisher once as a CPA adversary with the same advantage, and binding is information-theoretic given perfect correctness and a well-formed key."
+    "class": "The commitment algorithms call KeyGen and Enc only as oracles, the hiding reduction runs any commitment distinguisher once as a CPA adversary with the same advantage, and binding is perfect for honestly generated keys."
    },
    "status": "draft",
    "page": "content/Reductions/pke-to-com.md",
    "slug": "pke-to-com",
    "graphSlug": "Reductions/pke-to-com",
-   "title": "PKE ⇒ COM"
+   "title": "Perfectly correct PKE ⇒ COM"
   },
   {
    "id": "red-pke-to-hash-function",
@@ -26663,6 +26717,60 @@
    "title": "Statistical iO ⇒ iO"
   },
   {
+   "id": "red-statistically-binding-commitment-to-com",
+   "kind": "implication",
+   "hypotheses": [
+    "statistically-binding-commitment"
+   ],
+   "conclusion": "com",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reductions forward any hiding or binding adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistically-binding-commitment-to-com.md",
+   "slug": "statistically-binding-commitment-to-com",
+   "graphSlug": "Reductions/statistically-binding-commitment-to-com",
+   "title": "Statistically binding COM ⇒ COM"
+  },
+  {
+   "id": "red-statistically-hiding-commitment-to-com",
+   "kind": "implication",
+   "hypotheses": [
+    "statistically-hiding-commitment"
+   ],
+   "conclusion": "com",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reductions forward any hiding or binding adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistically-hiding-commitment-to-com.md",
+   "slug": "statistically-hiding-commitment-to-com",
+   "graphSlug": "Reductions/statistically-hiding-commitment-to-com",
+   "title": "Statistically hiding COM ⇒ COM"
+  },
+  {
    "id": "red-statistically-hiding-commitment-to-statistical-zk-argument-bcc88",
    "kind": "implication",
    "hypotheses": [
@@ -28867,6 +28975,33 @@
    "slug": "tdp-to-uc-commitment-cf01",
    "graphSlug": "Reductions/tdp-to-uc-commitment-cf01",
    "title": "TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)"
+  },
+  {
+   "id": "red-three-party-nike-to-ke",
+   "kind": "implication",
+   "hypotheses": [
+    "three-party-nike"
+   ],
+   "conclusion": "ke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the eavesdropper's advantage equals its advantage in the three-party NIKE game",
+   "rationale": {
+    "class": "The protocol calls Setup, Publish and KeyDer only as oracles, and the fixed reduction forwards its NIKE challenge as transcript and candidate key and runs the eavesdropper once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/three-party-nike-to-ke.md",
+   "slug": "three-party-nike-to-ke",
+   "graphSlug": "Reductions/three-party-nike-to-ke",
+   "title": "Three-party NIKE ⇒ KE"
   },
   {
    "id": "red-three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment",

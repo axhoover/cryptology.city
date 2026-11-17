@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Kilian's commitment, which is statistically hiding and statistically binding in the OT-hybrid model ([[ideal-ot-to-com-kil88|ideal OT ⇒ COM]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]], is a computationally hiding and computationally binding bit [[commitment-scheme|commitment]] when each call to the [[oblivious-transfer#ideal-ot-functionality|ideal OT functionality]] is run as a sequential execution of an OT protocol with [[oblivious-transfer#malicious-security|malicious security]], since sequential composition lets each ideal call be replaced by a real execution in turn — [[Can00 - Security and Composition of Multiparty Cryptographic Protocols|Can00]].
+Kilian's commitment, which is statistically hiding and statistically binding in the OT-hybrid model ([[ideal-ot-to-com-kil88|ideal OT ⇒ COM]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]], is a computationally hiding and computationally binding bit [[commitment-scheme|commitment]] when each call to the [[oblivious-transfer#ideal-ot-functionality|ideal OT functionality]] is run as a sequential execution of an OT protocol with [[oblivious-transfer#malicious-security|malicious security]], since sequential composition lets each ideal call be replaced by a real execution in turn — [[Can00 - Security and Composition of Multiparty Cryptographic Protocols|Can00]]. An honest opening passes except with negligible probability, since each execution delivers the transferred bit except with the OT protocol's negligible correctness error — standard.
 
 ## Sketch
 

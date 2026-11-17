@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-[[decisional-composite-residuosity|DCR]] implies a non-interactive [[commitment-scheme|commitment scheme]] of either flavour, both of Paillier form: for a well-formed RSA modulus $n$ and a base $g \in \ZZ_{n^2}^*$ in the public parameters, a commitment to $m \in \ZZ_n$ is $c = g^m \cdot r^n \bmod n^2$ for $r \getsr \ZZ_n^*$, opened by revealing $(m, r)$. With $g = 1+n$ it is perfectly binding and computationally hiding; with $g$ a random $n$-th residue it is perfectly hiding and computationally binding — folklore.
+[[decisional-composite-residuosity|DCR]] implies a non-interactive [[commitment-scheme|commitment scheme]] of either flavour, both of Paillier form: for a well-formed RSA modulus $n$ and a base $g \in \ZZ_{n^2}^*$ in the public parameters, a commitment to $m \in \ZZ_n$ is $c = g^m \cdot r^n \bmod n^2$ for $r \getsr \ZZ_n^*$, opened by revealing $(m, r)$, which always verifies. With $g = 1+n$ it is perfectly binding and computationally hiding; with $g$ a random $n$-th residue it is perfectly hiding and computationally binding — folklore.
 
 ## Sketch
 
