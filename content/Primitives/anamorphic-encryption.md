@@ -21,19 +21,19 @@ An _anamorphic extension_ of a [[public-key-encryption|PKE]] scheme lets a sende
 
 ## Syntax
 
-An anamorphic extension of $\PKE = (\KeyGen, \Enc, \Dec)$, with message space $\calM$ and covert message space $\hat\calM$, is a triple of efficient algorithms $(\mathsf{aGen}, \mathsf{aEnc}, \mathsf{aDec})$:
+An anamorphic extension of $\PKE = (\KeyGen, \Enc, \Dec)$, with message space $\calM$ and covert message space $\hat\calM = \hat\calM(\secpar)$, is a triple of efficient algorithms $(\mathsf{aGen}, \mathsf{aEnc}, \mathsf{aDec})$:
 
 - $\mathsf{aGen}(1^\secpar) \to (\pk, \sk, \mathsf{dk})$, a randomized algorithm outputting a key pair for $\PKE$ and a double key $\mathsf{dk}$,
 - $\mathsf{aEnc}(\pk, \mathsf{dk}, m, \hat m) \to c$, a randomized, possibly stateful, algorithm taking a regular message $m \in \calM$ and a covert message $\hat m \in \hat\calM$, outputting a ciphertext $c \in \calC$,
 - $\mathsf{aDec}(\mathsf{dk}, c) \to \hat m$, a deterministic algorithm outputting a covert message.
 
-$\PKE$ together with an anamorphic extension is an _anamorphic encryption scheme_ $\mathsf{AME}$; this is the receiver-anamorphic syntax of [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. Results below take $\PKE$ to be [[public-key-encryption#cpa-security|IND-CPA-secure]]; anamorphic security says nothing about that, since its adversary holds $\sk$.
+$\mathsf{AME}$ denotes $\PKE$ together with an anamorphic extension; this is the receiver-anamorphic syntax of [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. It is an _anamorphic encryption scheme_ if it meets the requirements of [[#Anamorphic encryption schemes|§ Anamorphic encryption schemes]].
 
 ## Properties
 
 ### Correctness
 
-An anamorphic encryption scheme $\mathsf{AME}$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $m \in \calM$, and $\hat m \in \hat\calM$,
+For $\varepsilon = \varepsilon(\secpar)$, $\mathsf{AME}$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $m \in \calM$, and $\hat m \in \hat\calM$,
 
 $$
 \Pr\!\left[\mathsf{aDec}(\mathsf{dk}, \mathsf{aEnc}(\pk, \mathsf{dk}, m, \hat m)) = \hat m\right] \ge 1 - \varepsilon,
@@ -58,7 +58,7 @@ over $(\pk, \sk, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and the randomness
 \end{algorithm}
 ```
 
-An anamorphic encryption scheme $\mathsf{AME}$ is **anamorphically secure** if for all efficient $\calA$,
+$\mathsf{AME}$ is **anamorphically secure** if for all efficient $\calA$,
 
 $$
 \Adv^{\mathrm{anam}}_{\mathsf{AME},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{anam}}_{\mathsf{AME},\calA}(\secpar) = 1\right] - 1\right|
@@ -67,6 +67,10 @@ $$
 is negligible — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
 The world-0 oracle ignores $\hat m$, so the dictator's view in world 1 is computationally independent of the covert messages. A dictator that checks $\Dec(\sk, c) = m$ on each answer shows that $\Dec(\sk, \cdot)$ recovers $m$ from anamorphic ciphertexts except with probability at most the decryption error of $\PKE$ plus $\Adv^{\mathrm{anam}}_{\mathsf{AME},\calA}(\secpar)$ — standard.
+
+### Anamorphic encryption schemes
+
+$\mathsf{AME}$ is an **anamorphic encryption scheme** if $\PKE$ is [[public-key-encryption#cpa-security|IND-CPA-secure]], $|\hat\calM(\secpar)| \ge 2$ for all $\secpar$, and $\mathsf{AME}$ is $(1-\varepsilon)$-correct for a negligible $\varepsilon$ and anamorphically secure. Anamorphic security does not give IND-CPA security of $\PKE$, since its adversary holds $\sk$.
 
 ### Robustness
 
@@ -82,19 +86,37 @@ over $(\pk, \sk, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and the randomness
 
 ## Sender-anamorphic encryption
 
-In _sender-anamorphic encryption_ the dictator determines the regular message the sender encrypts, removing the sender's freedom to choose it; the sender still embeds a covert message the dictator cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. [[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]] reformulate the notion as $\ell$-sender-anamorphic encryption with (strong) security and robustness, and show that a strongly secure $\ell$-sender-anamorphic scheme implies a reformulated receiver-anamorphic scheme, a public-key stegosystem in the sense of [[vAH04 - Public Key Steganography|vAH04]], and a generalized algorithm-substitution attack on PKE.
+_Sender-anamorphic encryption_, introduced in [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]], targets a dictator that breaks the sender's freedom to choose the messages it encrypts, as receiver-anamorphic encryption targets one that breaks the receiver's privacy — [[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]]. The sender embeds a covert message in a ciphertext of the regular message the dictator dictates, and the sender and the covert receiver share no secret, whereas in receiver-anamorphic encryption they share the double key — [[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]]. The absence of a shared secret separates the two notions; the dictator of $\Game^{\mathrm{anam}}$ already chooses every regular message.
+
+TODO: the syntax and security game, stated from [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]] or from the reformulation of [[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]], naming which: the keys of the sender, the covert receiver and the receiver of the regular message, and whether the dictator chooses the key pair of the receiver of the regular message or only holds it.
+
+[[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]] reformulate the notion as $\ell$-sender-anamorphic encryption with (strong) security and robustness, and show that a strongly secure $\ell$-sender-anamorphic scheme implies a reformulated receiver-anamorphic scheme, a public-key stegosystem in the sense of [[vAH04 - Public Key Steganography|vAH04]], and a generalized algorithm-substitution attack on PKE.
 
 ## Fully asymmetric anamorphic encryption
 
-[[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]] split the double key into an encryption component, which $\mathsf{aEnc}$ uses, and a decryption component, which $\mathsf{aDec}$ uses, so that a receiver can set up several independent covert channels for a single covert key. In this setting, called _fully asymmetric_ in [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]] and [[CGM25 - Generic Anamorphic Encryption, Revisited New Limitations and Constructions|CGM25]] and _asymmetric_ in [[CGM24b - Limits of Black-Box Anamorphic Encryption|CGM24b]], a party able to send covert messages need not be able to read them — [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]].
+[[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]] split the double key into an encryption component, which $\mathsf{aEnc}$ uses and which allows only the encryption of covert messages, and a decryption component, which $\mathsf{aDec}$ uses, so that a receiver can set up several independent covert channels for a single covert key. A fully asymmetric anamorphic extension of $\PKE$ is a triple of efficient algorithms with the types of [[#Syntax|the base syntax]]:
+
+- $\mathsf{aGen}(1^\secpar) \to (\pk, \sk, \mathsf{ek}, \mathsf{dk})$, a randomized algorithm outputting a key pair for $\PKE$, a covert encryption key $\mathsf{ek}$ and a covert decryption key $\mathsf{dk}$,
+- $\mathsf{aEnc}(\pk, \mathsf{ek}, m, \hat m) \to c$, a randomized, possibly stateful, algorithm,
+- $\mathsf{aDec}(\mathsf{dk}, c) \to \hat m$, a deterministic algorithm.
+
+It is a fully asymmetric anamorphic encryption scheme if it meets the [[#Anamorphic encryption schemes|requirements of an anamorphic encryption scheme]], with $\mathsf{aEnc}(\pk, \mathsf{ek}, m, \hat m)$ in the correctness condition and $(\pk_1, \sk_1, \mathsf{ek}, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and $\calO_1(m, \hat m) := \mathsf{aEnc}(\pk_1, \mathsf{ek}, m, \hat m)$ in $\Game^{\mathrm{anam}}$, and if in addition $\mathsf{ek}$ allows only the encryption of covert messages — [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]].
+
+TODO: the covert-message confidentiality game against a holder of $\mathsf{ek}$, from [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]]: whether the adversary also gets $\sk$, whether it has an $\mathsf{aEnc}$ oracle, and whether CGM24a define one level of the notion or two.
+
+In this setting, called _fully asymmetric_ in [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]] and [[CGM25 - Generic Anamorphic Encryption, Revisited New Limitations and Constructions|CGM25]] and _asymmetric_ in [[CGM24b - Limits of Black-Box Anamorphic Encryption|CGM24b]], a party able to send covert messages need not be able to read them — [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]].
 
 ## Public-key anamorphic encryption
 
-In _public-key anamorphic encryption_ a sender that has not coordinated with the receiver in any way can still embed a covert message for it — [[PPY24 - Public-Key Anamorphism in (CCA-Secure) Public-Key Encryption and Beyond|PPY24]].
+In _public-key anamorphic encryption_, a sender that has not coordinated with the receiver in any way, so that no secret is shared between them, can send the receiver a covert message that is hidden from a dictator controlling the receiver's private key $\sk$ — [[PPY24 - Public-Key Anamorphism in (CCA-Secure) Public-Key Encryption and Beyond|PPY24]].
+
+TODO: the syntax and security game of [[PPY24 - Public-Key Anamorphism in (CCA-Secure) Public-Key Encryption and Beyond|PPY24]]: which keys the sender's covert encryption takes ($\pk$ alone or also a public anamorphic key), which key the receiver decrypts covert messages with, and whether the dictator, holding $\sk$, must be unable only to learn $\hat m$ or also to tell anamorphic ciphertexts from regular ones.
 
 ## Anamorphic-resistant encryption
 
-An _anamorphic-resistant_ PKE scheme is one over which any attempt to communicate covertly is impossible or prohibitively slow, depending on the definitional details — [[DG25 - Anamorphic-Resistant Encryption Or Why the Encryption Debate is Still Alive|DG25]]. By defining and designing such schemes, [[DG25 - Anamorphic-Resistant Encryption Or Why the Encryption Debate is Still Alive|DG25]] challenge the folklore belief that semantic security always enables some form of steganography. [[CCGM25 - Anamorphic Resistant Encryption the Good, the Bad and the Ugly|CCGM25]] give IND-CPA-secure schemes that provably cannot be turned anamorphic; both use extremely lossy functions in the construction itself. The first is in the public-parameters model and also uses [[indistinguishability-obfuscation|iO]]; the second, in the random-oracle model without public parameters or iO, uses robust extremely lossy functions with group structure, which [[CCGM25 - Anamorphic Resistant Encryption the Good, the Bad and the Ugly|CCGM25]] define and realize.
+An [[public-key-encryption#cpa-security|IND-CPA-secure]] $\PKE$ is **anamorphic-resistant** if every efficient anamorphic extension of it that is $(1-\varepsilon)$-correct for a negligible $\varepsilon$ and anamorphically secure, in the sense of $\Game^{\mathrm{anam}}$, has a covert message space of size $|\hat\calM(\secpar)| \le p(\secpar)$ for some polynomial $p$, that is, $\log|\hat\calM(\secpar)| = O(\log \secpar)$ covert bits per ciphertext — [[ABGMM25 - The Malice of ELFs Practical Anamorphic-Resistant Encryption without Random Oracles|ABGMM25]]. [[ABGMM25 - The Malice of ELFs Practical Anamorphic-Resistant Encryption without Random Oracles|ABGMM25]] grade anamorphic resistance against several levels of anamorphic security; this section's notion is resistance against extensions secure in the sense of $\Game^{\mathrm{anam}}$.
+
+[[DG25 - Anamorphic-Resistant Encryption Or Why the Encryption Debate is Still Alive|DG25]] introduced anamorphic-resistant encryption, with definitions under which covert communication over the scheme is either impossible or very slow, and by designing such schemes challenge the folklore belief that semantic security always enables some form of steganography. [[CCGM25 - Anamorphic Resistant Encryption the Good, the Bad and the Ugly|CCGM25]] give IND-CPA-secure schemes that provably cannot be turned anamorphic; both use extremely lossy functions in the construction itself. The first is in the public-parameters model and also uses [[indistinguishability-obfuscation|iO]]; the second, in the random-oracle model without public parameters or iO, uses robust extremely lossy functions with group structure, which [[CCGM25 - Anamorphic Resistant Encryption the Good, the Bad and the Ugly|CCGM25]] define and realize.
 
 ## Anamorphic signatures
 
