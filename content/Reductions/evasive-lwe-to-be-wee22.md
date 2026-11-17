@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Evasive LWE ⇒ BE"
+title: "Evasive LWE ⇒ Selectively secure BE"
 aliases: []
 id: red-evasive-lwe-to-be-wee22
 kind: implication
 hypotheses: [evasive-lwe]
-conclusion: be
+conclusion: be-selective
 class: unstated
 model: standard
 source:
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Evasive LWE ⇒ BE
+# Evasive LWE ⇒ Selectively secure BE
 
 ## Statement
 
-[[learning-with-errors#evasive-lwe|Evasive LWE]] together with [[learning-with-errors|LWE]] yields optimal [[broadcast-encryption|BE]]: for $N$ users, the public key, each secret key and the ciphertext have size $\poly(\secpar, \log N)$, and security is [[broadcast-encryption#ind-sbe-cpa-security-selective|selective]], the adversary fixing the recipient set before seeing the public key — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
+[[learning-with-errors#evasive-lwe|Evasive LWE]] together with [[learning-with-errors|LWE]] yields optimal [[broadcast-encryption|BE]]: for $N$ users, the public key, each secret key and the ciphertext have size $\poly(\secpar, \log N)$, and the scheme is correct and [[broadcast-encryption#ind-sbe-cpa-security-selective|selectively secure]], the adversary fixing the recipient set before seeing the public key — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
 
 ## Notes
 

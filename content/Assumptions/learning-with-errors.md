@@ -379,7 +379,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 7f0270f1a8a0 -->
+<!-- BEGIN GENERATED participates-in 87e6dae4e80d -->
 
 ## Participates in
 
@@ -390,7 +390,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]
 - [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]] (via [[learning-with-errors#circular-evasive-lwe|Circular evasive LWE]])
 - [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]] (via [[learning-with-errors#evasive-lwe|Evasive LWE]], [[learning-with-errors#tensor-lwe|Tensor LWE]])
-- [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ BE]] (via [[learning-with-errors#evasive-lwe|Evasive LWE]])
+- [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ Selectively secure BE]] (via [[learning-with-errors#evasive-lwe|Evasive LWE]])
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-depir-lmw23|Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe-with-quasi-polynomial-approximation-factors|Ring LWE with quasi-polynomial approximation factors]])
 - [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ Selectively secure HIBE (bonsai trees)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])

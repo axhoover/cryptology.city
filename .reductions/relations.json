@@ -282,6 +282,19 @@
    "unlisted": false
   },
   {
+   "id": "adaptive-zk-nizk-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#adaptively-zero-knowledge-nizk-for-np",
+   "of": "nizk",
+   "title": "Adaptively zero-knowledge NIZK for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "adaptively-robust-prc",
    "kind": "variant",
    "type": "primitive",
@@ -757,6 +770,19 @@
     "BE",
     "Broadcast encryption"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "be-selective",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/broadcast-encryption.md",
+   "slug": "broadcast-encryption",
+   "graphSlug": "Primitives/broadcast-encryption",
+   "anchor": "#ind-sbe-cpa-security-selective",
+   "of": "be",
+   "title": "IND-sBE-CPA Security (Selective)",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -8807,6 +8833,34 @@
    "title": "Adaptive robustness ⇒ PRC"
   },
   {
+   "id": "red-adaptive-zk-nizk-for-np-to-nizk-for-np",
+   "kind": "implication",
+   "hypotheses": [
+    "adaptive-zk-nizk-for-np"
+   ],
+   "conclusion": "nizk-for-np",
+   "class": "fully-black-box",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and the reduction runs any zero-knowledge distinguisher for a fixed statement unchanged as an adaptive adversary that ignores the reference string.",
+    "model": "Both nodes are proof systems with a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/adaptive-zk-nizk-for-np-to-nizk-for-np.md",
+   "slug": "adaptive-zk-nizk-for-np-to-nizk-for-np",
+   "graphSlug": "Reductions/adaptive-zk-nizk-for-np-to-nizk-for-np",
+   "title": "Adaptively zero-knowledge NIZK for NP ⇒ NIZK for NP"
+  },
+  {
    "id": "red-adaptively-secure-threshold-signature-to-threshold-signature",
    "kind": "implication",
    "hypotheses": [
@@ -9439,7 +9493,7 @@
    "hypotheses": [
     "n-bdhe"
    ],
-   "conclusion": "be",
+   "conclusion": "be-selective",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -9458,7 +9512,7 @@
    "page": "content/Reductions/bdh-to-be-bgw05.md",
    "slug": "bdh-to-be-bgw05",
    "graphSlug": "Reductions/bdh-to-be-bgw05",
-   "title": "n-BDHE ⇒ BE"
+   "title": "n-BDHE ⇒ Selectively secure BE"
   },
   {
    "id": "red-bdh-to-cdh-bf01",
@@ -9651,6 +9705,33 @@
    "slug": "bdh-to-vrf",
    "graphSlug": "Reductions/bdh-to-vrf",
    "title": "k-Lin ⇒ VRF"
+  },
+  {
+   "id": "red-be-to-be-selective",
+   "kind": "implication",
+   "hypotheses": [
+    "be"
+   ],
+   "conclusion": "be-selective",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the two advantages are equal",
+   "rationale": {
+    "class": "The construction is the identity map on BE schemes, and the reduction runs the selective adversary once as an oracle, submitting its pre-committed set as the adaptive challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/be-to-be-selective.md",
+   "slug": "be-to-be-selective",
+   "graphSlug": "Reductions/be-to-be-selective",
+   "title": "BE ⇒ Selectively secure BE"
   },
   {
    "id": "red-best-possible-ore-to-ore-first-differing-bit",
@@ -13867,7 +13948,7 @@
    "hypotheses": [
     "evasive-lwe"
    ],
-   "conclusion": "be",
+   "conclusion": "be-selective",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -13883,7 +13964,7 @@
    "page": "content/Reductions/evasive-lwe-to-be-wee22.md",
    "slug": "evasive-lwe-to-be-wee22",
    "graphSlug": "Reductions/evasive-lwe-to-be-wee22",
-   "title": "Evasive LWE ⇒ BE"
+   "title": "Evasive LWE ⇒ Selectively secure BE"
   },
   {
    "id": "red-exp-to-nexp",
@@ -21222,7 +21303,7 @@
    "kind": "implication",
    "hypotheses": [
     "perfectly-correct-pke-cpa-security",
-    "nizk-for-np"
+    "adaptive-zk-nizk-for-np"
    ],
    "conclusion": "pke-cca1-security",
    "class": "free",
@@ -21250,7 +21331,7 @@
    "kind": "implication",
    "hypotheses": [
     "perfectly-correct-pke-cpa-security",
-    "nizk-for-np"
+    "adaptive-zk-nizk-for-np"
    ],
    "conclusion": "pke-cca2-security",
    "class": "free",

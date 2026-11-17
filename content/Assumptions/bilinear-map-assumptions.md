@@ -26,7 +26,7 @@ _Bilinear map (pairing) assumptions_ concern the computational hardness of certa
 
 **Bilinear Diffie-Hellman (BDH):** Given $(g, g^a, g^b, g^c) \in \GG^4$ for a symmetric pairing group $e : \GG \times \GG \to \GG_T$, compute $e(g, g)^{abc} \in \GG_T$.
 
-Let $\GrGen(1^\secpar)$ output $(q, \GG, \GG_T, e, g)$: cyclic groups $\GG$ and $\GG_T$ of prime order $q$, a generator $g$ of $\GG$, and a non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$.
+Let $\GrGen$ be a $\PPT$ algorithm that on input $1^\secpar$ outputs $(q, \GG, \GG_T, e, g)$: cyclic groups $\GG$ and $\GG_T$ of prime order $q$ whose group operations are computable in polynomial time, a generator $g$ of $\GG$, and an efficiently computable, non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$, a symmetric [[pairings|bilinear pairing]].
 
 ```pseudocode
 \begin{algorithm}
@@ -91,9 +91,9 @@ A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). 
 
 ## $k$-Linear assumption
 
-Given $(h_1, \ldots, h_{k+1}, h_1^{r_1}, \ldots, h_k^{r_k})$ for $h_1, \ldots, h_{k+1} \getsr \GG$ in a cyclic group $\GG$ of prime order $q$ and $r_1, \ldots, r_k \getsr \ZZ_q$, distinguish $h_{k+1}^{r_1 + \cdots + r_k}$ from uniform in $\GG$ — [[HK07 - Secure Hybrid Encryption from Weakened Key Encapsulation|HK07]], [[Sha07 - A Cramer-Shoup Encryption Scheme from the Linear Assumption and from Progressively Weaker Linear Variants|Sha07]]. For $k = 1$ this is [[decisional-diffie-hellman|DDH]]; for $k = 2$ it is [[decisional-diffie-hellman#dlin|DLIN]].
+For a constant $k \ge 1$: given $(h_1, \ldots, h_{k+1}, h_1^{r_1}, \ldots, h_k^{r_k})$ for $h_1, \ldots, h_{k+1} \getsr \GG$ in a cyclic group $\GG$ of prime order $q$ and $r_1, \ldots, r_k \getsr \ZZ_q$, distinguish $h_{k+1}^{r_1 + \cdots + r_k}$ from uniform in $\GG$ — [[HK07 - Secure Hybrid Encryption from Weakened Key Encapsulation|HK07]], [[Sha07 - A Cramer-Shoup Encryption Scheme from the Linear Assumption and from Progressively Weaker Linear Variants|Sha07]]. For $k = 1$ this is [[decisional-diffie-hellman|DDH]]; for $k = 2$ it is [[decisional-diffie-hellman#dlin|DLIN]].
 
-In a pairing group the assumption is stated in a source group. Let $\GrGen(1^\secpar)$ output $\calG = (q, \GG_1, \GG_2, \GG_T, e, g_1, g_2)$: cyclic groups $\GG_1, \GG_2, \GG_T$ of prime order $q$, generators $g_1, g_2$ of $\GG_1, \GG_2$, and a non-degenerate bilinear map $e : \GG_1 \times \GG_2 \to \GG_T$, with $\GG_1 = \GG_2$ for a symmetric pairing. For $s \in \{1, 2\}$:
+In a pairing group the assumption is stated in a source group. Let $\GrGen$ be a $\PPT$ algorithm that on input $1^\secpar$ outputs $\calG = (q, \GG_1, \GG_2, \GG_T, e, g_1, g_2)$: cyclic groups $\GG_1, \GG_2, \GG_T$ of prime order $q$ whose group operations are computable in polynomial time, generators $g_1, g_2$ of $\GG_1, \GG_2$, and an efficiently computable, non-degenerate [[pairings|bilinear pairing]] $e : \GG_1 \times \GG_2 \to \GG_T$, with $\GG_1 = \GG_2$ for a symmetric pairing. For $s \in \{1, 2\}$:
 
 ```pseudocode
 \begin{algorithm}
@@ -109,21 +109,45 @@ In a pairing group the assumption is stated in a source group. Let $\GrGen(1^\se
 \end{algorithm}
 ```
 
-**$k$-Lin is hard in $\GG_s$** for $\GrGen$ if for all efficient $\calA$,
+For a constant $k \ge 1$, **$k$-Lin is hard in $\GG_s$** for $\GrGen$ if for all efficient $\calA$,
 
 $$
 \Adv^{k\text{-lin}}_{s,\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{k\text{-lin}}_{s,\GrGen,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — standard. For a prime-order group $(q, \GG, g)$ with no pairing, the same game with $\calG = (q, \GG, g)$ and $\GG_s = \GG$ defines $k$-Lin in $\GG$. In a symmetric pairing group 1-Lin is easy: for $h_1 \ne 1$, $e(h_1^{r_1}, h_2) = e(h_1, Z)$ holds exactly when $Z = h_2^{r_1}$ — standard. 1-Lin in both $\GG_1$ and $\GG_2$ of an asymmetric pairing is [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]].
+is negligible — standard. For a $\PPT$ generator $\GrGen$ of prime-order groups $(q, \GG, g)$ with no pairing and with group operations computable in polynomial time, the same game with $\calG = (q, \GG, g)$ and $\GG_s = \GG$ defines $k$-Lin in $\GG$. In a symmetric pairing group 1-Lin is easy: for $h_1 \ne 1$, $e(h_1^{r_1}, h_2) = e(h_1, Z)$ holds exactly when $Z = h_2^{r_1}$ — standard. 1-Lin in both $\GG_1$ and $\GG_2$ of an asymmetric pairing is [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]].
+
+As an object, the $k$-linear assumption denotes that $k$-Lin is hard for some constant $k \ge 1$, either for a generator of prime-order groups without a pairing or in a source group $\GG_s$ of a pairing generator $\GrGen$.
 
 ## Decision $n$-BDHE
 
-Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\alpha^{2n}})$ for a symmetric pairing $e : \GG \times \GG \to \GG_T$ with generator $g$, $h \getsr \GG$, and $\alpha \getsr \ZZ_q$, distinguish $e(g,h)^{\alpha^{n+1}}$ from uniform in $\GG_T$ — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
+For $\GrGen$ as in BDH above and an integer $n \ge 1$, given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\alpha^{2n}})$ for $h \getsr \GG$ and $\alpha \getsr \ZZ_q$, distinguish $e(g,h)^{\alpha^{n+1}}$ from uniform in $\GG_T$ — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{n\text{-bdhe}}_{\GrGen,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(q, \GG, \GG_T, e, g) \gets \GrGen(1^\secpar)$
+\State $h \getsr \GG$; $\alpha \getsr \ZZ_q$; $\beta \getsr \bits$
+\State $Z_0 \gets e(g,h)^{\alpha^{n+1}}$; $Z_1 \getsr \GG_T$
+\State $\beta' \gets \calA(1^\secpar, q, \GG, \GG_T, e, g, h, (g^{\alpha^i})_{i \in [2n] \setminus \{n+1\}}, Z_\beta)$
+\Return $[\beta' = \beta]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**Decision $n$-BDHE is hard** for $\GrGen$ if for every function $n = n(\secpar) \ge 1$ bounded by a polynomial in $\secpar$ and all efficient $\calA$,
+
+$$
+\Adv^{n\text{-bdhe}}_{\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{n\text{-bdhe}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
 
 ## Subgroup decision
 
-Let $\GrGen(1^\secpar)$ output $(q_1, q_2, \GG, \GG_T, e, g)$: distinct primes $q_1, q_2$, cyclic groups $\GG$ and $\GG_T$ of order $N = q_1 q_2$, a generator $g$ of $\GG$, and a non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$. The adversary receives $N$ but not its factors. For $x \getsr \GG$, the element $x^{q_2}$ is uniform in the order-$q_1$ subgroup of $\GG$.
+Let $\GrGen$ be a $\PPT$ algorithm that on input $1^\secpar$ outputs $(q_1, q_2, \GG, \GG_T, e, g)$: distinct primes $q_1, q_2$, cyclic groups $\GG$ and $\GG_T$ of order $N = q_1 q_2$ whose group operations are computable in polynomial time, a generator $g$ of $\GG$, and an efficiently computable, non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$, the composite-order analogue of a symmetric [[pairings|bilinear pairing]]. The adversary receives $N$ but not its factors. For $x \getsr \GG$, the element $x^{q_2}$ is uniform in the order-$q_1$ subgroup of $\GG$.
 
 ```pseudocode
 \begin{algorithm}
@@ -154,14 +178,14 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - Index calculus computes discrete logarithms in every finite field in heuristic subexponential time — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]] — so $k$ must be large enough for DLOG in $\FF_{q^k}^*$ to be hard; [[discrete-logarithm#attacks|DLOG § Attacks]] lists the finite-field algorithms.
 - Quantum: Shor's algorithm computes discrete logarithms modulo a prime in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, so it breaks discrete log in $\GG_1$, $\GG_2$ and $\GG_T$ — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
-<!-- BEGIN GENERATED participates-in b071cbde1dd0 -->
+<!-- BEGIN GENERATED participates-in 9c791bb26a69 -->
 
 ## Participates in
 
 **Builds on Bilinear map assumptions**
 
 - [[bdh-to-abe-gpsw06|DBDH ⇒ Selectively secure ABE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
-- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]] (via [Decision $n$-BDHE](bilinear-map-assumptions#decision-n-bdhe))
+- [[bdh-to-be-bgw05|n-BDHE ⇒ Selectively secure BE]] (via [Decision $n$-BDHE](bilinear-map-assumptions#decision-n-bdhe))
 - [[cdh-to-bdh|BDH ⇒ CDH]]
 - [[bdh-to-consistent-peks-bdop04|BDH ⇒ PEKS (random oracle model)]]
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
