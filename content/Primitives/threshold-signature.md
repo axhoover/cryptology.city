@@ -10,9 +10,11 @@ title: Threshold signature
 id: threshold-signature
 variants:
   adaptively-secure-threshold-signature: "#adaptive-corruption"
+  honest-majority-threshold-signature: "#honest-majority-t--n2"
   threshold-rsa: "#threshold-rsa"
   threshold-bls: "#threshold-bls"
   frost: "#frost"
+  frost2: "#frost2"
 ---
 
 # Threshold signature
@@ -84,6 +86,8 @@ $$
 
 is negligible.
 
+$\Pi$ is a **threshold signature scheme** if, for all polynomials $n = n(\secpar)$ and $t = t(\secpar)$ with $1 \le t < n$, it is perfectly correct and unforgeable against static corruption of $t$ parties. [[#Robustness|Robustness]] is a further property, not part of this definition.
+
 For non-interactive schemes, [[BCK+22 - Better than Advertised Security for Non-interactive Threshold Signatures|BCK+22]] give a hierarchy of stronger notions, which relax the condition under which a forged message counts as new.
 
 ### Robustness
@@ -125,7 +129,7 @@ When $n \ge 2t+1$, a session on all $n$ parties has at least $t+1$ honest partie
 
 ## Adaptive corruption
 
-The adversary corrupts parties at any point of the game, up to $t$ in total, and learns the key share and internal state of each, instead of fixing $C$ before key generation. In the game above, $C$ starts empty and $\calA$ also has the corruption oracle below. Canetti, Gennaro, Jarecki, Krawczyk and Rabin give adaptively secure distributed key generation for discrete-log schemes and adaptively secure threshold DSS, and show how to make static threshold RSA schemes adaptively secure — [[CGJ+99 - Adaptive Security for Threshold Cryptosystems|CGJ+99]].
+The adversary corrupts parties at any point of the game, up to $t$ in total, and learns the key share and internal state of each, instead of fixing $C$ before key generation. In the game above, $C \gets \{\}$ replaces the first line, $\calA$ receives $(1^\secpar, n, t)$ together with the public keys, and $\calA$ also has the corruption oracle below. $\Pi$ is an **adaptively secure** threshold signature scheme if, for all polynomials $n = n(\secpar)$ and $t = t(\secpar)$ with $1 \le t < n$, it is perfectly correct and every efficient $\calA$ wins this game with negligible probability. Canetti, Gennaro, Jarecki, Krawczyk and Rabin give adaptively secure distributed key generation for discrete-log schemes and adaptively secure threshold DSS, and show how to make static threshold RSA schemes adaptively secure — [[CGJ+99 - Adaptive Security for Threshold Cryptosystems|CGJ+99]].
 
 ```pseudocode
 \begin{algorithm}
@@ -141,9 +145,13 @@ The adversary corrupts parties at any point of the game, up to $t$ in total, and
 \end{algorithm}
 ```
 
+## Honest majority ($t < n/2$)
+
+$\Pi$ is an **honest-majority** threshold signature scheme if, for all polynomials $n = n(\secpar)$ and $t = t(\secpar)$ with $1 \le t$ and $n \ge 2t+1$, it is perfectly correct and unforgeable against static corruption of $t$ parties. This is the definition of a threshold signature scheme restricted to $t < n/2$, so every threshold signature scheme is one ([[threshold-signature-to-honest-majority-threshold-signature|Threshold signature ⇒ Honest-majority threshold signature]]), and so is [[#Threshold RSA|Shoup's scheme]] ([[threshold-rsa-to-honest-majority-threshold-signature|Threshold RSA signatures ⇒ Honest-majority threshold signature]]) — folklore.
+
 ## Threshold RSA
 
-In Shoup's scheme, a trusted dealer chooses $N = pq$ with $p = 2p'+1$ and $q = 2q'+1$ for primes $p', q'$, and a prime public exponent $e > n$, and shares the signing exponent $d$ with a random polynomial of degree $t$ over $\ZZ_{p'q'}$, party $i$ receiving $s_i$. With $\Delta = n!$ and $x = H(m)$, party $i$'s signature share is $x_i = x^{2\Delta s_i}$, with a [[fiat-shamir-heuristic|Fiat–Shamir]] proof that it is consistent with the party's verification key. Any $t+1$ valid shares combine, with Lagrange coefficients multiplied by $\Delta$ so that they are integers, into $w$ with $w^e = x^{e'}$ for $e' = 4\Delta^2$. Since $e$ is a prime greater than $n$, $\gcd(e, e') = 1$, and $y = w^a x^b$ for $ae' + be = 1$ satisfies $y^e = H(m) \bmod N$: $y$ is the RSA full-domain-hash signature on $m$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. Share generation and verification are non-interactive, and a share is at most a constant times the length of $N$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. The scheme is unforgeable and robust in the [[random-oracle-model|random-oracle model]] if [[rsa-assumption#rsa-with-safe-prime-moduli|RSA]] is hard for such moduli and exponents ([[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures]]) — [[Sho00 - Practical Threshold Signatures|Sho00]].
+In Shoup's scheme, a trusted dealer chooses $N = pq$ with $p = 2p'+1$ and $q = 2q'+1$ for primes $p', q'$, and a prime public exponent $e > n$, and shares the signing exponent $d$ with a random polynomial of degree $t$ over $\ZZ_{p'q'}$, party $i$ receiving $s_i$. With $\Delta = n!$ and $x = H(m)$, party $i$'s signature share is $x_i = x^{2\Delta s_i}$, with a [[fiat-shamir-heuristic|Fiat–Shamir]] proof that it is consistent with the party's verification key. Any $t+1$ valid shares combine, with Lagrange coefficients multiplied by $\Delta$ so that they are integers, into $w$ with $w^e = x^{e'}$ for $e' = 4\Delta^2$. Since $e$ is a prime greater than $n$, $\gcd(e, e') = 1$, and $y = w^a x^b$ for $ae' + be = 1$ satisfies $y^e = H(m) \bmod N$: $y$ is the RSA full-domain-hash signature on $m$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. Share generation and verification are non-interactive, and a share is at most a constant times the length of $N$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. The scheme is unforgeable and robust in the [[random-oracle-model|random-oracle model]] against static corruption of $t$ parties, for all polynomials $n$ and $t$ with $n \ge 2t+1$ (Sho00's case $k = t+1$, $n - t \ge k$), if [[rsa-assumption#rsa-with-safe-prime-moduli|RSA]] is hard for such moduli and exponents ([[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures]]) — [[Sho00 - Practical Threshold Signatures|Sho00]].
 
 ## Threshold BLS
 
@@ -151,11 +159,17 @@ In Boldyreva's threshold version of [[digital-signature#bls-signatures|BLS signa
 
 ## FROST
 
-FROST is a threshold version of [[digital-signature#schnorr-signatures|Schnorr signatures]] with the public key included in the hash, in a group of prime order $p$ with generator $g$. Party $i$ holds a [[secret-sharing#shamir-secret-sharing|Shamir share]] $s_i$ of $\log_g Y$ for the public key $Y$, with $Y_i = g^{s_i}$, and key generation is a trusted dealer or a [[distributed-key-generation|distributed key generation]] protocol. In a preprocessing round, which may precede the message, party $i$ publishes nonce commitments $(D_i, E_i) = (g^{d_i}, g^{e_i})$. To sign $m$ with a set $S$, given the list $B$ of the commitments of the parties in $S$, party $i$ computes the binding factors $\rho_j = H_1(j, m, B)$, $R = \prod_{j \in S} D_j E_j^{\rho_j}$ and $c = H_2(R, Y, m)$, and sends $z_i = d_i + e_i \rho_i + \lambda_i s_i c$, with $\lambda_i$ the Lagrange coefficient of $S$ at $0$. Each share is checked by $g^{z_i} = D_i E_i^{\rho_i} Y_i^{c \lambda_i}$, and the signature is $(R, z)$ with $z = \sum_{i \in S} z_i$, so that $g^z = R Y^c$ — [[KG20 - FROST Flexible Round-Optimized Schnorr Threshold Signatures|KG20]].
+FROST is a threshold version of [[digital-signature#schnorr-signatures|Schnorr signatures]] with the public key included in the hash, in a group of prime order $p$ with generator $g$. Party $i$ holds a [[secret-sharing#shamir-secret-sharing|Shamir share]] $s_i$ of $\log_g Y$ for the public key $Y$, with $Y_i = g^{s_i}$. In this section key generation is the trusted dealer of $\KeyGen$ above, which shares $\log_g Y$ with a random polynomial of degree $t$; FROST with key generation by a [[distributed-key-generation|distributed key generation]] protocol is a different scheme and is not covered here. In a preprocessing round, which may precede the message, party $i$ publishes nonce commitments $(D_i, E_i) = (g^{d_i}, g^{e_i})$. To sign $m$ with a set $S$, given the list $B$ of the commitments of the parties in $S$, party $i$ computes the binding factors $\rho_j = H_1(j, m, B)$, $R = \prod_{j \in S} D_j E_j^{\rho_j}$ and $c = H_2(R, Y, m)$, and sends $z_i = d_i + e_i \rho_i + \lambda_i s_i c$, with $\lambda_i$ the Lagrange coefficient of $S$ at $0$. Each share is checked by $g^{z_i} = D_i E_i^{\rho_i} Y_i^{c \lambda_i}$, and the signature is $(R, z)$ with $z = \sum_{i \in S} z_i$, so that $g^z = R Y^c$ — [[KG20 - FROST Flexible Round-Optimized Schnorr Threshold Signatures|KG20]].
 
 KG20 write $t$ for the number of signers and tolerate $t-1$ corruptions. The binding factors tie each party's nonce to $m$ and to the whole list $B$, which protects concurrent signing sessions against forgery attacks that apply to similar schemes. FROST is not robust: a party whose share fails its check is identified, and the session aborts. FROST was proposed with a security argument from the hardness of [[discrete-logarithm|DLOG]] in the random-oracle model against an adversary controlling fewer than $t$ parties — [[KG20 - FROST Flexible Round-Optimized Schnorr Threshold Signatures|KG20]].
 
-FROST2 uses one binding factor $\rho$ for all signers, so that $R = \prod_{j \in S} D_j \cdot \left(\prod_{j \in S} E_j\right)^{\rho}$ costs one exponentiation in place of $|S|$; FROST2 was introduced with a proof of security under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] in the programmable random-oracle model — [[CKM21 - How to Prove Schnorr Assuming Schnorr Security of Multi- and Threshold Signatures|CKM21]]. With trusted key generation, FROST and FROST2 are unforgeable in the random-oracle model if OMDL is hard, in notions of the BCK+22 hierarchy stronger than unforgeability above; with key generation by PedPoP, the Pedersen [[distributed-key-generation|DKG]] in which each party also proves possession of its secret contribution, FROST2 is proved secure in the random-oracle model under OMDL together with a Schnorr knowledge-of-exponent assumption, which the simulation of PedPoP needs — [[BCK+22 - Better than Advertised Security for Non-interactive Threshold Signatures|BCK+22]].
+FROST is secure, in the sense of this section, if, with the trusted dealer above and with each signing session on $S$ and $m$ running the commitment round and then the signing round, it is a [[#Unforgeability|threshold signature scheme]]: for all polynomials $n = n(\secpar)$ and $t = t(\secpar)$ with $1 \le t < n$ (KG20's threshold $t+1$), it is unforgeable against static corruption of $t$ parties. It is perfectly correct, since honest shares pass their checks and $g^z = R Y^c$ — [[KG20 - FROST Flexible Round-Optimized Schnorr Threshold Signatures|KG20]].
+
+## FROST2
+
+FROST2 uses one binding factor $\rho$ for all signers, so that $R = \prod_{j \in S} D_j \cdot \left(\prod_{j \in S} E_j\right)^{\rho}$ costs one exponentiation in place of $|S|$ — [[CKM21 - How to Prove Schnorr Assuming Schnorr Security of Multi- and Threshold Signatures|CKM21]]. FROST2 is secure, in the sense of this section, if, with the trusted dealer and the signing sessions of [[#FROST|FROST]], it is a [[#Unforgeability|threshold signature scheme]]: for all polynomials $n = n(\secpar)$ and $t = t(\secpar)$ with $1 \le t < n$, unforgeable against static corruption of $t$ parties. FROST2 with key generation by a distributed key generation protocol is a different scheme and is not covered here.
+
+FROST2 was introduced with a proof of security under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] in the programmable random-oracle model — [[CKM21 - How to Prove Schnorr Assuming Schnorr Security of Multi- and Threshold Signatures|CKM21]]. With trusted key generation, FROST and FROST2 are unforgeable in the random-oracle model if OMDL is hard, in notions of the BCK+22 hierarchy stronger than unforgeability above; with key generation by PedPoP, the Pedersen [[distributed-key-generation|DKG]] in which each party also proves possession of its secret contribution, FROST2 is proved secure in the random-oracle model under OMDL together with a Schnorr knowledge-of-exponent assumption, which the simulation of PedPoP needs — [[BCK+22 - Better than Advertised Security for Non-interactive Threshold Signatures|BCK+22]].
 
 ## Threshold DSA and ECDSA
 
@@ -172,12 +186,23 @@ In [[digital-signature#ecdsa|DSA and ECDSA]] the signing equation $s = k^{-1}(H(
 - A multi-signature with key aggregation, such as [[multi-signature#musig|MuSig]], also outputs a signature that verifies under one key, but that key is computed by $\KeyAgg$ from public keys the signers generate independently, without interactive key generation, and every signer whose key was aggregated takes part in signing — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]].
 - In an accountable-subgroup multisignature, any subset $S$ of a group of signers can sign, and a valid signature identifies $S$ — [[MOR01 - Accountable-Subgroup Multisignatures|MOR01]], [[BDN18 - Compact Multi-Signatures for Smaller Blockchains|BDN18]]. In Shoup's and Boldyreva's threshold schemes the combined signature is the unique RSA full-domain-hash or BLS signature on $m$ under $\pk$, so it is the same whichever $t+1$ parties produced it — standard.
 
-<!-- BEGIN GENERATED participates-in df353f4def25 -->
+<!-- BEGIN GENERATED participates-in 16bb28f4b97f -->
 
 ## Participates in
 
+**Builds on Threshold signature**
+
+- [[adaptively-secure-threshold-signature-to-threshold-signature|Adaptively secure threshold signature ⇒ Threshold signature]] (via [[threshold-signature#adaptive-corruption|Adaptive corruption]])
+- [[frost-to-threshold-signature|FROST ⇒ Threshold signature]] (via [[threshold-signature#frost|FROST]])
+- [[threshold-rsa-to-honest-majority-threshold-signature|Threshold RSA signatures ⇒ Honest-majority threshold signature]] (via [[threshold-signature#threshold-rsa|Threshold RSA]])
+- [[threshold-signature-to-honest-majority-threshold-signature|Threshold signature ⇒ Honest-majority threshold signature]]
+
 **Produces Threshold signature**
 
+- [[adaptively-secure-threshold-signature-to-threshold-signature|Adaptively secure threshold signature ⇒ Threshold signature]]
+- [[frost-to-threshold-signature|FROST ⇒ Threshold signature]]
 - [[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)]] (via [[threshold-signature#threshold-rsa|Threshold RSA]])
+- [[threshold-rsa-to-honest-majority-threshold-signature|Threshold RSA signatures ⇒ Honest-majority threshold signature]] (via [Honest majority ($t < n/2$)](threshold-signature#honest-majority-t--n2))
+- [[threshold-signature-to-honest-majority-threshold-signature|Threshold signature ⇒ Honest-majority threshold signature]] (via [Honest majority ($t < n/2$)](threshold-signature#honest-majority-t--n2))
 
 <!-- END GENERATED participates-in -->
