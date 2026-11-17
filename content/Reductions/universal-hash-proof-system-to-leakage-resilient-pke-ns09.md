@@ -36,7 +36,7 @@ with no assumption beyond the hardness of $\calM$, and its efficiency is that of
 \caption{Leakage-resilient encryption from a hash proof system}
 \begin{algorithmic}
 \State $\KeyGen(1^\secpar)$: $\Lambda \gets \mathsf{I}(1^\secpar)$; $k \gets \mathsf{HPS}.\KeyGen(\Lambda)$; $s := \mathsf{Proj}(k)$; $\pk := (\Lambda, s)$; $\sk := k$
-\State $\Enc(\pk, M)$: sample $(x, w) \in R_\Lambda$ with $x$ uniform in $L$; $\sigma \getsr \bits^d$; $\pi := \mathsf{Pub}(s, x, w)$
+\State $\Enc(\pk, M)$: sample $(x, w)$ with the sampler of $\calM$; $\sigma \getsr \bits^d$; $\pi := \mathsf{Pub}(s, x, w)$
 \Return $(x, \sigma, \mathsf{Ext}(\pi, \sigma) \oplus M)$
 \State $\Dec(\sk, (x, \sigma, \psi))$:
 \Return $\psi \oplus \mathsf{Ext}(\mathsf{Priv}(k, x), \sigma)$
@@ -46,7 +46,7 @@ with no assumption beyond the hardness of $\calM$, and its efficiency is that of
 
 ## Sketch
 
-Projectivity lets the reduction, which holds $k$ and so answers every leakage query, compute the challenge mask from $\mathsf{Priv}(k, x)$; replacing $x \getsr L$ by $x \getsr X \setminus L$ costs the subset-membership advantage. For $x \notin L$, $H_k(x)$ has min-entropy at least $\log(1/\varepsilon)$ given $\pk$, and $\ell$ bits of leakage on $k$ lower its average min-entropy by at most $\ell$, so by the leftover hash lemma $\mathsf{Ext}(H_k(x), \sigma)$ is statistically close to uniform given $\calA$'s view when $\log(1/\varepsilon) - \ell - m = \omega(\log \secpar)$.
+Projectivity lets the reduction, which holds $k$ and so answers every leakage query, compute the challenge mask from $\mathsf{Priv}(k, x)$; replacing the sampled $x$ by $x \getsr L$ costs the sampler's statistical distance from uniform, and replacing $x \getsr L$ by $x \getsr X \setminus L$ costs the subset-membership advantage. For $x \notin L$, $H_k(x)$ has min-entropy at least $\log(1/\varepsilon)$ given $\pk$, and $\ell$ bits of leakage on $k$ lower its average min-entropy by at most $\ell$, so by the leftover hash lemma $\mathsf{Ext}(H_k(x), \sigma)$ is statistically close to uniform given $\calA$'s view when $\log(1/\varepsilon) - \ell - m = \omega(\log \secpar)$.
 
 ## Notes
 

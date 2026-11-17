@@ -9,7 +9,6 @@ title: Time-lock puzzle
 id: time-lock-puzzle
 variants:
   weak-time-lock-puzzle: "#weak-time-lock-puzzles"
-  homomorphic-time-lock-puzzle: "#homomorphic-time-lock-puzzles"
 ---
 
 # Time-lock puzzle
@@ -66,6 +65,8 @@ A **weak** time-lock puzzle satisfies correctness and security as above, but $\G
 ## Homomorphic time-lock puzzles
 
 A homomorphic time-lock puzzle lets anyone, without solving them, turn puzzles with solutions $s_1, \ldots, s_n$ into a puzzle with solution $f(s_1, \ldots, s_n)$ whose size and solving time do not grow with the circuit computing $f$; [[MT19 - Homomorphic Time-Lock Puzzles and Applications|MT19]] introduce the notion and give linearly, multiplicatively and fully homomorphic constructions under concrete assumptions.
+
+TODO: encode the definition of [[MT19 - Homomorphic Time-Lock Puzzles and Applications|MT19]] for a class $\calC$ of circuits (a setup algorithm for $T$, puzzle generation, Solve, Eval, correctness, compactness of evaluated puzzles independent of the circuit size, and security with gap $\varepsilon$ under the quantifiers of the base definition), then register one variant per class, each under its own heading.
 
 # Other results
 

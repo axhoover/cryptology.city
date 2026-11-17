@@ -5,7 +5,7 @@ title: "DDH ⇒ Universal-2 HPS"
 aliases: []
 id: red-prime-order-ddh-to-universal2-hash-proof-system-cs02
 kind: implication
-hypotheses: [prime-order-ddh]
+hypotheses: [recognizable-prime-order-ddh]
 conclusion: universal2-hash-proof-system
 class: fully-black-box
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let $\GrGen$ output groups $(\GG, g_1, q)$ of prime order $q$ for which [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH]] is hard, and let the instance be $\Lambda = (\GG, q, g_1, g_2)$ with $g_2$ a uniformly random generator of $\GG$. The subset membership problem with $X = \GG^2$, $L = \{(g_1^r, g_2^r) : r \in \ZZ_q\}$ and witness $r$ is hard, and it has a [[hash-proof-system#universal-2-hash-proof-systems|universal-2 hash proof system]] — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]:
+Let $\GrGen$ output groups $(\GG, g_1, q)$ of prime order $q$, with membership in $\GG$ decidable in polynomial time, for which [[decisional-diffie-hellman#ddh-in-prime-order-groups-with-decidable-membership|DDH]] is hard, and let the instance be $\Lambda = (\GG, q, g_1, g_2)$ with $g_2$ a uniformly random generator of $\GG$. The subset membership problem with $X = \GG^2$, $L = \{(g_1^r, g_2^r) : r \in \ZZ_q\}$ and witness $r$ is hard, and it has a [[hash-proof-system#universal-2-hash-proof-systems|universal-2 hash proof system]] — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]:
 
 - smooth: $k = (k_1, k_2) \in \ZZ_q^2$, $\alpha(k) = g_1^{k_1} g_2^{k_2}$, $H_k(u_1, u_2) = u_1^{k_1} u_2^{k_2}$, so $H_k(g_1^r, g_2^r) = \alpha(k)^r$;
 - extended universal-2 for tags $e$: a hash proof system for the same language whose hash takes $(u_1, u_2, e)$ as input; it handles tags of any length with more key components, so no hash function is needed.
