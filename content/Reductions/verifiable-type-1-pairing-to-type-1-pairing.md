@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[pairings#verifiable-type-1-pairing|verifiable Type 1 pairing]], with the same generator, is a [[pairings#type-1|Type 1 pairing]], since verifiability only adds an algorithm that checks group descriptions — folklore.
+A [[pairings#verifiable-type-1-pairing|verifiable Type 1 pairing]], with the same generator, is a [[pairings#type-1|Type 1 pairing]], since verifiability only fixes uniform algorithms for membership, the group operations and $e$, and adds one that checks group descriptions — folklore.
