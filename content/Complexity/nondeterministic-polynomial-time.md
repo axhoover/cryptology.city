@@ -37,13 +37,15 @@ $\classNP \not\subseteq \mathbf{io}\text{-}\classBPP$ if some $L \in \classNP$ i
 
 ## Average-case hardness
 
-$\classNP$ is **hard on average** over samplable distributions if there are $L \in \classNP$, a PPT sampler $D$ and a polynomial $p$ such that for every PPT algorithm $\calA$ there are infinitely many $n$ with
+$\classNP$ is **hard on average** over samplable distributions if there are $L \in \classNP$, a PPT sampler $D$ with $D(1^n) \in \bits^n$ (a polynomial-time samplable ensemble $\{D_n\}$ with $D_n$ on $\bits^n$) and a polynomial $p$ such that for every PPT algorithm $\calA$ there are infinitely many $n$ with
 
 $$
 \Pr_{x \gets D(1^n)}\!\left[\calA(x) \ne L(x)\right] \ge \frac{1}{p(n)},
 $$
 
-the probability also over the coins of $\calA$ — standard.
+the probability also over the coins of $\calA$, so that the error is measured in the instance length $n = |x|$ — standard. Without the length condition the notion would follow from $\classNP \not\subseteq \classBPP$: with $D(1^n)$ uniform on $\bits^{\lfloor \log n \rfloor}$ and $p(n) = 3n$, an algorithm that errs with probability below $1/(3n)$ under $D(1^n)$ for all but finitely many $n$ errs with probability below $1/3$ on all but finitely many inputs — folklore.
+
+TODO: check this length convention against [[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]] §2.
 
 <!-- BEGIN GENERATED participates-in 3848a5dde83c -->
 

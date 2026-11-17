@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard, there is a single-server [PIR with client preprocessing](single-server-private-information-retrieval#pir-with-client-preprocessing) that answers adaptively chosen queries in sublinear amortized server time with sublinear additional client storage and no server storage beyond the database, after a hint whose generation costs the server time linear in $n$; over at least $n^{1/4}$ queries the amortized server time is $n^{3/4}$, the communication $n^{1/2}$ and the client storage $n^{3/4}$, up to factors polynomial in $\secpar$ and logarithmic in $n$ — [[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]].
+If [[quadratic-residuosity|QR]] is hard, there is a single-server [PIR with client preprocessing](single-server-private-information-retrieval#pir-with-client-preprocessing) that answers adaptively chosen queries in sublinear amortized server time with sublinear additional client storage and no server storage beyond the database, after a hint whose generation costs the server time linear in $n$; over at least $n^{1/4}$ queries the amortized server time is $n^{3/4}$, the communication $n^{1/2}$ and the client storage $n^{3/4}$, up to factors polynomial in $\secpar$ and logarithmic in $n$ — [[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]]. These bounds are at most $\poly(\secpar) \cdot \polylog(n) \cdot n^{3/4} \le p(\secpar) \cdot n^{7/8}$ for a polynomial $p$, and $p(\secpar) \cdot n^{7/8} \le p(\secpar)^{16} + n^{15/16}$, so the scheme is [sublinear](single-server-private-information-retrieval#pir-with-client-preprocessing) with $s(n) = n^{15/16}$ — standard.
 
 ## Notes
 
