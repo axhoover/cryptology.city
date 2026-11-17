@@ -26,7 +26,7 @@ Let $(\GG, \GG_T, p, g, e)$ be a [[pairings#type-1|symmetric bilinear group]] in
 
 ## Sketch
 
-Signing is the LRSW oracle. By non-degeneracy of $e$, a triple that verifies on $m$ satisfies $b = a^y$ and $c = a^{x + mxy}$, so a forgery on an unqueried $m \ne 0$ is an LRSW solution; the reduction forwards the signing queries to its oracle and outputs the forgery.
+Signing is the LRSW oracle. By non-degeneracy of $e$, a triple that verifies on $m$ satisfies $b = a^y$ and $c = a^{x + mxy}$, so a forgery on an unqueried $m \in \ZZ_p \setminus \{0\}$ is an LRSW solution; the reduction forwards the signing queries to its oracle and outputs the forgery.
 
 ## Notes
 

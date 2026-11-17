@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In the [[generic-group-model|generic group model]], the [[lrsw-assumption|LRSW assumption]] holds in groups of prime order $p$: every generic algorithm that makes polynomially many group-oracle queries and queries to the LRSW oracle outputs a tuple $(m, a, a^y, a^{x + mxy})$ with $m \ne 0$, $a \ne 1$ and $m$ never queried only with negligible probability — [[LRSW99 - Pseudonym Systems|LRSW99]].
+In the [[generic-group-model|generic group model]], the [[lrsw-assumption|LRSW assumption]] holds in groups of prime order $p$: every generic algorithm that makes polynomially many group-oracle queries and queries to the LRSW oracle outputs a tuple $(m, a, a^y, a^{x + mxy})$ with $m \in \ZZ_p \setminus \{0\}$, $a \ne 1$ and $m$ never queried only with negligible probability — [[LRSW99 - Pseudonym Systems|LRSW99]].
 
 ## Notes
 
