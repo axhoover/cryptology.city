@@ -6,6 +6,8 @@ aliases:
   - Trapdoor hash functions
 title: Trapdoor hash functions
 id: tdh
+variants:
+  one-bit-hint-tdh: "#one-bit-hints"
 ---
 
 # Trapdoor hash functions
@@ -30,13 +32,15 @@ A trapdoor hash function is required to be $(1 - \tau)$-correct for its error $\
 
 ### Correctness
 
-A trapdoor hash function is $(1 - \tau)$-**correct**, for a function $\tau = \tau(\secpar)$, if there is a negligible function $\negl$ such that for all $\secpar, n \in \NN$, $x \in \bits^n$ and $i \in [n]$,
+A trapdoor hash function is $(1 - \tau)$-**correct**, for a function $\tau = \tau(\secpar)$, if for every polynomial $n = n(\secpar)$ there is a negligible function $\negl$ such that for all $\secpar \in \NN$, $x \in \bits^{n(\secpar)}$ and $i \in [n(\secpar)]$,
 
 $$
 \Pr\!\left[e = e_{x_i}\right] \ge 1 - \negl(\secpar) \qquad \text{and} \qquad \Pr\!\left[e \ne e_{1 - x_i}\right] \ge 1 - \tau - \negl(\secpar),
 $$
 
 over $\mathsf{hk} \gets \Setup(1^\secpar, 1^n)$, $(\mathsf{ek}, \td) \gets \KeyGen(\mathsf{hk}, i)$ and the coins $\rho$, where $h = \hash(\mathsf{hk}, x; \rho)$, $e = \mathsf{E}(\mathsf{ek}, x; \rho)$ and $(e_0, e_1) = \Decode(\td, h)$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+
+Input lengths are polynomial in $\secpar$, as in the privacy and hiding games; with a fixed modulus, the LWE construction's rounding error grows linearly in $n$ ([[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]]) — standard.
 
 The receiver outputs the $b$ with $e = e_b$ when $e_0 \ne e_1$ and fails otherwise. By the first inequality its output is wrong only with negligible probability; by the second it fails with probability at most $\tau + \negl(\secpar)$. The error $\tau$ is a parameter of the construction, and an application must tolerate the error its instantiation has; in the constructions of DGI+19, $\tau$ is negligible or only inverse-polynomial — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
@@ -88,6 +92,10 @@ is negligible — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+
 
 # Variations
 
+## One-bit hints
+
+A trapdoor hash function has **one-bit hints** if $\mu = 1$. As an object, it denotes a trapdoor hash function, correct, input-private and index-hiding as above, with $\mu = 1$. [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]] construct them from [[decisional-diffie-hellman|DDH]], [[quadratic-residuosity|QR]], [[decisional-composite-residuosity|DCR]] and [[learning-with-errors|LWE]].
+
 ## Rate-1 trapdoor hash functions
 
 With one-bit hints, a receiver that sends $m$ encoding keys for indices of one input $x$ recovers $m$ bits of $x$, each except with probability at most $\tau + \negl(\secpar)$, from a single hash value and $m$ hint bits, $\eta + m$ bits in all, so the rate tends to 1 as $m$ grows; this underlies the rate-1 protocols of [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
@@ -104,19 +112,21 @@ The first trapdoor hash function from LPN is of this kind: it rests on the hardn
 
 - Two-message rate-1 string [[oblivious-transfer|OT]] from DDH, QR or LWE; [[single-server-private-information-retrieval|PIR]] with communication polylogarithmic in the database size from DDH or QR, of rate 1 for block PIR; semi-compact [[homomorphic-encryption|homomorphic encryption]] for branching programs, whose encrypted output grows only with the program length, from DDH or QR; [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] with input-to-output ratio approaching 1 from DDH, QR or LWE; constant-rate two-message statistically sender-private OT from LWE in the plain model; and rate-1 protocols for $n$ parallel OTs and for matrix–vector products from DDH, QR or LWE — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
-<!-- BEGIN GENERATED participates-in 48be130121b0 -->
+<!-- BEGIN GENERATED participates-in 053d8c0f8af5 -->
 
 ## Participates in
 
 **Builds on Trapdoor hash functions**
 
-- [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
+- [[one-bit-hint-tdh-to-tdh|TDH with one-bit hints ⇒ TDH]] (via [[trapdoor-hash-function#one-bit-hints|One-bit hints]])
+- [[tdh-to-cpir-amr25|TDH ⇒ cPIR]] (via [[trapdoor-hash-function#one-bit-hints|One-bit hints]])
 
 **Produces Trapdoor hash functions**
 
-- [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]
-- [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
-- [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]]
-- [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
+- [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]] (via [[trapdoor-hash-function#one-bit-hints|One-bit hints]])
+- [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]] (via [[trapdoor-hash-function#one-bit-hints|One-bit hints]])
+- [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]] (via [[trapdoor-hash-function#one-bit-hints|One-bit hints]])
+- [[one-bit-hint-tdh-to-tdh|TDH with one-bit hints ⇒ TDH]]
+- [[qr-to-tdh-dgi-19|QR ⇒ TDH]] (via [[trapdoor-hash-function#one-bit-hints|One-bit hints]])
 
 <!-- END GENERATED participates-in -->

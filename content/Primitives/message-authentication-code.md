@@ -26,6 +26,8 @@ A MAC is a triple of efficient algorithms $\MAC = (\KeyGen, \Tag, \Vrfy)$ with r
 
 Every MAC on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$; for a [[#Nonce-based MACs|nonce-based MAC]] this means $\Pr\!\left[\Vrfy(k, n, m, \Tag(k, n, m)) = 1\right] \ge 1 - \varepsilon$ for every nonce $n$ and every $m \in \calM$. Without correctness, $\Vrfy \equiv 0$ meets every unforgeability notion below.
 
+As an object, a MAC denotes a $(1-\negl)$-correct, [[#Unforgeability|UF-CMA-secure]] scheme, and a [[#Strong unforgeability|strongly unforgeable]] MAC a $(1-\negl)$-correct, SUF-CMA-secure one.
+
 TODO: quantify the message space of the base notion: with $|\calM_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform tags in $\bits^\secpar$, one per message, with $\Tag(k, m)$ the entry for $m$ and canonical verification, is a UF-CMA-secure MAC unconditionally.
 
 ## Properties
@@ -152,7 +154,7 @@ $$
 - **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$, let $F_k(m_1 \cdots m_\ell) := y_\ell$ with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$ be its iteration keyed by the initial chaining value. Then $\mathrm{NMAC}_{k_1,k_2}(m) := F_{k_1}(F_{k_2}(m))$, with the inner output padded to one block, is a UF-CMA-secure MAC if $f$, keyed by its chaining input, is a secure MAC on one-block messages and $F_k$ is weakly collision resistant, that is, collision resistant against an adversary that sees $F_k$ only through an oracle — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. $\mathrm{HMAC}$ is NMAC with $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$ derived from a single key $\bar k$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]].
 - [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]: NMAC is a PRF if $f$, keyed by its chaining input, is a PRF, with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
 
-<!-- BEGIN GENERATED participates-in ed4de75c3a7f -->
+<!-- BEGIN GENERATED participates-in 48e494af1807 -->
 
 ## Participates in
 
@@ -160,6 +162,7 @@ $$
 
 - [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
+- [[suf-cma-mac-to-mac|SUF-CMA MAC ⇒ MAC]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
 
 **Produces Message authentication code**
 
@@ -167,5 +170,6 @@ $$
 - [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]] (via [[message-authentication-code#nonce-based-macs|Nonce-based MACs]])
+- [[suf-cma-mac-to-mac|SUF-CMA MAC ⇒ MAC]]
 
 <!-- END GENERATED participates-in -->

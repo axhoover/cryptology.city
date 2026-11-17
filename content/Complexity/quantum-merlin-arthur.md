@@ -7,7 +7,7 @@ aliases:
 title: Quantum Merlin-Arthur
 id: qma
 variants:
-  local-hamiltonian: "#notable-problems"
+  local-hamiltonian: "#local-hamiltonian"
 ---
 
 # Quantum Merlin-Arthur
@@ -23,8 +23,15 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 ## Notable problems
 
-- **Local Hamiltonian** (k-LH): given a $k$-local Hamiltonian $H = \sum_i H_i$ on $n$ qubits with $\poly(n)$ terms, each of norm at most $\poly(n)$, and thresholds $a < b$ with $b - a \ge 1/\poly(n)$, decide whether the ground-state energy of $H$ is at most $a$ or at least $b$, promised one holds. This is QMA-complete for $k \ge 2$ — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]] (for $k \ge 5$ first by Kitaev — [[KSV02 - Classical and Quantum Computation|KSV02]]). The Local Hamiltonian problem is the quantum analogue of SAT.
-- **Consistency of local density matrices**: given density matrices $\rho_1, \dots, \rho_m$ on subsets $C_1, \dots, C_m$ of at most $k$ of $n$ qubits, decide whether some $n$-qubit state $\sigma$ has every reduced state $\mathrm{Tr}_{\overline{C_i}}(\sigma)$ within trace distance $\beta$ of $\rho_i$, or every $n$-qubit state $\sigma$ has some reduced state $\mathrm{Tr}_{\overline{C_i}}(\sigma)$ at trace distance at least $\alpha$ from $\rho_i$, where $\alpha - \beta \ge 1/\poly(n)$. In QMA and QMA-hard under Turing reductions — [[Liu06 - Consistency of Local Density Matrices is QMA-complete|Liu06]]; QMA-hard under Karp reductions — [[BG20 - QMA-hardness of Consistency of Local Density Matrices with Applications to Quantum Zero-Knowledge|BG20]].
+### Local Hamiltonian
+
+For a constant $k$ and a polynomial $p$, $k\text{-LH}_p$ is the promise problem: given a Hamiltonian $H = \sum_{j=1}^{r} H_j$ on $n$ qubits with $r \le p(n)$, each $H_j$ acting on at most $k$ qubits with $\|H_j\| \le p(n)$ and entries specified by $p(n)$ bits, and thresholds $a < b$ of $p(n)$ bits with $b - a \ge 1/p(n)$, decide whether the ground-state energy of $H$ is at most $a$ or at least $b$, promised one holds — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]]. [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]] state it with $\poly(n)$ terms, norms and entry lengths and constant thresholds $a < b$; rescaling $H$ by $p(n)$ and shifting it by a multiple of the identity makes the two forms equivalent — standard. As an object, Local Hamiltonian denotes $k\text{-LH}_p$ for every constant $k$ and every polynomial $p$.
+
+For each $k \ge 2$ there is a polynomial $p$ for which $k\text{-LH}_p$ is QMA-complete — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]] (for $k \ge 5$ first by Kitaev — [[KSV02 - Classical and Quantum Computation|KSV02]]). Local Hamiltonian is the quantum analogue of SAT.
+
+### Consistency of local density matrices
+
+Given density matrices $\rho_1, \dots, \rho_m$ on subsets $C_1, \dots, C_m$ of at most $k$ of $n$ qubits, decide whether some $n$-qubit state $\sigma$ has every reduced state $\mathrm{Tr}_{\overline{C_i}}(\sigma)$ within trace distance $\beta$ of $\rho_i$, or every $n$-qubit state $\sigma$ has some reduced state $\mathrm{Tr}_{\overline{C_i}}(\sigma)$ at trace distance at least $\alpha$ from $\rho_i$, where $\alpha - \beta \ge 1/\poly(n)$. In QMA and QMA-hard under Turing reductions — [[Liu06 - Consistency of Local Density Matrices is QMA-complete|Liu06]]; QMA-hard under Karp reductions — [[BG20 - QMA-hardness of Consistency of Local Density Matrices with Applications to Quantum Zero-Knowledge|BG20]].
 
 ## Known relationships
 
@@ -46,13 +53,13 @@ Recent work has studied how modifications to the proof model change QMA's power:
 
 For every $\gamma \ge 1$, the [[shortest-vector-problem|gap shortest vector problem]] $\mathrm{GapSVP}_\gamma$ is in $\classNP \subseteq \classQMA$, since a short vector is a classical witness — folklore. For $\gamma \ge \sqrt{n}$, $\mathrm{GapSVP}_\gamma \in \classNP \cap \classcoNP$ — [[AR04 - Lattice Problems in NP intersect coNP|AR04]], so it is not QMA-hard under Karp reductions unless $\classQMA \subseteq \classNP \cap \classcoNP$.
 
-<!-- BEGIN GENERATED participates-in 8c46155f5e70 -->
+<!-- BEGIN GENERATED participates-in f231f38cec26 -->
 
 ## Participates in
 
 **Builds on Quantum Merlin-Arthur**
 
-- [[notable-problems-to-qma|Local Hamiltonian is QMA-complete]] (via [[quantum-merlin-arthur#notable-problems|Notable problems]])
+- [[notable-problems-to-qma|Local Hamiltonian is QMA-complete]] (via [[quantum-merlin-arthur#local-hamiltonian|Local Hamiltonian]])
 - [[qma-to-pp|QMA ⊆ PP]]
 
 **Produces Quantum Merlin-Arthur**

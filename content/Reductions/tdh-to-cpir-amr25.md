@@ -5,7 +5,7 @@ title: "TDH ⇒ cPIR"
 aliases: []
 id: red-tdh-to-cpir-amr25
 kind: implication
-hypotheses: [tdh]
+hypotheses: [one-bit-hint-tdh]
 conclusion: cpir
 class: unstated
 model: standard
@@ -18,4 +18,4 @@ security-loss: ""
 
 ## Statement
 
-A [[trapdoor-hash-function|trapdoor hash function]] with one-bit hints gives two-message rate-1 string [[oblivious-transfer|OT]], and rate-1 OT gives [[single-server-private-information-retrieval|single-server PIR]]; with the DDH- and QR-based trapdoor hash functions this is PIR with communication $\polylog(L)$ for a database of size $L$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+A [[trapdoor-hash-function|trapdoor hash function]] with [[trapdoor-hash-function#one-bit-hints|one-bit hints]] gives two-message rate-1 string [[oblivious-transfer|OT]], and rate-1 OT gives [[single-server-private-information-retrieval|single-server PIR]]; with the DDH- and QR-based trapdoor hash functions this is PIR with communication $\polylog(L)$ for a database of size $L$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].

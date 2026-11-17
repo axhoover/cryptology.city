@@ -6,7 +6,7 @@ aliases: []
 id: red-lwe-to-tdh-dgi-19
 kind: implication
 hypotheses: [superpolynomial-ratio-lwe]
-conclusion: tdh
+conclusion: one-bit-hint-tdh
 class: unstated
 model: standard
 source:
@@ -18,7 +18,7 @@ security-loss: "factor 2: index hiding passes through a uniform encoding key, on
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE is hard with superpolynomial modulus-to-noise ratio]], there are [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with one-bit hints: the hash of $x$ hides $x$, an encoding key for $i$ hides $i$, and for every input $x$ its trapdoor recovers $x_i$ from the hash and the hint except with negligible probability over the keys and the coins of the hash. DGI+19 build them from decision LWE, with a correctness error that depends on the modulus-to-noise ratio and is negligible when the ratio is superpolynomial — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+If [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE is hard with superpolynomial modulus-to-noise ratio]], there are [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with [[trapdoor-hash-function#one-bit-hints|one-bit hints]]: the hash of $x$ hides $x$, an encoding key for $i$ hides $i$, and for every input $x$ its trapdoor recovers $x_i$ from the hash and the hint except with negligible probability over the keys and the coins of the hash. DGI+19 build them from decision LWE, with a correctness error that depends on the modulus-to-noise ratio and is negligible when the ratio is superpolynomial — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
 ## Sketch
 

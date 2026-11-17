@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Given $H = \sum_i H_i$ on $n$ qubits with $\poly(n)$ terms, each acting on at most $k$ qubits and of norm at most $\poly(n)$, and thresholds $a < b$ with $b - a \ge 1/\poly(n)$, the [[quantum-merlin-arthur#notable-problems|local Hamiltonian problem]] with locality $k$ asks whether the ground-state energy of $H$ is at most $a$ or at least $b$, promised one holds. For every constant $k \ge 5$ it is in [[quantum-merlin-arthur|QMA]] and QMA-hard, hence QMA-complete — [[KSV02 - Classical and Quantum Computation|KSV02]].
+For every constant $k$ and every polynomial $p$, the [[quantum-merlin-arthur#local-hamiltonian|local Hamiltonian problem]] $k\text{-LH}_p$ is in [[quantum-merlin-arthur|QMA]], and in fact the problem is in QMA even for $k = O(\log n)$ — [[KSV02 - Classical and Quantum Computation|KSV02]], as reported by [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]] §1. For $k \ge 5$ and some polynomial $p$ it is QMA-hard, hence QMA-complete — [[KSV02 - Classical and Quantum Computation|KSV02]].
 
 ## Sketch
 

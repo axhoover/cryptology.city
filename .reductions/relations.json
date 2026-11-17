@@ -3753,9 +3753,9 @@
    "page": "content/Complexity/quantum-merlin-arthur.md",
    "slug": "quantum-merlin-arthur",
    "graphSlug": "Complexity/quantum-merlin-arthur",
-   "anchor": "#notable-problems",
+   "anchor": "#local-hamiltonian",
    "of": "qma",
-   "title": "Notable problems",
+   "title": "Local Hamiltonian",
    "aliases": [],
    "unlisted": false
   },
@@ -4847,6 +4847,19 @@
    "anchor": "#one-more-discrete-logarithm",
    "of": "dlog",
    "title": "One-more Discrete Logarithm",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-bit-hint-tdh",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-hash-function.md",
+   "slug": "trapdoor-hash-function",
+   "graphSlug": "Primitives/trapdoor-hash-function",
+   "anchor": "#one-bit-hints",
+   "of": "tdh",
+   "title": "One-bit hints",
    "aliases": [],
    "unlisted": false
   },
@@ -12396,7 +12409,7 @@
    "hypotheses": [
     "dcr"
    ],
-   "conclusion": "tdh",
+   "conclusion": "one-bit-hint-tdh",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -12826,7 +12839,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "tdh",
+   "conclusion": "one-bit-hint-tdh",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -18284,7 +18297,7 @@
    "hypotheses": [
     "superpolynomial-ratio-lwe"
    ],
-   "conclusion": "tdh",
+   "conclusion": "one-bit-hint-tdh",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -19800,6 +19813,33 @@
    "slug": "omdl-to-prime-order-dlog",
    "graphSlug": "Reductions/omdl-to-prime-order-dlog",
    "title": "OMDL ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-one-bit-hint-tdh-to-tdh",
+   "kind": "implication",
+   "hypotheses": [
+    "one-bit-hint-tdh"
+   ],
+   "conclusion": "tdh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards every adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-bit-hint-tdh-to-tdh.md",
+   "slug": "one-bit-hint-tdh-to-tdh",
+   "graphSlug": "Reductions/one-bit-hint-tdh-to-tdh",
+   "title": "TDH with one-bit hints ⇒ TDH"
   },
   {
    "id": "red-one-round-sublinear-cpir-to-keyword-pir-cgn98",
@@ -22448,13 +22488,14 @@
     "standard"
    ],
    "source": [
-    "[[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]"
+    "[[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]",
+    "[[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The reduction is non-uniform, and the vocabulary has no non-uniform class."
+    "class": "Bel06's reduction is non-uniform, and the vocabulary has no non-uniform class; the class of GPR14's uniform reduction is not recorded."
    },
    "status": "draft",
    "page": "content/Reductions/prf-to-mac-bel06.md",
@@ -24341,7 +24382,7 @@
    "hypotheses": [
     "qr"
    ],
-   "conclusion": "tdh",
+   "conclusion": "one-bit-hint-tdh",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -27832,6 +27873,33 @@
    "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
   },
   {
+   "id": "red-suf-cma-mac-to-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "suf-cma-mac"
+   ],
+   "conclusion": "mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs a UF-CMA forger unchanged in the SUF-CMA game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/suf-cma-mac-to-mac.md",
+   "slug": "suf-cma-mac-to-mac",
+   "graphSlug": "Reductions/suf-cma-mac-to-mac",
+   "title": "SUF-CMA MAC ⇒ MAC"
+  },
+  {
    "id": "red-super-polynomial-range-oprf-to-oprf",
    "kind": "implication",
    "hypotheses": [
@@ -27857,6 +27925,33 @@
    "slug": "super-polynomial-range-oprf-to-oprf",
    "graphSlug": "Reductions/super-polynomial-range-oprf-to-oprf",
    "title": "OPRF with super-polynomial range ⇒ OPRF"
+  },
+  {
+   "id": "red-superpolynomially-secure-rerandomizable-encryption-to-rerandomizable-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "superpolynomially-secure-rerandomizable-encryption"
+   ],
+   "conclusion": "rerandomizable-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme and its rerandomizer, and the reduction forwards a CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/superpolynomially-secure-rerandomizable-encryption-to-rerandomizable-encryption.md",
+   "slug": "superpolynomially-secure-rerandomizable-encryption-to-rerandomizable-encryption",
+   "graphSlug": "Reductions/superpolynomially-secure-rerandomizable-encryption-to-rerandomizable-encryption",
+   "title": "Superpolynomially secure RE ⇒ RE"
   },
   {
    "id": "red-sxdh-symmetric-external-diffie-hellman-to-nizk",
@@ -28224,7 +28319,7 @@
    "id": "red-tdh-to-cpir-amr25",
    "kind": "implication",
    "hypotheses": [
-    "tdh"
+    "one-bit-hint-tdh"
    ],
    "conclusion": "cpir",
    "class": "unstated",
