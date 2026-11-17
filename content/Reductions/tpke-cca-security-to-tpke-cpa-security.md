@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Every [[threshold-encryption#cca-security|CCA-secure]] [[threshold-encryption|threshold encryption]] scheme is [[threshold-encryption#cpa-security|CPA-secure]] against the same static corruptions: a CCA adversary runs the CPA adversary and answers each of its $\calE(m)$ queries with $c \gets \Enc(\pk, m)$ and $\calD(c)$ — folklore.
+Every [[threshold-encryption#cca-security|CCA-secure]] [[threshold-encryption|threshold encryption]] scheme is [[threshold-encryption#cpa-security|CPA-secure]] against the same static corruptions, with the same algorithms, correctness and message space: a CCA adversary runs the CPA adversary and answers each of its $\calE(m)$ queries with $c \gets \Enc(\pk, m)$ and $\calD(c)$ — folklore.

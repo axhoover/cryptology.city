@@ -34,7 +34,6 @@ where $b \getsr \bits$, $c_0 := r^n \bmod n^2$ for $r \getsr \ZZ_n^*$ (a uniform
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]; whether factoring hardness implies DCR hardness is open.
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-com|DCR ⇒ COM]]
-- [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
 
 # Variations
 
@@ -46,13 +45,15 @@ Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisatio
 
 DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where $p', q'$ are distinct uniform $\secpar$-bit primes subject to the primality of $2p' + 1$ and $2q' + 1$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]. **DCR is hard for safe-prime moduli** if for all efficient $\calA$ the DCR advantage above, with $n$ sampled this way, is negligible.
 
+Threshold Paillier encryption uses such moduli ([[dkg-and-he-to-tpke|DCR (safe-prime moduli) ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]], [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].
+
 # Attacks
 
 - DCR is broken if [[factoring|factoring]] $n$ is easy — knowing $p$ and $q$ determines the group structure
 - Quantum attacks: Shor's algorithm factors $n$ in polynomial time, breaking DCR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 - No sub-exponential classical attack on DCR independent of factoring is known
 
-<!-- BEGIN GENERATED participates-in 4823eb2a0cb8 -->
+<!-- BEGIN GENERATED participates-in 3406f1e00f3f -->
 
 ## Participates in
 
@@ -72,7 +73,7 @@ DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where 
 - [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]]
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]
-- [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
+- [[dkg-and-he-to-tpke|DCR (safe-prime moduli) ⇒ TPKE]] (via [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR with safe-prime moduli]])
 
 **Produces Decisional composite residuosity assumption**
 
