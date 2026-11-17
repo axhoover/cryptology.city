@@ -6,8 +6,6 @@ aliases:
   - Accumulator
 title: Cryptographic accumulator
 id: accumulator
-variants:
-  dynamic-accumulator: "#dynamic-accumulators"
 ---
 
 # Cryptographic accumulator
@@ -23,7 +21,7 @@ An accumulator over a domain $\calD$ is a tuple of efficient algorithms $\mathsf
 - $\mathsf{Wit}(\pp, X, x) \to w$, a deterministic algorithm outputting a witness for $x \in X$,
 - $\Vrfy(\pp, \mathit{acc}, x, w) \to \bits$, a deterministic algorithm that checks a witness.
 
-The accumulator value and witnesses have length $\poly(\secpar)$, independent of $|X|$ or growing at most polylogarithmically with it.
+The accumulator value and witnesses have length $\poly(\secpar)$, independent of $|X|$ or growing at most polylogarithmically with it. The domain $\calD$ has superpolynomially many elements: $\log |\calD| = \omega(\log \secpar)$. For a polynomial-size $\calD$, the characteristic vector of $X$ as $\mathit{acc}$, with empty witnesses, meets this length bound and the properties below unconditionally — standard.
 
 ## Properties
 
@@ -65,6 +63,8 @@ is negligible — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature S
 
 A _dynamic_ accumulator has $\Gen(1^\secpar) \to (\pp, \td)$, where $\td$ is a trapdoor (the factorization of $N$ for the RSA accumulator), and adds algorithms that add an element to, or delete one from, the accumulated set, updating $\mathit{acc}$ at a cost independent of $|X|$, and that update a witness after each change without $\td$ — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]]. Witness updates make dynamic accumulators a revocation mechanism for [[anonymous-credentials|anonymous credentials]]: a user proves in [[zero-knowledge-proof|zero knowledge]] that its credential's identifier is accumulated in the current value — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
 
+TODO: the security game of [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]] for dynamic accumulators, stated from the paper: which add and delete operations of the manager, who holds $\td$, the adversary invokes and what update information each returns, the winning condition (a valid witness for an element outside the current set), and the consistency requirement that after any sequence of updates $\mathit{acc} = \Acc(\pp, X)$ for the current set $X$. Register the notion as a variant once the game is encoded.
+
 # Other results
 
 - RSA accumulator: $\pp = (N, g)$ for an RSA modulus $N$ and $g \in \QR_N$, elements are primes, $\Acc(\pp, X) = g^{\prod_{x \in X} x} \bmod N$, and the witness for $x$ is $g^{\prod_{y \in X \setminus \{x\}} y}$, checked by $w^x = \mathit{acc}$. It is collision-free under the [[rsa-assumption#strong-rsa|strong RSA assumption]] ([[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]]) — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]]. [[BdM93 - One-Way Accumulators A Decentralized Alternative to Digital Signatures|BdM93]] introduced the exponentiation accumulator as a quasi-commutative one-way function.
@@ -72,7 +72,7 @@ A _dynamic_ accumulator has $\Gen(1^\secpar) \to (\pp, \td)$, where $\td$ is a t
 - The RSA accumulator is dynamic: additions and witness updates need no trapdoor, deletions use the factorization, and collision-freeness still rests on [[rsa-assumption#strong-rsa-with-safe-prime-moduli|strong RSA for safe-prime moduli]] ([[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]]) — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
 - In [[pairings|bilinear groups]], $\mathit{acc} = g^{\prod_{x \in X}(x + s)}$ for a secret $s$, with public parameters $g, g^s, \ldots, g^{s^q}$, accumulates sets of at most $q$ elements and is collision-free under the [$q$-SDH assumption](q-strong-diffie-hellman) — [[Ngu05 - Accumulators from Bilinear Pairings and Applications|Ngu05]].
 
-<!-- BEGIN GENERATED participates-in 3bf0f086ea06 -->
+<!-- BEGIN GENERATED participates-in 4c9676a47c5d -->
 
 ## Participates in
 
@@ -80,6 +80,6 @@ A _dynamic_ accumulator has $\Gen(1^\secpar) \to (\pp, \td)$, where $\td$ is a t
 
 - [[crhf-to-accumulator|CRHF ⇒ accumulator]]
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]]
-- [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]] (via [[accumulator#dynamic-accumulators|Dynamic accumulators]])
+- [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]]
 
 <!-- END GENERATED participates-in -->

@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme and $H$ a hash function, modelled as a [[random-oracle-model|random oracle]], with outputs of the length of $\Enc$'s coins. The Encrypt-with-Hash scheme, with the same key generation and decryption and
+Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme whose message space contains $\bits^{n(\secpar)}$ for some $n(\secpar) = \omega(\log \secpar)$ (any CPA-secure PKE with two distinct messages of equal length gives one, by encrypting each bit of an $n$-bit string componentwise as one of the two — standard), and $H$ a hash function, modelled as a [[random-oracle-model|random oracle]], with outputs of the length of $\Enc$'s coins. The Encrypt-with-Hash scheme, with the same key generation and decryption and
 
 $$
 \Enc'(\pk, m) := \Enc(\pk, m; H(\pk \| m)),

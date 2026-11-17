@@ -6,7 +6,7 @@ aliases: []
 id: red-strong-rsa-to-dynamic-accumulator-cl02
 kind: implication
 hypotheses: [strong-rsa-safe-primes]
-conclusion: dynamic-accumulator
+conclusion: accumulator
 class: unstated
 model: standard
 source:
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If the [[rsa-assumption#strong-rsa-with-safe-prime-moduli|strong RSA assumption for safe-prime moduli]] holds, for moduli $N = pq$ with safe primes $p = 2p'+1$ and $q = 2q'+1$, the RSA accumulator with $\pp = (N, g)$ for $g \in \QR_N$, domain the primes in $[A, B]$ other than $p'$ and $q'$, where $2 < A$ and $B < A^2$, value $\mathit{acc} = g^{\prod_{x \in X} x} \bmod N$, and a witness $w$ for $x$ checked by $w^x \equiv \mathit{acc} \pmod N$, is a collision-free [[accumulator#dynamic-accumulators|dynamic accumulator]]: an element $x'$ is added by $\mathit{acc}' = \mathit{acc}^{x'}$ and deleted by the manager, who knows the factorization of $N$, as $\mathit{acc}' = \mathit{acc}^{1/x' \bmod \phi(N)}$, and every holder of a witness for an element still in the set updates it after each change from public information, without the factorization — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
+If the [[rsa-assumption#strong-rsa-with-safe-prime-moduli|strong RSA assumption for safe-prime moduli]] holds, for moduli $N = pq$ with safe primes $p = 2p'+1$ and $q = 2q'+1$, the RSA accumulator with $\pp = (N, g)$ for $g \in \QR_N$, domain the primes in $[A, B]$ other than $p'$ and $q'$, where $2 < A$ and $B < A^2$, with $A, B$ chosen so that $[A, B]$ contains superpolynomially many primes (e.g. $A = 2^\ell$, $B = 2^{\ell+1} - 1$, $\ell = \omega(\log \secpar)$), value $\mathit{acc} = g^{\prod_{x \in X} x} \bmod N$, and a witness $w$ for $x$ checked by $w^x \equiv \mathit{acc} \pmod N$, is a collision-free [[accumulator|accumulator]], and it is a [[accumulator#dynamic-accumulators|dynamic accumulator]]: an element $x'$ is added by $\mathit{acc}' = \mathit{acc}^{x'}$ and deleted by the manager, who knows the factorization of $N$, as $\mathit{acc}' = \mathit{acc}^{1/x' \bmod \phi(N)}$, and every holder of a witness for an element still in the set updates it after each change from public information, without the factorization — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
 
 ## Notes
 
