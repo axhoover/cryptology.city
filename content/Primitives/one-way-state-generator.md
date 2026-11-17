@@ -61,6 +61,8 @@ $$
 
 is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. $\calA$ need not output $k$ itself, since distinct keys may give equal or close states; any $k'$ that $\Vrfy$ accepts against a copy $\calA$ has not seen counts.
 
+As an object, a one-way state generator denotes a [[#Correctness|correct]] and one-way generator.
+
 # Variations
 
 ## Pure OWSGs

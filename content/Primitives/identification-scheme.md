@@ -71,6 +71,8 @@ $$
 
 is negligible.
 
+As an object, an identification scheme denotes a [[#Correctness|perfectly correct]] scheme secure against impersonation under passive attack.
+
 ### Impersonation under active and concurrent attack
 
 In phase 1 the adversary plays the verifier, possibly dishonestly, in sessions with prover instances holding $\sk$; in phase 2 it has no prover access and must make an honest verifier accept. Under **concurrent attack** it may interleave the phase-1 sessions arbitrarily; under **active attack** it must finish each session before opening the next — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]].
@@ -116,7 +118,7 @@ is negligible. Security against impersonation under **active attack** is the sam
 
 ## Non-trivial canonical identification schemes
 
-A canonical (three-move, public-coin) scheme, as in [[#Syntax|Syntax]], is **non-trivial** if its commitment $a$ has super-logarithmic min-entropy. As an object, a non-trivial canonical identification scheme denotes such a scheme with security against impersonation under passive attack, the hypothesis of the Fiat–Shamir theorem of [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]] ([[id-and-rom-to-ds|ID ⇒ DS]]).
+A canonical (three-move, public-coin) scheme, as in [[#Syntax|Syntax]], is **non-trivial** if its commitment $a$ has super-logarithmic min-entropy. As an object, a non-trivial canonical identification scheme denotes a [[#Correctness|perfectly correct]] such scheme secure against impersonation under passive attack; non-triviality and passive security are the hypotheses of the Fiat–Shamir theorem of [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]] ([[id-and-rom-to-ds|ID ⇒ DS]]).
 
 ## Schnorr identification protocol
 
