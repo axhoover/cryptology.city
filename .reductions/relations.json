@@ -6353,6 +6353,19 @@
    "unlisted": false
   },
   {
+   "id": "rsa-uniform-primes",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/rsa-assumption.md",
+   "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
+   "anchor": "#rsa-with-uniform-prime-moduli",
+   "of": "rsa",
+   "title": "RSA with uniform-prime moduli",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "schnorr-identification-protocol",
    "kind": "variant",
    "type": "primitive",
@@ -24751,7 +24764,7 @@
    "id": "red-rsa-to-fac-dlo24",
    "kind": "equivalence",
    "hypotheses": [
-    "rsa"
+    "rsa-uniform-primes"
    ],
    "conclusion": "fac",
    "class": "free",
@@ -24779,7 +24792,7 @@
    "id": "red-rsa-to-fac-rsa78",
    "kind": "implication",
    "hypotheses": [
-    "rsa"
+    "rsa-uniform-primes"
    ],
    "conclusion": "fac",
    "class": "fully-black-box",
@@ -24792,7 +24805,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one factoring call; RSA advantage equals factoring success on GrGen's moduli",
+   "securityLoss": "tight: one factoring call; the RSA advantage for GrGen_R is at least the factoring advantage minus Pr[p = q], which is negligible",
    "rationale": {
     "class": "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
    },
@@ -24933,6 +24946,33 @@
    "slug": "rsa-to-threshold-rsa-sho00",
    "graphSlug": "Reductions/rsa-to-threshold-rsa-sho00",
    "title": "RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)"
+  },
+  {
+   "id": "red-rsa-uniform-primes-to-rsa",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa-uniform-primes"
+   ],
+   "conclusion": "rsa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the RSA instance distribution, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rsa-uniform-primes-to-rsa.md",
+   "slug": "rsa-uniform-primes-to-rsa",
+   "graphSlug": "Reductions/rsa-uniform-primes-to-rsa",
+   "title": "RSA with uniform-prime moduli ⇒ RSA"
   },
   {
    "id": "red-schnorr-identification-protocol-to-schnorr-signature-aabn02",

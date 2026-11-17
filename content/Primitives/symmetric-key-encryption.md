@@ -32,6 +32,15 @@ A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ w
   takes a key $k \in \calK$ and ciphertext $c \in \calC$,
   outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
+As an object, a CPA-secure, IND\$-CPA-secure or CCA-secure SKE scheme denotes a
+$(1-\negl(\secpar))$-[[#Correctness|correct]] scheme whose message space
+contains, for every $\secpar$, two distinct messages of equal length, and that is
+CPA-, IND\$-CPA- or CCA-secure respectively. Without correctness, the scheme
+with $\Enc(k, m)$ a fresh uniform bit and $\Dec(k, c) := \bot$ meets every
+notion here; without two such messages, so does the perfectly correct scheme that
+encrypts $m$ to a fresh uniform string of length $|m|$ and decrypts $c$ to the
+unique message of length $|c|$ — standard.
+
 ## Properties
 
 ### Correctness

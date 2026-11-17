@@ -43,7 +43,7 @@ $$
 
 ## Known Results
 
-- [[rsa-assumption|RSA]] hardness implies factoring hardness, since the factors of $N$ give $\varphi(N)$ and hence the decryption exponent — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open in the standard model, and [[rsa-to-fac-dlo24|RSA ⇔ FAC]] holds in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
+- [[rsa-assumption|RSA]] hardness for [[rsa-assumption#rsa-with-uniform-prime-moduli|uniform-prime moduli]] implies factoring hardness ([[fac-to-rsa-rsa78|RSA ⇒ FAC]]), since the factors of $N$ give $\varphi(N)$ and hence the decryption exponent — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open in the standard model, and [[rsa-to-fac-dlo24|RSA ⇔ FAC]] holds in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
 - [[fac-to-qr-gm84|QR ⇒ FAC]]: [[quadratic-residuosity|QR]] hardness for Blum moduli implies hardness of factoring them — folklore; the converse is open — folklore.
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]; the converse is open — folklore.
 

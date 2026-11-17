@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-If a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme exists, the identity map is not a reduction from CPA security to [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA security]]: appending a constant bit to every ciphertext of a CPA-secure $\SKE$, so that the ciphertext space becomes $\calC \times \bits$, preserves CPA security, while an IND\$-CPA adversary that checks the bit on one query has advantage $1/2$ — folklore.
+If a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme exists, the identity map is not a reduction from CPA security to [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA security]]: appending a constant bit to every ciphertext of a CPA-secure $\SKE$, so that the ciphertext space becomes $\calC \times \bits$, preserves correctness, the message space and CPA security, while an IND\$-CPA adversary that checks the bit on one query has advantage $1/2$ — folklore.
 
 ## Sketch
 
