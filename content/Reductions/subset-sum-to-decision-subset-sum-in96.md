@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Let $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ for a constant $c > 0$, so that the density is $1/(1+c) < 1$. If [[subset-sum#subset-sum-at-constant-density-below-one|subset sum is hard at constant density below one]] for this $(n, M)$, that is, $f(\mathbf{a}, \mathbf{s}) = (\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is one-way, then [[subset-sum#decision-subset-sum|decision subset sum]] is hard for $(n, M)$: $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is indistinguishable from $(\mathbf{a}, u)$ for uniform $u \in \ZZ_M$ — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
+Let $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ for a constant $c > 0$, so that the density is $1/(1+c) < 1$. If [[subset-sum#subset-sum-at-constant-density-below-one|subset sum is hard at constant density below one]] for this $(n, M)$, that is, $f(\mathbf{a}, \mathbf{s}) = (\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is one-way, then [[subset-sum#decision-subset-sum-at-constant-density-below-one|decision subset sum]] is hard for $(n, M)$: $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle)$ is indistinguishable from $(\mathbf{a}, u)$ for uniform $u \in \ZZ_M$ — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
 
 ## Notes
 

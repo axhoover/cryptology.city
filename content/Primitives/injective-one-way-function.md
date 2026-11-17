@@ -85,25 +85,32 @@ An injective function $f$ is **post-quantum one-way** if for all efficient quant
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]].
 - There is no fully-black-box construction, from an injective one-way function and [[indistinguishability-obfuscation|iO]] for circuits that call it, of a language in $\classNP \cap \classcoNP$ that no efficient algorithm decides on every input — [[BDV17 - Structure vs Hardness Through the Obfuscation Lens|BDV17]].
 
-<!-- BEGIN GENERATED participates-in a931b03cef9b -->
+<!-- BEGIN GENERATED participates-in 2c67dd6a1553 -->
 
 ## Participates in
 
 **Builds on Injective one-way function**
 
+- [[adaptive-injective-owf-to-injective-one-way-function|Adaptive injective OWF ⇒ Injective OWF]] (via [[injective-one-way-function#adaptive-one-wayness|Adaptive one-wayness]])
 - [[injective-one-way-function-to-four-message-zk-argument-hv18|Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)]]
 - [[injective-one-way-function-to-owf|Injective OWF ⇒ OWF]]
 - [[injective-one-way-function-to-statistically-binding-commitment|Injective OWF ⇒ Statistically binding COM]]
 - [[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ Three-round NM commitment (Goyal–Richelson)]]
+- [[length-increasing-injective-owf-to-injective-one-way-function|Length-increasing injective OWF ⇒ Injective OWF]] (via [[injective-one-way-function#length-increasing-injective-owfs|Length-increasing injective OWFs]])
 - [[post-quantum-injective-owf-to-injective-one-way-function|Post-quantum injective OWF ⇒ Injective OWF]] (via [[injective-one-way-function#post-quantum-one-wayness|Post-quantum one-wayness]])
 - [[post-quantum-injective-owf-to-quantum-secure-owf|Post-quantum injective OWF ⇒ Quantum-secure OWF]] (via [[injective-one-way-function#post-quantum-one-wayness|Post-quantum one-wayness]])
 - [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|Post-quantum iO + Post-quantum injective OWF ⇒ QM mini-scheme]] (via [[injective-one-way-function#post-quantum-one-wayness|Post-quantum one-wayness]])
 - [[subclasses-to-hash-function|Sub-exponential injective OWF + iO ⇒ PPAD hardness]] (via [[injective-one-way-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
+- [[subexponential-injective-owf-to-injective-one-way-function|Sub-exponential injective OWF ⇒ Injective OWF]] (via [[injective-one-way-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
+- [[subexponential-injective-owf-to-subexponential-owf|Sub-exponential injective OWF ⇒ Sub-exponential OWF]] (via [[injective-one-way-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
 
 **Produces Injective one-way function**
 
+- [[adaptive-injective-owf-to-injective-one-way-function|Adaptive injective OWF ⇒ Injective OWF]]
+- [[length-increasing-injective-owf-to-injective-one-way-function|Length-increasing injective OWF ⇒ Injective OWF]]
 - [[owp-to-injective-one-way-function|OWP ⇒ Injective OWF]]
 - [[post-quantum-injective-owf-to-injective-one-way-function|Post-quantum injective OWF ⇒ Injective OWF]]
+- [[subexponential-injective-owf-to-injective-one-way-function|Sub-exponential injective OWF ⇒ Injective OWF]]
 
 **Barriers**
 
