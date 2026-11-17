@@ -26,10 +26,10 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 ## Known relationships
 
-- $\classP \subseteq \classBPP \subseteq \classBQP$: classical probabilistic computation is a special case of quantum computation.
+- $\classP \subseteq \classBPP \subseteq \classBQP$: a quantum machine simulates a probabilistic one ([[bpp-to-bqp|BPP ⊆ BQP]]) — [[BV97 - Quantum Complexity Theory|BV97]].
 - $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — [[ADH97 - Quantum Computability|ADH97]].
 - [[no-bqp-to-np|No relativizing reduction from BQP to NP]] — [[RT19 - Oracle Separation of BQP and PH|RT19]]
-- **PostBQP $= \classPP$** (Aaronson 2005): $\classBQP$ augmented with postselection on measurement outcomes equals $\classPP$. This gives an elegant proof of $\classBQP \subseteq \classPP$.
+- **PostBQP $= \classPP$**: $\classBQP$ with postselection on measurement outcomes equals $\classPP$, which reproves $\classBQP \subseteq \classPP$ — [[Aar05 - Quantum computing, postselection, and probabilistic polynomial-time|Aar05]].
 
 ## Relevance to cryptography
 
