@@ -18,7 +18,7 @@ The _quadratic residuosity (QR) assumption_ states that it is computationally ha
 
 ## Assumption
 
-Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. For any distinct odd primes $p, q$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$ — standard.
+Let $N = pq$ for distinct uniform $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$, a Blum integer. Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. For any distinct odd primes $p, q$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$ — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -40,7 +40,7 @@ Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or 
 \end{algorithm}
 ```
 
-**QR is hard** if for all efficient $\calA$,
+**QR is hard** (for Blum integers) if for all efficient $\calA$,
 
 $$
 \Adv^{\mathrm{qr}}_{\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{qr}}_{\calA}(\secpar) = 1\right] - 1\right|
@@ -64,7 +64,35 @@ For a prime $p$, deciding quadratic residuosity modulo $p$ is easy (via the Lege
 
 ## Higher residuosity
 
-Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Micali generalizations and the Benaloh cryptosystem ([[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]).
+Higher residuosity generalizes QR from squares to $d$-th powers. Let $d = d(\secpar)$ be prime, computable from $1^\secpar$ in time $\poly(\secpar)$, with $d(\secpar) \le \poly(\secpar)$, and let $N = pq$ for uniform $\secpar$-bit primes $p, q$ with $d \mid p - 1$, $\gcd(d, (p-1)/d) = 1$ and $d \nmid q - 1$, the conditions of [[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]. The $d$-th powers $\{r^d : r \in \ZZ_N^*\}$ then form a subgroup of index $d$ in $\ZZ_N^*$ — standard.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{hr}}_{d,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(p, q) \getsr$ $\secpar$-bit primes with $d \mid p - 1$, $\gcd(d, (p-1)/d) = 1$, $d \nmid q - 1$; $N \gets pq$
+\State $b \getsr \bits$
+\If{$b = 0$}
+  \State $r \getsr \ZZ_N^*$; $a \gets r^d \bmod N$
+  \Comment{$a$ is a $d$-th power}
+\Else
+  \State $a \getsr \ZZ_N^* \setminus \{r^d : r \in \ZZ_N^*\}$
+  \Comment{$a$ is not a $d$-th power}
+\EndIf
+\State $b' \gets \calA(1^\secpar, N, d, a)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**Higher residuosity is hard** for $d$ if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{hr}}_{d,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hr}}_{d,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. As an object, higher residuosity denotes hardness for some such $d(\secpar)$. It underlies Goldwasser–Micali generalizations and the Benaloh cryptosystem ([[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]) — [[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]], [[Ben94 - Dense Probabilistic Encryption|Ben94]].
 
 # Attacks
 

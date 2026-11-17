@@ -23,7 +23,7 @@ A protocol that [[oblivious-transfer#uc-secure-ot|UC-realizes]] $\calF_{\mathrm{
 
 ## Sketch
 
-Receiver privacy: the environment runs a corrupted sender honestly, and its view is simulated without $c$. Sender privacy: by correctness an honestly behaving receiver's view determines $x_c$, while the simulator learns only $x_{c^*}$ for the choice $c^*$ it extracts, so $c^* = c$ except with negligible probability and the view is simulated from $x_c$ alone — standard.
+Correctness is the protocol's non-triviality: with neither party corrupted and every message delivered, $R$ outputs $x_c$ except with negligible probability. Receiver privacy: the environment runs a corrupted sender honestly, and its view is simulated without $c$. Sender privacy: by correctness an honestly behaving receiver's view determines $x_c$, while the simulator learns only $x_{c^*}$ for the choice $c^*$ it extracts, so $c^* = c$ except with negligible probability and the view is simulated from $x_c$ alone — standard.
 
 ## Notes
 

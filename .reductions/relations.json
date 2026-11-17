@@ -24372,7 +24372,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Each direction calls the given OT only as a subprotocol on locally chosen inputs, and its security is information-theoretic given ideal calls, so the simulators use the adversary only as a black box."
+    "class": "Each direction calls the given OT only as a subprotocol on locally chosen inputs, and each privacy reduction runs the adversary only as an oracle, playing the other executions itself."
    },
    "status": "draft",
    "page": "content/Reductions/rabin-ot-to-ot.md",
@@ -24397,9 +24397,9 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none (perfect security)",
+   "securityLoss": "the random OT's correctness error, and a factor $2$ in each privacy advantage (left-or-right OT games against real-or-random random-OT games); none beyond them",
    "rationale": {
-    "class": "The protocol uses the random-OT correlation once as a black box, and perfect security gives a straight-line simulator that uses the adversary only as a black box."
+    "class": "The protocol runs the random OT once as a black box, and each privacy reduction runs the OT adversary only as an oracle against the matching random-OT game."
    },
    "status": "draft",
    "page": "content/Reductions/random-ot-to-ot.md",

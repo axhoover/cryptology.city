@@ -34,9 +34,9 @@ space $\calM$, $|\calM| \ge 2$, following the [[interactive-protocol|two-party p
   - $S$ input: a pair of messages $(x_0, x_1) \in \calM^2,$
   - $R$ input: a choice bit $c \in \bits,$
   - $S$ output: $\bot,$
-  - $R$ output: $x_c.$
+  - $R$ output: an element of $\calM \cup \{\bot\}.$
 
-We write $\langle S(\pp, x_0, x_1), R(\pp, c) \rangle \to (\bot, x_c).$
+We write $\langle S(\pp, x_0, x_1), R(\pp, c) \rangle \to (\bot, \mathsf{out}_R).$
 
 ## Properties
 
@@ -78,7 +78,7 @@ $$
 \Adv^{\text{s-priv}}_{\OT,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{s-priv}}_{\OT,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Because $x_c = x_c'$, the receiver's output is identical in both worlds; any distinguishing advantage must come from the view alone.
+is negligible. Because $x_c = x_c'$, correctness gives the receiver the output $x_c$ in both worlds, up to the correctness error; any distinguishing advantage must come from the rest of the view.
 
 ### Receiver Privacy
 
@@ -114,13 +114,60 @@ The ideal 1-out-of-2 OT functionality $\calF_{\mathrm{OT}}$ receives $(x_0, x_1)
 
 ### Malicious Security
 
-The sender- and receiver-privacy definitions are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. An OT $\OT$ has **malicious security** if for every efficient $\calA$ that corrupts $S$ or $R$ and may deviate from the protocol arbitrarily there is an efficient simulator $\Sim$ such that, for all $x_0, x_1 \in \calM$ and $c \in \bits$, the output of $\calA$ together with the honest party's output in a real execution is computationally indistinguishable from the output of $\Sim$ together with the honest party's output in an ideal execution. There the honest party hands its input to $\calF_{\mathrm{OT}}$, $\Sim$ hands it an input of its choice for the corrupted party, $\calF_{\mathrm{OT}}$ returns $x_c$ to $R$ for the resulting $(x_0, x_1)$ and $c$, and $\Sim$ also produces $\pp$ — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. The semi-honest games do not carry over by letting $\calA$ deviate: in the sender-privacy game a malicious receiver can announce $c$ and run $R$ on $1 - c$, so the simulator must extract the choice bit a malicious receiver effectively uses — standard.
+The sender- and receiver-privacy definitions are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. An OT $\OT$ has **malicious security** if it is $(1-\negl(\secpar))$-[[#Correctness|correct]] and for every efficient $\calA$ corrupting at most one of $S$ and $R$ and deviating from the protocol arbitrarily there is an efficient simulator $\Sim$ such that, for all $x_0, x_1 \in \calM$ and $c \in \bits$, the output of $\calA$ together with the honest parties' outputs in a real execution is computationally indistinguishable from the output of $\Sim$ together with the honest parties' outputs in an ideal execution. There each honest party hands its input to $\calF_{\mathrm{OT}}$, $\Sim$ hands it an input of its choice for the corrupted party, if any, $\calF_{\mathrm{OT}}$ returns $x_c$ to $R$ for the resulting $(x_0, x_1)$ and $c$, and $\Sim$ also produces $\pp$ — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. The semi-honest games do not carry over by letting $\calA$ deviate: in the sender-privacy game a malicious receiver can announce $c$ and run $R$ on $1 - c$, so the simulator must extract the choice bit a malicious receiver effectively uses — standard.
+
+As an object, OT denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]] protocol, with $\Setup$, $S$ and $R$ PPT, that has [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]].
 
 # Variations
 
 ## Rabin OT
 
-Introduced by [[Rab81]], **Rabin's OT** is a simpler variant where the sender transmits a single message $x$ and the receiver obtains it with probability $1/2$, receiving $\bot$ otherwise — without the sender learning which outcome occurred. Rabin OT and 1-out-of-2 OT are equivalent; each implies the other by efficient reductions ([[rabin-ot-to-ot|Rabin OT ⇔ OT]]).
+In **Rabin OT**, introduced by [[Rab81]], the sender transmits a bit $x$ that the receiver obtains with probability $1/2$, without the sender learning whether it did. A Rabin OT is a protocol $(\Setup, \langle S, R \rangle)$ with $\Setup(1^\secpar) \to \pp$, in which $S$ has input $x \in \bits$ and output $\bot$, and $R$ has no input and output $y \in \{0, 1, \bot\}$; we write $\langle S(\pp, x), R(\pp) \rangle \to (\bot, y)$.
+
+**Correctness.** For each $x \in \bits$, with $\pp \gets \Setup(1^\secpar)$ and $(\bot, y) \gets \langle S(\pp, x), R(\pp) \rangle$, both $\left|\Pr[y = \bot] - 1/2\right|$ and $\Pr[y \notin \{x, \bot\}]$ are negligible, and $\Pr[y = \bot]$ is the same for $x = 0$ and $x = 1$.
+
+**Receiver privacy.** The sender does not learn whether the receiver obtained $x$:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\text{rabin-r-priv}}_{\OT,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\pp \gets \Setup(1^\secpar)$
+\State $(x, \stA) \gets \calA(1^\secpar, \pp)$
+\State Run $\langle S(\pp, x), R(\pp) \rangle \to (\bot, y)$; let $\View_S$ denote S's view
+\State $b := [y = \bot]$
+\State $b' \gets \calA(\View_S, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A Rabin OT has **receiver privacy** if for all efficient $\calA$, $\Adv^{\text{rabin-r-priv}}_{\OT,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{rabin-r-priv}}_{\OT,\calA}(\secpar) = 1\right] - 1\right|$ is negligible. Given correctness, $b$ is within negligible distance of a uniform bit, so this is equivalent to $\left|\Pr[\calA(\View_S) = 1 \mid y = \bot] - \Pr[\calA(\View_S) = 1 \mid y \ne \bot]\right|$ being negligible — standard.
+
+**Sender privacy.** A receiver that obtained $\bot$ learns nothing about $x$:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\text{rabin-s-priv}}_{\OT,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\pp \gets \Setup(1^\secpar)$; $x \getsr \bits$
+\State Run $\langle S(\pp, x), R(\pp) \rangle \to (\bot, y)$; let $\View_R$ denote R's view
+\If{$y = \bot$}
+\State $x' \gets \calA(\View_R)$
+\Else
+\State $x' \getsr \bits$
+\Comment{only executions with $y = \bot$ count}
+\EndIf
+\Return $[x' = x]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A Rabin OT has **sender privacy** if for all efficient $\calA$, $\Adv^{\text{rabin-s-priv}}_{\OT,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{rabin-s-priv}}_{\OT,\calA}(\secpar) = 1\right] - 1\right|$ is negligible. Since $\Pr[y = \bot]$ does not depend on $x$, the advantage equals $\Pr[y = \bot] \cdot \left|\Pr[\calA(\View_R) = 1 \mid x = 1, y = \bot] - \Pr[\calA(\View_R) = 1 \mid x = 0, y = \bot]\right|$ — standard.
+
+As an object, Rabin OT denotes a protocol, with $\Setup$, $S$ and $R$ PPT, that has correctness, receiver privacy and sender privacy. Rabin OT and 1-out-of-2 OT on bits are equivalent ([[rabin-ot-to-ot|Rabin OT ⇔ OT]]) — [[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]].
 
 ## $k$-out-of-$n$ OT
 
@@ -130,19 +177,61 @@ Single-server [[single-server-private-information-retrieval#Symmetric private in
 
 ## OT Extension
 
-OT from public-key primitives requires expensive operations per transfer. **OT extension** generates any polynomial number $m$ of OTs from a number of base OTs that depends only on the security parameter, using only symmetric-key primitives beyond them ([[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]) — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]; each extended transfer costs a constant number of hash evaluations in [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]] ([[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]).
+An **OT extension** is a protocol that, on input $1^m$, runs a 1-out-of-2 OT protocol, the **base OTs**, at most $k(\secpar)$ times, for a polynomial $k$ fixed independently of $m$, and that for every polynomial $m = m(\secpar)$ is a $(1-\negl(\secpar))$-correct protocol for $m$ 1-out-of-2 transfers with semi-honest sender and receiver privacy for the vector of transfers. These are the [[#Sender Privacy|sender-privacy]] and [[#Receiver Privacy|receiver-privacy]] games for message vectors $x_0 = (x_{0,i})_{i \in [m]}$ and $x_1 = (x_{1,i})_{i \in [m]}$ in $\calM^m$ and a choice vector $c \in \bits^m$, the $i$-th transfer delivering $x_{c_i,i}$. In the sender game $\calA$ commits to $c$ and to two pairs of message vectors with $x_{c_i,i} = x'_{c_i,i}$ for every $i \in [m]$; in the receiver game $\calA$ commits to $(x_0, x_1)$ and to two choice vectors $c^{(0)}, c^{(1)} \in \bits^m$, the protocol runs on $c^{(b)}$ for a uniform bit $b$, and $\calA$ guesses $b$. As an object, OT extension denotes such a protocol.
+
+The point of OT extension is the cost of the computation outside the base OTs, which each result states. [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]] uses $\secpar$ base transfers and a one-way function, through its code ([[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]); in the random-oracle model, [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]] use $\kappa$ base transfers, for the security parameter $\kappa$, and a constant number of hash evaluations per extended transfer ([[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]).
 
 ## Random OT
 
-In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with one message from each party, the receiver's first ([[random-ot-to-ot|Random OT ⇒ OT]]) — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].
+In a **random OT** the parties have no inputs. For message space $\bits^\ell$, with $\ell = \ell(\secpar) \ge 1$ a polynomial, a random OT is a protocol $(\Setup, \langle S, R \rangle)$ with $\Setup(1^\secpar) \to \pp$ and $\langle S(\pp), R(\pp) \rangle \to ((x_0, x_1), (c, z))$: the sender outputs $x_0, x_1 \in \bits^\ell$ and the receiver outputs $c \in \bits$ and $z \in \bits^\ell$.
+
+**Correctness.** With $\pp \gets \Setup(1^\secpar)$, the joint output $(x_0, x_1, c, z)$ is within negligible statistical distance of $(u_0, u_1, b, u_b)$ for independent uniform $u_0, u_1 \in \bits^\ell$ and $b \in \bits$.
+
+**Sender privacy.** The unchosen string is pseudorandom given the receiver's view:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\text{rot-s-priv}}_{\OT,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\pp \gets \Setup(1^\secpar)$; $b \getsr \bits$
+\State Run $\langle S(\pp), R(\pp) \rangle \to ((x_0, x_1), (c, z))$; let $\View_R$ denote R's view
+\State $w_0 := x_{1-c}$; $w_1 \getsr \bits^\ell$
+\State $b' \gets \calA(\View_R, w_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A random OT has **sender privacy** if for all efficient $\calA$, $\Adv^{\text{rot-s-priv}}_{\OT,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{rot-s-priv}}_{\OT,\calA}(\secpar) = 1\right] - 1\right|$ is negligible.
+
+**Receiver privacy.** The choice bit is pseudorandom given the sender's view:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\text{rot-r-priv}}_{\OT,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\pp \gets \Setup(1^\secpar)$; $b \getsr \bits$
+\State Run $\langle S(\pp), R(\pp) \rangle \to ((x_0, x_1), (c, z))$; let $\View_S$ denote S's view
+\State $\beta_0 := c$; $\beta_1 \getsr \bits$
+\State $b' \gets \calA(\View_S, \beta_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A random OT has **receiver privacy** if for all efficient $\calA$, $\Adv^{\text{rot-r-priv}}_{\OT,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{rot-r-priv}}_{\OT,\calA}(\secpar) = 1\right] - 1\right|$ is negligible.
+
+As an object, random OT denotes a protocol, with $\Setup$, $S$ and $R$ PPT, that has correctness, sender privacy and receiver privacy. Random OT can be converted to standard OT with one message from each party, the receiver's first ([[random-ot-to-ot|Random OT ⇒ OT]]) — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].
 
 ## Two-round OT
 
-A **two-round OT** is an OT $\OT$ with [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]] whose interaction is one message each way: the receiver computes $(m_R, \st_R) \gets R_1(\pp, c)$ and sends $m_R$, the sender replies with $m_S \gets S(\pp, x_0, x_1, m_R)$, and the receiver outputs $R_2(\st_R, m_S) = x_c$. $\Setup$ is as in the syntax above, so a common reference string is allowed. Two-round OT is necessary and sufficient for two-round MPC secure against semi-honest adversaries corrupting any number of parties ([[two-round-ot-to-two-round-semi-honest-mpc-gs18|Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)]], [[two-round-semi-honest-mpc-to-two-round-ot|Two-round semi-honest MPC ⇒ Two-round OT]]) — [[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]], [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
+A **two-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT $\OT$ with [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]] whose interaction is one message each way: the receiver computes $(m_R, \st_R) \gets R_1(\pp, c)$ and sends $m_R$, the sender replies with $m_S \gets S(\pp, x_0, x_1, m_R)$, and the receiver outputs $R_2(\st_R, m_S)$. $\Setup$ is as in the syntax above, so a common reference string is allowed. Two-round OT is necessary and sufficient for two-round MPC secure against semi-honest adversaries corrupting any number of parties ([[two-round-ot-to-two-round-semi-honest-mpc-gs18|Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)]], [[two-round-semi-honest-mpc-to-two-round-ot|Two-round semi-honest MPC ⇒ Two-round OT]]) — [[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]], [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
 
 ## UC-secure OT
 
-An OT protocol is **UC-secure** if it [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{OT}}$ in the common reference string model, with $\pp \gets \Setup(1^\secpar)$ as the reference string, against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]] ([[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]]), and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. A UC-secure protocol also has sender and receiver privacy with the same reference string, since a UC environment can choose the inputs after learning the reference string through the adversary ([[uc-ot-to-ot|UC-secure OT ⇒ OT]]) — folklore.
+The **UC version of $\calF_{\mathrm{OT}}$** receives $(x_0, x_1) \in \calM^2$ from $S$ and $c \in \bits$ from $R$, tells $\Sim$ that an output is pending, and delivers $x_c$ to $R$ as a private delayed output when $\Sim$ instructs it to; $S$ receives nothing — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. It differs from the [[#Ideal OT functionality|ideal OT functionality]] only in the delayed delivery. An OT protocol is **UC-secure** if, in the common reference string model with $\pp \gets \Setup(1^\secpar)$ as the reference string, it [[universal-composability-framework#uc-emulation|UC-realizes]] the UC version of $\calF_{\mathrm{OT}}$ against a malicious adversary that statically corrupts at most one party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]] — and is non-trivial: if neither party is corrupted and every message is delivered, $R$ outputs $x_c$ except with negligible probability — [[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]]. Non-triviality excludes the protocol that never sends a message, which UC-realizes the UC version of $\calF_{\mathrm{OT}}$ with a simulator that never instructs delivery — standard. UC security implies stand-alone [[#Malicious Security|malicious security]] ([[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]]), and by the composition theorem a UC-secure protocol can replace the UC version of $\calF_{\mathrm{OT}}$ in any protocol in its hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. A UC-secure protocol also has sender and receiver privacy with the same reference string, since a UC environment can choose the inputs after learning the reference string through the adversary ([[uc-ot-to-ot|UC-secure OT ⇒ OT]]) — folklore.
 
 ## Two-round UC-secure OT
 
@@ -154,7 +243,7 @@ A **two-round UC-secure OT** is a [[#UC-secure OT|UC-secure OT]] protocol whose 
 
 ## Four-round OT
 
-A **four-round OT** is an OT protocol with [[#Malicious security with expected polynomial-time simulation|malicious security with expected polynomial-time simulation]] in the plain model, $\Setup$ outputting $\pp = 1^\secpar$, whose interaction is four messages sent alternately by the receiver and the sender, the receiver first, and whose simulator is black-box: an oracle algorithm $\Sim$, running in expected polynomial time, such that for every efficient $\calA$ corrupting either party the simulator $\Sim^{\calA}$, which runs $\calA$ only as an oracle and may rewind it, meets the definition. It has [[#Malicious security with expected polynomial-time simulation|malicious security with expected polynomial-time simulation]], by the identity map ([[four-round-ot-to-malicious-ot-security|four-round OT ⇒ malicious OT with expected-time simulation]]) — folklore. Four-round OT gives four-round MPC against a malicious adversary corrupting any number of parties ([[four-round-ot-to-four-round-mpc-ccg20|four-round OT ⇒ four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]].
+A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protocol with [[#Malicious security with expected polynomial-time simulation|malicious security with expected polynomial-time simulation]] in the plain model, $\Setup$ outputting $\pp = 1^\secpar$, whose interaction is four messages sent alternately by the receiver and the sender, the receiver first, and whose simulator is black-box: an oracle algorithm $\Sim$, running in expected polynomial time, such that for every efficient $\calA$ corrupting at most one party the simulator $\Sim^{\calA}$, which runs $\calA$ only as an oracle and may rewind it, meets the definition. It has [[#Malicious security with expected polynomial-time simulation|malicious security with expected polynomial-time simulation]], by the identity map ([[four-round-ot-to-malicious-ot-security|four-round OT ⇒ malicious OT with expected-time simulation]]) — folklore. Four-round OT gives four-round MPC against a malicious adversary corrupting any number of parties ([[four-round-ot-to-four-round-mpc-ccg20|four-round OT ⇒ four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]].
 
 # Other results
 

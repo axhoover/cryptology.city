@@ -26,7 +26,7 @@ rationale:
 
 ## Sketch
 
-Mode indistinguishability hides $c$ from the sender. In the lossy mode $u_{1-c}$ keeps min-entropy $k = \omega(\log \secpar)$ given $f_{s_{1-c}}(u_{1-c})$, so by the leftover hash lemma $h(u_{1-c})$ is statistically close to a uniform bit and hides $x_{1-c}$ from the receiver.
+The receiver inverts $f_{s_c}(u_c)$ with its injective-mode trapdoor and unmasks $x_c$ with $h(u_c)$, so correctness follows from injective-mode inversion — standard. Mode indistinguishability hides $c$ from the sender. In the lossy mode $u_{1-c}$ keeps min-entropy $k = \omega(\log \secpar)$ given $f_{s_{1-c}}(u_{1-c})$, so by the leftover hash lemma $h(u_{1-c})$ is statistically close to a uniform bit and hides $x_{1-c}$ from the receiver.
 
 ## Notes
 
