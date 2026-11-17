@@ -24,6 +24,10 @@ A MAC is a triple of efficient algorithms $\MAC = (\KeyGen, \Tag, \Vrfy)$ with r
 - $\Tag(k, m) \to t,$ is a (possibly randomized) algorithm that takes a key $k \in \calK$ and message $m \in \calM$, outputting a tag $t \in \calT,$
 - $\Vrfy(k, m, t) \to b,$ is a deterministic algorithm that takes a key $k \in \calK$, message $m \in \calM$, and tag $t \in \calT$, outputting a bit $b \in \bits$ indicating whether the tag is valid.
 
+Every MAC on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$; for a [[#Nonce-based MACs|nonce-based MAC]] this means $\Pr\!\left[\Vrfy(k, n, m, \Tag(k, n, m)) = 1\right] \ge 1 - \varepsilon$ for every nonce $n$ and every $m \in \calM$. Without correctness, $\Vrfy \equiv 0$ meets every unforgeability notion below.
+
+TODO: quantify the message space of the base notion: with $|\calM_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform tags in $\bits^\secpar$, one per message, with $\Tag(k, m)$ the entry for $m$ and canonical verification, is a UF-CMA-secure MAC unconditionally.
+
 ## Properties
 
 ### Correctness
@@ -126,13 +130,13 @@ A MAC is **deterministic** if $\Tag$ is deterministic. Under canonical verificat
 
 ## One-time MACs
 
-A MAC is an **$\varepsilon$-secure one-time MAC** if every adversary, of unbounded running time, that makes at most one query to $\calO$ in the UF-CMA game wins with probability at most $\varepsilon$.
+A MAC is an **$\varepsilon$-secure one-time MAC** if every adversary, of unbounded running time, that makes at most one query to $\calO$ in the UF-CMA game wins with probability at most $\varepsilon$. A **one-time MAC** is a MAC that is $\varepsilon(\secpar)$-secure one-time for a negligible function $\varepsilon$.
 
 For a [[universal-hash-function#strongly-universal|strongly universal]] family $\calH$ of functions $\calM \to \calT$, the key $h \getsr \calH$ and $\Tag(h, m) := h(m)$ give a $1/|\calT|$-secure one-time MAC, since $h(\hat m)$ is uniform given $h(m)$ for $\hat m \ne m$ — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]]. With $\calT = \bits^\tau$, a one-time pad $r \getsr \bits^\tau$ and $h$ from an $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family, $\Tag((h, r), m) := h(m) \oplus r$ is $\varepsilon$-secure one-time: the tag $t$ is independent of $h$, and a forgery $(\hat m, \hat t)$ needs $h(\hat m) \oplus h(m) = \hat t \oplus t$ — [[Kra94 - LFSR-based Hashing and Authentication|Kra94]]. One hash function $h$ serves many messages when each gets a fresh pad, the $i$th message $m_i$ being tagged $h(m_i) \oplus r_i$, so the key grows by $\tau$ bits per message rather than by a fresh hash function — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]].
 
 ## Nonce-based MACs
 
-A **nonce-based MAC** has $\Tag(k, n, m)$ and $\Vrfy(k, n, m, t)$ take a nonce $n \in \calN$ as well. In its UF-CMA game, $\calA$ supplies $(n, m)$ to $\calO$, never repeats a nonce across queries, and wins with any $(\hat n, \hat m, \hat t)$ such that $\Vrfy(k, \hat n, \hat m, \hat t) = 1$ and $(\hat n, \hat m)$ was not a query to $\calO$. The restriction lets a construction use a nonce-indexed value, such as $F_k(n)$ in the Wegman–Carter MAC below, as a one-time pad.
+A **nonce-based MAC** has $\Tag(k, n, m)$ and $\Vrfy(k, n, m, t)$ take a nonce $n \in \calN$ as well, from a nonce space $\calN = \calN_\secpar$ of size superpolynomial in $\secpar$, for example $\calN = \bits^{\nu(\secpar)}$ with $\nu(\secpar) = \omega(\log \secpar)$. In its UF-CMA game, $\calA$ supplies $(n, m)$ to $\calO$, never repeats a nonce across queries, and wins with any $(\hat n, \hat m, \hat t)$ such that $\Vrfy(k, \hat n, \hat m, \hat t) = 1$ and $(\hat n, \hat m)$ was not a query to $\calO$. The restriction lets a construction use a nonce-indexed value, such as $F_k(n)$ in the Wegman–Carter MAC below, as a one-time pad. Since $|\calN_\secpar|$ is superpolynomial, the restriction does not bound the number of queries of an efficient adversary; with $|\calN_\secpar|$ polynomial, the Wegman–Carter MAC with a uniformly random function $\calN \to \bits^\tau$, stored as a table, in place of $F_k$ would be secure unconditionally for a negligible $\varepsilon$.
 
 The **Wegman–Carter MAC** replaces the pads above by PRF outputs. For a [[pseudorandom-function|PRF]] $\PRF$ with domain $\calN$ and range $\bits^\tau$, $F_k := \Eval(k, \cdot)$, and an $\varepsilon$-almost XOR-universal family $\calH$ of functions $\calM \to \bits^\tau$, the key is $(k, h)$ with $h \getsr \calH$ and
 

@@ -81,7 +81,7 @@ deterministically.
 
 ## DDH in paired groups
 
-A _paired group generator_ outputs two prime-order groups $(\GG, g, p)$ and $(\hat\GG, \hat g, q)$ in which $\hat\GG$ is the subgroup of order $q$ of $\ZZ_p^*$, so that $q$ divides $p - 1$. **DDH is hard in paired groups** for such a generator if DDH is hard both in the groups $\GG$ and in the groups $\hat\GG$ it outputs — [[PR07 - Rerandomizable RCCA Encryption|PR07]]. Keeping only the first group gives a group generator for which DDH is hard ([[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]]) — folklore.
+A _paired group generator_ outputs two prime-order groups $(\GG, g, p)$ and $(\hat\GG, \hat g, q)$ in which $\hat\GG$ is the subgroup of order $q$ of $\ZZ_p^*$, so that $q$ divides $p - 1$. **DDH is hard in paired groups** for such a generator if DDH is hard in each group given the description of both: for every efficient $\calA$, $\left|2\Pr[\hat b = b] - 1\right|$ is negligible in the [[#Assumption|DDH game]] run in $(\GG, g, p)$ in which $\calA$ receives the generator's full output $(\GG, g, p, \hat\GG, \hat g, q)$ in place of $(\GG, g, p)$, together with the challenge $(X, Y, Z_b) \in \GG^3$, and likewise in the DDH game run in $(\hat\GG, \hat g, q)$, given the same full output and a challenge in $\hat\GG^3$. The Double-strand Cramer–Shoup scheme is rerandomizable and RCCA-secure under this assumption ([[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption]]) — [[PR07 - Rerandomizable RCCA Encryption|PR07]]. Keeping only the first group gives a group generator for which DDH is hard in prime-order groups ([[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]]) — folklore.
 
 ## Sub-exponential DDH
 
@@ -122,6 +122,8 @@ $$
 
 is negligible — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]]. Choices of $\calD_{\ell,k}$ recover DDH, [[decisional-diffie-hellman#dlin|DLIN]] and [$k$-Lin](bilinear-map-assumptions#k-linear-assumption); two new distributions, $2$-SCasc and $2$-ILin, give MDDH assumptions that are generically hard in bilinear groups and have a shorter description than $2$-Lin — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]].
 
+As an object, Matrix Diffie-Hellman denotes the assumption that $\calD_{\ell,k}$-MDDH is hard for $\GrGen$ for some matrix distribution $\calD_{\ell,k}$ with $\ell > k \ge 1$ and $\ell, k \le \poly(\secpar)$; a result from it must therefore hold for every such distribution. Hardness for every matrix distribution is false: the distribution that always outputs $\mathbf{A} = (\mathbf{I}_k \mid \mathbf{0})^{\top}$ has rank $k$, every vector $\mathbf{A}\mathbf{w}$ has last entry $0$, and testing whether the last entry of $g^{\mathbf{z}_b}$ is the identity of $\GG$ has advantage $1 - 1/p$ — standard.
+
 ## SXDH (Symmetric External Diffie-Hellman)
 
 Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently ([[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]) — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
@@ -134,7 +136,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in ea31267a3e04 -->
+<!-- BEGIN GENERATED participates-in 746da151e135 -->
 
 ## Participates in
 
@@ -165,7 +167,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-nizk-gro16|Type 1 pairing + DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
-- [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
+- [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-leakage-resilient-pke-ns09|DDH ⇒ LR-PKE]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
@@ -184,7 +186,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 **Produces Decisional Diffie-Hellman**
 
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
-- [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ DDH]]
+- [[paired-group-ddh-to-ddh|Paired-group DDH ⇒ prime-order DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]]
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]]
 - [[subexponential-sxdh-to-subexponential-ddh|Sub-exponential SXDH ⇒ Sub-exponential DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])

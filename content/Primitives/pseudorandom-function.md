@@ -27,6 +27,8 @@ A PRF is a pair of efficient algorithms $\PRF= (\KeyGen, \Eval)$ with respect to
 - $\Eval(k,x) \to y,$ is a deterministic function that
   takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
 
+TODO: quantify the domain and range: with $|\calD_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform values in $\calR$, one per input, with $\Eval(k, x)$ the entry for $x$, is pseudorandom unconditionally, and with $|\calR| = 1$ every keyed family is, so the sizes under which results here hold (for example $\calD = \calR = \bits^\secpar$, or $|\calD_\secpar|$ superpolynomial as the Wegman–Carter MAC on [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC]] requires) should be stated.
+
 ## Properties
 
 ### Security

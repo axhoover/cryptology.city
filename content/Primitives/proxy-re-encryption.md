@@ -26,6 +26,8 @@ A PRE scheme is a tuple of efficient algorithms $\mathsf{PRE} = (\Setup, \KeyGen
 - $\mathsf{ReEnc}(\mathit{rk}_{i \to j}, c) \to c'$, a (possibly randomized) algorithm run by the proxy, outputting a ciphertext $c' \in \calC$ under $\pk_j$ or $\bot$,
 - $\Dec(\sk, c) \to m$, a deterministic algorithm outputting $m \in \calM$ or $\bot$.
 
+TODO: require here that every scheme on the page be $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$, with a message space containing two distinct messages of equal length, as [[public-key-encryption#Syntax|PKE § Syntax]] does: as written, a scheme whose $\Enc$ ignores its message meets the CPA and CCA games below.
+
 ## Properties
 
 ### Correctness
@@ -109,7 +111,7 @@ A scheme is **multi-hop** if a re-encrypted ciphertext can be re-encrypted again
 
 ## Chosen-ciphertext security
 
-[[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]] define CCA security for bidirectional schemes by adding to the CPA game a re-encryption oracle, which re-encrypts a given ciphertext from one given user to another, and a decryption oracle. After the challenge, the decryption oracle refuses $c^*$ and the ciphertexts CH07 call its derivatives, which include its re-encryptions, and the re-encryption oracle refuses to re-encrypt a derivative from an uncorrupted to a corrupted user — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]. Without the first restriction $\calA$ would decrypt $c^*$ through the decryption oracle, directly or after re-encrypting it to an uncorrupted user; without the second it would re-encrypt $c^*$ to a corrupted user and decrypt it with that user's key. CH07 also give simulation-based definitions that guarantee universally composable security — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
+[[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]] define CCA security for bidirectional schemes by adding to the CPA game a re-encryption oracle, which re-encrypts a given ciphertext from one given user to another, and a decryption oracle. After the challenge, the decryption oracle refuses $c^*$ and the ciphertexts CH07 call its derivatives, which include its re-encryptions, and the re-encryption oracle refuses to re-encrypt a derivative from an uncorrupted to a corrupted user — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]. Without the first restriction $\calA$ would decrypt $c^*$ through the decryption oracle, directly or after re-encrypting it to an uncorrupted user; without the second it would re-encrypt $c^*$ to a corrupted user and decrypt it with that user's key. CH07 also give simulation-based definitions that guarantee universally composable security — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]. A CPA adversary is a CCA adversary that queries neither oracle, so every CCA-secure scheme is CPA-secure ([[pre-cca-to-pre|CCA-secure PRE ⇒ PRE]]) — folklore.
 
 ## Collusion resistance
 
@@ -121,13 +123,18 @@ A proxy colluding with a delegatee holds $\mathit{rk}_{i \to j}$ and $\sk_j$. [[
 - If [[bilinear-map-assumptions#decisional-bdh|DBDH]] is hard, there is a bidirectional, multi-hop, CCA-secure PRE scheme in the standard model ([[dbdh-to-pre-cca-ch07|DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)]]) — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
 - [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]] apply unidirectional PRE to secure distributed storage, in which a proxy re-encrypts stored ciphertexts for authorized users.
 
-<!-- BEGIN GENERATED participates-in 91f68a01641b -->
+<!-- BEGIN GENERATED participates-in 28533cb817b6 -->
 
 ## Participates in
+
+**Builds on Proxy re-encryption**
+
+- [[pre-cca-to-pre|CCA-secure PRE ⇒ PRE]] (via [[proxy-re-encryption#chosen-ciphertext-security|Chosen-ciphertext security]])
 
 **Produces Proxy re-encryption**
 
 - [[dbdh-to-pre-cca-ch07|DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)]] (via [[proxy-re-encryption#chosen-ciphertext-security|Chosen-ciphertext security]])
+- [[pre-cca-to-pre|CCA-secure PRE ⇒ PRE]]
 - [[prime-order-ddh-to-pre|DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)]]
 
 <!-- END GENERATED participates-in -->

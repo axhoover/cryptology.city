@@ -17,10 +17,12 @@ A non-malleable code with respect to a family $\calF$ of tampering functions is 
 
 ## Syntax
 
-A coding scheme is a pair of algorithms $\Pi = (\Enc, \Dec)$ with respect to message space $\calM = \bits^k$ and codeword space $\bits^n$:
+A coding scheme is a pair of algorithms $\Pi = (\Enc, \Dec)$, which need not be efficient, with respect to message space $\calM = \bits^k$ for some $k \ge 1$ and codeword space $\bits^n$:
 
 - $\Enc(m) \to c$, a randomized algorithm taking a message $m \in \calM$ and outputting a codeword $c \in \bits^n$,
 - $\Dec(c) \to m$, a deterministic algorithm taking a codeword $c \in \bits^n$ and outputting a message $m \in \calM$ or $\bot$.
+
+Every coding scheme on this page is perfectly correct, as defined under [[#Correctness|Correctness]]. Without correctness, a code whose $\Dec$ always outputs $\bot$ is non-malleable with respect to every family, and with $k = 0$ every code is.
 
 A tampering family $\calF$ is a set of functions $f : \bits^n \to \bits^n$. The rate of $\Pi$ is $k/n$.
 
@@ -28,7 +30,9 @@ A tampering family $\calF$ is a set of functions $f : \bits^n \to \bits^n$. The 
 
 ### Correctness
 
-A coding scheme $\Pi = (\Enc, \Dec)$ is **perfectly correct** if for all $m \in \calM$, $\Pr\!\left[\Dec(\Enc(m)) = m\right] = 1$ over the coins of $\Enc$.
+A coding scheme $\Pi = (\Enc, \Dec)$ is **perfectly correct** if for all $m \in \calM$, $\Pr\!\left[\Dec(\Enc(m)) = m\right] = 1$ over the coins of $\Enc$. Every code on this page is perfectly correct.
+
+TODO: the number of the definition of a coding scheme in [[DPW10 - Non-Malleable Codes|DPW10]], and whether it requires perfect correctness.
 
 ### Non-malleability
 
@@ -59,15 +63,17 @@ $$
 
 — [[DPW10 - Non-Malleable Codes|DPW10]]. The adversary $\calA$ is unbounded, so the largest advantage over all $\calA$ is the statistical distance between the distributions of $\tilde m_0$ and $\tilde m_1$.
 
+As an object, a non-malleable code denotes this notion with the family $\calF$ and the error $\varepsilon$ as parameters; results relating it to other objects are stated for a named family, such as [[#Split-state tampering|split-state tampering]]. Without a named family the notion is trivial: for $\calF = \{\mathrm{id}\}$ every code is $0$-non-malleable, with $D_{\mathrm{id}}$ the point mass on $\mathsf{same}^*$.
+
 No coding scheme is non-malleable with respect to the family of all functions $\bits^n \to \bits^n$, and no coding scheme with efficient $\Enc$ and $\Dec$ is non-malleable with respect to the family of all efficiently computable functions: each family contains a function that decodes, replaces the message by a different one, and re-encodes — [[DPW10 - Non-Malleable Codes|DPW10]].
 
 # Variations
 
 ## Split-state tampering
 
-The codeword is a pair $c = (c_L, c_R)$, and the **split-state** family contains every function $f(c_L, c_R) = (f_L(c_L), f_R(c_R))$ for arbitrary functions $f_L$ and $f_R$, which need not be efficient. A **split-state non-malleable code** is a sequence $\{\Pi_n\}_n$ of codes, $\Pi_n$ having codeword length $n$, such that $\Pi_n$ is $\varepsilon(n)$-non-malleable with respect to the split-state family on $\bits^n$ for a negligible function $\varepsilon$.
+The codeword is a pair $c = (c_L, c_R)$, and the **split-state** family contains every function $f(c_L, c_R) = (f_L(c_L), f_R(c_R))$ for arbitrary functions $f_L$ and $f_R$, which need not be efficient. A **split-state non-malleable code** is a sequence $\{\Pi_n\}_n$ of codes, $\Pi_n$ having codeword length $n$ and message length $k = k(n) \ge 1$, such that $\Pi_n$ is $\varepsilon(n)$-non-malleable with respect to the split-state family on $\bits^n$ for a negligible function $\varepsilon$. As in the base syntax, $\Enc$ and $\Dec$ need not be efficient.
 
-DKO13 construct one for one-bit messages from two-source extractors — [[DKO13 - Non-malleable Codes from Two-Source Extractors|DKO13]]; ADL14 construct one for multi-bit messages — [[ADL14 - Non-malleable codes from additive combinatorics|ADL14]]; AO20 achieve constant rate — [[AO20 - A constant rate non-malleable code in the split-state model|AO20]]. When the two halves have equal length, the best achievable rate, by codes that need not be efficient, is $1/2$ — [[CG14 - Capacity of non-malleable codes|CG14]].
+DKO13 construct an efficient one for one-bit messages from two-source extractors — [[DKO13 - Non-malleable Codes from Two-Source Extractors|DKO13]]; ADL14 construct an efficient one for multi-bit messages — [[ADL14 - Non-malleable codes from additive combinatorics|ADL14]]; AO20 achieve constant rate — [[AO20 - A constant rate non-malleable code in the split-state model|AO20]]. When the two halves have equal length, the best achievable rate, by codes that need not be efficient, is $1/2$ — [[CG14 - Capacity of non-malleable codes|CG14]].
 
 ## Bit-wise tampering
 

@@ -29,6 +29,8 @@ A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ w
 - $\Enc(\pk, m) \to c,$ is a randomized algorithm which takes a public key $\pk \in \calK_{\mathrm{pk}}$ and message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk, c) \to m,$ is a deterministic algorithm which takes a secret key $\sk \in \calK_{\mathrm{sk}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
+Every PKE scheme on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length, as $\calM = \bits^*$ and $\calM = \bits^{\ell(\secpar)}$ with $\ell(\secpar) \ge 1$ do. Without correctness, a scheme whose $\Enc$ ignores its message meets every security notion below, and without two such messages so does the scheme that outputs $m$ in the clear.
+
 ## Properties
 
 ### Correctness
@@ -189,7 +191,7 @@ is negligible. An **admissible** adversary submits equal-length messages in $\ca
 
 ### NM-CCA2
 
-In **NM-CCA1** $\calA$ also has the decryption oracle $\calD(c) := \Dec(\sk, c)$ before receiving $c^*$, and in **NM-CCA2** both before and after, with no query on $c^*$ after receiving it; admissibility and the advantage are as for NM-CPA. NM-CCA2 security is equivalent to IND-CCA2 security ([[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+In **NM-CCA1** $\calA$ also has the decryption oracle $\calD(c) := \Dec(\sk, c)$ before receiving $c^*$, and in **NM-CCA2** both before and after, with no query on $c^*$ after receiving it; admissibility and the advantage are as for NM-CPA. An NM-CPA adversary is an NM-CCA2 adversary that makes no query to $\calD$, so NM-CCA2 security implies NM-CPA security ([[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]]) — folklore. NM-CCA2 security is equivalent to IND-CCA2 security ([[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
 
 ## Key-hiding
 
@@ -260,7 +262,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 433bd9268877 -->
+<!-- BEGIN GENERATED participates-in 86b43d1f4292 -->
 
 ## Participates in
 
@@ -280,6 +282,7 @@ is negligible.
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
+- [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[pke-to-hash-function|PKE ⇒ OWF]]
@@ -324,6 +327,7 @@ is negligible.
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]]
 - [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
