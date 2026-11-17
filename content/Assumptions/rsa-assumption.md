@@ -10,6 +10,7 @@ variants:
   strong-rsa: "#strong-rsa"
   phi-hiding: "#φ-hiding"
   low-exponent-rsa: "#low-exponent-rsa"
+  rsa-safe-primes: "#rsa-with-safe-prime-moduli"
 ---
 
 # RSA Assumption
@@ -68,6 +69,10 @@ The **Φ-hiding assumption** states that, given $n$ and a prime $e \le n^{1/4-\v
 
 The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small constant $e$, such as $e = 3$: $p, q$ are uniform $\secpar$-bit primes subject to $\gcd(e, (p-1)(q-1)) = 1$, $n = pq$, and $d \equiv e^{-1} \pmod{\phi(n)}$ — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]]. **Low-exponent RSA is hard** for $e$ if RSA is hard for this $\GrGen$.
 
+## RSA with safe-prime moduli
+
+The RSA problem, for a polynomial $\ell = \ell(\secpar)$, for a generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$, sets $n = pq$, and outputs a prime public exponent $e > \ell$ with $\gcd(e, \phi(n)) = 1$, chosen by any efficient rule, and $d \equiv e^{-1} \pmod{\phi(n)}$: the key distribution of the dealer in [[threshold-signature#threshold-rsa|Shoup's threshold RSA]] for $\ell$ parties. **RSA is hard for safe-prime moduli and prime exponents greater than $\ell$** if RSA is hard for such a $\GrGen$.
+
 # Attacks
 
 - **Factoring**: the factors of $n$ give $d$ ([[fac-to-rsa-rsa78|RSA ⇒ FAC]]), so every factoring algorithm under [[factoring#attacks|Factoring § Attacks]] inverts RSA at the same cost plus polynomial time — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
@@ -79,7 +84,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - **Håstad's broadcast attack**: given $x^e \bmod n_i$ for $e$ public keys $(n_i, e)$ with pairwise coprime moduli $n_i > x$, the Chinese Remainder Theorem yields $x^e \bmod \prod_i n_i$, which is $x^e$ over the integers, and its integer $e$-th root is $x$ — standard; [[Has85 - On Using RSA with Low Exponent in a Public Key Network|Has85]] extends the attack to messages that are known polynomial functions of one plaintext, given enough ciphertexts.
 - **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme, and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
 
-<!-- BEGIN GENERATED participates-in 80b0b4315b0f -->
+<!-- BEGIN GENERATED participates-in 44227d791ee1 -->
 
 ## Participates in
 
@@ -89,6 +94,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - [[low-exponent-rsa-to-rsa|Low-exponent RSA ⇒ RSA]] (via [[rsa-assumption#low-exponent-rsa|Low-exponent RSA]])
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]] (via [[rsa-assumption#φ-hiding|Φ-Hiding]])
 - [[phi-hiding-to-lossy-trapdoor-function-kos10|Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)]] (via [[rsa-assumption#φ-hiding|Φ-Hiding]])
+- [[rsa-safe-primes-to-rsa|RSA with safe-prime moduli ⇒ RSA]] (via [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]])
 - [[rsa-to-ds-hw09|RSA ⇒ DS (Hohenberger–Waters, short and stateless)]]
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]]
@@ -96,7 +102,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]]
+- [[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)]] (via [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]])
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
@@ -106,6 +112,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 **Produces RSA Assumption**
 
 - [[low-exponent-rsa-to-rsa|Low-exponent RSA ⇒ RSA]]
+- [[rsa-safe-primes-to-rsa|RSA with safe-prime moduli ⇒ RSA]]
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]
 
 **Barriers**

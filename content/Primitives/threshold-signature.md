@@ -143,7 +143,7 @@ The adversary corrupts parties at any point of the game, up to $t$ in total, and
 
 ## Threshold RSA
 
-In Shoup's scheme, a trusted dealer chooses $N = pq$ with $p = 2p'+1$ and $q = 2q'+1$ for primes $p', q'$, and a prime public exponent $e > n$, and shares the signing exponent $d$ with a random polynomial of degree $t$ over $\ZZ_{p'q'}$, party $i$ receiving $s_i$. With $\Delta = n!$ and $x = H(m)$, party $i$'s signature share is $x_i = x^{2\Delta s_i}$, with a [[fiat-shamir-heuristic|Fiat–Shamir]] proof that it is consistent with the party's verification key. Any $t+1$ valid shares combine, with Lagrange coefficients multiplied by $\Delta$ so that they are integers, into $w$ with $w^e = x^{e'}$ for $e' = 4\Delta^2$. Since $e$ is a prime greater than $n$, $\gcd(e, e') = 1$, and $y = w^a x^b$ for $ae' + be = 1$ satisfies $y^e = H(m) \bmod N$: $y$ is the RSA full-domain-hash signature on $m$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. Share generation and verification are non-interactive, and a share is at most a constant times the length of $N$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. The scheme is unforgeable and robust in the [[random-oracle-model|random-oracle model]] if [[rsa-assumption|RSA]] is hard ([[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures]]) — [[Sho00 - Practical Threshold Signatures|Sho00]].
+In Shoup's scheme, a trusted dealer chooses $N = pq$ with $p = 2p'+1$ and $q = 2q'+1$ for primes $p', q'$, and a prime public exponent $e > n$, and shares the signing exponent $d$ with a random polynomial of degree $t$ over $\ZZ_{p'q'}$, party $i$ receiving $s_i$. With $\Delta = n!$ and $x = H(m)$, party $i$'s signature share is $x_i = x^{2\Delta s_i}$, with a [[fiat-shamir-heuristic|Fiat–Shamir]] proof that it is consistent with the party's verification key. Any $t+1$ valid shares combine, with Lagrange coefficients multiplied by $\Delta$ so that they are integers, into $w$ with $w^e = x^{e'}$ for $e' = 4\Delta^2$. Since $e$ is a prime greater than $n$, $\gcd(e, e') = 1$, and $y = w^a x^b$ for $ae' + be = 1$ satisfies $y^e = H(m) \bmod N$: $y$ is the RSA full-domain-hash signature on $m$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. Share generation and verification are non-interactive, and a share is at most a constant times the length of $N$ — [[Sho00 - Practical Threshold Signatures|Sho00]]. The scheme is unforgeable and robust in the [[random-oracle-model|random-oracle model]] if [[rsa-assumption#rsa-with-safe-prime-moduli|RSA]] is hard for such moduli and exponents ([[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures]]) — [[Sho00 - Practical Threshold Signatures|Sho00]].
 
 ## Threshold BLS
 
@@ -172,12 +172,12 @@ In [[digital-signature#ecdsa|DSA and ECDSA]] the signing equation $s = k^{-1}(H(
 - A multi-signature with key aggregation, such as [[multi-signature#musig|MuSig]], also outputs a signature that verifies under one key, but that key is computed by $\KeyAgg$ from public keys the signers generate independently, without interactive key generation, and every signer whose key was aggregated takes part in signing — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]].
 - In an accountable-subgroup multisignature, any subset $S$ of a group of signers can sign, and a valid signature identifies $S$ — [[MOR01 - Accountable-Subgroup Multisignatures|MOR01]], [[BDN18 - Compact Multi-Signatures for Smaller Blockchains|BDN18]]. In Shoup's and Boldyreva's threshold schemes the combined signature is the unique RSA full-domain-hash or BLS signature on $m$ under $\pk$, so it is the same whichever $t+1$ parties produced it — standard.
 
-<!-- BEGIN GENERATED participates-in f6324fc23a91 -->
+<!-- BEGIN GENERATED participates-in df353f4def25 -->
 
 ## Participates in
 
 **Produces Threshold signature**
 
-- [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]] (via [[threshold-signature#threshold-rsa|Threshold RSA]])
+- [[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)]] (via [[threshold-signature#threshold-rsa|Threshold RSA]])
 
 <!-- END GENERATED participates-in -->
