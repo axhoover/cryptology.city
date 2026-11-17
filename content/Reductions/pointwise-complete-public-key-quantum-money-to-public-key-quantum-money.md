@@ -20,4 +20,4 @@ rationale:
 
 ## Statement
 
-A [pointwise $(1-\varepsilon)$-complete](quantum-money#pointwise-completeness) [[quantum-money#public-key-quantum-money|public-key quantum money scheme]] is $(1-\varepsilon)$-correct in the averaged sense, so the same scheme is a public-key quantum money scheme with the same unforgeability — folklore.
+A [[quantum-money#pointwise-completeness|pointwise-complete]] [[quantum-money#public-key-quantum-money|public-key quantum money scheme]], pointwise $(1-\varepsilon)$-complete with $\varepsilon$ negligible, is $(1-\varepsilon)$-correct in the averaged sense, so the same scheme is a public-key quantum money scheme with the same unforgeability — folklore.

@@ -22961,6 +22961,34 @@
    "title": "PSPACE ⊆ IP"
   },
   {
+   "id": "red-public-key-quantum-money-to-quantum-money",
+   "kind": "implication",
+   "hypotheses": [
+    "public-key-quantum-money"
+   ],
+   "conclusion": "quantum-money",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: a private-key counterfeiter is a public-key counterfeiter that ignores pk, with the same advantage",
+   "rationale": {
+    "class": "The construction runs the public-key scheme's algorithms unchanged, and the reduction forwards any counterfeiter unchanged.",
+    "model": "The banknotes and the counterfeiters are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/public-key-quantum-money-to-quantum-money.md",
+   "slug": "public-key-quantum-money-to-quantum-money",
+   "graphSlug": "Reductions/public-key-quantum-money-to-quantum-money",
+   "title": "Public-key QM ⇒ QM"
+  },
+  {
    "id": "red-public-key-quantum-money-to-quantum-money-mini-scheme-ac12",
    "kind": "implication",
    "hypotheses": [
