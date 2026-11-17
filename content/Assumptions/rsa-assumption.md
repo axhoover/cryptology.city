@@ -12,6 +12,7 @@ variants:
   phi-hiding: "#φ-hiding"
   low-exponent-rsa: "#low-exponent-rsa"
   rsa-safe-primes: "#rsa-with-safe-prime-moduli"
+  rsa-uniform-primes: "#rsa-with-uniform-prime-moduli"
 ---
 
 # RSA Assumption
@@ -52,7 +53,7 @@ is negligible.
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
 - [[tdp-to-pke|TDP ⇒ PKE]] — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]
-- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to [[factoring|factoring]] $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: RSA hardness for [[#RSA with uniform-prime moduli|uniform-prime moduli]] implies factoring hardness, since the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to [[factoring|factoring]] $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
 - [[hardcore-predicate|Hard-core bit]]: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
@@ -78,6 +79,10 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 
 For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the primes $p', q'$, outputs a prime $e > \ell$ with $\gcd(e, \phi(n)) = 1$, let $\GrGen_{R,\ell}$ sample distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$, set $n = pq$, compute $e \gets R(1^\secpar, \ell(\secpar), p', q')$, and output $(n, e, d)$ with $d \equiv e^{-1} \pmod{\phi(n)}$. This is the dealer's key distribution in [[threshold-signature#threshold-rsa|Shoup's threshold RSA]] for $\ell$ parties. **RSA is hard for safe-prime moduli and prime exponents greater than the number of parties** if there is such a rule $R$ for which, for every polynomial $\ell = \ell(\secpar)$, RSA is hard for $\GrGen_{R,\ell}$.
 
+## RSA with uniform-prime moduli
+
+For an efficient (possibly randomized) rule $R$ that, on input $1^\secpar$ and primes $p, q$, outputs an integer $e > 1$ with $\gcd(e, (p-1)(q-1)) = 1$, let $\GrGen_R$ sample $p, q$ as in the [[factoring|factoring]] game, as independent uniform $\secpar$-bit primes, resampling $q$ if $q = p$ (a negligible change in distribution). It then outputs $(pq, e, d)$ with $e \gets R(1^\secpar, p, q)$ and $d \equiv e^{-1} \pmod{(p-1)(q-1)}$. **RSA is hard for uniform-prime moduli** if there is such a rule $R$ for which RSA is hard for $\GrGen_R$.
+
 # Attacks
 
 - **Factoring**: the factors of $n$ give $d$ ([[fac-to-rsa-rsa78|RSA ⇒ FAC]]), so every factoring algorithm under [[factoring#attacks|Factoring § Attacks]] inverts RSA at the same cost plus polynomial time — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
@@ -89,7 +94,7 @@ For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the 
 - **Håstad's broadcast attack**: given $x^e \bmod n_i$ for $e$ public keys $(n_i, e)$ with pairwise coprime moduli $n_i > x$, the Chinese Remainder Theorem yields $x^e \bmod \prod_i n_i$, which is $x^e$ over the integers, and its integer $e$-th root is $x$ — standard; [[Has85 - On Using RSA with Low Exponent in a Public Key Network|Has85]] extends the attack to messages that are known polynomial functions of one plaintext, given enough ciphertexts.
 - **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme, and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
 
-<!-- BEGIN GENERATED participates-in 98ba04f3e9e8 -->
+<!-- BEGIN GENERATED participates-in 31ddd35b9b65 -->
 
 ## Participates in
 
@@ -102,13 +107,14 @@ For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the 
 - [[rsa-safe-primes-to-rsa|RSA with safe-prime moduli ⇒ RSA]] (via [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]])
 - [[rsa-to-bit-string-tdp-rst01|RSA ⇒ TDP over bit strings]]
 - [[rsa-to-ds-hw09|RSA ⇒ DS (Hohenberger–Waters, short and stateless)]]
-- [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
-- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]
+- [[rsa-to-fac-dlo24|RSA ⇔ FAC]] (via [[rsa-assumption#rsa-with-uniform-prime-moduli|RSA with uniform-prime moduli]])
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]] (via [[rsa-assumption#rsa-with-uniform-prime-moduli|RSA with uniform-prime moduli]])
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)]] (via [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]])
+- [[rsa-uniform-primes-to-rsa|RSA with uniform-prime moduli ⇒ RSA]] (via [[rsa-assumption#rsa-with-uniform-prime-moduli|RSA with uniform-prime moduli]])
 - [[strong-rsa-safe-primes-to-strong-rsa|Strong RSA (safe-prime moduli) ⇒ Strong RSA]] (via [[rsa-assumption#strong-rsa-with-safe-prime-moduli|Strong RSA with safe-prime moduli]])
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
@@ -120,6 +126,7 @@ For an efficient rule $R$ that, on input $1^\secpar$, an integer $\ell$ and the 
 
 - [[low-exponent-rsa-to-rsa|Low-exponent RSA ⇒ RSA]]
 - [[rsa-safe-primes-to-rsa|RSA with safe-prime moduli ⇒ RSA]]
+- [[rsa-uniform-primes-to-rsa|RSA with uniform-prime moduli ⇒ RSA]]
 - [[strong-rsa-safe-primes-to-strong-rsa|Strong RSA (safe-prime moduli) ⇒ Strong RSA]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]
 

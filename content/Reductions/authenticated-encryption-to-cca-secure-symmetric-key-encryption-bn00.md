@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\mathsf{AE}$ be an [[authenticated-encryption|authenticated encryption]] scheme, a [[symmetric-key-encryption|SKE]] scheme that is [[authenticated-encryption#privacy|CPA-secure]] and [[authenticated-encryption#integrity-of-ciphertexts|INT-CTXT-secure]]. Then $\mathsf{AE}$ is [[symmetric-key-encryption#cca-security|CCA-secure]]: for every admissible CCA adversary $\calA$ making $q_E$ encryption and $q_D$ decryption queries there are adversaries $\calB$ and $\calC$, running in about the time of $\calA$, with
+Let $\mathsf{AE}$ be an [[authenticated-encryption|authenticated encryption]] scheme, a [[symmetric-key-encryption|SKE]] scheme that is [[authenticated-encryption#privacy|CPA-secure]] and [[authenticated-encryption#integrity-of-ciphertexts|INT-CTXT-secure]]. Then $\mathsf{AE}$, with the same algorithms and hence the same correctness and message space, is [[symmetric-key-encryption#cca-security|CCA-secure]]: for every admissible CCA adversary $\calA$ making $q_E$ encryption and $q_D$ decryption queries there are adversaries $\calB$ and $\calC$, running in about the time of $\calA$, with
 
 $$
 \Adv^{\mathrm{cca}}_{\mathsf{AE},\calA}(\secpar) \le \Adv^{\mathrm{cpa}}_{\mathsf{AE},\calB}(\secpar) + 2\Adv^{\mathrm{int\text{-}ctxt}}_{\mathsf{AE},\calC}(\secpar),

@@ -231,8 +231,12 @@ test("a model outside standard, crs and quantum fails closed", () => {
 test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-ring)", () => {
   assert.ok(!scopesOf(live(["fac"]), "rsa").includes(""));
   assert.ok(
-    scopesOf(live(["rsa"]), "fac").includes(""),
-    "RSA => FAC stays unscoped",
+    scopesOf(live(["rsa-uniform-primes"]), "fac").includes(""),
+    "RSA with uniform-prime moduli => FAC stays unscoped",
+  );
+  assert.ok(
+    !live(["rsa"]).derived.has("fac"),
+    "RSA for one generator does not give factoring hardness",
   );
 });
 

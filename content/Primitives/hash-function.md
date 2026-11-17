@@ -31,8 +31,23 @@ A _hash function_ is a keyed family of functions $\hash(k, \cdot) : \calD \to \c
 
 ## Syntax
 
-A _hash function_ is a function $\hash : \calK \times \calD \to \calR,$ where
-$\calK$ is the key space, $\calD$ is the domain, and $\calR$ is the range.
+A _hash function_ is a family $\hash = \{\hash_\secpar : \calK_\secpar \times \calD_\secpar \to \calR_\secpar\}_{\secpar \in \NN}$ with
+key space $\calK_\secpar$, domain $\calD_\secpar$ and range $\calR_\secpar$, where
+$\calK_\secpar, \calD_\secpar, \calR_\secpar \subseteq \bits^{\le p(\secpar)}$ for a
+polynomial $p$. It comes with three efficient algorithms: a key sampler
+$\KeyGen(1^\secpar) \to k \in \calK_\secpar$ (for a keyless family
+$\calK_\secpar$ is a singleton), a uniform sampler for $\calD_\secpar$, and a
+deterministic polynomial-time algorithm that computes $\hash_\secpar(k, x)$ from
+$(1^\secpar, k, x)$. Below, $\calK$, $\calD$, $\calR$ and $\hash(k, x)$ stand for
+$\calK_\secpar$, $\calD_\secpar$, $\calR_\secpar$ and $\hash_\secpar(k, x)$.
+
+As an object, a [[#Preimage resistance (one-wayness)|one-way]],
+[[#Weak one-wayness|weakly one-way]],
+[[#Sub-exponential one-wayness|sub-exponentially one-way]] or
+[[#Size-verifiable one-wayness|size-verifiable one-way]] function, a
+[[#Collision resistance|CRHF]] and a
+[[#Target collision resistance (universal one-wayness)|UOWHF]] each denote such
+a family that meets the game of its section.
 
 ## Properties
 
@@ -45,9 +60,9 @@ A hash function can also be modeled as a [[random-oracle-model|random oracle]] �
 \algname{Game}
 \caption{$\Game^{\mathrm{pr}}_{\hash,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \getsr \calK$ ; $x \getsr \calD$
+\State $k \gets \KeyGen(1^\secpar)$ ; $x \getsr \calD$
 \State $y \gets \hash(k,x)$
-\State $\hat{x} \gets \calA(k,y)$
+\State $\hat{x} \gets \calA(1^\secpar, k, y)$
 \Return $[\hash(k,\hat{x}) = y]$
 \end{algorithmic}
 \end{algorithm}
@@ -76,9 +91,9 @@ probability negligible in $|x|$ — [[OW93 - One-way functions are essential for
 
 ### Weak one-wayness
 
-A function $f$ is **weakly one-way** if there is a polynomial $p$ such that for
+A hash function $\hash$ is **weakly one-way** if there is a polynomial $p$ such that for
 all efficient $\calA$ and all sufficiently large $\secpar$,
-$\Adv^{\mathrm{pr}}_{f,\calA}(\secpar) \le 1 - 1/p(\secpar)$: every efficient
+$\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 1 - 1/p(\secpar)$: every efficient
 inverter fails with noticeable probability —
 [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. Every
 one-way function is weakly one-way — folklore; conversely,
@@ -105,7 +120,7 @@ $y = f(x)$, is at least $1/p(n)$ —
 
 ### Sub-exponential one-wayness
 
-A function $\hash$ is **sub-exponentially one-way** if there is a constant
+A hash function $\hash$ is **sub-exponentially one-way** if there is a constant
 $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every
 adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has
 $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$.
@@ -124,15 +139,15 @@ resistance, but not conversely — [[RS04 - Cryptographic Hash-Function Basics D
 \algname{Game}
 \caption{$\Game^{\mathrm{cr}}_{\hash,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \getsr \calK$
-\State $(\hat{x}_0, \hat{x}_1) \gets \calA(k)$
+\State $k \gets \KeyGen(1^\secpar)$
+\State $(\hat{x}_0, \hat{x}_1) \gets \calA(1^\secpar, k)$
 \Return $[\hash(k,\hat{x}_0) = \hash(k,\hat{x}_1) \wedge \hat{x}_0 \neq \hat{x}_1]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
 A compressing family $\hash$ with $\calD = \bits^{n(\secpar)}$ and
-$\calR = \bits^{m(\secpar)}$, $m(\secpar) < n(\secpar)$, is **collision
+$\calR = \bits^{m(\secpar)}$, $m(\secpar) < n(\secpar) \le \poly(\secpar)$, is **collision
 resistant**, a **collision-resistant hash function (CRHF)**, if for every
 efficient $\calA,$
 
@@ -165,7 +180,7 @@ find a second input colliding with it.
 \begin{algorithmic}
 \State $(x, \st) \gets \calA_1(1^\secpar)$
 \Comment{$\calA_1$ outputs $x \in \calD$ before seeing the key}
-\State $k \getsr \calK$
+\State $k \gets \KeyGen(1^\secpar)$
 \State $\hat{x} \gets \calA_2(\st, k)$
 \Return $[\hash(k,\hat{x}) = \hash(k,x) \wedge \hat{x} \neq x]$
 \end{algorithmic}
@@ -174,7 +189,7 @@ find a second input colliding with it.
 
 A family $\hash$ that compresses as in the CRHF definition, from
 $\calD = \bits^{n(\secpar)}$ to $\calR = \bits^{m(\secpar)}$ with
-$m(\secpar) < n(\secpar)$ or on other finite sets through the same binary
+$m(\secpar) < n(\secpar) \le \poly(\secpar)$ or on other finite sets through the same binary
 encodings, is a **universal one-way hash function (UOWHF)**, or **target
 collision resistant**, if for all efficient
 $\calA = (\calA_1, \calA_2)$,
