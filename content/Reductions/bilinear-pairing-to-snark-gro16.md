@@ -5,7 +5,7 @@ title: "Bilinear pairing ⇒ zk-SNARK"
 aliases: []
 id: red-bilinear-pairing-to-snark-gro16
 kind: implication
-hypotheses: [bilinear-pairing]
+hypotheses: [type-3-pairing]
 conclusion: zk-snark
 class: free
 model: generic-group
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In an asymmetric [[pairings|bilinear group]] with a per-circuit trusted CRS, Groth's construction is a [[succinct-argument#zk-snark|zk-SNARK]] for arithmetic circuit satisfiability with perfect completeness and perfect zero-knowledge, knowledge-sound against generic bilinear-group adversaries; a proof is three group elements (two in $\GG_1$, one in $\GG_2$) and verification is one pairing-product equation — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
+In an asymmetric [[pairings#type-3|bilinear group]] with a per-circuit trusted CRS, Groth's construction is a [[succinct-argument#zk-snark|zk-SNARK]] for arithmetic circuit satisfiability with perfect completeness and perfect zero-knowledge, knowledge-sound against generic bilinear-group adversaries; a proof is three group elements (two in $\GG_1$, one in $\GG_2$) and verification is one pairing-product equation — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
 ## Sketch
 

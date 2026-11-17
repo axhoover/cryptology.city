@@ -77,13 +77,12 @@ $$
 
 is negligible.
 
-<!-- BEGIN GENERATED participates-in b5da9f32c273 -->
+<!-- BEGIN GENERATED participates-in 754443674add -->
 
 ## Participates in
 
 **Produces Pseudorandom correlation generator**
 
-- [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 
 <!-- END GENERATED participates-in -->

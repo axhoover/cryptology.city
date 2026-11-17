@@ -5,7 +5,7 @@ title: Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)
 aliases: []
 id: red-bilinear-pairing-and-q-dlog-to-zk-snark-fkl18
 kind: implication
-hypotheses: [bilinear-pairing, q-dlog]
+hypotheses: [type-3-pairing, q-dlog]
 conclusion: zk-snark
 class: unstated
 model: algebraic-group
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In the [[algebraic-group-model|algebraic group model]], knowledge soundness of Groth's preprocessing SNARK for QAP satisfiability over an asymmetric [[pairings|bilinear group]] reduces tightly to the [$(q_1, q_2)$-DLOG assumption](discrete-logarithm#q-dlog) in that group, for $q_1, q_2$ polynomial in the size of the QAP — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]; the construction is perfectly zero-knowledge, unconditionally — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. It is therefore a [[succinct-argument#zk-snark|zk-SNARK]] for every algebraic prover if $q$-DLOG holds.
+In the [[algebraic-group-model|algebraic group model]], knowledge soundness of Groth's preprocessing SNARK for QAP satisfiability over an asymmetric [[pairings#type-3|bilinear group]] reduces tightly to the [$(q_1, q_2)$-DLOG assumption](discrete-logarithm#q-dlog) in that group, for $q_1, q_2$ polynomial in the size of the QAP — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]; the construction is perfectly zero-knowledge, unconditionally — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. It is therefore a [[succinct-argument#zk-snark|zk-SNARK]] for every algebraic prover if $q$-DLOG holds.
 
 ## Notes
 

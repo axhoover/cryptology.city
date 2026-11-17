@@ -5,7 +5,7 @@ title: "Subexponential LPN ⇒ CRHF"
 aliases: []
 id: red-subexponential-lpn-to-crhf-yzw-19
 kind: implication
-hypotheses: [subexponential-lpn]
+hypotheses: [subexponential-lpn-above-half]
 conclusion: crhf
 class: unstated
 model: standard
@@ -18,7 +18,7 @@ security-loss: "a factor $2^{O(w)}$ for input weight $w$: a collision finder wit
 
 ## Statement
 
-If constant-noise [[learning-parity-with-noise|LPN]] is $2^{k^{1/2+\delta}}$-hard for a constant $\delta > 0$ ([[learning-parity-with-noise#subexponential-lpn|subexponential LPN]] with exponent above $1/2$) or $2^{\Omega(k/\log k)}$-hard given $\poly(k)$ samples, then [[hash-function#collision-resistance|collision-resistant hash functions]] exist, via the binary shortest-vector problem — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
+If there are constants $\varepsilon \in (0, 1/2)$ and $\delta > 0$ such that $(k,\varepsilon)$-[[learning-parity-with-noise|LPN]] is $2^{k^{1/2+\delta}}$-hard ([[learning-parity-with-noise#subexponential-lpn-with-exponent-above-12|subexponential LPN with exponent above 1/2]]), then [[hash-function#collision-resistance|collision-resistant hash functions]] exist, via the binary shortest-vector problem — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
 
 ## Sketch
 
@@ -26,5 +26,6 @@ The hash is $h_{\mathbf{A}}(\mathbf{x}) = \mathbf{A}^{\top}\mathbf{x}$ for a uni
 
 ## Notes
 
+- Constant-noise LPN that is $2^{\Omega(k/\log k)}$-hard given $\poly(k)$ samples also implies collision-resistant hash functions — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
 - LPN at noise rate $1/\sqrt{k}$ that is $2^{\Omega(\sqrt{k}/\log k)}$-hard given $\poly(k)$ samples also implies collision-resistant hash functions — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
 - The hash functions have constant, or even polylogarithmic, shrinkage and are computed by polynomial-size depth-3 circuits of NOT, unbounded fan-in AND and XOR gates — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
