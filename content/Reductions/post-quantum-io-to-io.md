@@ -8,11 +8,12 @@ kind: implication
 hypotheses: [post-quantum-io]
 conclusion: io
 class: fully-black-box
-model: standard
+model: quantum
 source: folklore
 security-loss: "none"
 rationale:
   class: "Identity construction; the reduction forwards any classical adversary, run as a quantum one, unchanged."
+  model: "The hypothesis' adversaries are quantum."
 ---
 
 # Post-quantum iO ⇒ iO
