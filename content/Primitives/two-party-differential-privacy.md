@@ -6,8 +6,6 @@ aliases:
   - Two-party differential privacy
 title: Two-party differential privacy
 id: two-party-differential-privacy
-variants:
-  computational-two-party-differential-privacy: "#computational-differential-privacy"
 ---
 
 # Two-party differential privacy
@@ -47,6 +45,8 @@ and symmetrically for the [[interactive-protocol#View|view]] of $A$ under change
 ### Accuracy
 
 $\Pi$ approximates $f$ with additive error $\alpha$ if both outputs lie within $\alpha$ of $f(x, y)$ with probability at least $2/3$, for all $x, y$.
+
+TODO: before adding OT ⇒ CDP ([[MPRV09 - Computational Differential Privacy|MPRV09]]) or CDP ⇒ key agreement ([[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]), register an accurate-CDP node with $\varepsilon$, $n$ and the accuracy quantified. HMST22's Theorem 4.12 (arXiv v3) needs a common-output protocol on inputs in $\{-1,1\}^{n(\kappa)}$ that is $\varepsilon$-CDP in the sense of their Definition 3.17 (CDP against an external observer suffices) and $(\mu, c\,e^{c\varepsilon}\mu/\sqrt n)$-accurate for the inner product in the sense of their Definition 3.3, for some $\mu \ge \log n$ and their universal constant $c$. Until then this page's id denotes privacy alone, which the protocol that sends nothing and outputs $0$ satisfies for every $f$ and every $\varepsilon \ge 0$, so it takes no edge.
 
 # Variations
 

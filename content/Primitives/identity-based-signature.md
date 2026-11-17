@@ -93,7 +93,7 @@ is negligible.
 # Other results
 
 - Identity-based signatures were proposed together with [[identity-based-encryption|identity-based encryption]], with a signature scheme based on [[rsa-assumption|RSA]] — [[Sha84 - Identity-Based Cryptosystems and Signature Schemes|Sha84]].
-- Every EUF-CMA [[digital-signature|signature scheme]] yields an EUF-ID-CMA identity-based signature scheme without random oracles, by certifying a fresh key pair for each identity under the master key ([[ds-to-identity-based-signature-bnn04|DS ⇒ IBS]]) — [[BNN04 - Security Proofs for Identity-Based Identification and Signature Schemes|BNN04]].
+- Every EUF-CMA [[digital-signature#arbitrary-length-messages|signature scheme for arbitrary-length messages]] yields an EUF-ID-CMA identity-based signature scheme without random oracles, by certifying a fresh key pair for each identity under the master key ([[ds-to-identity-based-signature-bnn04|DS ⇒ IBS]]) — [[BNN04 - Security Proofs for Identity-Based Identification and Signature Schemes|BNN04]].
 - Conversely, an identity-based signature scheme with one identity fixed is a signature scheme with verification key $(\mpk, \mathit{id})$ ([[identity-based-signature-to-ds|IBS ⇒ DS]]) — folklore.
 
 <!-- BEGIN GENERATED participates-in ce9a2f5ad177 -->
