@@ -35,7 +35,7 @@ A **symmetric** pairing: $\GG_1 = \GG_2 = \GG$, so $e : \GG \times \GG \to \GG_T
 
 #### Verifiable Type 1 pairing
 
-A Type 1 pairing whose group descriptions can be checked: a deterministic polynomial-time algorithm accepts a string exactly when it describes $(p, \GG, \GG_T, e, g)$ with $p$ prime, $\GG$ and $\GG_T$ cyclic of order $p$ with efficiently decidable membership, $g$ a generator of $\GG$, and $e : \GG \times \GG \to \GG_T$ a non-degenerate bilinear map. This is the premise of the non-interactive zap in [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]], where the prover chooses the group.
+A Type 1 pairing whose group descriptions can be checked: fixed deterministic polynomial-time algorithms that, given a description and strings, decide membership in $\GG$ and $\GG_T$ and compute the group operations and $e$; and a deterministic polynomial-time algorithm that accepts a string exactly when, under those algorithms, it describes $(p, \GG, \GG_T, e, g)$ with $p$ prime, $\GG$ and $\GG_T$ cyclic of order $p$, $g$ a generator of $\GG$, and $e : \GG \times \GG \to \GG_T$ a non-degenerate bilinear map. This is the premise of the non-interactive zap in [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]], where the prover chooses the group.
 
 ### Type 2
 
