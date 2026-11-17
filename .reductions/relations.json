@@ -17291,6 +17291,34 @@
    "title": "Linear-output PRS ⇒ Exponential-dimension PRS"
   },
   {
+   "id": "red-linear-output-prs-to-single-copy-prs",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-output-prs"
+   ],
+   "conclusion": "single-copy-prs",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the generator, and the reduction forwards any distinguisher unchanged.",
+    "model": "PRS generators output quantum states and are secure against quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-output-prs-to-single-copy-prs.md",
+   "slug": "linear-output-prs-to-single-copy-prs",
+   "graphSlug": "Reductions/linear-output-prs-to-single-copy-prs",
+   "title": "Linear-output PRS ⇒ Single-copy PRS"
+  },
+  {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
    "kind": "equivalence",
    "hypotheses": [
@@ -31560,7 +31588,7 @@
   {
    "id": "bar-prs-to-owf-kre21",
    "hypotheses": [
-    "prs"
+    "exponential-dimension-prs"
    ],
    "conclusion": "quantum-secure-owf",
    "class": "fully-black-box",
