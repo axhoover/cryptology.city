@@ -19,7 +19,7 @@ A correlation generator $\calC$ is a $\PPT$ algorithm that on input $1^\secpar$ 
 - $\Gen(1^\secpar) \to (k_0, k_1)$, a randomized algorithm outputting a pair of seeds.
 - $\Eval(\sigma, k_\sigma) \to R_\sigma$, a deterministic algorithm taking a party index $\sigma \in \bits$ and the seed $k_\sigma$, outputting party $\sigma$'s output $R_\sigma$.
 
-$\Eval$ is called Expand in [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]]. Seeds as long as outputs make both properties trivial: $\Gen$ that samples $(R_0, R_1) \gets \calC(1^\secpar)$ and outputs $k_\sigma := R_\sigma$, with $\Eval(\sigma, k_\sigma) := k_\sigma$, has advantage $0$ in the correctness game and is secure by reverse-sampleability of $\calC$, so the object of interest is a PCG with $|k_\sigma|$ much smaller than $|R_\sigma|$.
+$\Eval$ is called Expand in [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]]. Seeds as long as outputs make both properties trivial: $\Gen$ that samples $(R_0, R_1) \gets \calC(1^\secpar)$ and outputs $k_\sigma := R_\sigma$, with $\Eval(\sigma, k_\sigma) := k_\sigma$, has advantage $0$ in the correctness game and is secure by reverse-sampleability of $\calC$.
 
 ## Properties
 
@@ -76,6 +76,10 @@ $$
 $$
 
 is negligible.
+
+As an object, a PCG denotes a correct and secure PCG for a target correlation $\calC$ given as a parameter, with seeds much shorter than its outputs, the requirement that rules out the trivial PCG with seeds as long as outputs — [[BCCD23 - Correlated Pseudorandomness from the Hardness of Quasi-Abelian Decoding|BCCD23]] (arXiv v1, Appendix A.2). Results relating it to other objects are stated for a named correlation. Without a named correlation the notion is trivial: for $\calC(1^\secpar) := (0, 0)$, empty seeds with $\Eval := 0$ are correct and secure, and with seeds as long as outputs every reverse-sampleable $\calC$ has a PCG ([[#Syntax|above]]).
+
+TODO: register per-correlation variants and retarget Sparse Ring-LPN ⇒ PCG and Sparse LPN ⇒ PCG to them, keeping their ids: PCGs for OLE over $R_p$ and for authenticated multiplication triples ([[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]]) and for VOLE and random OT ([[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]]), each with the exact correlation and the seed-length bound of the source theorem, and a folklore identity edge from each to this page's node.
 
 <!-- BEGIN GENERATED participates-in b5da9f32c273 -->
 

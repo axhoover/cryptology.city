@@ -6862,6 +6862,32 @@
    "unlisted": true
   },
   {
+   "id": "sivp-poly-factor",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-independent-vectors-problem.md",
+   "slug": "shortest-independent-vectors-problem",
+   "graphSlug": "Assumptions/shortest-independent-vectors-problem",
+   "anchor": "#polynomial-factors",
+   "of": "sivp",
+   "title": "Polynomial factors",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
+   "id": "sivp-poly-factor-quantum",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-independent-vectors-problem.md",
+   "slug": "shortest-independent-vectors-problem",
+   "graphSlug": "Assumptions/shortest-independent-vectors-problem",
+   "anchor": "#polynomial-factors-against-quantum-algorithms",
+   "of": "sivp",
+   "title": "Polynomial factors against quantum algorithms",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "size-verifiable-owf",
    "kind": "variant",
    "type": "primitive",
@@ -25964,10 +25990,64 @@
    "title": "SIS ∈ PWPP"
   },
   {
+   "id": "red-sivp-poly-factor-quantum-to-sivp-poly-factor",
+   "kind": "implication",
+   "hypotheses": [
+    "sivp-poly-factor-quantum"
+   ],
+   "conclusion": "sivp-poly-factor",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on SIVP instances, and the reduction forwards any classical algorithm, run as a quantum one, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sivp-poly-factor-quantum-to-sivp-poly-factor.md",
+   "slug": "sivp-poly-factor-quantum-to-sivp-poly-factor",
+   "graphSlug": "Reductions/sivp-poly-factor-quantum-to-sivp-poly-factor",
+   "title": "Quantum polynomial-factor SIVP ⇒ SIVP for polynomial factors"
+  },
+  {
+   "id": "red-sivp-poly-factor-to-sivp",
+   "kind": "implication",
+   "hypotheses": [
+    "sivp-poly-factor"
+   ],
+   "conclusion": "sivp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on SIVP instances, and the reduction forwards any algorithm unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sivp-poly-factor-to-sivp.md",
+   "slug": "sivp-poly-factor-to-sivp",
+   "graphSlug": "Reductions/sivp-poly-factor-to-sivp",
+   "title": "SIVP for polynomial factors ⇒ SIVP"
+  },
+  {
    "id": "red-sivp-to-lwe-reg05",
    "kind": "implication",
    "hypotheses": [
-    "sivp"
+    "sivp-poly-factor-quantum"
    ],
    "conclusion": "lwe",
    "class": "fully-black-box",
@@ -25989,13 +26069,13 @@
    "page": "content/Reductions/sivp-to-lwe-reg05.md",
    "slug": "sivp-to-lwe-reg05",
    "graphSlug": "Reductions/sivp-to-lwe-reg05",
-   "title": "SIVP ⇒ LWE"
+   "title": "Quantum polynomial-factor SIVP ⇒ LWE"
   },
   {
    "id": "red-sivp-to-sis-ajt96",
    "kind": "implication",
    "hypotheses": [
-    "sivp"
+    "sivp-poly-factor"
    ],
    "conclusion": "sis",
    "class": "fully-black-box",
@@ -26016,7 +26096,7 @@
    "page": "content/Reductions/sivp-to-sis-ajt96.md",
    "slug": "sivp-to-sis-ajt96",
    "graphSlug": "Reductions/sivp-to-sis-ajt96",
-   "title": "SIVP ⇒ SIS"
+   "title": "Polynomial-factor SIVP ⇒ SIS"
   },
   {
    "id": "red-size-verifiable-owf-to-owf",

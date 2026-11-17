@@ -50,7 +50,7 @@ is negligible. Here $\|\cdot\|$ is the Euclidean norm; the ISIS, Ring-SIS and Mo
 
 ### Worst-case hardness
 
-Solving SIS on average (over a uniformly random $\mathbf{A}$) is at least as hard as approximating the **Shortest Vector Problem (GapSVP)** ([[gapsvp-to-sis-ajt96|Polynomial-factor GapSVP ⇒ SIS]]) and the **Shortest Independent Vectors Problem (SIVP)** ([[sivp-to-sis-ajt96|SIVP ⇒ SIS]]) to within polynomial factors in the **worst case** — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. This is a classical (non-quantum) worst-case-to-average-case reduction: any efficient algorithm that breaks SIS with noticeable probability on random inputs can be converted into an efficient algorithm for these worst-case lattice problems.
+Solving SIS on average (over a uniformly random $\mathbf{A}$) is at least as hard as approximating the **Shortest Vector Problem (GapSVP)** ([[gapsvp-to-sis-ajt96|Polynomial-factor GapSVP ⇒ SIS]]) and the **Shortest Independent Vectors Problem (SIVP)** ([[sivp-to-sis-ajt96|Polynomial-factor SIVP ⇒ SIS]]) to within polynomial factors in the **worst case** — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. This is a classical (non-quantum) worst-case-to-average-case reduction: any efficient algorithm that breaks SIS with noticeable probability on random inputs can be converted into an efficient algorithm for these worst-case lattice problems.
 
 ### Collision-resistant hash functions
 
@@ -90,7 +90,7 @@ The instance is parameterized by $(n, k, \ell, q, \beta)$, with $R = \ZZ[x]/\lan
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices ([[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-<!-- BEGIN GENERATED participates-in 558283887f51 -->
+<!-- BEGIN GENERATED participates-in c68bf73bad4c -->
 
 ## Participates in
 
@@ -113,6 +113,6 @@ Hardness of Module-SIS reduces to worst-case problems on module lattices ([[modu
 - [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]
 - [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
-- [[sivp-to-sis-ajt96|SIVP ⇒ SIS]]
+- [[sivp-to-sis-ajt96|Polynomial-factor SIVP ⇒ SIS]]
 
 <!-- END GENERATED participates-in -->

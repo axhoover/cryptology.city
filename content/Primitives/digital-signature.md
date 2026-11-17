@@ -292,7 +292,7 @@ $$
 \Adv^{\eufcma}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\eufcma}_{\DS,\calA}(\secpar) = 1\right]
 $$
 
-is negligible — standard. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1) use the weaker nonadaptive form below, in which the forger submits one classical list of messages.
+is negligible — standard. As an object, it denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]] scheme with this security. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1) use the weaker nonadaptive form below, in which the forger submits one classical list of messages.
 
 ### Nonadaptive queries
 
@@ -323,7 +323,7 @@ $$
 \Adv^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar) = 1\right]
 $$
 
-is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1). [[AC12 - Quantum Money from Hidden Subspaces|AC12]] also require completeness error at most $1/3$. A nonadaptive forger is an adaptive one that makes all its queries at once, so post-quantum EUF-CMA unforgeability implies this notion ([[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]]) — folklore.
+is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1). [[AC12 - Quantum Money from Hidden Subspaces|AC12]] also require completeness error at most $1/3$. As an object, it denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]] scheme with this security. A nonadaptive forger is an adaptive one that makes all its queries at once, so post-quantum EUF-CMA unforgeability implies this notion ([[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]]) — folklore.
 
 ## One-time signatures with quantum public keys
 

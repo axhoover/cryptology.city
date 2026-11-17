@@ -20,4 +20,4 @@ rationale:
 
 ## Statement
 
-A [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]] with [[quantum-money#classical-serial-numbers|classical serial numbers]] is a secret-based mini-scheme, with the same unforgeability — folklore.
+A [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]] with [[quantum-money#classical-serial-numbers|classical serial numbers]] is a secret-based mini-scheme, with the same correctness and unforgeability — folklore.

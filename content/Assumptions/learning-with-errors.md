@@ -123,8 +123,8 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 
 - Solving decision (or search) LWE on a noticeable fraction of inputs is at least as hard as quantum-approximating the **Shortest Vector Problem (GapSVP)** and the **Shortest Independent Vectors Problem (SIVP)** to within polynomial factors in the worst case
 - Because GapSVP and SIVP are believed hard even for quantum computers, this gives a strong post-quantum security guarantee for LWE-based schemes
-- [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
-- [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
+- [[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]]
+- [[sivp-to-lwe-reg05|Quantum polynomial-factor SIVP ⇒ LWE]]
 
 Classical reductions start from worst-case hardness of [[shortest-vector-problem#polynomial-factors|GapSVP for polynomial factors]], at the cost of an exponential modulus $q \ge 2^{n/2}$ — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]] ([[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]]) — or of the dimension, LWE in dimension $n$ with polynomial modulus from GapSVP in dimension $\Theta(\sqrt{n})$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] ([[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]]).
 
@@ -149,7 +149,7 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 ## LWE with polynomial modulus-to-noise ratio
 
-LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c > 0$, every modulus $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, decision LWE is hard for $(n, q, \chi, m)$ with $\chi$ the discrete Gaussian of width $\alpha q$. For $m = 1$ and prime $q$ hardness is statistical, since $\mathbf{A}\mathbf{s}$ is uniform for every nonzero $\mathbf{A}$ — standard. For prime $q \le \poly(n)$ it follows from worst-case quantum hardness of approximating [[shortest-vector-problem|GapSVP]] or [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha) = \tilde{O}(n^{1+c})$ ([[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]]; [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]) — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c > 0$, every modulus $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, decision LWE is hard for $(n, q, \chi, m)$ with $\chi$ the discrete Gaussian of width $\alpha q$. For $m = 1$ and prime $q$ hardness is statistical, since $\mathbf{A}\mathbf{s}$ is uniform for every nonzero $\mathbf{A}$ — standard. For prime $q \le \poly(n)$ it follows from worst-case quantum hardness of approximating [[shortest-vector-problem|GapSVP]] or [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha) = \tilde{O}(n^{1+c})$ ([[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]]; [[sivp-to-lwe-reg05|Quantum polynomial-factor SIVP ⇒ LWE]]) — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 ### Quasi-polynomially hard LWE
 
@@ -379,7 +379,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 0b785a20b935 -->
+<!-- BEGIN GENERATED participates-in 6cfc672ec408 -->
 
 ## Participates in
 
@@ -444,7 +444,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[ring-lwe-quasi-polynomial-approximation-to-ring-lwe|Ring-LWE with quasi-polynomial factors ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
-- [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
+- [[sivp-to-lwe-reg05|Quantum polynomial-factor SIVP ⇒ LWE]]
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[subexponential-lwe-to-lwe|Sub-exponential LWE ⇒ LWE]]
 - [[subexponential-modulus-lwe-to-lwe|LWE with sub-exponential ratio ⇒ LWE]]
