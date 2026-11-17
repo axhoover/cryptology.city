@@ -29,7 +29,7 @@ If an [[public-key-encryption#cca1-security|IND-CCA1]]-secure [[public-key-encry
 
 ## Sketch
 
-Given an IND-CCA1-secure $\PKE = (\KeyGen, \Enc, \Dec)$, let $\Enc'(\pk, m) = \Enc(\pk, m) \| 0$ and let $\Dec'(\sk, c \| \beta) = \Dec(\sk, c)$ ignore the appended bit $\beta$. A CCA1 adversary against $\PKE'$ yields one against $\PKE$ that strips the bit from each Phase-1 query and appends $0$ to $c^*$. An NM-CPA adversary flips the last bit of $c^*$, submits the result, which differs from $c^*$, as its decryption query, and receives $m_b$ — standard.
+Given an IND-CCA1-secure $\PKE = (\KeyGen, \Enc, \Dec)$, let $\Enc'(\pk, m) = \Enc(\pk, m) \| 0$ and let $\Dec'(\sk, c \| \beta) = \Dec(\sk, c)$ ignore the appended bit $\beta$. A CCA1 adversary against $\PKE'$ yields one against $\PKE$ that strips the bit from each Phase-1 query and appends $0$ to $c^*$. An NM-CPA adversary flips the last bit of $c^*$, submits the result, which differs from $c^*$, as its decryption query, and receives $\Dec(\sk, c)$, where $c^* = c \| 0$ and $c = \Enc(\pk, m_b)$; this is $m_b$ except with probability at most the correctness error of $\PKE$, which is negligible — standard.
 
 ## Notes
 

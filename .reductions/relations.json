@@ -22748,6 +22748,33 @@
    "title": "DDH ⇒ LR-PKE"
   },
   {
+   "id": "red-prime-order-ddh-to-matrix-dh-ehk13",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "matrix-dh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptions|EHK+13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on group generators, and the reduction passes the MDDH distinguisher's input to it as a DDH instance, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-matrix-dh-ehk13.md",
+   "slug": "prime-order-ddh-to-matrix-dh-ehk13",
+   "graphSlug": "Reductions/prime-order-ddh-to-matrix-dh-ehk13",
+   "title": "Prime-order DDH ⇒ Matrix DH"
+  },
+  {
    "id": "red-prime-order-ddh-to-pre",
    "kind": "implication",
    "hypotheses": [
