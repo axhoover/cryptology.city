@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Every single-server [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|symmetric PIR]] scheme is a [[single-server-private-information-retrieval|cPIR]] scheme as is: SPIR has the correctness and query privacy of cPIR and adds data privacy, which requires that the client learn nothing about the database beyond the retrieved entry — folklore.
+Every single-server [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|symmetric PIR]] scheme is a [[single-server-private-information-retrieval|cPIR]] scheme as is: SPIR has the correctness and query privacy of cPIR and adds [[single-server-private-information-retrieval#data-privacy|data privacy]], which requires that the client learn nothing about the database beyond the retrieved entry — folklore.
 
 ## Notes
 

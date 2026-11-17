@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a single-server [PIR with client preprocessing](single-server-private-information-retrieval#pir-with-client-preprocessing) for $n$-bit databases stored unencoded, with client storage $\tilde O_\secpar(\sqrt n)$, amortized online server and client computation $\tilde O(\sqrt n)$ per query and online communication $O(\sqrt n)$ per query — [[ZPZS24 - Piano Extremely Simple, Single-Server PIR with Sublinear Server Computation|ZPZS24]]. Counting the offline phase, the bandwidth and computation per query are $\tilde O(\sqrt n)$ — [[GZS24 - Efficient Pre-processing PIR Without Public-Key Cryptography|GZS24]].
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a single-server [PIR with client preprocessing](single-server-private-information-retrieval#pir-with-client-preprocessing) for $n$-bit databases stored unencoded, with client storage $\tilde O_\secpar(\sqrt n)$, amortized online server and client computation $\tilde O(\sqrt n)$ per query and online communication $O(\sqrt n)$ per query — [[ZPZS24 - Piano Extremely Simple, Single-Server PIR with Sublinear Server Computation|ZPZS24]]. Counting the offline phase, the bandwidth and computation per query are $\tilde O(\sqrt n)$ — [[GZS24 - Efficient Pre-processing PIR Without Public-Key Cryptography|GZS24]]. These bounds are at most $\poly(\secpar) \cdot \polylog(n) \cdot \sqrt n \le p(\secpar) \cdot n^{7/8}$ for a polynomial $p$, and $p(\secpar) \cdot n^{7/8} \le p(\secpar)^{16} + n^{15/16}$, so the scheme is [sublinear](single-server-private-information-retrieval#pir-with-client-preprocessing) with $s(n) = n^{15/16}$ — standard.
 
 ## Notes
 
