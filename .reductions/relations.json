@@ -1824,9 +1824,9 @@
    "page": "content/Assumptions/subset-sum.md",
    "slug": "subset-sum",
    "graphSlug": "Assumptions/subset-sum",
-   "anchor": "#decision-subset-sum",
+   "anchor": "#decision-subset-sum-at-constant-density-below-one",
    "of": "subset-sum",
-   "title": "Decision subset sum",
+   "title": "Decision subset sum at constant density below one",
    "aliases": [],
    "unlisted": false
   },
@@ -8803,6 +8803,33 @@
    "slug": "abe-to-ibe",
    "graphSlug": "Reductions/abe-to-ibe",
    "title": "ABE ⇒ IBE"
+  },
+  {
+   "id": "red-adaptive-injective-owf-to-injective-one-way-function",
+   "kind": "implication",
+   "hypotheses": [
+    "adaptive-injective-owf"
+   ],
+   "conclusion": "injective-one-way-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function, and the reduction forwards any inverter unchanged; the forwarded inverter makes no inversion queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/adaptive-injective-owf-to-injective-one-way-function.md",
+   "slug": "adaptive-injective-owf-to-injective-one-way-function",
+   "graphSlug": "Reductions/adaptive-injective-owf-to-injective-one-way-function",
+   "title": "Adaptive injective OWF ⇒ Injective OWF"
   },
   {
    "id": "red-adaptive-robustness-to-prc",
@@ -17128,6 +17155,33 @@
    "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
   },
   {
+   "id": "red-length-increasing-injective-owf-to-injective-one-way-function",
+   "kind": "implication",
+   "hypotheses": [
+    "length-increasing-injective-owf"
+   ],
+   "conclusion": "injective-one-way-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/length-increasing-injective-owf-to-injective-one-way-function.md",
+   "slug": "length-increasing-injective-owf-to-injective-one-way-function",
+   "graphSlug": "Reductions/length-increasing-injective-owf-to-injective-one-way-function",
+   "title": "Length-increasing injective OWF ⇒ Injective OWF"
+  },
+  {
    "id": "red-leveled-fully-homomorphic-encryption-to-he",
    "kind": "implication",
    "hypotheses": [
@@ -17561,6 +17615,33 @@
    "slug": "lpn-to-secret-key-pir-sk-pir-cimr25",
    "graphSlug": "Reductions/lpn-to-secret-key-pir-sk-pir-cimr25",
    "title": "High-noise LPN ⇒ Secret-Key PIR (SK-PIR)"
+  },
+  {
+   "id": "red-lps10-subset-sum-to-subset-sum",
+   "kind": "implication",
+   "hypotheses": [
+    "lps10-subset-sum"
+   ],
+   "conclusion": "subset-sum",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the instance distribution, and the reduction forwards any solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lps10-subset-sum-to-subset-sum.md",
+   "slug": "lps10-subset-sum-to-subset-sum",
+   "graphSlug": "Reductions/lps10-subset-sum-to-subset-sum",
+   "title": "Subset sum at the LPS10 parameters ⇒ Subset sum"
   },
   {
    "id": "red-lsn-to-lpn-cimr25",
@@ -26142,6 +26223,60 @@
    "slug": "subexponential-ddh-to-ppad-hardness-klv23",
    "graphSlug": "Reductions/subexponential-ddh-to-ppad-hardness-klv23",
    "title": "Sub-exponential DDH ⇒ PPAD hardness"
+  },
+  {
+   "id": "red-subexponential-injective-owf-to-injective-one-way-function",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-injective-owf"
+   ],
+   "conclusion": "injective-one-way-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-injective-owf-to-injective-one-way-function.md",
+   "slug": "subexponential-injective-owf-to-injective-one-way-function",
+   "graphSlug": "Reductions/subexponential-injective-owf-to-injective-one-way-function",
+   "title": "Sub-exponential injective OWF ⇒ Injective OWF"
+  },
+  {
+   "id": "red-subexponential-injective-owf-to-subexponential-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-injective-owf"
+   ],
+   "conclusion": "subexponential-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-injective-owf-to-subexponential-owf.md",
+   "slug": "subexponential-injective-owf-to-subexponential-owf",
+   "graphSlug": "Reductions/subexponential-injective-owf-to-subexponential-owf",
+   "title": "Sub-exponential injective OWF ⇒ Sub-exponential OWF"
   },
   {
    "id": "red-subexponential-io-and-owf-to-tdp-bpw16",

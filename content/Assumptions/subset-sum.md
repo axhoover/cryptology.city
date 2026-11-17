@@ -8,7 +8,7 @@ aliases:
 title: Subset sum
 id: subset-sum
 variants:
-  decision-subset-sum: "#decision-subset-sum"
+  decision-subset-sum: "#decision-subset-sum-at-constant-density-below-one"
   lps10-subset-sum: "#subset-sum-at-the-lps10-parameters"
   subset-sum-constant-density-below-one: "#subset-sum-at-constant-density-below-one"
   subset-sum-above-density-one: "#subset-sum-at-constant-density-above-one"
@@ -93,6 +93,10 @@ Hardness of search subset sum [[subset-sum#subset-sum-at-constant-density-below-
 
 **Subset sum is hard at constant density below one** if, for a constant $c > 0$, subset sum is hard for $(n, M)$ with $M = 2^{\ell(n)}$ and $\ell(n) = (1+c)n$, a density $1/(1+c) < 1$. This is the regime of the PRG and search-to-decision theorems of [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
 
+## Decision subset sum at constant density below one
+
+**Decision subset sum is hard at constant density below one** if, for a constant $c > 0$, decision subset sum is hard for $(n, M)$ with $M = 2^{\ell(n)}$ and $\ell(n) = (1+c)n$. This is the conclusion of the search-to-decision theorem of [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
+
 ## Subset sum at constant density above one
 
 **Subset sum is hard at constant density above one** if, for a constant $c \in (0, 1)$, subset sum is hard for $(n, M)$ with $M = 2^{\ell(n)}$ and $\ell(n) = (1-c)n$, a density $1/(1-c) > 1$. This is the regime of the UOWHF theorem of [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]].
@@ -109,12 +113,13 @@ Hardness of search subset sum [[subset-sum#subset-sum-at-constant-density-below-
 - **Subexponential algorithms at vanishing density.** A BKW-style algorithm solves random instances of density $o(1)$ in subexponential time; the parameters of the [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]] encryption scheme, with $M^{1/n} > 10 n \log^2 n$, fall in time $2^{(\ln 2/2 + o(1))\, n / \log\log n}$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 - **Merkle–Hellman.** The Merkle–Hellman knapsack cryptosystem publishes a superincreasing sequence disguised by a modular multiplication — [[MH78 - Hiding Information and Signatures in Trapdoor Knapsacks|MH78]]. Shamir's polynomial-time algorithm breaks the basic, singly iterated scheme — [[Sha82 - A Polynomial Time Algorithm for Breaking the Basic Merkle-Hellman Cryptosystem|Sha82]]. The attack exploits the trapdoor structure of the public weights and does not apply to random instances — standard.
 
-<!-- BEGIN GENERATED participates-in 86cc0964aa44 -->
+<!-- BEGIN GENERATED participates-in 6dffc909028d -->
 
 ## Participates in
 
 **Builds on Subset sum**
 
+- [[lps10-subset-sum-to-subset-sum|Subset sum at the LPS10 parameters ⇒ Subset sum]] (via [[subset-sum#subset-sum-at-the-lps10-parameters|Subset sum at the LPS10 parameters]])
 - [[subset-sum-above-density-one-to-subset-sum|Subset sum at constant density above one ⇒ Subset sum]] (via [[subset-sum#subset-sum-at-constant-density-above-one|Subset sum at constant density above one]])
 - [[subset-sum-constant-density-below-one-to-subset-sum|Subset sum at constant density below one ⇒ Subset sum]] (via [[subset-sum#subset-sum-at-constant-density-below-one|Subset sum at constant density below one]])
 - [[subset-sum-to-decision-subset-sum-in96|Subset sum at constant density below one ⇒ Decision subset sum]] (via [[subset-sum#subset-sum-at-constant-density-below-one|Subset sum at constant density below one]])
@@ -126,8 +131,9 @@ Hardness of search subset sum [[subset-sum#subset-sum-at-constant-density-below-
 
 **Produces Subset sum**
 
+- [[lps10-subset-sum-to-subset-sum|Subset sum at the LPS10 parameters ⇒ Subset sum]]
 - [[subset-sum-above-density-one-to-subset-sum|Subset sum at constant density above one ⇒ Subset sum]]
 - [[subset-sum-constant-density-below-one-to-subset-sum|Subset sum at constant density below one ⇒ Subset sum]]
-- [[subset-sum-to-decision-subset-sum-in96|Subset sum at constant density below one ⇒ Decision subset sum]] (via [[subset-sum#decision-subset-sum|Decision subset sum]])
+- [[subset-sum-to-decision-subset-sum-in96|Subset sum at constant density below one ⇒ Decision subset sum]] (via [[subset-sum#decision-subset-sum-at-constant-density-below-one|Decision subset sum at constant density below one]])
 
 <!-- END GENERATED participates-in -->
