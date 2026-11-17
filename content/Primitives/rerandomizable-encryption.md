@@ -71,7 +71,7 @@ A perfectly rerandomizable CPA-secure scheme with negligible decryption error is
 
 ## Statistical rerandomization of honest ciphertexts
 
-An IND-CPA-secure public-key encryption scheme with an efficient public algorithm $\mathsf{ReRand}$ is **statistically rerandomizable** if for every $\pk$ output by $\KeyGen$ and every message $m$, the pair $(c, \mathsf{ReRand}(\pk, c))$ for $c \gets \Enc(\pk, m)$ is statistically close to $(c, c')$ for an independent $c' \gets \Enc(\pk, m)$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
+An IND-CPA-secure public-key encryption scheme with an efficient public algorithm $\mathsf{ReRand}$ is **statistically rerandomizable** if for every message $m$, the joint distribution $(\pk, c, \mathsf{ReRand}(\pk, c))$ for $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and $c \gets \Enc(\pk, m)$ is within negligible statistical distance of $(\pk, c, c')$ for an independent $c' \gets \Enc(\pk, m)$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. The distance is taken jointly with $\pk$, as in the [[homomorphic-encryption#strongly-homomorphic-encryption|strong homomorphism]] it is obtained from; a bound for every $\pk$ separately is stronger, and follows from perfect rerandomization — standard.
 
 ## Security against slightly super-polynomial adversaries
 
