@@ -7525,9 +7525,9 @@
    "page": "content/Assumptions/subset-sum.md",
    "slug": "subset-sum",
    "graphSlug": "Assumptions/subset-sum",
-   "anchor": "#subset-sum-above-density-one",
+   "anchor": "#subset-sum-at-constant-density-above-one",
    "of": "subset-sum",
-   "title": "Subset sum above density one",
+   "title": "Subset sum at constant density above one",
    "aliases": [],
    "unlisted": false
   },
@@ -26642,7 +26642,7 @@
    "page": "content/Reductions/subset-sum-above-density-one-to-subset-sum.md",
    "slug": "subset-sum-above-density-one-to-subset-sum",
    "graphSlug": "Reductions/subset-sum-above-density-one-to-subset-sum",
-   "title": "Subset sum above density one ⇒ Subset sum"
+   "title": "Subset sum at constant density above one ⇒ Subset sum"
   },
   {
    "id": "red-subset-sum-constant-density-below-one-to-subset-sum",
@@ -26816,7 +26816,7 @@
    "page": "content/Reductions/subset-sum-to-uowhf-in96.md",
    "slug": "subset-sum-to-uowhf-in96",
    "graphSlug": "Reductions/subset-sum-to-uowhf-in96",
-   "title": "Subset sum above density one ⇒ UOWHF"
+   "title": "Subset sum at constant density above one ⇒ UOWHF"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",
