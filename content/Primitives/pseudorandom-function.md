@@ -8,6 +8,7 @@ title: Pseudorandom function
 id: prf
 variants:
   invertible-prf: "#invertible-prfs"
+  key-expanding-weak-prf: "#key-expanding-weak-prfs"
   pseudorandom-injective-function: "#pseudorandom-injective-functions"
   puncturable-prf: "#puncturable-prfs"
   weak-prf: "#weak-prfs"
@@ -152,6 +153,10 @@ $$
 
 is negligible.
 
+### Key-expanding weak PRFs
+
+A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] with $\calK = \bits^\kappa$, $\calD = \bits^n$ and $\calR = \bits^{\kappa+n}$, for polynomials $\kappa = \kappa(\secpar)$ and $n = n(\secpar)$ with $n = \omega(\log \secpar)$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^\kappa$. Its security is the weak-PRF game above, unchanged. Each output splits into a key and an input, which the mode of [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Pie09]] feeds back.
+
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]] then [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
@@ -159,7 +164,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 2b4426f746ae -->
+<!-- BEGIN GENERATED participates-in fd63895b7448 -->
 
 ## Participates in
 
@@ -167,6 +172,7 @@ is negligible.
 
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
+- [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
 - [[prf-to-garbled-circuits-bhr12|PRF ⇒ Garbled circuits (BHR)]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]]
@@ -183,13 +189,14 @@ is negligible.
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]]
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]]
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]]
-- [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
+- [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
 
 **Produces Pseudorandom function**
 
 - [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
+- [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]

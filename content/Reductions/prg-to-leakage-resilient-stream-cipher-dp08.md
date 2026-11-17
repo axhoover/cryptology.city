@@ -23,5 +23,5 @@ From any [[pseudorandom-generator#security-against-non-uniform-adversaries|PRG s
 ## Notes
 
 - The proof rests on a lemma: the output of any PRG has high HILL pseudoentropy even when bounded information about its seed is leaked; the construction combines the PRG with a randomness extractor by alternating extraction — [[DP08 - Leakage-Resilient Cryptography|DP08]].
-- A mode of operation of a single [[pseudorandom-function#weak-prfs|weak PRF]] gives a simpler leakage-resilient stream cipher: [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]].
+- A mode of operation of a single [[pseudorandom-function#key-expanding-weak-prfs|key-expanding weak PRF]] gives a simpler leakage-resilient stream cipher: [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]].
 - The restriction of leakage to the accessed state is the axiom that only computation leaks information — [[MR04 - Physically Observable Cryptography|MR04]].
