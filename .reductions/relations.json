@@ -17448,7 +17448,7 @@
    "id": "red-lwe-to-leakage-resilient-pke-agv09",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "leakage-resilient-pke",
    "class": "unstated",
@@ -25959,6 +25959,35 @@
    "slug": "subexponential-lwe-to-lwe",
    "graphSlug": "Reductions/subexponential-lwe-to-lwe",
    "title": "Sub-exponential LWE ⇒ LWE"
+  },
+  {
+   "id": "red-subexponential-lwe-to-pke-reg05",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-lwe"
+   ],
+   "conclusion": "pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
+   ],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
+   "rationale": {
+    "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-lwe-to-pke-reg05.md",
+   "slug": "subexponential-lwe-to-pke-reg05",
+   "graphSlug": "Reductions/subexponential-lwe-to-pke-reg05",
+   "title": "Sub-exponential LWE ⇒ PKE"
   },
   {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",

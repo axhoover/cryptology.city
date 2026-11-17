@@ -5,7 +5,7 @@ title: "LWE ⇒ LR-PKE (Regev)"
 aliases: []
 id: red-lwe-to-leakage-resilient-pke-agv09
 kind: implication
-hypotheses: [lwe]
+hypotheses: [polynomial-ratio-lwe]
 conclusion: leakage-resilient-pke
 class: unstated
 model: standard
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Under [[learning-with-errors|LWE]], the public-key encryption scheme of [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] is, without modification, [$\ell$-leakage-resilient](leakage-resilient-public-key-encryption#leakage-resilient-cpa-security) for $\ell$ a large fraction of the bit length of its secret key. How large a fraction may leak depends on the LWE parameters and hardness assumed — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], the public-key encryption scheme of [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] is, without modification, [$\ell$-leakage-resilient](leakage-resilient-public-key-encryption#leakage-resilient-cpa-security) for $\ell$ a large fraction of the bit length of its secret key. How large a fraction may leak depends on the LWE parameters and hardness assumed — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]].
 
 ## Notes
 
