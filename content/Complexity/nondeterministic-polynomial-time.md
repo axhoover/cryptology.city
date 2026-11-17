@@ -43,9 +43,7 @@ $$
 \Pr_{x \gets D(1^n)}\!\left[\calA(x) \ne L(x)\right] \ge \frac{1}{p(n)},
 $$
 
-the probability also over the coins of $\calA$, so that the error is measured in the instance length $n = |x|$ — standard. Without the length condition the notion would follow from $\classNP \not\subseteq \classBPP$: with $D(1^n)$ uniform on $\bits^{\lfloor \log n \rfloor}$ and $p(n) = 3n$, an algorithm that errs with probability below $1/(3n)$ under $D(1^n)$ for all but finitely many $n$ errs with probability below $1/3$ on all but finitely many inputs — folklore.
-
-TODO: check this length convention against [[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]] §2.
+the probability also over the coins of $\calA$, so that the error is measured in the instance length $n = |x|$ — [[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]]. Without the length condition the notion would follow from $\classNP \not\subseteq \classBPP$: with $D(1^n)$ uniform on $\bits^{\lfloor \log n \rfloor}$ and $p(n) = 3n$, an algorithm that errs with probability below $1/(3n)$ under $D(1^n)$ for all but finitely many $n$ errs with probability below $1/3$ on all but finitely many inputs — folklore.
 
 <!-- BEGIN GENERATED participates-in 3848a5dde83c -->
 
