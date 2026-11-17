@@ -7114,6 +7114,19 @@
    "unlisted": false
   },
   {
+   "id": "strong-rsa-safe-primes",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/rsa-assumption.md",
+   "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
+   "anchor": "#strong-rsa-with-safe-prime-moduli",
+   "of": "rsa",
+   "title": "Strong RSA with safe-prime moduli",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "strong-sequential-squaring",
    "kind": "variant",
    "type": "assumption",
@@ -25317,6 +25330,33 @@
    "title": "Strong PRP ⇒ Strong TBC (LRW2)"
   },
   {
+   "id": "red-strong-rsa-safe-primes-to-strong-rsa",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-rsa-safe-primes"
+   ],
+   "conclusion": "strong-rsa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The safe-prime generator is itself a GrGen of the base assumption, so the reduction is the identity and forwards any strong-RSA solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-rsa-safe-primes-to-strong-rsa.md",
+   "slug": "strong-rsa-safe-primes-to-strong-rsa",
+   "graphSlug": "Reductions/strong-rsa-safe-primes-to-strong-rsa",
+   "title": "Strong RSA (safe-prime moduli) ⇒ Strong RSA"
+  },
+  {
    "id": "red-strong-rsa-to-accumulator-bp97",
    "kind": "implication",
    "hypotheses": [
@@ -25402,7 +25442,7 @@
    "id": "red-strong-rsa-to-dynamic-accumulator-cl02",
    "kind": "implication",
    "hypotheses": [
-    "strong-rsa"
+    "strong-rsa-safe-primes"
    ],
    "conclusion": "dynamic-accumulator",
    "class": "unstated",
@@ -25420,7 +25460,7 @@
    "page": "content/Reductions/strong-rsa-to-dynamic-accumulator-cl02.md",
    "slug": "strong-rsa-to-dynamic-accumulator-cl02",
    "graphSlug": "Reductions/strong-rsa-to-dynamic-accumulator-cl02",
-   "title": "Strong RSA ⇒ dynamic accumulator"
+   "title": "Strong RSA (safe-prime moduli) ⇒ dynamic accumulator"
   },
   {
    "id": "red-strong-rsa-to-rsa",

@@ -8,6 +8,7 @@ title: RSA Assumption
 id: rsa
 variants:
   strong-rsa: "#strong-rsa"
+  strong-rsa-safe-primes: "#strong-rsa-with-safe-prime-moduli"
   phi-hiding: "#φ-hiding"
   low-exponent-rsa: "#low-exponent-rsa"
 ---
@@ -60,6 +61,10 @@ is negligible.
 
 The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary receives $(1^\secpar, n, y)$ for $(n, e, d) \gets \GrGen(1^\secpar)$ and $y \getsr \ZZ_n^*$, and outputs a pair $(\hat{x}, \hat{e})$. **Strong RSA is hard** for $\GrGen$ if for all efficient $\calA$, $\Pr\!\left[\hat{e} > 1 \wedge \hat{x}^{\hat{e}} \equiv y \pmod{n} : (n, e, d) \gets \GrGen(1^\secpar);\ y \getsr \ZZ_n^*;\ (\hat{x}, \hat{e}) \gets \calA(1^\secpar, n, y)\right]$ is negligible. Introduced by [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]] and [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. With a [[hash-function#collision-resistance|collision-resistant hash]] it yields EUF-CMA [[digital-signature|signatures]] in the standard model ([[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]]) — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]; with a division-intractable hash, hash-and-sign signatures — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]. It also yields statistically hiding [[commitment-scheme|commitments]] to integers ([[strong-rsa-to-com|Strong RSA ⇒ COM]]) — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]], [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
 
+## Strong RSA with safe-prime moduli
+
+Strong RSA for the generator $\GrGen$ that samples distinct uniform $\secpar$-bit primes $p', q'$ subject to the primality of $p = 2p'+1$ and $q = 2q'+1$ and outputs $n = pq$, with $e$ and $d$ as above. **Strong RSA is hard for safe-prime moduli** if for all efficient $\calA$ the strong-RSA success probability above, with $n$ sampled this way and $y \getsr \ZZ_n^*$, is negligible.
+
 ## Φ-Hiding
 
 The **Φ-hiding assumption** states that, given $n$ and a prime $e \le n^{1/4-\varepsilon}$, it is hard to determine whether $e \mid \phi(n)$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]; for $e > n^{1/4}$ Coppersmith's method decides it efficiently — [[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]]. It underlies the polylogarithmic-communication [[single-server-private-information-retrieval|single-server PIR]] of [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]] ([[hiding-to-cpir|Φ-Hiding ⇒ cPIR]]).
@@ -79,7 +84,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - **Håstad's broadcast attack**: given $x^e \bmod n_i$ for $e$ public keys $(n_i, e)$ with pairwise coprime moduli $n_i > x$, the Chinese Remainder Theorem yields $x^e \bmod \prod_i n_i$, which is $x^e$ over the integers, and its integer $e$-th root is $x$ — standard; [[Has85 - On Using RSA with Low Exponent in a Public Key Network|Has85]] extends the attack to messages that are known polynomial functions of one plaintext, given enough ciphertexts.
 - **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme, and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
 
-<!-- BEGIN GENERATED participates-in 80b0b4315b0f -->
+<!-- BEGIN GENERATED participates-in eccf5d95db33 -->
 
 ## Participates in
 
@@ -97,15 +102,17 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]]
+- [[strong-rsa-safe-primes-to-strong-rsa|Strong RSA (safe-prime moduli) ⇒ Strong RSA]] (via [[rsa-assumption#strong-rsa-with-safe-prime-moduli|Strong RSA with safe-prime moduli]])
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
-- [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA ⇒ dynamic accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
+- [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]] (via [[rsa-assumption#strong-rsa-with-safe-prime-moduli|Strong RSA with safe-prime moduli]])
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 
 **Produces RSA Assumption**
 
 - [[low-exponent-rsa-to-rsa|Low-exponent RSA ⇒ RSA]]
+- [[strong-rsa-safe-primes-to-strong-rsa|Strong RSA (safe-prime moduli) ⇒ Strong RSA]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]
 
 **Barriers**
