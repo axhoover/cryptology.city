@@ -25,7 +25,7 @@ A [[commitment-scheme|commitment scheme]] [[commitment-scheme#hiding-for-adversa
 
 ## Sketch
 
-Against a corrupt $B$, hiding for the $\pp$ that $B$ chose makes $b$ independent of $a$, so $a \oplus b$ is uniform. Against a corrupt $A$, binding for the honestly sampled $\pp$ fixes $a$ before $b$ is chosen, so the opened value is $a$ or the opening fails, and $a \oplus b$ is uniform unless $B$ outputs $\bot$.
+Against a corrupt $B$, hiding for the $\pp$ that $B$ chose makes $b$ independent of $a$, so $a \oplus b$ is uniform. Against a corrupt $A$, binding for the honestly sampled $\pp$ fixes $a$ before $b$ is chosen, so the opened value is $a$ or the opening fails, and $a \oplus b$ is uniform unless $B$ outputs $\bot$. In an honest run the opening succeeds, by the commitment's [[commitment-scheme#correctness|perfect correctness]], and both parties output $a \oplus b$, an exactly uniform bit, so the protocol is correct — standard.
 
 ## Notes
 

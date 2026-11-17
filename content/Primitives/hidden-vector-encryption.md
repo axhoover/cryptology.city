@@ -9,6 +9,7 @@ id: hve
 variants:
   hve-attribute-hiding: "#attribute-hiding-security"
   hve-payload-hiding: "#payload-hiding-security"
+  selective-hve-attribute-hiding: "#selective-attribute-hiding-security"
   range-query-encryption: "#subset-and-range-queries"
 ---
 
@@ -99,16 +100,49 @@ is negligible. Attribute-hiding implies payload-hiding (take $(x_0, m_0) = (x^*,
 
 # Variations
 
+## Selective attribute-hiding security
+
+In the selective attribute-hiding game the adversary fixes its two challenge attributes before $\Setup$ runs and before any key query, and chooses its two messages after it sees $\pp$ and its first keys — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sel\text{-}ah}}_{\mathsf{HVE},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(x_0, x_1, \stA) \gets \calA(1^\secpar)$
+\Comment{$x_0, x_1 \in \Sigma^n$, fixed before $\Setup$}
+\State $(\pp, \msk) \gets \Setup(1^\secpar, \Sigma, n)$; $b \getsr \bits$
+\State $\calO_{\mathrm{key}}(v) := \KeyGen(\msk, v)$
+\State $(m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}}(\pp, \stA)$
+\Comment{For all queried $v$: $v$ matches $x_0$ iff $v$ matches $x_1$; if some queried $v$ matches $x_0$, then $m_0 = m_1$}
+\State $c^* \gets \Enc(\pp, x_b, m_b)$
+\State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
+\Comment{Same admissibility constraint holds throughout}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+Here $\Sigma = \Sigma_\secpar$, $n = n(\secpar)$ and $m_0, m_1 \in \calM$. An admissible $\calA$ queries only patterns $v$ that match $x_0$ if and only if they match $x_1$, and if one of its queried patterns matches $x_0$, and so $x_1$, then $m_0 = m_1$. The message condition is necessary: the all-wildcard pattern matches every attribute, so with $m_0 \ne m_1$ its key decrypts $c^*$ and no correct scheme would meet the game.
+
+An HVE scheme $\mathsf{HVE}$ that is $(1-\varepsilon)$-[[#Correctness|correct]] for a negligible function $\varepsilon(\secpar)$, and whose message space contains two distinct messages that an efficient algorithm outputs on input $\pp$, is **selectively attribute-hiding** if for every polynomial $n = n(\secpar)$, every family of alphabets $\Sigma_\secpar$ of size polynomial in $\secpar$, and all efficient admissible $\calA$,
+
+$$
+\Adv^{\mathrm{sel\text{-}ah}}_{\mathsf{HVE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sel\text{-}ah}}_{\mathsf{HVE},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. An attribute-hiding IPPE scheme gives such a scheme ([[ippe-to-hve|IPPE ⇒ Selectively attribute-hiding HVE]]) — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].
+
 ## Subset and range queries
 
 Subset predicates (is $x_i \in T_i$ for a set $T_i$?) and range predicates (is $a_i \le x_i \le b_i$?) reduce to HVE over $\Sigma = \bits$ by fixed encodings: $x \in T$ by the indicator vector of $x$ against the pattern with wildcards exactly on $T$ and $0$ elsewhere, $x \ge a$ by $x$ in unary against the pattern with $1$ at position $a$ and wildcards elsewhere, and a range as the conjunction of two comparisons, with ciphertexts linear in the domain size ([[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]]) — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
 
 # Other results
 
-- [[ippe-to-hve|IPPE ⇒ HVE]]
+- [[ippe-to-hve|IPPE ⇒ Selectively attribute-hiding HVE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 
-<!-- BEGIN GENERATED participates-in 0a93b5a9f4de -->
+<!-- BEGIN GENERATED participates-in 0232e190f9e1 -->
 
 ## Participates in
 
@@ -122,6 +156,6 @@ Subset predicates (is $x_i \in T_i$ for a set $T_i$?) and range predicates (is $
 - [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]] (via [[hidden-vector-encryption#payload-hiding-security|Payload-Hiding Security]])
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 - [[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]] (via [[hidden-vector-encryption#subset-and-range-queries|Subset and range queries]])
-- [[ippe-to-hve|IPPE ⇒ HVE]]
+- [[ippe-to-hve|IPPE ⇒ Selectively attribute-hiding HVE]] (via [[hidden-vector-encryption#selective-attribute-hiding-security|Selective attribute-hiding security]])
 
 <!-- END GENERATED participates-in -->

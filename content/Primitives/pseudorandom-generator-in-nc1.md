@@ -49,12 +49,16 @@ is negligible.
 - Every PRG in $\mathrm{NC}^1$, and more generally in $\oplus\mathrm{L}/\mathrm{poly}$, compiles into a PRG in $\mathrm{NC}^0$ with locality $4$ and the same additive stretch ([[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0]]) — [[AIK06 - Cryptography in NC0|AIK06]].
 - The Naor–Reingold [[pseudorandom-function|pseudorandom function]] is computable in $\mathrm{TC}^0 \subseteq \mathrm{NC}^1$ and pseudorandom if [[decisional-diffie-hellman|DDH]] holds ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]. PRGs in $\mathrm{NC}^1$ are implied by most number-theoretic or algebraic intractability assumptions commonly used in cryptography — [[AIK06 - Cryptography in NC0|AIK06]].
 
-<!-- BEGIN GENERATED participates-in abd479b29d98 -->
+<!-- BEGIN GENERATED participates-in ef09f62a5784 -->
 
 ## Participates in
 
 **Builds on Pseudorandom generator in $\mathrm{NC}^1$**
 
 - [[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0 (AIK)]]
+
+**Produces Pseudorandom generator in $\mathrm{NC}^1$**
+
+- [[low-complexity-prg-nc0-to-prg-in-nc1|NC0 PRG ⇒ NC1 PRG]]
 
 <!-- END GENERATED participates-in -->

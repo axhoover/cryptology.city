@@ -6588,6 +6588,19 @@
    "unlisted": false
   },
   {
+   "id": "selective-hve-attribute-hiding",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hidden-vector-encryption.md",
+   "slug": "hidden-vector-encryption",
+   "graphSlug": "Primitives/hidden-vector-encryption",
+   "anchor": "#selective-attribute-hiding-security",
+   "of": "hve",
+   "title": "Selective attribute-hiding security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "selective-node-bte",
    "kind": "variant",
    "type": "primitive",
@@ -17043,7 +17056,7 @@
    "hypotheses": [
     "ippe"
    ],
-   "conclusion": "hve",
+   "conclusion": "selective-hve-attribute-hiding",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -17054,16 +17067,16 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to an additive $2q/p$ for $q$ key queries when the challenge attributes are fixed first: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$",
+   "securityLoss": "tight up to an additive $2q \\cdot \\mathbb{E}[1/p]$ for $q$ key queries: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$",
    "rationale": {
-    "class": "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$.",
+    "class": "KSW08 do not classify the reduction, although the construction uses the IPPE scheme only as an oracle.",
     "securityLoss": "The coefficients $r_i$ are sampled after the challenge attributes are fixed, so each non-matching key's encoded inner product is uniform in $\\ZZ_p$ on each of them."
    },
    "status": "draft",
    "page": "content/Reductions/ippe-to-hve.md",
    "slug": "ippe-to-hve",
    "graphSlug": "Reductions/ippe-to-hve",
-   "title": "IPPE ⇒ HVE"
+   "title": "IPPE ⇒ Selectively attribute-hiding HVE"
   },
   {
    "id": "red-ippe-to-payload-only-hiding",
@@ -17816,6 +17829,33 @@
    "slug": "lossy-trapdoor-functions-to-pke",
    "graphSlug": "Reductions/lossy-trapdoor-functions-to-pke",
    "title": "Lossy trapdoor functions ⇒ IND-CCA PKE"
+  },
+  {
+   "id": "red-low-complexity-prg-nc0-to-prg-in-nc1",
+   "kind": "implication",
+   "hypotheses": [
+    "low-complexity-prg-nc0"
+   ],
+   "conclusion": "prg-in-nc1",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the generator itself, and the reduction forwards the adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/low-complexity-prg-nc0-to-prg-in-nc1.md",
+   "slug": "low-complexity-prg-nc0-to-prg-in-nc1",
+   "graphSlug": "Reductions/low-complexity-prg-nc0-to-prg-in-nc1",
+   "title": "NC0 PRG ⇒ NC1 PRG"
   },
   {
    "id": "red-low-exponent-rsa-to-rsa",
@@ -20041,6 +20081,33 @@
    "slug": "oprf-to-psi",
    "graphSlug": "Reductions/oprf-to-psi",
    "title": "OPRF ⇒ PSI"
+  },
+  {
+   "id": "red-optimally-fair-coin-flipping-to-constant-bias-coin-flipping",
+   "kind": "implication",
+   "hypotheses": [
+    "optimally-fair-coin-flipping"
+   ],
+   "conclusion": "constant-bias-coin-flipping",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the member of the family with a fixed constant number of rounds, run unchanged, and the reduction forwards any biasing adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/optimally-fair-coin-flipping-to-constant-bias-coin-flipping.md",
+   "slug": "optimally-fair-coin-flipping-to-constant-bias-coin-flipping",
+   "graphSlug": "Reductions/optimally-fair-coin-flipping-to-constant-bias-coin-flipping",
+   "title": "Optimally fair coin flipping ⇒ Constant-bias coin flipping"
   },
   {
    "id": "red-ot-and-owf-to-ot-extension-bea96",
@@ -22810,6 +22877,33 @@
    "slug": "prf-to-weak-prf",
    "graphSlug": "Reductions/prf-to-weak-prf",
    "title": "PRF ⇒ Weak PRF"
+  },
+  {
+   "id": "red-prg-in-nc0-to-low-complexity-prg-nc0",
+   "kind": "implication",
+   "hypotheses": [
+    "prg-in-nc0"
+   ],
+   "conclusion": "low-complexity-prg-nc0",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the generator itself, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-in-nc0-to-low-complexity-prg-nc0.md",
+   "slug": "prg-in-nc0-to-low-complexity-prg-nc0",
+   "graphSlug": "Reductions/prg-in-nc0-to-low-complexity-prg-nc0",
+   "title": "Polynomial-stretch NC0 PRG ⇒ NC0 PRG"
   },
   {
    "id": "red-prg-in-nc1-to-low-complexity-prg-nc0-aik06",
@@ -32057,7 +32151,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "SXDH extended to multilinear groups of degree at least c log p, for a constant c > 1 and group order p"
+    "SXDH extended to multilinear groups of order p and degree at least c log p, for some constant c > 1"
    ],
    "circumventedBy": [],
    "source": [
