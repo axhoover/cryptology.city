@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[rsa-assumption|RSA]] is hard, there is a stateless [[digital-signature|signature scheme]] that is [[digital-signature#existential-unforgeability|EUF-CMA]] in the standard model and whose signatures consist of one element of $\ZZ_N^*$ and one integer — [[HW09 - Short and Stateless Signatures from the RSA Assumption|HW09]]. The scheme is first shown weakly secure, by a technique in which the simulator predicts a prefix of the message the adversary will forge on, and then made fully secure with a chameleon hash — [[HW09 - Short and Stateless Signatures from the RSA Assumption|HW09]].
+Under the [[rsa-assumption|RSA assumption]] as HW09 state it (modulus and exponent distribution: TODO), there is a stateless [[digital-signature|signature scheme]] that is [[digital-signature#existential-unforgeability|EUF-CMA]] in the standard model and whose signatures consist of one element of $\ZZ_N^*$ and one integer — [[HW09 - Short and Stateless Signatures from the RSA Assumption|HW09]]. The scheme is first shown weakly secure, by a technique in which the simulator predicts a prefix of the message the adversary will forge on, and then made fully secure with a chameleon hash — [[HW09 - Short and Stateless Signatures from the RSA Assumption|HW09]].
 
 ## Notes
 

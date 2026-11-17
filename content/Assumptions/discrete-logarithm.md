@@ -16,6 +16,7 @@ variants:
   verifiable-prime-order-dlog: "#dlog-in-verifiable-prime-order-groups"
   twisted-edwards-dlog: "#dlog-in-prime-order-subgroups-of-twisted-edwards-curves"
   zp-star-dlog: "#dlog-in-the-multiplicative-group-of-a-prime-field"
+  efficiently-represented-dlog: "#dlog-in-efficiently-represented-groups"
   omdl: "#one-more-discrete-logarithm"
   q-dlog: "#q-dlog"
 ---
@@ -110,6 +111,21 @@ generator does ([[dlog-to-prg-bm84|DLOG ⇒ PRG]]) — [[BM84 - How to Generate 
 Forgetting the form of the group gives DLOG for the same generator
 ([[zp-star-dlog-to-dlog|Prime-field DLOG ⇒ DLOG]]) — folklore.
 
+## DLOG in efficiently represented groups
+
+**DLOG is hard in efficiently represented groups** for $\GrGen$ if DLOG is hard
+for $\GrGen$ and deterministic polynomial-time algorithms, given $(\GG, g, p)$
+output by $\GrGen$, compute mutually inverse bijections between $\GG$ and
+$[p] = \{0, \ldots, p - 1\}$. The group operation transported to $[p]$ is then
+computed by a circuit $f$ of size $\poly(\secpar)$, so with the identity, $g$
+and a target $h$ mapped to $\mathrm{id}, g', t \in [p]$, the tuple
+$(p, f, \mathrm{id}, g', t)$ is an instance of the total search problem DLog of
+[[HV21 - On Search Complexity of Discrete Logarithm|HV21]] (arXiv v2,
+Definition 3.1), and membership of a target in $[p]$ is the test $t < p$.
+$\ZZ_P^*$, represented by $[P - 1]$ through $a \mapsto a - 1$, is one example —
+[[HV21 - On Search Complexity of Discrete Logarithm|HV21]] (arXiv v2,
+Lemma 5.2).
+
 ## $q$-DLOG
 
 The assumption concerns a bilinear group generator $\GrGen$, which on input $1^\secpar$ outputs $(\GG_1, \GG_2, \GG_T, p, g_1, g_2, e)$: cyclic groups of prime order $p$ with $\GG_1 \ne \GG_2$ (an asymmetric pairing), generators $g_1$ of $\GG_1$ and $g_2$ of $\GG_2$, and a non-degenerate [[pairings|bilinear pairing]] $e : \GG_1 \times \GG_2 \to \GG_T$. Let $q_1 = q_1(\secpar)$ and $q_2 = q_2(\secpar)$ be polynomials.
@@ -199,7 +215,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 30c56ef17597 -->
+<!-- BEGIN GENERATED participates-in 89fec21162c6 -->
 
 ## Participates in
 
@@ -219,11 +235,12 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[dlog-to-owf|DLOG ⇒ OWF]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]] (via [[discrete-logarithm#dlog-in-the-multiplicative-group-of-a-prime-field|DLOG in the multiplicative group of a prime field]])
-- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]]
+- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]] (via [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]])
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG + secure channels ⇒ Verifiable secret sharing (VSS)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[efficiently-represented-dlog-to-dlog|Efficiently represented DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
 - [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
@@ -241,11 +258,13 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[twisted-edwards-dlog-to-prime-order-dlog|Twisted Edwards DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-subgroups-of-twisted-edwards-curves|DLOG in prime-order subgroups of twisted Edwards curves]])
 - [[verifiable-prime-order-dlog-to-prime-order-dlog|Verifiable prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]])
 - [[zp-star-dlog-to-dlog|Prime-field DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-the-multiplicative-group-of-a-prime-field|DLOG in the multiplicative group of a prime field]])
+- [[zp-star-dlog-to-efficiently-represented-dlog|Prime-field DLOG ⇒ efficiently represented DLOG]] (via [[discrete-logarithm#dlog-in-the-multiplicative-group-of-a-prime-field|DLOG in the multiplicative group of a prime field]])
 
 **Produces Discrete logarithm**
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[efficiently-represented-dlog-to-dlog|Efficiently represented DLOG ⇒ DLOG]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[ggm-to-omdl-bfp21|GGM ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]
@@ -257,6 +276,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[twisted-edwards-dlog-to-prime-order-dlog|Twisted Edwards DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[verifiable-prime-order-dlog-to-prime-order-dlog|Verifiable prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[zp-star-dlog-to-dlog|Prime-field DLOG ⇒ DLOG]]
+- [[zp-star-dlog-to-efficiently-represented-dlog|Prime-field DLOG ⇒ efficiently represented DLOG]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
 
 **Barriers**
 
