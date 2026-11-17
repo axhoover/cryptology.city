@@ -40,7 +40,7 @@ A homomorphic encryption scheme with message space $\calM$ and function class $\
 - $\Dec(\sk, c) \to m$, a deterministic algorithm,
 - $\Eval(\pk, f, c_1, \ldots, c_k) \to c$, a possibly randomized algorithm that takes a circuit $f \in \calF$ of arity $k$ and $k$ ciphertexts and outputs a ciphertext.
 
-Every scheme on this page has, for every $\secpar$ and every public key output by $\KeyGen$, a message space containing two distinct messages of equal length. Compact FHE, circular-secure FHE, leveled FHE and bootstrappable SHE have $\calM = \bits$, as do the bit-encryption schemes below. Without two such messages, the scheme that outputs $m$ in the clear meets every notion on this page — standard.
+Every scheme on this page has, for every $\secpar$ and every public key output by $\KeyGen$, a message space containing two distinct messages of equal length, and an efficient algorithm outputs two such messages given $\pk$. Compact FHE, circular-secure FHE, leveled FHE and bootstrappable SHE have $\calM = \bits$, as do the bit-encryption schemes below. Without two such messages, the scheme that outputs $m$ in the clear meets every notion on this page; without the algorithm, so does the scheme with $\calM_{\pk} = \{a, b\}$ for $\pk = (g(a), g(b))$, a one-way function $g$ and uniform $a, b$ that sends messages in the clear, since no efficient adversary can produce a message — standard.
 
 ## Properties
 

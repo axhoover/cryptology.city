@@ -29,7 +29,7 @@ A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ w
 - $\Enc(\pk, m) \to c,$ is a randomized algorithm which takes a public key $\pk \in \calK_{\mathrm{pk}}$ and message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk, c) \to m,$ is a deterministic algorithm which takes a secret key $\sk \in \calK_{\mathrm{sk}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
-Every PKE scheme on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length, as $\calM = \bits^*$ and $\calM = \bits^{\ell(\secpar)}$ with $\ell(\secpar) \ge 1$ do. Without correctness, a scheme whose $\Enc$ ignores its message meets every security notion below, and without two such messages so does the scheme that outputs $m$ in the clear.
+Every PKE scheme on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length that an efficient algorithm outputs on input $1^\secpar$, or on input $\pk$ when the message space depends on the public key, as in group-based schemes, as $\calM = \bits^*$ and $\calM = \bits^{\ell(\secpar)}$ with $\ell(\secpar) \ge 1$ do. Without correctness, a scheme whose $\Enc$ ignores its message meets every security notion below, and without two such messages so does the scheme that outputs $m$ in the clear.
 
 ## Properties
 
