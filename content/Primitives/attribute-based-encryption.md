@@ -149,19 +149,21 @@ is negligible. As an object, selectively secure CP-ABE denotes a $(1-\negl(\secp
 
 ### Very selective security
 
-In **very selective** CP-ABE security, $\calA$ fixes the challenge policy $f^*$ and all its key queries $x_1, \ldots, x_q$, with $f^*(x_j) = 0$ for every $j$, before $\Setup$ runs, and makes no further key queries — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]. In the game below $\calA$ also fixes the challenge messages before $\Setup$. For the message space $\bits$ the order makes no difference: an adversary that chooses $m_0 \ne m_1$ after seeing its keys is run against the fixed pair $(0, 1)$, with its guess flipped when it chooses $(1, 0)$, at the same advantage — standard.
+In **very selective** CP-ABE security, $\calA$ fixes the challenge policy $f^*$ and all its key queries $x_1, \ldots, x_q$, with $f^*(x_j) = 0$ for every $j$, before $\Setup$ runs, and makes no further key queries — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]. In the game below $\calA$ chooses the challenge messages after receiving $\pp$ and its keys. For the message space $\bits$, fixing them before $\Setup$ gives the same notion: an adversary that chooses $m_0 \ne m_1$ after seeing its keys is run against the fixed pair $(0, 1)$, with its guess flipped when it chooses $(1, 0)$, at the same advantage — standard. When the message space depends on $\pp$, fixing them before $\Setup$ can make the notion vacuous: with $\calM_{\pp} = \{r \| 0, r \| 1\}$ for a uniform $r \in \bits^\secpar$ in $\pp$, the scheme that sends $m$ in the clear meets it — standard.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{vsel\text{-}cp\text{-}cpa}}_{\ABE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(f^*, x_1, \ldots, x_q, m_0, m_1, \stA) \gets \calA(1^\secpar)$
-\Comment{$f^*(x_j) = 0$ for every $j \in [q]$, and $|m_0| = |m_1|$}
+\State $(f^*, x_1, \ldots, x_q, \stA) \gets \calA(1^\secpar)$
+\Comment{$f^*(x_j) = 0$ for every $j \in [q]$}
 \State $(\pp, \msk) \gets \Setup(1^\secpar, 1^n)$; $b \getsr \bits$
 \State $\sk_j \gets \KeyGen(\msk, x_j)$ for every $j \in [q]$
+\State $(m_0, m_1, \stA) \gets \calA(\pp, \sk_1, \ldots, \sk_q, \stA)$
+\Comment{$m_0, m_1 \in \calM$ and $|m_0| = |m_1|$}
 \State $c^* \gets \Enc(\pp, f^*, m_b)$
-\State $b' \gets \calA(\pp, \sk_1, \ldots, \sk_q, c^*, \stA)$
+\State $b' \gets \calA(c^*, \stA)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
