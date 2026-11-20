@@ -9,6 +9,7 @@ title: Inner-product predicate encryption
 id: ippe
 variants:
   nonzero-ippe: "#zero-inner-product-vs-non-zero"
+  nonzero-vector-ippe: "#nonzero-predicate-and-attribute-vectors"
   payload-hiding-ippe: "#payload-only-hiding"
 ---
 
@@ -101,6 +102,10 @@ $$
 
 is negligible.
 
+## Nonzero predicate and attribute vectors
+
+An IPPE scheme as above whose $\KeyGen$ and $\Enc$ accept only nonzero vectors $v, x \in \ZZ_p^n \setminus \{0\}$, with correctness quantified over nonzero vectors and an admissible attribute-hiding adversary restricted to nonzero challenge attributes and key queries. As an object, it denotes a $(1-\negl(\secpar))$-correct, attribute-hiding such scheme with the message pair required above. This is the domain of the dual-system schemes of [[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]] (Definition 4). Padding gives full-domain IPPE ([[nonzero-vector-ippe-to-ippe|IPPE on nonzero vectors ⇒ IPPE]]): encode $x \in \ZZ_p^n$ as $(x, 1, 0)$ and $v$ as $(v, 0, 1)$ in dimension $n + 2$, which are nonzero and have the same inner product — folklore.
+
 ## Zero inner product vs. non-zero
 
 Some formulations flip the predicate: decryption succeeds when $\langle v, x \rangle \ne 0$ — [[AL10 - Functional Encryption for Inner Product Achieving Constant-Size Ciphertexts with Adaptive Security or Support for Negation|AL10]].
@@ -111,7 +116,7 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 - The first IPPE scheme, over composite-order bilinear groups, shows that inner products encode disjunctions, polynomial equations, and CNF/DNF formulas; it is selectively attribute-hiding under two new assumptions justified in the generic group model — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
 
-<!-- BEGIN GENERATED participates-in 787d0ce3712a -->
+<!-- BEGIN GENERATED participates-in bc41299bdb0f -->
 
 ## Participates in
 
@@ -119,10 +124,12 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 
 - [[ippe-to-hve|IPPE ⇒ Selectively attribute-hiding HVE]]
 - [[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]]
+- [[nonzero-vector-ippe-to-ippe|IPPE on nonzero vectors ⇒ IPPE]] (via [[inner-product-predicate-encryption#nonzero-predicate-and-attribute-vectors|Nonzero predicate and attribute vectors]])
 
 **Produces Inner-product predicate encryption**
 
-- [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]]
+- [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]] (via [[inner-product-predicate-encryption#nonzero-predicate-and-attribute-vectors|Nonzero predicate and attribute vectors]])
 - [[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]] (via [[inner-product-predicate-encryption#payload-only-hiding|Payload-only hiding]])
+- [[nonzero-vector-ippe-to-ippe|IPPE on nonzero vectors ⇒ IPPE]]
 
 <!-- END GENERATED participates-in -->

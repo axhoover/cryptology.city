@@ -94,9 +94,9 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
 - [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]], with the one-time pad as DEM — folklore
 - The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
-- [[kem-to-ke|KEM ⇒ KE]]
+- [[kem-to-ke|KEM ⇒ KE with bit-string keys]]
 
-<!-- BEGIN GENERATED participates-in 7856485355ba -->
+<!-- BEGIN GENERATED participates-in e17ae2560d47 -->
 
 ## Participates in
 
@@ -106,7 +106,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 - [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 - [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
-- [[kem-to-ke|KEM ⇒ KE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
+- [[kem-to-ke|KEM ⇒ KE with bit-string keys]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 
 **Produces Key encapsulation mechanism**
 

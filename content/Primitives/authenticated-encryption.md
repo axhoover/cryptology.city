@@ -210,9 +210,9 @@ are negligible — [[Rog02 - Authenticated-Encryption with Associated-Data|Rog02
 
 For a SKE scheme $\SKE$ and a [[message-authentication-code|MAC]] $\MAC$ under independent keys $k_e$ and $k_m$, the three generic compositions encrypt $m$ as follows, and decryption outputs $\bot$ whenever the tag does not verify — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]: _Encrypt-then-MAC_ (EtM) outputs $(c, \Tag(k_m, c))$ for $c \gets \Enc(k_e, m)$; _MAC-then-Encrypt_ (MtE) outputs $\Enc(k_e, m \| \Tag(k_m, m))$; _Encrypt-and-MAC_ (E&M) outputs $(\Enc(k_e, m), \Tag(k_m, m))$.
 
-For a [[symmetric-key-encryption#cpa-security|CPA-secure]] $\SKE$ and a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] $\MAC$, EtM is an authenticated encryption scheme ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE]]), hence CCA-secure ([[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]) — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. For a perfectly correct CPA-secure $\SKE$ and a $\MAC$ that is [[message-authentication-code#unforgeability|UF-CMA-secure]] against forgers that also have a verification oracle, all three compositions are INT-PTXT-secure, and EtM and MtE are CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. MtE and E&M are not generically secure: assuming CPA-secure SKE schemes and SUF-CMA-secure MACs exist, some such pair makes MtE neither INT-CTXT-secure nor CCA-secure, and some such pair makes E&M not CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+For a [[symmetric-key-encryption#cpa-security|CPA-secure]] $\SKE$ and a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] $\MAC$ on [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|arbitrary-length messages]], EtM is an authenticated encryption scheme ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE]]), hence CCA-secure ([[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]) — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. For a perfectly correct CPA-secure $\SKE$ and a $\MAC$ that is [[message-authentication-code#unforgeability|UF-CMA-secure]] against forgers that also have a verification oracle, all three compositions are INT-PTXT-secure, and EtM and MtE are CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. MtE and E&M are not generically secure: assuming CPA-secure SKE schemes and SUF-CMA-secure MACs exist, some such pair makes MtE neither INT-CTXT-secure nor CCA-secure, and some such pair makes E&M not CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
-<!-- BEGIN GENERATED participates-in 0b8fd1b89846 -->
+<!-- BEGIN GENERATED participates-in 48369df96b23 -->
 
 ## Participates in
 
@@ -222,6 +222,6 @@ For a [[symmetric-key-encryption#cpa-security|CPA-secure]] $\SKE$ and a [[messag
 
 **Produces Authenticated encryption**
 
-- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]]
+- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]]
 
 <!-- END GENERATED participates-in -->

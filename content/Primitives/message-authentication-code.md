@@ -8,6 +8,7 @@ title: Message authentication code
 id: mac
 variants:
   suf-cma-mac: "#strong-unforgeability"
+  arbitrary-length-suf-cma-mac: "#strongly-unforgeable-macs-for-arbitrary-length-messages"
   one-time-mac: "#one-time-macs"
   nonce-based-mac: "#nonce-based-macs"
 ---
@@ -126,6 +127,10 @@ is negligible.
 
 # Variations
 
+## Strongly unforgeable MACs for arbitrary-length messages
+
+A MAC with message space $\calM = \bits^*$ that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$, with the bound holding for every $m \in \bits^*$, and [[#Strong unforgeability|SUF-CMA-secure]]; an efficient adversary queries and forges only on messages of polynomial length. It is a strongly unforgeable MAC ([[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]]) — folklore. Composing it with an encryption scheme whose ciphertexts are bit strings needs no condition linking the two message spaces, which Encrypt-then-MAC requires ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]]): a MAC on $\calM = \bits$, a key of two independent uniform tags in $\bits^\secpar$ with canonical verification, is correct and SUF-CMA-secure unconditionally, yet cannot tag a $\secpar$-bit ciphertext — standard.
+
 ## Deterministic MACs
 
 A MAC is **deterministic** if $\Tag$ is deterministic. Under canonical verification $\Vrfy(k, m, t) := [t = \Tag(k, m)]$ each message has exactly one valid tag, so a valid pair $(\hat m, \hat t)$ with $\hat m$ queried is an oracle answer, and a deterministic UF-CMA-secure MAC with canonical verification is SUF-CMA-secure — standard.
@@ -150,22 +155,24 @@ $$
 
 - [[prf-to-mac|PRF ⇒ MAC]], and [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]] on messages of a fixed number of blocks.
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]].
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (encrypt-then-MAC).
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (encrypt-then-MAC).
 - **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$, let $F_k(m_1 \cdots m_\ell) := y_\ell$ with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$ be its iteration keyed by the initial chaining value. Then $\mathrm{NMAC}_{k_1,k_2}(m) := F_{k_1}(F_{k_2}(m))$, with the inner output padded to one block, is a UF-CMA-secure MAC if $f$, keyed by its chaining input, is a secure MAC on one-block messages and $F_k$ is weakly collision resistant, that is, collision resistant against an adversary that sees $F_k$ only through an oracle — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. $\mathrm{HMAC}$ is NMAC with $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$ derived from a single key $\bar k$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]].
 - [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]: NMAC is a PRF if $f$, keyed by its chaining input, is a PRF, with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
 
-<!-- BEGIN GENERATED participates-in 48e494af1807 -->
+<!-- BEGIN GENERATED participates-in 0dccb451bce8 -->
 
 ## Participates in
 
 **Builds on Message authentication code**
 
-- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
+- [[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]] (via [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|Strongly unforgeable MACs for arbitrary-length messages]])
+- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|Strongly unforgeable MACs for arbitrary-length messages]])
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|Strongly unforgeable MACs for arbitrary-length messages]])
 - [[suf-cma-mac-to-mac|SUF-CMA MAC ⇒ MAC]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
 
 **Produces Message authentication code**
 
+- [[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]

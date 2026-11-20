@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "KEM ⇒ KE"
+title: "KEM ⇒ KE with bit-string keys"
 aliases: []
 id: red-kem-to-ke
 kind: implication
 hypotheses: [ind-cpa-kem]
-conclusion: ke
+conclusion: bit-string-key-exchange
 class: fully-black-box
 model: standard
 source: folklore
@@ -15,11 +15,11 @@ rationale:
   class: "The protocol calls KeyGen, Encap and Decap only as oracles, and the fixed reduction runs the eavesdropper once as an oracle on the KEM challenge."
 ---
 
-# KEM ⇒ KE
+# KEM ⇒ KE with bit-string keys
 
 ## Statement
 
-A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \Encap, \Decap)$ yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \Encap(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\Decap(\sk, c)$. If the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]], the protocol is secure against eavesdroppers, and it is $(1-\varepsilon)$-correct when the KEM is — folklore.
+A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \Encap, \Decap)$ yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \Encap(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\Decap(\sk, c)$. If the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]], the protocol is secure against eavesdroppers, and it is $(1-\varepsilon)$-correct when the KEM is — folklore. Its key space is the KEM's, $\bits^{\ell(\secpar)}$ with $\secpar \le \ell(\secpar) \le \poly(\secpar)$, so it is a [[key-exchange#key-exchange-with-bit-string-keys|key exchange with bit-string keys]].
 
 ## Sketch
 

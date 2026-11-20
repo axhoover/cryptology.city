@@ -538,6 +538,19 @@
    "unlisted": false
   },
   {
+   "id": "arbitrary-length-suf-cma-mac",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/message-authentication-code.md",
+   "slug": "message-authentication-code",
+   "graphSlug": "Primitives/message-authentication-code",
+   "anchor": "#strongly-unforgeable-macs-for-arbitrary-length-messages",
+   "of": "mac",
+   "title": "Strongly unforgeable MACs for arbitrary-length messages",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "arithmetization",
    "kind": "object",
    "type": "glossary",
@@ -864,6 +877,19 @@
    "anchor": "#bit-compressing-sis",
    "of": "sis",
    "title": "Bit-compressing SIS",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bit-string-key-exchange",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/key-exchange.md",
+   "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
+   "anchor": "#key-exchange-with-bit-string-keys",
+   "of": "ke",
+   "title": "Key exchange with bit-string keys",
    "aliases": [],
    "unlisted": false
   },
@@ -4817,6 +4843,19 @@
    "anchor": "#zero-inner-product-vs-non-zero",
    "of": "ippe",
    "title": "Zero inner product vs. non-zero",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "nonzero-vector-ippe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/inner-product-predicate-encryption.md",
+   "slug": "inner-product-predicate-encryption",
+   "graphSlug": "Primitives/inner-product-predicate-encryption",
+   "anchor": "#nonzero-predicate-and-attribute-vectors",
+   "of": "ippe",
+   "title": "Nonzero predicate and attribute vectors",
    "aliases": [],
    "unlisted": false
   },
@@ -9482,6 +9521,33 @@
    "title": "IND-CPA-D approximate HE ⇒ Approximate HE"
   },
   {
+   "id": "red-arbitrary-length-suf-cma-mac-to-suf-cma-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-suf-cma-mac"
+   ],
+   "conclusion": "suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme itself, and the reduction forwards the forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-suf-cma-mac-to-suf-cma-mac.md",
+   "slug": "arbitrary-length-suf-cma-mac-to-suf-cma-mac",
+   "graphSlug": "Reductions/arbitrary-length-suf-cma-mac-to-suf-cma-mac",
+   "title": "Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC"
+  },
+  {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
    "kind": "implication",
    "hypotheses": [
@@ -10415,6 +10481,33 @@
    "slug": "bit-compressing-sis-to-sis",
    "graphSlug": "Reductions/bit-compressing-sis-to-sis",
    "title": "Bit-compressing SIS ⇒ SIS"
+  },
+  {
+   "id": "red-bit-string-key-exchange-to-ke",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-key-exchange"
+   ],
+   "conclusion": "ke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the protocol itself, and the reduction forwards the eavesdropper unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-key-exchange-to-ke.md",
+   "slug": "bit-string-key-exchange-to-ke",
+   "graphSlug": "Reductions/bit-string-key-exchange-to-ke",
+   "title": "KE with bit-string keys ⇒ KE"
   },
   {
    "id": "red-bit-string-tdp-to-tdp",
@@ -11776,7 +11869,7 @@
    "kind": "implication",
    "hypotheses": [
     "cpa-security",
-    "suf-cma-mac"
+    "arbitrary-length-suf-cma-mac"
    ],
    "conclusion": "authenticated-encryption",
    "class": "fully-black-box",
@@ -11798,7 +11891,7 @@
    "page": "content/Reductions/cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00.md",
    "slug": "cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00",
    "graphSlug": "Reductions/cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00",
-   "title": "CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)"
+   "title": "CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)"
   },
   {
    "id": "red-cpa-security-to-cpa-security",
@@ -13382,7 +13475,7 @@
     "bilinear-pairing",
     "decisional-linear"
    ],
-   "conclusion": "ippe",
+   "conclusion": "nonzero-vector-ippe",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -17817,7 +17910,7 @@
    "id": "red-ke-to-multi-party-key-exchange",
    "kind": "implication",
    "hypotheses": [
-    "ke"
+    "bit-string-key-exchange"
    ],
    "conclusion": "multi-party-key-exchange",
    "class": "fully-black-box",
@@ -17838,7 +17931,7 @@
    "page": "content/Reductions/ke-to-multi-party-key-exchange.md",
    "slug": "ke-to-multi-party-key-exchange",
    "graphSlug": "Reductions/ke-to-multi-party-key-exchange",
-   "title": "KE ⇒ Multi-party key exchange"
+   "title": "KE with bit-string keys ⇒ Multi-party key exchange"
   },
   {
    "id": "red-ke-to-pke-dh76",
@@ -17901,7 +17994,7 @@
    "hypotheses": [
     "ind-cpa-kem"
    ],
-   "conclusion": "ke",
+   "conclusion": "bit-string-key-exchange",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -17920,7 +18013,7 @@
    "page": "content/Reductions/kem-to-ke.md",
    "slug": "kem-to-ke",
    "graphSlug": "Reductions/kem-to-ke",
-   "title": "KEM ⇒ KE"
+   "title": "KEM ⇒ KE with bit-string keys"
   },
   {
    "id": "red-key-expanding-weak-prf-to-weak-prf",
@@ -19076,7 +19169,7 @@
    "id": "red-mac-and-ske-to-cca-security",
    "kind": "implication",
    "hypotheses": [
-    "suf-cma-mac",
+    "arbitrary-length-suf-cma-mac",
     "cpa-security"
    ],
    "conclusion": "cca-secure-symmetric-key-encryption",
@@ -19099,7 +19192,7 @@
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
    "slug": "mac-and-ske-to-cca-security",
    "graphSlug": "Reductions/mac-and-ske-to-cca-security",
-   "title": "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
+   "title": "Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
   },
   {
    "id": "red-malicious-ot-security-to-malicious-ot-with-expected-time-simulation",
@@ -20206,6 +20299,33 @@
    "slug": "non-uniform-prg-to-prg",
    "graphSlug": "Reductions/non-uniform-prg-to-prg",
    "title": "Non-uniform PRG ⇒ PRG"
+  },
+  {
+   "id": "red-nonzero-vector-ippe-to-ippe",
+   "kind": "implication",
+   "hypotheses": [
+    "nonzero-vector-ippe"
+   ],
+   "conclusion": "ippe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "One fixed construction calls the nonzero-vector scheme once per algorithm on padded vectors, and one fixed reduction runs any attribute-hiding adversary as an oracle, padding its queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/nonzero-vector-ippe-to-ippe.md",
+   "slug": "nonzero-vector-ippe-to-ippe",
+   "graphSlug": "Reductions/nonzero-vector-ippe-to-ippe",
+   "title": "IPPE on nonzero vectors ⇒ IPPE"
   },
   {
    "id": "red-notable-problems-to-qma",

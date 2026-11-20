@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)"
+title: "CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)"
 aliases: []
 id: red-cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00
 kind: implication
-hypotheses: [cpa-security, suf-cma-mac]
+hypotheses: [cpa-security, arbitrary-length-suf-cma-mac]
 conclusion: authenticated-encryption
 class: fully-black-box
 model: standard
@@ -17,11 +17,11 @@ rationale:
   security-loss: "The SUF-CMA game takes one final forgery and has no verification oracle, so the forger answers verification queries on outputs of the encryption oracle by decrypting under the SKE key it samples and all others with 0, and guesses which query is the first valid one the encryption oracle did not output."
 ---
 
-# CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)
+# CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)
 
 ## Statement
 
-Let $\SKE = (\KeyGen, \Enc, \Dec)$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC = (\KeyGen, \Tag, \Vrfy)$ a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] [[message-authentication-code|MAC]] whose message space contains the ciphertext space of $\SKE$. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$, which encrypts $m$ to $(c, \Tag(k_m, c))$ for $c \gets \Enc(k_e, m)$ and decrypts $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise, is an [[authenticated-encryption|authenticated encryption]] scheme: it is [[authenticated-encryption#privacy|CPA-secure]] and [[authenticated-encryption#integrity-of-ciphertexts|INT-CTXT-secure]] — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. Encrypt-then-MAC is $(1-\varepsilon_{\SKE}-\varepsilon_{\MAC})$-correct for a $(1-\varepsilon_{\SKE})$-correct $\SKE$ and a $(1-\varepsilon_{\MAC})$-correct $\MAC$, by a union bound, with the message space of $\SKE$ — standard.
+Let $\SKE = (\KeyGen, \Enc, \Dec)$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC = (\KeyGen, \Tag, \Vrfy)$ a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] [[message-authentication-code|MAC]] for [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|arbitrary-length messages]], so that it tags every ciphertext of $\SKE$. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$, which encrypts $m$ to $(c, \Tag(k_m, c))$ for $c \gets \Enc(k_e, m)$ and decrypts $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise, is an [[authenticated-encryption|authenticated encryption]] scheme: it is [[authenticated-encryption#privacy|CPA-secure]] and [[authenticated-encryption#integrity-of-ciphertexts|INT-CTXT-secure]] — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. Encrypt-then-MAC is $(1-\varepsilon_{\SKE}-\varepsilon_{\MAC})$-correct for a $(1-\varepsilon_{\SKE})$-correct $\SKE$ and a $(1-\varepsilon_{\MAC})$-correct $\MAC$, by a union bound, with the message space of $\SKE$ — standard.
 
 ## Sketch
 

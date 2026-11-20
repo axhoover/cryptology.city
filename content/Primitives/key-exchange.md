@@ -11,6 +11,7 @@ title: Key exchange
 id: ke
 variants:
   authenticated-key-exchange: "#authenticated-key-exchange-ake"
+  bit-string-key-exchange: "#key-exchange-with-bit-string-keys"
   multi-party-key-exchange: "#multi-party-key-exchange"
   non-interactive-key-exchange: "#non-interactive-key-exchange-nike"
   multi-party-nike: "#multiparty-non-interactive-key-exchange"
@@ -223,6 +224,10 @@ The eCK model of [[LLM07 - Stronger Security of Authenticated Key Exchange|LLM07
 
 NAXOS, whose ephemeral exponent is a hash of the session's ephemeral secret key and the party's static secret key, is eCK-secure under the gap Diffie–Hellman assumption (CDH is hard given a DDH oracle) in the random-oracle model — [[LLM07 - Stronger Security of Authenticated Key Exchange|LLM07]]. The CK and eCK models are formally incomparable — [[Cre11 - Examining indistinguishability-based security models for key exchange protocols the case of CK, CK-HMQV, and eCK|Cre11]].
 
+## Key exchange with bit-string keys
+
+A two-party key exchange whose key space is $\calK = \bits^{\ell(\secpar)}$ for a polynomial-time computable $\ell$ with $1 \le \ell(\secpar) \le \poly(\secpar)$. As a node, it denotes such a protocol, with PPT parties, that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and secure against eavesdroppers. It is a key exchange ([[bit-string-key-exchange-to-ke|KE with bit-string keys ⇒ KE]]) — folklore, and an IND-CPA-secure [[key-encapsulation-mechanism|KEM]] gives it ([[kem-to-ke|KEM ⇒ KE with bit-string keys]]) — folklore. Its keys can serve as one-time pads under $\oplus$, which an arbitrary finite key space does not support: for a uniform key on a three-element space encoded as $\{00, 01, 10\}$, XOR-padding $00$ gives the support $\{00, 01, 10\}$ and padding $01$ gives $\{00, 01, 11\}$, so the padded string reveals the padded value with constant advantage — standard.
+
 ## Multi-party key exchange
 
 For $n \ge 2$, an $n$-party key exchange protocol is a tuple $\Pi = (\mathsf{KE}_1, \ldots, \mathsf{KE}_n)$ of interactive algorithms with key space $\calK$, run by parties $P_1, \ldots, P_n$ on input $1^\secpar$ over a public, authenticated broadcast channel. An execution $\langle \mathsf{KE}_1(1^\secpar), \ldots, \mathsf{KE}_n(1^\secpar) \rangle \to (k_1, \ldots, k_n)$ outputs a key $k_i \in \calK$ to each $P_i$; its transcript $\tau$ is the sequence of all messages broadcast. $\Pi$ is $(1-\varepsilon)$-**correct**, for a function $\varepsilon = \varepsilon(\secpar)$, if for all $\secpar \in \NN$, $\Pr[k_1 = \cdots = k_n] \ge 1 - \varepsilon(\secpar)$ over the randomness of all parties.
@@ -246,7 +251,7 @@ $$
 \Adv^{\mathrm{mke}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{mke}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. As a node, multi-party key exchange denotes, for every polynomial $n = n(\secpar) \ge 2$, an $n$-party protocol, with PPT parties, that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and secure. Two-party key exchange gives it ([[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]]) — folklore, and its case $n = 2$ is a two-party key exchange ([[multi-party-key-exchange-to-ke|Multi-party key exchange ⇒ KE]]) — folklore.
+is negligible. As a node, multi-party key exchange denotes, for every polynomial $n = n(\secpar) \ge 2$, an $n$-party protocol, with PPT parties, that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and secure. [[#Key exchange with bit-string keys|Two-party key exchange with bit-string keys]] gives it ([[ke-to-multi-party-key-exchange|KE with bit-string keys ⇒ Multi-party key exchange]]) — folklore, and its case $n = 2$ is a two-party key exchange ([[multi-party-key-exchange-to-ke|Multi-party key exchange ⇒ KE]]) — folklore.
 
 The protocol of Burmester and Desmedt takes two rounds for every $n$ — [[BD94 - A Secure and Efficient Conference Key Distribution System|BD94]], [[KY03 - Scalable Protocols for Authenticated Group Key Exchange|KY03]]. [[KY03 - Scalable Protocols for Authenticated Group Key Exchange|KY03]] prove a variant of it secure against eavesdroppers and give a compiler that adds one round and turns any group key exchange secure against eavesdroppers into an authenticated one, secure against an adversary that controls all communication; applied to that variant, the compiler gives a three-round authenticated group key exchange with forward secrecy, secure under [[decisional-diffie-hellman|DDH]] in the standard model.
 
@@ -299,14 +304,15 @@ A three-party NIKE is an $N$-party NIKE, as defined above, for $N = 3$; as a nod
 - HMQV, a hashed variant of the MQV protocol of [[LMQSV03 - An Efficient Protocol for Authenticated Key Agreement|LMQSV03]], is a two-message protocol: $A$, with static key pair $(a, g^a)$, sends $X = g^x$, and $B$, with $(b, g^b)$, sends $Y = g^y$; with $d = \bar H(X, B)$ and $e = \bar H(Y, A)$, both compute $\sigma = (Y g^{be})^{x + da} = (X g^{ad})^{y + eb}$ and the session key $H(\sigma)$ — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. As originally posted, with $H$ and $\bar H$ modeled as random oracles, HMQV was claimed secure in the CK model under [[computational-diffie-hellman|CDH]], with some further properties under the gap Diffie–Hellman assumption and [[knowledge-of-exponent|KEA1]] — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. That claim fails for the protocol as stated, which does not check that $X$, $Y$ and the static public keys lie in the intended prime-order group; the revised [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] requires each party to verify that the Diffie–Hellman values it receives are non-identity elements of that group, and its security claims are for this validated protocol. [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] also gives attacks on MQV in the CK model.
 - [[Men05 - Another look at HMQV|Men05]] gives attacks on the unvalidated HMQV in the CK model that recover a victim's static secret key, by sending elements of small order and enumerating the revealed session keys over the small subgroup, and identifies flaws in the original security proof of [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]; it proposes a patched variant, HMQV-1.
 
-<!-- BEGIN GENERATED participates-in 30d5e42a186e -->
+<!-- BEGIN GENERATED participates-in 22f70b0cee19 -->
 
 ## Participates in
 
 **Builds on Key exchange**
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]] (via [[key-exchange#authenticated-key-exchange-ake|Authenticated key exchange (AKE)]])
-- [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]]
+- [[bit-string-key-exchange-to-ke|KE with bit-string keys ⇒ KE]] (via [[key-exchange#key-exchange-with-bit-string-keys|Key exchange with bit-string keys]])
+- [[ke-to-multi-party-key-exchange|KE with bit-string keys ⇒ Multi-party key exchange]] (via [[key-exchange#key-exchange-with-bit-string-keys|Key exchange with bit-string keys]])
 - [[ke-to-pke-dh76|NIKE ⇒ PKE]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 - [[multi-party-key-exchange-to-ke|Multi-party key exchange ⇒ KE]] (via [[key-exchange#multi-party-key-exchange|Multi-party key exchange]])
 - [[multi-party-nike-to-three-party-nike|Multiparty NIKE ⇒ Three-party NIKE]] (via [[key-exchange#multiparty-non-interactive-key-exchange|Multiparty non-interactive key exchange]])
@@ -316,12 +322,13 @@ A three-party NIKE is an $N$-party NIKE, as defined above, for $N = 3$; as a nod
 **Produces Key exchange**
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
+- [[bit-string-key-exchange-to-ke|KE with bit-string keys ⇒ KE]]
 - [[cdh-to-non-interactive-key-exchange-dh76|CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 - [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[key-exchange#three-party-nike|Three-party NIKE]])
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]] (via [[key-exchange#multiparty-non-interactive-key-exchange|Multiparty non-interactive key exchange]])
-- [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]] (via [[key-exchange#multi-party-key-exchange|Multi-party key exchange]])
-- [[kem-to-ke|KEM ⇒ KE]]
+- [[ke-to-multi-party-key-exchange|KE with bit-string keys ⇒ Multi-party key exchange]] (via [[key-exchange#multi-party-key-exchange|Multi-party key exchange]])
+- [[kem-to-ke|KEM ⇒ KE with bit-string keys]] (via [[key-exchange#key-exchange-with-bit-string-keys|Key exchange with bit-string keys]])
 - [[multi-party-key-exchange-to-ke|Multi-party key exchange ⇒ KE]]
 - [[multi-party-nike-to-three-party-nike|Multiparty NIKE ⇒ Three-party NIKE]] (via [[key-exchange#three-party-nike|Three-party NIKE]])
 - [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]]

@@ -142,23 +142,23 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 - [[searchable-symmetric-encryption|Searchable symmetric encryption]]: an encrypted index that a server searches with keyword tokens, learning only a specified leakage function — [[SWP00 - Practical Techniques for Searches on Encrypted Data|SWP00]], [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
 - [[order-preserving-encryption|Order-preserving and order-revealing encryption]]: deterministic encryption whose ciphertexts reveal the order of the plaintexts — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]], [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
-<!-- BEGIN GENERATED participates-in b66935153652 -->
+<!-- BEGIN GENERATED participates-in 8c1eaf1b8761 -->
 
 ## Participates in
 
 **Builds on Symmetric key encryption**
 
 - [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
-- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ske-to-owf-il89|SKE ⇒ OWF]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Produces Symmetric key encryption**
@@ -167,7 +167,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
