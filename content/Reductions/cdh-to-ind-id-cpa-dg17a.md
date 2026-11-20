@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[computational-diffie-hellman|CDH]] is hard for some group generator $\GrGen$ (no pairing is needed), there is an [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] (adaptive) [[identity-based-encryption|IBE]] scheme in the standard model — [[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]. The construction builds chameleon encryption from CDH and combines it with one garbled circuit per level of an implicit binary tree over the identity bits; the garbled circuits use chameleon encryption non-black-box — [[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]].
+If [[computational-diffie-hellman|CDH]] is hard for some group generator $\GrGen$ (no pairing is needed), there is an [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] (adaptive) [[identity-based-encryption|IBE]] scheme in the standard model — [[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]. The construction builds chameleon encryption from CDH and combines it with one garbled circuit per level of an implicit binary tree over the identity bits; the garbled circuits use chameleon encryption non-black-box — [[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]. Decryption is correct by the correctness of the garbled circuits and of chameleon encryption — [[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]].
 
 ## Notes
 

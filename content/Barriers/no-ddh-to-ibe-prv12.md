@@ -5,7 +5,7 @@ title: "No fully-black-box reduction from DDH to IBE"
 aliases: []
 id: bar-ddh-to-ibe-prv12
 hypotheses: [ddh]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 consequences:
   - kind: contradiction
@@ -25,7 +25,7 @@ rationale:
 
 ## Statement
 
-There is no fully-black-box construction of [[identity-based-encryption|IBE]] from a group in which [[decisional-diffie-hellman|DDH]] is hard: in the [[generic-group-model|generic group model]], every IBE scheme that uses a prime-order generic group only through its group-operation oracle is broken by an attack — [[PRV12 - How powerful are the DDH hard groups|PRV12]]. The generic group model of that proof does not fully capture Shoup's model, in which schemes also see random labels of group elements; the separation in Shoup's model is proved in [[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]]. The generic group is DDH-hard ([[ggm-to-ddh-sho97|GGM ⇒ DDH]]) — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]], so a fully-black-box construction from a DDH-hard group would give a secure generic-group IBE. The result covers DDH and similar group assumptions — [[PRV12 - How powerful are the DDH hard groups|PRV12]].
+There is no fully-black-box construction of [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] from a group in which [[decisional-diffie-hellman|DDH]] is hard: in the [[generic-group-model|generic group model]], every IBE scheme that uses a prime-order generic group only through its group-operation oracle is broken by an attack — [[PRV12 - How powerful are the DDH hard groups|PRV12]]. The generic group model of that proof does not fully capture Shoup's model, in which schemes also see random labels of group elements; the separation in Shoup's model is proved in [[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]]. The generic group is DDH-hard ([[ggm-to-ddh-sho97|GGM ⇒ DDH]]) — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]], so a fully-black-box construction from a DDH-hard group would give a secure generic-group IBE. The result covers DDH and similar group assumptions — [[PRV12 - How powerful are the DDH hard groups|PRV12]].
 
 ## Notes
 

@@ -59,7 +59,7 @@ A _trapdoor permutation over bit strings_ is a trapdoor permutation family whose
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists ([[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]) — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
+An _enhanced TDP_ is a trapdoor permutation family whose domain sampler $\mathsf{Samp}$ (see [[#Syntax|Syntax]]) is enhanced: for all efficient $\calA$, $\Pr\!\left[\Eval(f, \calA(1^\secpar, f, r)) = \mathsf{Samp}(f; r) : (f, \td) \gets \Gen(1^\secpar),\ r \getsr \bits^{\rho(\secpar)}\right]$ is negligible, where $\rho$ is the sampler's coin length — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. With the same algorithms it is a trapdoor permutation ([[enhanced-trapdoor-permutation-to-tdp|Enhanced TDP ⇒ TDP]]) — folklore. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists ([[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]) — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
 ### Doubly enhanced certified trapdoor permutations
 
@@ -71,7 +71,7 @@ An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \c
 
 ## Claw-free permutations
 
-A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. $\Gen$ comes with a $\PPT$ sampler that, given $(f_0, f_1)$, outputs an element of $\calD$ within negligible statistical distance of uniform. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for $x_1$ output by the sampler yields a claw — standard.
+A _claw-free pair_ is given by a $\PPT$ generator $\Gen(1^\secpar)$ that outputs an index $i$ of two permutations $f_{i,0}, f_{i,1}$ of a common domain $\calD_i$, together with a deterministic polynomial-time $\Eval(i, b, x)$ that computes $f_{i,b}(x)$ for $b \in \bits$ and $x \in \calD_i$. For all efficient $\calA$, the probability that $\calA(1^\secpar, i)$ outputs a claw $(x_0, x_1)$ with $f_{i,0}(x_0) = f_{i,1}(x_1)$, for $i \gets \Gen(1^\secpar)$, is negligible — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. $\Gen$ comes with a $\PPT$ sampler that, given $i$, outputs an element of $\calD_i$ within negligible statistical distance of uniform. For a fixed index, $f_b$ abbreviates $f_{i,b}$ and $\calD$ abbreviates $\calD_i$. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for $x_1$ output by the sampler yields a claw — standard.
 
 ### Claw-free trapdoor permutations
 
@@ -91,7 +91,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in e2730117c68c -->
+<!-- BEGIN GENERATED participates-in 2a23254560eb -->
 
 ## Participates in
 
@@ -109,6 +109,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures (BMW)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)](enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87) (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
+- [[enhanced-trapdoor-permutation-to-tdp|Enhanced TDP ⇒ TDP]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutation-to-two-party-computation-ors15|Enhanced TDP ⇒ 2PC with expected-time simulation (Ostrovsky–Richelson–Scafuro)]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
@@ -134,6 +135,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[dcr-to-highly-lossy-trapdoor-function-fgkrs10|DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Highly lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
+- [[enhanced-trapdoor-permutation-to-tdp|Enhanced TDP ⇒ TDP]]
 - [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]]
 - [[highly-lossy-trapdoor-function-to-lossy-trapdoor-function|Highly lossy TDF ⇒ Lossy TDF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])

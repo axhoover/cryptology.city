@@ -9094,7 +9094,7 @@
    "hypotheses": [
     "abe"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -10043,7 +10043,7 @@
    "hypotheses": [
     "bdh"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "rom",
    "models": [
@@ -10073,7 +10073,7 @@
     "dbdh",
     "decisional-linear"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -10084,7 +10084,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "$O(q)$ DLIN terms plus one DBDH term, for $q$ private-key queries",
+   "securityLoss": "$O(Q)$ DLIN terms plus one DBDH term, for $Q$ private-key queries",
    "rationale": {
     "class": "The construction uses the pairing group only through group operations and the pairing, and each step of the dual system hybrid runs the IBE adversary once as an oracle against a DLIN or DBDH challenge."
    },
@@ -14384,6 +14384,33 @@
    "title": "Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)"
   },
   {
+   "id": "red-enhanced-trapdoor-permutation-to-tdp",
+   "kind": "implication",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "tdp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the sampler's statistical distance ν",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction runs any inverter once, on $\\mathsf{Samp}(f; r)$ without $r$."
+   },
+   "status": "draft",
+   "page": "content/Reductions/enhanced-trapdoor-permutation-to-tdp.md",
+   "slug": "enhanced-trapdoor-permutation-to-tdp",
+   "graphSlug": "Reductions/enhanced-trapdoor-permutation-to-tdp",
+   "title": "Enhanced TDP ⇒ TDP"
+  },
+  {
    "id": "red-enhanced-trapdoor-permutation-to-two-party-computation-with-expected-time-simulation-ors15",
    "kind": "implication",
    "hypotheses": [
@@ -15373,7 +15400,7 @@
    "hypotheses": [
     "large-universe-fuzzy-ibe"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -16563,7 +16590,7 @@
    "hypotheses": [
     "hibe"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -16876,7 +16903,7 @@
    "id": "red-ibe-to-garbled-ram-ghl-14",
    "kind": "implication",
    "hypotheses": [
-    "ibe"
+    "ind-id-cpa"
    ],
    "conclusion": "garbled-ram",
    "class": "free",
@@ -16903,9 +16930,9 @@
    "id": "red-ibe-to-pke",
    "kind": "implication",
    "hypotheses": [
-    "ibe"
+    "ind-sid-cpa"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -17366,6 +17393,30 @@
    "slug": "ind-sid-cpa-security-selective-to-ind-id-cpa-security",
    "graphSlug": "Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security",
    "title": "Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security"
+  },
+  {
+   "id": "red-ind-sid-cpa-to-ind-id-cpa-dg17b",
+   "kind": "implication",
+   "hypotheses": [
+    "ind-sid-cpa"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ind-sid-cpa-to-ind-id-cpa-dg17b.md",
+   "slug": "ind-sid-cpa-to-ind-id-cpa-dg17b",
+   "graphSlug": "Reductions/ind-sid-cpa-to-ind-id-cpa-dg17b",
+   "title": "IND-sID-CPA IBE ⇒ IND-ID-CPA IBE (Döttling–Garg)"
   },
   {
    "id": "red-ind-sid-cpa-to-pke-cca2-security-chk04",
@@ -29672,7 +29723,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor q_H + 1 for q_H hash queries: a forger with success ε inverts the permutation with probability ε/(q_H + 1)",
+   "securityLoss": "a factor q_H + 1 for q_H hash queries, less q_H ν for a domain sampler at statistical distance ν: a forger with success ε inverts the permutation with probability at least ε/(q_H + 1) − q_H ν",
    "rationale": {
     "class": "The scheme evaluates and inverts the permutation only as an oracle, and the reduction runs any forger once as an oracle, planting its challenge in one random-oracle answer.",
     "model": "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose."
@@ -29728,9 +29779,9 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none: the reduction preserves the inverter's advantage",
+   "securityLoss": "additive: the sampler's statistical distance ν",
    "rationale": {
-    "class": "One fixed construction calls $\\Gen$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle."
+    "class": "One fixed construction calls $\\Gen$, $\\mathsf{Samp}$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle and applies $\\mathsf{Samp}$ to its answer."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-hash-function.md",
@@ -31985,7 +32036,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -33342,7 +33393,7 @@
    "hypotheses": [
     "pke-cca2-security"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -34113,7 +34164,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "ibe",
+   "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "consequences": [
     {

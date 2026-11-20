@@ -5,7 +5,7 @@ title: "No fully-black-box reduction from TDP to IBE"
 aliases: []
 id: bar-tdp-to-ibe-bprvw08
 hypotheses: [tdp]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 consequences:
   - kind: contradiction
@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-There is no fully-black-box construction of [[identity-based-encryption|identity-based encryption]] from [[trapdoor-permutation|trapdoor permutations]]; the separation is relative to an oracle implementing random trapdoor permutations — [[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]].
+There is no fully-black-box construction of [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|identity-based encryption]] from [[trapdoor-permutation|trapdoor permutations]]; the separation is relative to an oracle implementing random trapdoor permutations — [[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]].
 
 ## Notes
 

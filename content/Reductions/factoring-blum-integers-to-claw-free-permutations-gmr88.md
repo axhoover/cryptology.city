@@ -26,7 +26,7 @@ $$
 f_0(x) := x^2 \bmod N, \qquad f_1(x) := 4x^2 \bmod N
 $$
 
-are permutations of $\mathrm{QR}_N$ with trapdoor $(p, q)$, and if [[factoring#factoring-blum-integers|factoring Blum integers]] is hard they form a [[trapdoor-permutation#claw-free-permutations|claw-free pair]] — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. The domain sampler squares an element of $\ZZ_N^*$ that is uniform up to negligible statistical distance, which gives an element of $\mathrm{QR}_N$ within the same distance of uniform, since every quadratic residue has exactly four square roots in $\ZZ_N^*$ — standard. Such $N$ are exactly the Blum integers with $N \equiv 5 \pmod 8$, about half of them, so a claw finder with advantage $\varepsilon$ factors a uniform Blum integer with probability about $\varepsilon / 2$ — standard.
+are permutations of $\mathrm{QR}_N$, computable in polynomial time from the index $N$, with trapdoor $(p, q)$, and if [[factoring#factoring-blum-integers|factoring Blum integers]] is hard they form a [[trapdoor-permutation#claw-free-permutations|claw-free pair]] — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. The domain sampler squares an element of $\ZZ_N^*$ that is uniform up to negligible statistical distance, which gives an element of $\mathrm{QR}_N$ within the same distance of uniform, since every quadratic residue has exactly four square roots in $\ZZ_N^*$ — standard. Such $N$ are exactly the Blum integers with $N \equiv 5 \pmod 8$, about half of them, so a claw finder with advantage $\varepsilon$ factors a uniform Blum integer with probability about $\varepsilon / 2$ — standard.
 
 ## Sketch
 

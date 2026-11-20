@@ -26,7 +26,7 @@ _Bilinear map (pairing) assumptions_ concern the computational hardness of certa
 
 **Bilinear Diffie-Hellman (BDH):** Given $(g, g^a, g^b, g^c) \in \GG^4$ for a symmetric pairing group $e : \GG \times \GG \to \GG_T$, compute $e(g, g)^{abc} \in \GG_T$.
 
-Let $\GrGen$ be a $\PPT$ algorithm that on input $1^\secpar$ outputs $(q, \GG, \GG_T, e, g)$: cyclic groups $\GG$ and $\GG_T$ of prime order $q$ whose group operations are computable in polynomial time, a generator $g$ of $\GG$, and an efficiently computable, non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$, a symmetric [[pairings|bilinear pairing]].
+Let $\GrGen$ be a $\PPT$ algorithm that on input $1^\secpar$ outputs $(q, \GG, \GG_T, e, g)$: cyclic groups $\GG$ and $\GG_T$ of prime order $q > 2^{\secpar}$ whose group operations are computable in polynomial time, a generator $g$ of $\GG$, and an efficiently computable, non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$, a symmetric [[pairings|bilinear pairing]].
 
 ```pseudocode
 \begin{algorithm}
