@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $(\KeyGen, \Encap, \Decap)$ be an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]] [[key-encapsulation-mechanism|KEM]] with key space $\bits^{\ell(\secpar)}$. The [[public-key-encryption|PKE]] scheme with message space $\bits^{\ell(\secpar)}$ that encrypts $m$ as $(c, k \oplus m)$ for $(c, k) \gets \Encap(\pk)$ and decrypts $(c, d)$ to $\Decap(\sk, c) \oplus d$ is [[public-key-encryption#cpa-security|IND-CPA-secure]], and it is $(1-\varepsilon)$-correct when the KEM is — folklore.
+Let $(\KeyGen, \Encap, \Decap)$ be an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]] [[key-encapsulation-mechanism|KEM]] with key space $\bits^{\ell(\secpar)}$. The [[public-key-encryption|PKE]] scheme with message space $\bits^{\ell(\secpar)}$ that encrypts $m$ as $(c, k \oplus m)$ for $(c, k) \gets \Encap(\pk)$ and decrypts $(c, d)$ to $\bot$ if $\Decap(\sk, c) = \bot$ or $|d| \neq \ell(\secpar)$, and to $\Decap(\sk, c) \oplus d$ otherwise is [[public-key-encryption#cpa-security|IND-CPA-secure]], and it is $(1-\varepsilon)$-correct when the KEM is — folklore.
 
 ## Sketch
 
