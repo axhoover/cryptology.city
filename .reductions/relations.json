@@ -11891,6 +11891,33 @@
    "title": "SZK = coSZK"
   },
   {
+   "id": "red-cp-abe-adaptive-security-to-abe",
+   "kind": "implication",
+   "hypotheses": [
+    "cp-abe-adaptive-security"
+   ],
+   "conclusion": "abe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme itself, and the reduction forwards the adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cp-abe-adaptive-security-to-abe.md",
+   "slug": "cp-abe-adaptive-security-to-abe",
+   "graphSlug": "Reductions/cp-abe-adaptive-security-to-abe",
+   "title": "CP-IND-CPA-secure CP-ABE ⇒ ABE"
+  },
+  {
    "id": "red-cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00",
    "kind": "implication",
    "hypotheses": [
