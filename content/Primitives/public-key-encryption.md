@@ -262,7 +262,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in c31a7963d667 -->
+<!-- BEGIN GENERATED participates-in 7377424dc3e9 -->
 
 ## Participates in
 
@@ -303,6 +303,7 @@ is negligible.
 - [[ddh-to-anonymous-public-key-encryption-bbdp01|DDH ⇒ Key-hiding PKE (ElGamal)]] (via [[public-key-encryption#key-hiding|Key-hiding]])
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
+- [[deniable-encryption-to-pke-cpa-security|Deniable encryption ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[factoring-blum-integers-to-pke-cpa-security-bg84|Factoring ⇒ CPA-secure PKE (Blum–Goldwasser)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[group-signature-to-pke-aw04|Group signatures ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])

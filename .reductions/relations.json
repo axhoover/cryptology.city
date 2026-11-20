@@ -4756,6 +4756,19 @@
    "unlisted": false
   },
   {
+   "id": "non-uniform-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#security-against-non-uniform-adversaries",
+   "of": "prf",
+   "title": "Security against non-uniform adversaries",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "non-uniform-prg",
    "kind": "variant",
    "type": "primitive",
@@ -13360,6 +13373,33 @@
    "title": "DLIN ⇒ PKE (Linear Encryption)"
   },
   {
+   "id": "red-deniable-encryption-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "deniable-encryption"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on (KeyGen, Enc, Dec), and the reduction runs the CPA adversary once as a black box inside a deniability adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/deniable-encryption-to-pke-cpa-security.md",
+   "slug": "deniable-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/deniable-encryption-to-pke-cpa-security",
+   "title": "Deniable encryption ⇒ CPA-secure PKE"
+  },
+  {
    "id": "red-depir-to-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -20274,6 +20314,33 @@
    "title": "Non-uniform OWF ⇒ OWF"
   },
   {
+   "id": "red-non-uniform-prf-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "non-uniform-prf"
+   ],
+   "conclusion": "prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and a uniform PPT distinguisher is a non-uniform one with empty advice, forwarded unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-uniform-prf-to-prf.md",
+   "slug": "non-uniform-prf-to-prf",
+   "graphSlug": "Reductions/non-uniform-prf-to-prf",
+   "title": "Non-uniform PRF ⇒ PRF"
+  },
+  {
    "id": "red-non-uniform-prg-to-prg",
    "kind": "implication",
    "hypotheses": [
@@ -23392,7 +23459,7 @@
    "id": "red-prf-to-mac-bel06",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "non-uniform-prf"
    ],
    "conclusion": "mac",
    "class": "unstated",
@@ -23401,20 +23468,19 @@
     "standard"
    ],
    "source": [
-    "[[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]",
-    "[[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]]"
+    "[[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Bel06's reduction is non-uniform, and the vocabulary has no non-uniform class; the class of GPR14's uniform reduction is not recorded."
+    "class": "Bel06's reduction is non-uniform, and the vocabulary has no non-uniform class."
    },
    "status": "draft",
    "page": "content/Reductions/prf-to-mac-bel06.md",
    "slug": "prf-to-mac-bel06",
    "graphSlug": "Reductions/prf-to-mac-bel06",
-   "title": "PRF ⇒ MAC (NMAC)"
+   "title": "Non-uniform PRF ⇒ MAC (NMAC)"
   },
   {
    "id": "red-prf-to-mac-bkr94",
@@ -23442,6 +23508,30 @@
    "slug": "prf-to-mac-bkr94",
    "graphSlug": "Reductions/prf-to-mac-bkr94",
    "title": "PRF ⇒ MAC (CBC-MAC)"
+  },
+  {
+   "id": "red-prf-to-mac-gpr14",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "mac",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: NMAC is (ε + ℓqδ)-secure against q queries of at most ℓ blocks, for f ε-secure against q adaptive and δ-secure against q non-adaptive queries",
+   "status": "draft",
+   "page": "content/Reductions/prf-to-mac-gpr14.md",
+   "slug": "prf-to-mac-gpr14",
+   "graphSlug": "Reductions/prf-to-mac-gpr14",
+   "title": "PRF ⇒ MAC (NMAC, uniform proof)"
   },
   {
    "id": "red-prf-to-nonce-based-mac",
@@ -30908,6 +30998,87 @@
    "slug": "verifiable-prime-order-dlog-to-prime-order-dlog",
    "graphSlug": "Reductions/verifiable-prime-order-dlog-to-prime-order-dlog",
    "title": "Verifiable prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-verifiable-random-function-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "verifiable-random-function"
+   ],
+   "conclusion": "prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor q for q distinct queries",
+   "rationale": {
+    "class": "The construction keeps the VRF's key generation and evaluation, forgetting the public key and the proofs, and the reduction runs the PRF distinguisher once as a black box inside a VRF adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/verifiable-random-function-to-prf.md",
+   "slug": "verifiable-random-function-to-prf",
+   "graphSlug": "Reductions/verifiable-random-function-to-prf",
+   "title": "VRF ⇒ PRF"
+  },
+  {
+   "id": "red-verifiable-random-function-to-vrf-selective-pseudorandomness",
+   "kind": "implication",
+   "hypotheses": [
+    "verifiable-random-function"
+   ],
+   "conclusion": "vrf-selective-pseudorandomness",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and the adaptive adversary runs the selective adversary once as a black box, obtaining its challenge input before forwarding the public key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/verifiable-random-function-to-vrf-selective-pseudorandomness.md",
+   "slug": "verifiable-random-function-to-vrf-selective-pseudorandomness",
+   "graphSlug": "Reductions/verifiable-random-function-to-vrf-selective-pseudorandomness",
+   "title": "VRF ⇒ selectively secure VRF"
+  },
+  {
+   "id": "red-verifiable-random-function-to-weak-vrf",
+   "kind": "implication",
+   "hypotheses": [
+    "verifiable-random-function"
+   ],
+   "conclusion": "weak-vrf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive at most 2q/|X| for q oracle queries",
+   "rationale": {
+    "class": "The construction is the identity, and the reduction runs the weak-VRF adversary once as a black box, sampling its inputs and querying the evaluation oracle on them."
+   },
+   "status": "draft",
+   "page": "content/Reductions/verifiable-random-function-to-weak-vrf.md",
+   "slug": "verifiable-random-function-to-weak-vrf",
+   "graphSlug": "Reductions/verifiable-random-function-to-weak-vrf",
+   "title": "VRF ⇒ weak VRF"
   },
   {
    "id": "red-verifiable-type-1-pairing-to-type-1-pairing",

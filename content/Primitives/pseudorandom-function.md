@@ -9,6 +9,7 @@ id: prf
 variants:
   invertible-prf: "#invertible-prfs"
   key-expanding-weak-prf: "#key-expanding-weak-prfs"
+  non-uniform-prf: "#security-against-non-uniform-adversaries"
   pseudorandom-injective-function: "#pseudorandom-injective-functions"
   puncturable-prf: "#puncturable-prfs"
   weak-prf: "#weak-prfs"
@@ -57,16 +58,20 @@ $$
 
 is negligible.
 
+### Security against non-uniform adversaries
+
+Let $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ be a family of polynomial-size oracle circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing $\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$. $\PRF$ is **pseudorandom against non-uniform adversaries** if for every such family $\calA$, $\Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$ is negligible. Security against all non-uniform adversaries implies security against all uniform ones ([[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]) — standard.
+
 # Variations
 
 ## Invertible PRFs
 
 An **invertible PRF (iPRF)** extends the PRF with an inversion algorithm, allowing recovery of all inputs that map to a given output ([[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]) — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]. An $\mathsf{iPRF} = (\KeyGen, \Eval, \Invert)$ adds:
 
-- $\Invert(k, y) \to X,$ is a deterministic function that
+- $\Invert(k, y) \to X,$ is a deterministic algorithm that
   returns the preimage set $X = \{x \in \calD : \Eval(k, x) = y\}$
 
-For domains much larger than the range, $\Invert$ may return exponentially many preimages, so efficiency is only meaningful when $|\calD|$ is reasonable relative to $|\calR|$.
+There is a polynomial $p$ such that for every $\secpar$, every $k$ in the support of $\KeyGen(1^\secpar)$ and every $y \in \calR$, $\Invert(k, y)$ runs in time at most $p(\secpar) \cdot (1 + |X|)$ for $X = \Invert(k, y)$. Inversion is efficient relative to the size of its output, which may be exponential when $|\calD| \gg |\calR|$ — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]].
 
 ### Correctness
 
@@ -80,11 +85,7 @@ over $k \gets \KeyGen(1^\secpar)$.
 
 ### Security
 
-Invertible PRFs can either achieve the traditional security game
-$\Game^{\mathrm{prf}}$ or can satisfy the stronger security game
-$\Game^{\mathrm{iprf}}$ where $\calA$ is additionally given access to
-an inversion oracle that returns the pre-image of a given output
-$y\in \calR$.
+An iPRF is **pseudorandom** if $(\KeyGen, \Eval)$ is pseudorandom in $\Game^{\mathrm{prf}}$. In the stronger game $\Game^{\mathrm{iprf}}$, $\calA$ also has an inversion oracle that returns the preimage set of a given output $y \in \calR$.
 
 ```pseudocode
 \begin{algorithm}
@@ -110,6 +111,8 @@ $$
 $$
 
 is negligible.
+
+As an object, an invertible PRF denotes a correct iPRF whose $\Invert$ meets the running-time bound above and whose $(\KeyGen, \Eval)$ is pseudorandom ($\Game^{\mathrm{prf}}$). Strong pseudorandomness ($\Game^{\mathrm{iprf}}$) is a stronger notion: $\Game^{\mathrm{iprf}}$ without the inversion oracle is $\Game^{\mathrm{prf}}$.
 
 ### Related results
 
@@ -166,7 +169,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in c6668a42f6ab -->
+<!-- BEGIN GENERATED participates-in 67222217c4a0 -->
 
 ## Participates in
 
@@ -175,12 +178,14 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
+- [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[prf-to-garbled-circuits-bhr12|PRF ⇒ Garbled circuits (BHR)]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]]
 - [[prf-to-mac|PRF ⇒ MAC]]
-- [[prf-to-mac-bel06|PRF ⇒ MAC (NMAC)]]
+- [[prf-to-mac-bel06|Non-uniform PRF ⇒ MAC (NMAC)]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
+- [[prf-to-mac-gpr14|PRF ⇒ MAC (NMAC, uniform proof)]]
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]]
 - [[prf-to-ope-bclo09|PRF ⇒ OPE (BCLO09)]]
 - [[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE leaking the first differing bit (CLWW16)]]
@@ -199,11 +204,13 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
+- [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]] (via [[pseudorandom-function#puncturable-prfs|Puncturable PRFs]])
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
+- [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
 
 <!-- END GENERATED participates-in -->
