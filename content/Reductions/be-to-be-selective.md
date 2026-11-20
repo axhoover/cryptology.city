@@ -19,8 +19,8 @@ rationale:
 
 ## Statement
 
-Every $(1 - \negl(\secpar))$-correct [[broadcast-encryption#ind-be-cpa-security|IND-BE-CPA-secure]] [[broadcast-encryption|BE]] scheme $\mathsf{BE}$ is [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA-secure]]: for every efficient admissible selective adversary $\calA$ there is an efficient admissible adaptive adversary $\calB$ with $\Adv^{\mathrm{be\text{-}cpa}}_{\mathsf{BE},\calB}(\secpar) = \Adv^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar)$ — folklore.
+Every $(1 - \negl(\secpar))$-correct [[broadcast-encryption#ind-be-cpa-security|IND-BE-CPA-secure]] [[broadcast-encryption|BE]] scheme $\mathsf{BE}$ is [[broadcast-encryption#ind-sbe-cpa-security-selective|IND-sBE-CPA-secure]], for every $n = n(\secpar) \le \poly(\secpar)$: for every efficient admissible selective adversary $\calA$ there is an efficient admissible adaptive adversary $\calB$ with $\Adv^{\mathrm{be\text{-}cpa}}_{\mathsf{BE},\calB}(\secpar) = \Adv^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar)$ — folklore.
 
 ## Sketch
 
-$\calB$ runs $\calA(1^\secpar, n)$ to obtain $S^*$ before passing on $\pp$, forwards $\calA$'s key queries, and submits $S^*$ with $\calA$'s messages as its challenge; this simulates the selective game perfectly, and $\calB$ queries a key for some $i \in S^*$ only if $\calA$ does.
+$\calB$ runs $\calA(1^\secpar, n)$ to obtain $S^*$, receives $\pp$, queries $\calO_{\mathrm{key}}(i)$ once for each of the at most $n \le \poly(\secpar)$ users $i \notin S^*$, passes $\pp$ and these keys to $\calA$, and submits $S^*$ with $\calA$'s messages as its challenge; this simulates the selective game perfectly, and $\calB$ queries no key for a user in $S^*$.

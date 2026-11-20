@@ -25,7 +25,7 @@ rationale:
 
 ## Sketch
 
-Decryption computes $f \cdot c = p \cdot r \cdot g + f \cdot m \bmod q$, which for suitable parameters holds exactly over $R$ because every factor is short; reducing modulo $p$ leaves $f \cdot m$, and multiplying by $f^{-1} \bmod p$ recovers $m$.
+Decryption computes $f \cdot c = p \cdot r \cdot g + f \cdot m \bmod q$, which holds exactly over $R$ when every coefficient of $p \cdot r \cdot g + f \cdot m$ has absolute value below $q/2$; reducing modulo $p$ then leaves $f \cdot m$, and multiplying by $f^{-1} \bmod p$ recovers $m$.
 
 ## Notes
 

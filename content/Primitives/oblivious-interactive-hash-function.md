@@ -11,25 +11,6 @@ unlisted: true
 
 # Oblivious interactive hash function
 
-An interactive hash function with an obliviousness guarantee, introduced by Barnum and Heath, that can be constructed from a random oracle yet implies oblivious transfer via a non-black-box reduction.
+An oblivious interactive hash function (OIHF) is the primitive of [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]], who construct OIHFs from random oracles and from [[oblivious-transfer|OT]], and OT from a standard-model OIHF by a non-black-box reduction — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-TODO: syntax and security definition.
-
-<!-- BEGIN GENERATED participates-in adf1b0968d2c -->
-
-## Participates in
-
-**Builds on Oblivious interactive hash function**
-
-- [[oihf-to-ot-bh26|OIHF ⇒ OT]]
-
-**Produces Oblivious interactive hash function**
-
-- [[ot-to-oihf-bh26|OT ⇒ OIHF]]
-- [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
-
-**Barriers**
-
-- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]] — circumvented by [[oihf-to-ot-bh26|OIHF ⇒ OT]]
-
-<!-- END GENERATED participates-in -->
+TODO: syntax and security definition, from BH26 (eprint 2026/113, the revision with the simplified OIHF definition): the random-oracle notion that BH26's construction from a random oracle meets, with any bound on the adversary's oracle queries; the standard-model notion that the OIHF ⇒ OT reduction takes; and the notion that OT gives; then record BH26's three results as reductions.

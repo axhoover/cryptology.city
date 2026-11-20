@@ -39,11 +39,9 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[gkr-protocol#gkr-based-succinct-arguments|Fiat–Shamir and the GKR-based succinct argument]]: for every hash function, a corresponding instantiation of the argument is not adaptively sound after the transform — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]].
 
-- [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
-- [[oihf-to-ot-bh26|OIHF ⇒ OT]]
-- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
+- [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 0fed1c532ef1 -->
+<!-- BEGIN GENERATED participates-in 70f5972d9354 -->
 
 ## Participates in
 
@@ -54,7 +52,6 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[qrom-to-zk-snark-cms19|QROM ⇒ zk-SNARK (Micali's construction in the QROM)]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
-- [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
 - [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 
 **Barriers**
@@ -85,7 +82,6 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
-- [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
 - [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]

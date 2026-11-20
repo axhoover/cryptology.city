@@ -21,7 +21,7 @@ A BE scheme is a tuple of efficient algorithms $\mathsf{BE} = (\Setup, \KeyGen, 
 - $\Setup(1^\secpar, n) \to (\pp, \msk),$ is a randomized algorithm that takes the security parameter and user count $n$, outputting public parameters $\pp$ and master secret key $\msk$,
 - $\KeyGen(\msk, i) \to \sk_i,$ is a (possibly randomized) algorithm that takes $\msk$ and user index $i \in [n]$, outputting a secret key $\sk_i$ for user $i$,
 - $\Enc(\pp, S, m) \to c,$ is a randomized algorithm that takes $\pp$, a recipient set $S \subseteq [n]$, and $m \in \calM$, outputting $c \in \calC$,
-- $\Dec(\pp, \sk_i, c) \to m,$ is a deterministic algorithm that takes $\pp$, a secret key $\sk_i$, and $c$, outputting $m \in \calM$ or $\bot$.
+- $\Dec(\pp, \sk_i, S, c) \to m,$ is a deterministic algorithm that takes $\pp$, a secret key $\sk_i$, the recipient set $S$, and $c$, outputting $m \in \calM$ or $\bot$.
 
 ## Properties
 
@@ -30,14 +30,14 @@ A BE scheme is a tuple of efficient algorithms $\mathsf{BE} = (\Setup, \KeyGen, 
 A BE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $S \subseteq [n]$, $i \in S$, and $m \in \calM$,
 
 $$
-\Pr\!\left[\Dec(\pp, \sk_i, \Enc(\pp, S, m)) = m\right] \ge 1 - \varepsilon,
+\Pr\!\left[\Dec(\pp, \sk_i, S, \Enc(\pp, S, m)) = m\right] \ge 1 - \varepsilon,
 $$
 
 over $(\pp, \msk) \gets \Setup(1^\secpar, n)$, $\sk_i \gets \KeyGen(\msk, i)$, and the randomness of $\Enc$.
 
 ### IND-BE-CPA Security
 
-In the adaptive game, the adversary freely queries $\calO_{\mathrm{key}}(i)$ to obtain keys for any users of its choice, then submits a challenge set $S^*$ and two messages. The only constraint is that the adversary may not hold a key for any user in $S^*$.
+In the adaptive game, the adversary freely queries $\calO_{\mathrm{key}}(i)$ to obtain keys for any users of its choice, then submits a challenge set $S^*$ and two messages $m_0, m_1 \in \calM$ with $|m_0| = |m_1|$. The adversary may not hold a key for any user in $S^*$, since such a key decrypts the challenge, and the messages must have equal length, since a ciphertext may reveal the length of its message.
 
 ```pseudocode
 \begin{algorithm}
@@ -47,7 +47,7 @@ In the adaptive game, the adversary freely queries $\calO_{\mathrm{key}}(i)$ to 
 \State $(\pp, \msk) \gets \Setup(1^\secpar, n)$; $b \getsr \bits$
 \State $\calO_{\mathrm{key}}(i) := \KeyGen(\msk, i)$
 \State $(S^*, m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}}(1^\secpar, \pp)$
-\Comment{$\calA$ may not have queried $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
+\Comment{$|m_0| = |m_1|$; $\calA$ may not have queried $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
 \State $c^* \gets \Enc(\pp, S^*, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
 \Comment{$\calA$ may not query $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
@@ -64,11 +64,11 @@ $$
 
 is negligible. The admissibility constraint requires full collusion resistance: revoked users may pool their keys and still learn nothing about $m$.
 
-As an object, BE denotes a $(1 - \negl(\secpar))$-[[#Correctness|correct]], IND-BE-CPA-secure scheme.
+As an object, BE denotes a scheme that, for every $n = n(\secpar) \ge 1$ bounded by a polynomial in $\secpar$, is $(1 - \negl(\secpar))$-[[#Correctness|correct]], has a message space containing two distinct messages of equal length, and is IND-BE-CPA-secure.
 
 ### IND-sBE-CPA Security (Selective)
 
-In the **selective** variant, the adversary commits to $S^*$ before $\Setup$ runs; the key oracle, the admissibility constraint and the challenge are those of [[#IND-BE-CPA Security|IND-BE-CPA security]].
+In the **selective** (static) variant, the adversary commits to $S^*$ before $\Setup$ runs, and then receives $\pp$ together with the key of every user outside $S^*$; the challenge messages are subject to the same length constraint as in [[#IND-BE-CPA Security|IND-BE-CPA security]] — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
 
 ```pseudocode
 \begin{algorithm}
@@ -78,12 +78,11 @@ In the **selective** variant, the adversary commits to $S^*$ before $\Setup$ run
 \State $(S^*, \stA) \gets \calA(1^\secpar, n)$
 \Comment{$\calA$ commits to $S^* \subseteq [n]$ before seeing $\pp$}
 \State $(\pp, \msk) \gets \Setup(1^\secpar, n)$; $b \getsr \bits$
-\State $\calO_{\mathrm{key}}(i) := \KeyGen(\msk, i)$
-\State $(m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}}(\pp, \stA)$
-\Comment{$\calA$ may not have queried $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
+\State $\sk_i \gets \KeyGen(\msk, i)$ for every $i \in [n] \setminus S^*$
+\State $(m_0, m_1, \stA) \gets \calA(\pp, (\sk_i)_{i \in [n] \setminus S^*}, \stA)$
+\Comment{$m_0, m_1 \in \calM$ and $|m_0| = |m_1|$}
 \State $c^* \gets \Enc(\pp, S^*, m_b)$
-\State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
-\Comment{$\calA$ may not query $\calO_{\mathrm{key}}(i)$ for any $i \in S^*$}
+\State $b' \gets \calA(c^*, \stA)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
@@ -95,7 +94,7 @@ $$
 \Adv^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sbe\text{-}cpa}}_{\mathsf{BE},\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. As an object, selectively secure BE denotes a $(1 - \negl(\secpar))$-[[#Correctness|correct]], IND-sBE-CPA-secure scheme. Every IND-BE-CPA-secure scheme is IND-sBE-CPA-secure ([[be-to-be-selective|BE ⇒ Selectively secure BE]]) — folklore.
+is negligible. As an object, selectively secure BE denotes a scheme that, for every $n = n(\secpar) \ge 1$ bounded by a polynomial in $\secpar$, is $(1 - \negl(\secpar))$-[[#Correctness|correct]], has a message space containing two distinct messages of equal length, and is IND-sBE-CPA-secure. Every IND-BE-CPA-secure scheme is IND-sBE-CPA-secure ([[be-to-be-selective|BE ⇒ Selectively secure BE]]) — folklore.
 
 # Variations
 
@@ -109,7 +108,7 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 
 # Other results
 
-- [[abe-to-be|ABE ⇒ BE]]
+- [[abe-to-be|CP-ABE ⇒ BE]]
 - BE is orthogonal to [[identity-based-encryption|IBE]] in expressiveness: IBE matches a single identity exactly, while BE handles arbitrary subsets; neither is a special case of the other
 - [[bdh-to-be-bgw05|n-BDHE ⇒ Selectively secure BE]]
 
