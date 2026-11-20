@@ -67,7 +67,7 @@ $$
 
 is negligible.
 
-As an object, decision LWE denotes the prime-modulus regime of the [[#Search–Decision equivalence|search–decision equivalence]]: there are $\poly(\secpar)$-computable $n \le \poly(\secpar)$, a prime $q \le \poly(n)$ and $\alpha$ with $\alpha q \ge 2\sqrt{n}$ and $\alpha \le n^{-c}$ for some constant $c > 0$ such that, for every $m = \poly(\secpar)$, decision LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m)$. A prime $q \le \poly(n)$ is a special case of the modulus of LWE ([[decision-lwe-to-lwe|Decision LWE ⇒ LWE]]) — folklore.
+As an object, decision LWE denotes the prime-modulus regime of the [[#Search–Decision equivalence|search–decision equivalence]]: there are $\poly(\secpar)$-computable $n \le \poly(\secpar)$ and prime $q \le \poly(n)$, and an $\alpha$ with $\alpha q \ge 2\sqrt{n}$ and $\alpha \le n^{-c}$ for some constant $c > 0$ such that, for every $m = \poly(\secpar)$, decision LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m)$. A prime $q \le \poly(n)$ is a special case of the modulus of LWE ([[decision-lwe-to-lwe|Decision LWE ⇒ LWE]]) — folklore.
 
 ### Search LWE
 
@@ -93,7 +93,7 @@ $$
 
 is negligible.
 
-As an object, search LWE denotes: there are $\poly(\secpar)$-computable $n \le \poly(\secpar)$, a prime $q \le \poly(n)$ and $\alpha$ with $\alpha q \ge 2\sqrt{n}$ and $\alpha \le n^{-c}$ for some constant $c > 0$ such that, for every $m = \poly(\secpar)$, search LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m)$.
+As an object, search LWE denotes: there are $\poly(\secpar)$-computable $n \le \poly(\secpar)$ and prime $q \le \poly(n)$, and an $\alpha$ with $\alpha q \ge 2\sqrt{n}$ and $\alpha \le n^{-c}$ for some constant $c > 0$ such that, for every $m = \poly(\secpar)$, search LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m)$.
 
 ## Known Results
 

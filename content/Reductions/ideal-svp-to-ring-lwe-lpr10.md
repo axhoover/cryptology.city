@@ -26,3 +26,7 @@ For the $m$-th cyclotomic field with ring of integers $R$ of degree $n$, an erro
 ## Sketch
 
 The iterative quantum step of [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]], carried over to ideal lattices: discrete Gaussian samples over an ideal lattice are turned into Ring LWE samples, the solver's answers yield a bounded-distance decoder for the dual ideal, and a quantum step converts that decoder into samples from a narrower discrete Gaussian. Iterating shrinks the width until the samples contain a vector within a polynomial factor of the shortest.
+
+## Notes
+
+- TODO: the $B$-bounded error with $B \le q/4$, in the coefficient embedding of $\ZZ[x]/\langle x^n + 1 \rangle$, that [[learning-with-errors#ring-lwe|Ring LWE]] requires is not yet shown from LPR10's decision theorem, and neither is the decision error law, its embedding or its dependence on the number of samples.
