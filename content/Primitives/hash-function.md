@@ -111,13 +111,16 @@ there is a polynomial $p$ such that for all efficient $\calA$ and all
 sufficiently large $n$,
 
 $$
-\Delta\big((x, f(x)),\, (\calA(f(x)), f(x))\big) \ge 1/p(n), \qquad x \getsr \bits^n,
+\Delta\big((x, f(x)),\, (\calA(1^n, f(x)), f(x))\big) \ge 1/p(n), \qquad x \getsr \bits^n,
 $$
 
 where $\Delta$ is statistical distance; equivalently, the statistical distance
-between $\calA(y)$ and a uniform element of $f^{-1}(y)$, averaged over
+between $\calA(1^n, y)$ and a uniform element of $f^{-1}(y)$, averaged over
 $y = f(x)$, is at least $1/p(n)$ —
 [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
+The inverter receives $1^n$, as in $\Game^{\mathrm{pr}}$; without it a constant
+$f$ qualifies, since an inverter given only $f(x)$ runs in time polynomial in
+$|f(x)|$ and cannot output $n$ bits — standard.
 [[owf-to-distributional-owf|Every one-way function is distributionally one-way]]
 — folklore; conversely,
 [[distributional-owf-to-owf-il89|distributional one-way functions yield one-way functions]]

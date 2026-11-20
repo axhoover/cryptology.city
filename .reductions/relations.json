@@ -13458,7 +13458,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The construction is the identity with the coins of the response algorithm fixed, and any PIR privacy adversary runs unchanged, as an oracle, as an unkeyed DEPIR privacy adversary."
+    "class": "The construction is the scheme with the coins of the response algorithm fixed and each message prefixed by its length, and any PIR privacy adversary runs as an oracle, on the query so prefixed, as an unkeyed DEPIR privacy adversary."
    },
    "status": "draft",
    "page": "content/Reductions/depir-to-cpir.md",
@@ -21009,7 +21009,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the scheme, run on databases of a fixed polynomial size, and the reduction forwards any privacy adversary unchanged."
+    "class": "The construction runs the scheme on databases of a fixed polynomial size with the query and the answer each prefixed by its length, and the reduction prefixes the query it receives in the same way and forwards it to any privacy adversary, run only as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir.md",
@@ -22980,7 +22980,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction runs the scheme unchanged on databases of a fixed large polynomial size, and the reduction forwards any privacy adversary unchanged."
+    "class": "The construction runs the scheme on databases of a fixed large polynomial size with each message prefixed by its length, and the reduction prefixes the query it receives in the same way and forwards it to any privacy adversary, run only as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/polylog-cpir-to-nontrivial-cpir.md",

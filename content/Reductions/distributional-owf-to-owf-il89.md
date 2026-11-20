@@ -23,7 +23,7 @@ rationale:
 If a [[hash-function#distributional-one-wayness|distributionally one-way function]] exists, then a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]. Contrapositively, if no one-way function exists, then for every polynomial-time computable $f$ and every polynomial $p$ there is an efficient $\calA$ such that, for infinitely many $n$,
 
 $$
-\Delta\big((x, f(x)),\, (\calA(f(x)), f(x))\big) < 1/p(n), \qquad x \getsr \bits^n,
+\Delta\big((x, f(x)),\, (\calA(1^n, f(x)), f(x))\big) < 1/p(n), \qquad x \getsr \bits^n,
 $$
 
 with $\Delta$ the statistical distance — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
