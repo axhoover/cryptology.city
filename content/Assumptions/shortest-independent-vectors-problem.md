@@ -14,9 +14,9 @@ unlisted: true
 
 # Shortest Independent Vectors Problem
 
-$\mathrm{SIVP}_\gamma$ asks, given a basis of an $n$-dimensional lattice, for $n$ linearly independent lattice vectors whose longest is within a factor $\gamma$ of the smallest achievable; it is one of the two worst-case lattice problems that LWE and SIS reduce from. As a node, SIVP denotes worst-case hardness of $\mathrm{SIVP}_\gamma$ for one family of factors $\gamma(n) \ge 1$.
+$\mathrm{SIVP}_\gamma$ asks, given a basis of an $n$-dimensional lattice, for $n$ linearly independent lattice vectors whose longest is within a factor $\gamma$ of the smallest achievable; it is one of the two worst-case lattice problems that LWE and SIS reduce from.
 
-TODO: syntax and security definition.
+For an $n$-dimensional lattice $L$, $\lambda_n(L)$ is its $n$-th successive minimum in the Euclidean norm. SIVP is **hard** if there is a polynomial-time computable $\gamma(n) \ge 1$ such that for every probabilistic polynomial-time classical algorithm and all sufficiently large $n$ there is a basis of an $n$-dimensional lattice $L$ on which, with probability above $1/3$, it fails to output $n$ linearly independent vectors of $L$ of length at most $\gamma(n) \cdot \lambda_n(L)$. As an object, SIVP denotes this hardness.
 
 # Variations
 
