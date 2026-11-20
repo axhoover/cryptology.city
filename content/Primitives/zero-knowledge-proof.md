@@ -129,7 +129,7 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
 # Other results
 
 - Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
-- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]
   - A zero-knowledge proof for an $\classNP$ relation can use a multi-party protocol for the relation only as a black box, which brings the communication down to $O(s) + \poly(k)$ for a circuit of size $s$ and security parameter $k$ ([[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]]) — [[IKOS07 - Zero-Knowledge from Secure Multiparty Computation|IKOS07]]
 - Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
 - Zero knowledge for a language outside $\classBPP$ implies auxiliary-input one-way functions ([[zkp-to-hash-function|CZK ⊄ BPP ⇒ Auxiliary-input OWF]]) — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]

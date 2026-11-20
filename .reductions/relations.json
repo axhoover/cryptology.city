@@ -7895,19 +7895,6 @@
    "unlisted": false
   },
   {
-   "id": "succinct-extractable-pcs",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/polynomial-commitment.md",
-   "slug": "polynomial-commitment",
-   "graphSlug": "Primitives/polynomial-commitment",
-   "anchor": "#succinct-extractability",
-   "of": "pcs",
-   "title": "Succinct extractability",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -22299,7 +22286,7 @@
    "id": "red-pcs-to-snark",
    "kind": "implication",
    "hypotheses": [
-    "succinct-extractable-pcs"
+    "extractable-pcs"
    ],
    "conclusion": "snark",
    "class": "unstated",
@@ -29145,33 +29132,6 @@
    "slug": "substitution-robust-zero-bit-prc-to-zero-bit-prc",
    "graphSlug": "Reductions/substitution-robust-zero-bit-prc-to-zero-bit-prc",
    "title": "Substitution-robust zero-bit PRC ⇒ Zero-bit PRC"
-  },
-  {
-   "id": "red-succinct-extractable-pcs-to-extractable-pcs",
-   "kind": "implication",
-   "hypotheses": [
-    "succinct-extractable-pcs"
-   ],
-   "conclusion": "extractable-pcs",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none: the adversary and its advantage are unchanged",
-   "rationale": {
-    "class": "The construction is the identity on schemes, and the reduction forwards any adversary against extractability unchanged, with its extractor."
-   },
-   "status": "draft",
-   "page": "content/Reductions/succinct-extractable-pcs-to-extractable-pcs.md",
-   "slug": "succinct-extractable-pcs-to-extractable-pcs",
-   "graphSlug": "Reductions/succinct-extractable-pcs-to-extractable-pcs",
-   "title": "Succinct extractable PCS ⇒ Extractable PCS"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",
