@@ -45,13 +45,27 @@ As an object, a PCS denotes a succinct, perfectly correct and evaluation-binding
 
 ### Extractability
 
-A PCS is **extractable** if for all efficient $\calA$ there is an efficient extractor $\calE$ such that
+Extractability is the property a polynomial-IOP compiler needs: the committed polynomials can be extracted round by round, each before the verifier's next challenge and before any evaluation point is chosen — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] (Definition 6.2). For a number of rounds $k = k(\secpar)$, an adversary $\calA$ with coins $\omega$ and an extractor $\calE$:
 
-$$
-\Pr\!\left[\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1 \wedge \left(\deg f > d \vee f(z) \neq y \vee C \neq C_{f,r}\right)\right]
-$$
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ext}}_{\mathsf{PCS},\calA,\calE,k}(\secpar)$}
+\begin{algorithmic}
+\State $\mathsf{srs} \gets \Setup(1^\secpar, d)$; $\omega \getsr \bits^{*}$
+\For{$i = 1, \ldots, k$}
+\State $(C_{i,1}, \ldots, C_{i,t_i}) \gets \calA(\mathsf{srs}, \rho_1, \ldots, \rho_{i-1}; \omega)$
+\State $(f_{i,1}, \ldots, f_{i,t_i}) \gets \calE(\mathsf{srs}, \rho_1, \ldots, \rho_{i-1}, \omega)$
+\Comment{extracted before $\rho_i$ is sampled}
+\State $\rho_i \getsr \FF$
+\EndFor
+\State $(j_u, l_u, z_u, y_u, \pi_u)_{u \in [q]} \gets \calA(\mathsf{srs}, \rho_1, \ldots, \rho_k; \omega)$
+\Return $\big[\exists u : \Vrfy(\mathsf{srs}, C_{j_u,l_u}, z_u, y_u, \pi_u) = 1 \wedge (\deg f_{j_u,l_u} > d \vee f_{j_u,l_u}(z_u) \ne y_u)\big]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$, $(C, z, y, \pi) \gets \calA(\mathsf{srs})$, and $(f, r) \gets \calE(\mathsf{srs})$ run on the random coins of $\calA$, where $C_{f,r}$ is the commitment output by $\mathsf{Commit}(\mathsf{srs}, f)$ on randomness $r$. The DARK commitment of [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] proves evaluations with an interactive argument of knowledge, so it lies outside this syntax and is not registered as an instance.
+A PCS is **extractable** if for every polynomial $k = k(\secpar)$ and every efficient $\calA$ there is an efficient $\calE$ such that $\Pr\!\left[\Game^{\mathrm{ext}}_{\mathsf{PCS},\calA,\calE,k}(\secpar) = 1\right]$ is negligible. The order matters: an extractor run once on a single claim after $\calA$ has output its point $z$ may return a different polynomial for each $z$, which fixes no single polynomial oracle for a later verifier query — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] (§2.2). The DARK commitment of [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] proves evaluations with an interactive argument, whose analogous requirement is witness-extended emulation of the evaluation protocol (BFS20, Theorem 4); it lies outside this syntax and is not registered as an instance.
 
 As an object, an extractable PCS denotes a PCS, as defined for the base object, that is extractable, for which, for one polynomial $p$ fixed before $d$, $\Vrfy$ runs in time at most $p(\secpar, \log d)$ for every $d \le \poly(\secpar)$, and whose field has $1/|\FF|$ negligible. A polynomial IOP's checks are Schwartz–Zippel tests with error about $d/|\FF|$, so over a field of size about $d$ they give no soundness — standard. KZG and the inner-product scheme work over $\ZZ_p$ for a group order $p$ of about $2^\secpar$ — standard.
 
