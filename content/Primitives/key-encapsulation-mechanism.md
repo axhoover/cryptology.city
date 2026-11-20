@@ -69,7 +69,7 @@ is negligible. The adversary cannot query the decapsulation oracle on the challe
 Given an IND-CCA KEM and a one-time IND-CCA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
 
 - $\Enc(\pk, m)$: run $(c_1, k) \gets \Encap(\pk)$; run $c_2 \gets \SKE.\Enc(k, m)$; output $(c_1, c_2)$.
-- $\Dec(\sk, (c_1, c_2))$: run $k \gets \Decap(\sk, c_1)$; output $\SKE.\Dec(k, c_2)$.
+- $\Dec(\sk, (c_1, c_2))$: run $k \gets \Decap(\sk, c_1)$; output $\bot$ if $k = \bot$, and $\SKE.\Dec(k, c_2)$ otherwise.
 
 This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure ([[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]]) — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
 

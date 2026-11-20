@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let all users share common parameters $(\GG, g, p) \gets \GrGen(1^\secpar)$, and let the ElGamal scheme of [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] over $\GG$ have $\sk = x \getsr \ZZ_p$, $\pk = g^x$, and $\Enc(\pk, m) = (g^r, m \cdot \pk^r)$ for $m \in \GG$ and $r \getsr \ZZ_p$. If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, ElGamal is [[public-key-encryption#key-hiding|IK-CPA-secure]] — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]] — and [[public-key-encryption#cpa-security|CPA-secure]] — [[TY98 - On the Security of ElGamal Based Encryption|TY98]] — so it is a [[public-key-encryption#key-hiding|key-hiding]] [[public-key-encryption|PKE]].
+Let all users share common parameters $(\GG, g, p) \gets \GrGen(1^\secpar)$, and let the ElGamal scheme of [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] over $\GG$ have $\sk = x \getsr \ZZ_p$, $\pk = g^x$, and $\Enc(\pk, m) = (g^r, m \cdot \pk^r)$ for $m$ in the message space $\GG$, which the common parameters fix for every key, and $r \getsr \ZZ_p$. If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, ElGamal is [[public-key-encryption#key-hiding|IK-CPA-secure]] — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]] — and [[public-key-encryption#cpa-security|CPA-secure]] — [[TY98 - On the Security of ElGamal Based Encryption|TY98]] — so it is a [[public-key-encryption#key-hiding|key-hiding]] [[public-key-encryption|PKE]].
 
 ## Sketch
 

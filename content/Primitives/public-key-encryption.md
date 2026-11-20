@@ -155,6 +155,8 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 
 An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsilon = 0$ ([[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]]). Constructions of non-malleable and chosen-ciphertext-secure encryption that check a proof of consistency between ciphertext components need decryption to be errorless under all but a negligible fraction of key pairs, which perfect correctness guarantees; DNR04 immunize schemes with decryption errors to meet this weaker condition — [[DNR04 - Immunizing Encryption Schemes from Decryption Errors|DNR04]]. With negligible decryption error, a scheme may have rare encryption coins whose ciphertexts decrypt to bits of the secret key; a pair of such ciphertexts carries an honest consistency proof, and decryption queries on such pairs leak the key — standard.
 
+A perfectly correct CPA-secure scheme whose message space depends on $\pk$ gives one with message space $\bits$, the same for every key: $\KeyGen$ appends to $\pk$ and $\sk$ the two distinct equal-length messages $m_0, m_1$ that the efficient algorithm of the syntax outputs on $\pk$, encryption of $\beta \in \bits$ is $\Enc(\pk, m_\beta)$, and decryption returns $\beta$ when $\Dec$ returns $m_\beta$ and $\bot$ otherwise; the CPA reduction computes the pair from $\pk$ itself, and encrypting bit by bit extends this to $\bits^{\ell}$ for every polynomial $\ell$ — standard.
+
 ## CCA1 Security
 
 **CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2 ([[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]]; [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]]). The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly stronger than CPA if CPA-secure schemes exist ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) and strictly weaker than CCA2 if CCA1-secure schemes exist ([[no-pke-cca1-security-to-pke-cca2-security-bdpr98|CCA1 ⇏ CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
@@ -195,7 +197,7 @@ In **NM-CCA1** $\calA$ also has the decryption oracle $\calD(c) := \Dec(\sk, c)$
 
 ## Key-hiding
 
-A ciphertext hides the public key it was created under: given two public keys, no efficient adversary can tell under which one a ciphertext of a message of its choice was created. **IK-CPA** is the chosen-plaintext version of this _key privacy_ and **IK-CCA** the chosen-ciphertext version — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]. When keys are generated relative to common parameters, such as a group shared by all users, both key pairs use the same parameters, which $\calA$ also receives — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]].
+A ciphertext hides the public key it was created under: given two public keys, no efficient adversary can tell under which one a ciphertext of a message of its choice was created. **IK-CPA** is the chosen-plaintext version of this _key privacy_ and **IK-CCA** the chosen-ciphertext version — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]. When keys are generated relative to common parameters, such as a group shared by all users, both key pairs use the same parameters, which $\calA$ also receives — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]. The IK games and the key-hiding object are defined for schemes whose message space $\calM$ depends only on $\secpar$ and the common parameters, so both key pairs share it. When $\calM$ depends on $\pk$, independent keys can have disjoint message spaces, and a scheme with $\calM_\pk = \{\pk \| 0, \pk \| 1\}$ that appends $\pk$ to each ciphertext would meet IK-CPA vacuously — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -204,7 +206,7 @@ A ciphertext hides the public key it was created under: given two public keys, n
 \begin{algorithmic}
 \State $(\sk_0, \pk_0) \gets \KeyGen(1^\secpar)$; $(\sk_1, \pk_1) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $(m, \stA) \gets \calA(1^\secpar, \pk_0, \pk_1)$
-\Comment{$m \in \calM$}
+\Comment{$m \in \calM$, shared by both keys}
 \State $c^* \gets \Enc(\pk_b, m)$
 \State $b' \gets \calA(c^*, \stA)$
 \Return $[b' = b]$
@@ -218,7 +220,7 @@ $$
 \Adv^{\mathrm{ik\text{-}cpa}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ik\text{-}cpa}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Key privacy and CPA security are independent: appending $\pk$ to every ciphertext preserves CPA security and breaks IK-CPA security, and the scheme that outputs $m$ unencrypted is IK-CPA-secure — standard. As an object, key-hiding PKE denotes a scheme that is both CPA-secure and IK-CPA-secure.
+is negligible. Key privacy and CPA security are independent: appending $\pk$ to every ciphertext preserves CPA security and breaks IK-CPA security, and the scheme that outputs $m$ unencrypted is IK-CPA-secure — standard. As an object, key-hiding PKE denotes a scheme with such a message space that is both CPA-secure and IK-CPA-secure.
 
 In the IK-CCA game $\calA$ also has decryption oracles under both secret keys in both phases. An **admissible** adversary submits $m \in \calM$ and, after receiving $c^*$, queries neither oracle on $c^*$; without this restriction $\calA$ wins against every scheme whose decryption under the wrong key does not return $m$, by comparing $\calD_0(c^*)$ and $\calD_1(c^*)$ with $m$.
 
@@ -230,7 +232,7 @@ In the IK-CCA game $\calA$ also has decryption oracles under both secret keys in
 \State $(\sk_0, \pk_0) \gets \KeyGen(1^\secpar)$; $(\sk_1, \pk_1) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calD_0(c) := \Dec(\sk_0, c)$; $\calD_1(c) := \Dec(\sk_1, c)$
 \State $(m, \stA) \gets \calA^{\calD_0, \calD_1}(1^\secpar, \pk_0, \pk_1)$
-\Comment{Phase 1: $\calD_0, \calD_1$ unrestricted; $m \in \calM$}
+\Comment{Phase 1: $\calD_0, \calD_1$ unrestricted; $m \in \calM$, shared by both keys}
 \State $c^* \gets \Enc(\pk_b, m)$
 \State $b' \gets \calA^{\calD_0, \calD_1}(c^*, \stA)$
 \Comment{Phase 2: $\calA$ may not query $\calD_0$ or $\calD_1$ on $c^*$}
