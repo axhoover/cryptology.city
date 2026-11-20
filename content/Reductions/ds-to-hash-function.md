@@ -23,7 +23,7 @@ Let $\DS = (\KeyGen, \Sign, \Vrfy)$ be a [[digital-signature|signature scheme]] 
 
 ## Sketch
 
-Let an efficient inverter, given $\vk = f(r)$, output $r'$ within statistical distance $\delta$ of a uniform preimage of $\vk$, averaged over $\vk$. Then $(\sk', \vk)$, with $\sk'$ the signing key of $\KeyGen(1^\secpar; r')$, is within $\delta$ of an honest key pair, so $\Sign(\sk', m)$, for a message $m \in \calM_\secpar$ computed efficiently from $1^\secpar$ or $\vk$, verifies under $\vk$ with probability at least $1 - \negl(\secpar) - \delta$: a forgery with no signing query. EUF-CMA unforgeability therefore forces $\delta \ge 1/2$ for all sufficiently large $\secpar$.
+Let an efficient inverter, given $(1^{\ell(\secpar)}, \vk = f(r))$, output $r'$ within statistical distance $\delta$ of a uniform preimage of $\vk$, averaged over $\vk$. Then $(\sk', \vk)$, with $\sk'$ the signing key of $\KeyGen(1^\secpar; r')$, is within $\delta$ of an honest key pair, so $\Sign(\sk', m)$, for a message $m \in \calM_\secpar$ computed efficiently from $1^\secpar$ or $\vk$, verifies under $\vk$ with probability at least $1 - \negl(\secpar) - \delta$: a forgery with no signing query. EUF-CMA unforgeability therefore forces $\delta \ge 1/2$ for all sufficiently large $\secpar$.
 
 ## Notes
 
