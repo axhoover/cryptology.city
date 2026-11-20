@@ -17,10 +17,10 @@ Multi-server symmetric private information retrieval (SPIR) is [[multi-server-pr
 
 ## Syntax
 
-A one-round $k$-server SPIR for databases $D \in \bits^n$ is a tuple of functions $(\Query, \Answer, \Recon)$ with respect to a client randomness space $R$. Every server holds $D$, and the servers share a random string $\rho$, drawn independently of $D$ and of the client's coins and unknown to the client:
+A one-round $k$-server SPIR for databases $D \in \bits^n$ is a tuple of efficient functions $(\Query, \Answer, \Recon)$, each computable in time polynomial in $n$, with respect to a client randomness space $R$. Every server holds $D$, and the servers share a random string $\rho$, drawn independently of $D$ and of the client's coins and unknown to the client:
 
 - $\Query(i; r) \to (q_1, \ldots, q_k)$ takes an index $i \in [n]$ and coins $r \in R$, outputting one query per server;
-- $\Answer(s, q_s, D; \rho) \to a_s$ takes a server index $s \in [k]$, that server's query $q_s$, the database $D$ and the shared string $\rho$, outputting an answer $a_s$;
+- $\Answer(s, q_s, D; \rho) \to a_s$ is deterministic and takes a server index $s \in [k]$, that server's query $q_s$, the database $D$ and the shared string $\rho$, outputting an answer $a_s$;
 - $\Recon(i, a_1, \ldots, a_k; r) \to x$ outputs a bit $x \in \bits$.
 
 Without $\rho$, this is the syntax of [[multi-server-private-information-retrieval#syntax|multi-server PIR]].
@@ -53,7 +53,7 @@ A SPIR has **data privacy** if for all $i \in [n]$, $r \in R$ and $D, D' \in \bi
 
 A SPIR has **data privacy against dishonest clients** if for every tuple of queries $(q_1, \ldots, q_k)$, whether or not $\Query$ can output it, there is an index $i \in [n]$ such that for all $D, D' \in \bits^n$ with $D[i] = D'[i]$, the tuples $(\Answer(s, q_s, D; \rho))_{s \in [k]}$ and $(\Answer(s, q_s, D'; \rho))_{s \in [k]}$ have the same distribution over $\rho$. A client that deviates from $\Query$ then still learns at most one physical bit of $D$.
 
-As an object, SPIR denotes, for some constant $k \ge 2$, some constant $c < 1$ and some constant $C$, all fixed before $n$, a $k$-server scheme for every $n$ whose algorithms run in time polynomial in $n$, that is correct, query-private and data-private, and whose total communication, the maximum of $\sum_{s \in [k]} (|q_s| + |a_s|)$ over $i$, $r$, $D$ and $\rho$, is at most $C \cdot n^c$. Without the bound the notion holds unconditionally: with queries $S$ and $S \triangle \{i\}$ for a uniform $S \subseteq [n]$ and answers the XOR of the indexed database bits masked by a shared bit $\rho$, the scheme is correct, query-private and data-private with $2n + 2$ bits of communication — standard.
+As an object, SPIR denotes, for some constant $k \ge 2$, some constant $c < 1$ and some constant $C$, all fixed before $n$, an efficient one-round $k$-server scheme for every $n$ that is correct for every shared string $\rho$, query-private and data-private against dishonest clients, and whose total communication, the maximum of $\sum_{s \in [k]} (|q_s| + |a_s|)$ over $i$, $r$, $D$ and $\rho$, is at most $C \cdot n^c$. Without the bound the notion is met trivially. Identify $[n]$ with $\ZZ_n$; for a uniform $u \in \ZZ_n$ the client sends $i + u$ to server 1 and $u$ to server 2, and for a shared uniform $\rho \in \bits^n$ server 1 answers a query $a$ with $(D[a - y] \oplus \rho[y])_{y \in \ZZ_n}$ and server 2 answers a query $u'$ with $\rho[u']$. The client outputs the $u$-th entry of the first answer XOR the second. Each server sees a uniform element of $\ZZ_n$, and the answers to any queries $(a, u')$ depend on $D$ only through $D[a - u']$, with $n + 1 + 2\lceil \log n \rceil$ bits of communication — standard.
 
 # Other results
 

@@ -215,7 +215,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 89fec21162c6 -->
+<!-- BEGIN GENERATED participates-in f8a903e26f2a -->
 
 ## Participates in
 
@@ -241,7 +241,6 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]] (via [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]])
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG + secure channels ⇒ Verifiable secret sharing (VSS)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[efficiently-represented-dlog-to-dlog|Efficiently represented DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
-- [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
@@ -268,6 +267,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[ggm-to-omdl-bfp21|GGM ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]
+- [[omdl-and-ros-to-omdl|OMDL and ROS in the same group ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-cdh-to-prime-order-dlog|Prime-order CDH ⇒ prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]

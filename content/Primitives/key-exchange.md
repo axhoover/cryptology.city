@@ -304,7 +304,7 @@ A three-party NIKE is an $N$-party NIKE, as defined above, for $N = 3$; as a nod
 - HMQV, a hashed variant of the MQV protocol of [[LMQSV03 - An Efficient Protocol for Authenticated Key Agreement|LMQSV03]], is a two-message protocol: $A$, with static key pair $(a, g^a)$, sends $X = g^x$, and $B$, with $(b, g^b)$, sends $Y = g^y$; with $d = \bar H(X, B)$ and $e = \bar H(Y, A)$, both compute $\sigma = (Y g^{be})^{x + da} = (X g^{ad})^{y + eb}$ and the session key $H(\sigma)$ — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. As originally posted, with $H$ and $\bar H$ modeled as random oracles, HMQV was claimed secure in the CK model under [[computational-diffie-hellman|CDH]], with some further properties under the gap Diffie–Hellman assumption and [[knowledge-of-exponent|KEA1]] — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. That claim fails for the protocol as stated, which does not check that $X$, $Y$ and the static public keys lie in the intended prime-order group; the revised [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] requires each party to verify that the Diffie–Hellman values it receives are non-identity elements of that group, and its security claims are for this validated protocol. [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] also gives attacks on MQV in the CK model.
 - [[Men05 - Another look at HMQV|Men05]] gives attacks on the unvalidated HMQV in the CK model that recover a victim's static secret key, by sending elements of small order and enumerating the revealed session keys over the small subgroup, and identifies flaws in the original security proof of [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]; it proposes a patched variant, HMQV-1.
 
-<!-- BEGIN GENERATED participates-in 22f70b0cee19 -->
+<!-- BEGIN GENERATED participates-in 805b90f23724 -->
 
 ## Participates in
 
@@ -334,7 +334,6 @@ A three-party NIKE is an $N$-party NIKE, as defined above, for $N = 3$; as a nod
 - [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]]
 - [[ot-to-ke|OT ⇒ KE]]
 - [[pke-to-ke|PKE ⇒ KE]]
-- [[sidh-to-ke-jdf11|SSDDH ⇒ KE]]
 - [[three-party-nike-to-ke|Three-party NIKE ⇒ KE]]
 
 **Barriers**

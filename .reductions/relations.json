@@ -5006,6 +5006,19 @@
    "unlisted": false
   },
   {
+   "id": "omdl-and-ros",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/ros-problem.md",
+   "slug": "ros-problem",
+   "graphSlug": "Assumptions/ros-problem",
+   "anchor": "#omdl-and-ros-in-the-same-group",
+   "of": "ros",
+   "title": "OMDL and ROS in the same group",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "one-bit-hint-tdh",
    "kind": "variant",
    "type": "primitive",
@@ -20576,8 +20589,7 @@
    "id": "red-omdl-and-ros-to-blind-schnorr-signature-fps20",
    "kind": "implication",
    "hypotheses": [
-    "omdl",
-    "ros"
+    "omdl-and-ros"
    ],
    "conclusion": "blind-schnorr-signature",
    "class": "unstated",
@@ -20600,6 +20612,60 @@
    "slug": "omdl-and-ros-to-blind-schnorr-signature-fps20",
    "graphSlug": "Reductions/omdl-and-ros-to-blind-schnorr-signature-fps20",
    "title": "OMDL + ROS ⇒ Blind Schnorr signatures"
+  },
+  {
+   "id": "red-omdl-and-ros-to-omdl",
+   "kind": "implication",
+   "hypotheses": [
+    "omdl-and-ros"
+   ],
+   "conclusion": "omdl",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps the group generator, and the reduction forwards any OMDL adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/omdl-and-ros-to-omdl.md",
+   "slug": "omdl-and-ros-to-omdl",
+   "graphSlug": "Reductions/omdl-and-ros-to-omdl",
+   "title": "OMDL and ROS in the same group ⇒ OMDL"
+  },
+  {
+   "id": "red-omdl-and-ros-to-ros",
+   "kind": "implication",
+   "hypotheses": [
+    "omdl-and-ros"
+   ],
+   "conclusion": "ros",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps the group generator, and the reduction forwards any ROS adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/omdl-and-ros-to-ros.md",
+   "slug": "omdl-and-ros-to-ros",
+   "graphSlug": "Reductions/omdl-and-ros-to-ros",
+   "title": "OMDL and ROS in the same group ⇒ ROS"
   },
   {
    "id": "red-omdl-to-concurrent-schnorr-identification-bp02",
@@ -26697,30 +26763,6 @@
    "slug": "short-structure-preserving-signature-to-structure-preserving-signature",
    "graphSlug": "Reductions/short-structure-preserving-signature-to-structure-preserving-signature",
    "title": "Optimally short structure-preserving signatures ⇒ Structure-preserving signatures"
-  },
-  {
-   "id": "red-sidh-to-ke-jdf11",
-   "kind": "implication",
-   "hypotheses": [
-    "ssddh"
-   ],
-   "conclusion": "ke",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/sidh-to-ke-jdf11.md",
-   "slug": "sidh-to-ke-jdf11",
-   "graphSlug": "Reductions/sidh-to-ke-jdf11",
-   "title": "SSDDH ⇒ KE"
   },
   {
    "id": "red-sis-to-ds",
