@@ -299,7 +299,7 @@ TODO: no standard-model edge yet produces this variant; retarget a producer whos
 
 ## Selective unforgeability
 
-In the selective game $\calA$ commits to its target message $m^*$ before it sees $\vk$, and may then query signatures on every other message, as in [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+In the selective game $\calA$ commits to its target message $m^*$ before it sees $\vk$, and may then query signatures on every other message, as in [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]. The message space $\calM_\secpar$ depends on $\secpar$ only, so that $m^*$ is checked against it before $\vk$ exists. Without this requirement, a $\vk$ of $\secpar$ uniform bits with message space $\{\vk \| 0, \vk \| 1\}$, $\Sign(\sk, m) := m$ and $\Vrfy(\vk, m, \sigma) := [m \in \{\vk \| 0, \vk \| 1\} \wedge \sigma = m]$ is correct and meets the game unconditionally, since $m^*$ lies outside the message space except with probability at most $2^{1-\secpar}$ — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -308,6 +308,10 @@ In the selective game $\calA$ commits to its target message $m^*$ before it sees
 \begin{algorithmic}
 \State $(m^*, \stA) \gets \calA(1^\secpar)$
 \Comment{$\calA$ commits to $m^*$ before seeing $\vk$}
+\If{$m^* \notin \calM_\secpar$}
+\Comment{$m^*$ must be a message of the scheme}
+\Return $0$
+\EndIf
 \State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
 \State $\hat{\sigma} \gets \calA^{\calO}(\stA, \vk)$
 \Return $[\Vrfy(\vk, m^*, \hat{\sigma})]$
@@ -335,7 +339,7 @@ $$
 \Adv^{\mathrm{sel}}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{sel}}_{\DS,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. As an object, a selectively unforgeable DS denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]], selectively unforgeable scheme with a non-trivial message space, as for DS. An EUF-CMA forger can run a selective forger, which fixes its message first, so EUF-CMA unforgeability implies selective unforgeability ([[ds-to-selective-ds|DS ⇒ Selectively unforgeable DS]]) — folklore.
+is negligible. As an object, a selectively unforgeable DS denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]], selectively unforgeable scheme whose message space $\calM_\secpar$ depends on $\secpar$ only and contains, for every $\secpar$, two distinct messages that an efficient algorithm outputs on input $1^\secpar$. An EUF-CMA forger can run a selective forger, which fixes its message first, so an EUF-CMA-unforgeable scheme with a key-independent message space is selectively unforgeable; a scheme whose message space depends on $\vk$ restricts to the two messages it computes from $\vk$, indexed by one bit ([[ds-to-selective-ds|DS ⇒ Selectively unforgeable DS]]) — folklore.
 
 ## Security against quantum adversaries
 

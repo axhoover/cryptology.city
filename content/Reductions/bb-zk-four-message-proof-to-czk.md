@@ -17,4 +17,4 @@ security-loss: ""
 
 ## Statement
 
-Every language with a [[computational-zero-knowledge#four-message-black-box-zero-knowledge-proofs|four-message black-box zero-knowledge proof]] is in [[computational-zero-knowledge|CZK]], with the same protocol: the protocol is an interactive proof sound against every prover, and for each PPT verifier $V^*$ the machine $\Sim^{V^*}$ runs in expected polynomial time and its output is computationally indistinguishable from the view of $V^*$ — folklore.
+Every language with a [[computational-zero-knowledge#four-message-black-box-zero-knowledge-proofs|four-message black-box zero-knowledge proof]] is in [[computational-zero-knowledge|CZK]], with the same protocol. The protocol is an interactive proof with completeness $2/3$ and negligible soundness error against every prover. For each non-uniform PPT verifier $V^*$, $\Sim^{V^*}$ runs in expected polynomial time, and its output is indistinguishable from the view of $V^*$ by every family of polynomial-size circuits that receives $x$. That is the condition of CZK, with $\Sim^{V^*}$ as the non-uniform simulator — folklore.
