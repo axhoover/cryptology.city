@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Hardness of [[shortest-independent-vectors-problem#polynomial-factors|SIVP for polynomial factors]] is worst-case hardness of [[shortest-independent-vectors-problem|SIVP]] for one family of approximation factors, $\gamma = n^c$ — folklore.
+Hardness of [[shortest-independent-vectors-problem#polynomial-factors|SIVP for polynomial factors]] at $c = 1$ is [[shortest-independent-vectors-problem|hardness of SIVP]] for the polynomial-time computable factor $\gamma(n) = n$ — folklore.
