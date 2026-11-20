@@ -114,11 +114,13 @@ Forgetting the form of the group gives DLOG for the same generator
 ## DLOG in efficiently represented groups
 
 **DLOG is hard in efficiently represented groups** for $\GrGen$ if DLOG is hard
-for $\GrGen$ and deterministic polynomial-time algorithms, given $(\GG, g, p)$
+for $\GrGen$, deterministic polynomial-time algorithms, given $(\GG, g, p)$
 output by $\GrGen$, compute mutually inverse bijections between $\GG$ and
-$[p] = \{0, \ldots, p - 1\}$. The group operation transported to $[p]$ is then
-computed by a circuit $f$ of size $\poly(\secpar)$, so with the identity, $g$
-and a target $h$ mapped to $\mathrm{id}, g', t \in [p]$, the tuple
+$[p] = \{0, \ldots, p - 1\}$, and a deterministic polynomial-time algorithm,
+given $(\GG, g, p)$ output by $\GrGen$ and $a, b \in \GG$, computes $ab$. The
+group operation transported to $[p]$ is then computed by a circuit $f$ of size
+$\poly(\secpar)$ and the identity $g^p$ by square-and-multiply, so with the
+identity, $g$ and a target $h$ mapped to $\mathrm{id}, g', t \in [p]$, the tuple
 $(p, f, \mathrm{id}, g', t)$ is an instance of the total search problem DLog of
 [[HV21 - On Search Complexity of Discrete Logarithm|HV21]] (arXiv v2,
 Definition 3.1), and membership of a target in $[p]$ is the test $t < p$.
