@@ -64,7 +64,7 @@ $$
 
 is negligible. The admissibility constraint requires full collusion resistance: revoked users may pool their keys and still learn nothing about $m$.
 
-As an object, BE denotes a scheme that, for every $n = n(\secpar) \ge 1$ bounded by a polynomial in $\secpar$, is $(1 - \negl(\secpar))$-[[#Correctness|correct]], has a message space containing two distinct messages of equal length, and is IND-BE-CPA-secure.
+As an object, BE denotes a scheme that, for every $n = n(\secpar) \ge 1$ bounded by a polynomial in $\secpar$, is $(1 - \negl(\secpar))$-[[#Correctness|correct]], has, for every $\secpar$, a message space containing two distinct messages of equal length that an efficient algorithm outputs given $\pp$, and is IND-BE-CPA-secure. Without that algorithm, the scheme with $\pp = g(a)$ for a one-way function $g$ and $\calM_{\pp} = \{0^\secpar, a\}$ that sends $m$ in the clear meets IND-BE-CPA — standard.
 
 ### IND-sBE-CPA Security (Selective)
 
