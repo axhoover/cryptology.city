@@ -11,7 +11,6 @@ title: Polynomial commitment scheme
 id: pcs
 variants:
   extractable-pcs: "#extractability"
-  succinct-extractable-pcs: "#succinct-extractability"
   fri: "#fri-fast-reed-solomon-iop-of-proximity"
   kzg-polynomial-commitment: "#kzg-kate-zaverucha-goldberg"
 ---
@@ -27,7 +26,7 @@ A polynomial commitment scheme is a tuple of efficient algorithms $(\Setup, \mat
 - $\Setup(1^\secpar, d) \to \mathsf{srs},$ produces a structured (or transparent) reference string for polynomials of degree $\le d$; it determines a finite field $\FF$ with $|\FF| \ge d + 1$, over which polynomials and points range.
 - $\mathsf{Commit}(\mathsf{srs}, f) \to (C, \mathsf{aux}),$ commits to a polynomial $f \in \FF[X]$ of degree at most $d$, producing commitment $C$ and auxiliary data $\mathsf{aux}$ (kept by the prover).
 - $\Open(\mathsf{srs}, C, z, y, \mathsf{aux}) \to \pi,$ produces an opening proof $\pi$ for the claim $f(z) = y$, for $z, y \in \FF$.
-- $\Vrfy(\mathsf{srs}, C, z, y, \pi) \to \bits,$ verifies the claim $f(z) = y$ against commitment $C$.
+- $\Vrfy(\mathsf{srs}, C, z, y, \pi) \to \bits,$ a deterministic algorithm verifying the claim $f(z) = y$ against commitment $C$.
 
 The scheme is **succinct** if there is one polynomial $p$, fixed before $d$, such that $|C| \le p(\secpar, \log d)$ and $|\pi| \le p(\secpar, \log d)$ for every $d \le \poly(\secpar)$. A bound chosen after $d$ would admit the scheme that sends $f$ in the clear, whose $|C| = (d+1)\log|\FF|$ is polynomial in $\secpar$ for each such $d$ — standard.
 
@@ -52,13 +51,9 @@ $$
 \Pr\!\left[\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1 \wedge \left(\deg f > d \vee f(z) \neq y \vee C \neq C_{f,r}\right)\right]
 $$
 
-is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$, $(C, z, y, \pi) \gets \calA(\mathsf{srs})$, and $(f, r) \gets \calE(\mathsf{srs})$ run on the random coins of $\calA$, where $C_{f,r}$ is the commitment output by $\mathsf{Commit}(\mathsf{srs}, f)$ on randomness $r$. For interactive evaluation, [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] require the evaluation protocol to be an argument of knowledge of such $(f, r)$.
+is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$, $(C, z, y, \pi) \gets \calA(\mathsf{srs})$, and $(f, r) \gets \calE(\mathsf{srs})$ run on the random coins of $\calA$, where $C_{f,r}$ is the commitment output by $\mathsf{Commit}(\mathsf{srs}, f)$ on randomness $r$. The DARK commitment of [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] proves evaluations with an interactive argument of knowledge, so it lies outside this syntax and is not registered as an instance.
 
 As an object, an extractable PCS denotes a PCS, as defined for the base object, that is extractable, for which, for one polynomial $p$ fixed before $d$, $\Vrfy$ runs in time at most $p(\secpar, \log d)$ for every $d \le \poly(\secpar)$, and whose field has $1/|\FF|$ negligible. A polynomial IOP's checks are Schwartz–Zippel tests with error about $d/|\FF|$, so over a field of size about $d$ they give no soundness — standard. KZG and the inner-product scheme work over $\ZZ_p$ for a group order $p$ of about $2^\secpar$ — standard.
-
-### Succinct extractability
-
-An extractable PCS is **succinct** if a polynomial $p$, fixed with the scheme, bounds the commitment size, the evaluation-proof size and the running time of $\Vrfy$ by $p(\secpar + \log d)$. For an interactive evaluation protocol, $p$ bounds its communication and the verifier's running time. The bound holds for the DARK commitment, whose evaluation proofs and verification time are logarithmic in the number of coefficients — [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]], and for KZG, whose commitments and opening proofs are single group elements checked with two pairings — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
 
 ### Hiding (optional)
 
@@ -104,16 +99,15 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
-<!-- BEGIN GENERATED participates-in 08a2e7a36791 -->
+<!-- BEGIN GENERATED participates-in 6ee29de7d180 -->
 
 ## Participates in
 
 **Builds on Polynomial commitment scheme**
 
 - [[extractable-pcs-to-pcs|Extractable PCS ⇒ PCS]] (via [[polynomial-commitment#extractability|Extractability]])
-- [[pcs-to-snark|Extractable PCS ⇒ SNARK]] (via [[polynomial-commitment#succinct-extractability|Succinct extractability]])
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]] (via [[polynomial-commitment#extractability|Extractability]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
-- [[succinct-extractable-pcs-to-extractable-pcs|Succinct extractable PCS ⇒ Extractable PCS]] (via [[polynomial-commitment#succinct-extractability|Succinct extractability]])
 
 **Produces Polynomial commitment scheme**
 
@@ -121,6 +115,5 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[extractable-pcs-to-pcs|Extractable PCS ⇒ PCS]]
 - [[hash-function-to-pcs-bbhr18|ROM ⇒ PCS (FRI)]]
-- [[succinct-extractable-pcs-to-extractable-pcs|Succinct extractable PCS ⇒ Extractable PCS]] (via [[polynomial-commitment#extractability|Extractability]])
 
 <!-- END GENERATED participates-in -->

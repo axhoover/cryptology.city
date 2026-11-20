@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-In the [[random-oracle-model|random-oracle model]] there is a transparent [[polynomial-commitment|polynomial commitment scheme]] for polynomials of degree $< d$ with $O(\log^2 d)$ proof size and verification time: the commitment is the Merkle root of the polynomial's Reed–Solomon codeword, low-degreeness and openings are proved with the FRI proximity test of [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]], and the resulting interactive oracle proof is made non-interactive by the [[BCS16 - Interactive Oracle Proofs|BCS16]] compilation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]. FRI is perfectly complete, so an honest opening always verifies — standard.
+In the [[random-oracle-model|random-oracle model]] there is a transparent [[polynomial-commitment|polynomial commitment scheme]] for polynomials of degree $< d$ with $O(\log^2 d)$ proof size and verification time: the commitment is the Merkle root of the polynomial's Reed–Solomon codeword, low-degreeness and openings are proved with the FRI proximity test of [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]], and the resulting interactive oracle proof is made non-interactive by the [[BCS16 - Interactive Oracle Proofs|BCS16]] compilation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]. FRI is perfectly complete, so an honest opening always verifies, and the BCS16 verifier derives its queries from the random oracle, so it is deterministic — standard.
 
 ## Sketch
 
