@@ -18067,7 +18067,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "factor $n-1$ over the two-party KE advantage (one hybrid per session)",
+   "securityLoss": "factor $2n-3$ over the two-party KE advantage: $n-1$ hybrids from the real pads with the group key to uniform pads, and $n-2$ more from the real pads with an independent uniform key",
    "rationale": {
     "class": "The construction runs the two-party protocol only as an oracle, one independent session per party, and the hybrid reduction runs the multi-party eavesdropper as an oracle."
    },
@@ -22776,7 +22776,7 @@
    "heuristic": false,
    "securityLoss": "hiding: tight, the hiding advantage equals the CPA advantage; binding: perfect",
    "rationale": {
-    "class": "The commitment algorithms call KeyGen and Enc only as oracles, the hiding reduction runs any commitment distinguisher once as a CPA adversary with the same advantage, and binding is perfect for honestly generated keys."
+    "class": "The commitment algorithms call KeyGen, Enc and the message-producing algorithm only as oracles, the hiding reduction runs any commitment distinguisher once as a CPA adversary with the same advantage, and binding is perfect for honestly generated keys."
    },
    "status": "draft",
    "page": "content/Reductions/pke-to-com.md",
