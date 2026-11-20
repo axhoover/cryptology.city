@@ -23,7 +23,7 @@ The class of total search problems in FNP — search problems where a solution i
 1. For every input $x$, there exists a witness $w$ with $V(x, w) = 1$ (totality).
 2. The witness $w$ has length polynomial in $|x|$.
 
-Totality means the problem cannot be NP-complete (unless NP = coNP), since a reduction from SAT to a total problem yields NP certificates of unsatisfiability (Megiddo–Papadimitriou, TCS 1991). This makes TFNP a natural home for problems believed to be hard but not NP-hard.
+Totality means the problem cannot be NP-complete (unless NP = coNP), since a reduction from SAT to a total problem yields NP certificates of unsatisfiability — [[MP91 - On total functions, existence theorems and computational complexity|MP91]]. This makes TFNP a natural home for problems believed to be hard but not NP-hard.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:T#tfnp).
 
@@ -68,7 +68,7 @@ The total search problems that reduce to Leaf by a randomized polynomial-time re
 ## Known relationships
 
 - $\classP \subseteq \classFP \subseteq \classTFNP \subseteq \mathbf{FNP}$.
-- No TFNP problem is NP-hard unless NP = coNP (Megiddo–Papadimitriou, TCS 1991).
+- No TFNP problem is NP-hard unless NP = coNP — [[MP91 - On total functions, existence theorems and computational complexity|MP91]].
 
 ## Relevance to cryptography
 

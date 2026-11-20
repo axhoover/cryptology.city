@@ -82,5 +82,5 @@ A post-quantum [[digital-signature|digital signature]] scheme based on isogenies
 
 - **Known endomorphism ring**: from the exchanged torsion-point images, Kani's reducibility criterion recovers the secret isogeny in heuristic classical polynomial time when the endomorphism ring of the starting curve is known, as for SIKE — [[CD22 - An efficient key recovery attack on SIDH|CD22]]
 - **Every starting curve**: SIDH is broken in classical polynomial time for every starting curve; the published torsion-point images make the secret isogeny, hence $E_{AB}$, computable, so SSDDH does not hold — [[Rob22 - Breaking SIDH in Polynomial Time|Rob22]]
-- **Quantum sub-exponential attack on CSIDH**: Kuperberg's algorithm for the hidden-shift problem recovers the secret key in quantum subexponential time; a classical meet-in-the-middle attack takes time $\tilde{O}(p^{1/4})$ — Castryck–Lange–Martindale–Panny–Renes (ASIACRYPT 2018)
+- **Quantum sub-exponential attack on CSIDH**: Kuperberg's algorithm for the hidden-shift problem recovers the secret key in quantum subexponential time; a classical meet-in-the-middle attack takes time $\tilde{O}(p^{1/4})$ — [[CLMPR18 - CSIDH An Efficient Post-Quantum Commutative Group Action|CLMPR18]]
 - The original SIDH assumption (without auxiliary torsion points) may still be hard — this is the basis for exploring modifications
