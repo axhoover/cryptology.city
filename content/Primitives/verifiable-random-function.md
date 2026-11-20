@@ -7,6 +7,7 @@ aliases:
 title: Verifiable random function
 id: verifiable-random-function
 variants:
+  key-dependent-output-vrf: "#key-dependent-output-spaces"
   vrf-selective-pseudorandomness: "#selective-pseudorandomness"
   weak-vrf: "#weak-vrfs"
   vuf: "#verifiable-unpredictable-functions"
@@ -75,6 +76,10 @@ As an object, a VRF denotes a scheme with provability, unique provability and ps
 
 # Variations
 
+## Key-dependent output spaces
+
+A VRF whose output space $\calY = \calY_{\pk}$ is determined by the public key, as when $\KeyGen$ samples the parameters of a group and publishes them in $\pk$: for every $\pk$ in the support of $\KeyGen(1^\secpar)$, $\calY_{\pk}$ is a set of strings of length $\poly(\secpar)$ with $|\calY_{\pk}| \ge 2$, and an efficient algorithm given $\pk$ samples uniformly from $\calY_{\pk}$. The input space, provability and unique provability are as above with $y \in \calY_{\pk}$, and the pseudorandomness game draws $y_1 \getsr \calY_{\pk}$. As an object, a VRF with key-dependent outputs denotes such a scheme with provability, unique provability and this pseudorandomness. A VRF with a fixed output space $\calY_\secpar$ is one, with $\calY_{\pk} := \calY_\secpar$ ([[verifiable-random-function-to-key-dependent-output-vrf|VRF ⇒ VRF with key-dependent outputs]]) — folklore. The converse fails for the fixed-space game: when $\calY_{\pk}$ ranges over sets that the public key tells apart, a uniform element of their union is not distributed as an output, and membership in $\calY_{\pk}$ distinguishes them. The $k$-Lin VRF of [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]] has key-dependent outputs ([[bdh-to-vrf|k-Lin ⇒ VRF with key-dependent outputs]]).
+
 ## Selective pseudorandomness
 
 The adversary commits to $x^*$ before receiving $\pk$: the game is $\Game^{\mathrm{vrf}}$ except that $\calA$ outputs $x^*$ on input $1^\secpar$ before $\KeyGen$ runs, and its first phase then runs on $\pk$ with $x^*$ fixed. $\mathsf{VRF}$ is **selectively pseudorandom** if for all efficient admissible $\calA$ the advantage in this game, defined as for $\Game^{\mathrm{vrf}}$, is negligible. As an object, a selectively secure VRF denotes a scheme with provability, unique provability and selective pseudorandomness. Pseudorandomness implies selective pseudorandomness ([[verifiable-random-function-to-vrf-selective-pseudorandomness|VRF ⇒ selectively secure VRF]]), and guessing $x^*$ converts back at a loss factor $|\calX|$ — standard.
@@ -90,25 +95,27 @@ A **verifiable unpredictable function (VUF)** satisfies provability and unique p
 # Other results
 
 - Forgetting $\pk$ and the proofs leaves a [[pseudorandom-function|PRF]] $\calX \to \calY$ with key $\sk$, at a loss factor $q$ for $q$ distinct queries ([[verifiable-random-function-to-prf|VRF ⇒ PRF]]) — standard.
-- [[bdh-to-vrf|k-Lin ⇒ VRF]]: in symmetric bilinear groups, the [$k$-linear assumption](bilinear-map-assumptions#k-linear-assumption) for $k \ge 2$ gives a VRF with exponential-size input space, and unique provability and pseudorandomness as defined above — [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].
+- [[bdh-to-vrf|k-Lin ⇒ VRF with key-dependent outputs]]: in symmetric bilinear groups, the [$k$-linear assumption](bilinear-map-assumptions#k-linear-assumption) for $k \ge 2$ gives a VRF with exponential-size input space, and unique provability and pseudorandomness as defined above — [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].
 - In a group with a [[pairings|bilinear map]] $e : \GG \times \GG \to \GG_T$ of prime order $p$ with generator $g$, the VRF with $\sk \getsr \ZZ_p$, $\pk = g^{\sk}$, value $e(g, g)^{1/(x + \sk)}$ and proof $g^{1/(x + \sk)}$ is pseudorandom for small input spaces under a $q$-type decisional bilinear Diffie–Hellman inversion assumption; it avoids the Goldreich–Levin step of earlier constructions — [[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]].
 - Unique signatures under a generalized [[computational-diffie-hellman|computational Diffie–Hellman]] assumption in groups where [[decisional-diffie-hellman|decisional Diffie–Hellman]] is easy, and VRFs from them — [[Lys02 - Unique Signatures and Verifiable Random Functions from the DH-DDH Separation|Lys02]].
 - VRFs with exponential-size input space and adaptive pseudorandomness in bilinear groups under the decisional Diffie–Hellman exponent assumption, a non-interactive $q$-type assumption, in the standard model without a common reference string; earlier VRFs with such input spaces needed an interactive assumption or one tolerating a security loss $2^n$ on $n$-bit inputs — [[HW10 - Constructing Verifiable Random Functions with Large Input Spaces|HW10]].
 - [[no-tdp-to-verifiable-random-function-fs12|No fully-black-box reduction from TDP to VRF]] — [[FS12 - Uniqueness Is a Different Story Impossibility of Verifiable Random Functions from Trapdoor Permutations|FS12]]; VRFs follow non-uniformly from sub-exponentially hard [[trapdoor-permutation|trapdoor permutations]] — [[Bit17 - Verifiable Random Functions from Non-interactive Witness-Indistinguishable Proofs|Bit17]].
 
-<!-- BEGIN GENERATED participates-in dfaa21b58d95 -->
+<!-- BEGIN GENERATED participates-in 358bedff89ad -->
 
 ## Participates in
 
 **Builds on Verifiable random function**
 
+- [[verifiable-random-function-to-key-dependent-output-vrf|VRF ⇒ VRF with key-dependent outputs]]
 - [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
 - [[verifiable-random-function-to-vrf-selective-pseudorandomness|VRF ⇒ selectively secure VRF]]
 - [[verifiable-random-function-to-weak-vrf|VRF ⇒ weak VRF]]
 
 **Produces Verifiable random function**
 
-- [[bdh-to-vrf|k-Lin ⇒ VRF]]
+- [[bdh-to-vrf|k-Lin ⇒ VRF with key-dependent outputs]] (via [[verifiable-random-function#key-dependent-output-spaces|Key-dependent output spaces]])
+- [[verifiable-random-function-to-key-dependent-output-vrf|VRF ⇒ VRF with key-dependent outputs]] (via [[verifiable-random-function#key-dependent-output-spaces|Key-dependent output spaces]])
 - [[verifiable-random-function-to-vrf-selective-pseudorandomness|VRF ⇒ selectively secure VRF]] (via [[verifiable-random-function#selective-pseudorandomness|Selective pseudorandomness]])
 - [[verifiable-random-function-to-weak-vrf|VRF ⇒ weak VRF]] (via [[verifiable-random-function#weak-vrfs|Weak VRFs]])
 

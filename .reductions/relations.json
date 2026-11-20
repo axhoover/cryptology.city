@@ -3622,6 +3622,19 @@
    "unlisted": false
   },
   {
+   "id": "key-dependent-output-vrf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#key-dependent-output-spaces",
+   "of": "verifiable-random-function",
+   "title": "Key-dependent output spaces",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "key-expanding-weak-prf",
    "kind": "variant",
    "type": "primitive",
@@ -10100,7 +10113,7 @@
    "hypotheses": [
     "k-linear-assumption"
    ],
-   "conclusion": "verifiable-random-function",
+   "conclusion": "key-dependent-output-vrf",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -10119,7 +10132,7 @@
    "page": "content/Reductions/bdh-to-vrf.md",
    "slug": "bdh-to-vrf",
    "graphSlug": "Reductions/bdh-to-vrf",
-   "title": "k-Lin ⇒ VRF"
+   "title": "k-Lin ⇒ VRF with key-dependent outputs"
   },
   {
    "id": "red-be-to-be-selective",
@@ -23617,7 +23630,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: NMAC is (ε + ℓqδ)-secure against q queries of at most ℓ blocks, for f ε-secure against q adaptive and δ-secure against q non-adaptive queries",
+   "securityLoss": "additive: NMAC is (ε + (ℓ+1)qδ + q²/2^c)-secure against q queries of at most ℓ blocks, for f ε-secure against q adaptive and δ-secure against q non-adaptive queries (Theorem 1)",
    "status": "draft",
    "page": "content/Reductions/prf-to-mac-gpr14.md",
    "slug": "prf-to-mac-gpr14",
@@ -31116,6 +31129,33 @@
    "slug": "verifiable-prime-order-dlog-to-prime-order-dlog",
    "graphSlug": "Reductions/verifiable-prime-order-dlog-to-prime-order-dlog",
    "title": "Verifiable prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-verifiable-random-function-to-key-dependent-output-vrf",
+   "kind": "implication",
+   "hypotheses": [
+    "verifiable-random-function"
+   ],
+   "conclusion": "key-dependent-output-vrf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme itself with Y_pk := Y_lambda, and the reduction forwards the adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/verifiable-random-function-to-key-dependent-output-vrf.md",
+   "slug": "verifiable-random-function-to-key-dependent-output-vrf",
+   "graphSlug": "Reductions/verifiable-random-function-to-key-dependent-output-vrf",
+   "title": "VRF ⇒ VRF with key-dependent outputs"
   },
   {
    "id": "red-verifiable-random-function-to-prf",

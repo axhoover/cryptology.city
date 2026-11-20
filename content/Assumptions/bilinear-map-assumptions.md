@@ -79,7 +79,7 @@ is negligible.
 
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]
-- [[bdh-to-vrf|k-Lin ⇒ VRF]]
+- [[bdh-to-vrf|k-Lin ⇒ VRF with key-dependent outputs]]
 - [[cdh-to-bdh|BDH ⇒ CDH]]: a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$ — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
 
@@ -178,7 +178,7 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - Index calculus computes discrete logarithms in every finite field in heuristic subexponential time — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]] — so $k$ must be large enough for DLOG in $\FF_{q^k}^*$ to be hard; [[discrete-logarithm#attacks|DLOG § Attacks]] lists the finite-field algorithms.
 - Quantum: Shor's algorithm computes discrete logarithms modulo a prime in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, so it breaks discrete log in $\GG_1$, $\GG_2$ and $\GG_T$ — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
-<!-- BEGIN GENERATED participates-in 9c791bb26a69 -->
+<!-- BEGIN GENERATED participates-in e995377822f9 -->
 
 ## Participates in
 
@@ -192,7 +192,7 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
-- [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+- [[bdh-to-vrf|k-Lin ⇒ VRF with key-dependent outputs]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 - [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 - [[dbdh-to-bdh|DBDH ⇒ BDH]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
