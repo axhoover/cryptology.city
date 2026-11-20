@@ -6558,6 +6558,19 @@
    "unlisted": false
   },
   {
+   "id": "ros-with-auxiliary-input",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/ros-problem.md",
+   "slug": "ros-problem",
+   "graphSlug": "Assumptions/ros-problem",
+   "anchor": "#ros-with-auxiliary-inputs",
+   "of": "ros",
+   "title": "ROS with auxiliary inputs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "rp",
    "kind": "object",
    "type": "complexity-class",
@@ -25854,6 +25867,33 @@
    "slug": "rom-to-snark-mic00",
    "graphSlug": "Reductions/rom-to-snark-mic00",
    "title": "ROM ⇒ SNARK (Micali's CS proofs)"
+  },
+  {
+   "id": "red-ros-with-auxiliary-input-to-ros",
+   "kind": "implication",
+   "hypotheses": [
+    "ros-with-auxiliary-input"
+   ],
+   "conclusion": "ros",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The reduction runs any ROS solver once as an oracle, answering its queries with the auxiliary-input oracle at one fixed auxiliary value."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ros-with-auxiliary-input-to-ros.md",
+   "slug": "ros-with-auxiliary-input-to-ros",
+   "graphSlug": "Reductions/ros-with-auxiliary-input-to-ros",
+   "title": "ROS with auxiliary inputs ⇒ ROS"
   },
   {
    "id": "red-rp-to-bpp",

@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-If [[ros-problem#omdl-and-ros-in-the-same-group|OMDL and ROS are hard in the same group]] for a group generator $\GrGen$, then the [[ros-problem|ROS problem]] is hard for $\GrGen$, with the same advantage — folklore.
+If [[ros-problem#omdl-and-ros-in-the-same-group|OMDL and ROS are hard in the same group]] for a group generator $\GrGen$, then the [[ros-problem|ROS problem]] is hard for $\GrGen$, with the same advantage: ROS with auxiliary inputs is hard for $\GrGen$, and fixing the auxiliary input turns an $\ell$-ROS solver into an $\ell$-$\mathrm{ROS}_\Omega$ solver ([[ros-with-auxiliary-input-to-ros|ROS with auxiliary inputs ⇒ ROS]]) — folklore.
