@@ -31429,7 +31429,7 @@
    "heuristic": false,
    "securityLoss": "tight: the undetectability distinguisher is forwarded to the PRC pseudorandomness game, and with uniform coins the outputs are exactly the model's",
    "rationale": {
-    "class": "Generation calls the zero-bit PRC's encoder and detection its decoder, both only as oracles, and one fixed reduction runs any distinguisher between watermarked and unwatermarked text as an oracle against PRC pseudorandomness."
+    "class": "For each ε, generation calls the encoder of the code for p = 1/2 − ε and detection its decoder, both only as oracles, and one fixed reduction runs any distinguisher between watermarked and unwatermarked text as an oracle against PRC pseudorandomness."
    },
    "status": "draft",
    "page": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",

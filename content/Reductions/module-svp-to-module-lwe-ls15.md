@@ -29,4 +29,5 @@ The iterative quantum step of [[Reg05 - On Lattices, Learning with Errors, Rando
 
 ## Notes
 
+- TODO: the modulus, the error law and its width, and the $B$-bounded error with $B \le q/4$ for every $m = \poly(\secpar)$ that [[learning-with-errors#module-lwe|Module LWE]] requires are not yet stated from LS15's decision theorem.
 - The reduction to [[shortest-integer-solution#module-sis|Module-SIS]] in the same paper is classical — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]; see [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]].
