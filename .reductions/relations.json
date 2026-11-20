@@ -17883,7 +17883,7 @@
    "securityLoss": "tight up to an additive $2q \\cdot \\mathbb{E}[1/p]$ for $q$ key queries: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$",
    "rationale": {
     "class": "One fixed construction calls the IPPE algorithms once each on encoded vectors, and one fixed reduction runs any selective HVE adversary as an oracle, translating its queries through the encoding.",
-    "securityLoss": "The coefficients $r_i$ are sampled after the challenge attributes are fixed, so each non-matching key's encoded inner product is uniform in $\\ZZ_p$ on each of them."
+    "securityLoss": "The coefficients $r_i$ are sampled after the challenge attributes are fixed, so each non-matching key's encoded inner product is uniform in $\\ZZ_p$ on each of them; when $p < |\\Sigma_\\secpar|$ the adversary's view is independent of $b$ and the reduction outputs a uniform guess, so that event adds no loss."
    },
    "status": "draft",
    "page": "content/Reductions/ippe-to-hve.md",
