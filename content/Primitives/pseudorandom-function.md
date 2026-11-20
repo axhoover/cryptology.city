@@ -7,8 +7,10 @@ aliases:
 title: Pseudorandom function
 id: prf
 variants:
+  compression-function-prf: "#compression-function-prfs"
   invertible-prf: "#invertible-prfs"
   key-expanding-weak-prf: "#key-expanding-weak-prfs"
+  non-uniform-compression-function-prf: "#non-uniform-compression-function-prfs"
   non-uniform-prf: "#security-against-non-uniform-adversaries"
   pseudorandom-injective-function: "#pseudorandom-injective-functions"
   puncturable-prf: "#puncturable-prfs"
@@ -63,6 +65,14 @@ is negligible.
 Let $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ be a family of polynomial-size oracle circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing $\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$. $\PRF$ is **pseudorandom against non-uniform adversaries** if for every such family $\calA$, $\Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$ is negligible. Security against all non-uniform adversaries implies security against all uniform ones ([[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]) — standard.
 
 # Variations
+
+## Compression-function PRFs
+
+A **compression-function PRF** is, for some polynomials $c = c(\secpar)$ and $b = b(\secpar)$ with $c = \omega(\log \secpar)$ and $c \le b$, an efficiently computable $f : \bits^c \times \bits^b \to \bits^c$ taken as a PRF with $\calK = \calR = \bits^c$, $\calD = \bits^b$ and $\Eval := f$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^c$. As an object, a compression-function PRF denotes such an $f$ that is pseudorandom in $\Game^{\mathrm{prf}}$. Pseudorandomness under a uniform $c$-bit key already forces $c = \omega(\log \secpar)$, since guessing the key and checking two queries gives advantage at least $2^{-c} - 2^{-2c}$ — standard. Outputs lie in the key space, so a chaining value can serve as the next key, as in the NMAC cascade; this is the premise of the uniform NMAC theorem of [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]] ([[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]).
+
+### Non-uniform compression-function PRFs
+
+A **non-uniform compression-function PRF** is an $f$ of the shape above, for some polynomials $c = \omega(\log \secpar)$ and $b \ge c$, taken as the PRF $\PRF = (\KeyGen, f)$ with $\KeyGen(1^\secpar)$ uniform on $\bits^c$, such that for every family $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ of polynomial-size oracle circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing $\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$, $\Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$ is negligible. It is the premise of the NMAC theorem of [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]] ([[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]]), whose reduction is non-uniform — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]].
 
 ## Invertible PRFs
 
@@ -169,23 +179,26 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 67222217c4a0 -->
+<!-- BEGIN GENERATED participates-in 06ae18361af8 -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
+- [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
+- [[non-uniform-compression-function-prf-to-compression-function-prf|Non-uniform compression-function PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
+- [[non-uniform-compression-function-prf-to-non-uniform-prf|Non-uniform compression-function PRF ⇒ Non-uniform PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
 - [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[prf-to-garbled-circuits-bhr12|PRF ⇒ Garbled circuits (BHR)]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]]
 - [[prf-to-mac|PRF ⇒ MAC]]
-- [[prf-to-mac-bel06|Non-uniform PRF ⇒ MAC (NMAC)]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
+- [[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
-- [[prf-to-mac-gpr14|PRF ⇒ MAC (NMAC, uniform proof)]]
+- [[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]]
 - [[prf-to-ope-bclo09|PRF ⇒ OPE (BCLO09)]]
 - [[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE leaking the first differing bit (CLWW16)]]
@@ -201,9 +214,12 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 **Produces Pseudorandom function**
 
 - [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
+- [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
+- [[non-uniform-compression-function-prf-to-compression-function-prf|Non-uniform compression-function PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
+- [[non-uniform-compression-function-prf-to-non-uniform-prf|Non-uniform compression-function PRF ⇒ Non-uniform PRF]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])

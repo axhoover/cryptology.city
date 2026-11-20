@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Non-uniform PRF ⇒ MAC (NMAC)"
+title: "Non-uniform compression-function PRF ⇒ MAC (NMAC)"
 aliases: []
 id: red-prf-to-mac-bel06
 kind: implication
-hypotheses: [non-uniform-prf]
+hypotheses: [non-uniform-compression-function-prf]
 conclusion: mac
 class: unstated
 model: standard
@@ -15,7 +15,7 @@ rationale:
   class: "Bel06's reduction is non-uniform, and the vocabulary has no non-uniform class."
 ---
 
-# Non-uniform PRF ⇒ MAC (NMAC)
+# Non-uniform compression-function PRF ⇒ MAC (NMAC)
 
 ## Statement
 
@@ -25,9 +25,9 @@ $$
 \mathrm{NMAC}_{k_1,k_2}(m) := f\big(k_1, F_{k_2}(m) \,\|\, \mathrm{pad}\big)
 $$
 
-for a fixed string $\mathrm{pad}$ of $b - c$ bits, so the outer call takes the $c$-bit inner output padded to one block. If the family $\{f(k, \cdot)\}_{k \in \bits^c}$, keyed by the chaining input, is a [[pseudorandom-function#security-against-non-uniform-adversaries|PRF against non-uniform adversaries]] $\bits^b \to \bits^c$, then NMAC is a PRF on $(\bits^b)^+$ against non-uniform adversaries, with no collision-resistance assumption on $F$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]. The reduction of Bel06 is non-uniform — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]]. A PRF against non-uniform adversaries is a PRF against uniform ones ([[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]) — standard, so by [[prf-to-mac|PRF ⇒ MAC]], $\Tag((k_1, k_2), m) := \mathrm{NMAC}_{k_1,k_2}(m)$ with canonical verification is a UF-CMA-secure [[message-authentication-code|MAC]] on $(\bits^b)^+$.
+for a fixed string $\mathrm{pad}$ of $b - c$ bits, so the outer call takes the $c$-bit inner output padded to one block. If the family $\{f(k, \cdot)\}_{k \in \bits^c}$, keyed by the chaining input under a uniform key $k \getsr \bits^c$, is a [[pseudorandom-function#non-uniform-compression-function-prfs|compression-function PRF against non-uniform adversaries]] $\bits^b \to \bits^c$, then NMAC is a PRF on $(\bits^b)^+$ against non-uniform adversaries, with no collision-resistance assumption on $F$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]. The reduction of Bel06 is non-uniform — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]]. A PRF against non-uniform adversaries is a PRF against uniform ones ([[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]) — standard, so by [[prf-to-mac|PRF ⇒ MAC]], $\Tag((k_1, k_2), m) := \mathrm{NMAC}_{k_1,k_2}(m)$ with canonical verification is a UF-CMA-secure [[message-authentication-code|MAC]] on $(\bits^b)^+$.
 
 ## Notes
 
-- A uniform proof gives the same conclusion from a PRF against uniform adversaries ([[prf-to-mac-gpr14|PRF ⇒ MAC (NMAC, uniform proof)]]): if $f$ is an $\varepsilon$-secure PRF against $q$ queries and a $\delta$-secure PRF against $q$ non-adaptive queries, NMAC is an $(\varepsilon + (\ell + 1) q \delta + q^2/2^c)$-secure PRF against $q$ queries of at most $\ell$ blocks each — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]] (Theorem 1).
+- A uniform proof gives the same conclusion from a [[pseudorandom-function#compression-function-prfs|compression-function PRF]] against uniform adversaries ([[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]): if $f$ is an $\varepsilon$-secure PRF against $q$ queries and a $\delta$-secure PRF against $q$ non-adaptive queries, NMAC is an $(\varepsilon + (\ell + 1) q \delta + q^2/2^c)$-secure PRF against $q$ queries of at most $\ell$ blocks each — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]] (Theorem 1).
 - [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]] had proved NMAC a PRF assuming, besides $f$ being a PRF, that $F$ is weakly collision resistant, an assumption that fails for MD5 and SHA-1 — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]].
