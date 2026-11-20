@@ -85,7 +85,7 @@ The KZG scheme commits to $f$ as $C = g^{f(\tau)}$ in a bilinear group, where $\
 - **Security**: $q$-Strong Diffie-Hellman assumption in a bilinear group ([[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]])
 - **Reference**: [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]
 
-Used in: Plonk, Marlin, KZG-based zkRollups, Ethereum EIP-4844.
+Used in: Plonk — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]; Marlin — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]].
 
 ## FRI (Fast Reed-Solomon IOP of Proximity)
 
