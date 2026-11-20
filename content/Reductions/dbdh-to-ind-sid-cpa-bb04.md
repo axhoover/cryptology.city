@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[bilinear-map-assumptions#decisional-bdh|decisional BDH]] holds in a symmetric pairing group, there is an [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme in the standard model, with identities in $\ZZ_p$: the public parameters are $g, g_1 = g^{\alpha}, g_2, h$, the key for $\mathit{id}$ is $(g_2^{\alpha} (g_1^{\mathit{id}} h)^r, g^r)$, and a ciphertext is $(e(g_1, g_2)^s M, g^s, (g_1^{\mathit{id}} h)^s)$ — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]].
+If [[bilinear-map-assumptions#decisional-bdh|decisional BDH]] holds in a symmetric pairing group of prime order $q$, there is an [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme in the standard model, with identities in $\ZZ_q$ and messages in $\GG_T$: the public parameters are $g, g_1 = g^{\alpha}, g_2, h$, the key for $\mathit{id}$ is $(g_2^{\alpha} (g_1^{\mathit{id}} h)^r, g^r)$, and a ciphertext is $(e(g_1, g_2)^s M, g^s, (g_1^{\mathit{id}} h)^s)$ — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]. $\ZZ_q$ contains $\bits^\secpar$ as the integers below $2^\secpar < q$, and the scheme is perfectly correct, since $e(g^r, (g_1^{\mathit{id}} h)^s) / e(g^s, g_2^{\alpha} (g_1^{\mathit{id}} h)^r) = e(g_1, g_2)^{-s}$ — standard.
 
 ## Sketch
 

@@ -6,7 +6,7 @@ aliases: []
 id: red-hibe-to-ibe
 kind: implication
 hypotheses: [hibe]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 model: standard
 source: folklore

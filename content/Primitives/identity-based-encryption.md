@@ -16,7 +16,7 @@ variants:
 
 # Identity-based encryption
 
-An **identity-based encryption (IBE)** scheme is a form of [[public-key-encryption|public-key encryption]] in which any identity string $\mathit{id}$ serves as a public key: anyone encrypts to $\mathit{id}$ under public parameters $\pp$, and the holder of the master secret key $\msk$ extracts a decryption key $\sk_{\mathit{id}}$. No efficient adversary that obtains keys for identities of its choice can distinguish encryptions of two messages under an identity of its choice whose key it has not obtained.
+An **identity-based encryption (IBE)** scheme is a form of [[public-key-encryption|public-key encryption]] in which any identity string $\mathit{id}$ serves as a public key: anyone encrypts to $\mathit{id}$ under public parameters $\pp$, and the holder of the master secret key $\msk$ extracts a decryption key $\sk_{\mathit{id}}$. Its basic security notion, [[#IND-ID-CPA Security|IND-ID-CPA]], asks that no efficient adversary that obtains keys for identities of its choice distinguish encryptions of two messages under an identity of its choice whose key it has not obtained.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ An IBE scheme is a tuple of efficient algorithms $\IBE = (\Setup, \Extract, \Enc
 - $\Enc(\pp, \mathit{id}, m) \to c,$ is a randomized algorithm that takes $\pp$, an identity $\mathit{id} \in \calI$, and a message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk_{\mathit{id}}, c) \to m,$ is a deterministic algorithm that takes a secret key $\sk_{\mathit{id}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate failure.
 
-The identity space contains $\bits^{\secpar}$. With polynomially many identities the notion is trivial: one [[public-key-encryption|PKE]] key pair per identity, published together, is an IBE scheme — standard. For every $\secpar$, the message space contains two distinct messages of the same length, which an efficient algorithm outputs given the public parameters; otherwise no efficient adversary need be able to submit $m_0 \ne m_1$, and IND-ID-CPA is vacuous — standard.
+The identity space contains $\bits^{\secpar}$. With polynomially many identities the notion is trivial: one [[public-key-encryption|PKE]] key pair per identity, published together, is an IBE scheme — standard. For every $\secpar$, the message space contains two distinct messages of the same length, which an efficient algorithm outputs given the public parameters; otherwise no efficient adversary need be able to submit $m_0 \ne m_1$, and IND-ID-CPA is vacuous — standard. As an object, IBE denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]] scheme with this syntax; each security notion below denotes such a scheme with that security. Without correctness, a scheme whose $\Enc$ ignores its message meets every security notion on this page.
 
 ## Properties
 
@@ -99,7 +99,7 @@ $$
 \Adv^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure ([[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]]) — folklore. Conversely, guessing $\mathit{id}^*$ (complexity leveraging) turns an adaptive adversary into a selective one at a loss factor of $|\calI| \ge 2^{\secpar}$ in advantage — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]; a merely negligible selective advantage therefore does not suffice, and the argument gives IND-ID-CPA security from [[#Sub-exponential IND-sID-CPA Security|sub-exponential]] IND-sID-CPA security after rescaling $\secpar$ ([[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]]) — folklore. A different, generic construction turns any IND-sID-CPA-secure IBE into an IND-ID-CPA-secure one — [[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]].
+is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure ([[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]]) — folklore. Conversely, guessing $\mathit{id}^*$ (complexity leveraging) turns an adaptive adversary into a selective one at a loss factor of $|\calI| \ge 2^{\secpar}$ in advantage — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]; a merely negligible selective advantage therefore does not suffice, and the argument gives IND-ID-CPA security from [[#Sub-exponential IND-sID-CPA Security|sub-exponential]] IND-sID-CPA security after rescaling $\secpar$ ([[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]]) — folklore. A different, generic construction turns any IND-sID-CPA-secure IBE into an IND-ID-CPA-secure one ([[ind-sid-cpa-to-ind-id-cpa-dg17b|IND-sID-CPA IBE ⇒ IND-ID-CPA IBE (Döttling–Garg)]]) — [[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]].
 
 #### Sub-exponential IND-sID-CPA Security
 
@@ -153,7 +153,7 @@ An [[#Anonymous IBE|anonymous IBE]] whose identity space is $\bits^*$ and whose 
 - The Boneh–Franklin scheme FullIdent, built from the Weil pairing, is [[#IND-ID-CCA Security|IND-ID-CCA]]-secure in the random oracle model under computational [[bilinear-map-assumptions|BDH]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - Dual system encryption gives an adaptively secure ([[#IND-ID-CPA Security|IND-ID-CPA]]) IBE in the standard model whose public parameters, keys and ciphertexts each consist of a constant number of group elements, under [[bilinear-map-assumptions#decisional-bdh|DBDH]] and [[decisional-diffie-hellman#dlin|DLIN]] — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 33edd8a79956 -->
+<!-- BEGIN GENERATED participates-in 596d061e581e -->
 
 ## Participates in
 
@@ -162,38 +162,40 @@ An [[#Anonymous IBE|anonymous IBE]] whose identity space is $\bits^*$ and whose 
 - [[anonymous-ibe-to-consistent-peks-abc05|Anonymous IBE ⇒ PEKS (ABC+05)]] (via [[identity-based-encryption#anonymous-ibe-for-arbitrary-length-identities|Anonymous IBE for arbitrary-length identities]])
 - [[anonymous-ibe-to-ind-id-cpa|Anonymous IBE ⇒ IND-ID-CPA IBE]] (via [[identity-based-encryption#anonymous-ibe|Anonymous IBE]])
 - [[anonymous-ibe-unbounded-identities-to-anonymous-ibe|Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE]] (via [[identity-based-encryption#anonymous-ibe-for-arbitrary-length-identities|Anonymous IBE for arbitrary-length identities]])
-- [[ibe-to-garbled-ram-ghl-14|IBE ⇒ garbled RAM]]
-- [[ibe-to-pke|IBE ⇒ PKE]]
+- [[ibe-to-garbled-ram-ghl-14|IBE ⇒ garbled RAM]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[ibe-to-pke|IBE ⇒ PKE]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[ind-id-cpa-to-ibe|IND-ID-CPA IBE ⇒ IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|Sub-exponential IND-sID-CPA Security]])
+- [[ind-sid-cpa-to-ind-id-cpa-dg17b|IND-sID-CPA IBE ⇒ IND-ID-CPA IBE (Döttling–Garg)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[ind-sid-cpa-to-pke-cca2-security-chk04|Selective-ID IBE ⇒ CCA-secure PKE (CHK)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 
 **Produces Identity-based encryption**
 
-- [[abe-to-ibe|ABE ⇒ IBE]]
+- [[abe-to-ibe|ABE ⇒ IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[anonymous-ibe-to-ind-id-cpa|Anonymous IBE ⇒ IND-ID-CPA IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[anonymous-ibe-unbounded-identities-to-anonymous-ibe|Anonymous IBE for arbitrary-length identities ⇒ Anonymous IBE]] (via [[identity-based-encryption#anonymous-ibe|Anonymous IBE]])
-- [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
-- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
+- [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[consistent-peks-to-ind-id-cpa-bdop04|Perfectly consistent PEKS ⇒ IBE (BDOP04)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[dbdh-to-ibe-wat05|DBDH ⇒ IBE (Waters, standard model)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
-- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
+- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[hibe-selective-security-to-ind-sid-cpa|Selectively secure HIBE ⇒ Selectively secure IBE]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
-- [[hibe-to-ibe|HIBE ⇒ IBE]]
+- [[hibe-to-ibe|HIBE ⇒ IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[ind-id-cpa-to-ibe|IND-ID-CPA IBE ⇒ IBE]]
 - [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[ind-sid-cpa-to-ind-id-cpa-dg17b|IND-sID-CPA IBE ⇒ IND-ID-CPA IBE (Döttling–Garg)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[qr-to-ind-id-cpa-coc01|QR ⇒ IBE (Cocks, random oracle model)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 
 **Barriers**
 
-- [[no-ddh-to-ibe-prv12|No fully-black-box reduction from DDH to IBE]] — circumvented by [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]]
-- [[no-pke-cca2-security-to-ibe-bprvw08|No fully-black-box reduction from CCA-secure PKE to IBE]]
-- [[no-tdp-to-ibe-bprvw08|No fully-black-box reduction from TDP to IBE]]
+- [[no-ddh-to-ibe-prv12|No fully-black-box reduction from DDH to IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]]) — circumvented by [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]]
+- [[no-pke-cca2-security-to-ibe-bprvw08|No fully-black-box reduction from CCA-secure PKE to IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[no-tdp-to-ibe-bprvw08|No fully-black-box reduction from TDP to IBE]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 
 <!-- END GENERATED participates-in -->

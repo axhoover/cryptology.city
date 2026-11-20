@@ -25,7 +25,7 @@ $$
 f_0(x) := x^e \bmod n, \qquad f_1(x) := y \cdot x^e \bmod n
 $$
 
-of permutations of $\ZZ_n^*$, with trapdoors $d$ and $(d, y)$: $f_0^{-1}(z) = z^d \bmod n$ and $f_1^{-1}(z) = (y^{-1} z)^d \bmod n$. The domain sampler draws $x \getsr \ZZ_n$ until $\gcd(x, n) = 1$, for at most $\secpar$ trials, and outputs $1$ if all fail; since $\phi(n)/n = (1 - 1/p)(1 - 1/q) \ge 1/3$ for distinct primes $p, q$, its output is within statistical distance $(2/3)^\secpar$ of uniform on $\ZZ_n^*$ — standard.
+of permutations of $\ZZ_n^*$, computable in polynomial time from the index $(n, e, y)$, with trapdoors $d$ and $(d, y)$: $f_0^{-1}(z) = z^d \bmod n$ and $f_1^{-1}(z) = (y^{-1} z)^d \bmod n$. The domain sampler draws $x \getsr \ZZ_n$ until $\gcd(x, n) = 1$, for at most $\secpar$ trials, and outputs $1$ if all fail; since $\phi(n)/n = (1 - 1/p)(1 - 1/q) \ge 1/3$ for distinct primes $p, q$, its output is within statistical distance $(2/3)^\secpar$ of uniform on $\ZZ_n^*$ — standard.
 
 ## Sketch
 

@@ -6,7 +6,7 @@ aliases: []
 id: red-fuzzy-ibe-to-ibe
 kind: implication
 hypotheses: [large-universe-fuzzy-ibe]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 model: standard
 source: folklore

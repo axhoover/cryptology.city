@@ -13,7 +13,7 @@ class: fully-black-box
 model: rom
 source:
   - "[[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]"
-security-loss: "a factor q_H + 1 for q_H hash queries: a forger with success ε inverts the permutation with probability ε/(q_H + 1)"
+security-loss: "a factor q_H + 1 for q_H hash queries, less q_H ν for a domain sampler at statistical distance ν: a forger with success ε inverts the permutation with probability at least ε/(q_H + 1) − q_H ν"
 rationale:
   class: "The scheme evaluates and inverts the permutation only as an oracle, and the reduction runs any forger once as an oracle, planting its challenge in one random-oracle answer."
   model: "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose."
@@ -27,7 +27,7 @@ Let $f$ be a [[trapdoor-permutation|trapdoor permutation]] of a domain $\calD$ a
 
 ## Sketch
 
-The reduction, given $f$ and a challenge $y$, guesses which of the forger's hash queries will be its forgery's message and answers that query with $y$. Every other query $m$ it answers with $f(x_m)$ for a uniform $x_m$ it stores, so it can answer a signing query on $m$ with $x_m$. A forgery on the guessed message is $f^{-1}(y)$ — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]].
+The reduction, given $f$ and a challenge $y$, guesses which of the forger's hash queries will be its forgery's message and answers that query with $y$. Every other query $m$ it answers with $f(x_m)$ for $x_m \gets \mathsf{Samp}(f)$, uniform up to $\nu$, which it stores, so it can answer a signing query on $m$ with $x_m$. A forgery on the guessed message is $f^{-1}(y)$ — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]].
 
 ## Notes
 

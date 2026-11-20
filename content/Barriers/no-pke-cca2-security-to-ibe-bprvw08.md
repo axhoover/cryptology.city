@@ -5,7 +5,7 @@ title: "No fully-black-box reduction from CCA-secure PKE to IBE"
 aliases: []
 id: bar-pke-cca2-security-to-ibe-bprvw08
 hypotheses: [pke-cca2-security]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 consequences:
   - kind: contradiction
@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-There is no fully-black-box construction of [[identity-based-encryption|identity-based encryption]] from [[public-key-encryption#cca-security|IND-CCA2-secure]] [[public-key-encryption|public-key encryption]] — [[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]].
+There is no fully-black-box construction of [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|identity-based encryption]] from [[public-key-encryption#cca-security|IND-CCA2-secure]] [[public-key-encryption|public-key encryption]] — [[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]].
 
 ## Notes
 
