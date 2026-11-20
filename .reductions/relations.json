@@ -6651,6 +6651,19 @@
    "unlisted": false
   },
   {
+   "id": "sampler-io",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/indistinguishability-obfuscation.md",
+   "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
+   "anchor": "#io-for-sampled-circuit-pairs",
+   "of": "io",
+   "title": "iO for sampled circuit pairs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "schnorr-identification-protocol",
    "kind": "variant",
    "type": "primitive",
@@ -13494,6 +13507,33 @@
    "title": "Differing-inputs obfuscation (diO) ⇒ iO"
   },
   {
+   "id": "red-differing-inputs-obfuscation-to-sampler-io",
+   "kind": "implication",
+   "hypotheses": [
+    "differing-inputs-obfuscation"
+   ],
+   "conclusion": "sampler-io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the probability that the sampled pair is not functionally equivalent",
+   "rationale": {
+    "class": "The construction is the identity on obfuscators, and the reduction uses the circuit-pair sampler, with its auxiliary output as auxiliary input, as the diO sampler and the distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/differing-inputs-obfuscation-to-sampler-io.md",
+   "slug": "differing-inputs-obfuscation-to-sampler-io",
+   "graphSlug": "Reductions/differing-inputs-obfuscation-to-sampler-io",
+   "title": "Differing-inputs obfuscation (diO) ⇒ iO for sampled circuit pairs"
+  },
+  {
    "id": "red-distributional-owf-to-owf-il89",
    "kind": "implication",
    "hypotheses": [
@@ -13892,9 +13932,9 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "polynomial: a factor $m$ for $m$ output bits from the next-bit hybrid, composed with the polynomial loss of recovering the discrete logarithm from a predictor for the half-interval bit",
+   "securityLoss": "polynomial: a factor $m$ for $m$ output bits from the next-bit hybrid, composed with the polynomial loss of recovering the discrete logarithm from a predictor for the half-interval bit, plus the negligible statistical distance of the sampled $x_0$ from uniform",
    "rationale": {
-    "class": "The construction is fixed over $\\ZZ_P^*$ and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
+    "class": "The generator samples $(P, g)$ with the group generator from part of its seed and computes only in $\\ZZ_P^*$, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
    },
    "status": "draft",
    "page": "content/Reductions/dlog-to-prg-bm84.md",
@@ -14293,7 +14333,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on schemes, and the reduction runs any selective forger unchanged as an EUF-CMA forger."
+    "class": "The construction is the identity on schemes with a key-independent message space and otherwise the two-message restriction, built from the scheme's algorithms called as oracles, and the reduction runs the selective forger as an EUF-CMA forger."
    },
    "status": "draft",
    "page": "content/Reductions/ds-to-selective-ds.md",
@@ -16102,7 +16142,7 @@
    "kind": "implication",
    "hypotheses": [
     "owf",
-    "io"
+    "sampler-io"
    ],
    "conclusion": "selective-ds",
    "class": "free",
@@ -16130,7 +16170,7 @@
    "kind": "implication",
    "hypotheses": [
     "owf",
-    "io"
+    "sampler-io"
    ],
    "conclusion": "nonadaptive-nizk-argument-for-np",
    "class": "free",
@@ -16160,7 +16200,7 @@
    "kind": "implication",
    "hypotheses": [
     "owf",
-    "io"
+    "sampler-io"
    ],
    "conclusion": "pke",
    "class": "free",
@@ -17637,7 +17677,7 @@
    "id": "red-io-and-owf-to-multi-party-nike-bz14",
    "kind": "implication",
    "hypotheses": [
-    "io",
+    "sampler-io",
     "owf"
    ],
    "conclusion": "multi-party-nike",
@@ -26457,6 +26497,33 @@
    "title": "RSA with uniform-prime moduli ⇒ RSA"
   },
   {
+   "id": "red-sampler-io-to-io",
+   "kind": "implication",
+   "hypotheses": [
+    "sampler-io"
+   ],
+   "conclusion": "io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on obfuscators, and an iO adversary for a pair of circuit families is used unchanged as the distinguisher for the sampler that outputs that pair."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sampler-io-to-io.md",
+   "slug": "sampler-io-to-io",
+   "graphSlug": "Reductions/sampler-io-to-io",
+   "title": "iO for sampled circuit pairs ⇒ iO"
+  },
+  {
    "id": "red-schnorr-identification-protocol-to-non-trivial-canonical-identification-scheme",
    "kind": "implication",
    "hypotheses": [
@@ -27614,6 +27681,33 @@
    "title": "Statistical iO ⇒ iO"
   },
   {
+   "id": "red-statistical-io-to-sampler-io",
+   "kind": "implication",
+   "hypotheses": [
+    "statistical-io"
+   ],
+   "conclusion": "sampler-io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the probability that the sampled pair is not functionally equivalent",
+   "rationale": {
+    "class": "The construction is the identity on obfuscators, and every distinguisher is used unchanged, its advantage bounded by the statistical distance between the two obfuscations."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistical-io-to-sampler-io.md",
+   "slug": "statistical-io-to-sampler-io",
+   "graphSlug": "Reductions/statistical-io-to-sampler-io",
+   "title": "Statistical iO ⇒ iO for sampled circuit pairs"
+  },
+  {
    "id": "red-statistically-binding-commitment-to-com",
    "kind": "implication",
    "hypotheses": [
@@ -28324,6 +28418,33 @@
    "slug": "subexponential-io-to-io",
    "graphSlug": "Reductions/subexponential-io-to-io",
    "title": "Sub-exponentially secure iO ⇒ iO"
+  },
+  {
+   "id": "red-subexponential-io-to-sampler-io",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-io"
+   ],
+   "conclusion": "sampler-io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the probability that the sampled pair is not functionally equivalent",
+   "rationale": {
+    "class": "The construction is the identity on obfuscators, and the reduction runs the distinguisher unchanged with one equivalent pair of the sampler and its auxiliary output hard-wired."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-io-to-sampler-io.md",
+   "slug": "subexponential-io-to-sampler-io",
+   "graphSlug": "Reductions/subexponential-io-to-sampler-io",
+   "title": "Sub-exponentially secure iO ⇒ iO for sampled circuit pairs"
   },
   {
    "id": "red-subexponential-lpn-above-half-to-subexponential-lpn",

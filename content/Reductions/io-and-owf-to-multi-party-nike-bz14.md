@@ -5,7 +5,7 @@ title: iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)
 aliases: []
 id: red-io-and-owf-to-multi-party-nike-bz14
 kind: implication
-hypotheses: [io, owf]
+hypotheses: [sampler-io, owf]
 conclusion: multi-party-nike
 class: free
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then for every polynomial $N$ there is an [$N$-party non-interactive key exchange](key-exchange#multiparty-non-interactive-key-exchange) without trusted setup, in which each party's published value has length independent of $N$ — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]]. The $N$ keys agree with probability $1$, since every party evaluates the same perfectly correct obfuscated program on the same published values — standard.
+If [[indistinguishability-obfuscation#io-for-sampled-circuit-pairs|iO for sampled circuit pairs]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then for every polynomial $N$ there is an [$N$-party non-interactive key exchange](key-exchange#multiparty-non-interactive-key-exchange) without trusted setup, in which each party's published value has length independent of $N$ — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]]. The $N$ keys agree with probability $1$, since every party evaluates the same perfectly correct obfuscated program on the same published values — standard. The punctured-programming hybrid samples the PRF key and the published values, and its distinguisher needs those values and the key at the punctured point, which the sampler passes on as auxiliary input, to answer as the key-exchange challenger; the game for a fixed pair of circuit families cannot supply them to a uniform distinguisher — standard.
 
 ## Sketch
 

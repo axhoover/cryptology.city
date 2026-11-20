@@ -5,7 +5,7 @@ title: "OWF + iO ⇒ Non-adaptively sound NIZK argument"
 aliases: []
 id: red-hash-function-and-io-to-nizk-sw14
 kind: implication
-hypotheses: [owf, io]
+hypotheses: [owf, sampler-io]
 conclusion: nonadaptive-nizk-argument-for-np
 class: free
 model: crs
@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|non-adaptively sound NIZK arguments]] for $\classNP$ in the common reference string model, the CRS consisting of obfuscated programs — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+[[indistinguishability-obfuscation#io-for-sampled-circuit-pairs|iO for sampled circuit pairs]] of polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|non-adaptively sound NIZK arguments]] for $\classNP$ in the common reference string model, the CRS consisting of obfuscated programs — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]. The iO hybrids sample $K$ after the prover fixes the false statement $x$, and their distinguisher needs $x$ and the prover's state, which the sampler passes on as auxiliary input; the game for a fixed pair of circuit families cannot supply them to a uniform distinguisher — standard.
 
 ## Sketch
 
