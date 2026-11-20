@@ -18,11 +18,13 @@ A verifiable random function is a keyed function whose secret-key holder outputs
 
 ## Syntax
 
-A VRF is a triple of efficient algorithms $\mathsf{VRF} = (\KeyGen, \Eval, \Vrfy)$ with respect to input space $\calX$ and output space $\calY$:
+A VRF is a triple of efficient algorithms $\mathsf{VRF} = (\KeyGen, \Eval, \Vrfy)$ with respect to input space $\calX = \calX_\secpar = \bits^{a(\secpar)}$ and output space $\calY = \calY_\secpar$. Here $a$ is polynomial-time computable with $a(\secpar) = \omega(\log \secpar)$ and $a(\secpar) \le \poly(\secpar)$, so $|\calX_\secpar|$ is superpolynomial. $\calY_\secpar$ is a set of strings of length $\poly(\secpar)$ with $|\calY_\secpar| \ge 2$ and an efficient uniform sampler.
 
 - $\KeyGen(1^\secpar) \to (\pk, \sk)$, a randomized algorithm that outputs a public key $\pk$ and a secret key $\sk$,
 - $\Eval(\sk, x) \to (y, \pi)$, a deterministic algorithm that takes $\sk$ and an input $x \in \calX$ and outputs the value $y \in \calY$ and a proof $\pi$,
 - $\Vrfy(\pk, x, y, \pi) \to b$, a deterministic algorithm that outputs a bit $b \in \bits$.
+
+With $\calY_\secpar = \{y_\secpar\}$, the scheme with $\Eval(\sk, x) = (y_\secpar, \varepsilon)$ for the empty string $\varepsilon$ and $\Vrfy(\pk, x, y, \pi) = [y = y_\secpar]$ meets every notion below. With $|\calX_\secpar|$ polynomial, a public key of perfectly binding commitments under a [[one-way-permutation|one-way permutation]] to a table of uniform values, one per input, with openings as proofs, is a VRF — standard.
 
 ## Properties
 
@@ -69,15 +71,17 @@ $$
 
 is negligible — [[MRV99 - Verifiable Random Functions|MRV99]]. $\calA$ is admissible if it never queries $\calO$ on $x^*$; the constraint is necessary because $\calO(x^*)$ returns $(y_0, \pi^*)$, and comparing $y_0$ with $y_b$ wins with advantage $1 - 1/|\calY|$.
 
+As an object, a VRF denotes a scheme with provability, unique provability and pseudorandomness.
+
 # Variations
 
 ## Selective pseudorandomness
 
-The adversary commits to $x^*$ before receiving $\pk$. Pseudorandomness implies selective pseudorandomness, and guessing $x^*$ converts back at a loss factor $|\calX|$ — standard.
+The adversary commits to $x^*$ before receiving $\pk$: the game is $\Game^{\mathrm{vrf}}$ except that $\calA$ outputs $x^*$ on input $1^\secpar$ before $\KeyGen$ runs, and its first phase then runs on $\pk$ with $x^*$ fixed. $\mathsf{VRF}$ is **selectively pseudorandom** if for all efficient admissible $\calA$ the advantage in this game, defined as for $\Game^{\mathrm{vrf}}$, is negligible. As an object, a selectively secure VRF denotes a scheme with provability, unique provability and selective pseudorandomness. Pseudorandomness implies selective pseudorandomness ([[verifiable-random-function-to-vrf-selective-pseudorandomness|VRF ⇒ selectively secure VRF]]), and guessing $x^*$ converts back at a loss factor $|\calX|$ — standard.
 
 ## Weak VRFs
 
-A **weak VRF** is pseudorandom only at random inputs: the evaluation oracle takes no input and returns $(x, \Eval(\sk, x))$ for a fresh $x \getsr \calX$, and $\calA$ receives a uniform fresh challenge input $x^*$ together with $y_b$ — [[BGRV09 - Weak Verifiable Random Functions|BGRV09]].
+A **weak VRF** is pseudorandom only at random inputs: the evaluation oracle takes no input and returns $(x, \Eval(\sk, x))$ for a fresh $x \getsr \calX$, and $\calA$ receives a uniform fresh challenge input $x^*$ together with $y_b$ — [[BGRV09 - Weak Verifiable Random Functions|BGRV09]]. A pseudorandom VRF is a weak VRF, up to an additive $2q/|\calX|$ for $q$ oracle queries ([[verifiable-random-function-to-weak-vrf|VRF ⇒ weak VRF]]) — standard.
 
 ## Verifiable unpredictable functions
 
@@ -85,19 +89,28 @@ A **verifiable unpredictable function (VUF)** satisfies provability and unique p
 
 # Other results
 
+- Forgetting $\pk$ and the proofs leaves a [[pseudorandom-function|PRF]] $\calX \to \calY$ with key $\sk$, at a loss factor $q$ for $q$ distinct queries ([[verifiable-random-function-to-prf|VRF ⇒ PRF]]) — standard.
 - [[bdh-to-vrf|k-Lin ⇒ VRF]]: in symmetric bilinear groups, the [$k$-linear assumption](bilinear-map-assumptions#k-linear-assumption) for $k \ge 2$ gives a VRF with exponential-size input space, and unique provability and pseudorandomness as defined above — [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].
 - In a group with a [[pairings|bilinear map]] $e : \GG \times \GG \to \GG_T$ of prime order $p$ with generator $g$, the VRF with $\sk \getsr \ZZ_p$, $\pk = g^{\sk}$, value $e(g, g)^{1/(x + \sk)}$ and proof $g^{1/(x + \sk)}$ is pseudorandom for small input spaces under a $q$-type decisional bilinear Diffie–Hellman inversion assumption; it avoids the Goldreich–Levin step of earlier constructions — [[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]].
 - Unique signatures under a generalized [[computational-diffie-hellman|computational Diffie–Hellman]] assumption in groups where [[decisional-diffie-hellman|decisional Diffie–Hellman]] is easy, and VRFs from them — [[Lys02 - Unique Signatures and Verifiable Random Functions from the DH-DDH Separation|Lys02]].
 - VRFs with exponential-size input space and adaptive pseudorandomness in bilinear groups under the decisional Diffie–Hellman exponent assumption, a non-interactive $q$-type assumption, in the standard model without a common reference string; earlier VRFs with such input spaces needed an interactive assumption or one tolerating a security loss $2^n$ on $n$-bit inputs — [[HW10 - Constructing Verifiable Random Functions with Large Input Spaces|HW10]].
 - [[no-tdp-to-verifiable-random-function-fs12|No fully-black-box reduction from TDP to VRF]] — [[FS12 - Uniqueness Is a Different Story Impossibility of Verifiable Random Functions from Trapdoor Permutations|FS12]]; VRFs follow non-uniformly from sub-exponentially hard [[trapdoor-permutation|trapdoor permutations]] — [[Bit17 - Verifiable Random Functions from Non-interactive Witness-Indistinguishable Proofs|Bit17]].
 
-<!-- BEGIN GENERATED participates-in 747d3c20cc5e -->
+<!-- BEGIN GENERATED participates-in dfaa21b58d95 -->
 
 ## Participates in
+
+**Builds on Verifiable random function**
+
+- [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
+- [[verifiable-random-function-to-vrf-selective-pseudorandomness|VRF ⇒ selectively secure VRF]]
+- [[verifiable-random-function-to-weak-vrf|VRF ⇒ weak VRF]]
 
 **Produces Verifiable random function**
 
 - [[bdh-to-vrf|k-Lin ⇒ VRF]]
+- [[verifiable-random-function-to-vrf-selective-pseudorandomness|VRF ⇒ selectively secure VRF]] (via [[verifiable-random-function#selective-pseudorandomness|Selective pseudorandomness]])
+- [[verifiable-random-function-to-weak-vrf|VRF ⇒ weak VRF]] (via [[verifiable-random-function#weak-vrfs|Weak VRFs]])
 
 **Barriers**
 

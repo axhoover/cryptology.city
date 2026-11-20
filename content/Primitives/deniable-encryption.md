@@ -62,7 +62,7 @@ $$
 
 Following [[CDNO97 - Deniable Encryption|CDNO97]], $\mathsf{DE}$ is $\delta$-**sender-deniable**, for a function $\delta$, if $(\KeyGen, \Enc, \Dec)$ is [[public-key-encryption#cpa-security|CPA-secure]] and for all admissible efficient $\calA$, $\Adv^{\mathrm{deny}}_{\mathsf{DE},\calA}(\secpar) \le \delta(\secpar)$ for all sufficiently large $\secpar$. $\mathsf{DE}$ is **sender-deniable** if for all admissible efficient $\calA$, $\Adv^{\mathrm{deny}}_{\mathsf{DE},\calA}(\secpar)$ is negligible. As an object, deniable encryption denotes a $(1-\negl(\secpar))$-correct, sender-deniable scheme.
 
-An adversary that outputs $1$ exactly when $\Enc(\pk, m'; \rho_b) \ne c_b$ has advantage equal to the probability that the fake coins fail to open $c_1$ to $m'$, so fake coins are consistent except with probability at most $\delta$ — standard. Ignoring $\rho_b$, the game is the [[public-key-encryption#cpa-security|CPA game]] for the pair $(m', m)$, so the CPA advantage of a $\delta$-sender-deniable scheme is at most $\delta$ and a sender-deniable scheme is CPA-secure — standard. For inverse-polynomial $\delta$, the bound gives only CPA advantage at most $\delta$, so the definition of [[CDNO97 - Deniable Encryption|CDNO97]] requires CPA security as a separate clause.
+An adversary that outputs $1$ exactly when $\Enc(\pk, m'; \rho_b) \ne c_b$ has advantage equal to the probability that the fake coins fail to open $c_1$ to $m'$, so fake coins are consistent except with probability at most $\delta$ — standard. Ignoring $\rho_b$, the game is the [[public-key-encryption#cpa-security|CPA game]] for the pair $(m', m)$, so the CPA advantage of a $\delta$-sender-deniable scheme is at most $\delta$ and a sender-deniable scheme is CPA-secure ([[deniable-encryption-to-pke-cpa-security|Deniable encryption ⇒ CPA-secure PKE]]) — standard. For inverse-polynomial $\delta$, the bound gives only CPA advantage at most $\delta$, so the definition of [[CDNO97 - Deniable Encryption|CDNO97]] requires CPA security as a separate clause.
 
 # Variations
 
@@ -148,12 +148,13 @@ TODO: the syntax and security game of [[OPW11 - Bi-Deniable Public-Key Encryptio
 - [[CDNO97 - Deniable Encryption|CDNO97]] construct $\delta$-sender-deniable schemes for inverse-polynomial $\delta$ from translucent sets, which exist if [[trapdoor-permutation|trapdoor permutations]] do; the ciphertext length grows as $\delta$ decreases.
 - [[BNNO11 - Lower and Upper Bounds for Deniable Public-Key Encryption|BNNO11]] prove that no non-interactive public-key encryption scheme in which the parties run the prescribed algorithms is receiver-deniable with negligible distinguishing advantage, hence none is bi-deniable either; they bound the distinguishing advantage from below in terms of the key length, and give constructions that bound it from above.
 
-<!-- BEGIN GENERATED participates-in 9ad7e9ad1987 -->
+<!-- BEGIN GENERATED participates-in 147fddb51229 -->
 
 ## Participates in
 
 **Builds on Deniable encryption**
 
+- [[deniable-encryption-to-pke-cpa-security|Deniable encryption ⇒ CPA-secure PKE]]
 - [[publicly-deniable-encryption-to-deniable-encryption|Publicly deniable encryption ⇒ Deniable encryption]] (via [[deniable-encryption#public-deniability|Public deniability]])
 
 **Produces Deniable encryption**
