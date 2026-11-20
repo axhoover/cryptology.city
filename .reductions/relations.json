@@ -1407,6 +1407,19 @@
    "unlisted": false
   },
   {
+   "id": "compression-function-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#compression-function-prfs",
+   "of": "prf",
+   "title": "Compression-function PRFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -4754,6 +4767,19 @@
    "title": "Non-trivial canonical identification schemes",
    "aliases": [],
    "unlisted": true
+  },
+  {
+   "id": "non-uniform-compression-function-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#non-uniform-compression-function-prfs",
+   "of": "prf",
+   "title": "Non-uniform compression-function PRFs",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "non-uniform-owf",
@@ -11642,6 +11668,33 @@
    "slug": "compact-prime-order-dlog-to-prime-order-dlog",
    "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
    "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-compression-function-prf-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "compression-function-prf"
+   ],
+   "conclusion": "prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function family, and the reduction forwards any PRF distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compression-function-prf-to-prf.md",
+   "slug": "compression-function-prf-to-prf",
+   "graphSlug": "Reductions/compression-function-prf-to-prf",
+   "title": "Compression-function PRF ⇒ PRF"
   },
   {
    "id": "red-concurrent-schnorr-identification-to-schnorr-identification-protocol",
@@ -20445,6 +20498,60 @@
    "title": "Non-trivial canonical ID ⇒ ID"
   },
   {
+   "id": "red-non-uniform-compression-function-prf-to-compression-function-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "non-uniform-compression-function-prf"
+   ],
+   "conclusion": "compression-function-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and a uniform PPT distinguisher is a non-uniform one with empty advice, forwarded unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-uniform-compression-function-prf-to-compression-function-prf.md",
+   "slug": "non-uniform-compression-function-prf-to-compression-function-prf",
+   "graphSlug": "Reductions/non-uniform-compression-function-prf-to-compression-function-prf",
+   "title": "Non-uniform compression-function PRF ⇒ Compression-function PRF"
+  },
+  {
+   "id": "red-non-uniform-compression-function-prf-to-non-uniform-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "non-uniform-compression-function-prf"
+   ],
+   "conclusion": "non-uniform-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function family, and the reduction forwards any non-uniform PRF distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-uniform-compression-function-prf-to-non-uniform-prf.md",
+   "slug": "non-uniform-compression-function-prf-to-non-uniform-prf",
+   "graphSlug": "Reductions/non-uniform-compression-function-prf-to-non-uniform-prf",
+   "title": "Non-uniform compression-function PRF ⇒ Non-uniform PRF"
+  },
+  {
    "id": "red-non-uniform-owf-to-owf",
    "kind": "implication",
    "hypotheses": [
@@ -23616,7 +23723,7 @@
    "id": "red-prf-to-mac-bel06",
    "kind": "implication",
    "hypotheses": [
-    "non-uniform-prf"
+    "non-uniform-compression-function-prf"
    ],
    "conclusion": "mac",
    "class": "unstated",
@@ -23637,7 +23744,7 @@
    "page": "content/Reductions/prf-to-mac-bel06.md",
    "slug": "prf-to-mac-bel06",
    "graphSlug": "Reductions/prf-to-mac-bel06",
-   "title": "Non-uniform PRF ⇒ MAC (NMAC)"
+   "title": "Non-uniform compression-function PRF ⇒ MAC (NMAC)"
   },
   {
    "id": "red-prf-to-mac-bkr94",
@@ -23670,7 +23777,7 @@
    "id": "red-prf-to-mac-gpr14",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "compression-function-prf"
    ],
    "conclusion": "mac",
    "class": "unstated",
@@ -23688,7 +23795,7 @@
    "page": "content/Reductions/prf-to-mac-gpr14.md",
    "slug": "prf-to-mac-gpr14",
    "graphSlug": "Reductions/prf-to-mac-gpr14",
-   "title": "PRF ⇒ MAC (NMAC, uniform proof)"
+   "title": "Compression-function PRF ⇒ MAC (NMAC, uniform proof)"
   },
   {
    "id": "red-prf-to-nonce-based-mac",

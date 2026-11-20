@@ -159,7 +159,7 @@ $$
 - **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$, let $F_k(m_1 \cdots m_\ell) := y_\ell$ with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$ be its iteration keyed by the initial chaining value. Then $\mathrm{NMAC}_{k_1,k_2}(m) := f(k_1, F_{k_2}(m) \,\|\, \mathrm{pad})$, for a fixed string $\mathrm{pad}$ of $b - c$ bits, is a UF-CMA-secure MAC if $f$, keyed by its chaining input, is a secure MAC on one-block messages and $F_k$ is weakly collision resistant, that is, collision resistant against an adversary that sees $F_k$ only through an oracle — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. $\mathrm{HMAC}$ is NMAC with $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$ derived from a single key $\bar k$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]].
 - [[prf-to-mac-bel06|Non-uniform PRF ⇒ MAC (NMAC)]]: NMAC is a PRF against non-uniform adversaries if $f$, keyed by its chaining input, is a PRF against non-uniform adversaries, with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]. The same holds for uniform adversaries by a uniform reduction ([[prf-to-mac-gpr14|PRF ⇒ MAC (NMAC, uniform proof)]]) — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]].
 
-<!-- BEGIN GENERATED participates-in d37ef5c62cff -->
+<!-- BEGIN GENERATED participates-in 3a5f8604d5d2 -->
 
 ## Participates in
 
@@ -174,9 +174,9 @@ $$
 
 - [[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
 - [[prf-to-mac|PRF ⇒ MAC]]
-- [[prf-to-mac-bel06|Non-uniform PRF ⇒ MAC (NMAC)]]
+- [[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]]
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
-- [[prf-to-mac-gpr14|PRF ⇒ MAC (NMAC, uniform proof)]]
+- [[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]] (via [[message-authentication-code#nonce-based-macs|Nonce-based MACs]])
 - [[suf-cma-mac-to-mac|SUF-CMA MAC ⇒ MAC]]
 
