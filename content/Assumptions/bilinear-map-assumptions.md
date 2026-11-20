@@ -81,13 +81,13 @@ is negligible.
 - [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]
 - [[bdh-to-vrf|k-Lin ⇒ VRF with key-dependent outputs]]
 - [[cdh-to-bdh|BDH ⇒ CDH]]: a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$ — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
-- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
+- [[bdh-to-nizk-gro16|Type 1 pairing + DLIN ⇒ NIZK]]
 
 # Variations
 
 ## Symmetric vs. asymmetric pairings
 
-A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). Asymmetric pairings (Type 3) support stronger assumptions ([[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]]: DDH is hard in both $\GG_1$ and $\GG_2$). See [[pairings|Pairings]] for the full Type 1/2/3 classification and efficiency trade-offs — [[GPS06 - Pairings for Cryptographers|GPS06]].
+A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). A symmetric pairing decides DDH in its source group $\GG$: given $(g^x, g^y, g^z)$, $e(g^x, g^y) = e(g, g^z)$ iff $z = xy$ — standard. Assumptions such as [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]], DDH in both $\GG_1$ and $\GG_2$, can hold for Type 3 pairings — standard. See [[pairings|Pairings]] for the full Type 1/2/3 classification and efficiency trade-offs — [[GPS06 - Pairings for Cryptographers|GPS06]].
 
 ## $k$-Linear assumption
 
