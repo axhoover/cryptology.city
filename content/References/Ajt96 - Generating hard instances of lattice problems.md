@@ -17,4 +17,4 @@ cryptobib_key: STOC:Ajtai96
 
 ## Abstract
 
-We give a random class of lattices in $\mathbb{Z}^n$ so that, if there is a probabilistic polynomial time algorithm which finds a short vector in a random lattice from this class with noticeable probability, then there is also a probabilistic polynomial time algorithm which solves several classical lattice problems (including the shortest vector problem) in the worst case. We also show that the same random class of lattices can be used to construct a one-way function and a collision-free hash function family.
+TODO — abstract.
