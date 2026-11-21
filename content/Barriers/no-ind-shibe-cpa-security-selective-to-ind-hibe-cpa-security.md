@@ -11,9 +11,11 @@ consequences:
   - kind: contradiction
     target: ""
     class: fixed-construction
-strength: unconditional
+strength: conditional
+conditional-on: [hibe-selective-security]
 source: folklore
 rationale:
+  strength: "The counterexample modifies a given selectively secure HIBE scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
   class: "The counterexample refutes the identity map, selective security of a scheme implying adaptive security of the same scheme, and does not rule out building an adaptively secure HIBE from a selectively secure one by another construction."
 ---
 
@@ -21,11 +23,11 @@ rationale:
 
 ## Statement
 
-When the identity-vector space $\Sigma^{\le d}$ is superpolynomial, selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a [[hierarchical-identity-based-encryption|HIBE]] scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security, so the identity map is no reduction from selective to adaptive security: any selectively secure $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate — folklore.
+If a selectively secure [[hierarchical-identity-based-encryption|HIBE]] scheme with a superpolynomial identity-vector space $\Sigma^{\le d}$ exists, then selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a HIBE scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security, so the identity map is no reduction from selective to adaptive security: any such $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate — folklore.
 
 ## Sketch
 
-Given a selectively secure $\HIBE$, let $\HIBE'$ run $\Setup$ and append a uniform $\vec{r} \in \Sigma^{d}$ to $\pp$; $\Enc(\pp, \vec{\mathit{id}}, m)$ outputs $m$ in the clear when $\vec{\mathit{id}} = \vec{r}$ and is unchanged otherwise. An adaptive adversary reads $\vec{r}$ from $\pp$, makes no key queries, and challenges on $\vec{r}$, winning with advantage $1$. A selective adversary commits to $\vec{\mathit{id}}^*$ before $\vec{r}$ is drawn and hits it with probability at most $|\Sigma|^{-d}$; otherwise its game is the selective game of $\HIBE$ with $\vec{r}$ sampled by the reduction, so $\HIBE'$ stays selectively secure.
+Given a selectively secure $\HIBE$, let $\HIBE'$ run $\Setup(1^\secpar, d)$ and append a uniform $\vec{r} \in (\bits^{\secpar})^{d}$ to $\pp$; $\Enc(\pp, \vec{\mathit{id}}, m)$ outputs $(1, m)$ when $\vec{\mathit{id}} = \vec{r}$ and $(0, c)$ with $c$ the original ciphertext otherwise, and $\Dec$ reads the tag, so $\HIBE'$ stays as correct as $\HIBE$. An adaptive adversary reads $\vec{r}$ from $\pp$, makes no key queries, and challenges on $\vec{r}$, winning with advantage $1$. A selective adversary commits to $\vec{\mathit{id}}^*$ before $\vec{r}$ is drawn and hits it with probability at most $2^{-\secpar d}$; otherwise its game is the selective game of $\HIBE$ with $\vec{r}$ sampled by the reduction, so $\HIBE'$ stays selectively secure.
 
 ## Notes
 

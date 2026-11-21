@@ -6,7 +6,7 @@ aliases: []
 id: red-abe-to-ibe
 kind: implication
 hypotheses: [abe]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 model: standard
 source: folklore
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Take a KP- or CP-[[attribute-based-encryption|ABE]] scheme over attribute universe $[\ell] \times \bits$ whose policy class contains conjunctions. Encode identity $\mathit{id} \in \bits^\ell$ as the attribute set $x_{\mathit{id}} = \{(i, \mathit{id}_i)\}_{i \le \ell}$ and the policy $f_{\mathit{id}} = \bigwedge_{i \le \ell} (i, \mathit{id}_i)$, so $f_{\mathit{id}}(x_{\mathit{id}'}) = 1$ iff $\mathit{id} = \mathit{id}'$; KP-ABE carries $f_{\mathit{id}}$ in the key and $x_{\mathit{id}}$ in the ciphertext, CP-ABE the reverse. If the scheme is [[attribute-based-encryption#kp-abe-ind-cpa-security|KP-IND-CPA-secure]] (resp. [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA-secure]]), the resulting [[identity-based-encryption|IBE]] for identities in $\bits^\ell$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]]: every IBE adversary is verbatim an ABE adversary with the same advantage — folklore.
+Take a KP- or CP-[[attribute-based-encryption|ABE]] scheme and run its $\Setup$ at universe size $n = 2\secpar$, identifying $[\secpar] \times \bits$ with $[2\secpar]$ (with a polynomial policy bound at which its class contains the $\secpar$-of-$\secpar$ gates, for a scheme that takes one). Encode identity $\mathit{id} \in \bits^\secpar$ as the attribute set $x_{\mathit{id}} = \{(i, \mathit{id}_i)\}_{i \le \secpar}$ and the policy $f_{\mathit{id}} = \bigwedge_{i \le \secpar} (i, \mathit{id}_i)$, the $\secpar$-of-$\secpar$ threshold gate over $x_{\mathit{id}}$, so $f_{\mathit{id}}(x_{\mathit{id}'}) = 1$ iff $\mathit{id} = \mathit{id}'$; KP-ABE carries $f_{\mathit{id}}$ in the key and $x_{\mathit{id}}$ in the ciphertext, CP-ABE the reverse. If the scheme is [[attribute-based-encryption#kp-abe-ind-cpa-security|KP-IND-CPA-secure]] (resp. [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA-secure]]), the resulting [[identity-based-encryption|IBE]] for identities in $\bits^\secpar$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]]: every IBE adversary is verbatim an ABE adversary at $n = 2\secpar$ with the same advantage — folklore. Correctness and the message space carry over unchanged.
 
 ## Sketch
 

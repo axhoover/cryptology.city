@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Hardness of [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hardness of [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE with superpolynomial modulus-to-noise ratio]] for the ratio $r(n) = 2^{n^{\varepsilon}} = n^{\omega(1)}$, with the same modulus and the same advantage — folklore.
+Hardness of [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hardness of [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE with superpolynomial modulus-to-noise ratio]] for the ratio $r(\secpar) = 2^{n^{\varepsilon}} \ge 2^{\secpar^{c\varepsilon}} = \secpar^{\omega(1)}$, computable to $k$ bits in time $\poly(\secpar, k)$ since $n$ is $\poly(\secpar)$-computable and $\varepsilon$ is rational, where $n \ge \secpar^c$, with the same $\poly(\secpar)$-computable modulus $q \le 2^{\poly(n)} \le 2^{\poly(\secpar)}$ and the same advantage; every $m = \poly(\secpar)$ is $\poly(n)$, since $\secpar \le n^{1/c}$ — folklore.

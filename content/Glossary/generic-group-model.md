@@ -19,14 +19,14 @@ The _Generic Group Model (GGM)_ is a model for analyzing the security of group-b
 
 ## Shoup's Formulation
 
-Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. A **handle function** is a random injection $\sigma: \GG \to \bits^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
+Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p = \secpar^{\omega(1)}$, so that $1/p$ is negligible. A **handle function** is a random injection $\sigma: \GG \to \bits^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
 
 - **Group operation:** $\calO_{\mathsf{op}}(\sigma(X), \sigma(Y)) \to \sigma(X \cdot Y)$
 - **Inversion:** $\calO_{\mathsf{inv}}(\sigma(X)) \to \sigma(X^{-1})$
 
 Equality of group elements is implicit: since $\sigma$ is injective, two handles are equal iff the underlying elements are. An algorithm is **generic** (in Shoup's sense) if it succeeds at a computational task for every choice of injection $\sigma$.
 
-The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries. Combined with the Baby-step Giant-step algorithm, this is tight.
+The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries ([[ggm-to-dlog-sho97|GGM ⇒ DLOG]], [[ggm-to-cdh-sho97|GGM ⇒ CDH]], [[ggm-to-ddh-sho97|GGM ⇒ DDH]]). Combined with the Baby-step Giant-step algorithm, this is tight.
 
 ## Maurer's Formulation
 
@@ -40,25 +40,31 @@ Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] arg
 
 ## The Structured GGM
 
-Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest. The main result is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
+Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest, in a way that CHW26 define precisely; the formal structure oracle is that of [[CHW26 - The Structured Generic-Group Model|CHW26]]. As an object, the structured GGM denotes the model of CHW26 in which every algorithm exploits the group's structure, in the sense CHW26 define, on at most a $\delta(\secpar)$ fraction of group elements for a negligible $\delta$ ($1/\delta = \secpar^{\omega(1)}$), and is generic on all other elements; the result below holds for every such $\delta$.
+
+TODO: encode the formal structure oracle of [[CHW26 - The Structured Generic-Group Model|CHW26]] once the full text is read.
+
+The main result ([[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]) is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
 
 $$
 \Omega\!\left(\min\!\left(\sqrt{p},\; \frac{1}{\delta}\right)\right).
 $$
 
-This yields tight subexponential lower bounds applicable to index-calculus algorithms, bridging the gap between fully generic lower bounds and structured algorithm analyses.
+As an application, CHW26 prove a tight subexponential-time lower bound against discrete-log algorithms that exploit the multiplicative structure of smooth integers but are otherwise generic, which applies to a broad class of index-calculus algorithms — [[CHW26 - The Structured Generic-Group Model|CHW26]].
 
 ## Preprocessing
 
 A **generic algorithm with preprocessing** is a pair $(\calA_0, \calA_1)$ in Shoup's model, for a fixed handle function $\sigma$. The preprocessing algorithm $\calA_0$ is computationally unbounded, may query the group oracle arbitrarily often, and outputs an advice string of $S$ bits; the online algorithm $\calA_1$ gets the advice and the challenge and makes $T$ group-oracle queries. Bounds in this model are stated in terms of $S$, $T$ and the group order — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]. Generic DLOG algorithms with preprocessing must satisfy $ST^2 = \tilde\Omega(\varepsilon N)$ in groups of prime order $N$ ([[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]).
 
+As an object, the GGM with preprocessing denotes the model whose adversaries are, for all polynomials $S(\secpar)$ and $T(\secpar)$, the pairs $(\calA_0, \calA_1)$ in which $\calA_0$ is computationally unbounded, makes unlimited group-oracle queries and outputs at most $S(\secpar)$ bits of advice, and $\calA_1$ is efficient, gets the advice and the challenge, and makes at most $T(\secpar)$ group-oracle queries. Since $\calA_1$ is efficient, its online time, the quantity that CK18's bound counts as $T$, is also $\poly(\secpar)$.
+
 ## Generic bilinear groups
 
-Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e)$ of prime order $p$. Elements of each of the three groups are given by handles under independent random injections $\sigma_1, \sigma_2, \sigma_T$, and the algorithm has a group-operation oracle for each group and a pairing oracle that maps $(\sigma_1(P), \sigma_2(Q))$ to $\sigma_T(e(P, Q))$ — [[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]].
+Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e) \gets \GrGen(1^\secpar)$ of prime order $p = \secpar^{\omega(1)}$. Elements of each of the three groups are given by handles under independent random injections $\sigma_1, \sigma_2, \sigma_T$, and the algorithm has a group-operation oracle for each group and a pairing oracle that maps $(\sigma_1(P), \sigma_2(Q))$ to $\sigma_T(e(P, Q))$ — [[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]].
 
 ## Comparison with the AGM
 
-The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.
+The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM ([[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]).
 
 <!-- BEGIN GENERATED participates-in 8d84e710fe96 -->
 

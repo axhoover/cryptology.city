@@ -17,4 +17,4 @@ cryptobib_key: EC:GoyKopWat17
 
 ## Abstract
 
-TODO — abstract.
+In this work we separate private-key semantic security from circular security using the Learning with Error assumption. Prior works used the less standard assumptions of multilinear maps or indistinguishability obfuscation. To achieve our results we develop new techniques for obliviously evaluating branching programs.

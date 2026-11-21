@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]]"
-security-loss: "impersonation advantage $\\varepsilon$ yields DLOG advantage at least $(1 - 1/p)(\\varepsilon - 1/|C|)^2$"
+security-loss: "impersonation advantage $\\varepsilon \\ge 1/|C|$ yields DLOG advantage at least $(1 - 1/p)(\\varepsilon - 1/|C|)^2$"
 rationale:
   class: "The protocol is fixed and uses only the group operation, and the reduction plays the honest prover with a key it knows and runs the impersonator only as an oracle, rewinding it."
 ---
@@ -28,6 +28,6 @@ Given $g_2 = g_1^w$, the reduction picks its own key $(x_1, x_2)$ and answers th
 
 ## Notes
 
-- An impersonator with advantage $\varepsilon$ yields the two transcripts with probability at least $(\varepsilon - 1/|C|)^2$ by the Reset Lemma of [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]], so the reduction solves DLOG with probability at least $(1 - 1/p)(\varepsilon - 1/|C|)^2$ — standard.
+- An impersonator with advantage $\varepsilon \ge 1/|C|$ yields the two transcripts with probability at least $(\varepsilon - 1/|C|)^2$ by the Reset Lemma of [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]], so the reduction solves DLOG with probability at least $(1 - 1/p)(\varepsilon - 1/|C|)^2$ — standard.
 - Unlike the [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr protocol]], whose active and concurrent security is proved under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] ([[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]]) — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]], active security of the Okamoto protocol needs only DLOG, because the reduction holds a valid secret key and answers prover sessions honestly — [[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]].
 - The blind version of its Fiat–Shamir transform is one-more unforgeable under DLOG for logarithmically many signer sessions ([[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]]) — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]].

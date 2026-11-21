@@ -10,7 +10,7 @@ id: bqp
 
 # Bounded-Error Quantum Polynomial-Time
 
-The class of decision problems solvable by a uniform family of polynomial-size quantum circuits with two-sided bounded error:
+The class of decision problems decided by a polynomial-time uniform family $\{C_n\}$ of polynomial-size quantum circuits over the gate set $\{H, \mathrm{CNOT}, T\}$, measured in the computational basis, with two-sided bounded error:
 
 1. If the answer is "yes," the circuit accepts with probability at least 2/3.
 2. If the answer is "no," the circuit accepts with probability at most 1/3.
@@ -26,10 +26,10 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 ## Known relationships
 
-- $\classP \subseteq \classBPP \subseteq \classBQP$: classical probabilistic computation is a special case of quantum computation.
+- $\classP \subseteq \classBPP \subseteq \classBQP$: a quantum machine simulates a probabilistic one ([[bpp-to-bqp|BPP ⊆ BQP]]) — [[BV97 - Quantum Complexity Theory|BV97]].
 - $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — [[ADH97 - Quantum Computability|ADH97]].
 - [[no-bqp-to-np|No relativizing reduction from BQP to NP]] — [[RT19 - Oracle Separation of BQP and PH|RT19]]
-- **PostBQP $= \classPP$** (Aaronson 2005): $\classBQP$ augmented with postselection on measurement outcomes equals $\classPP$. This gives an elegant proof of $\classBQP \subseteq \classPP$.
+- **PostBQP $= \classPP$**: $\classBQP$ with postselection on measurement outcomes equals $\classPP$, which reproves $\classBQP \subseteq \classPP$ — [[Aar05 - Quantum computing, postselection, and probabilistic polynomial-time|Aar05]].
 
 ## Relevance to cryptography
 

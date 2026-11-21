@@ -20,18 +20,25 @@ A **key encapsulation mechanism** (KEM) is a public-key primitive that allows a 
 
 ## Syntax
 
-A KEM is a tuple of efficient algorithms $(\KeyGen, \Encap, \Decap)$ with key space $\calK$:
+A KEM is a tuple of efficient algorithms $(\KeyGen, \Encap, \Decap)$ with key space $\calK = \calK_\secpar$:
 
 - $\KeyGen(1^\secpar) \to (\pk, \sk),$ is a randomized algorithm that generates a public/secret key pair.
-- $\Encap(\pk) \to (c, k),$ is a randomized algorithm that takes a public key and outputs a ciphertext $c$ and a symmetric key $k \in \calK$.
-- $\Decap(\sk, c) \to k,$ is a deterministic algorithm that recovers the symmetric key from the ciphertext.
+- $\Encap(\pk) \to (c, k),$ is a randomized algorithm that takes a public key and outputs a ciphertext $c$ and a symmetric key $k \in \calK_\secpar$.
+- $\Decap(\sk, c) \to k,$ is a deterministic algorithm that recovers the symmetric key from the ciphertext, or outputs $\bot$.
+
+Every KEM on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$, and its key space is $\calK = \calK_\secpar = \bits^{\ell(\secpar)}$ for a polynomial-time computable $\ell$ with $\secpar \le \ell(\secpar) \le \poly(\secpar)$. Without correctness, the scheme with $\Encap(\pk) := (0, k)$ for a uniform $k \in \calK$ and a constant $\Decap$ meets every notion below. With $|\calK| = 1$, so does a scheme with a fixed key. As an object, KEM denotes a correct KEM with the key space above; its security notions are the variants [[#IND-CCA security|IND-CCA]] and [[#IND-CPA KEM|IND-CPA]].
 
 ## Properties
 
 ### Correctness
 
-For all $\secpar \in \NN$ and $(\pk, \sk) \gets \KeyGen(1^\secpar)$:
-$$\Pr[(c, k) \gets \Encap(\pk) : \Decap(\sk, c) = k] = 1.$$
+A KEM $(\KeyGen, \Encap, \Decap)$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$,
+
+$$
+\Pr\!\left[\Decap(\sk, c) = k\right] \ge 1 - \varepsilon(\secpar),
+$$
+
+over $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and $(c, k) \gets \Encap(\pk)$. When $\varepsilon = 0$, the KEM is **perfectly correct**.
 
 ### IND-CCA security
 
@@ -62,33 +69,34 @@ is negligible. The adversary cannot query the decapsulation oracle on the challe
 Given an IND-CCA KEM and a one-time IND-CCA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
 
 - $\Enc(\pk, m)$: run $(c_1, k) \gets \Encap(\pk)$; run $c_2 \gets \SKE.\Enc(k, m)$; output $(c_1, c_2)$.
-- $\Dec(\sk, (c_1, c_2))$: run $k \gets \Decap(\sk, c_1)$; output $\SKE.\Dec(k, c_2)$.
+- $\Dec(\sk, (c_1, c_2))$: run $k \gets \Decap(\sk, c_1)$; output $\bot$ if $k = \bot$, and $\SKE.\Dec(k, c_2)$ otherwise.
 
-This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
+This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure ([[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]]) — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
 
 # Variations
 
 ## IND-CPA KEM
 
-A weaker KEM where the adversary has no decapsulation oracle. Sufficient for passive adversaries.
+A KEM is **IND-CPA secure** if for all efficient $\calA$ that make no $\Decap$ query, $\Adv^{\mathrm{cca}}_{\mathrm{KEM},\calA}(\secpar)$ is negligible: the game is the [[#IND-CCA security|IND-CCA]] game without the decapsulation oracle. IND-CCA security implies it ([[ind-cca-security-to-ind-cpa-kem|IND-CCA security ⇒ IND-CPA KEM]]).
 
 ## Lattice-based KEM (Kyber / ML-KEM)
 
-Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (module rank 2, 3, 4 over $\ZZ_q[X]/(X^{256}+1)$ for Kyber-512, -768, -1024) — [[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]. Standardized by NIST as ML-KEM (FIPS 203). Uses the Fujisaki-Okamoto transform to achieve IND-CCA security from an IND-CPA base scheme.
+Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (module rank 2, 3, 4 over $\ZZ_q[X]/(X^{256}+1)$ for Kyber-512, -768, -1024) — [[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]] ([[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]). Standardized by NIST as ML-KEM (FIPS 203). Uses the Fujisaki-Okamoto transform to achieve IND-CCA security from an IND-CPA base scheme ([[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]).
 
 ## RSA-KEM / RSAES-OAEP
 
-RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and derives $k = \hash(r)$; it is IND-CCA secure under [[rsa-assumption|RSA]] in the [[random-oracle-model|random oracle model]] — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. RSAES-OAEP is a [[public-key-encryption|PKE]], not a KEM; it is IND-CCA secure under RSA in the random oracle model — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
+RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and derives $k = \hash(r)$; it is IND-CCA secure under [[rsa-assumption|RSA]] in the [[random-oracle-model|random oracle model]] ([[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]) — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. RSAES-OAEP is a [[public-key-encryption|PKE]], not a KEM; it is IND-CCA secure under RSA in the random oracle model — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
 
 # Other results
 
 - [[pke-to-kem|PKE ⇒ KEM]]
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]], with the one-time pad as DEM — folklore
 - The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
-- [[kem-to-ke|KEM ⇒ KE]]
+- [[kem-to-ke|KEM ⇒ KE with bit-string keys]]
 
-<!-- BEGIN GENERATED participates-in ea356297e7f7 -->
+<!-- BEGIN GENERATED participates-in e17ae2560d47 -->
 
 ## Participates in
 
@@ -96,8 +104,9 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 
 - [[ind-cca-security-to-ind-cpa-kem|IND-CCA security ⇒ IND-CPA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
+- [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 - [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
-- [[kem-to-ke|KEM ⇒ KE]]
+- [[kem-to-ke|KEM ⇒ KE with bit-string keys]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 
 **Produces Key encapsulation mechanism**
 
@@ -105,7 +114,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
-- [[pke-to-kem|PKE ⇒ KEM]]
+- [[pke-to-kem|PKE ⇒ KEM]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 
 <!-- END GENERATED participates-in -->

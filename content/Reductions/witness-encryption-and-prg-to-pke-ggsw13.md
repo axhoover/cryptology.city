@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
-security-loss: "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}"
+security-loss: "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}, for the length-doubling G; stretching a given PRG to G adds its own loss"
 rationale:
   class: "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code; the security proof uses the adversary only as an oracle."
 ---
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[witness-encryption|Witness encryption]] for $\classNP$ and a length-doubling [[pseudorandom-generator|PRG]] $G$ yield an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme: the secret key is a seed $s$, the public key is $G(s)$, a ciphertext is $\Enc(1^\secpar, x = G(s), m)$ for the statement "$x$ is in the image of $G$", and $s$ is the decryption witness — [[GGSW13 - Witness encryption and its applications|GGSW13]].
+[[witness-encryption|Witness encryption]] for $\classNP$ and a length-doubling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{2\secpar}$ yield an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme: the secret key is a seed $s$, the public key is $G(s)$, a ciphertext is $\Enc(1^\secpar, x = G(s), m)$ for the statement "$x$ is in the image of $G$", and $s$ is the decryption witness — [[GGSW13 - Witness encryption and its applications|GGSW13]]. Any PRG can be [[pseudorandom-generator#pseudorandomness|stretched]] to a length-doubling $G$ — standard.
 
 ## Sketch
 

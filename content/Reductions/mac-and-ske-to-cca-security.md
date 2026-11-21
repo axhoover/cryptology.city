@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
+title: "Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
 aliases: []
 id: red-mac-and-ske-to-cca-security
 kind: implication
-hypotheses: [suf-cma-mac, cpa-security]
+hypotheses: [arbitrary-length-suf-cma-mac, cpa-security]
 conclusion: cca-secure-symmetric-key-encryption
 class: fully-black-box
 model: standard
@@ -17,11 +17,11 @@ rationale:
   security-loss: "Ciphertext integrity with CPA security bounds the CCA advantage by the CPA advantage plus twice the integrity advantage, and since the SUF-CMA game takes one final forgery and has no verification oracle, the forger guesses which of the $q_D$ decryption queries carries a valid tag."
 ---
 
-# SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE
+# Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE
 
 ## Statement
 
-Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a [[message-authentication-code#strong-unforgeability|strongly unforgeable]] (SUF-CMA) [[message-authentication-code|MAC]]. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$ — encrypt $m$ to $c \gets \Enc(k_e, m)$, output $(c, \Tag(k_m, c))$, and decrypt $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme, and with a MAC that is only UF-CMA it can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a [[message-authentication-code#strong-unforgeability|strongly unforgeable]] (SUF-CMA) [[message-authentication-code|MAC]] for [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|arbitrary-length messages]], so that it tags every ciphertext of $\SKE$. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$ — encrypt $m$ to $c \gets \Enc(k_e, m)$, output $(c, \Tag(k_m, c))$, and decrypt $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme, and with a MAC that is only UF-CMA it can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. Encrypt-then-MAC is $(1-\varepsilon_{\SKE}-\varepsilon_{\MAC})$-correct for a $(1-\varepsilon_{\SKE})$-correct $\SKE$ and a $(1-\varepsilon_{\MAC})$-correct $\MAC$, by a union bound, with the message space of $\SKE$ — standard.
 
 ## Sketch
 

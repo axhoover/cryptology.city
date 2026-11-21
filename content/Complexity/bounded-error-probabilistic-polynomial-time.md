@@ -31,7 +31,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 In cryptography, efficient adversaries are modeled as probabilistic polynomial-time ($\PPT$) algorithms — the uniform version of BPP. Security definitions quantify over all $\PPT$ adversaries.
 
-Against non-uniform adversaries randomness never helps: fixing the best random tape yields a deterministic circuit with at least the same advantage — folklore. A [[pseudorandom-generator|PRG]] secure against all $\classPpoly$ adversaries implies $\classBPP \subseteq \bigcap_{\varepsilon > 0} \mathbf{DTIME}(2^{n^\varepsilon})$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; $\classBPP = \classP$ follows from a generator with seed length $O(\log n)$, computable in time polynomial in its output length, that fools linear-size circuits (Nisan–Wigderson, JCSS 1994).
+Against non-uniform adversaries randomness never helps: fixing the best random tape yields a deterministic circuit with at least the same advantage — folklore. A [[pseudorandom-generator|PRG]] secure against all $\classPpoly$ adversaries implies $\classBPP \subseteq \bigcap_{\varepsilon > 0} \mathbf{DTIME}(2^{n^\varepsilon})$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; $\classBPP = \classP$ follows from a generator with seed length $O(\log n)$, computable in time polynomial in its output length, that fools linear-size circuits — [[NW88 - Hardness vs. Randomness (Extended Abstract)|NW88]].
 
 <!-- BEGIN GENERATED participates-in 04cfdcbff836 -->
 

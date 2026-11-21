@@ -17,4 +17,6 @@ cryptobib_key: EC:JaiJin21
 
 ## Abstract
 
-TODO — abstract.
+We provide the first constructions of non-interactive zero-knowledge and Zap arguments for NP based on the sub-exponential hardness of Decisional Diffie-Hellman against polynomial time adversaries (without use of groups with pairings).
+
+Central to our results, and of independent interest, is a new notion of interactive trapdoor hashing protocols.

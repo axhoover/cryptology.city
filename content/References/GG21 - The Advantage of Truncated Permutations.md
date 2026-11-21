@@ -26,8 +26,10 @@ bibtex: |
 
 ## Abstract
 
-Constructing a Pseudo Random Function (PRF) is a fundamental problem in cryptology. Such a construction, implemented by truncating the last m bits of permutations of {0,1}n was suggested by Hall et al. (1998). They conjectured that the distinguishing advantage of an adversary with q queries, Advn,m(q), is small if q=o(2(n+m)/2), established an upper bound on Advn,m(q) that confirms the conjecture for m<n/7, and also declared a general lower bound Advn,m(q)=Ω(q2/2n+m). The conjecture was essentially confirmed by Bellare and Impagliazzo (1999). Nevertheless, the problem of {\em estimating} Advn,m(q) remained open. Combining the trivial bound 1, the birthday bound, and a result of Stam (1978) leads to the upper bound
+Constructing a Pseudo Random Function (PRF) is a fundamental problem in cryptology. Such a construction, implemented by truncating the last $m$ bits of permutations of $\{0, 1\}^{n}$ was suggested by Hall et al. (1998). They conjectured that the distinguishing advantage of an adversary with $q$ queries, ${\bf Adv}_{n, m} (q)$, is small if $q = o (2^{(n+m)/2})$, established an upper bound on ${\bf Adv}_{n, m} (q)$ that confirms the conjecture for $m < n/7$, and also declared a general lower bound ${\bf Adv}_{n,m}(q)=\Omega(q^2/2^{n+m})$. The conjecture was essentially confirmed by Bellare and Impagliazzo (1999). Nevertheless, the problem of _estimating_ ${\bf Adv}_{n, m} (q)$ remained open. Combining the trivial bound $1$, the birthday bound, and a result of Stam (1978) leads to the upper bound
 
-Advn,m(q)=O(min{q(q−1)2n,q2n+m2,1}).
+$$
+{\bf Adv}_{n,m}(q) = O\left(\min\left\{\frac{q(q-1)}{2^n},\,\frac{q}{2^{\frac{n+m}{2}}},\,1\right\}\right).
+$$
 
-In this paper we show that this upper bound is tight for every 0≤m<n and any q. This, in turn, verifies that the converse to the conjecture of Hall et al. is also correct, i.e., that Advn,m(q) is negligible only for q=o(2(n+m)/2).
+In this paper we show that this upper bound is tight for every $0\leq m<n$ and any $q$. This, in turn, verifies that the converse to the conjecture of Hall et al. is also correct, i.e., that ${\bf Adv}_{n, m} (q)$ is negligible only for $q = o (2^{(n+m)/2})$.

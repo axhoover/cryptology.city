@@ -28,4 +28,4 @@ The one-way function is $f(r) = \pk$ for $(\pk, \sk) \gets \KeyGen(1^\secpar; r)
 
 ## Notes
 
-- Signature schemes are treated the same way: [[ds-to-hash-function|DS ⇒ OWF]] — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+- Signature schemes are treated the same way: the map from key-generation coins to verification keys is distributionally one-way ([[ds-to-hash-function|DS ⇒ Distributional OWF]]) — standard.

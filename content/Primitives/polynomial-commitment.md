@@ -17,37 +17,57 @@ variants:
 
 # Polynomial commitment scheme
 
-A **polynomial commitment scheme** (PCS) allows a prover to commit to a polynomial $f \in \FF_p[X]_{\le d}$ (of degree at most $d$) and later prove evaluations $f(z) = y$ for any point $z$ queried by a verifier, without revealing $f$ itself. Polynomial commitments are the key bridge between [[arithmetization]] and proof systems: they allow a [[succinct-argument|SNARK]] to efficiently check that a prover's claimed polynomial satisfies the required constraints.
+A **polynomial commitment scheme** (PCS) allows a prover to commit to a polynomial $f \in \FF[X]$ of degree at most $d$, over a finite field $\FF$, and later prove evaluations $f(z) = y$ for any point $z$ queried by a verifier, without revealing $f$ itself. Polynomial commitments are the key bridge between [[arithmetization]] and proof systems: they allow a [[succinct-argument|SNARK]] to efficiently check that a prover's claimed polynomial satisfies the required constraints.
 
 ## Syntax
 
 A polynomial commitment scheme is a tuple of efficient algorithms $(\Setup, \mathsf{Commit}, \Open, \Vrfy)$:
 
-- $\Setup(1^\secpar, d) \to \mathsf{srs},$ produces a structured (or transparent) reference string for polynomials of degree $\le d$.
-- $\mathsf{Commit}(\mathsf{srs}, f) \to (C, \mathsf{aux}),$ commits to a polynomial $f$, producing commitment $C$ and auxiliary data $\mathsf{aux}$ (kept by the prover).
-- $\Open(\mathsf{srs}, C, z, y, \mathsf{aux}) \to \pi,$ produces an opening proof $\pi$ for the claim $f(z) = y$.
-- $\Vrfy(\mathsf{srs}, C, z, y, \pi) \to \bits,$ verifies the claim $f(z) = y$ against commitment $C$.
+- $\Setup(1^\secpar, d) \to \mathsf{srs},$ produces a structured (or transparent) reference string for polynomials of degree $\le d$; it determines a finite field $\FF$ with $|\FF| \ge d + 1$, over which polynomials and points range.
+- $\mathsf{Commit}(\mathsf{srs}, f) \to (C, \mathsf{aux}),$ commits to a polynomial $f \in \FF[X]$ of degree at most $d$, producing commitment $C$ and auxiliary data $\mathsf{aux}$ (kept by the prover).
+- $\Open(\mathsf{srs}, C, z, y, \mathsf{aux}) \to \pi,$ produces an opening proof $\pi$ for the claim $f(z) = y$, for $z, y \in \FF$.
+- $\Vrfy(\mathsf{srs}, C, z, y, \pi) \to \bits,$ a deterministic algorithm verifying the claim $f(z) = y$ against commitment $C$.
+
+The scheme is **succinct** if there is one polynomial $p$, fixed before $d$, such that $|C| \le p(\secpar, \log d)$ and $|\pi| \le p(\secpar, \log d)$ for every $d \le \poly(\secpar)$. A bound chosen after $d$ would admit the scheme that sends $f$ in the clear, whose $|C| = (d+1)\log|\FF|$ is polynomial in $\secpar$ for each such $d$ — standard.
 
 ## Properties
 
 ### Correctness
 
-For all polynomials $f$, all $z \in \FF_p$, and $(C, \mathsf{aux}) \gets \mathsf{Commit}(\mathsf{srs}, f)$:
+A PCS is **perfectly correct** if for all $\secpar$ and $d$, every $\mathsf{srs}$ output by $\Setup(1^\secpar, d)$, every $f \in \FF[X]$ of degree at most $d$, every $z \in \FF$ and $(C, \mathsf{aux}) \gets \mathsf{Commit}(\mathsf{srs}, f)$:
 $$\Pr[\Vrfy(\mathsf{srs}, C, z, f(z), \Open(\mathsf{srs}, C, z, f(z), \mathsf{aux})) = 1] = 1.$$
 
 ### Evaluation binding
 
-For all efficient $\calA$: it is infeasible to produce $C, z, y \neq y', \pi, \pi'$ such that both $\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1$ and $\Vrfy(\mathsf{srs}, C, z, y', \pi') = 1$.
+A PCS is **evaluation binding** if for all efficient $\calA$, the probability that $\calA(\mathsf{srs})$ outputs $(C, z, y, y', \pi, \pi')$ with $y \neq y'$, $\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1$ and $\Vrfy(\mathsf{srs}, C, z, y', \pi') = 1$ is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$ and the coins of $\calA$.
+
+As an object, a PCS denotes a succinct, perfectly correct and evaluation-binding scheme, for every $d \le \poly(\secpar)$ given to $\Setup$.
 
 ### Extractability
 
-A PCS is **extractable** if for all efficient $\calA$ there is an efficient extractor $\calE$ such that
+Extractability is the property a polynomial-IOP compiler needs: the committed polynomials can be extracted round by round, each before the verifier's next challenge and before any evaluation point is chosen — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] (Definition 6.2). For a degree bound $d = d(\secpar)$, a number of rounds $k = k(\secpar)$, an adversary $\calA$ with coins $\omega$ and an extractor $\calE$:
 
-$$
-\Pr\!\left[\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1 \wedge \left(\deg f > d \vee f(z) \neq y \vee C \neq C_{f,r}\right)\right]
-$$
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ext}}_{\mathsf{PCS},\calA,\calE,k}(\secpar)$}
+\begin{algorithmic}
+\State $\mathsf{srs} \gets \Setup(1^\secpar, d(\secpar))$; $\omega \getsr \bits^{*}$
+\For{$i = 1, \ldots, k$}
+\State $(C_{i,1}, \ldots, C_{i,t_i}) \gets \calA(\mathsf{srs}, \rho_1, \ldots, \rho_{i-1}; \omega)$
+\State $(f_{i,1}, \ldots, f_{i,t_i}) \gets \calE(\mathsf{srs}, \rho_1, \ldots, \rho_{i-1}, \omega)$
+\Comment{extracted before $\rho_i$ is sampled}
+\State $\rho_i \getsr \FF$
+\EndFor
+\State $(j_u, l_u, z_u, y_u, \pi_u)_{u \in [q]} \gets \calA(\mathsf{srs}, \rho_1, \ldots, \rho_k; \omega)$
+\Return $\big[\exists u : \Vrfy(\mathsf{srs}, C_{j_u,l_u}, z_u, y_u, \pi_u) = 1 \wedge (\deg f_{j_u,l_u} > d \vee f_{j_u,l_u}(z_u) \ne y_u)\big]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$, $(C, z, y, \pi) \gets \calA(\mathsf{srs})$, and $(f, r) \gets \calE(\mathsf{srs})$ run on the random coins of $\calA$, where $C_{f,r}$ is the commitment output by $\mathsf{Commit}(\mathsf{srs}, f)$ on randomness $r$. For interactive evaluation, [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] require the evaluation protocol to be an argument of knowledge of such $(f, r)$.
+A PCS is **extractable** if for every $d = d(\secpar) \le \poly(\secpar)$, every polynomial $k = k(\secpar)$ and every efficient $\calA$ there is an efficient $\calE$ such that $\Pr\!\left[\Game^{\mathrm{ext}}_{\mathsf{PCS},\calA,\calE,k}(\secpar) = 1\right]$ is negligible. The order matters: an extractor run once on a single claim after $\calA$ has output its point $z$ may return a different polynomial for each $z$, which fixes no single polynomial oracle for a later verifier query — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] (§2.2). The DARK commitment of [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] proves evaluations with an interactive argument, whose analogous requirement is witness-extended emulation of the evaluation protocol (BFS20, Theorem 4); it lies outside this syntax and is not registered as an instance.
+
+As an object, an extractable PCS denotes a PCS, as defined for the base object, that is extractable, for which, for one polynomial $p$ fixed before $d$, $\Vrfy$ runs in time at most $p(\secpar, \log d)$ for every $d \le \poly(\secpar)$, and whose field has $1/|\FF|$ negligible. A polynomial IOP's checks are Schwartz–Zippel tests with error about $d/|\FF|$, so over a field of size about $d$ they give no soundness — standard. KZG and the inner-product scheme work over $\ZZ_p$ for a group order $p$ of about $2^\secpar$ — standard.
 
 ### Hiding (optional)
 
@@ -62,10 +82,10 @@ The KZG scheme commits to $f$ as $C = g^{f(\tau)}$ in a bilinear group, where $\
 - **Proof size**: $O(1)$ (one group element)
 - **Verification time**: $O(1)$ (two pairings)
 - **Setup**: Trusted; requires a structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$
-- **Security**: $q$-Strong Diffie-Hellman assumption in a bilinear group
+- **Security**: $q$-Strong Diffie-Hellman assumption in a bilinear group ([[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]])
 - **Reference**: [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]
 
-Used in: Plonk, Marlin, KZG-based zkRollups, Ethereum EIP-4844.
+Used in: Plonk — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]; Marlin — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]].
 
 ## FRI (Fast Reed-Solomon IOP of Proximity)
 
@@ -84,7 +104,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - **Proof size**: $O(\log d)$
 - **Verification time**: $O(d)$ (linear, but no pairing)
 - **Setup**: Transparent
-- **Security**: Discrete logarithm assumption
+- **Security**: Discrete logarithm assumption ([[dlog-to-pcs|DLOG ⇒ PCS]])
 
 # Other results
 
@@ -93,12 +113,13 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
-<!-- BEGIN GENERATED participates-in dc5fcbfbb81d -->
+<!-- BEGIN GENERATED participates-in 6ee29de7d180 -->
 
 ## Participates in
 
 **Builds on Polynomial commitment scheme**
 
+- [[extractable-pcs-to-pcs|Extractable PCS ⇒ PCS]] (via [[polynomial-commitment#extractability|Extractability]])
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]] (via [[polynomial-commitment#extractability|Extractability]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
@@ -106,6 +127,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
-- [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
+- [[extractable-pcs-to-pcs|Extractable PCS ⇒ PCS]]
+- [[hash-function-to-pcs-bbhr18|ROM ⇒ PCS (FRI)]]
 
 <!-- END GENERATED participates-in -->

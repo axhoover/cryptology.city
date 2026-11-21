@@ -26,7 +26,7 @@ No relativizing construction of [[key-exchange|key agreement]] from a [[one-way-
 
 ## Sketch
 
-Relative to a random permutation $\pi$, the eavesdropper, holding the transcript, repeatedly samples executions of the two parties consistent with everything she knows and queries $\pi$ at every point such executions query with non-negligible probability; once she holds every query the parties have in common, a fresh consistent view of one party yields that party's key. The sampling is efficient if $\classP = \classNP$, which the $\classPSPACE$-complete oracle provides.
+Relative to a random permutation $\pi$, the eavesdropper, holding the transcript, repeatedly samples executions of the two parties consistent with everything it knows and queries $\pi$ at every point such executions query with non-negligible probability; once it holds every query the parties have in common, a fresh consistent view of one party yields that party's key. The sampling is efficient if $\classP = \classNP$, which the $\classPSPACE$-complete oracle provides.
 
 ## Notes
 

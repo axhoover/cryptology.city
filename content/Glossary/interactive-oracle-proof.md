@@ -26,11 +26,11 @@ A [[probabilistically-checkable-proofs|PCP]] is a one-round IOP, and an [[intera
 
 ## Succinct IOPs with state-restoration knowledge soundness
 
-Let $\calR_U = \{((M, x, T), w) : M \text{ accepts } (x, w) \text{ within } T \text{ steps}\}$ be the universal relation. A public-coin IOP for $\calR_U$, parameterized by $\secpar$, is **succinct with state-restoration knowledge soundness** if
+Let $\calR_U = \{((M, x, T), w) : M \text{ accepts } (x, w) \text{ within } T \text{ steps}\}$ be the universal relation. A public-coin IOP for $\calR_U$, parameterized by $\secpar$ and complete as in [[#Definition|§ Definition]], is **succinct with state-restoration knowledge soundness** if
 
 - the honest prover, given $w$, runs in time $\poly(\secpar, |M|, |x|, T)$;
 - the verifier runs in time $\poly(\secpar, |M|, |x|, \log T)$, which bounds the number of rounds, the number of queries and the size of each queried symbol;
-- there is a polynomial-time extractor $\calE$ such that for every polynomial $t$ and every prover $\tilde P$ that may, up to $t$ times, return the verifier to an earlier state before completing one transcript, the verifier then drawing fresh randomness for the next round: if $\tilde P$ makes $V$ accept $(M, x, T)$ with probability $\delta$, then $\calE^{\tilde P}(M, x, T)$ outputs $w$ with $((M, x, T), w) \in \calR_U$ with probability at least $\delta - \kappa_{\mathrm{sr}}(t)$, where $\kappa_{\mathrm{sr}}(t)$ is negligible in $\secpar$ — [[BCS16 - Interactive Oracle Proofs|BCS16]].
+- for every polynomial $t$ there is an extractor $\calE_t$, running in time $\poly(\secpar, |M|, |x|, T)$, such that for every prover $\tilde P$ that may, up to $t$ times, return the verifier to an earlier state before completing one transcript, the verifier then drawing fresh randomness for the next round: if $\tilde P$ makes $V$ accept $(M, x, T)$ with probability $\delta$, then $\calE_t^{\tilde P}(M, x, T)$ outputs $w$ with $((M, x, T), w) \in \calR_U$ with probability at least $\delta - \kappa_{\mathrm{sr}}(t)$, where $\kappa_{\mathrm{sr}}(t)$ is negligible in $\secpar$ — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 
 A state restoration rewinds the verifier, not the prover: $\tilde P$ chooses which partial transcript to continue from and which complete transcript to submit. Such a prover is what a cheating prover against the compiled non-interactive argument becomes, which is why this notion, rather than ordinary soundness, governs the [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]] — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 

@@ -1,25 +1,25 @@
 ---
 type: reduction
 status: draft
-title: "ISIS (Inhomogeneous SIS) ⇔ SIS"
+title: "SIS ⇒ ISIS (Inhomogeneous SIS)"
 aliases: []
-id: red-isis-inhomogeneous-sis-to-sis
-kind: equivalence
-hypotheses: [inhomogeneous-sis]
-conclusion: sis
+id: red-sis-to-inhomogeneous-sis
+kind: implication
+hypotheses: [sis]
+conclusion: inhomogeneous-sis
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "none: one oracle call on an exactly uniform ISIS instance"
 rationale:
-  class: "Each direction calls a solver for the other problem only as an oracle, on instances derived from its own, and post-processes the answers."
+  class: "The reduction splits off the last column of its SIS instance as a uniform ISIS target and calls an arbitrary ISIS solver once as an oracle."
 ---
 
-# ISIS (Inhomogeneous SIS) ⇔ SIS
+# SIS ⇒ ISIS (Inhomogeneous SIS)
 
 ## Statement
 
-[[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]] and [[shortest-integer-solution|SIS]] are equivalent up to a polynomial change of the column count and norm bound — folklore. One direction is immediate: if SIS is hard for $(n, m, q, \sqrt{\beta^2 + 1})$, then ISIS is hard for $(n, m - 1, q, \beta)$. The other, ISIS hardness implying SIS hardness (solving ISIS with a SIS oracle), holds only under conditions on the column count and norm bound.
+If [[shortest-integer-solution|SIS]] is hard for $(n, m, q, \sqrt{\beta^2 + 1})$, then [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]] is hard for $(n, m - 1, q, \beta)$ — folklore.
 
 ## Sketch
 

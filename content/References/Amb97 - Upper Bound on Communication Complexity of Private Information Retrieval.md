@@ -17,4 +17,13 @@ cryptobib_key: ICALP:Ambainis97
 
 ## Abstract
 
-TODO — abstract.
+Private information retrieval was introduced
+by Chor, Goldreich, Kushilevitz and Sudan.
+It is the problem of reading a bit from the database so
+that it remains secret which bit we need.
+If the database exists in several identical copies,
+it is possible to ask queries so that each of copies
+alone does not get any information about the adress
+of the needed bit.
+We construct a scheme for private information retrieval
+with k databases and O(n sup (1/(2k-1)) ) bits of communication.

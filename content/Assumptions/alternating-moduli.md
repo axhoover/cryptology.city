@@ -18,7 +18,7 @@ The _alternating moduli assumption_ (also called _Crypto Dark Matter_[^1] after 
 
 ## Assumption
 
-The main candidates from [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]] use a two-layer structure: a secret linear map $A$ over $\ZZ_2$ followed by a public linear map $B$ over $\ZZ_3$. Given $n, m, \ell \in \poly(\secpar)$, the function $f_A : \bits^n \to \ZZ_3^\ell$ is defined by
+The main candidates from [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]] use a two-layer structure: a secret linear map $A$ over $\ZZ_2$ followed by a public linear map $B$ over $\ZZ_3$. For dimensions $n = n(\secpar)$, $m = m(\secpar)$ and $\ell = \ell(\secpar)$, the function $f_A : \bits^n \to \ZZ_3^\ell$ is defined by
 
 $$
 f_A(x) = B \cdot (A \cdot x \bmod 2) \bmod 3,
@@ -43,7 +43,7 @@ where $A \getsr \ZZ_2^{m \times n}$ is the secret key and $B \getsr \ZZ_3^{\ell 
 \end{algorithm}
 ```
 
-**Weak-AM is hard** if for all efficient $\calA$,
+**Weak-AM is hard** if there are polynomially bounded functions $n = n(\secpar)$, $m = m(\secpar)$ and $\ell = \ell(\secpar) \ge 1$, computable from $1^\secpar$ in polynomial time, such that for all efficient $\calA$,
 
 $$
 \Adv^{\text{weak-am}}_{\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{weak-am}}_{\calA}(\secpar) = 1\right] - 1\right|

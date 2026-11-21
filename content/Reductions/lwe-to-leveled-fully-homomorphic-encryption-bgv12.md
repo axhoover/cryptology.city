@@ -11,6 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "additive: one LWE advantage per level, $L + 1$ in all, from the hybrid along the chain of keys, plus a leftover-hash term for the challenge ciphertext"
 rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
@@ -21,7 +23,7 @@ rationale:
 
 ## Statement
 
-For every depth bound $L$ fixed at key generation, the BGV scheme is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for all polynomial-size circuits of depth $L$, IND-CPA-secure if decision [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE]] is hard with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$), a ratio $2^{n^{\varepsilon}}$ once the dimension $n$ is a large enough polynomial in $L$ and $\secpar$. It uses neither bootstrapping nor a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+For every depth bound $L$ fixed at key generation, the BGV scheme is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for all polynomial-size circuits of depth $L$, IND-CPA-secure if decision [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE]] is hard with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$), a ratio $2^{n^{\varepsilon}}$ once the dimension $n$ is a large enough polynomial in $L$ and $\secpar$. It uses neither bootstrapping nor a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]. Restricted to the constants of its plaintext ring $R_2$, its messages are bits — standard.
 
 ## Sketch
 

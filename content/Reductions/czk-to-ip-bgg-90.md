@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "OWF + IP ⇒ CZK"
+title: "Non-uniform OWF + IP ⇒ CZK"
 aliases: []
 id: red-czk-to-ip-bgg-90
 kind: implication
-hypotheses: [owf, ip]
+hypotheses: [non-uniform-owf, ip]
 conclusion: czk
 class: free
 model: standard
@@ -18,11 +18,11 @@ rationale:
   class: "BGG+90 predate the RTV04 taxonomy and claim no finer class, so only the proved implication is recorded."
 ---
 
-# OWF + IP ⇒ CZK
+# Non-uniform OWF + IP ⇒ CZK
 
 ## Statement
 
-If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, every language with an [[interactive-proof-systems|interactive proof]] has a [[computational-zero-knowledge|computational zero-knowledge]] interactive proof, so $\classIP \subseteq \classCZK$ and hence $\classCZK = \classIP$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]. BGG+90 assume a secure probabilistic encryption scheme, used as a bit commitment; a statistically binding bit commitment suffices, and any one-way function yields one — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+If [[hash-function#one-wayness-against-non-uniform-adversaries|one-way functions secure against non-uniform adversaries]] exist, every language with an [[interactive-proof-systems|interactive proof]] has a [[computational-zero-knowledge|computational zero-knowledge]] interactive proof, so $\classIP \subseteq \classCZK$ and hence $\classCZK = \classIP$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]. BGG+90 assume a secure probabilistic encryption scheme, used as a bit commitment; a statistically binding bit commitment suffices, and any one-way function yields one — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]. The zero-knowledge reduction to hiding hard-wires the instance, a transcript prefix and the prover's committed message, so it needs non-uniform hardness; the HILL99 and Naor91 reductions are uniform and black-box, so the commitment inherits it — standard ([[uniform-and-non-uniform-adversaries#relation-between-the-notions|uniform and non-uniform adversaries]]).
 
 ## Sketch
 

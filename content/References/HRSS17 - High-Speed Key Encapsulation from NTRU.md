@@ -17,4 +17,4 @@ cryptobib_key: CHES:HRSS17
 
 ## Abstract
 
-TODO — abstract.
+This paper presents software demonstrating that the 20-year-old NTRU cryptosystem is competitive with more recent lattice-based cryptosystems in terms of speed, key size, and ciphertext size. We present a slightly simplified version of textbook NTRU, select parameters for this encryption scheme that target the 128-bit post-quantum security level, construct a KEM that is CCA2-secure in the quantum random oracle model, and present highly optimized software targeting Intel CPUs with the AVX2 vector instruction set. This software takes only 307914 cycles for the generation of a keypair, 48646 for encapsulation, and 67338 for decapsulation. It is, to the best of our knowledge, the first NTRU software with full protection against timing attacks.

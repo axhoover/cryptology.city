@@ -7,12 +7,12 @@ aliases:
   - Zero-knowledge proof
   - ZK
   - ZK proofs
-  - Sigma protocol
 title: Zero-knowledge proof
 id: zkp
 variants:
   constant-round-zk-argument: "#constant-round-public-coin-zero-knowledge-arguments"
   honest-verifier-zero-knowledge: "#honest-verifier-zk-hvzk"
+  constant-round-public-coin-hvzk-proof: "#constant-round-public-coin-hvzk-proofs"
   witness-indistinguishable-proof: "#witness-indistinguishable-wi-proofs"
   zap: "#zaps"
   statistical-zk-argument: "#statistical-zero-knowledge-arguments"
@@ -34,8 +34,10 @@ A _zero-knowledge proof_ is an interactive protocol between a prover $P$ and a v
 A zero-knowledge proof system for a language $L \subseteq \bits^*$ is an interactive protocol $(P, V)$ where:
 
 - $P$ receives as input $(x, w)$ where $w$ is a witness for $x \in L$
-- $V$ receives input $x$ and outputs $\mathrm{accept}$ or $\mathrm{reject}$
+- $V$ is a probabilistic polynomial-time algorithm that receives input $x$ and outputs $\mathrm{accept}$ or $\mathrm{reject}$
 - The transcript of the interaction is a sequence of messages $(\alpha_1, \beta_1, \ldots, \alpha_k, \beta_k)$
+
+A zero-knowledge proof without further qualification means a computational zero-knowledge proof system for every language in $\classNP$, as one-way functions secure against non-uniform adversaries give through statistically binding commitments ([[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. For a single language in $\classBPP$ the notion is trivial: the verifier decides $x$ alone — standard.
 
 ## Properties
 
@@ -66,27 +68,31 @@ Depending on whether the simulator's output is identically distributed, statisti
 
 ## Honest-verifier ZK (HVZK)
 
-Weaker form where the simulator only works against an honest verifier that picks challenges uniformly at random. Sufficient for many applications when combined with the Fiat-Shamir transform.
+Zero knowledge in which the simulator need only reproduce the view of the honest verifier $V$, rather than that of every efficient $V^*$. As an object, HVZK denotes an interactive proof with negligible soundness error for an $\classNP$-complete language whose simulator need only reproduce the honest verifier's view.
+
+### Constant-round public-coin HVZK proofs
+
+A perfectly complete public-coin interactive proof for an $\classNP$-complete language with a constant number of messages and negligible soundness error against unbounded provers, a $\PPT$ verifier and a prover that is $\PPT$ given a witness, in which the prover sends the first message and, for every $(x, w)$, that message has min-entropy $\omega(\log \secpar)$; together with a $\PPT$ simulator $\Sim$ such that for every $x \in L$ and witness $w$ for $x$, $\Sim(x)$ is computationally indistinguishable from the honest verifier's view in $\langle P(x, w), V(x) \rangle$ — standard. The [[fiat-shamir-heuristic|Fiat–Shamir transform]] compiles it to a NIZK argument for $\classNP$ in the random-oracle model ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]). The min-entropy condition is needed for zero knowledge: without it, a distinguisher queries the oracle at a likely first message before asking for a proof, and the simulator can no longer program that point — standard.
 
 ## Sigma protocols
 
-A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for the [[discrete-logarithm|discrete-logarithm]] relation is the canonical example — [[Sch91 - Efficient signature generation by smart cards|Sch91]]; its special soundness and perfect HVZK hold in every prime-order group, with no hardness assumption — standard.
+A [[sigma-protocol|sigma protocol]] ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for the [[discrete-logarithm|discrete-logarithm]] relation is the canonical example — [[Sch91 - Efficient signature generation by smart cards|Sch91]]; its special soundness and perfect HVZK hold in every prime-order group, with no hardness assumption — standard.
 
 ## Witness-indistinguishable (WI) proofs
 
-Weaker than ZK: the verifier cannot distinguish which of multiple valid witnesses the prover used. WI proofs compose concurrently (unlike ZK proofs in general) and can be built without requiring any setup — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]].
+A proof system for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a $\PPT$ verifier, a prover that is $\PPT$ given a witness, and negligible soundness error against unbounded provers, such that for every efficient $V^*$, every $x \in L$, witnesses $w_0, w_1$ for $x$ and auxiliary input $z$, the views of $V^*(x, z)$ in $\langle P(x, w_0), V^*(x, z) \rangle$ and $\langle P(x, w_1), V^*(x, z) \rangle$ are computationally indistinguishable — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]]. WI proofs compose concurrently (unlike ZK proofs in general) and can be built without requiring any setup — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]].
 
 ## Zaps
 
-A _zap_ is a two-message public-coin witness-indistinguishable proof for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, whose first message is a uniformly random string $\rho$ sent by the verifier; the verifier's decision is a deterministic function of $x$, $\rho$ and the prover's answer. Soundness holds against unbounded provers for all statements simultaneously: except with negligible probability over $\rho$, no $x \notin L$ has an accepting answer, so $\rho$ can be fixed once and reused for any number of statements. Witness indistinguishability holds for every first message: for every $\rho$, every $x$ and witnesses $w_0, w_1$ for $x$, the prover's answers on $(\rho, x, w_0)$ and $(\rho, x, w_1)$ are computationally indistinguishable — [[DN00 - Zaps and Their Applications|DN00]].
+A _zap_ is a two-message public-coin witness-indistinguishable proof for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, whose first message is a uniformly random string $\rho$ sent by the verifier; the verifier's decision is a deterministic function of $x$, $\rho$ and the prover's answer. The prover is $\PPT$ given $(\rho, x, w)$ for a witness $w$ for $x$. Soundness holds against unbounded provers for all statements simultaneously: except with negligible probability over $\rho$, no $x \notin L$ has an accepting answer, so $\rho$ can be fixed once and reused for any number of statements. Witness indistinguishability holds for every first message: for every $\rho$, every $x$ and witnesses $w_0, w_1$ for $x$, the prover's answers on $(\rho, x, w_0)$ and $(\rho, x, w_1)$ are computationally indistinguishable — [[DN00 - Zaps and Their Applications|DN00]].
 
 ### Statistical zap arguments
 
-A two-message public-coin argument for an $\classNP$-complete language whose first message is a uniformly random string $\rho$ sent by the verifier; unlike a zap, its soundness is computational and its witness indistinguishability statistical. Witness indistinguishability holds for every first message: for every $\rho$, every $x$ and witnesses $w_0, w_1$ for $x$, the prover's messages on $(\rho, x, w_0)$ and $(\rho, x, w_1)$ are statistically close. Soundness is computational and non-adaptive: for every false statement $x$ fixed before $\rho$ is sampled, every efficient prover makes the verifier accept with negligible probability. Statistical zap arguments were introduced by [[BFJKS20 - Statistical ZAP Arguments|BFJKS20]] and [[GJJM20 - Statistical Zaps and New Oblivious Transfer Protocols|GJJM20]]; this soundness notion is the one of [[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]], who construct them from LWE ([[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]]).
+A two-message public-coin argument for an $\classNP$-complete language whose first message is a uniformly random string $\rho$ sent by the verifier; unlike a zap, its soundness is computational and its witness indistinguishability statistical. The prover is $\PPT$ given $(\rho, x, w)$ for a witness $w$ for $x$. Witness indistinguishability holds for every first message: for every $\rho$, every $x$ and witnesses $w_0, w_1$ for $x$, the prover's messages on $(\rho, x, w_0)$ and $(\rho, x, w_1)$ are statistically close. Soundness is computational and non-adaptive: for every false statement $x$ fixed before $\rho$ is sampled, every efficient prover makes the verifier accept with negligible probability. Statistical zap arguments were introduced by [[BFJKS20 - Statistical ZAP Arguments|BFJKS20]] and [[GJJM20 - Statistical Zaps and New Oblivious Transfer Protocols|GJJM20]]; this soundness notion is the one of [[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]], who construct them from LWE ([[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]]).
 
 ### Non-interactive zaps
 
-A one-message witness-indistinguishable proof for an $\classNP$-complete language with no setup or shared randomness. The verifier is deterministic and soundness is perfect: for every $x \notin L$ it rejects every message. For every statement $x$ and witnesses $w_0, w_1$ for $x$, the prover's messages on $(x, w_0)$ and $(x, w_1)$ are computationally indistinguishable — [[BOV03 - Derandomization in Cryptography|BOV03]], [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
+A one-message witness-indistinguishable proof for an $\classNP$-complete language with no setup or shared randomness. The prover is $\PPT$ given $(x, w)$ for a witness $w$ for $x$. The verifier is deterministic and soundness is perfect: for every $x \notin L$ it rejects every message. For every statement $x$ and witnesses $w_0, w_1$ for $x$, the prover's messages on $(x, w_0)$ and $(x, w_1)$ are computationally indistinguishable — [[BOV03 - Derandomization in Cryptography|BOV03]], [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
 
 ## Argument systems
 
@@ -110,7 +116,7 @@ A zero-knowledge argument for an $\classNP$-complete language that is _concurren
 
 ## Statistical zero-knowledge arguments
 
-An argument system whose zero-knowledge property is statistical: the simulator's output is statistically close to the verifier's view, so the view leaks nothing about the witness even to an unbounded distinguisher, while soundness holds only against efficient provers — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
+An argument system for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with negligible soundness error, whose zero-knowledge property is statistical: the simulator's output is statistically close to the verifier's view, so the view leaks nothing about the witness even to an unbounded distinguisher, while soundness holds only against efficient provers — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
 
 ## Constant-round zero-knowledge proofs
 
@@ -123,31 +129,34 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
 # Other results
 
 - Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
-- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]
   - A zero-knowledge proof for an $\classNP$ relation can use a multi-party protocol for the relation only as a black box, which brings the communication down to $O(s) + \poly(k)$ for a circuit of size $s$ and security parameter $k$ ([[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]]) — [[IKOS07 - Zero-Knowledge from Secure Multiparty Computation|IKOS07]]
-- Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
+- Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; [[hash-function#one-wayness-against-non-uniform-adversaries|one-way functions secure against non-uniform adversaries]] suffice, since they give statistically binding commitments ([[czk-to-ip-bgg-90|Non-uniform OWF + IP ⇒ CZK]]) — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
 - Zero knowledge for a language outside $\classBPP$ implies auxiliary-input one-way functions ([[zkp-to-hash-function|CZK ⊄ BPP ⇒ Auxiliary-input OWF]]) — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - Auxiliary-input zero knowledge is preserved under sequential composition — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]; the original definition without auxiliary input is not, and zero knowledge is not closed under parallel composition — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
   - Assuming either almost-optimal hardness of search [[learning-with-errors|LWE]] or a circular-secure [[homomorphic-encryption|fully homomorphic encryption]] scheme with standard security, the quadratic residuosity protocol of [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]] is not zero-knowledge when repeated in parallel; under either assumption the same paper gives NIZK arguments for $\classNP$ in the common reference string model — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 762f729a22c5 -->
+<!-- BEGIN GENERATED participates-in a4a33aae6e0a -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
-- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
+- [[constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge|Constant-round public-coin HVZK proof ⇒ HVZK]] (via [[zero-knowledge-proof#constant-round-public-coin-hvzk-proofs|Constant-round public-coin HVZK proofs]])
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#constant-round-public-coin-hvzk-proofs|Constant-round public-coin HVZK proofs]])
 - [[non-interactive-zap-to-zap|Non-interactive zap ⇒ Zap]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
 - [[zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03|Zap + HSG ⇒ Non-interactive zaps (BOV)]] (via [[zero-knowledge-proof#zaps|Zaps]])
+- [[zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness|ZKP + NP ⊄ io-BPP ⇒ CZK ⊄ BPP]]
 
 **Produces Zero-knowledge proof**
 
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
 - [[claw-free-permutations-to-concurrent-zk-proof-prs02|Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds]] (via [[zero-knowledge-proof#concurrent-zero-knowledge-proofs|Concurrent zero-knowledge proofs]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
+- [[constant-round-public-coin-hvzk-proof-to-honest-verifier-zero-knowledge|Constant-round public-coin HVZK proof ⇒ HVZK]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])
-- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]]
 - [[injective-one-way-function-to-four-message-zk-argument-hv18|Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)]] (via [[zero-knowledge-proof#four-message-zero-knowledge-arguments|Four-message zero-knowledge arguments]])
 - [[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 - [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[zero-knowledge-proof#zaps|Zaps]])

@@ -17,4 +17,4 @@ cryptobib_key: ITCS:BasFefMar24
 
 ## Abstract
 
-TODO — abstract.
+We study a variant of QMA where quantum proofs have no relative phase (i.e. non-negative amplitudes, up to a global phase). If only completeness is modified, this class is equal to QMA [arXiv:1410.2882]; but if both completeness and soundness are modified, the class (named QMA+ by Jeronimo and Wu) can be much more powerful. We show that QMA+ with some constant gap is equal to NEXP, yet QMA+ with some _other_ constant gap is equal to QMA. One interpretation is that Merlin's ability to "deceive" originates from relative phase at least as much as from entanglement, since QMA(2) $\subseteq$ NEXP.

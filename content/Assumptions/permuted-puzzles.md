@@ -11,7 +11,7 @@ unlisted: true
 
 # Permuted puzzles assumption
 
-The assumption that a secretly permuted Reed-Muller code is indistinguishable from random -- equivalently, that moderate-degree polynomials are indistinguishable from random functions given permuted versions of their evaluation graphs -- introduced as the basis of the first SK-DEPIR candidate.
+The assumption that a secretly permuted Reed-Muller code is indistinguishable from random, introduced as the basis of the first SK-DEPIR candidate.
 
 TODO: syntax and security definition.
 

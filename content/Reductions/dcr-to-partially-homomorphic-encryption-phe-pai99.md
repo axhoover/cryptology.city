@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Under [[decisional-composite-residuosity|DCR]], the Paillier cryptosystem is an IND-CPA-secure [[public-key-encryption|PKE]] that is [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]]: for an RSA modulus $n$ and $g \in \ZZ_{n^2}^*$ of order divisible by $n$ (e.g. $g = n+1$), $\Enc(\pk, m; r) = g^m \cdot r^n \bmod n^2$ with $m \in \ZZ_n$ and $r \getsr \ZZ_n^*$, and $\Enc(\pk, m_1; r_1) \cdot \Enc(\pk, m_2; r_2) \bmod n^2$ encrypts $m_1 + m_2 \bmod n$ — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. Semantic security of the scheme is equivalent to DCR — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
+Under [[decisional-composite-residuosity|DCR]], the Paillier cryptosystem is an IND-CPA-secure [[public-key-encryption|PKE]] that is [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]]: for an RSA modulus $n$ and $g \in \ZZ_{n^2}^*$ of order divisible by $n$ (e.g. $g = n+1$), $\Enc(\pk, m; r) = g^m \cdot r^n \bmod n^2$ with $m \in \ZZ_n$ and $r \getsr \ZZ_n^*$, and $\Enc(\pk, m_1; r_1) \cdot \Enc(\pk, m_2; r_2) \bmod n^2$ encrypts $m_1 + m_2 \bmod n$ — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. Semantic security of the scheme is equivalent to DCR — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. Its plaintexts are encoded as $\lceil \log n \rceil$-bit strings, all of one length — standard.
 
 ## Sketch
 
@@ -29,4 +29,4 @@ An encryption of $m$ is $g^m$ times a random $n$-th residue, so a DCR challenge 
 ## Notes
 
 - Damgård–Jurik generalize the scheme to modulus $n^{d+1}$ and message space $\ZZ_{n^d}$ for any $d \ge 1$, still additively homomorphic and semantically secure under DCR ([[d-th-composite-residuosity-to-he|higher-degree composite residuosity ⇒ additively homomorphic encryption]]) — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].
-- The Paillier cryptosystem admits threshold decryption ([[dkg-and-he-to-tpke|DCR ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]].
+- The Paillier cryptosystem admits threshold decryption ([[dkg-and-he-to-tpke|DCR (safe-prime moduli) ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]].

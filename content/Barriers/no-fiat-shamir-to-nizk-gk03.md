@@ -28,5 +28,5 @@ If [[hash-function#collision-resistance|collision-resistant hash functions]] exi
 
 ## Notes
 
-- GK03's protocol is contrived; Fiat–Shamir applied to the standard GKR-based succinct argument is also unsound, for explicit circuit families and every hash function — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]] ([[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]).
+- GK03's protocol is contrived; Fiat–Shamir applied to the standard [[gkr-protocol#gkr-based-succinct-arguments|GKR-based succinct argument]] is also unsound: for every hash function, a corresponding instantiation of the argument admits an accepting proof of a false statement for an explicit circuit — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]].
 - Read against signatures, the same counterexample gives [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]] — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].

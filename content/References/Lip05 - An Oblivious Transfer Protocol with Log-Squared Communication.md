@@ -17,4 +17,4 @@ cryptobib_key: ISC:Lipmaa05
 
 ## Abstract
 
-TODO — abstract.
+We propose a one-round $1$-out-of-$n$ computationally-private information retrieval protocol for $\ell$-bit strings with low-degree polylogarithmic receiver-computation, linear sender-computation and communication $\Theta(k\cdot\log^2{n}+\ell\cdot\log{n})$, where $k$ is a possibly non-constant security parameter. The new protocol is receiver-private if the underlying length-flexible additively homomorphic public-key cryptosystem is IND-CPA secure. It can be transformed to a one-round computationally receiver-private and information-theoretically sender-private $1$-out-of-$n$ oblivious-transfer protocol for $\ell$-bit strings, that has the same asymptotic communication and is private in the standard complexity-theoretic model.

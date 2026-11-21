@@ -24,7 +24,7 @@ In the OT-hybrid model, where the committer and the receiver may call an [[obliv
 
 ## Sketch
 
-To commit to $b$, the committer sends uniform bits $r_1, \dots, r_n$ by [[oblivious-transfer#rabin-ot|Rabin OT]], equivalent to OT ([[rabin-ot-to-ot|Rabin OT ⇔ OT]]), and then $c = b \oplus r_1 \oplus \cdots \oplus r_n$; to open, it reveals $b$ and every $r_i$, which the receiver checks against the bits it received. Hiding holds because the receiver misses some $r_i$, leaving the parity uniform, except with probability $2^{-n}$; binding holds because opening to $1 - b$ flips an odd number of the $r_i$, and each flipped bit is caught with probability $1/2$ since the committer does not learn which bits arrived. Committing in $\secpar$ independent copies gives hiding error at most $\secpar \cdot 2^{-n}$ and binding error $2^{-\secpar}$ — standard.
+To commit to $b$, the committer sends uniform bits $r_1, \dots, r_n$ by [[oblivious-transfer#rabin-ot|Rabin OT]], equivalent to OT ([[rabin-ot-to-ot|Rabin OT ⇔ OT]]), and then $c = b \oplus r_1 \oplus \cdots \oplus r_n$; to open, it reveals $b$ and every $r_i$, which the receiver checks against the bits it received, so an honest opening always passes. Hiding holds because the receiver misses some $r_i$, leaving the parity uniform, except with probability $2^{-n}$; binding holds because opening to $1 - b$ flips an odd number of the $r_i$, and each flipped bit is caught with probability $1/2$ since the committer does not learn which bits arrived. Committing in $\secpar$ independent copies gives hiding error at most $\secpar \cdot 2^{-n}$ and binding error $2^{-\secpar}$ — standard.
 
 ## Notes
 

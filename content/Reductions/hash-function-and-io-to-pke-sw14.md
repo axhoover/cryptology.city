@@ -5,7 +5,7 @@ title: "OWF + iO ⇒ PKE"
 aliases: []
 id: red-hash-function-and-io-to-pke-sw14
 kind: implication
-hypotheses: [owf, io]
+hypotheses: [owf, sampler-io]
 conclusion: pke
 class: free
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+[[indistinguishability-obfuscation#io-for-sampled-circuit-pairs|iO for sampled circuit pairs]] of polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]. The iO hybrid samples $K$ and a uniform $t^*$, which leaves the two programs equivalent unless $t^*$ lies in the PRG's image, and its distinguisher needs $t^*$ and $F(K, t^*)$, which the sampler passes on as auxiliary input, to form the challenge ciphertext; the game for a fixed pair of circuit families cannot supply them to a uniform distinguisher — standard.
 
 ## Sketch
 

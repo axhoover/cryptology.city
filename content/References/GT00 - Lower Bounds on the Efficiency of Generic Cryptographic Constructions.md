@@ -17,4 +17,28 @@ cryptobib_key: FOCS:GenTre00
 
 ## Abstract
 
-TODO — abstract.
+We present lower bounds on the efficiency of
+constructions for Pseudo-Random Generators (PRGs) and
+Universal One-Way Hash Functions (UOWHFs) based on
+black-box access to one-way permutations. Our lower bounds are tight as
+they match the efficiency of known constructions.
+
+A PRG (resp. UOWHF) construction based on black-box access is
+a machine that is given oracle access to a permutation. Whenever
+the permutation is hard to invert, the construction is hard to break.
+In this paper we give lower bounds on the
+number of invocations to
+the oracle by the construction.
+
+If $S$ is the assumed security of the oracle permutation $\pi$
+(i.e. no adversary of size $S$ can invert $\pi$ on a fraction
+larger than $1/S$ of its inputs)
+then a PRG (resp. UOWHF) construction that
+stretches (resp. compresses) its input by $k$ bits must query $\pi$
+in $q=\Omega(k/\log S)$ points. This matches known constructions.
+
+Our results are given in an extension of the Impagliazzo-Rudich
+model. That is, we prove that a proof of the existence of PRG (resp. UOWHF)
+black-box constructions that beat our lower bound would imply
+a proof of the unconditional existence of such construction
+(which would also imply $P \neq NP$).

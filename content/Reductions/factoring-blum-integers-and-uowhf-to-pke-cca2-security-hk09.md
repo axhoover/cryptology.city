@@ -11,6 +11,8 @@ class: unstated
 model: standard
 source:
   - "[[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]"
+via:
+  - "[[hardcore-predicate|Goldreich–Levin]]"
 security-loss: "polynomial: the hard-core-bit step to factoring loses a polynomial factor, and the chosen-ciphertext simulation adds the target-collision advantage"
 rationale:
   security-loss: "The reduction decrypts every ciphertext whose tag differs from the challenge tag, so apart from a target collision the loss is that of distinguishing the encapsulated hard-core bits from uniform, which reduces to factoring with a polynomial loss."
@@ -20,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard and [[hash-function#target-collision-resistance-universal-one-wayness|target-collision-resistant hash functions]] exist, there is an [[public-key-encryption#cca-security|IND-CCA2-secure]] [[public-key-encryption|PKE]] scheme in the standard model, a variant of Blum–Goldwasser encryption — [[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]. For arbitrary Blum integers the encapsulated key is extracted by the Goldreich–Levin predicate under a public random seed — [[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]; in the original version, whose key is a block of [[factoring-with-known-factor-structure-to-prg|Blum–Blum–Shub generator]] output, the factors of the modulus are safe primes — [[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]].
+If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard and [[hash-function#target-collision-resistance-universal-one-wayness|target-collision-resistant hash functions]] exist, there is an [[public-key-encryption#cca-security|IND-CCA2-secure]] [[public-key-encryption|PKE]] scheme in the standard model, a variant of Blum–Goldwasser encryption — [[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]. For arbitrary Blum integers the encapsulated key is extracted by the Goldreich–Levin predicate under a public random seed — [[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]; in the original version, whose key is a block of [[factoring-with-known-factor-structure-to-prg|Blum–Blum–Shub generator]] output, the factors of the modulus are safe primes — [[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]].
 
 ## Sketch
 

@@ -17,4 +17,8 @@ cryptobib_key: C:BraPer16
 
 ## Abstract
 
-TODO — abstract.
+We present a multi-key fully homomorphic encryption scheme that supports an unbounded number of homomorphic operations for an unbounded number of parties. Namely, it allows to perform arbitrarily many computational steps on inputs encrypted by an a-priori unbounded (polynomial) number of parties. Inputs from new parties can be introduced into the computation dynamically, so the final set of parties needs not be known ahead of time. Furthermore, the length of the ciphertexts, as well as the space complexity of an atomic homomorphic operation, grow only linearly with the current number of parties.
+
+Prior works either supported only an a-priori bounded number of parties (Lopez-Alt, Tromer and Vaikuntanthan, STOC '12), or only supported single-hop evaluation where all inputs need to be known before the computation starts (Clear and McGoldrick, Crypto '15, Mukherjee and Wichs, Eurocrypt '16). In all aforementioned works, the ciphertext length grew at least quadratically with the number of parties.
+
+Technically, our starting point is the LWE-based approach of previous works. Our result is achieved via a careful use of Gentry's bootstrapping technique, tailored to the specific scheme. Our hardness assumption is that the scheme of Mukherjee and Wichs is circular secure (and thus bootstrappable). A leveled scheme can be achieved under standard LWE.

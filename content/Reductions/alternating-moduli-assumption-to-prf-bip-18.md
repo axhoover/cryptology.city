@@ -20,11 +20,11 @@ rationale:
 
 ## Statement
 
-The [[alternating-moduli#weak-alternating-moduli-random-input-assumption|weak alternating moduli assumption]] asserts that for $f_A(x) = B\,(Ax \bmod 2) \bmod 3$, with secret key $A \getsr \ZZ_2^{m \times n}$ and public $B \getsr \ZZ_3^{\ell \times m}$, samples $(x, f_A(x))$ for uniform $x \getsr \bits^n$ are indistinguishable from $(x, y)$ for uniform $y \getsr \ZZ_3^\ell$. Under it, the family with $\KeyGen$ sampling $A$ and $\Eval(A, x) = f_A(x)$ is a [[pseudorandom-function#weak-prfs|weak PRF]] — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]].
+The [[alternating-moduli#weak-alternating-moduli-random-input-assumption|weak alternating moduli assumption]] asserts that for some polynomially bounded $n, m$ and $\ell \ge 1$ and $f_A(x) = B\,(Ax \bmod 2) \bmod 3$, with secret key $A \getsr \ZZ_2^{m \times n}$ and public $B \getsr \ZZ_3^{\ell \times m}$, samples $(x, f_A(x))$ for uniform $x \getsr \bits^n$ are indistinguishable from $(x, y)$ for uniform $y \getsr \ZZ_3^\ell$, given $B$. Under it, at the same $(n, m, \ell)$, the family with $\KeyGen(1^\secpar)$ sampling the pair $(A, B)$ and $\Eval((A, B), x) = B\,(Ax \bmod 2) \bmod 3$, with domain $\bits^n$ and range $\ZZ_3^\ell$, is a [[pseudorandom-function#weak-prfs|weak PRF]], and remains one when $B$ is public — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]].
 
 ## Sketch
 
-The weak-AM game for $f_A$ and the weak-PRF game for $(\KeyGen, \Eval)$ coincide in world 0. In world 1 they differ only when a sampled input repeats: the weak-PRF oracle answers a repeated $x$ with the same $R(x)$, the weak-AM oracle with a fresh $y$. Over $q$ samples this costs an additive $q^2/2^{n+1}$, negligible for $n = \omega(\log \secpar)$.
+The weak-AM game for $f_A$ and the weak-PRF game for $(\KeyGen, \Eval)$ coincide in world 0. In world 1 they differ only when a sampled input repeats: the weak-PRF oracle answers a repeated $x$ with the same $R(x)$, the weak-AM oracle with a fresh $y$. Over $q$ samples this costs an additive $q^2/2^{n+1}$. Hardness forces $n = \omega(\log \secpar)$: if $n \le c \log \secpar$ for a constant $c$ and infinitely many $\secpar$, then $\secpar^c + 1$ samples repeat an input, which world 0 answers consistently and world 1 inconsistently with probability at least $2/3$, since $\ell \ge 1$. The loss is then negligible.
 
 ## Notes
 

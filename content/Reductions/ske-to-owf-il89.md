@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If a [[symmetric-key-encryption|symmetric-key encryption]] scheme is secure for messages longer than its key — in particular, if it is [[symmetric-key-encryption#cpa-security|CPA-secure]] — then a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
+If a [[symmetric-key-encryption#correctness|correct]] [[symmetric-key-encryption|symmetric-key encryption]] scheme is secure for messages longer than its key, then a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]. In particular, a [[symmetric-key-encryption#cpa-security|CPA-secure]] scheme with negligible correctness error whose message space contains two distinct messages of equal length suffices: encrypting a string of $L > |k|$ such messages one by one under one key gives a scheme for longer messages that is CPA-secure, since each of its left-right queries is $L$ left-right queries to the original scheme, and has correctness error at most $L$ times the original — standard.
 
 ## Sketch
 

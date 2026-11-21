@@ -1,0 +1,35 @@
+---
+type: reference
+status: stub
+title: "CH07"
+source: https://eprint.iacr.org/2007/171
+authors: Ran Canetti, Susan Hohenberger
+venue: ACM CCS 2007
+published: 2007
+aliases:
+  - CH07
+cryptobib_key: CCS:CanHoh07
+---
+
+# [CH07] Chosen-Ciphertext Secure Proxy Re-Encryption
+
+**Authors:** Ran Canetti, Susan Hohenberger | **Venue:** ACM CCS 2007 | [Source](https://eprint.iacr.org/2007/171)
+
+## Abstract
+
+In a proxy re-encryption (PRE) scheme, a proxy is given special information that
+allows it to translate a ciphertext under one key into a ciphertext of the
+same message under a different key. The proxy cannot, however, learn
+anything about the messages encrypted under either key. PRE
+schemes have many practical applications, including distributed storage, email, and DRM. Previously proposed re-encryption schemes achieved
+only semantic security;
+in contrast, applications often require security
+against chosen ciphertext attacks. We propose a definition of security
+against chosen ciphertext attacks for PRE schemes, and present a
+scheme that satisfies the definition. Our construction is efficient and based
+only on the Decisional Bilinear Diffie-Hellman assumption
+in the standard model. We also formally capture CCA security for PRE schemes
+via both a game-based definition and simulation-based definitions that
+guarantee universally composable security.
+We note that, simultaneously with our work, Green and Ateniese proposed
+a CCA-secure PRE, discussed herein.

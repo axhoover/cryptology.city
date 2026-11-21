@@ -19,11 +19,11 @@ rationale:
 
 ## Statement
 
-[[decisional-composite-residuosity|DCR]] implies a non-interactive [[commitment-scheme|commitment scheme]] of either flavour, both of Paillier form: for a well-formed RSA modulus $n$ and a base $g \in \ZZ_{n^2}^*$ in the public parameters, a commitment to $m \in \ZZ_n$ is $c = g^m \cdot r^n \bmod n^2$ for $r \getsr \ZZ_n^*$, opened by revealing $(m, r)$. With $g = 1+n$ it is perfectly binding and computationally hiding; with $g$ a random $n$-th residue it is perfectly hiding and computationally binding — folklore.
+[[decisional-composite-residuosity|DCR]] implies a non-interactive [[commitment-scheme|commitment scheme]] of either flavour, both of Paillier form: for a well-formed RSA modulus $n$ and a base $g \in \ZZ_{n^2}^*$ in the public parameters, a commitment to $m \in \ZZ_n$ is $c = g^m \cdot r^n \bmod n^2$ for $r \getsr \ZZ_n^*$, opened by revealing $(m, r)$; the receiver accepts exactly when $m \in \{0, \ldots, n-1\}$, $r \in \ZZ_n^*$ and $c = g^m r^n \bmod n^2$, which an honest opening always satisfies. Without the range check $m$ and $m + n$ open the same commitment when $g = 1+n$, since $(1+n)^n \equiv 1 \pmod{n^2}$. With $g = 1+n$ it is perfectly binding and computationally hiding; with $g$ a random $n$-th residue it is perfectly hiding and computationally binding — folklore.
 
 ## Sketch
 
-With $g = 1+n$, $(m, r) \mapsto c$ is a bijection $\ZZ_n \times \ZZ_n^* \to \ZZ_{n^2}^*$, so binding is perfect, and hiding is IND-CPA security of Paillier encryption under DCR ([[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]). With $g$ a random $n$-th residue, $c$ is a uniform $n$-th residue independent of $m$; under a uniform $g$ binding is statistical, so a committer that opens one $c$ two ways distinguishes the DCR challenge $g$ from uniform.
+With $g = 1+n$, $(m, r) \mapsto c$ is a bijection $\ZZ_n \times \ZZ_n^* \to \ZZ_{n^2}^*$ on the openings the receiver accepts, so binding is perfect, and hiding is IND-CPA security of Paillier encryption under DCR ([[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]). With $g$ a random $n$-th residue, $c$ is a uniform $n$-th residue independent of $m$; under a uniform $g$ binding is statistical, so a committer that opens one $c$ two ways distinguishes the DCR challenge $g$ from uniform.
 
 ## Notes
 

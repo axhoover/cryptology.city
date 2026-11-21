@@ -27,4 +27,4 @@ bibtex: |
 
 ## Abstract
 
-This paper proposes a general framework for abstract models of computation in cryptography, of which the random oracle model and the generic group model are special cases. In Maurer's formulation, a computation model is defined by an interface that specifies a set of oracles available to an algorithm, modeling access to an idealized cryptographic object. This approach yields a clean algebraic characterization of "generic" algorithms — those that interact with a group only through a homomorphism — and provides a foundation for comparing different idealized models via reductions between interfaces.
+TODO — abstract.

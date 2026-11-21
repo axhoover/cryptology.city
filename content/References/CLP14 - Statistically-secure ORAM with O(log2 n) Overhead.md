@@ -17,4 +17,6 @@ cryptobib_key: AC:ChuLiuPas14
 
 ## Abstract
 
-TODO — abstract.
+We demonstrate a simple, statistically secure, ORAM with computational overhead $\tilde{O}(\log^2 n)$; previous ORAM protocols achieve only computational security (under computational assumptions) or require $\tilde{\Omega}(\log^3 n)$ overheard. An additional benefit of our ORAM is its conceptual simplicity, which makes it easy to implement in both software and (commercially available) hardware.
+
+Our construction is based on recent ORAM constructions due to Shi, Chan, Stefanov, and Li (Asiacrypt 2011) and Stefanov and Shi (ArXiv 2012), but with some crucial modifications in the algorithm that simplifies the ORAM and enable our analysis. A central component in our analysis is reducing the analysis of our algorithm to a "supermarket" problem; of independent interest (and of importance to our analysis,) we provide an upper bound on the rate of "upset" customers in the "supermarket" problem.

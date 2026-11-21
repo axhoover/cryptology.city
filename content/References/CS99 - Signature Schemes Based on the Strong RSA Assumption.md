@@ -17,4 +17,11 @@ cryptobib_key: CCS:CraSho99
 
 ## Abstract
 
-TODO — abstract.
+We describe and analyze a new digital signature scheme.
+The new scheme is quite efficient, does not require the the signer
+to maintain any state, and can be proven secure against adaptive
+chosen message attack under a reasonable intractability assumption,
+the so-called Strong RSA Assumption.
+Moreover, a hash function can be incorporated into the scheme
+in such a way that it is also secure in the random oracle model
+under the standard RSA Assumption.

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[ntru#one-wayness-of-ntru-encryption|NTRU encryption is one-way]] for parameters chosen so that decryption is perfectly correct, there is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the quantum random-oracle model: textbook NTRU encryption lifted to a KEM by a generic transform — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].
+If [[ntru#one-wayness-of-ntru-encryption|NTRU encryption is one-way]], at parameters bounded by $\poly(\secpar)$ at which decryption is perfectly correct, there is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the quantum random-oracle model: textbook NTRU encryption lifted to a KEM by a generic transform — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].
 
 ## Notes
 

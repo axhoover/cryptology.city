@@ -17,4 +17,4 @@ cryptobib_key: TCC:BLNWW25
 
 ## Abstract
 
-TODO — abstract.
+We give a new approach for constructing statistical ZAP arguments (a two-message public-coin statistically witness indistinguishable argument) from quasi-polynomial hardness of the learning with errors (LWE) assumption with a polynomial modulus-to-noise ratio. Previously, all ZAP arguments from lattice-based assumptions relied on correlation-intractable hash functions. In this work, we present the first construction of a ZAP from LWE via the classic hidden-bits paradigm. Our construction matches previous lattice-based schemes by being public-coin and satisfying statistical witness indistinguishability.

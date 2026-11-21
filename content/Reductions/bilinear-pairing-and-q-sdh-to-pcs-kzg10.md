@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$ whose commitments and opening proofs are single group elements and whose verification is two pairings. It is evaluation binding under [[q-strong-diffie-hellman|q-SDH]] with $q = d$, and its Pedersen variant is unconditionally hiding — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
+In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials over $\ZZ_p$, $p$ the group order, of degree at most $d < p$, whose commitments and opening proofs are single group elements and whose verification is two pairings. It is evaluation binding under [[q-strong-diffie-hellman|q-SDH]] with $q = d$, and its Pedersen variant is unconditionally hiding — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]. An honest opening satisfies the verification equation identically, since $f(X) - y = \psi(X)(X - z)$, so the scheme is perfectly correct, and its verifier is a deterministic pairing check — standard.
 
 ## Sketch
 

@@ -17,4 +17,6 @@ cryptobib_key: TCC:HofJag16
 
 ## Abstract
 
-TODO — abstract.
+The question whether there exist verifiable random functions with exponential-sized input space and full adaptive security based on a non-interactive, constant-size assumption is a long-standing open problem. We construct the first verifiable random functions which simultaneously achieve all these properties.
+
+Our construction can securely be instantiated in symmetric bilinear groups, based on any member of the (n-1)-linear assumption family with n >= 3. This includes, for example, the 2-linear assumption, which is also known as the decision linear (DLIN) assumption.

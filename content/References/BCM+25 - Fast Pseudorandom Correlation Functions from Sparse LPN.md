@@ -17,4 +17,4 @@ cryptobib_key: AC:BCMRS25
 
 ## Abstract
 
-TODO — abstract.
+We introduce a new and efficient pseudorandom correlation function whose security reduces to the sparse LPN assumption in the random oracle model. Our construction is the first to achieve high concrete efficiency while relying on well-established assumptions: previous candidates either required introducing new assumptions, or had poor concrete performances. We complement our result with an in-depth analysis of the sparse LPN assumption, providing new insight on how to evaluate the strength of concrete sets of parameters.

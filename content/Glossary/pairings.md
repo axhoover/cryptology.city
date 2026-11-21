@@ -10,7 +10,9 @@ title: Pairings
 id: bilinear-pairing
 variants:
   type-1-pairing: "#type-1"
+  verifiable-type-1-pairing: "#verifiable-type-1-pairing"
   type-3-pairing: "#type-3"
+  pairing-with-isomorphism: "#pairing-with-a-computable-isomorphism"
 ---
 
 # Pairings
@@ -19,18 +21,21 @@ A _bilinear pairing_ is an efficiently computable, non-degenerate map $e : \GG_1
 
 ## Types
 
-Galbraith, Paterson, and Smart [[GPS06 - Pairings for Cryptographers|GPS06]] classify pairings into three types based on the availability of efficiently computable group homomorphisms. No type simultaneously achieves all four properties:
+Galbraith, Paterson, and Smart [[GPS06 - Pairings for Cryptographers|GPS06]] classify pairings into three types based on the availability of efficiently computable group homomorphisms. No type simultaneously achieves all three properties:
 
 | Property                                       | Type 1 | Type 2 | Type 3 |
 | ---------------------------------------------- | :----: | :----: | :----: |
 | Efficient hash to $\GG_2$                      |   ✓    |   ✗    |   ✓    |
 | Short $\GG_1$ representations                  |   ✗    |   ✓    |   ✓    |
 | Efficiently computable $\phi: \GG_2 \to \GG_1$ |   ✓    |   ✓    |   ✗    |
-| Poly-time parameter generation                 |   ✗    |   ✓    |   ✓    |
 
 ### Type 1
 
-A **symmetric** pairing: $\GG_1 = \GG_2 = \GG$, so $e : \GG \times \GG \to \GG_T$ is a non-degenerate bilinear map on one group $\GG$ of prime order — [[GPS06 - Pairings for Cryptographers|GPS06]]. Implemented on supersingular curves. Hashing to $\GG_2 = \GG_1$ is trivial, and the identity serves as a computable homomorphism. The embedding degree $k$ is small and fixed for known supersingular constructions, so the security level is bounded and polynomial-time parameter generation for arbitrary $\secpar$ is infeasible. Elements of $\GG_1$ cannot be made shorter than elements of $\GG_2$.
+A **symmetric** pairing: $\GG_1 = \GG_2 = \GG$, so $e : \GG \times \GG \to \GG_T$ is a non-degenerate bilinear map on one group $\GG$ of prime order — [[GPS06 - Pairings for Cryptographers|GPS06]]. Implemented on supersingular curves. Hashing to $\GG_2 = \GG_1$ is trivial, and the identity serves as a computable homomorphism. Supersingular elliptic curves have embedding degree $k \le 6$, and $k = 2$ over prime fields $\FF_p$ with $p > 3$, so security comes from enlarging the base field: Type 1 parameters can be generated in polynomial time for every $\secpar$ (for example $y^2 = x^3 + x$ over $\FF_p$ with $p \equiv 3 \pmod 4$, using the distortion map $(x, y) \mapsto (-x, iy)$), but their group elements are long and their pairings slow at high security levels — standard. Elements of $\GG_1$ cannot be made shorter than elements of $\GG_2$.
+
+#### Verifiable Type 1 pairing
+
+A Type 1 pairing whose group descriptions can be checked: fixed deterministic polynomial-time algorithms that, given a description and strings, decide membership in $\GG$ and $\GG_T$ and compute the group operations and $e$; and a deterministic polynomial-time algorithm that accepts a string exactly when, under those algorithms, it describes $(p, \GG, \GG_T, e, g)$ with $p$ prime, $\GG$ and $\GG_T$ cyclic of order $p$, $g$ a generator of $\GG$, and $e : \GG \times \GG \to \GG_T$ a non-degenerate bilinear map. This is the premise of the non-interactive zap in [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]], where the prover chooses the group.
 
 ### Type 2
 
@@ -38,7 +43,15 @@ $\GG_1 \ne \GG_2$, with $\phi: \GG_2 \to \GG_1$ efficiently computable. Implemen
 
 ### Type 3
 
-$\GG_1 \ne \GG_2$, with no efficiently computable homomorphism in either direction. Implemented on ordinary curves with $\GG_2$ the trace-zero subgroup. Supports efficient hash to $\GG_2$, short $\GG_1$ representations, and polynomial-time parameter generation. No efficiently computable $\phi: \GG_2 \to \GG_1$ (or $\GG_1 \to \GG_2$) exists, as far as is known.
+$\GG_1 \ne \GG_2$, with no efficiently computable homomorphism in either direction. Implemented on ordinary curves with $\GG_2$ the trace-zero subgroup. Supports efficient hash to $\GG_2$, short $\GG_1$ representations, and polynomial-time parameter generation. No efficiently computable $\phi: \GG_2 \to \GG_1$ (or $\GG_1 \to \GG_2$) is known.
+
+As an object, a Type 3 pairing is a $\PPT$ bilinear group generator $\GrGen(1^\secpar) \to \Gamma = (\GG_1, \GG_2, \GG_T, p, e, g_1, g_2)$: $p$ is a prime with $1/p$ negligible, $\GG_1 \ne \GG_2$ and $\GG_T$ are cyclic of order $p$ with generators $g_1$ of $\GG_1$ and $g_2$ of $\GG_2$, the group operations are efficiently computable, and $e$ is an efficiently computable non-degenerate bilinear map; $\Gamma$ provides no homomorphism between $\GG_1$ and $\GG_2$ — [[GPS06 - Pairings for Cryptographers|GPS06]]. The type is a classification of the setting, not a hardness assumption. Every result that takes this node is proved in the [[generic-group-model#generic-bilinear-groups|generic bilinear group model]] or the [[algebraic-group-model|algebraic group model]] over such groups, where the absence of a source-group homomorphism is part of the model's oracles, so each conclusion carries that model.
+
+A standard-model property ruling out efficient homomorphisms is a separate premise. For instance, [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] implies that given $g_2^x$ for $x \getsr \ZZ_p$, no efficient algorithm outputs $(h, h^x)$ with $h \in \GG_1 \setminus \{1\}$, and symmetrically in $\GG_2$ given $g_1^x$: on a DDH instance $(g_2^x, g_2^\beta, g_2^\gamma)$ in $\GG_2$, such a pair gives the test $e(h^x, g_2^\beta) = e(h, g_2^\gamma)$, which holds iff $\gamma = x\beta$ because $e(h, g_2)$ generates $\GG_T$ for $h \ne 1$ — standard. An efficient non-trivial homomorphism $\psi : \GG_2 \to \GG_1$ outputs such a pair, $(\psi(g_2), \psi(g_2^x))$, but the converse does not follow, since an algorithm may output input-dependent pairs without computing a consistent homomorphism — standard.
+
+### Pairing with a computable isomorphism
+
+A bilinear group generator $\GrGen(1^\secpar) \to (\GG_1, \GG_2, \GG_T, p, e, g_1, g_2)$ that also outputs an efficient algorithm for an isomorphism $\psi : \GG_2 \to \GG_1$ with $\psi(g_2) = g_1$. A Type 1 pairing is one, with $\GG_1 = \GG_2$, $g_1 = g_2$ and $\psi$ the identity ([[type-1-pairing-to-pairing-with-isomorphism|Type 1 pairing ⇒ Pairing with a computable isomorphism]]) — folklore; so is a Type 2 pairing whose generator sets $g_1 = \phi(g_2)$, with $\psi = \phi$ — standard. It is the setting of the BBS group signature ([[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]]) — [[BBS04 - Short Group Signatures|BBS04]].
 
 ## Efficiency
 
@@ -50,26 +63,37 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in 5e6d1f716cbb -->
+<!-- BEGIN GENERATED participates-in 9b962f622335 -->
 
 ## Participates in
 
 **Builds on Pairings**
 
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]]
+- [[bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10|Bilinear pairing + DLIN ⇒ CLR-PKE]]
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[pairings#verifiable-type-1-pairing|Verifiable Type 1 pairing]])
 - [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]]
-- [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
-- [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]]
+- [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]] (via [[pairings#type-3|Type 3]])
+- [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]] (via [[pairings#type-3|Type 3]])
 - [[bilinear-pairing-and-q-sdh-to-ds-bb04a|Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)]]
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
+- [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]] (via [[pairings#pairing-with-a-computable-isomorphism|Pairing with a computable isomorphism]])
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
-- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[pairings#type-3|Type 3]])
+- [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]]
+- [[bdh-to-nizk-gro16|Type 1 pairing + DLIN ⇒ NIZK]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-dlin-to-structure-preserving-signature-hj12|Type 1 pairing + DLIN ⇒ Structure-preserving signatures, tightly (Hofheinz–Jager)]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-lrsw-to-ds-cl04|Type 1 pairing + LRSW ⇒ DS (Camenisch–Lysyanskaya)]] (via [[pairings#type-1|Type 1]])
+- [[type-1-pairing-to-pairing-with-isomorphism|Type 1 pairing ⇒ Pairing with a computable isomorphism]] (via [[pairings#type-1|Type 1]])
 - [[type-3-pairing-to-ds-ps16|Type 3 pairing ⇒ DS (Pointcheval–Sanders)]] (via [[pairings#type-3|Type 3]])
 - [[type-3-pairing-to-short-structure-preserving-signature-agho11|Type 3 pairing ⇒ Optimally short structure-preserving signatures (AGHO)]] (via [[pairings#type-3|Type 3]])
+- [[verifiable-type-1-pairing-to-type-1-pairing|Verifiable Type 1 pairing ⇒ Type 1 pairing]] (via [[pairings#verifiable-type-1-pairing|Verifiable Type 1 pairing]])
+
+**Produces Pairings**
+
+- [[type-1-pairing-to-pairing-with-isomorphism|Type 1 pairing ⇒ Pairing with a computable isomorphism]] (via [[pairings#pairing-with-a-computable-isomorphism|Pairing with a computable isomorphism]])
+- [[verifiable-type-1-pairing-to-type-1-pairing|Verifiable Type 1 pairing ⇒ Type 1 pairing]] (via [[pairings#type-1|Type 1]])
 
 <!-- END GENERATED participates-in -->

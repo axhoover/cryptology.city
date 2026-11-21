@@ -12,7 +12,7 @@ variants:
 
 # Computational Diffie-Hellman
 
-The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is implied by the [[decisional-diffie-hellman|DDH]] assumption: an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group — folklore.
+The _Computational Diffie-Hellman (CDH)_ assumption states that, in a cyclic group $\GG = \langle g \rangle$ output by a group generator, every efficient adversary given $g^x$ and $g^y$ for uniform exponents $x, y$ outputs $g^{xy}$ with negligible probability. It is implied by the [[decisional-diffie-hellman|DDH]] assumption: an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group ([[ddh-to-cdh|DDH ⇒ CDH]]) — folklore.
 
 ## Assumption
 
@@ -64,7 +64,7 @@ deterministically.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 2438dfc30460 -->
+<!-- BEGIN GENERATED participates-in 7959a3745585 -->
 
 ## Participates in
 
@@ -76,6 +76,7 @@ deterministically.
 - [[cdh-to-uc-ot-dghmw20|CDH ⇒ Two-round UC-secure OT (DGHMW)]]
 - [[prime-order-cdh-to-cdh|Prime-order CDH ⇒ CDH]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
 - [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
+- [[prime-order-cdh-to-prime-order-dlog|Prime-order CDH ⇒ prime-order DLOG]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
 - [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]]
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]]
 - [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]]
@@ -87,6 +88,7 @@ deterministically.
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 - [[ggm-to-cdh-sho97|GGM ⇒ CDH]]
 - [[prime-order-cdh-to-cdh|Prime-order CDH ⇒ CDH]]
+- [[prime-order-ddh-to-prime-order-cdh|Prime-order DDH ⇒ prime-order CDH]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
 
 **Barriers**
 

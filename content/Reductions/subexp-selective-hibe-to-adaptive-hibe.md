@@ -7,19 +7,21 @@ id: red-subexp-selective-hibe-to-adaptive-hibe
 kind: implication
 hypotheses: [hibe-subexp-selective-security]
 conclusion: hibe-adaptive-security
-class: fully-black-box
+class: unstated
 model: standard
 source: folklore
+via:
+  - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "multiplicative $|\\Sigma^{\\le d}|$"
 rationale:
-  class: "The construction is the identity map on HIBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity vector, aborting on a wrong guess."
+  class: "The construction runs the selective scheme at security parameter $\\lceil (\\secpar(d+1))^{1/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sHIBE-CPA-secure scheme."
 ---
 
 # Sub-exponentially selective HIBE ⇒ adaptive HIBE
 
 ## Statement
 
-For an [[hierarchical-identity-based-encryption|HIBE]] scheme, an adaptive adversary with advantage $\delta$ yields a selective adversary of similar size with advantage $\delta / |\Sigma^{\le d}|$ (complexity leveraging) — folklore. Hence a [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|sub-exponentially IND-sHIBE-CPA-secure]] HIBE, with constant $\epsilon > 0$, yields an [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA-secure]] HIBE for every depth $d \le \secpar / 2$: run it at security parameter $\secpar' = \lceil \secpar^{2/\epsilon} \rceil$ with alphabet restricted to $\bits^{\secpar}$, padded to $\secpar'$ bits, so that $|\Sigma^{\le d}| \le 2^{\secpar d + 1}$ and a polynomial-size adaptive adversary has advantage at most $2^{\secpar d + 1 - \secpar^2} \le 2^{1 - \secpar^2/2}$ — folklore.
+For an [[hierarchical-identity-based-encryption|HIBE]] scheme, an adaptive adversary with advantage $\delta$ yields a selective adversary of similar size with advantage $\delta / |\Sigma^{\le d}|$ (complexity leveraging) — folklore. Hence a [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|sub-exponentially IND-sHIBE-CPA-secure]] HIBE, with constant $\epsilon > 0$, yields an [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA-secure]] HIBE for every polynomially bounded depth $d$: run it at security parameter $\secpar' = \lceil (\secpar(d+1))^{1/\epsilon} \rceil$ at depth $d$, with alphabet restricted to $\bits^{\secpar}$, padded to $\secpar'$ bits, so that $|\Sigma^{\le d}| \le 2^{\secpar d + 1}$ and a polynomial-size adaptive adversary has advantage at most $2^{\secpar d + 1 - \secpar'^{\epsilon}} \le 2^{1 - \secpar}$ — folklore. Correctness carries over, since $\secpar' \ge \secpar$ and a function negligible in $\secpar'$ is then negligible in $\secpar$.
 
 ## Sketch
 

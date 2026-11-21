@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] is hard for polynomial-time adversaries, $\classNP$ has a [[succinct-argument#batch-arguments-for-np|non-interactive batch argument]] in the CRS model: $k$ statements $x_1, \ldots, x_k$ of satisfiability for one circuit $C$ have a single proof of size $\poly(\secpar, |C|, \log k)$, sound against efficient provers for statements fixed before the CRS is sampled — [[CJJ21 - SNARGs for P from LWE|CJJ21]]. It is the first BARG for $\classNP$ from LWE alone; it is somewhere extractable, and it is obtained by instantiating the [[fiat-shamir-heuristic|Fiat–Shamir transform]] with correlation-intractable hashing for an interactive batch argument — [[CJJ21 - SNARGs for P from LWE|CJJ21]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] is hard for polynomial-time adversaries, $\classNP$ has a [[succinct-argument#batch-arguments-for-np|non-interactive batch argument]] in the CRS model: $k$ statements $x_1, \ldots, x_k$ of satisfiability for one circuit $C$ have a single proof of size $\poly(\secpar, |C|, \log k)$, sound against efficient provers for statements fixed before the CRS is sampled — [[CJJ21 - SNARGs for P from LWE|CJJ21]]. The BARG is complete by construction, up to a negligible error over the coins of the setup and of the prover — standard. It is the first BARG for $\classNP$ from LWE alone; it is somewhere extractable, and it is obtained by instantiating the [[fiat-shamir-heuristic|Fiat–Shamir transform]] with correlation-intractable hashing for an interactive batch argument — [[CJJ21 - SNARGs for P from LWE|CJJ21]].
 
 ## Notes
 

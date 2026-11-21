@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-Let $L' \in \classNP$ and let $D$ be a polynomial-time samplable distribution. If a randomized polynomial-time non-adaptive reduction decides an [[nondeterministic-polynomial-time|NP]]-complete language on every input, given oracle access to any algorithm that decides $L'$ on $x \gets D$ with inverse-polynomial error, then $\classcoNP \subseteq \classNP/\mathrm{poly}$ and the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to its third level — [[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]]. [[nondeterministic-polynomial-time#average-case-hardness|Average-case hardness of NP]] over samplable distributions therefore cannot be based on worst-case $\classNP$-hardness by a non-adaptive reduction unless the polynomial hierarchy collapses.
+Let $L' \in \classNP$ and let $\{D_n\}$ be a polynomial-time samplable ensemble with $D_n$ on $\bits^n$. If a randomized polynomial-time non-adaptive reduction decides an [[nondeterministic-polynomial-time|NP]]-complete language on every input, given oracle access to any algorithm that decides $L'$ on $x \gets D_n$ with error inverse-polynomial in $n$, then $\classcoNP \subseteq \classNP/\mathrm{poly}$ and the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to its third level — [[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]]. [[nondeterministic-polynomial-time#average-case-hardness|Average-case hardness of NP]] over samplable distributions therefore cannot be based on worst-case $\classNP$-hardness by a non-adaptive reduction unless the polynomial hierarchy collapses.
 
 ## Notes
 

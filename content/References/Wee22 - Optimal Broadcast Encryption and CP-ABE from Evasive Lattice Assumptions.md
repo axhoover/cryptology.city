@@ -17,4 +17,4 @@ cryptobib_key: EC:Wee22
 
 ## Abstract
 
-TODO — abstract.
+We present a new, simple candidate broadcast encryption scheme for $N$ users with parameter size poly$(\log N)$. We prove security of our scheme under a non-standard variant of the LWE assumption where the distinguisher additionally receives short Gaussian pre-images, while avoiding zeroizing attacks. This yields the first candidate optimal broadcast encryption that is plausibly post-quantum secure, and enjoys a security reduction to a simple assumption. As a secondary contribution, we present a candidate ciphertext-policy attribute-based encryption (CP-ABE) scheme for circuits of a-priori bounded polynomial depth where the parameter size is independent of the circuit size, and prove security under an additional non-standard assumption.

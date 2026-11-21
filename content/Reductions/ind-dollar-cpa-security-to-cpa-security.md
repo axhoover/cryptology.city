@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Every [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA-secure]] [[symmetric-key-encryption|SKE]] scheme $\SKE$ is [[symmetric-key-encryption#cpa-security|CPA-secure]] — folklore. For every CPA adversary $\calA$ there are IND\$-CPA adversaries $\calB_0, \calB_1$, each running $\calA$ once, with
+Every [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA-secure]] [[symmetric-key-encryption|SKE]] scheme $\SKE$ is, with the same algorithms and hence the same correctness and message space, [[symmetric-key-encryption#cpa-security|CPA-secure]] — folklore. For every CPA adversary $\calA$ there are IND\$-CPA adversaries $\calB_0, \calB_1$, each running $\calA$ once, with
 
 $$
 \Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar) \le \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calB_0}(\secpar) + \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calB_1}(\secpar).

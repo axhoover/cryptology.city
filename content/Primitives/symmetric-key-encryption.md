@@ -32,6 +32,10 @@ A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ w
   takes a key $k \in \calK$ and ciphertext $c \in \calC$,
   outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
+Every SKE scheme on this page is $(1-\varepsilon)$-[[#Correctness|correct]] for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length that an efficient algorithm outputs on input $1^\secpar$. Without correctness, the scheme with $\Enc(k, m)$ a fresh uniform bit and $\Dec(k, c) := \bot$ meets every notion here; without two such messages, so does the perfectly correct scheme that encrypts $m$ to a fresh uniform string of length $|m|$ and decrypts $c$ to the unique message of length $|c|$ — standard. A CPA-secure, IND\$-CPA-secure or CCA-secure SKE scheme denotes such a scheme with the property of that name.
+
+As an object, SKE denotes such a scheme that is [[#One-time security|one-time secure]].
+
 ## Properties
 
 ### Correctness
@@ -74,6 +78,10 @@ $$
 
 is negligible.
 
+### One-time security
+
+The one-time game is the [[#CPA Security|CPA game]] $\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ played by an admissible $\calA$ that makes at most one query to $\calO_b$. A SKE scheme $\SKE$ is **one-time secure** if for all such efficient $\calA$, the CPA advantage $\Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ is negligible. The one-time pad on $\calM_\secpar = \bits^\secpar$ is perfectly correct and one-time secure with advantage $0$ — folklore.
+
 ### IND\$-CPA Security
 
 **Indistinguishability from random (IND\$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random strings of the same length. For each security parameter, assume an encryption of $m \in \calM$ always has length $\ell(\secpar, |m|)$, independent of the key and encryption coins. An admissible adversary queries only messages in $\calM$. The oracle in world 0 encrypts each query with fresh randomness; in world 1 it returns a fresh uniform string in $\bits^{\ell(\secpar, |m|)}$, which need not be a valid ciphertext — standard.
@@ -99,7 +107,7 @@ $$
 \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. IND\$-CPA implies CPA security, but not vice versa — standard.
+is negligible. IND\$-CPA implies CPA security ([[ind-dollar-cpa-security-to-cpa-security|IND\$-CPA Security ⇒ CPA Security]]), but not vice versa ([[no-cpa-security-to-ind-cpa-security|No fixed-construction reduction from CPA Security to IND\$-CPA Security]]) — standard.
 
 ### CCA Security
 
@@ -134,26 +142,32 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
+- [[searchable-symmetric-encryption|Searchable symmetric encryption]]: an encrypted index that a server searches with keyword tokens, learning only a specified leakage function — [[SWP00 - Practical Techniques for Searches on Encrypted Data|SWP00]], [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
+- [[order-preserving-encryption|Order-preserving and order-revealing encryption]]: deterministic encryption whose ciphertexts reveal the order of the plaintexts — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]], [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
-<!-- BEGIN GENERATED participates-in f83b96cc3aff -->
+<!-- BEGIN GENERATED participates-in 8c1eaf1b8761 -->
 
 ## Participates in
 
 **Builds on Symmetric key encryption**
 
+- [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ske-to-owf-il89|SKE ⇒ OWF]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Produces Symmetric key encryption**
 
+- [[authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00|AE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 

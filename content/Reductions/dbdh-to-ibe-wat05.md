@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[bilinear-map-assumptions#decisional-bdh|decisional BDH]] holds in a symmetric pairing group, there is an [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] scheme in the standard model: for $n$-bit identities the public parameters are $g, g_1 = g^{\alpha}, g_2, u'$ and $u_1, \ldots, u_n$, the key for $v$ is $(g_2^{\alpha} (u' \prod_{i : v_i = 1} u_i)^r, g^r)$, and a ciphertext is $(e(g_1, g_2)^t M, g^t, (u' \prod_{i : v_i = 1} u_i)^t)$ — [[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]].
+If [[bilinear-map-assumptions#decisional-bdh|decisional BDH]] holds in a symmetric pairing group, there is an [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] scheme in the standard model: for $n$-bit identities the public parameters are $g, g_1 = g^{\alpha}, g_2, u'$ and $u_1, \ldots, u_n$, the key for $v$ is $(g_2^{\alpha} (u' \prod_{i : v_i = 1} u_i)^r, g^r)$, and a ciphertext is $(e(g_1, g_2)^t M, g^t, (u' \prod_{i : v_i = 1} u_i)^t)$ — [[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]. With $n = \secpar$ the identity space is $\bits^\secpar$, and the scheme is perfectly correct: for $U = u' \prod_{i : v_i = 1} u_i$, $e(g^r, U^t) / e(g_2^{\alpha} U^r, g^t) = e(g_1, g_2)^{-t}$ — standard.
 
 ## Sketch
 

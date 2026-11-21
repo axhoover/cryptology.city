@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR is hard for safe-prime moduli]], $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$, an [[public-key-encryption#cca-security|IND-CCA2-secure]] public-key encryption scheme exists in the standard model. A universal hash proof system for a subset-membership problem in $\ZZ_{n^2}^*$ whose hardness is DCR gives the scheme, and no other primitive is needed; a hash function with suitable collision-resistance properties only improves its efficiency — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+If [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR is hard for safe-prime moduli]], $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$, an [[public-key-encryption#cca-security|IND-CCA2-secure]] public-key encryption scheme exists in the standard model. A [[hash-proof-system#universal-2-hash-proof-systems|universal hash proof system]] for a subset-membership problem in $\ZZ_{n^2}^*$ whose hardness is DCR gives the scheme, and no other primitive is needed; a hash function with suitable collision-resistance properties only improves its efficiency — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 
 ## Notes
 

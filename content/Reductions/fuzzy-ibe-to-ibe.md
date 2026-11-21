@@ -5,8 +5,8 @@ title: "Fuzzy IBE ⇒ IBE"
 aliases: []
 id: red-fuzzy-ibe-to-ibe
 kind: implication
-hypotheses: [fuzzy-ibe]
-conclusion: ibe
+hypotheses: [large-universe-fuzzy-ibe]
+conclusion: ind-id-cpa
 class: fully-black-box
 model: standard
 source: folklore
@@ -19,8 +19,8 @@ rationale:
 
 ## Statement
 
-A [[fuzzy-identity-based-encryption|Fuzzy IBE]] scheme ([[SW05 - Fuzzy Identity-Based Encryption|SW05]]) over attribute universe $\calU$ with threshold $t = 1$, restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme with identity space $\calU$: a key for $\omega = \{\mathit{id}\}$ decrypts a ciphertext for $\omega' = \{\mathit{id}'\}$ iff $\mathit{id} = \mathit{id}'$. If the Fuzzy IBE is [[fuzzy-identity-based-encryption#ind-fibe-cpa-security|IND-FIBE-CPA-secure]], the IBE is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with the same advantage — folklore.
+A [[fuzzy-identity-based-encryption#large-universe-fuzzy-ibe|large-universe Fuzzy IBE]] scheme ([[SW05 - Fuzzy Identity-Based Encryption|SW05]]) with attribute universe $\calU_\secpar \supseteq \bits^\secpar$, run with threshold $t = 1$ and restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme with identity space $\calU_\secpar$: a key for $\omega = \{\mathit{id}\}$ decrypts a ciphertext for $\omega' = \{\mathit{id}'\}$ iff $\mathit{id} = \mathit{id}'$. If the Fuzzy IBE is [[fuzzy-identity-based-encryption#ind-fibe-cpa-security|IND-FIBE-CPA-secure]], the IBE is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with the same advantage — folklore. The IBE has the message space of the Fuzzy IBE and is $(1-\negl(\secpar))$-correct by the same $\Dec$ — standard.
 
 ## Sketch
 
-Every IBE adversary is, unchanged, a Fuzzy IBE adversary: its key queries for identities $\mathit{id} \ne \mathit{id}^*$ are singletons with $|\{\mathit{id}\} \cap \{\mathit{id}^*\}| = 0 < t$, so IBE admissibility is Fuzzy IBE admissibility.
+Every IBE adversary is, unchanged, a Fuzzy IBE adversary: its key queries for identities $\mathit{id} \ne \mathit{id}^*$ are singletons with $|\{\mathit{id}\} \cap \{\mathit{id}^*\}| = 0 < t$, and its challenge messages satisfy $m_0, m_1 \in \calM$ and $|m_0| = |m_1|$ in both games, so IBE admissibility is Fuzzy IBE admissibility.

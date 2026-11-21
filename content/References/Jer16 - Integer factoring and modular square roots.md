@@ -28,4 +28,4 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+Buresh-Oppenheim proved that the NP search problem to find nontrivial factors of integers of a special form belongs to Papadimitriou's class PPA, and is probabilistically reducible to a problem in PPP. In this paper, we use ideas from bounded arithmetic to extend these results to arbitrary integers. We show that general integer factoring is reducible in randomized polynomial time to a PPA problem and to the problem WEAKPIGEON in PPP. Both reductions can be derandomized under the assumption of the generalized Riemann hypothesis. We also show (unconditionally) that PPA contains some related problems, such as square root computation modulo n, and finding quadratic nonresidues modulo n.

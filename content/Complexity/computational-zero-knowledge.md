@@ -21,23 +21,20 @@ variants:
 
 # Computational zero-knowledge
 
-Same as [[statistical-zero-knowledge|SZK]], except that now the two distributions are merely required to be _computationally indistinguishable_ by any [[bounded-error-probabilistic-polynomial-time|BPP]] algorithm; they don't have to be statistically close. The "two distributions" are
-
-1. the distribution over the verifier's view of their interaction with the prover, conditioned on the verifier's random coins, and
-2. the distribution over views that the verifier can _simulate_ without the prover's help.
+CZK is the class of languages $L$ with an [[interactive-proof-systems|interactive proof]] $(P, V)$, with completeness $2/3$ and soundness error $1/3$ against every prover, such that for every non-uniform PPT verifier $V^*$, a PPT algorithm with an advice string of polynomial length that absorbs any auxiliary input, there is a non-uniform simulator $\Sim$ running in expected polynomial time for which the ensembles $\{\Sim(x)\}_{x \in L}$ and $\{\View_{V^*}\langle P, V^* \rangle(x)\}_{x \in L}$ are indistinguishable by every family of polynomial-size circuits, which receives $x$ — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]. The view consists of $V^*$'s coins and the messages it receives. Vad06 adopt this non-uniform formulation; analogues of their results for uniform verifiers and distinguishers are not known — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]. CZK differs from [[statistical-zero-knowledge|SZK]] only in asking for computational rather than statistical closeness — standard.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#czk).
 
 ## Notable problems
 
-- [[hash-function-to-czk|OWF ⇒ CZK]]
+- [[hash-function-to-czk|Non-uniform OWF ⇒ CZK]]
 
 ## Known relationships
 
 - Unlike [[statistical-zero-knowledge|SZK]], it is not known if CZK is closed under complement
 - CZK is now known to share other properties with [[statistical-zero-knowledge|SZK]]: the verifier may as well be honest ([[honest-verifier-czk-to-czk-vad06|HVCZK = CZK]]) and may as well show their coins, and CZK is closed under unions — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]
-- Assuming [[hash-function|OWFs]] exist, CZK contains [[nondeterministic-polynomial-time|NP]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
-  - Under the same assumption, $\classIP \subseteq \classCZK$, so $\classCZK = \classIP = \classPSPACE$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]], [[Sha90 - IP = PSPACE|Sha90]]; unconditionally only $\classCZK \subseteq \classIP$ is known — folklore
+- Assuming [[hash-function#one-wayness-against-non-uniform-adversaries|one-way functions secure against non-uniform adversaries]] exist, CZK contains [[nondeterministic-polynomial-time|NP]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
+  - Assuming one-way functions secure against non-uniform adversaries exist, also $\classIP \subseteq \classCZK$, so $\classCZK = \classIP = \classPSPACE$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]], [[Sha90 - IP = PSPACE|Sha90]]; unconditionally only $\classCZK \subseteq \classIP$ is known — folklore
 - Contains [[statistical-zero-knowledge|SZK]] — folklore
 
 ## Limits of zero-knowledge
@@ -54,7 +51,9 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 ## Restricted zero-knowledge classes
 
-A protocol is _auxiliary-input zero-knowledge_ if for every efficient $V^*$ there is an efficient $\Sim$ such that for every $x \in L$, witness $w$ and auxiliary input $z$, $\Sim(x, z)$ is indistinguishable by non-uniform distinguishers from the view of $V^*(x, z)$ interacting with $P(x, w)$. It is _black-box zero-knowledge_ if one expected-polynomial-time oracle machine $\Sim$ serves every verifier: for every efficient $V^*$ and every $x \in L$, $\Sim^{V^*}(x)$ is computationally indistinguishable from the view of $V^*$ — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]. Each class below is a class of languages, admits interactive proofs or arguments (soundness against efficient provers only) unless it says proofs, and requires negligible soundness error. Each contains $\classBPP$, whose languages have such protocols in which the verifier decides alone — standard.
+A protocol is _auxiliary-input zero-knowledge_ if for every efficient $V^*$ there is an efficient $\Sim$ such that for every $x \in L$, witness $w$ and auxiliary input $z$, $\Sim(x, z)$ is indistinguishable by non-uniform distinguishers from the view of $V^*(x, z)$ interacting with $P(x, w)$. It is _black-box zero-knowledge_ if one expected-polynomial-time oracle machine $\Sim$ serves every verifier: for every efficient $V^*$ and every $x \in L$, $\Sim^{V^*}(x)$ is computationally indistinguishable from the view of $V^*$ — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]. As objects, the black-box classes below take $V^*$ over non-uniform PPT verifiers, which absorb any auxiliary input, and require $\Sim^{V^*}(x)$ and the view of $V^*$ to be indistinguishable by every family of polynomial-size circuits that receives $x$, as for CZK. These quantifiers imply those of either reading of "efficient" for verifiers and distinguishers, so each class can only shrink, and the inclusions of these classes in $\classBPP$ and coMA above still hold — standard. Each class below is a class of languages, admits interactive proofs or arguments (soundness against efficient provers only) unless it says proofs, and requires negligible soundness error. Each contains $\classBPP$, whose languages have such protocols in which the verifier decides alone — standard.
+
+TODO: confirm that [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]] and [[Kat08 - Which Languages Have 4-Round Zero-Knowledge Proofs|Kat08]], and the sources of the other black-box classes below, define black-box zero knowledge against non-uniform verifiers and distinguishers.
 
 ### Two-message auxiliary-input zero knowledge
 
@@ -86,7 +85,7 @@ The languages with a $k(n)$-round interactive proof or argument with negligible 
 
 ## Honest-verifier CZK
 
-$\mathbf{HVCZK}$ is the class of languages with an interactive proof that is computational zero-knowledge against the honest verifier only: an efficient $\Sim$ outputs, for every $x \in L$, a distribution computationally indistinguishable from the view of the verifier that follows the protocol — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]].
+$\mathbf{HVCZK}$ is the class of languages with an interactive proof that is computational zero-knowledge against the honest verifier only: a $\Sim$ running in expected polynomial time outputs, for every $x \in L$, a distribution indistinguishable by every family of polynomial-size circuits, which receives $x$, from the view of the verifier that follows the protocol — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]].
 
 ## Worst-case hardness
 
@@ -102,7 +101,7 @@ $$
 
 the probability also over the coins of $\calA$ — standard.
 
-<!-- BEGIN GENERATED participates-in c2740c1e0771 -->
+<!-- BEGIN GENERATED participates-in 70259ef32ece -->
 
 ## Participates in
 
@@ -112,6 +111,7 @@ the probability also over the coins of $\calA$ — standard.
 - [[bb-concurrent-zk-few-rounds-to-bpp-ckpr01|Few-round black-box concurrent ZK ⊆ BPP]] (via [[computational-zero-knowledge#black-box-concurrent-zero-knowledge-in-few-rounds|Black-box concurrent zero knowledge in few rounds]])
 - [[bb-zk-constant-round-public-coin-to-bpp-gk96|Constant-round public-coin black-box ZK ⊆ BPP]] (via [[computational-zero-knowledge#constant-round-public-coin-black-box-zero-knowledge|Constant-round public-coin black-box zero knowledge]])
 - [[bb-zk-four-message-proof-to-coma-kat08|Four-message black-box ZK proofs ⊆ coMA]] (via [[computational-zero-knowledge#four-message-black-box-zero-knowledge-proofs|Four-message black-box zero-knowledge proofs]])
+- [[bb-zk-four-message-proof-to-czk|Four-message black-box ZK proofs ⊆ CZK]] (via [[computational-zero-knowledge#four-message-black-box-zero-knowledge-proofs|Four-message black-box zero-knowledge proofs]])
 - [[bb-zk-public-coin-parallel-repetition-to-bpp-ptw09|Public-coin black-box ZK under parallel repetition ⊆ BPP]] (via [[computational-zero-knowledge#public-coin-black-box-zero-knowledge-under-parallel-repetition|Public-coin black-box zero knowledge under parallel repetition]])
 - [[bb-zk-strict-polynomial-simulation-to-bpp-bl02|Constant-round black-box ZK with strict polynomial-time simulation ⊆ BPP]] (via [[computational-zero-knowledge#strict-polynomial-time-black-box-simulation|Strict polynomial-time black-box simulation]])
 - [[bb-zk-three-message-to-bpp-gk96|Three-message black-box ZK ⊆ BPP]] (via [[computational-zero-knowledge#three-message-black-box-zero-knowledge|Three-message black-box zero knowledge]])
@@ -123,10 +123,12 @@ the probability also over the coins of $\calA$ — standard.
 
 **Produces Computational zero-knowledge**
 
+- [[bb-zk-four-message-proof-to-czk|Four-message black-box ZK proofs ⊆ CZK]]
 - [[czk-hardness-to-czk-worst-case-hardness|Average-case-hard CZK ⇒ CZK ⊄ BPP]] (via [[computational-zero-knowledge#worst-case-hardness|Worst-case hardness]])
-- [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]]
-- [[hash-function-to-czk|OWF ⇒ CZK]]
+- [[czk-to-ip-bgg-90|Non-uniform OWF + IP ⇒ CZK]]
+- [[hash-function-to-czk|Non-uniform OWF ⇒ CZK]]
 - [[honest-verifier-czk-to-czk-vad06|HVCZK = CZK]]
 - [[szk-to-czk|SZK ⊆ CZK]]
+- [[zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness|ZKP + NP ⊄ io-BPP ⇒ CZK ⊄ BPP]] (via [[computational-zero-knowledge#worst-case-hardness|Worst-case hardness]])
 
 <!-- END GENERATED participates-in -->

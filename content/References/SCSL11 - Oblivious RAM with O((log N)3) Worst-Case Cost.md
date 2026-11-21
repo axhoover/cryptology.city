@@ -17,4 +17,9 @@ cryptobib_key: AC:SCSL11
 
 ## Abstract
 
-TODO — abstract.
+Oblivious RAM (O-RAM) is a useful primitive that allows a client to hide its data access patterns
+from an untrusted server in storage outsourcing applications. This paper proposes novel O-RAM constructions that achieves poly-logarithmic worst-case cost, while consuming constant client-side storage.
+Our techniques for constructing Oblivious RAM are fundamentally different from previous approaches.
+Specifically, we organize the O-RAM storage into a binary tree over data buckets, while moving data
+blocks obliviously along tree edges. Our construction (instantiated the trivial bucket O-RAM) has remarkable conceptual simplicity, and eliminates the need to perform expensive oblivious sorting operations. As a result, to the best of our knowledge, our construction is by far the most practical scheme with
+constant client-side memory, under realistic parameterizations.

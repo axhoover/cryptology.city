@@ -23,7 +23,13 @@ Couple the lazy-sampled oracles until their answers first differ. On the $j$th d
 
 ## Memory bounded version
 
-This has been subsequently improved by [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]] for streaming distinguishers with $m$ bits of memory to $$\left|\Pr[A^{R} = 1] - \Pr[A^{\pi} = 1]\right| \le O\left(\frac{mq}{|\calD|}\right),$$ where $R$ is a random function and $\pi$ is a random permutation, both from $\calD$ to $\calD$.
+A streaming distinguisher with $m$ bits of memory reads $q$ elements of $\calD$ one at a time, drawn uniformly either with replacement (the answers of $R$ on $q$ distinct inputs) or without replacement (the answers of $\pi$ on the same inputs). Its advantage is at most
+
+$$
+O\!\left(\frac{mq \log q}{|\calD|}\right),
+$$
+
+which is tight up to polylogarithmic factors — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]].
 
 <!-- BEGIN GENERATED participates-in 51a3b8bb07b2 -->
 

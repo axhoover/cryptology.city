@@ -12,14 +12,14 @@ model: standard
 source: folklore
 security-loss: "none"
 rationale:
-  class: "The construction runs the scheme unchanged on databases of a fixed large polynomial size, and the reduction forwards any privacy adversary unchanged."
+  class: "The construction runs the scheme on databases of a fixed large polynomial size with each message prefixed by its length, and the reduction prefixes the query it receives in the same way and forwards it to any privacy adversary, run only as an oracle."
 ---
 
 # PIR with polylogarithmic communication ⇒ Non-trivial cPIR
 
 ## Statement
 
-A [PIR scheme with polylogarithmic communication](single-server-private-information-retrieval#pir-with-polylogarithmic-communication) is [[single-server-private-information-retrieval#non-trivial-pir|non-trivial]]: if its communication is at most $p(\secpar, \log n)$ and its correctness error is a negligible $\varepsilon(\secpar)$, then for $n(\secpar) = \secpar^c$ with $c$ large enough that $p(\secpar, c \log \secpar) < \secpar^c$ for all large $\secpar$, the server sends fewer than $n$ bits and $\varepsilon(\secpar) \le 1/(8n(\secpar))$ for all large $\secpar$ — folklore.
+A [PIR scheme with polylogarithmic communication](single-server-private-information-retrieval#pir-with-polylogarithmic-communication) gives a [[single-server-private-information-retrieval#non-trivial-pir|non-trivial]] one. Let its communication be at most $p(\secpar, \log n)$ and its correctness error a negligible $\varepsilon(\secpar)$. The scheme does not fix its message lengths, so run it with each message prefixed by its length in $\lceil \log_2(p(\secpar, \log n) + 1) \rceil$ bits, which makes the set of possible messages prefix-free and fixed by $(\secpar, n)$; correctness and query privacy are unchanged. For $n(\secpar) = \secpar^c$ with $c$ large enough that $p(\secpar, c \log \secpar) + \lceil \log_2(p(\secpar, c \log \secpar) + 1) \rceil < \secpar^c$ for all large $\secpar$, the server then sends fewer than $n$ bits and $\varepsilon(\secpar) \le 1/(8n(\secpar))$ for all large $\secpar$ — standard.
 
 ## Notes
 

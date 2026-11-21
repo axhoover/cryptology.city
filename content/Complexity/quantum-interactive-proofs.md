@@ -28,13 +28,15 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 ## Multi-prover extensions
 
-- **$\mathbf{MIP^*}$** (multiple quantum-entangled provers): provers share arbitrary prior entanglement but cannot communicate during the protocol. $\mathbf{MIP^*} = \mathbf{RE}$ (the class of recursively enumerable languages) — [[JNVWY20 - MIP-star = RE|JNVWY20]]. This result resolved the Connes embedding conjecture in the negative.
+$\mathbf{MIP^*}$ is the class of languages $L$ decided by a classical probabilistic polynomial-time verifier interacting over polynomially many rounds with $k(|x|) \ge 2$ computationally unbounded provers, for a polynomial $k$. The provers cannot communicate during the protocol; they share a finite-dimensional entangled state and answer by measurements on their own tensor factors (the tensor-product model), and the value of the protocol on $x$ is the supremum of the verifier's acceptance probability over these finite-dimensional strategies, whose correlations have closure $C_{qa}$. If $x \in L$, some strategy makes the verifier accept with probability at least $2/3$; if $x \notin L$, every strategy makes it accept with probability at most $1/3$ — [[JNVWY20 - MIP-star = RE|JNVWY20]] (arXiv v4, §1.2 and §5.3). The commuting-operator class $\mathbf{MIP^{co}}$, defined with the commuting-operator correlations $C_{qc}$, is a different class: writing $(2, 1)$ for the restriction to two provers and one round, $\mathbf{MIP^{co}}(2, 1) \subseteq \mathbf{coRE}$, and since $\mathbf{RE} \neq \mathbf{coRE}$, $\mathbf{MIP^*}(2, 1) \neq \mathbf{MIP^{co}}(2, 1)$ — [[JNVWY20 - MIP-star = RE|JNVWY20]].
+
+- $\mathbf{MIP^*} = \mathbf{RE}$, the class of recursively enumerable languages, and the result refutes Connes' embedding conjecture — [[JNVWY20 - MIP-star = RE|JNVWY20]].
 - $\mathbf{MIP^*} \not\subseteq \mathbf{MIP}$: $\mathbf{MIP} = \mathbf{NEXP}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]], $\mathbf{NEEXP} \subseteq \mathbf{MIP^*}$ — [[NW19 - NEEXP is Contained in MIP-star|NW19]], and $\mathbf{NEXP} \subsetneq \mathbf{NEEXP}$ by the nondeterministic time hierarchy theorem — standard; see [[no-mip-to-multi-prover-extensions]].
 
 ## Relevance to cryptography
 
-- $\classQIP = \classPSPACE$ implies that quantum zero-knowledge protocols with multiple rounds are no more expressive than classical ones from a language-recognition standpoint.
-- The $\mathbf{MIP^*} = \mathbf{RE}$ result has profound implications: it shows that quantum entanglement can be used to certify computations in ways that are fundamentally unverifiable by classical means — raising both opportunities and challenges for quantum cryptographic protocols.
+- $\classQSZK \subseteq \classQIP = \classPSPACE$ ([[qszk-to-qip|QSZK ⊆ QIP]], [[qip-to-pspace|QIP = PSPACE]]).
+- A classical verifier interacting with entangled provers decides every RE language — [[JNVWY20 - MIP-star = RE|JNVWY20]].
 
 <!-- BEGIN GENERATED participates-in 12f2673f7a78 -->
 

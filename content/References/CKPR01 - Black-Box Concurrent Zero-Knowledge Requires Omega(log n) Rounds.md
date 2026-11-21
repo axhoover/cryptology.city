@@ -17,4 +17,12 @@ cryptobib_key: STOC:CKPR01
 
 ## Abstract
 
-TODO — abstract.
+We show that any concurrent zero-knowledge protocol for a non-trivial
+language (i.e., for a language outside $\classBPP$), whose security is
+proven via black-box simulation, must use at least
+$\tilde\Omega(\log n)$ rounds of interaction. This result achieves a
+substantial improvement over previous lower bounds, and is the first
+bound to rule out the possibility of constant-round concurrent
+zero-knowledge when proven via black-box simulation. Furthermore, the
+bound is polynomially related to the number of rounds in the best
+known concurrent zero-knowledge protocol for languages in $\classNP$.

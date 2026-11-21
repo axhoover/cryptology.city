@@ -2,7 +2,7 @@
 type: reference
 status: draft
 title: "Gol00"
-source: https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10
+source: https://eprint.iacr.org/2000/063
 authors: Oded Goldreich
 venue: Electronic Colloquium on Computational Complexity (ECCC)
 published: 2000-12-03
@@ -15,7 +15,7 @@ cryptobib_key: EPRINT:Goldreich00b
 
 # [Gol00] Candidate One-Way Functions Based on Expander Graphs
 
-**Authors:** Oded Goldreich | **Venue:** Electronic Colloquium on Computational Complexity (ECCC) | [Source](https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10)
+**Authors:** Oded Goldreich | **Venue:** Electronic Colloquium on Computational Complexity (ECCC) | [Source](https://eprint.iacr.org/2000/063)
 
 ## Abstract
 

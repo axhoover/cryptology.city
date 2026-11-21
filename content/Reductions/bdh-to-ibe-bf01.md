@@ -6,7 +6,7 @@ aliases: []
 id: red-bdh-to-ibe-bf01
 kind: implication
 hypotheses: [bdh]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 model: rom
 source:
@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-If the computational [[bilinear-map-assumptions|BDH]] assumption holds and the hash functions are modelled as [[random-oracle-model|random oracles]], the Boneh–Franklin scheme FullIdent is an [[identity-based-encryption#ind-id-cca-security|IND-ID-CCA-secure]] [[identity-based-encryption|IBE]] and BasicIdent is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
+If the computational [[bilinear-map-assumptions|BDH]] assumption holds and the hash functions are modelled as [[random-oracle-model|random oracles]], the Boneh–Franklin scheme FullIdent is an [[identity-based-encryption#ind-id-cca-security|IND-ID-CCA-secure]] [[identity-based-encryption|IBE]] and BasicIdent is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]. BasicIdent has identities in $\bits^*$ and messages in $\bits^n$, and is perfectly correct, since $e(H_1(\mathit{id})^s, g^r) = e(H_1(\mathit{id}), g^s)^r$ — standard.
 
 ## Sketch
 

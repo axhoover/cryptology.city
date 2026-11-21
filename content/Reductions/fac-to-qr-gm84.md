@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard for moduli $N = pq$ with $p \equiv q \equiv 3 \pmod 4$, then [[factoring#factoring-with-known-factor-structure|factoring]] such $N$ (Blum integers) is hard — folklore.
+If [[quadratic-residuosity|QR]] is hard for moduli $N = pq$ with $p \equiv q \equiv 3 \pmod 4$, then [[factoring#factoring-blum-integers|factoring]] such $N$ (Blum integers) is hard — folklore.
 
 ## Sketch
 

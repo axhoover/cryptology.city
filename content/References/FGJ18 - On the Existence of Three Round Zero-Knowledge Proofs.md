@@ -17,4 +17,6 @@ cryptobib_key: EC:FleGoyJai18
 
 ## Abstract
 
-TODO — abstract.
+We study the round complexity of zero-knowledge (ZK) proof systems. While five round ZK proofs for NP are known from standard assumptions [Goldreich-Kahan, J. Cryptology'96], Katz [TCC'08] proved that four rounds are insufficient for this task w.r.t. black-box simulation.
+
+In this work, we study the feasibility of ZK proofs using non-black-box simulation. Our main result is that three round private-coin ZK proofs for NP do not exist (even w.r.t. non-black-box simulation), under certain assumptions on program obfuscation. Our approach builds upon the recent work of Kalai et al. [Crypto'17] who ruled out constant round public-coin ZK proofs under the same assumptions as ours.

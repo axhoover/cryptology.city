@@ -1,28 +1,28 @@
 ---
 type: reduction
 status: draft
-title: "DLIN ⇒ IPPE"
+title: "Bilinear pairing + DLIN ⇒ IPPE"
 aliases: []
 id: red-dlin-to-ippe-ksw08
 kind: implication
-hypotheses: [decisional-linear]
-conclusion: ippe
-class: free
+hypotheses: [bilinear-pairing, decisional-linear]
+conclusion: nonzero-vector-ippe
+class: unstated
 model: standard
 source:
   - "[[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]]"
 security-loss: "polynomial: the dual-system hybrid changes the secret keys one at a time, a factor linear in the number of key queries"
 rationale:
-  class: "OT12 do not place their proof in the RTV04 taxonomy, so the page records only that the implication is proved."
   security-loss: "OT12 extend dual system encryption, whose hybrid moves each queried secret key to semi-functional form in turn, each move reducing to DLIN."
 ---
 
-# DLIN ⇒ IPPE
+# Bilinear pairing + DLIN ⇒ IPPE
 
 ## Statement
 
-If [[decisional-diffie-hellman#dlin|DLIN]] holds in prime-order bilinear groups, there is an [[inner-product-predicate-encryption|inner-product predicate encryption]] scheme that is adaptively secure and [[inner-product-predicate-encryption#full-attribute-hiding-security|fully attribute-hiding]] in the sense of [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]], in the standard model — [[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]].
+If [[decisional-diffie-hellman#dlin|DLIN]] holds in prime-order [[pairings|bilinear groups]], there is an [[inner-product-predicate-encryption|inner-product predicate encryption]] scheme [[inner-product-predicate-encryption#nonzero-predicate-and-attribute-vectors|on nonzero predicate and attribute vectors]] ($\FF_q^n \setminus \{0\}$, Definition 4) that is adaptively secure and [[inner-product-predicate-encryption#full-attribute-hiding-security|fully attribute-hiding]] in the sense of [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]], in the standard model — [[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]].
 
 ## Notes
 
+- The scheme is perfectly correct, since its decryption equation recovers $m$ whenever $\langle v, x \rangle = 0$; its messages lie in the target group $\GG_T$, of prime order $q \ge 2$, whose identity and a generator are computed from the group description in the public parameters; and its prime is the order $q$ of the bilinear group that its setup samples, for which $\mathbb{E}[1/q]$ is negligible, since DLIN fails by exhaustive search whenever $q \le t(\secpar)$ for a polynomial $t$ with non-negligible probability — standard.
 - The first IPPE scheme, [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]], works in composite-order bilinear groups and is only selectively attribute-hiding, under two new assumptions that KSW08 justify in the generic group model; it is not a DLIN result.

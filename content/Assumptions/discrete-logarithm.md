@@ -13,21 +13,24 @@ id: dlog
 variants:
   prime-order-dlog: "#dlog-in-prime-order-groups"
   compact-prime-order-dlog: "#dlog-in-compactly-encoded-prime-order-groups"
+  verifiable-prime-order-dlog: "#dlog-in-verifiable-prime-order-groups"
   twisted-edwards-dlog: "#dlog-in-prime-order-subgroups-of-twisted-edwards-curves"
+  zp-star-dlog: "#dlog-in-the-multiplicative-group-of-a-prime-field"
+  efficiently-represented-dlog: "#dlog-in-efficiently-represented-groups"
   omdl: "#one-more-discrete-logarithm"
   q-dlog: "#q-dlog"
 ---
 
 # Discrete logarithm
 
-The _discrete logarithm (DLOG)_ assumption is used throughout cryptography. It is implied by the [[computational-diffie-hellman|CDH]] assumption: an adversary which can solve the DLOG problem can also solve [[computational-diffie-hellman|CDH]] in the same group — folklore.
+The _discrete logarithm (DLOG)_ assumption states that, for $(\GG, g, p) \gets \GrGen(1^\secpar)$ and $X = g^x$ with $x$ uniform in $[p]$, every efficient adversary given $(\GG, g, p, X)$ outputs $x$ with negligible probability.
 
 ## Assumption
 
 Informally, the DLOG assumption concerns a cyclic group
 generation algorithm
 $\GrGen,$ which takes as input a security parameter $1^{\secpar}$ and outputs
-a succinct description of a cyclic group $(\GG,g,p),$ where $\GG$ is the group
+a succinct[^1] description of a cyclic group $(\GG,g,p),$ where $\GG$ is the group
 set, $g$ is a generator for the group, and $p$ is the order of the group.
 
 ```pseudocode
@@ -44,7 +47,7 @@ set, $g$ is a generator for the group, and $p$ is the order of the group.
 \end{algorithm}
 ```
 
-We say that **DLOG is hard** for a group generation algorithm $\GrGen$
+**DLOG is hard** for a group generation algorithm $\GrGen$
 if for all efficient $\calA,$
 
 $$
@@ -53,20 +56,11 @@ $$
 
 is negligible.
 
-## Related results
+## Known Results
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
-
-## Attacks
-
-- The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Its running time $O(\sqrt{p})$, attained at $S = O(\sqrt{p})$, is optimal in the [[generic-group-model|GGM]] for groups of prime order $p$: every generic algorithm needs $\Omega(\sqrt{p})$ group operations — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
-- **Index calculus**: sub-exponential attack on DLOG in $\FF_p^*$ (multiplicative group of a finite field). It extends to the Jacobians of hyperelliptic curves of high genus — [[ADH94 - A Subexponential Algorithm for Discrete Logarithms over the Rational Subgroup of the Jacobians of Large Genus Hyperelliptic Curves over Finite Fields|ADH94]]. Does **not** apply to generic elliptic curve groups, which is why ECDLP is believed harder than DLOG in $\FF_p^*$. The conditional elliptic-curve variant below replaces smoothness by hashed factor bases.
-- **Index calculus on prime-field elliptic curves (conditional)**: let $E$ be an elliptic curve over a prime field $\FF_q$, $q > 3$, with $E(\FF_q)$ of prime order, and let $b = \lceil \log q \rceil$. If the Boolean tensor contraction theorem claimed by [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (Theorem D.1; see [[exponential-time-hypothesis#attacks|ETH]]) holds, a randomized algorithm that never outputs a wrong value computes discrete logarithms in $E(\FF_q)$ in expected time $2^{O(b/(\log b)^{1/4})}$; the bound extends to curves with a fixed cofactor — [[ABH+26 - A Subexponential Time Algorithm for Elliptic Curve Discrete Logarithm|ABH+26]]. Given $(P, Q)$, it collects relations $[u]P + [v]Q = A_1 + \cdots + A_m$ with $A_i$ in factor bases $F_i$ defined by random affine hashes of point coordinates, finding each by contracting a tensor network with $O(mb)$ edges and maximum degree $O(b^{3/4})$, and eliminates the factor-base points by linear algebra over $\FF_r$, $r = |E(\FF_q)|$; $m = \lceil (\log b)^{1/4} \rceil$ balances the two costs. The running time is $2^{o(b)}$ but not $2^{O(b^{1-\varepsilon})}$ for any $\varepsilon > 0$. The algorithm computes on point coordinates, so the $\Omega(\sqrt{p})$ [[generic-group-model|generic]] lower bound does not apply to it. Ope26's contraction algorithm saves time only on networks with at least $2^{2^{17}}$ edges, so curves in use, such as P-256 and Ed25519, are unaffected — [[ABH+26 - A Subexponential Time Algorithm for Elliptic Curve Discrete Logarithm|ABH+26]].
-- **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups — [[PH78 - An Improved Algorithm for Computing Logarithms over GF(p) and Its Cryptographic Significance|PH78]].
-- **Number Field Sieve (NFS)**: sub-exponential algorithm for DLOG in $\FF_p^*$, heuristically running in time $L_p[1/3, 3^{2/3}]$ — [[Gor93 - Discrete Logarithms in GF(p) Using the Number Field Sieve|Gor93]].
-- **Quantum**: Shor's algorithm computes discrete logarithms in $\ZZ_p^*$ in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
 # Variations
 
@@ -86,13 +80,53 @@ elliptic-curve groups with compressed points (an $x$-coordinate and one bit)
 meet the bound; uncompressed affine points, and the order-$p$ subgroup of
 $\ZZ_P^*$ with $\log P \ge 2 \log p$, do not — standard.
 
+## DLOG in verifiable prime-order groups
+
+**DLOG is hard in verifiable prime-order groups** for $\GrGen$ if DLOG is hard
+in prime-order groups for $\GrGen$ and an efficient algorithm decides, given any
+$(\GG, g, p, h)$, whether $\GG$ is a group of prime order $p$ generated by $g$
+and $h \in \GG \setminus \{1\}$. The order-$p$ subgroup of $\ZZ_P^*$ for a prime
+$P$ with $p \mid P - 1$ qualifies: primality of $P$ and $p$ is decidable in
+polynomial time ([[AKS04 - PRIMES Is in P|AKS04]]), and since $\ZZ_P^*$ is
+cyclic, $x^p \equiv 1 \pmod P$ decides membership in the subgroup, every element
+of which other than $1$ generates it — standard. So do prime-order
+elliptic-curve groups, whose order point counting computes in polynomial time —
+standard.
+
 ## DLOG in prime-order subgroups of twisted Edwards curves
 
 **DLOG is hard in prime-order subgroups of twisted Edwards curves** for
 $\GrGen$ if DLOG is hard in prime-order groups for $\GrGen$ and every group
 $(\GG, g, p)$ it outputs is the subgroup of prime order $p$ generated by a point
 $g$ of a twisted Edwards curve over a finite field. These are the groups
-[[digital-signature#eddsa|EdDSA]] works in.
+[[digital-signature#eddsa|EdDSA]] works in — [[BDLSY11 - High-Speed High-Security Signatures|BDLSY11]].
+
+## DLOG in the multiplicative group of a prime field
+
+**DLOG is hard in $\ZZ_P^*$** for $\GrGen$ if every group $\GrGen$ outputs is
+$(\ZZ_P^*, g, P - 1)$ for a prime $P$ of $\poly(\secpar)$ bits and a generator
+$g$ of $\ZZ_P^*$, and DLOG is hard for $\GrGen$. Group elements are then
+integers in $[1, P - 1]$ and can be used as exponents, which the Blum–Micali
+generator does ([[dlog-to-prg-bm84|DLOG ⇒ PRG]]) — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]].
+Forgetting the form of the group gives DLOG for the same generator
+([[zp-star-dlog-to-dlog|Prime-field DLOG ⇒ DLOG]]) — folklore.
+
+## DLOG in efficiently represented groups
+
+**DLOG is hard in efficiently represented groups** for $\GrGen$ if DLOG is hard
+for $\GrGen$, deterministic polynomial-time algorithms, given $(\GG, g, p)$
+output by $\GrGen$, compute mutually inverse bijections between $\GG$ and
+$[p] = \{0, \ldots, p - 1\}$, and a deterministic polynomial-time algorithm,
+given $(\GG, g, p)$ output by $\GrGen$ and $a, b \in \GG$, computes $ab$. The
+group operation transported to $[p]$ is then computed by a circuit $f$ of size
+$\poly(\secpar)$ and the identity $g^p$ by square-and-multiply, so with the
+identity, $g$ and a target $h$ mapped to $\mathrm{id}, g', t \in [p]$, the tuple
+$(p, f, \mathrm{id}, g', t)$ is an instance of the total search problem DLog of
+[[HV21 - On Search Complexity of Discrete Logarithm|HV21]] (arXiv v2,
+Definition 3.1), and membership of a target in $[p]$ is the test $t < p$.
+$\ZZ_P^*$, represented by $[P - 1]$ through $a \mapsto a - 1$, is one example —
+[[HV21 - On Search Complexity of Discrete Logarithm|HV21]] (arXiv v2,
+Lemma 5.2).
 
 ## $q$-DLOG
 
@@ -117,11 +151,11 @@ $$
 \Adv^{(q_1,q_2)\text{-dl}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{(q_1,q_2)\text{-dl}}_{\GrGen,\calA}(\secpar) = 1\right]
 $$
 
-is negligible — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]. **$q$-DLOG is hard** for $\GrGen$ if $(q_1, q_2)$-DLOG is hard for every pair of polynomials $q_1, q_2$. Dropping powers turns an instance for $(q_1, q_2)$ into one for any smaller pair, so larger degrees give the stronger assumption, and $q$-DLOG implies DLOG in the prime-order group $\GG_1$ ([[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]]) — folklore. In the [[algebraic-group-model|algebraic group model]], knowledge soundness of Groth's SNARK reduces to it — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+is negligible — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]. **$q$-DLOG is hard** for $\GrGen$ if $(q_1, q_2)$-DLOG is hard for every pair of polynomials $q_1, q_2$. Dropping powers turns an instance for $(q_1, q_2)$ into one for any smaller pair, so larger degrees give the stronger assumption, and $q$-DLOG implies DLOG in the prime-order group $\GG_1$ ([[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]]) — folklore. In the [[algebraic-group-model|algebraic group model]], knowledge soundness of Groth's [[succinct-argument#zk-snark|zk-SNARK]] ([[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]) reduces to it ([[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]]) — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
 ## One-more Discrete Logarithm
 
-In the _one-more discrete logarithm (OMDL)_ problem, the adversary gets $\ell + 1$ challenges $X_i = g^{x_i}$ and an oracle returning $\log_g Z$ for any $Z \in \GG$ it submits; it must output every $x_i$ after at most $\ell$ oracle queries. One-more problems go back to the one-more RSA-inversion problems of [[BNPS03 - The One-More-RSA-Inversion Problems and the Security of Chaum's Blind Signature Scheme|BNPS03]]; [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]] use OMDL to prove the [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification protocol]] secure under concurrent attack.
+In the _one-more discrete logarithm (OMDL)_ problem, the adversary gets $\ell + 1$ challenges $X_i = g^{x_i}$ and an oracle returning $\log_g Z$ for any $Z \in \GG$ it submits; it must output every $x_i$ after at most $\ell$ oracle queries. One-more problems go back to the one-more RSA-inversion problems of [[BNPS01 - The Power of RSA Inversion Oracles and the Security of Chaum's RSA-Based Blind Signature Scheme|BNPS01]] (journal version [[BNPS03 - The One-More-RSA-Inversion Problems and the Security of Chaum's Blind Signature Scheme|BNPS03]]); [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]] use OMDL to prove the [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification protocol]] secure under concurrent attack ([[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]]).
 
 ```pseudocode
 \begin{algorithm}
@@ -164,11 +198,26 @@ is negligible.
 - Since $\ell$ ranges over all polynomials, no polynomial bounds the number of rounds of the game in advance. No Turing reduction bases OMDL on an assumption with an a priori bounded number of rounds unless that assumption is false ([[no-bounded-round-assumption-to-omdl-pas11|barrier]]) — [[Pas11 - Limits of Provable Security from Standard Assumptions|Pas11]].
 - OMDL holds in the [[generic-group-model|generic group model]] ([[ggm-to-omdl-bfp21|GGM ⇒ OMDL]]) — [[BFP21 - The One-More Discrete Logarithm Assumption in the Generic Group Model|BFP21]].
 
+# Attacks
+
+Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\alpha, c] := \exp\!\big((c + o(1))(\ln Q)^{\alpha}(\ln\ln Q)^{1-\alpha}\big)$ for $0 \le \alpha \le 1$ and $c > 0$. A _heuristic_ running time rests on an unproven assumption that some quantity (a pseudorandom walk, the smoothness of auxiliary elements) behaves as it would for random inputs.
+
+- **Baby-step giant-step** computes $x$ in any cyclic group of order $p$ with $O(\sqrt{p})$ group operations and $O(\sqrt{p})$ stored group elements, by matching $g^{im}$ against $X g^{-j}$ for $m = \lceil \sqrt{p} \rceil$ and $0 \le i, j < m$ — [[Sha71 - Class Number, a Theory of Factorization, and Genera|Sha71]]. For prime $p$ this is optimal among [[generic-group-model|generic]] algorithms up to a constant factor, since they need $\Omega(\sqrt{p})$ group operations ([[ggm-to-dlog-sho97|GGM ⇒ DLOG]]) — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].
+- **Pollard's $\rho$ and $\lambda$ methods**: the $\rho$ method computes $x$ in any cyclic group of order $p$ with a heuristic expected $O(\sqrt{p})$ group operations and $O(1)$ stored group elements, and the $\lambda$ ("kangaroo") method computes $x$ known to lie in an interval of width $w$ with a heuristic expected $O(\sqrt{w})$ group operations — [[Pol78 - Monte Carlo Methods for Index Computation (mod p)|Pol78]].
+- **Index calculus on curves**: index calculus extends to the Jacobians of hyperelliptic curves of high genus — [[ADH94 - A Subexponential Algorithm for Discrete Logarithms over the Rational Subgroup of the Jacobians of Large Genus Hyperelliptic Curves over Finite Fields|ADH94]]. No index-calculus algorithm is known for general elliptic-curve groups, which is why elliptic-curve DLOG is believed harder than DLOG in $\FF_P^*$ — [[Mil85 - Use of Elliptic Curves in Cryptography|Mil85]]. The conditional elliptic-curve variant below replaces smoothness by hashed factor bases.
+- **Index calculus on prime-field elliptic curves (conditional)**: let $E$ be an elliptic curve over a prime field $\FF_P$, $P > 3$, with $E(\FF_P)$ of prime order $r$, and let $b = \lceil \log P \rceil$. If the Boolean tensor contraction theorem claimed by [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (Theorem D.1; see [[exponential-time-hypothesis#attacks|ETH]]) holds, a randomized algorithm that never outputs a wrong value computes discrete logarithms in $E(\FF_P)$ in expected time $2^{O(b/(\log b)^{1/4})}$; the bound extends to curves with a fixed cofactor — [[ABH+26 - A Subexponential Time Algorithm for Elliptic Curve Discrete Logarithm|ABH+26]]. Given $(G, H)$, it collects relations $[u]G + [v]H = A_1 + \cdots + A_m$ with $A_i$ in factor bases $F_i$ defined by random affine hashes of point coordinates, finding each by contracting a tensor network with $O(mb)$ edges and maximum degree $O(b^{3/4})$, and eliminates the factor-base points by linear algebra over $\FF_r$; $m = \lceil (\log b)^{1/4} \rceil$ balances the two costs. The running time is $2^{o(b)}$ but not $2^{O(b^{1-\varepsilon})}$ for any $\varepsilon > 0$. The algorithm computes on point coordinates, so the $\Omega(\sqrt{r})$ [[generic-group-model|generic]] lower bound does not apply to it. Ope26's contraction algorithm saves time only on networks with at least $2^{2^{17}}$ edges, so curves in use, such as P-256 and Ed25519, are unaffected — [[ABH+26 - A Subexponential Time Algorithm for Elliptic Curve Discrete Logarithm|ABH+26]].
+- **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups — [[PH78 - An Improved Algorithm for Computing Logarithms over GF(p) and Its Cryptographic Significance|PH78]].
+- **Index calculus in finite fields**: Adleman's algorithm computes discrete logarithms in $\FF_P^*$ in time $L_P[1/2, c]$ for a constant $c$ — [[Adl79 - A Subexponential Algorithm for the Discrete Logarithm Problem with Applications to Cryptography|Adl79]]; the Adleman–DeMarrais algorithm computes them in every finite field $\FF_Q^*$ in heuristic expected time $L_Q[1/2, c]$ for a constant $c$ — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]].
+- **Number Field Sieve (NFS)**: computes discrete logarithms in $\FF_P^*$ in heuristic time $L_P[1/3, 3^{2/3}]$ — [[Gor93 - Discrete Logarithms in GF(p) Using the Number Field Sieve|Gor93]]; Schirokauer's refinement lowers this to $L_P[1/3, (64/9)^{1/3}]$, the constant of the general number field sieve for [[factoring#attacks|factoring]] — [[Sch93 - Discrete Logarithms and Local Units|Sch93]].
+- **Small characteristic**: in $\FF_Q^*$ with $Q = P^n$ for a fixed prime $P$, discrete logarithms are computed in heuristic quasi-polynomial time $(\log Q)^{O(\log\log Q)}$ — [[BGJT14 - A Heuristic Quasi-Polynomial Algorithm for Discrete Logarithm in Finite Fields of Small Characteristic|BGJT14]].
+- **MOV and Frey–Rück reductions**: in a subgroup of prime order $p \nmid Q$ of an elliptic curve $E(\FF_Q)$, with $k$ least such that the $p$-torsion of $E$ is defined over $\FF_{Q^k}$, the Weil pairing reduces DLOG in the subgroup to DLOG in $\FF_{Q^k}^*$; supersingular curves have $k \le 6$, and for them the reduction runs in probabilistic polynomial time — [[MVO91 - Reducing Elliptic Curve Logarithms to Logarithms in a Finite Field|MVO91]]. The Tate pairing gives the analogous reduction for the order-$p$ subgroups of divisor class groups of curves over $\FF_Q$, with $k$ least such that $p \mid Q^k - 1$ — [[FR94 - A Remark Concerning m-Divisibility and the Discrete Logarithm in the Divisor Class Group of Curves|FR94]]; see [[bilinear-map-assumptions#attacks|pairing attacks]].
+- **Quantum**: Shor's algorithm computes discrete logarithms in $\ZZ_P^*$ in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
+
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 49808ea5b3eb -->
+<!-- BEGIN GENERATED participates-in f8a903e26f2a -->
 
 ## Participates in
 
@@ -180,23 +229,26 @@ is negligible.
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
-- [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
-- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]])
 - [[dlog-to-conp|DLOG ⊆ coNP]]
 - [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
 - [[dlog-to-np|DLOG ⊆ NP]]
-- [[dlog-to-pcs|DLOG ⇒ PCS]]
-- [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
-- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]]
+- [[dlog-to-owf|DLOG ⇒ OWF]]
+- [[dlog-to-pcs|DLOG ⇒ PCS]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[dlog-to-prg-bm84|DLOG ⇒ PRG]] (via [[discrete-logarithm#dlog-in-the-multiplicative-group-of-a-prime-field|DLOG in the multiplicative group of a prime field]])
+- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-szk-gk93|DLOG ∈ SZK]]
-- [[dlog-to-tfnp|DLOG ⊆ TFNP]]
-- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
-- [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[dlog-to-tfnp|DLOG ⊆ TFNP]] (via [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]])
+- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG + secure channels ⇒ Verifiable secret sharing (VSS)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[efficiently-represented-dlog-to-dlog|Efficiently represented DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[prime-order-dlog-and-secure-channels-to-dkg-gjkr99|DLOG + secure channels ⇒ DKG (GJKR)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-chameleon-hash-function-kr00|DLOG ⇒ Chameleon hash (Krawczyk–Rabin)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[discrete-logarithm#dlog-in-prime-order-subgroups-of-twisted-edwards-curves|DLOG in prime-order subgroups of twisted Edwards curves]])
 - [[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP (Bootle et al.)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
@@ -205,19 +257,28 @@ is negligible.
 - [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]] (via [$q$-DLOG](discrete-logarithm#q-dlog))
 - [[twisted-edwards-dlog-to-prime-order-dlog|Twisted Edwards DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-subgroups-of-twisted-edwards-curves|DLOG in prime-order subgroups of twisted Edwards curves]])
+- [[verifiable-prime-order-dlog-to-prime-order-dlog|Verifiable prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-verifiable-prime-order-groups|DLOG in verifiable prime-order groups]])
+- [[zp-star-dlog-to-dlog|Prime-field DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-the-multiplicative-group-of-a-prime-field|DLOG in the multiplicative group of a prime field]])
+- [[zp-star-dlog-to-efficiently-represented-dlog|Prime-field DLOG ⇒ efficiently represented DLOG]] (via [[discrete-logarithm#dlog-in-the-multiplicative-group-of-a-prime-field|DLOG in the multiplicative group of a prime field]])
 
 **Produces Discrete logarithm**
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[efficiently-represented-dlog-to-dlog|Efficiently represented DLOG ⇒ DLOG]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[ggm-to-omdl-bfp21|GGM ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]
+- [[omdl-and-ros-to-omdl|OMDL and ROS in the same group ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-cdh-to-prime-order-dlog|Prime-order CDH ⇒ prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
 - [[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]
 - [[twisted-edwards-dlog-to-prime-order-dlog|Twisted Edwards DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[verifiable-prime-order-dlog-to-prime-order-dlog|Verifiable prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[zp-star-dlog-to-dlog|Prime-field DLOG ⇒ DLOG]]
+- [[zp-star-dlog-to-efficiently-represented-dlog|Prime-field DLOG ⇒ efficiently represented DLOG]] (via [[discrete-logarithm#dlog-in-efficiently-represented-groups|DLOG in efficiently represented groups]])
 
 **Barriers**
 

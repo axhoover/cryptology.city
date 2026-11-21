@@ -5,23 +5,26 @@ title: "ID ⇒ DS"
 aliases: []
 id: red-id-and-rom-to-ds
 kind: implication
-hypotheses: [identification-scheme]
+hypotheses: [non-trivial-canonical-identification-scheme]
 conclusion: ds
 class: fully-black-box
 model: rom
 source:
-  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
-security-loss: "$\\approx \\varepsilon^2/q$ for advantage $\\varepsilon$ and $q$ random-oracle queries (PS96)"
+  - "[[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+security-loss: "a factor linear in the number of random-oracle queries"
 rationale:
-  class: "The transform uses the identification scheme's prover and verifier only as oracles, and the reductions run the forger only as an oracle, programming the random oracle (AABN02) and rewinding the forger (PS00)."
-  model: "The reductions program the random oracle that replaces the verifier's challenge."
+  class: "The transform uses the identification scheme's prover and verifier only as oracles, and the reduction runs the forger only as an oracle, programming the random oracle."
+  model: "The reduction programs the random oracle that replaces the verifier's challenge."
+  security-loss: "The impersonator guesses which of the forger's random-oracle queries fixes the challenge of the forgery."
 ---
 
 # ID ⇒ DS
 
 ## Statement
 
-The [[fiat-shamir-heuristic|Fiat–Shamir transform]] turns a three-move public-coin [[identification-scheme|identification scheme]] into a [[digital-signature|signature scheme]] in the [[random-oracle-model|ROM]]: the signer computes the verifier's challenge as the random-oracle hash of the commitment and the message, and the signature is the resulting transcript — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. If the identification scheme is secure against impersonation under passive attack and non-trivial (its commitments have super-logarithmic min-entropy), the resulting scheme is [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable in the ROM; for non-trivial schemes, passive-impersonation security is also necessary — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].
+The [[fiat-shamir-heuristic|Fiat–Shamir transform]] turns a three-move public-coin [[identification-scheme#non-trivial-canonical-identification-schemes|identification scheme]] into a [[digital-signature|signature scheme]] in the [[random-oracle-model|ROM]]: the signer computes the verifier's challenge as the random-oracle hash of the commitment and the message, and the signature is the resulting transcript — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. If the identification scheme is secure against impersonation under passive attack and non-trivial (its commitments have super-logarithmic min-entropy), the resulting scheme is [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable in the ROM; for non-trivial schemes, passive-impersonation security is also necessary — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].
 
 ## Sketch
 

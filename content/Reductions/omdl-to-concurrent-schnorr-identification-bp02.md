@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]]"
-security-loss: "impersonation advantage $\\varepsilon$ yields OMDL advantage at least $(\\varepsilon - 1/|C|)^2$"
+security-loss: "impersonation advantage $\\varepsilon \\ge 1/|C|$ yields OMDL advantage at least $(\\varepsilon - 1/|C|)^2$"
 rationale:
   class: "The protocol is fixed and uses only the group operation, and the reduction answers prover sessions with its discrete-logarithm oracle and runs the impersonator only as an oracle, rewinding it to extract the secret key."
 ---
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-The [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification protocol]] is secure against impersonation under active and concurrent attack if [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] is hard for the prime-order group generator. In such an attack the adversary first runs arbitrarily many interleaved sessions, acting as the verifier, with honest provers holding $x = \log_g X$, and then tries to make an honest verifier accept. For every efficient impersonator with advantage $\varepsilon$ there is an efficient OMDL adversary with advantage at least $(\varepsilon - 1/|C|)^2$, where $C$ is the challenge space — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]].
+The [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification protocol]] is secure against impersonation under active and concurrent attack if [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] is hard for the prime-order group generator. In such an attack the adversary first runs arbitrarily many interleaved sessions, acting as the verifier, with honest provers holding $x = \log_g X$, and then tries to make an honest verifier accept. For every efficient impersonator with advantage $\varepsilon \ge 1/|C|$ there is an efficient OMDL adversary with advantage at least $(\varepsilon - 1/|C|)^2$, where $C$ is the challenge space — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]].
 
 ## Sketch
 

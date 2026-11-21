@@ -26,7 +26,7 @@ Under a new conjecture related to the hardness of learning a hidden linear subsp
 
 # Notes
 
-They conjecture hardness of the _Learning Subspace with Noise (LSN)_ problem of [[DKL09 - On cryptography with auxiliary input|DKL09]] in a new regime ($k \ge \rho n$, $\mu \ge 1 - o(1)$). They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
+They conjecture hardness of the _Learning Subspace with Noise (LSN)_ problem of [[DKL09 - On cryptography with auxiliary input|DKL09]] in a new regime ($k \ge \rho n$, $\mu \ge 1 - o(1)$). They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN ([[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]], [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]]).
 
 - Unlike SK-PIR, which bounds only communication, the oblivious locally decodable code of [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] also makes per-query server work sublinear; see [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ OLDC]]. Under their LSN conjecture, CIMR25 make the server's per-query work sublinear as well ([[noise-level-to-depir-cimr25-2|LSN ⇒ SK-DEPIR]]).
 

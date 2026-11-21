@@ -22,13 +22,13 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:I#i
 - $\classIP = \classPSPACE$ — [[Sha90 - IP = PSPACE|Sha90]]; the $\subseteq$ direction is folklore ([[ip-to-pspace-ccg-94]])
 - $\classIP \neq \classPSPACE$ relative in the [[random-oracle-model|ROM]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]
 
-<!-- BEGIN GENERATED participates-in ff06d4cca17b -->
+<!-- BEGIN GENERATED participates-in e7dfbed0b14e -->
 
 ## Participates in
 
 **Builds on Interactive Proof Systems**
 
-- [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]]
+- [[czk-to-ip-bgg-90|Non-uniform OWF + IP ⇒ CZK]]
 - [[ip-to-pspace-ccg-94|IP ⊆ PSPACE]]
 - [[ip-to-qip|IP ⊆ QIP]]
 

@@ -7,20 +7,22 @@ id: red-ind-sid-cpa-security-selective-to-ind-id-cpa-security
 kind: implication
 hypotheses: [subexp-ind-sid-cpa]
 conclusion: ind-id-cpa
-class: fully-black-box
+class: unstated
 model: standard
 source:
   - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
+via:
+  - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "multiplicative $|\\calI|$"
 rationale:
-  class: "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."
+  class: "The construction runs the selective scheme at security parameter $\\lceil \\secpar^{2/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sID-CPA-secure scheme."
 ---
 
 # Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security
 
 ## Statement
 
-For an [[identity-based-encryption|IBE]] scheme with identity space $\calI$, every efficient adaptive ([[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]) adversary with advantage $\delta$ yields a selective ([[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]]) adversary of similar size with advantage $\delta / |\calI|$ (complexity leveraging) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]. Hence a [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponentially IND-sID-CPA-secure]] IBE, with constant $\epsilon > 0$, yields an IND-ID-CPA-secure IBE: run it at security parameter $\secpar' = \lceil \secpar^{2/\epsilon} \rceil$ with identities restricted to $\bits^{\secpar}$, padded to $\secpar'$ bits. A polynomial-size adaptive adversary with advantage $\delta$ gives a selective adversary of size below $2^{\secpar'^{\epsilon}}$ for large $\secpar$, with advantage $\delta / 2^{\secpar} \le 2^{-\secpar'^{\epsilon}} \le 2^{-\secpar^2}$, so $\delta \le 2^{\secpar - \secpar^2}$ — folklore. A merely negligible selective advantage does not suffice, since the identity space has at least $2^{\secpar}$ elements.
+For an [[identity-based-encryption|IBE]] scheme with identity space $\calI$, every efficient adaptive ([[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]) adversary with advantage $\delta$ yields a selective ([[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]]) adversary of similar size with advantage $\delta / |\calI|$ (complexity leveraging) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]. Hence a [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponentially IND-sID-CPA-secure]] IBE, with constant $\epsilon > 0$, yields an IND-ID-CPA-secure IBE: run it at security parameter $\secpar' = \lceil \secpar^{2/\epsilon} \rceil$ with identities restricted to $\bits^{\secpar}$, padded to $\secpar'$ bits. A polynomial-size adaptive adversary with advantage $\delta$ gives a selective adversary of size below $2^{\secpar'^{\epsilon}}$ for large $\secpar$, with advantage $\delta / 2^{\secpar} \le 2^{-\secpar'^{\epsilon}} \le 2^{-\secpar^2}$, so $\delta \le 2^{\secpar - \secpar^2}$ — folklore. The rescaled scheme is $(1-\negl(\secpar))$-correct, since $\secpar' \ge \secpar$ — standard. A merely negligible selective advantage does not suffice, since the identity space has at least $2^{\secpar}$ elements.
 
 ## Sketch
 

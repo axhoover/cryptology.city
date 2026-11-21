@@ -17,4 +17,7 @@ cryptobib_key: C:CraSho98
 
 ## Abstract
 
-TODO — abstract.
+A new public key cryptosystem is presented that is provably secure
+against adaptive chosen ciphertext attack.
+The scheme is quite practical, and the proof of security relies
+only on standard intractability assumptions.

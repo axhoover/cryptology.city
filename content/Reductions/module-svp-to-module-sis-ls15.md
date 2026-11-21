@@ -5,7 +5,7 @@ title: "Module-SIVP ⇒ Module-SIS"
 aliases: []
 id: red-module-svp-to-module-sis-ls15
 kind: implication
-hypotheses: [worst-case-module-lattice-problems]
+hypotheses: [module-sivp-poly-factor]
 conclusion: module-sis
 class: fully-black-box
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Solving the shortest independent vectors problem on [[module-lattice-problems|module lattices]] of rank $d$ over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces classically to average-case [[shortest-integer-solution#module-sis|Module-SIS]] of rank $d$ — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[shortest-integer-solution#ring-sis|Ring-SIS]] reduction and $n = 1$ recovers plain [[shortest-integer-solution|SIS]].
+Solving the shortest independent vectors problem on module lattices of rank $d$ over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces classically to average-case [[shortest-integer-solution#module-sis|Module-SIS]] of rank $d$ over the same ring — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Over $R_n = \ZZ[x]/\langle x^n + 1 \rangle$, $n$ a power of $2$, the ring of Module-SIS, the reduction keeps $n$ and $d$, so if [[module-lattice-problems#polynomial-factors|Module-SIVP is hard for polynomial factors]], Module-SIS of every rank $d$ and degree $n$ with $nd \ge \secpar$ is hard at the parameters of the reduction. Rank $d = 1$ is the [[shortest-integer-solution#ring-sis|Ring-SIS]] reduction and $n = 1$ recovers plain [[shortest-integer-solution|SIS]].
 
 ## Sketch
 

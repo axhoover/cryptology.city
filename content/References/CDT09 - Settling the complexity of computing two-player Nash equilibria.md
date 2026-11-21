@@ -27,4 +27,8 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+We settle a long-standing open question in algorithmic game theory. We prove that Bimatrix, the problem of finding a Nash equilibrium in a two-player game, is complete for the complexity class PPAD Polynomial Parity Argument, Directed version) introduced by Papadimitriou in 1991.
+
+This is the first of a series of results concerning the complexity of Nash equilibria. In particular, we prove the following theorems:
+
+Bimatrix does not have a fully polynomial-time approximation scheme unless every problem in PPAD is solvable in polynomial time. The smoothed complexity of the classic Lemke-Howson algorithm and, in fact, of any algorithm for Bimatrix is not polynomial unless every problem in PPAD is solvable in randomized polynomial time. Our results demonstrate that, even in the simplest form of non-cooperative games, equilibrium computation and approximation are polynomial-time equivalent to fixed point computation. Our results also have two broad complexity implications in mathematical economics and operations research: Arrow-Debreu market equilibria are PPAD-hard to compute. The P-Matrix Linear Complementary Problem is computationally harder than convex programming unless every problem in PPAD is solvable in polynomial time.

@@ -17,4 +17,5 @@ cryptobib_key: EPRINT:BCPR13a
 
 ## Abstract
 
-TODO — abstract.
+We show that if there exist indistinguishability obfuscators for all circuits then there do not exist auxiliary-input extractable one-way functions. In particular, the knowledge of exponent assumption with
+respect to adversaries with auxiliary input is false in any group where computing discrete logarithms is intractable. The proof uses the “punctured programs” technique of [Sahai-Waters 2013].

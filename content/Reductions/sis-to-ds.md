@@ -5,7 +5,7 @@ title: "SIS ⇒ DS"
 aliases: []
 id: red-sis-to-ds
 kind: implication
-hypotheses: [sis]
+hypotheses: [trapdoor-sampling-sis]
 conclusion: ds
 class: fully-black-box
 model: rom
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[shortest-integer-solution|SIS]] is hard, the GPV hash-and-sign [[digital-signature|signature scheme]] is [[digital-signature#strong-unforgeability|SUF-CMA]]-unforgeable in the random-oracle model: the signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian using a short basis of $\Lambda_q^\perp(\mathbf{A})$ generated together with $\mathbf{A}$, which makes $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ a preimage-sampleable function; strong unforgeability follows from its collision resistance on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+If [[shortest-integer-solution#sis-at-trapdoor-sampling-parameters|SIS is hard at trapdoor-sampling parameters]], with trapdoor quality $L$ and $s = L \cdot g(m)$, the GPV hash-and-sign [[digital-signature|signature scheme]] that samples preimages at Gaussian parameter $s$ is [[digital-signature#strong-unforgeability|SUF-CMA]]-unforgeable in the random-oracle model: the signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian using a short basis of $\Lambda_q^\perp(\mathbf{A})$ generated together with $\mathbf{A}$, which makes $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ a preimage-sampleable function; strong unforgeability follows from its collision resistance on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]. A signature $\mathbf{z}$ on $\mu$ verifies iff $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$ and $\|\mathbf{z}\| \le s\sqrt{m}$, which a trapdoor-sampled preimage, distributed up to negligible statistical distance as $D_{\ZZ^m,s}$ conditioned on its image, meets except with negligible probability, by the tail bound for discrete Gaussians whose parameter exceeds the smoothing parameter of $\Lambda^\perp_q(\mathbf{A})$; a forgery and the reduction's own preimage therefore differ by a SIS solution of norm at most $2s\sqrt{m} = \beta$ — standard.
 
 ## Sketch
 
@@ -29,6 +29,6 @@ Trapdoor-sampled preimages are distributed as a discrete Gaussian conditioned on
 
 ## Notes
 
-- Through [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]], which is equivalent to SIS ([[isis-inhomogeneous-sis-to-sis|ISIS ⇔ SIS]]), one-wayness of $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ alone gives EUF-CMA by the full-domain-hash argument, at a loss of the number of hash queries — standard.
+- Through [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]], whose hardness SIS implies ([[isis-inhomogeneous-sis-to-sis|SIS ⇒ ISIS]]), one-wayness of $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ alone gives EUF-CMA by the full-domain-hash argument, at a loss of the number of hash queries — standard.
 - Signatures from SIS in the ROM without a lattice trapdoor, via Fiat–Shamir with aborts and rejection sampling — [[Lyu12 - Lattice Signatures Without Trapdoors|Lyu12]].
 - Stateless hash-and-sign signatures from SIS in the standard model, via bonsai-tree basis delegation — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]].

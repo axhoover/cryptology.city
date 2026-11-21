@@ -6,7 +6,7 @@ aliases:
   - PLONK
 id: red-bilinear-pairing-and-q-dlog-to-universal-snark-gwc19
 kind: implication
-hypotheses: [bilinear-pairing, q-dlog]
+hypotheses: [type-3-pairing, q-dlog]
 conclusion: universal-snark
 class: unstated
 model: [algebraic-group, rom]
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-In the [[algebraic-group-model|algebraic group model]], with the verifier's challenges derived from a [[random-oracle-model|random oracle]], PLONK is a knowledge-sound SNARK for PLONKish circuits under a [$q$-type discrete-logarithm assumption](discrete-logarithm#q-dlog) in an asymmetric [[pairings|bilinear group]]: gate constraints are checked over a multiplicative subgroup in the Lagrange basis, copy constraints are enforced by a permutation argument in the style of Bayer–Groth, and the resulting polynomial protocol is compiled with batched KZG commitments. Its structured reference string, powers of a secret $\tau$ up to a size bound $N$, is universal and updatable: the keys of every circuit of size at most $N$ are derived from it by a deterministic public preprocessing, so PLONK is a [[succinct-argument#universalupdatable-snarks|universal SNARK]]; proofs are a constant number of $\GG_1$ and field elements, and verification is fully succinct — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]].
+In the [[algebraic-group-model|algebraic group model]], with the verifier's challenges derived from a [[random-oracle-model|random oracle]], PLONK is a knowledge-sound SNARK for PLONKish circuits under a [$q$-type discrete-logarithm assumption](discrete-logarithm#q-dlog) in an asymmetric [[pairings#type-3|bilinear group]]: gate constraints are checked over a multiplicative subgroup in the Lagrange basis, copy constraints are enforced by a permutation argument in the style of Bayer–Groth, and the resulting polynomial protocol is compiled with batched KZG commitments. Its structured reference string, powers of a secret $\tau$ up to a size bound $N$, is universal and updatable: the keys of every circuit of size at most $N$ are derived from it by a deterministic public preprocessing, so PLONK is a [[succinct-argument#universalupdatable-snarks|universal SNARK]]; proofs are a constant number of $\GG_1$ and field elements, and verification is fully succinct — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]].
 
 ## Notes
 

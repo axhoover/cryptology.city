@@ -17,4 +17,4 @@ cryptobib_key: EC:KowWee19
 
 ## Abstract
 
-TODO — abstract.
+We present compact attribute-based encryption (ABE) schemes for NC1 that are adaptively secure under the k-Lin assumption with polynomial security loss. Our KP-ABE scheme achieves ciphertext size that is linear in the atttribute length and independent of the policy size even in the many-use setting, and we achieve an analogous efficiency guarantee for CP-ABE. This resolves the central open problem posed by Lewko and Waters (CRYPTO 2011). Previous adaptively secure constructions either impose an attribute “one-use restriction” (or the ciphertext size grows with the policy size), or require q-type assumptions.

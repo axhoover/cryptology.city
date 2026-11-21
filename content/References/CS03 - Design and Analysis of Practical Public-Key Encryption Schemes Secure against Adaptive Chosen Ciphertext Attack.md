@@ -17,4 +17,11 @@ cryptobib_key: CraSho03
 
 ## Abstract
 
-TODO — abstract.
+A new public key encryption scheme, along with several variants,
+is proposed and analyzed.
+The scheme and its variants are quite practical, and are proved
+secure
+against adaptive chosen ciphertext attack under standard
+intractability assumptions.
+These appear to be the first public-key encryption schemes
+in the literature that are simultaneously practical and provably secure.

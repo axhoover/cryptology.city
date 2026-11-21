@@ -16,11 +16,13 @@ Private Information Retrieval (PIR) is a primitive that allows a client to acces
 
 ## Syntax
 
-A $k$-server Private Information Retrieval (PIR) for a database of size $n$ is a tuple of efficient functions $(\Query, \Answer, \mathsf{Compute})$, with respect to randomness space $R$ such that:
+A one-round $k$-server Private Information Retrieval (PIR) for databases $D \in \bits^n$ is a tuple of algorithms $(\Query, \Answer, \Recon)$, each running in time polynomial in $n$, with respect to a randomness space $R$:
 
-- Generally, we consider the size of the initial queries to be $u$ bits each and the answers to be $d$ bits each.
-- In general, we can consider the total communication of a PIR as $k(u + d)$.
-- A PIR is non-trivial only so long as the communication is less than $n$.
+- $\Query(i; r) \to (q_1, \ldots, q_k)$ takes an index $i \in [n]$ and coins $r \in R$, outputting one query per server;
+- $\Answer(s, q_s, D) \to a_s$ is deterministic and takes a server index $s \in [k]$, that server's query $q_s$ and the database $D$, outputting an answer $a_s$;
+- $\Recon(i, a_1, \ldots, a_k; r) \to x$ outputs a bit $x \in \bits$.
+
+The total communication is the maximum of $\sum_{s \in [k]} (|q_s| + |a_s|)$ over $i$, $r$ and $D$. The scheme in which one server sends all of $D$ is correct and private with communication $n$, so a PIR is non-trivial only with communication below $n$ — standard.
 
 ## Properties
 
@@ -30,15 +32,39 @@ A PIR is correct if for all $D \in \bits^n$, $i \in [n]$, and $r \in R$ $$\Recon
 
 ### Privacy
 
-A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and $q \in \bits^u$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
+A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and every query $q$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
 
 Intuitively, this means that each server observes the same query uploaded with the same probability.
+
+As an object, IT-PIR denotes, for some constant $k \ge 2$, some constant $c < 1$ and some constant $C$, all fixed before $n$, a $k$-server scheme for every $n$ that is correct and private as defined above, both perfectly, with total communication at most $C \cdot n^c$.
 
 # Variations
 
 ## Computational Multi-server PIR
 
-Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers. In this setting, the syntax remains the same, but now the query distribution is only required to be computationally indistinguishable for any two index pairs.
+Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers ([[it-pir-to-computational-multi-server-pir|IT-PIR ⇒ Computational Multi-server PIR]]). The syntax is that of IT-PIR with a security parameter: $\Query(1^\secpar, i; r)$, $\Answer(1^\secpar, s, q_s, D)$ and $\Recon(1^\secpar, i, a_1, \ldots, a_k; r)$ run in time polynomial in $\secpar$ and $n$, and correctness is required for every $\secpar$. For each server $s \in [k]$, the privacy game asks $\calA$ to tell which of two indices of its choice server $s$'s query encodes.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{priv}}_{\Pi,s,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(i_0, i_1, \stA) \gets \calA(1^\secpar)$; $b \getsr \bits$
+\Comment{$i_0, i_1 \in [n]$}
+\State $(q_1, \ldots, q_k) \gets \Query(1^\secpar, i_b)$
+\State $b' \gets \calA(q_s, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A scheme $\Pi$ is **computationally private** if for every $s \in [k]$ and all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{priv}}_{\Pi,s,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{priv}}_{\Pi,s,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. As an object, computational multi-server PIR denotes, for some constant $k \ge 2$, a polynomial $p$ and a constant $c < 1$, all fixed before $n$, a perfectly correct and computationally private $k$-server scheme for every $n = n(\secpar) \le \poly(\secpar)$ with total communication at most $p(\secpar) \cdot n^c$.
 
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
@@ -56,7 +82,7 @@ In $k$-server PIR with preprocessing, each server stores, besides $D$, polynomia
 - For every constant $k \ge 2$ there is a $k$-server information-theoretic PIR with communication $O(n^{1/(2k-1)})$, generalizing the two-server $O(n^{1/3})$ of CGKS98 — [[Amb97 - Upper Bound on Communication Complexity of Private Information Retrieval|Amb97]]. BIKR02 lower this to $n^{O(\log\log k/(k \log k))}$, below $O(n^{1/(2k-1)})$ for every $k \ge 3$ ($O(n^{1/5.25})$ for three servers), and obtain $k$-query binary locally decodable codes of length $\exp(n^{O(\log\log k/(k\log k))})$, shorter than earlier ones for every $k \ge 4$ — [[BIKR02 - Breaking the O(n1(2k-1)) Barrier for Information-Theoretic Private Information Retrieval|BIKR02]].
 - There is a two-server information-theoretic PIR with total communication $n^{O(\sqrt{\log\log n/\log n})}$, improving the $O(n^{1/3})$ of earlier two-server schemes and matching the known three-server schemes; it reduces matching-vector PIR from 3 or 4 servers to 2 by recasting it as polynomial interpolation and adding partial derivatives — [[DG15 - 2-Server PIR with Sub-Polynomial Communication|DG15]].
 - For every Mersenne prime $2^t - 1$ there are 3-query locally decodable codes of length $\exp(n^{1/t})$; with the largest Mersenne prime known in 2007 this gives length below $\exp(n^{10^{-7}})$ and 3-server information-theoretic PIR with communication $O(n^{10^{-7}})$, and if there are infinitely many Mersenne primes the codes have length $\exp(n^{O(1/\log\log n)})$ for infinitely many $n$ — [[Yek07 - Towards 3-query locally decodable codes of subexponential length|Yek07]]. Unconditionally, 3-query locally decodable codes of length $\exp(\exp(O(\sqrt{\log n \log\log n})))$ exist, with $2^r$-query analogues, and give 3-server PIR with communication $2^{\tilde O(\sqrt{\log n})}$ — [[Efr09 - 3-query locally decodable codes of subexponential length|Efr09]]; 3-server PIR with communication $2^{\tilde O((\log n)^{1/3})}$ follows from matching vectors and derivatives — [[GKS25 - Improved PIR Schemes using Matching Vectors and Derivatives|GKS25]].
-- Locally decodable codes are related to smooth codes, whose decoder queries no codeword position much more often than uniformly — [[KT00 - On the efficiency of local decoding procedures for error-correcting codes|KT00]]. A perfectly smooth non-adaptive $q$-query code of length $N$ over $\Sigma$, whose decoder is always correct on an uncorrupted codeword and whose every query is uniform on $[N]$, gives $q$-server PIR with $q(\log N + \log |\Sigma|)$ bits of communication: server $j$ stores the encoded database and returns the symbol at the decoder's $j$-th query — standard. In the other direction, one-round two-server information-theoretic PIR reduces to 2-query locally decodable codes; binary linear 2-query codes have length $2^{\Omega(n)}$, so a two-server scheme whose answers are linear combinations of the database, with $t$-bit queries and $a$-bit answers, has $t = \Omega(n/2^a)$ — [[GKST06 - Lower bounds for linear locally decodable codes and private information retrieval|GKST06]]. Every binary 2-query locally decodable code has length $2^{\Omega(n)}$, linear or not — [[KdW03 - Exponential lower bound for 2-query locally decodable codes via a quantum argument|KdW03]] — and one-round two-server PIR with one-bit answers needs queries of at least $n - 2$ bits, against the upper bound $n - 1$, improving the roughly $0.25n$ of KdW03 — [[BFG06 - A tight lower bound for restricted PIR protocols|BFG06]].
+- Locally decodable codes are related to smooth codes, whose decoder queries no codeword position much more often than uniformly — [[KT00 - On the efficiency of local decoding procedures for error-correcting codes|KT00]]. A perfectly smooth non-adaptive $q$-query code of length $N$ over $\Sigma$, whose decoder is always correct on an uncorrupted codeword and whose every query is uniform on $[N]$, gives $q$-server PIR with $q(\log N + \log |\Sigma|)$ bits of communication: server $j$ stores the encoded database and returns the symbol at the decoder's $j$-th query — standard. In the other direction, one-round two-server information-theoretic PIR reduces to 2-query locally decodable codes; binary linear 2-query codes have length $2^{\Omega(n)}$, so a two-server scheme whose answers are linear combinations of the database, with $t$-bit queries and $a$-bit answers, has $t = \Omega(n/2^a)$ — [[GKST06 - Lower bounds for linear locally decodable codes and private information retrieval|GKST06]]. Every binary 2-query locally decodable code has length $2^{\Omega(n)}$, linear or not, and a one-round two-server PIR with one-bit answers that recovers $D[i]$ with probability at least $1/2 + \varepsilon$ needs $t$-bit queries with $t \ge (1 - H(1/2 + 4\varepsilon/7))n - 2$, for $H$ the binary entropy function, so $t \ge (1 - H(11/14))n - 2 > 0.25n - 2$ under perfect recovery — [[KdW03 - Exponential lower bound for 2-query locally decodable codes via a quantum argument|KdW03]]. Under perfect recovery the bound is $t \ge n - 2$ — [[BFG06 - A tight lower bound for restricted PIR protocols|BFG06]] — against the upper bound $n - 1$, which schemes that output the XOR of the two answer bits attain — [[KdW03 - Exponential lower bound for 2-query locally decodable codes via a quantum argument|KdW03]].
 - In the offline/online model the client fetches a hint before choosing its index, and the online phase then runs in time sublinear in $n$ without extra server storage; the protocols can be statistically secure with two servers and are computationally secure with one, and both are optimal for the trade-off between communication and running time in this model — [[CK20 - Private Information Retrieval with Sublinear Online Time|CK20]]. From [[hash-function#preimage-resistance-one-wayness|one-way functions]], two servers reach $\tilde O(n^{1/4})$ bandwidth with $\tilde O(n^{1/2})$ computation per query and $\tilde O(n^{1/2})$ client storage — [[GZS24 - Efficient Pre-processing PIR Without Public-Key Cryptography|GZS24]] — and polylogarithmic bandwidth with $\tilde O_\secpar(n^{1/2+\varepsilon})$ client space and $n^{1+\varepsilon}$ server space — [[GZSP25 - Pseudorandom Functions with Weak Programming Privacy and Applications to Private Information Retrieval|GZSP25]].
 
 <!-- BEGIN GENERATED participates-in 8fbaf879ee65 -->

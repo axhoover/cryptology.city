@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Subexponential LPN ⇒ Zero-bit PRC"
+title: "Polylogarithmic-dimension LPN ⇒ Substitution-robust zero-bit PRC"
 aliases: []
 id: red-lwe-to-zero-bit-prc-cg24
 kind: implication
-hypotheses: [subexponential-lpn]
-conclusion: zero-bit-prc
+hypotheses: [polylog-dimension-lpn]
+conclusion: substitution-robust-zero-bit-prc
 class: unstated
 model: standard
 source:
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Subexponential LPN ⇒ Zero-bit PRC
+# Polylogarithmic-dimension LPN ⇒ Substitution-robust zero-bit PRC
 
 ## Statement
 
-$2^{O(\sqrt{n})}$-hardness of [[learning-parity-with-noise#subexponential-lpn|LPN]] implies a [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] robust to a constant rate of substitutions — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
+Suppose that there is a constant $\eta \in (0, 1/2)$ such that, for every function $g(n) = \Omega(\log^2 n)$, $(g(n), \eta)$-[[learning-parity-with-noise|LPN]] with $n$ samples is hard for every polynomial-time adversary ([[learning-parity-with-noise#polylogarithmic-dimension-lpn|polylogarithmic-dimension LPN]]; [[CG24 - Pseudorandom Error-Correcting Codes|CG24]], arXiv v1, §5, first case of Assumption 1). Then for every constant $p \in (0, 1/2)$ there is a zero-bit public-key PRC $\mathsf{PRC}_p$ robust to every $p$-bounded channel (in the sense of §5.2) — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] (arXiv v1, Theorem 2). With the decoding and encoding keys together as its key, each $\mathsf{PRC}_p$ is a pseudorandom and sound zero-bit PRC with the same robustness, so the family $(\mathsf{PRC}_p)_{p \in (0, 1/2)}$ is a [[pseudorandom-error-correcting-code#substitution-robust-zero-bit-prc|substitution-robust zero-bit PRC]] — standard.
 
 ## Notes
 

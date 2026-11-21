@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
-security-loss: "hiding: at most twice the PRG advantage; binding: statistical, error at most $2^{-\\secpar}$"
+security-loss: "hiding: at most twice the PRG advantage of the length-tripling $G$, and stretching a given PRG to $G$ adds its own loss; binding: statistical, error at most $2^{-\\secpar}$"
 rationale:
   class: "The committer calls the PRG only as an oracle, the hiding reduction runs any distinguisher as an oracle in two PRG hybrids, and binding is statistical and needs no reduction."
 ---
@@ -20,11 +20,11 @@ rationale:
 
 ## Statement
 
-A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding bit [[commitment-scheme|commitment]], computationally [[commitment-scheme#hiding-for-adversarial-public-parameters|hiding for every]] $\pp$: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding bit [[commitment-scheme|commitment]], computationally [[commitment-scheme#hiding-for-adversarial-public-parameters|hiding for every]] $\pp$: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]]. Any PRG can be [[pseudorandom-generator#pseudorandomness|stretched]] to length $3\secpar$ — standard.
 
 ## Sketch
 
-Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so commitments to $0$ and $1$ are two hybrids apart. Binding: opening to both bits requires seeds $s_0, s_1$ with $G(s_0) \oplus G(s_1) = \pp$; at most $2^{2\secpar}$ of the $2^{3\secpar}$ strings $\pp$ admit such a pair, so binding fails with probability at most $2^{-\secpar}$ over the receiver's message.
+An honest opening always verifies. Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so commitments to $0$ and $1$ are two hybrids apart. Binding: opening to both bits requires seeds $s_0, s_1$ with $G(s_0) \oplus G(s_1) = \pp$; at most $2^{2\secpar}$ of the $2^{3\secpar}$ strings $\pp$ admit such a pair, so binding fails with probability at most $2^{-\secpar}$ over the receiver's message.
 
 ## Notes
 

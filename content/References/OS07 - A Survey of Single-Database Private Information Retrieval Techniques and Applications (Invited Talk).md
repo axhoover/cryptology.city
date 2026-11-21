@@ -17,4 +17,14 @@ cryptobib_key: PKC:OstSke07
 
 ## Abstract
 
-TODO — abstract.
+In this paper we survey the notion of Single-Database Private
+Information Retrieval (PIR). The first Single-Database PIR was
+constructed in 1997 by Kushilevitz and Ostrovsky and since then
+Single-Database PIR has emerged as an important cryptographic
+primitive. For example, Single-Database PIR turned out to be
+intimately connected to collision-resistant hash functions,
+oblivious transfer and public-key encryptions with additional
+properties. In this survey, we give an overview of many of the
+constructions for Single-Database PIR (including an abstract
+construction based upon homomorphic encryption) and describe some of
+the connections of PIR to other primitives.

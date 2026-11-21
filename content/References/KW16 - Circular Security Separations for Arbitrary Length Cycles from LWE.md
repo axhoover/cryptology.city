@@ -17,4 +17,4 @@ cryptobib_key: C:KopWat16
 
 ## Abstract
 
-TODO — abstract.
+We describe a public key encryption that is IND-CPA secure under the Learning with Errors (LWE) assumption, but that is not circular secure for arbitrary length cycles. Previous separation results for cycle length greater than 2 require the use of indistinguishability obfuscation, which is not currently realizable under standard assumptions.

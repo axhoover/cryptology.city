@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-If [[factoring|factoring]] $N = pq$ is hard for independent uniform $\secpar$-bit primes $p, q$, then [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] ($p \equiv q \equiv 3 \pmod 4$) is hard: for every efficient $\calA$ that factors Blum integers with probability $\varepsilon$, running $\calA$ on a factoring instance factors it with probability at least $(1/4 - o(1))\,\varepsilon$ — folklore.
+If [[factoring|factoring]] $N = pq$ is hard for independent uniform $\secpar$-bit primes $p, q$, then [[factoring#factoring-blum-integers|factoring Blum integers]] ($p \equiv q \equiv 3 \pmod 4$) is hard: for every efficient $\calA$ that factors Blum integers with probability $\varepsilon$, running $\calA$ on a factoring instance factors it with probability at least $(1/4 - o(1))\,\varepsilon$ — folklore.
 
 ## Sketch
 

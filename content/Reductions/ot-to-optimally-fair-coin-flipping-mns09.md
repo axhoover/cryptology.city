@@ -18,11 +18,11 @@ security-loss: "additive: the bias $O(1/r)$ with an ideal dealer, plus the simul
 
 ## Statement
 
-If [[oblivious-transfer|OT]] exists, then for every polynomial $r$ there is an $r$-round two-party [[coin-flipping#optimally-fair-coin-flipping|coin-flipping protocol]] with bias $O(1/r)$, matching Cleve's lower bound — [[MNS09 - An Optimally Fair Coin Toss|MNS09]].
+If [[oblivious-transfer|OT]] exists, then for every polynomial $r$ there is an $r$-round two-party [[coin-flipping#optimally-fair-coin-flipping|coin-flipping protocol]] in which the honest party outputs a bit even when the other party aborts, with bias at most $C/r + \negl(\secpar)$ for a constant $C$ independent of $r$, matching Cleve's lower bound — [[MNS09 - An Optimally Fair Coin Toss|MNS09]].
 
 ## Sketch
 
-A secure computation deals both parties, round by round, values that are independent uniform bits before a secret uniform round $i^* \in [r]$ and equal to the outcome from $i^*$ on; when a party aborts, the other outputs its last value. An aborting party changes the outcome only by aborting at $i^*$ itself, which its view lets it guess with probability $O(1/r)$, so the bias is $O(1/r)$ — [[MNS09 - An Optimally Fair Coin Toss|MNS09]].
+A secure computation deals both parties, round by round, values that are independent uniform bits before a secret uniform round $i^* \in [r]$ and equal to the outcome from $i^*$ on; when a party aborts, the other outputs its last value. An aborting party changes the outcome only by aborting at $i^*$ itself, which its view lets it guess with probability $O(1/r)$, so the bias is $O(1/r)$ — [[MNS09 - An Optimally Fair Coin Toss|MNS09]]. In an honest run both parties output the dealer's final value, the uniform outcome, so the protocol is correct — standard.
 
 ## Notes
 

@@ -6,7 +6,7 @@ aliases: []
 id: red-polynomial-ratio-lwe-to-sis
 kind: implication
 hypotheses: [polynomial-ratio-lwe]
-conclusion: sis
+conclusion: bit-compressing-sis
 class: fully-black-box
 model: standard
 source: folklore
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $q$ be prime, $\chi$ the discrete Gaussian over $\ZZ$ of width $\alpha q$, and $\beta \le 1/(4\alpha)$ with $\beta < q$. If decision [[learning-with-errors|LWE]] is hard for $(n, q, \chi, m)$, then [[shortest-integer-solution|SIS]] is hard for $(n, m, q, \beta)$, with a constant-factor loss — folklore. Under [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] this gives SIS in the regime $m > n \log q$, $\sqrt{m} \le \beta < q$: take $\alpha = 1/n$, a prime $q \in [2n^{1.5}, 4n^{1.5}]$ (so $\alpha q \ge 2\sqrt{n}$), $m = \lceil 3n \log q \rceil$ and $\beta = \sqrt{m}$, which is at most $n/4 = 1/(4\alpha)$ for all large $n$; more generally $\alpha = n^{-c}$ with $\sqrt{m} \le \beta \le n^c/4$.
+Let $q$ be prime, $\chi$ the discrete Gaussian over $\ZZ$ of width $\alpha q$, and $\beta \le 1/(4\alpha)$ with $\beta < q$. If decision [[learning-with-errors|LWE]] is hard for $(n, q, \chi, m)$, then [[shortest-integer-solution|SIS]] is hard for $(n, m, q, \beta)$, with a constant-factor loss — folklore. Under [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] this gives [[shortest-integer-solution#bit-compressing-sis|bit-compressing SIS]], in the regime $m \ge n \log q + 1$, $\sqrt{m} \le \beta < q$: take $\alpha = 1/n$, a prime $q \in [2n^{1.5}, 4n^{1.5}]$ (so $\alpha q \ge 2\sqrt{n}$), $m = \lceil 3n \log q \rceil$ and $\beta = \sqrt{m}$, which is at most $n/4 = 1/(4\alpha)$ for all large $n$; more generally $\alpha = n^{-c}$ with $\sqrt{m} \le \beta \le n^c/4$.
 
 ## Sketch
 

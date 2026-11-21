@@ -17,4 +17,4 @@ cryptobib_key: EPRINT:Dent06a
 
 ## Abstract
 
-TODO — abstract.
+In this note we prove that the controversial Diffie-Hellman Knowledge problem is secure in the generic group model. This appears to be the first paper that presents any evidence as to whether the Diffie-Hellman Knowledge problem is true or false.

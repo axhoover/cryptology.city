@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permutations]] exist, then in the common reference string model every well-formed multi-party functionality has a protocol that UC-realizes it against a malicious adversary statically corrupting any number of parties ([[secure-multi-party-computation#universal-composability-uc|UC MPC]]) — [[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]].
+If [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permutations]] exist, then in the common reference string model every well-formed multi-party functionality has a non-trivial protocol, one in which every party receives its output when no party is corrupted and every message is delivered, that UC-realizes it against a malicious adversary statically corrupting any number of parties ([[secure-multi-party-computation#universal-composability-uc|UC MPC]]) — [[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]].
 
 ## Notes
 

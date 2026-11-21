@@ -7,11 +7,13 @@ aliases:
   - Fuzzy identity-based encryption
 title: Fuzzy identity-based encryption
 id: fuzzy-ibe
+variants:
+  large-universe-fuzzy-ibe: "#large-universe-fuzzy-ibe"
 ---
 
 # Fuzzy identity-based encryption
 
-**Fuzzy identity-based encryption (Fuzzy IBE)** is an extension of [[identity-based-encryption|IBE]] in which identities are represented as sets of descriptive attributes drawn from a universe $\calU$. A key for attribute set $\omega$ can decrypt a ciphertext encrypted under attribute set $\omega'$ if and only if the two sets overlap by at least $t$ attributes: $|\omega \cap \omega'| \ge t$. This threshold-based partial matching makes Fuzzy IBE suitable for biometric identities, where noise prevents exact matching. Sahai and Waters (2005) introduced Fuzzy IBE as the conceptual precursor to attribute-based encryption.
+**Fuzzy identity-based encryption (Fuzzy IBE)** is an extension of [[identity-based-encryption|IBE]] ([[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]) in which identities are represented as sets of descriptive attributes drawn from a universe $\calU$. A key for attribute set $\omega$ can decrypt a ciphertext encrypted under attribute set $\omega'$ if and only if the two sets overlap by at least $t$ attributes: $|\omega \cap \omega'| \ge t$. This threshold-based partial matching makes Fuzzy IBE suitable for biometric identities, where noise prevents exact matching. Sahai and Waters (2005) introduced Fuzzy IBE as the conceptual precursor to attribute-based encryption.
 
 ## Syntax
 
@@ -38,7 +40,7 @@ over $(\pp, \msk) \gets \Setup(1^\secpar, \calU, t)$ and randomness of $\KeyGen$
 
 ### IND-FIBE-CPA Security
 
-The adversary queries the key generation oracle for attribute sets of its choice. Admissibility requires that no queried set $\omega$ has $|\omega \cap \omega^*| \ge t$, since such a key would decrypt the challenge ciphertext.
+The adversary queries the key generation oracle for attribute sets of its choice. An **admissible** adversary outputs $m_0, m_1 \in \calM$ with $|m_0| = |m_1|$, since otherwise ciphertext length may reveal $b$, and queries no set $\omega$ with $|\omega \cap \omega^*| \ge t$, since such a key would decrypt the challenge ciphertext.
 
 ```pseudocode
 \begin{algorithm}
@@ -48,7 +50,7 @@ The adversary queries the key generation oracle for attribute sets of its choice
 \State $(\pp, \msk) \gets \Setup(1^\secpar, \calU, t)$; $b \getsr \bits$
 \State $\calO_{\mathrm{key}}(\omega) := \KeyGen(\msk, \omega)$
 \State $(\omega^*, m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}}(1^\secpar, \pp)$
-\Comment{$\calA$ may not have queried $\calO_{\mathrm{key}}(\omega)$ for $|\omega \cap \omega^*| \ge t$}
+\Comment{$\calA$ may not have queried $\calO_{\mathrm{key}}(\omega)$ for $|\omega \cap \omega^*| \ge t$; $m_0, m_1 \in \calM$, $|m_0| = |m_1|$}
 \State $c^* \gets \Enc(\pp, \omega^*, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
 \Comment{$\calA$ may not query $\calO_{\mathrm{key}}(\omega)$ for $|\omega \cap \omega^*| \ge t$}
@@ -75,22 +77,28 @@ In the **selective** variant, the adversary commits to $\omega^*$ before $\Setup
 
 In **small-universe** Fuzzy IBE, the attribute universe $\calU$ is fixed and encoded into $\pp$ at $\Setup$ time. In **large-universe** variants, attributes can be arbitrary strings drawn lazily, typically at the cost of larger parameters.
 
+## Large-universe Fuzzy IBE
+
+As an object, large-universe Fuzzy IBE denotes a Fuzzy IBE scheme whose attribute universe $\calU_\secpar$ is fixed by the scheme and contains $\bits^\secpar$ for every $\secpar$, so that $\Setup$ takes $(1^\secpar, t)$, and whose message space contains, for every $\secpar$, two distinct messages of the same length that an efficient algorithm outputs given $\pp$. For every threshold $t = t(\secpar)$ with $1 \le t(\secpar) \le \poly(\secpar)$, the scheme is $(1-\negl(\secpar))$-[[#Correctness|correct]] and [[#IND-FIBE-CPA Security|IND-FIBE-CPA-secure]]. Three cases make the notion trivial or PKE-based: $|\calM| = 1$; a threshold larger than every attribute set; and $t = 1$ with polynomially many attributes, where one [[public-key-encryption|PKE]] key pair per attribute suffices — standard.
+
 # Other results
 
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
 - SW05 introduced Fuzzy IBE and gave the first construction under the Selective-ID security model — [[SW05 - Fuzzy Identity-Based Encryption|SW05]]
 
-<!-- BEGIN GENERATED participates-in 9f4fd1ab577d -->
+<!-- BEGIN GENERATED participates-in 928d01cf306a -->
 
 ## Participates in
 
 **Builds on Fuzzy identity-based encryption**
 
-- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
+- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]] (via [[fuzzy-identity-based-encryption#large-universe-fuzzy-ibe|Large-universe Fuzzy IBE]])
+- [[large-universe-fuzzy-ibe-to-fuzzy-ibe|Large-universe Fuzzy IBE ⇒ Fuzzy IBE]] (via [[fuzzy-identity-based-encryption#large-universe-fuzzy-ibe|Large-universe Fuzzy IBE]])
 
 **Produces Fuzzy identity-based encryption**
 
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
+- [[large-universe-fuzzy-ibe-to-fuzzy-ibe|Large-universe Fuzzy IBE ⇒ Fuzzy IBE]]
 
 <!-- END GENERATED participates-in -->

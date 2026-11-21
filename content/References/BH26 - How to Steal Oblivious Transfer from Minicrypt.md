@@ -24,4 +24,14 @@ bibtex: |
 
 ## Abstract
 
-We introduce _Oblivious Interactive Hash Functions_ (OIHFs), a new cryptographic primitive that sits between Minicrypt and Cryptomania. We show: (1) OIHFs can be constructed from a random oracle (placing them in Minicrypt); (2) OIHFs imply oblivious transfer via a non-black-box reduction; and (3) OIHFs can be constructed from oblivious transfer. The non-black-box implication of OT from OIHFs challenges the classical 36-year-old separation between Minicrypt and Cryptomania established by Impagliazzo and Rudich. However, constructing OIHFs in the standard model (without a random oracle) currently requires Cryptomania assumptions, so the full separation remains intact for black-box constructions.
+The celebrated work of Impagliazzo and Rudich (STOC'89) provides an oracle separation between those primitives implied by a random oracle (RO) and those that imply key agreement and public-key cryptography. For the last 36 years, this result seemed to cleanly separate two worlds: Minicrypt, which is often described as what can be achieved from only ROs, and Cryptomania, which is a world where public-key cryptography exists.
+
+This work presents a natural primitive, called an oblivious interactive hash function (OIHF), and shows the following: (1) OIHFs can be constructed from ROs. (2) OIHFs can be constructed from oblivious transfer (OT), and hence they are implied by various well-studied public-key-style assumptions. (3) The existence of an OIHF implies OT, via a non-black-box reduction.
+
+Point (1) places the primitive into Minicrypt, point (2) implies that numerous well-studied standard-model complexity assumptions imply that OIHFs exist, and point (3) shows that this primitive circumvents the barrier imposed by Impagliazzo and Rudich.
+
+Our results show that a protocol constructible in Minicrypt implies OT. However, this _does not_ imply that OT can be constructed from RO; indeed, Impagliazzo/Rudich shows this is impossible. Our non-black-box reduction is well-defined only for standard-model OIHFs, i.e. ones that do not use RO, and at present we can only construct standard-model OIHF in Cryptomania. This is to say that we do not propose an OT protocol that can be constructed from a cryptographic hash function. Rather, our results call into question the value of the random oracle model as an idealization of Minicrypt, and they question where the boundaries of Minicrypt lie.
+
+# Notes
+
+BH26 construct [[oblivious-interactive-hash-function|OIHFs]] from random oracles and from [[oblivious-transfer|OT]], and construct OT from an OIHF by a non-black-box reduction that is well defined only for standard-model OIHFs; standard-model OIHFs are known only from Cryptomania assumptions, so the results give no OT protocol from a random oracle, which [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] rules out.

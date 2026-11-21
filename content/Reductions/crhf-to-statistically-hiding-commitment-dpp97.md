@@ -12,6 +12,8 @@ model: standard
 source:
   - "[[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]]"
   - "[[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "none: two valid openings to different messages are a collision"
 rationale:
   class: "The committer evaluates the hash only as an oracle, and the reduction outputs the two preimages from any committer that opens one commitment two ways, running it once as an oracle."
@@ -21,11 +23,11 @@ rationale:
 
 ## Statement
 
-A [[hash-function#collision-resistance|collision-resistant hash function]] family yields a two-message commitment scheme that is statistically [[commitment-scheme#hiding|hiding]] and computationally [[commitment-scheme#binding|binding]]: the receiver sends a hash key $k$, and the committer sends a commitment computed with $\hash_k$ — [[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]], [[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]].
+A [[hash-function#collision-resistance|collision-resistant hash function]] family yields a two-message commitment scheme that is [[commitment-scheme#statistically-hiding-commitments|statistically hiding]] and computationally [[commitment-scheme#binding|binding]]: the receiver sends a hash key $k$, and the committer sends a commitment computed with $\hash_k$ — [[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]], [[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]].
 
 ## Sketch
 
-Let $\hash_k : \bits^n \to \bits^{n'}$ compress by $n - n' \ge |m| + 2\log(1/\varepsilon)$ bits; Merkle–Damgård iteration gives such a family from any collision-resistant one — [[Dam89 - A Design Principle for Hash Functions|Dam89]]. To commit to $m$, sample $x \getsr \bits^n$ and a pairwise-independent $g : \bits^n \to \bits^{|m|}$, and send $(\hash_k(x), g, g(x) \oplus m)$; to open, reveal $x$. The input $x$ keeps average min-entropy $n - n'$ given $\hash_k(x)$, so by the leftover hash lemma $g(x)$ is $\varepsilon$-close to uniform and hiding holds against unbounded receivers for every key; two openings $x \ne x'$ to different messages share $\hash_k(x) = \hash_k(x')$ — standard.
+Let $\hash_k : \bits^n \to \bits^{n'}$ compress by $n - n' \ge |m| + 2\log(1/\varepsilon)$ bits; Merkle–Damgård iteration gives such a family from any collision-resistant one — [[Dam89 - A Design Principle for Hash Functions|Dam89]]. To commit to $m$, sample $x \getsr \bits^n$ and a pairwise-independent $g : \bits^n \to \bits^{|m|}$, and send $(\hash_k(x), g, g(x) \oplus m)$; to open, reveal $x$, which always verifies. The input $x$ keeps average min-entropy $n - n'$ given $\hash_k(x)$, so by the leftover hash lemma $g(x)$ is $\varepsilon$-close to uniform and hiding holds against unbounded receivers for every key; two openings $x \ne x'$ to different messages share $\hash_k(x) = \hash_k(x')$ — standard.
 
 ## Notes
 

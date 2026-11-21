@@ -11,6 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[BV14 - Lattice-based FHE as secure as PKE|BV14]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "additive: at most twice the sum of one LWE advantage per key of the chain, from the hybrid along it, the last step being IND-CPA under the first key, plus a statistical leftover-hash term in that last step"
 rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of bootstrapping keys, and the proof is a hybrid over the keys of the chain in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
@@ -20,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for circuits of any depth fixed at key generation. Its security therefore rests on worst-case lattice problems with the approximation factors of plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions and $\tilde{O}(n^{2+\varepsilon})$ under classical ones, for any constant $\varepsilon > 0$ — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for circuits of any depth fixed at key generation. Its security therefore rests on worst-case lattice problems with the approximation factors of plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions and $\tilde{O}(n^{2+\varepsilon})$ under classical ones, for any constant $\varepsilon > 0$ — [[BV14 - Lattice-based FHE as secure as PKE|BV14]]. Its messages are bits — standard.
 
 ## Sketch
 

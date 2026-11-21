@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-There is a three-party functionality that no two-round protocol secure against semi-honest adversaries computes using a [[oblivious-transfer#two-round-ot|two-round OT]] protocol only as a black box. Hence there is no fully-black-box construction of [[secure-multi-party-computation#two-round-semi-honest-mpc|two-round semi-honest MPC]] from two-round OT, and the non-black-box use of the OT in the two-round protocols of GS18 and BL18 is necessary. A similar separation holds when one starts from any two-party functionality other than OT — [[ABG+20 - Separating Two-Round Secure Computation From Oblivious Transfer|ABG+20]].
+There is a three-party functionality that no two-round protocol secure against a semi-honest adversary corrupting any number of the parties computes using a [[oblivious-transfer#two-round-ot|two-round OT]] protocol only as a black box. Hence there is no fully-black-box construction of [[secure-multi-party-computation#two-round-semi-honest-mpc|two-round semi-honest MPC]] from two-round OT, and the non-black-box use of the OT in the two-round protocols of GS18 and BL18 is necessary. A similar separation holds when one starts from any two-party functionality other than OT — [[ABG+20 - Separating Two-Round Secure Computation From Oblivious Transfer|ABG+20]].
 
 ## Notes
 

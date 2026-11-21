@@ -2,7 +2,7 @@
 type: reference
 status: stub
 title: "Kre21"
-source: https://doi.org/10.4230/LIPIcs.TQC.2021.2
+source: https://arxiv.org/abs/2103.09320
 authors: William Kretschmer
 venue: TQC 2021
 published: 2021
@@ -24,8 +24,8 @@ bibtex: |
 
 # [Kre21] Quantum Pseudorandomness and Classical Complexity
 
-**Authors:** William Kretschmer | **Venue:** TQC 2021 | [Source](https://doi.org/10.4230/LIPIcs.TQC.2021.2)
+**Authors:** William Kretschmer | **Venue:** TQC 2021 | [Source](https://arxiv.org/abs/2103.09320)
 
 ## Abstract
 
-TODO — abstract.
+We construct a quantum oracle relative to which $\classBQP = \classQMA$ but cryptographic pseudorandom quantum states and pseudorandom unitary transformations exist, a counterintuitive result in light of the fact that pseudorandom states can be "broken" by quantum Merlin-Arthur adversaries. We explain how this nuance arises as the result of a distinction between algorithms that operate on quantum and classical inputs. On the other hand, we show that some computational complexity assumption is needed to construct pseudorandom states, by proving that pseudorandom states do not exist if $\classBQP = \classPP$. We discuss implications of these results for cryptography, complexity theory, and shadow tomography.

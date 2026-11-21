@@ -22,14 +22,14 @@ rationale:
 Every [[hash-function#preimage-resistance-one-wayness|one-way function]] $f$ is [[hash-function#distributional-one-wayness|distributionally one-way]] with the constant polynomial $p := 2$: for all efficient $\calA$ and all sufficiently large $n$,
 
 $$
-\Delta\big((x, f(x)),\, (\calA(f(x)), f(x))\big) \ge 1 - \Adv^{\mathrm{pr}}_{f,\calA}(n) \ge 1/2, \qquad x \getsr \bits^n,
+\Delta\big((x, f(x)),\, (\calA(1^n, f(x)), f(x))\big) \ge 1 - \Adv^{\mathrm{pr}}_{f,\calA}(n) \ge 1/2, \qquad x \getsr \bits^n,
 $$
 
 with $\Delta$ the statistical distance — folklore.
 
 ## Sketch
 
-The event that the first component is a preimage of the second has probability $1$ under $(x, f(x))$ and probability $\Adv^{\mathrm{pr}}_{f,\calA}(n)$ under $(\calA(f(x)), f(x))$, which bounds the distance below by $1 - \Adv^{\mathrm{pr}}_{f,\calA}(n)$. The advantage is negligible, so it is at most $1/2$ for all sufficiently large $n$.
+The event that the first component is a preimage of the second has probability $1$ under $(x, f(x))$ and probability $\Adv^{\mathrm{pr}}_{f,\calA}(n)$ under $(\calA(1^n, f(x)), f(x))$, which bounds the distance below by $1 - \Adv^{\mathrm{pr}}_{f,\calA}(n)$. The advantage is negligible, so it is at most $1/2$ for all sufficiently large $n$.
 
 ## Notes
 

@@ -5,8 +5,8 @@ title: "IBE ⇒ PKE"
 aliases: []
 id: red-ibe-to-pke
 kind: implication
-hypotheses: [ibe]
-conclusion: pke
+hypotheses: [ind-sid-cpa]
+conclusion: pke-cpa-security
 class: fully-black-box
 model: standard
 source: folklore
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Any [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]-secure [[identity-based-encryption|IBE]] yields an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]]: $\KeyGen$ runs $(\pp, \msk) \gets \Setup(1^\secpar)$, fixes an arbitrary identity $\mathit{id}$, and outputs $\pk = (\pp, \mathit{id})$ and $\sk = \Extract(\msk, \mathit{id})$; encryption is $\Enc(\pp, \mathit{id}, \cdot)$ and decryption is $\Dec(\sk, \cdot)$. The reduction fixes $\mathit{id}$ before $\Setup$ and makes no extraction queries, so [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]] security suffices; the same construction maps [[identity-based-encryption#ind-id-cca-security|IND-ID-CCA]] to [[public-key-encryption#cca-security|IND-CCA]] security — folklore.
+Any [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]]-secure [[identity-based-encryption|IBE]], in particular any [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]-secure one, yields an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]]: $\KeyGen$ runs $(\pp, \msk) \gets \Setup(1^\secpar)$, fixes the identity $\mathit{id} = 0^\secpar \in \calI$, and outputs $\pk = (\pp, \mathit{id})$ and $\sk = \Extract(\msk, \mathit{id})$; encryption is $\Enc(\pp, \mathit{id}, \cdot)$ and decryption is $\Dec(\sk, \cdot)$. The PKE has the IBE's message space, with the two equal-length messages the IBE computes from $\pp$, and is $(1-\negl(\secpar))$-correct by the IBE's correctness. The reduction fixes $\mathit{id}$ before $\Setup$ and makes no extraction queries, so it is a selective IBE adversary; for an IBE whose $\Extract$ is deterministic, the same construction maps [[identity-based-encryption#ind-id-cca-security|IND-ID-CCA]] to [[public-key-encryption#cca-security|IND-CCA]] security, since $\calD(\mathit{id}, \cdot)$ then decrypts under the PKE's own $\sk$ — folklore.
 
 ## Sketch
 

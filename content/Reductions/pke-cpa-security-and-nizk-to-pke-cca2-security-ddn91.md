@@ -5,7 +5,7 @@ title: CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)
 aliases: []
 id: red-pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91
 kind: implication
-hypotheses: [perfectly-correct-pke-cpa-security, nizk-for-np]
+hypotheses: [perfectly-correct-pke-cpa-security, adaptive-zk-nizk-for-np]
 conclusion: pke-cca2-security
 class: free
 model: standard
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-A [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and an adaptively sound [[non-interactive-zero-knowledge#nizk-for-np|NIZK]] proof system for $\classNP$ yield an [[public-key-encryption#cca-security|IND-CCA2-secure]] scheme. [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]] construct a scheme that is non-malleable under adaptive chosen-ciphertext attack, a notion equivalent to IND-CCA2 — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. [[Sah99 - Non-Malleable Non-Interactive Zero Knowledge and Adaptive Chosen-Ciphertext Security|Sah99]] builds one-time simulation-sound NIZK from any NIZK and one-way function, and shows that [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|Naor–Yung double encryption]] with such a proof is IND-CCA2-secure.
+A [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and an adaptively sound, [[non-interactive-zero-knowledge#adaptively-zero-knowledge-nizk-for-np|adaptively zero-knowledge]] [[non-interactive-zero-knowledge|NIZK]] proof system for $\classNP$ yield an [[public-key-encryption#cca-security|IND-CCA2-secure]] scheme. [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]] construct a scheme that is [[public-key-encryption#nm-cca2|non-malleable under adaptive chosen-ciphertext attack]], a notion [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|equivalent to IND-CCA2]] — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. [[Sah99 - Non-Malleable Non-Interactive Zero Knowledge and Adaptive Chosen-Ciphertext Security|Sah99]] builds one-time simulation-sound NIZK from any such NIZK and one-way function, and shows that [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|Naor–Yung double encryption]] with such a proof is IND-CCA2-secure. Both constructions encrypt one message under several independent public keys, so they run on the PKE's [[public-key-encryption#perfectly-correct-cpa-secure-pke|key-independent message space]] $\bits$ (or $\bits^\ell$). The resulting scheme is correct, since an honest ciphertext passes every check of decryption by completeness of its components and the component it decrypts returns $m$ by perfect correctness — standard. In both constructions the challenge ciphertext carries a proof of a statement about encryptions of $m_b$, which the adversary picks after seeing the reference string $\sigma$ in the public key, so zero knowledge is needed for statements chosen after $\sigma$ — standard.
 
 ## Sketch
 

@@ -12,7 +12,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GGM86 - How to construct random functions|GGM86]]"
-security-loss: "factor $q\\ell$ for $q$ queries on $\\ell$-bit inputs: a hybrid over the $\\ell$ tree levels, each step a hybrid over the at most $q$ nodes queried at that level"
+security-loss: "factor $q\\ell$ for $q$ queries on $\\ell$-bit inputs: a hybrid over the $\\ell$ tree levels, each step a hybrid over the at most $q$ nodes queried at that level; this is for the length-doubling $G$, and stretching a given PRG to $G$ adds its own loss"
 rationale:
   class: "The construction calls the length-doubling PRG only as an oracle, once per input bit, and the hybrid reduction runs any PRF distinguisher only as an oracle to build a PRG distinguisher."
 ---
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If $G : \bits^n \to \bits^{2n}$ is a length-doubling [[pseudorandom-generator|PRG]], written $G(s) = G_0(s) \| G_1(s)$ with $|G_0(s)| = |G_1(s)| = n$, then the following is a [[pseudorandom-function|PRF]] with key space and range $\bits^n$ and domain $\bits^\ell$: $\KeyGen(1^\secpar)$ outputs $k \getsr \bits^n$, and $\Eval(k, x_1 \cdots x_\ell) := G_{x_\ell}(G_{x_{\ell-1}}(\cdots G_{x_1}(k) \cdots))$ — [[GGM86 - How to construct random functions|GGM86]].
+If $G : \bits^n \to \bits^{2n}$ is a length-doubling [[pseudorandom-generator|PRG]], written $G(s) = G_0(s) \| G_1(s)$ with $|G_0(s)| = |G_1(s)| = n$, then the following is a [[pseudorandom-function|PRF]] with key space and range $\bits^n$ and domain $\bits^\ell$: $\KeyGen(1^\secpar)$ outputs $k \getsr \bits^n$, and $\Eval(k, x_1 \cdots x_\ell) := G_{x_\ell}(G_{x_{\ell-1}}(\cdots G_{x_1}(k) \cdots))$ — [[GGM86 - How to construct random functions|GGM86]]. Any PRG can be [[pseudorandom-generator#pseudorandomness|stretched]] to a length-doubling $G$ — standard.
 
 ## Sketch
 

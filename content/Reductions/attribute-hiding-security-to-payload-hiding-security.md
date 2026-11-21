@@ -23,4 +23,4 @@ Every [[hidden-vector-encryption#attribute-hiding-security|attribute-hiding]] [[
 
 ## Sketch
 
-Setting $x_0 = x_1 = x^*$ specializes the attribute-hiding game to the payload-hiding game: the challenge $(x^*, m_0, m_1)$ becomes $((x^*, m_0), (x^*, m_1))$, and payload-hiding admissibility (no queried pattern matches $x^*$) implies attribute-hiding admissibility.
+Setting $x_0 = x_1 = x^*$ specializes the attribute-hiding game to the payload-hiding game: the challenge $(x^*, m_0, m_1)$ becomes $((x^*, m_0), (x^*, m_1))$, and payload-hiding admissibility (no queried pattern matches $x^*$) implies attribute-hiding admissibility, the clause $m_0 = m_1$ for a matching key being vacuous.
