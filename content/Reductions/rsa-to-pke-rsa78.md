@@ -26,5 +26,6 @@ Decryption recovers $x = y^d \bmod n$ from $y = x^e \bmod n$ with the trapdoor $
 
 ## Notes
 
+- Against the deterministic scheme $m \mapsto m^e \bmod n$ on $\ZZ_n$, the CPA adversary that submits two distinct messages $m_0, m_1$ and compares the challenge with $m_0^e \bmod n$ has advantage $1$ for every RSA generator, since $m \mapsto m^e \bmod n$ is a permutation of $\ZZ_n$ ([[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]]) — folklore.
 - The Goldreich–Levin bit $\langle x, r \rangle \bmod 2$ is hard-core for $(x, r) \mapsto (x^e \bmod n, r)$, which gives the same bit encryption, with $r$ sent in the clear, without an RSA-specific argument — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]; for an arbitrary trapdoor permutation this is [[tdp-to-pke|TDP ⇒ PKE]].
 - Efficiency: the CPA-secure scheme spends, per plaintext bit, one exponentiation by the public exponent, which may be small, such as $e = 2^{16} + 1$, and a ciphertext of $\log n + 1$ bits; decryption is one exponentiation by $d$ per bit, which the Chinese remainder theorem splits into two exponentiations modulo $p$ and $q$ with half-length exponents. Deterministic RSA encrypts a whole $\log n$-bit block at that cost — standard.

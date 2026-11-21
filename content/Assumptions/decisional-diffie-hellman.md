@@ -25,7 +25,7 @@ The _Decisional Diffie-Hellman (DDH)_ assumption states that, in a cyclic group 
 
 ## Assumption
 
-Informally, the DDH assumption concerns a cyclic group generation algorithm
+Informally, the DDH assumption concerns a [[group-generator|cyclic group generation algorithm]]
 $\GrGen,$ which takes as input a security parameter $1^{\secpar}$ and outputs
 a succinct[^1] description of a cyclic group $(\GG,g,p),$ where $\GG$ is the group
 set, $g$ is a generator for the group, and $p$ is the order of the group. Every
@@ -54,25 +54,17 @@ $$
 \Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) := \left|2 \cdot \Pr\!\left[\Game^{\text{ddh}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. DDH hardness then forces $p$ to exceed every polynomial except with negligible probability: for each constant $c$, the adversary that, when $p \le \secpar^c$, finds $x$ by trying every exponent in $[\secpar^c]$ and outputs $0$ iff $Z_b = Y^x$, and otherwise guesses, has advantage $1 - 1/p \ge 1/2$ whenever $p \le \secpar^c$, and so advantage at least $\frac{1}{2}\Pr[p \le \secpar^c]$ — standard.
-
-If DDH is hard for $\GrGen$, then $1/p$ is negligible, in expectation over $\GrGen$: for each constant $c$, the adversary that finds $x$ by exhaustive search when $p \le \secpar^c$ and outputs $[Z_b \ne Y^x]$, and otherwise guesses, has advantage $1 - 1/p \ge 1/2$ conditioned on any group with $p \le \secpar^c$, so $\Pr[p \le \secpar^c]$ is negligible — standard.
+is negligible. Since a [[group-generator|group generator]] computes the group operation in polynomial time, DDH hardness forces $\mathbb{E}[1/p]$, over the coins of $\GrGen$, to be negligible. For each constant $c$, the adversary that, when $p \le \secpar^c$, finds $x$ by trying every exponent in $[\secpar^c]$ and outputs $[Z_b \ne Y^x]$, and otherwise outputs a uniform bit, wins with probability $1 - \frac{1}{2p}$ on each group with $p \le \secpar^c$ and $\frac12$ on the others, so its advantage is $\mathbb{E}\big[(1 - \frac1p)\,[p \le \secpar^c]\big] \ge \frac12\Pr[p \le \secpar^c]$. Hence $\Pr[p \le \secpar^c]$ is negligible for every $c$, and so is $\mathbb{E}[1/p] \le \Pr[p \le \secpar^{c}] + \secpar^{-c}$ — standard.
 
 ## Known Results
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
-- [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
+- [[ddh-to-pke-elgamal85|DDH ⇒ CPA-secure PKE (ElGamal)]]
 - DDH implies [[pseudorandom-function|PRF]]s via the Naor-Reingold construction, which maps inputs in $\bits^n$ to group elements using a secret exponent vector — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
 - [[no-cdh-to-ddh-jn03|No fixed-construction reduction from CDH to DDH]]: DDH is easy in groups that admit efficient symmetric bilinear pairings (e.g., certain supersingular elliptic curves), where CDH can still be hard: given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$ — [[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]
 - [[no-ddh-to-ibe-prv12|No fully-black-box reduction from DDH to IBE]]
 - In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
-
-## Attacks
-
-- **Baby-step giant-step**: a generic algorithm for the underlying discrete logarithm problem. Given $X = g^x$, it finds $x$ in $O(\sqrt{p})$ group operations and $O(\sqrt{p})$ space by writing $x = im + j$ (where $m = \lceil\sqrt{p}\rceil$) and matching $g^{im} = X \cdot g^{-j}$ across a hash table — [[Sha71 - Class Number, a Theory of Factorization, and Genera|Sha71]]. A DLOG solver breaks DDH: given $(g^x, g^y, Z)$ it computes $x$ and checks whether $Z = (g^y)^x$, so baby-step giant-step distinguishes DDH tuples in $O(\sqrt{p})$ group operations — standard.
-- **DDH is easy in groups with efficient pairings**: in groups $\GG$ that admit an efficient bilinear pairing $e: \GG \times \GG \to \GG_T$ (symmetric/Type-1 pairings, e.g., certain supersingular elliptic curves), DDH is trivially broken. Given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$; this holds iff $z = xy$. DDH is therefore **not** a reasonable assumption in Type-1 pairing groups — see [[bilinear-map-assumptions|bilinear map assumptions]].
-- **Pohlig-Hellman**: if the group order $p$ is smooth (factors into small primes), discrete log (and hence DDH) is easy via the Chinese Remainder Theorem on the prime-order subgroups. This is why DDH is only assumed in **prime-order** groups or carefully chosen subgroups.
 
 # Variations
 
@@ -176,11 +168,22 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 
 Let $\GrGen$ output an asymmetric bilinear group $\Pi = (\GG_1, \GG_2, \GG_T, g_1, g_2, e, p)$: groups of prime order $p$ with $2^{\secpar - 1} \le p < 2^{\secpar}$, generators $g_1$ of $\GG_1$ and $g_2$ of $\GG_2$, and an efficiently computable non-degenerate [[pairings|bilinear pairing]] $e : \GG_1 \times \GG_2 \to \GG_T$. **SXDH, LWE and LPN are sub-exponentially hard over a common prime** for $\GrGen$ if there are constants $\varepsilon, \delta \in (0, 1)$ and $c > 0$ and polynomials $w$ and $\ell_0$ with $w(\secpar) \ge 2\sqrt{k}$ for $k := \lceil \secpar^{1/\varepsilon} \rceil$ such that, for every polynomial $m$ and every polynomial $\ell \ge \ell_0$, for all sufficiently large $\secpar$, every adversary of size at most $2^{\secpar^{c}}$ that receives $\Pi$ with its challenge has advantage at most $2^{-\secpar^{c}}$ in each of three problems: (i) DDH in $\GG_1$ and DDH in $\GG_2$, as in the [[#Assumption|DDH game]]; (ii) [[learning-with-errors#decision-lwe|decision LWE]] over $\ZZ_p$ with secret dimension $k$, $m$ samples and discrete-Gaussian error of width $w$, so that the modulus-to-noise ratio $p/w$ is below $2^{k^{\varepsilon}}$; (iii) [[learning-parity-with-noise#assumption|LPN]] over $\ZZ_p$ with secret dimension $\ell$ and $m$ samples, each noise coordinate $0$ with probability $1 - \ell^{-\delta}$ and uniform in $\ZZ_p$ otherwise. This is the joint premise of [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]] (arXiv v1, Theorem 5.5): sub-exponential hardness of SXDH in bilinear groups of order $p$, of LWE with modulus-to-noise ratio $2^{k^{\varepsilon}}$ and of $\mathrm{LPN}(\ell, n, \ell^{-\delta}, p)$ for $\ell = n^{1/\lceil d/2 \rceil}$, for one efficiently samplable $\secpar$-bit prime $p$; the construction sets $k = \Theta(\secpar^{1/\varepsilon})$ and polynomial noise, so that $p/\poly(\secpar) \le 2^{k^{\varepsilon}}$ (Appendix B) — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]. Problem (i) alone is [[#Sub-exponential SXDH|sub-exponential SXDH]] for the same generator ([[jls21-common-prime-assumptions-to-subexponential-sxdh|SXDH, LWE and LPN over a common prime ⇒ Sub-exponential SXDH]]) — folklore.
 
+# Attacks
+
+In the DDH game write $Z_b = g^{z_b}$, with $z_0 = xy$ and $z_1 = z$.
+
+- **Baby-step giant-step**: a generic algorithm for the underlying discrete logarithm problem. Given $X = g^x$, it finds $x$ in $O(\sqrt{p})$ group operations and $O(\sqrt{p})$ space by writing $x = im + j$ (where $m = \lceil\sqrt{p}\rceil$) and matching $g^{im} = X \cdot g^{-j}$ across a hash table — [[Sha71 - Class Number, a Theory of Factorization, and Genera|Sha71]]. A DLOG solver breaks DDH: given $(g^x, g^y, Z)$ it computes $x$ and checks whether $Z = (g^y)^x$, so baby-step giant-step distinguishes DDH tuples in $O(\sqrt{p})$ group operations — standard. The other DLOG algorithms are listed under [[discrete-logarithm#attacks|DLOG attacks]].
+- **Small prime factors of the group order**: let $r$ be a prime dividing $p$. Then $h := g^{p/r}$ has order $r$, and $X^{p/r} = h^{x \bmod r}$, $Y^{p/r} = h^{y \bmod r}$ and $Z_b^{p/r} = h^{z_b \bmod r}$. The distinguisher reads off $x$, $y$ and $z_b$ modulo $r$ by comparing these elements with $h^0, \ldots, h^{r-1}$, and outputs $[z_b \not\equiv xy \pmod r]$, after $O(r + \log p)$ group operations. A real tuple always gives $0$. For a random tuple, $z \bmod r$ is uniform on $\ZZ_r$ and independent of $(x, y)$, because $z$ is uniform modulo $p$ and $r \mid p$, so the distinguisher outputs $1$ with probability $1 - 1/r$; it wins with probability $\frac12 + \frac12(1 - \frac1r)$, an advantage of $1 - 1/r$ — standard. For a polynomial $B$, finding a prime factor $r \le B$ of $p$ by trial division, running this test if there is one and outputting a uniform bit otherwise gives advantage at least $\frac12\Pr[p \text{ has a prime factor at most } B]$. DDH hardness therefore requires, for every polynomial $B$, that $p$ have a prime factor at most $B$ with negligible probability, whether or not $p$ is smooth and whether or not DLOG is hard; in particular DDH fails for every group generator whose groups have even order, the test with $r = 2$ having advantage $\frac12$. Pohlig–Hellman, which reduces DLOG to the subgroups of prime-power order — [[PH78 - An Improved Algorithm for Computing Logarithms over GF(p) and Its Cryptographic Significance|PH78]], as described in [[Eng07 - Discrete logarithms in curves over finite fields|Eng07]] (Section 1.1) — computes $x$ itself in polynomial time only when every prime factor of $p$ is small; the test above needs only one.
+- **Legendre symbol in $\ZZ_P^*$**: let $P$ be an odd prime and $g$ a generator of $\ZZ_P^*$, so that $(\GG, g, p) = (\ZZ_P^*, g, P - 1)$. Euler's criterion computes the Legendre symbol $\left(\frac{a}{P}\right) \equiv a^{(P-1)/2} \pmod P$ with one exponentiation, and $\left(\frac{g}{P}\right) = -1$, since $g^{(P-1)/2} \ne 1$ is a square root of $1$ modulo the prime $P$; so $\left(\frac{g^x}{P}\right) = (-1)^x$ reveals $x \bmod 2$. This is the attack above for $r = 2$, which divides $P - 1$: the distinguisher outputs $0$ iff $z_b \equiv xy \pmod 2$, that is, iff $\left(\frac{Z_b}{P}\right) = -1$ exactly when $\left(\frac{X}{P}\right) = \left(\frac{Y}{P}\right) = -1$; a real tuple always gives $0$, a random one gives $1$ with probability $\frac12$, and the advantage is $\frac12$ — standard. DDH therefore fails in $\ZZ_P^*$ for every odd prime $P$, including a safe prime $P = 2q + 1$, whose order $2q$ is not smooth and in which DLOG and CDH are conjectured hard ([[computational-diffie-hellman#attacks|CDH attacks]]).
+- **DDH is easy in groups with efficient pairings**: in groups $\GG$ that admit an efficient bilinear pairing $e: \GG \times \GG \to \GG_T$ (symmetric/Type-1 pairings, e.g., certain supersingular elliptic curves), DDH is easy — [[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]. Given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$; for a non-degenerate pairing on a group of prime order $p$ this holds iff $z \equiv xy \pmod p$, so the test has advantage $1 - 1/p$ — standard. DDH is therefore **not** a reasonable assumption in Type-1 pairing groups — see [[bilinear-map-assumptions|bilinear map assumptions]].
+
+The two subgroup attacks need a small prime factor of $p$. DDH is therefore assumed in groups whose order has no small prime factor, typically [[#DDH in prime-order groups|groups of prime order]] $p$ such as the subgroup of quadratic residues modulo a safe prime $P = 2p + 1$ ([[group-generator|group generators]]), every element of which has Legendre symbol $1$ — standard.
+
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 9cbe524c13af -->
+<!-- BEGIN GENERATED participates-in bd18a9c6b27b -->
 
 ## Participates in
 
@@ -203,7 +206,7 @@ Let $\GrGen$ output an asymmetric bilinear group $\Pi = (\GG_1, \GG_2, \GG_T, g_
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]
 - [[ddh-to-pake-koy01|DDH ⇒ PAKE in the CRS model (Katz–Ostrovsky–Yung)]]
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
-- [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
+- [[ddh-to-pke-elgamal85|DDH ⇒ CPA-secure PKE (ElGamal)]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[ddh-to-rerandomizable-rcca-encryption-pr07|Paired-group DDH ⇒ Rerandomizable RCCA encryption (Double-strand Cramer–Shoup)]] (via [[decisional-diffie-hellman#ddh-in-paired-groups|DDH in paired groups]])
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]

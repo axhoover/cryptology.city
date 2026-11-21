@@ -2738,6 +2738,21 @@
    "unlisted": true
   },
   {
+   "id": "generic-attacks",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/generic-attacks.md",
+   "slug": "generic-attacks",
+   "graphSlug": "Glossary/generic-attacks",
+   "title": "Generic attacks",
+   "aliases": [
+    "Generic attack",
+    "Exhaustive key search",
+    "Brute-force attack"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "generic-bilinear-group-model",
    "kind": "variant",
    "type": "glossary",
@@ -2814,6 +2829,20 @@
    "of": "syndrome-decoding",
    "title": "Goppa code indistinguishability",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "group-generator",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/group-generator.md",
+   "slug": "group-generator",
+   "graphSlug": "Glossary/group-generator",
+   "title": "Group generator",
+   "aliases": [
+    "GrGen",
+    "Group generation algorithm"
+   ],
    "unlisted": false
   },
   {
@@ -5200,6 +5229,19 @@
    "anchor": "#one-time-signatures",
    "of": "ds",
    "title": "One-time signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-way-key-exchange",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/key-exchange.md",
+   "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
+   "anchor": "#one-way-security",
+   "of": "ke",
+   "title": "One-way security",
    "aliases": [],
    "unlisted": false
   },
@@ -11101,6 +11143,36 @@
    "title": "CCA1 Security ⇒ CPA Security"
   },
   {
+   "id": "red-cdh-to-bit-string-key-exchange",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "bit-string-key-exchange",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [
+    "[[difference-lemma|fundamental lemma of game playing]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "a factor $q_H$: the CDH adversary outputs a uniformly chosen one of the eavesdropper's $q_H$ random-oracle queries",
+   "rationale": {
+    "class": "The protocol uses only the group generator, the group operations and the random oracle, and the fixed reduction runs any eavesdropper once as an oracle, answering its random-oracle queries itself.",
+    "model": "The reduction answers the eavesdropper's random-oracle queries by lazy sampling, without programming any of them, and reads them to find the Diffie–Hellman value."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-bit-string-key-exchange.md",
+   "slug": "cdh-to-bit-string-key-exchange",
+   "graphSlug": "Reductions/cdh-to-bit-string-key-exchange",
+   "title": "CDH ⇒ KE with bit-string keys (hashed Diffie–Hellman)"
+  },
+  {
    "id": "red-cdh-to-dlog",
    "kind": "implication",
    "hypotheses": [
@@ -11126,6 +11198,35 @@
    "slug": "cdh-to-dlog",
    "graphSlug": "Reductions/cdh-to-dlog",
    "title": "CDH ⇒ DLOG"
+  },
+  {
+   "id": "red-cdh-to-ind-cpa-kem",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "ind-cpa-kem",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $q_H$ for $q_H$ random-oracle queries: the KEM advantage is at most $q_H$ times the CDH advantage of a solver that outputs a uniformly chosen query",
+   "rationale": {
+    "class": "The KEM uses only the group generator and the random oracle, and the fixed reduction runs any KEM adversary once as an oracle, answering its random-oracle queries itself.",
+    "model": "The reduction simulates the random oracle and reads the adversary's queries to find the Diffie–Hellman value.",
+    "securityLoss": "Until the adversary queries the oracle at the Diffie–Hellman value its view is independent of the challenge bit, and the solver guesses which query that is."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-ind-cpa-kem.md",
+   "slug": "cdh-to-ind-cpa-kem",
+   "graphSlug": "Reductions/cdh-to-ind-cpa-kem",
+   "title": "CDH ⇒ IND-CPA KEM (hashed ElGamal)"
   },
   {
    "id": "red-cdh-to-ind-id-cpa-dg17a",
@@ -11168,14 +11269,13 @@
     "standard"
    ],
    "source": [
-    "[[DH76 - New Directions in Cryptography|DH76]]",
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
    ],
    "via": [
     "[[hardcore-predicate|Goldreich–Levin]]"
    ],
    "heuristic": false,
-   "securityLoss": "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε into a CDH solver with success probability Ω(ε²) and running time poly(L, 1/ε)",
+   "securityLoss": "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε and running time t into a CDH solver with success probability polynomial in ε and 1/L and running time poly(L, 1/ε) · t",
    "rationale": {
     "class": "The protocol uses only the group operations, and the reduction runs any key distinguisher as an oracle inside the Goldreich–Levin decoder to compute the Diffie–Hellman value."
    },
@@ -11184,6 +11284,33 @@
    "slug": "cdh-to-non-interactive-key-exchange-dh76",
    "graphSlug": "Reductions/cdh-to-non-interactive-key-exchange-dh76",
    "title": "CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)"
+  },
+  {
+   "id": "red-cdh-to-one-way-key-exchange",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "one-way-key-exchange",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the one-way advantage of every eavesdropper equals the CDH advantage of the adversary that forwards the transcript to it",
+   "rationale": {
+    "class": "The protocol uses only the group generator and the group operations, and the fixed reduction passes its CDH instance to any eavesdropper once, as an oracle, as the transcript, and outputs the eavesdropper's answer."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-one-way-key-exchange.md",
+   "slug": "cdh-to-one-way-key-exchange",
+   "graphSlug": "Reductions/cdh-to-one-way-key-exchange",
+   "title": "CDH ⇒ One-way KE (Diffie–Hellman)"
   },
   {
    "id": "red-cdh-to-uc-ot-dghmw20",
@@ -13390,7 +13517,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "securityLoss": "tight up to an additive $\\mathbb{E}[1/p]$, over the group order $p$: one CDH call",
    "rationale": {
     "class": "The group generator is unchanged, and the fixed reduction runs any CDH adversary once as an oracle and compares its output with the challenge element."
    },
@@ -13522,7 +13649,7 @@
     "standard"
    ],
    "source": [
-    "[[DH76 - New Directions in Cryptography|DH76]]"
+    "folklore"
    ],
    "via": [],
    "heuristic": false,
@@ -13581,7 +13708,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one oracle call, advantage-preserving",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary, whose advantage is exactly twice the DDH advantage of the reduction",
    "rationale": {
     "class": "The ElGamal construction uses only the group generator, with homomorphic evaluation the componentwise group product, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
    },
@@ -13597,7 +13724,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -13609,7 +13736,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one oracle call, advantage-preserving",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary, whose advantage is exactly twice the DDH advantage of the reduction",
    "rationale": {
     "class": "The ElGamal construction uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
    },
@@ -13617,7 +13744,7 @@
    "page": "content/Reductions/ddh-to-pke-elgamal85.md",
    "slug": "ddh-to-pke-elgamal85",
    "graphSlug": "Reductions/ddh-to-pke-elgamal85",
-   "title": "DDH ⇒ PKE"
+   "title": "DDH ⇒ CPA-secure PKE (ElGamal)"
   },
   {
    "id": "red-ddh-to-prf-nr97",
@@ -14066,8 +14193,7 @@
     "quantum"
    ],
    "source": [
-    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]",
-    "[[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]"
+    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
    ],
    "via": [],
    "heuristic": false,
@@ -24871,7 +24997,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "securityLoss": "tight up to an additive $\\mathbb{E}[1/p]$, over the group order $p$: one CDH call",
    "rationale": {
     "class": "The group generator is unchanged, and the fixed reduction runs any CDH adversary once as an oracle and compares its output with the challenge element."
    },
@@ -35309,6 +35435,40 @@
    "slug": "no-rom-to-vdf-gry25",
    "graphSlug": "Barriers/no-rom-to-vdf-gry25",
    "title": "No reduction from ROM to VDF"
+  },
+  {
+   "id": "bar-rsa-to-pke-cpa-security-textbook-rsa",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "rsa"
+   ],
+   "circumventedBy": [
+    "red-rsa-to-pke-rsa78"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes only textbook RSA encryption; encrypting a hard-core bit of the RSA function is a CPA-secure construction from RSA.",
+    "strength": "The attack works for every generator of the RSA syntax, so the barrier assumes RSA hardness only because, without it, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rsa-to-pke-cpa-security-textbook-rsa.md",
+   "slug": "no-rsa-to-pke-cpa-security-textbook-rsa",
+   "graphSlug": "Barriers/no-rsa-to-pke-cpa-security-textbook-rsa",
+   "title": "No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)"
   },
   {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",

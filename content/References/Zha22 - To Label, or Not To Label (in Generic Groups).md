@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Zha22"
 source: https://eprint.iacr.org/2022/226
 authors: Mark Zhandry
@@ -28,3 +28,7 @@ Generic groups are an important tool for analyzing the feasibility and in-feasib
 - We explain how the known black box separations between generic groups and identity-based encryption do not fully apply to Shoup, and resolve this by providing such a separation.
 
 - We give a new un-instantiability result for the _algebraic_ group model.
+
+# Notes
+
+The abstract is that of ePrint 2022/226, a major revision of the CRYPTO 2022 paper (pp. 66–96, [doi:10.1007/978-3-031-15982-4_3](https://doi.org/10.1007/978-3-031-15982-4_3)).

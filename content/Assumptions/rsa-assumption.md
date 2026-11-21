@@ -93,9 +93,9 @@ For an efficient (possibly randomized) rule $R$ that, on input $1^\secpar$ and d
 - **Coppersmith's method**: for a monic $f \in \ZZ[z]$ of degree $\delta$, all $z_0 \in \ZZ$ with $|z_0| < n^{1/\delta}$ and $f(z_0) \equiv 0 \pmod{n}$ are found in time polynomial in $\log n$ and $2^\delta$, so in polynomial time for fixed $\delta$ — [[Cop97 - Small Solutions to Polynomial Equations, and Low Exponent RSA Vulnerabilities|Cop97]]. For $e = 3$ it recovers $x$ from $x^3 \bmod n$ when all of $x$ but a contiguous block of fewer than $\frac{1}{3}\log_2 n$ bits is known (stereotyped messages), and it factors $n$ given the high-order $\frac{1}{4}\log_2 n$ bits of $p$ — [[Cop97 - Small Solutions to Polynomial Equations, and Low Exponent RSA Vulnerabilities|Cop97]].
 - **Partial key exposure**: given $(n, e)$ and the $\lceil \frac{1}{4}\log_2 n \rceil$ least significant bits of $d$, all of $d$ is computed in time polynomial in $\log n$ and $e$, hence efficiently when $e \le \poly(\log n)$ — [[BDF98 - An Attack on RSA Given a Small Fraction of the Private Key Bits|BDF98]].
 - **Håstad's broadcast attack**: given $x^e \bmod n_i$ for $e$ public keys $(n_i, e)$ with pairwise coprime moduli $n_i > x$, the Chinese Remainder Theorem yields $x^e \bmod \prod_i n_i$, which is $x^e$ over the integers, and its integer $e$-th root is $x$ — standard; [[Has85 - On Using RSA with Low Exponent in a Public Key Network|Has85]] extends the attack to messages that are known polynomial functions of one plaintext, given enough ciphertexts.
-- **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme, and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
+- **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme ([[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]]), and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
 
-<!-- BEGIN GENERATED participates-in cb231d61830a -->
+<!-- BEGIN GENERATED participates-in 08f0ec96c3c0 -->
 
 ## Participates in
 
@@ -135,5 +135,6 @@ For an efficient (possibly randomized) rule $R$ that, on input $1^\secpar$ and d
 **Barriers**
 
 - [[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]] (via [[rsa-assumption#low-exponent-rsa|Low-exponent RSA]])
+- [[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]] — circumvented by [[rsa-to-pke-rsa78|RSA ⇒ CPA-secure PKE]]
 
 <!-- END GENERATED participates-in -->

@@ -72,7 +72,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 258bd81ee58b -->
+<!-- BEGIN GENERATED participates-in 97da6a6b35dd -->
 
 ## Participates in
 
@@ -100,6 +100,8 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
 - [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
+- [[cdh-to-bit-string-key-exchange|CDH ⇒ KE with bit-string keys (hashed Diffie–Hellman)]]
+- [[cdh-to-ind-cpa-kem|CDH ⇒ IND-CPA KEM (hashed ElGamal)]]
 - [[co-cdh-star-to-multi-signature-bdn18|co-CDH ⇒ BLS multi-signatures with public-key aggregation]]
 - [[co-cdh-to-aggregate-signature-bgls03|co-CDH ⇒ Aggregate signatures (BGLS)]]
 - [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]

@@ -29,6 +29,8 @@ A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ w
 - $\Enc(\pk, m) \to c,$ is a randomized algorithm which takes a public key $\pk \in \calK_{\mathrm{pk}}$ and message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk, c) \to m,$ is a deterministic algorithm which takes a secret key $\sk \in \calK_{\mathrm{sk}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
+$\Enc$ is randomized because a correct scheme with deterministic $\Enc$ is not [[#CPA Security|CPA-secure]], under the conditions stated there: holding $\pk$, the adversary encrypts a candidate message itself and compares the result with the challenge.
+
 Every PKE scheme on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length that an efficient algorithm outputs on input $1^\secpar$, or on input $\pk$ when the message space depends on the public key, as in group-based schemes, as $\calM = \bits^*$ and $\calM = \bits^{\ell(\secpar)}$ with $\ell(\secpar) \ge 1$ do. Without correctness, a scheme whose $\Enc$ ignores its message meets every security notion below, and without two such messages so does the scheme that outputs $m$ in the clear.
 
 ## Properties
@@ -75,6 +77,14 @@ $$
 $$
 
 is negligible.
+
+A PKE scheme whose $\Enc$ is deterministic is not CPA-secure if the two equal-length messages of [[#Syntax]] are computed from $1^\secpar$ alone, or if it decrypts correctly under every key pair that $\KeyGen$ outputs. Let $m_0 \ne m_1$ be those messages, which $\calA$ computes from $1^\secpar$ or from $\pk$. It submits $(m_0, m_1)$, computes $c_0 := \Enc(\pk, m_0)$ itself, and outputs $b' := [c^* \ne c_0]$. If $b = 0$, then $c^* = c_0$ and $b' = 0$. If $b = 1$, then $b' = 0$ exactly when $\Enc(\pk, m_0) = \Enc(\pk, m_1)$, and then $\Dec(\sk, \cdot)$ returns a wrong message on $\Enc(\pk, m_0)$ or on $\Enc(\pk, m_1)$. Hence
+
+$$
+\Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) = 1 - \Pr\!\left[\Enc(\pk, m_0) = \Enc(\pk, m_1)\right],
+$$
+
+which in the first case is at least $1 - 2\varepsilon$ for a $(1-\varepsilon)$-correct scheme, by correctness for $m_0$ and for $m_1$ and a union bound, and in the second case is $1$ — standard. Textbook RSA is a scheme of the second kind ([[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]]).
 
 ### Semantic security
 
@@ -253,7 +263,7 @@ is negligible.
 
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
-- [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
+- [[ddh-to-pke-elgamal85|DDH ⇒ CPA-secure PKE (ElGamal)]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
@@ -264,7 +274,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in c0e7a78f7f84 -->
+<!-- BEGIN GENERATED participates-in 7691a153e29b -->
 
 ## Participates in
 
@@ -303,7 +313,7 @@ is negligible.
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[ddh-to-anonymous-public-key-encryption-bbdp01|DDH ⇒ Key-hiding PKE (ElGamal)]] (via [[public-key-encryption#key-hiding|Key-hiding]])
-- [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
+- [[ddh-to-pke-elgamal85|DDH ⇒ CPA-secure PKE (ElGamal)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
 - [[deniable-encryption-to-pke-cpa-security|Deniable encryption ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -370,5 +380,6 @@ is negligible.
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]]
 - [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 - [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
+- [[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]] (via [[public-key-encryption#cpa-security|CPA Security]]) — circumvented by [[rsa-to-pke-rsa78|RSA ⇒ CPA-secure PKE]]
 
 <!-- END GENERATED participates-in -->
