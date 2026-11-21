@@ -179,7 +179,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in b9fc34505f3b -->
+<!-- BEGIN GENERATED participates-in 4eabe2fc8417 -->
 
 ## Participates in
 
@@ -228,6 +228,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]] (via [[pseudorandom-function#puncturable-prfs|Puncturable PRFs]])
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
+- [[rom-to-prf|ROM ⇒ PRF (secret-prefix hashing)]]
 - [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
 
 **Barriers**

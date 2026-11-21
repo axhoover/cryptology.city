@@ -18,19 +18,50 @@ In the _Random Oracle Model (ROM)_, every party, the adversary included, has ora
 
 When the ROM is the only hypothesis of a result ($\{\mathrm{ROM}\} \Rightarrow X$, or a barrier whose only hypothesis is the ROM), the adversary is computationally unbounded and limited only in its oracle queries: a notion stated for efficient adversaries is read for adversaries making $\poly(\secpar)$ queries to $H$, parallel time in a sequential notion is counted in rounds of queries, and a notion that fixes its own query count ([[merkle-puzzles|Merkle puzzles]]) keeps it — standard. On a result proved in the ROM from computational hypotheses, adversaries are efficient algorithms with oracle access to $H$, as in [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]].
 
+The oracle $H$ can equivalently be sampled lazily, from a table $T$ that starts empty and is shared by all parties:
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$H(x)$}
+\begin{algorithmic}
+\If{$T[x] = \bot$}
+\State $T[x] \getsr \bits^\secpar$
+\EndIf
+\Return $T[x]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+Lazy sampling gives every adversary, adaptive or not, the same view as a uniform $H$ fixed in advance, because the values of a uniform $H$ at distinct points are independent and uniform: a first query to $x$ receives a uniform value independent of all earlier answers, and a repeated query the earlier answer — standard. [[GB08 - Lecture Notes on Cryptography|GB08]] (§10.5.8) describe the random oracle as this table-keeping process.
+
 Replacing $H$ by a concrete hash function and taking the ROM proof as evidence of security for the resulting scheme is the design paradigm of [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]; [[CGH98 - The Random Oracle Methodology Revisited|CGH98]] call it the _random-oracle methodology_ and show that it can fail.
 
 The ROM is related to the [[random-oracle-hypothesis|Random Oracle Hypothesis]] of [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]], which conjectured that complexity-class relationships holding for almost all relativized worlds also hold unrelativized. The hypothesis is false; one counterexample, not the first, is $\classIP^A \neq \classPSPACE^A$ for almost all oracles $A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]].
 
+## Programmability
+
+A reduction or simulator **programs** the random oracle when it answers the adversary's queries to $H$ with values of its choice, for instance to embed a challenge or to make a simulated transcript consistent; the adversary's success probability carries over only while the chosen values are distributed, in its view, as those of a random oracle — standard. In the ROM as defined above the reduction simulates $H$ for the adversary, so it may program it — [[AB13 - Non Observability in the Random Oracle Model|AB13]]. The Pointcheval–Stern proof for [[fiat-shamir-heuristic|Fiat–Shamir]] signatures re-programs the oracle, and if [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] is hard, no single-instance reduction that does not program it proves [[digital-signature#schnorr-signatures|Schnorr signatures]] as hard as the discrete-logarithm problem ([[no-prime-order-dlog-to-schnorr-signature-ff13|No single-instance reduction from DLOG to Schnorr signatures in the non-programmable ROM]]) — [[FF13 - Limitations of the Meta-reduction Technique The Case of Schnorr Signatures|FF13]].
+
+In the **non-programmable random oracle model**, $H$ is a uniformly random function fixed outside the reduction or simulator, which has oracle access to $H$ and answers each of the adversary's queries with the value of $H$; it still sees the queries it forwards. TODO: attribute the non-programmable model to Nielsen ("Separating Random Oracle Proofs from Complexity Theoretic Proofs: The Non-committing Encryption Case", CRYPTO 2002) and the notions of limited programmability to Fischlin, Lehmann, Ristenpart, Shrimpton, Stam and Tessaro ("Random Oracles with(out) Programmability", ASIACRYPT 2010); both are unread.
+
+## Observability
+
+A reduction or extractor **observes** the adversary's oracle queries when it sees each query the adversary makes to $H$. Simulating $H$, as in the ROM, and forwarding queries to an external $H$, as in the non-programmable model, both observe. A **non-observing** reduction does not see the adversary's queries and may still program the answers; under non-observing reductions RSA-PFDH and Schnorr signatures remain secure, while Fischlin's NIZK proof of knowledge has no non-observing online extractor — [[AB13 - Non Observability in the Random Oracle Model|AB13]]. A reduction that neither observes nor programs is a non-observing non-programming reduction — [[AB13 - Non Observability in the Random Oracle Model|AB13]].
+
+## Global random oracle
+
+In a composable setting, a **global random oracle** is a single random oracle to which all parties and all protocols have access, including protocols other than the one under analysis; the ROM gives no security guarantee in the presence of arbitrary protocols that use the same random oracle, while with a global random oracle and no other trusted setup there are commitment, zero-knowledge and general function-evaluation protocols with [[universal-composability-framework|universally composable]] security — [[CJS14 - Practical UC security with a Global Random Oracle|CJS14]]. The global random oracle of CJS14, a functionality of the [[universal-composability-framework#setup-assumptions|Generalized UC framework]], is non-programmable; under alternative definitions of a global random oracle, existing practical realizations of public-key encryption, non-committing encryption, commitments (among them $H(m \,\|\, r)$), Schnorr signatures and hash-and-invert signatures are GUC-secure — [[CDG+18 - The Wonderful World of Global Random Oracles|CDG+18]].
+
 ## Quantum random oracle model
 
-In the _quantum random oracle model (QROM)_, every party gets a uniformly random function $H : \bits^* \to \bits^\secpar$; quantum algorithms, the adversary included, may query it in superposition through the unitary $\lvert x, y \rangle \mapsto \lvert x, y \oplus H(x) \rangle$, while honest parties query it classically — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]]. A proof in the classical ROM need not carry over: some scheme is secure against quantum adversaries with classical oracle access and insecure against quantum adversaries making superposition queries — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]].
+In the _quantum random oracle model (QROM)_, every party gets a uniformly random function $H : \bits^* \to \bits^\secpar$; quantum algorithms, the adversary included, may query it in superposition through the unitary $\lvert x, y \rangle \mapsto \lvert x, y \oplus H(x) \rangle$, while honest parties query it classically — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]]. A proof in the classical ROM need not carry over: some scheme is secure against quantum adversaries with classical oracle access and insecure against quantum adversaries making superposition queries — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]]. When the QROM is the only hypothesis of a result, the adversary is a computationally unbounded quantum algorithm limited only in its oracle queries, and a notion stated for efficient adversaries is read for quantum adversaries making $\poly(\secpar)$ superposition queries to $H$ — standard.
 
 # Known Results
 
 - [[random-oracle-hypothesis#refutation|The refutation of the ROH]]
 
-- **The ROM is uninstantiable in general** — there are signature and encryption schemes that are secure in the ROM but insecure under every instantiation of the random oracle by an efficiently computable function family [[CGH98 - The Random Oracle Methodology Revisited|CGH98]].
+- **The ROM is uninstantiable in general.** A function ensemble is a family $\{f_s : \bits^* \to \bits^{\ell(\secpar)}\}_{s \in \bits^\secpar}$ computable in polynomial time, with $\omega(\log \secpar) \le \ell(\secpar) \le \poly(\secpar)$, and implementing the oracle by it samples $s \getsr \bits^\secpar$ with the keys and publishes $s$ in the public key. There is a signature scheme existentially unforgeable under chosen-message attack in the ROM, with no computational assumption, whose implementation by every function ensemble is existentially forgeable under a key-only attack and totally breakable under a chosen-message attack ([[no-hash-function-to-ds-cgh98|No fixed-construction reduction from Hash function to DS]]) — [[CGH98 - The Random Oracle Methodology Revisited|CGH98]] (arXiv v1, Theorem 4.4). If some public-key encryption scheme is semantically secure in the ROM, some public-key encryption scheme is semantically secure in the ROM and not semantically secure under any implementation, semantic security being that of [[GM84 - Probabilistic encryption|GM84]], in which the message distribution may depend on the public key ([[no-hash-function-to-semantic-security-cgh98|No fixed-construction reduction from Hash function to semantically secure PKE]]); if some scheme is secure under adaptive chosen-ciphertext attack in the ROM, some scheme is secure under that attack in the ROM while every implementation is not semantically secure and a chosen-ciphertext attack recovers its decryption key ([[no-hash-function-to-pke-cca2-security-cgh98|No fixed-construction reduction from Hash function to CCA-secure PKE]]) — [[CGH98 - The Random Oracle Methodology Revisited|CGH98]] (arXiv v1, Theorem 4.6 and footnote 14).
 
 - **Equivalence with the ideal-cipher model** — a random oracle is [[indifferentiability|indifferentiably]] constructible from an [[ideal-cipher-model|ideal cipher]] [[CDMP05 - Merkle-Damgard Revisited How to Construct a Hash Function|CDMP05]], and an ideal cipher from a random oracle by a 14-round Feistel network [[HKT11 - The Equivalence of the Random Oracle Model and the Ideal Cipher Model Revisited|HKT11]]; by the composition theorem of [[MRH04 - Indifferentiability Impossibility Results on Reductions and Applications to the Random Oracle Methodology|MRH04]] the two models are equivalent for single-stage security games, and that theorem covers only single-stage games [[RSS11 - Careful with Composition Limitations of the Indifferentiability Framework|RSS11]].
 
@@ -41,7 +72,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 70f5972d9354 -->
+<!-- BEGIN GENERATED participates-in 258bd81ee58b -->
 
 ## Participates in
 
@@ -52,6 +83,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[qrom-to-zk-snark-cms19|QROM ⇒ zk-SNARK (Micali's construction in the QROM)]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
+- [[rom-to-prf|ROM ⇒ PRF (secret-prefix hashing)]]
 - [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 
 **Barriers**

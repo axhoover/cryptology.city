@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BR93"
 source: https://doi.org/10.1145/168588.168596
 authors: Mihir Bellare, Phillip Rogaway
@@ -17,4 +17,8 @@ cryptobib_key: CCS:BelRog93
 
 ## Abstract
 
-TODO — abstract.
+We argue that the random oracle model —where all parties have access to a public random oracle— provides a bridge between cryptographic theory and cryptographic practice. In the paradigm we suggest, a practical protocol $P$ is produced by first devising and proving correct a protocol $P^R$ for the random oracle model, and then replacing oracle accesses by the computation of an “appropriately chosen” function $h$. This paradigm yields protocols much more efficient than standard ones while retaining many of the advantages of provable security. We illustrate these gains for problems including encryption, signatures, and zero-knowledge proofs.
+
+# Notes
+
+- The abstract is that of the authors' copy at https://cseweb.ucsd.edu/~mihir/papers/ro.pdf, dated August 2, 2021, which states that the paper appears in the proceedings of the First ACM Conference on Computer and Communications Security, November 1993.

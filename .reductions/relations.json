@@ -538,6 +538,19 @@
    "unlisted": false
   },
   {
+   "id": "arbitrary-length-crhf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#arbitrary-length-collision-resistance",
+   "of": "hash-function",
+   "title": "Arbitrary-length collision resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "arbitrary-length-suf-cma-mac",
    "kind": "variant",
    "type": "primitive",
@@ -853,6 +866,22 @@
     "Permuted puzzles assumption"
    ],
    "unlisted": true
+  },
+  {
+   "id": "birthday-bound",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/birthday-bound.md",
+   "slug": "birthday-bound",
+   "graphSlug": "Folklore/birthday-bound",
+   "title": "Birthday bound",
+   "aliases": [
+    "Birthday paradox",
+    "Birthday problem",
+    "Birthday attack",
+    "Floyd's cycle-finding algorithm"
+   ],
+   "unlisted": false
   },
   {
    "id": "bit-circular-security",
@@ -6796,6 +6825,19 @@
    "unlisted": false
   },
   {
+   "id": "second-preimage-resistance",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#second-preimage-resistance",
+   "of": "hash-function",
+   "title": "Second-preimage resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "secret-based-quantum-money-mini-scheme",
    "kind": "variant",
    "type": "primitive",
@@ -8984,6 +9026,19 @@
    "unlisted": false
   },
   {
+   "id": "weakly-collision-resistant-hash",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#weak-collision-resistance",
+   "of": "hash-function",
+   "title": "Weak collision resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "witness-encryption",
    "kind": "object",
    "type": "primitive",
@@ -9637,6 +9692,60 @@
    "slug": "approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
    "graphSlug": "Reductions/approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
    "title": "IND-CPA-D approximate HE ⇒ Approximate HE"
+  },
+  {
+   "id": "red-arbitrary-length-crhf-to-crhf",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction restricts the family to one input length, and the reduction forwards any collision finder unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-to-crhf.md",
+   "slug": "arbitrary-length-crhf-to-crhf",
+   "graphSlug": "Reductions/arbitrary-length-crhf-to-crhf",
+   "title": "Arbitrary-length CRHF ⇒ CRHF"
+  },
+  {
+   "id": "red-arbitrary-length-crhf-to-weakly-collision-resistant-hash",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf"
+   ],
+   "conclusion": "weakly-collision-resistant-hash",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the oracle adversary plus one evaluation of the family per query",
+   "rationale": {
+    "class": "The weakly collision-resistant family is the hash family itself, and the collision finder runs any oracle adversary once, answering its queries with the public key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-to-weakly-collision-resistant-hash.md",
+   "slug": "arbitrary-length-crhf-to-weakly-collision-resistant-hash",
+   "graphSlug": "Reductions/arbitrary-length-crhf-to-weakly-collision-resistant-hash",
+   "title": "Arbitrary-length CRHF ⇒ Weakly collision-resistant hash"
   },
   {
    "id": "red-arbitrary-length-suf-cma-mac-to-suf-cma-mac",
@@ -12247,6 +12356,33 @@
    "title": "CRHF ⇒ accumulator"
   },
   {
+   "id": "red-crhf-to-arbitrary-length-crhf",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "arbitrary-length-crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rog06 - Formalizing Human Ignorance|Rog06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none on collisions shorter than 2^b: the collision finder succeeds whenever the adversary does, after at most (|x| + |x'|)/b + 4 compression-function calls",
+   "rationale": {
+    "class": "The iteration calls the compression function only as an oracle, and the collision finder runs any adversary once as an oracle and then evaluates the iteration on its two outputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-arbitrary-length-crhf.md",
+   "slug": "crhf-to-arbitrary-length-crhf",
+   "graphSlug": "Reductions/crhf-to-arbitrary-length-crhf",
+   "title": "CRHF ⇒ Arbitrary-length CRHF (Merkle–Damgård)"
+  },
+  {
    "id": "red-crhf-to-constant-round-non-malleable-commitment-pr05",
    "kind": "implication",
    "hypotheses": [
@@ -12327,6 +12463,33 @@
    "title": "CRHF ⇒ Succinct arguments for NP (Kilian)"
   },
   {
+   "id": "red-crhf-to-second-preimage-resistance-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the second-preimage finder plus one uniform sample from the domain",
+   "rationale": {
+    "class": "The second-preimage-resistant family is the hash family itself, and the collision finder runs any second-preimage finder once as an oracle on a uniform input."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-second-preimage-resistance-rs04.md",
+   "slug": "crhf-to-second-preimage-resistance-rs04",
+   "graphSlug": "Reductions/crhf-to-second-preimage-resistance-rs04",
+   "title": "CRHF ⇒ Second-preimage resistance"
+  },
+  {
    "id": "red-crhf-to-statistically-hiding-commitment-dpp97",
    "kind": "implication",
    "hypotheses": [
@@ -12357,6 +12520,33 @@
    "title": "CRHF ⇒ Statistically hiding COM"
   },
   {
+   "id": "red-crhf-to-uowhf-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "uowhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the two stages of the target-collision finder",
+   "rationale": {
+    "class": "The target-collision-resistant family is the hash family itself, and the collision finder runs both stages of any target-collision finder once as oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-uowhf-rs04.md",
+   "slug": "crhf-to-uowhf-rs04",
+   "graphSlug": "Reductions/crhf-to-uowhf-rs04",
+   "title": "CRHF ⇒ UOWHF"
+  },
+  {
    "id": "red-crhf-to-weak-owf",
    "kind": "implication",
    "hypotheses": [
@@ -12382,6 +12572,33 @@
    "slug": "crhf-to-weak-owf",
    "graphSlug": "Reductions/crhf-to-weak-owf",
    "title": "CRHF ⇒ Weak OWF"
+  },
+  {
+   "id": "red-crhf-to-weakly-collision-resistant-hash",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "weakly-collision-resistant-hash",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the oracle adversary plus one evaluation of the family per query",
+   "rationale": {
+    "class": "The weakly collision-resistant family is the hash family itself, and the collision finder runs any oracle adversary once, answering its queries with the public key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-weakly-collision-resistant-hash.md",
+   "slug": "crhf-to-weakly-collision-resistant-hash",
+   "graphSlug": "Reductions/crhf-to-weakly-collision-resistant-hash",
+   "title": "CRHF ⇒ Weakly collision-resistant hash"
   },
   {
    "id": "red-czk-hardness-to-czk-worst-case-hardness",
@@ -26425,6 +26642,36 @@
    "title": "ROM ⇒ Merkle puzzles"
   },
   {
+   "id": "red-rom-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "prf",
+   "class": "free",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [
+    "[[difference-lemma|fundamental lemma of game playing]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "distinguishing advantage at most $q_H / 2^\\secpar$ for $q_H$ random-oracle queries, whatever the number of PRF queries",
+   "rationale": {
+    "class": "The bound holds for every adversary in the random-oracle model, computationally unbounded and limited only in its oracle queries, which is the free class scoped by the model.",
+    "securityLoss": "The two worlds differ only on a random-oracle query that begins with the key, and in the random world the key is independent of everything the adversary sees."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rom-to-prf.md",
+   "slug": "rom-to-prf",
+   "graphSlug": "Reductions/rom-to-prf",
+   "title": "ROM ⇒ PRF (secret-prefix hashing)"
+  },
+  {
    "id": "red-rom-to-snark-mic00",
    "kind": "implication",
    "hypotheses": [
@@ -27009,6 +27256,33 @@
    "slug": "search-lwe-to-decision-lwe",
    "graphSlug": "Reductions/search-lwe-to-decision-lwe",
    "title": "Search LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-second-preimage-resistance-to-weak-owf-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "second-preimage-resistance"
+   ],
+   "conclusion": "weak-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2 plus additive |R|/|D|: an inverter with success ε gives a second-preimage finder with success at least (ε − |R|/|D|)/2",
+   "rationale": {
+    "class": "The weak one-way function is the hash family itself, and the second-preimage finder runs any inverter once as an oracle on the image of its challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/second-preimage-resistance-to-weak-owf-rs04.md",
+   "slug": "second-preimage-resistance-to-weak-owf-rs04",
+   "graphSlug": "Reductions/second-preimage-resistance-to-weak-owf-rs04",
+   "title": "Second-preimage resistance ⇒ Weak OWF"
   },
   {
    "id": "red-secret-based-quantum-money-mini-scheme-to-owf-ac12",
@@ -29743,6 +30017,34 @@
    "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
   },
   {
+   "id": "red-suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
+   "kind": "implication",
+   "hypotheses": [
+    "suf-cma-mac",
+    "weakly-collision-resistant-hash"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: forging advantage at most ε_f + ε_F, where the forger against the outer MAC makes as many queries as the NMAC forger and the collision finder one more",
+   "rationale": {
+    "class": "The construction calls the outer MAC and the inner family only as oracles, and each of the two reductions runs the forger once as an oracle and samples the other component's key itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96.md",
+   "slug": "suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
+   "graphSlug": "Reductions/suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
+   "title": "SUF-CMA MAC + weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)"
+  },
+  {
    "id": "red-suf-cma-mac-to-mac",
    "kind": "implication",
    "hypotheses": [
@@ -31564,6 +31866,33 @@
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
   },
   {
+   "id": "red-uowhf-to-second-preimage-resistance-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "uowhf"
+   ],
+   "conclusion": "second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the target-collision finder has the same advantage, in the time of the second-preimage finder plus one uniform sample from the domain",
+   "rationale": {
+    "class": "The second-preimage-resistant family is the hash family itself, and the target-collision finder commits to a uniform input and runs any second-preimage finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uowhf-to-second-preimage-resistance-rs04.md",
+   "slug": "uowhf-to-second-preimage-resistance-rs04",
+   "graphSlug": "Reductions/uowhf-to-second-preimage-resistance-rs04",
+   "title": "UOWHF ⇒ Second-preimage resistance"
+  },
+  {
    "id": "red-vdf-to-weak-vdf",
    "kind": "implication",
    "hypotheses": [
@@ -32589,6 +32918,38 @@
    "title": "No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption"
   },
   {
+   "id": "bar-crhf-to-mac-secret-prefix",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "mac",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "crhf"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The forgery refutes only the secret-prefix MAC over Merkle–Damgård iteration; other constructions of a MAC from a CRHF are not ruled out.",
+    "strength": "The forgery works for every compression function, so the barrier assumes a CRHF only because, without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-crhf-to-mac-secret-prefix.md",
+   "slug": "no-crhf-to-mac-secret-prefix",
+   "graphSlug": "Barriers/no-crhf-to-mac-secret-prefix",
+   "title": "No fixed-construction reduction from CRHF to MAC (secret-prefix MAC)"
+  },
+  {
    "id": "bar-crhf-to-szk-hardness-bd19",
    "hypotheses": [
     "crhf"
@@ -32836,6 +33197,68 @@
    "title": "No fixed-construction reduction from Fiat-Shamir to NIZK"
   },
   {
+   "id": "bar-hash-function-to-ds-cgh98",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "ds",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[CGH98 - The Random Oracle Methodology Revisited|CGH98]]"
+   ],
+   "rationale": {
+    "class": "The construction is CGH98's signature scheme with its random oracle instantiated by the hash function, and a counterexample against every function ensemble refutes it.",
+    "strength": "CGH98 start from a signature scheme secure in the random-oracle model, which a one-way function implemented by the oracle itself provides, so the theorem assumes no hardness assumption."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-hash-function-to-ds-cgh98.md",
+   "slug": "no-hash-function-to-ds-cgh98",
+   "graphSlug": "Barriers/no-hash-function-to-ds-cgh98",
+   "title": "No fixed-construction reduction from Hash function to DS (random-oracle instantiation)"
+  },
+  {
+   "id": "bar-hash-function-to-pke-cca2-security-cgh98",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "public-key encryption secure under adaptive chosen-ciphertext attack in the random-oracle model"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[CGH98 - The Random Oracle Methodology Revisited|CGH98]]"
+   ],
+   "rationale": {
+    "class": "The construction is CGH98's encryption scheme with its random oracle instantiated by the hash function, and a counterexample against every function ensemble refutes it.",
+    "strength": "The theorem assumes a public-key encryption scheme secure under adaptive chosen-ciphertext attack in the random-oracle model, which CGH98 modify into the counterexample."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-hash-function-to-pke-cca2-security-cgh98.md",
+   "slug": "no-hash-function-to-pke-cca2-security-cgh98",
+   "graphSlug": "Barriers/no-hash-function-to-pke-cca2-security-cgh98",
+   "title": "No fixed-construction reduction from Hash function to CCA-secure PKE (random-oracle instantiation)"
+  },
+  {
    "id": "bar-hash-function-to-pke-gkm-00",
    "hypotheses": [
     "owf"
@@ -32863,6 +33286,38 @@
    "slug": "no-hash-function-to-pke-gkm-00",
    "graphSlug": "Barriers/no-hash-function-to-pke-gkm-00",
    "title": "No relativizing reduction from OWF to PKE"
+  },
+  {
+   "id": "bar-hash-function-to-semantic-security-cgh98",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "semantic-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "public-key encryption semantically secure in the random-oracle model"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[CGH98 - The Random Oracle Methodology Revisited|CGH98]]"
+   ],
+   "rationale": {
+    "class": "The construction is CGH98's encryption scheme with its random oracle instantiated by the hash function, and a counterexample against every function ensemble refutes it.",
+    "strength": "The theorem assumes a public-key encryption scheme semantically secure in the random-oracle model, which CGH98 modify into the counterexample."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-hash-function-to-semantic-security-cgh98.md",
+   "slug": "no-hash-function-to-semantic-security-cgh98",
+   "graphSlug": "Barriers/no-hash-function-to-semantic-security-cgh98",
+   "title": "No fixed-construction reduction from Hash function to semantically secure PKE (random-oracle instantiation)"
   },
   {
    "id": "bar-he-to-cca-security",

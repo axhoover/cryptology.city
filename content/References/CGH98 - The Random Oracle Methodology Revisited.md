@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "CGH98"
 source: https://eprint.iacr.org/1998/011
 authors: Ran Canetti, Oded Goldreich, Shai Halevi
@@ -29,3 +29,7 @@ any implementation of the random oracle results in insecure schemes.
 In the process of devising the above schemes, we consider possible definitions
 for the notion of a "good implementation" of a random oracle, pointing out
 limitations and challenges.
+
+# Notes
+
+- The full version, with the theorem numbering cited on this wiki, is arXiv [cs/0010019](https://arxiv.org/abs/cs/0010019) (v1, October 2000); its abstract is the one above.

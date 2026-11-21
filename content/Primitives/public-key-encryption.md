@@ -264,7 +264,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 9291f1578d97 -->
+<!-- BEGIN GENERATED participates-in c0e7a78f7f84 -->
 
 ## Participates in
 
@@ -352,7 +352,9 @@ is negligible.
 
 **Barriers**
 
+- [[no-hash-function-to-pke-cca2-security-cgh98|No fixed-construction reduction from Hash function to CCA-secure PKE (random-oracle instantiation)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]]
+- [[no-hash-function-to-semantic-security-cgh98|No fixed-construction reduction from Hash function to semantically secure PKE (random-oracle instantiation)]] (via [[public-key-encryption#semantic-security|Semantic security]])
 - [[no-he-to-cca-security|No fixed-construction reduction from HE to IND-CCA2 Security]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]

@@ -15,7 +15,7 @@ $$
 \left|\Pr[\calA^{R} = 1] - \Pr[\calA^{\pi} = 1]\right| \le \min\left\{1,\frac{q(q-1)}{2|\calD|}\right\}.
 $$
 
-Repeated queries return the same answer; neither experiment provides inverse queries — standard. For $\calD = \bits^n$ the bound is $q(q-1)/2^{n+1}$, in which form it is stated, with a game-playing proof, as Lemma 1 of [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]] (TODO: confirm the statement against the final version).
+Repeated queries return the same answer; neither experiment provides inverse queries — standard. For $\calD = \bits^n$ the bound is $q(q-1)/2^{n+1}$, in which form it is stated, with a game-playing proof, as Lemma 1 of [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]] (TODO: confirm the statement against the final version). The term $q(q-1)/(2|\calD|)$ is the [[birthday-bound|birthday bound]] on the probability that $q$ independent uniform elements of $\calD$ are not all distinct — [[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]], Proposition A.1.
 
 ## Corollary
 

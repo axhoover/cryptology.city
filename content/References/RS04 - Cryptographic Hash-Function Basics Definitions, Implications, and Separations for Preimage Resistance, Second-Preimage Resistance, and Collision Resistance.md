@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "RS04"
 source: https://eprint.iacr.org/2004/035
 authors: Phillip Rogaway, Thomas Shrimpton
@@ -28,3 +28,7 @@ our results are concrete, we can show two types of implications,
 
 Four of our definitions are standard while three appear to be new;
 some of our relations and separations have appeared, others have not. Here we give a modern treatment that acts to catalog, in one place and with carefully-considered nomenclature, the most basic security notions for cryptographic hash functions.
+
+# Notes
+
+- The ePrint version (revised July 16, 2009) corrects the FSE 2004 paper and the 2004 full version: it withdraws the claim that ePre implies Pre, proves the separation as Theorem 15, renumbers "Separations, part 3" from Theorem 15 to Theorem 16, and notes that some counterexamples in the proof of that theorem are buggy (footnote 4). The 2004 full version is at https://web.cs.ucdavis.edu/~rogaway/papers/relates.pdf.
