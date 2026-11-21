@@ -122,9 +122,9 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 # Other results
 
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]) — [[GGM86 - How to construct random functions|GGM86]]
-- CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $\PRG(k) \oplus m$ is only one-time secure — folklore
+- The cipher $\Enc(k, m) := \PRG(k) \oplus m$ is one-time secure for messages longer than its key but, being deterministic, not CPA-secure ([[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]]); CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]] — folklore. A [[leakage-resilient-stream-cipher#syntax|stream cipher]] produces such a pad block by block from an evolving state.
 
-<!-- BEGIN GENERATED participates-in bcd75a9af095 -->
+<!-- BEGIN GENERATED participates-in f3a5e5043eba -->
 
 ## Participates in
 
@@ -136,6 +136,7 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[prg-to-hash-function|PRG ⇒ OWF]]
 - [[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-generator#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
+- [[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]]
 - [[prg-to-np-average-case-hardness|PRG ⇒ Average-case hardness of NP]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]]

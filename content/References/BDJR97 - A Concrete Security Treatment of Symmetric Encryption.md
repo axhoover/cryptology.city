@@ -18,3 +18,7 @@ cryptobib_key: FOCS:BDJR97
 ## Abstract
 
 TODO — abstract.
+
+# Notes
+
+- The authors host a full version (September 2000) at https://cseweb.ucsd.edu/~mihir/papers/sym-enc.pdf.

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-For a [[pseudorandom-function|PRF]] $\PRF = (\KeyGen, \Eval)$ with domain $\calD$ and range $\calR$ of superpolynomial size, $\Tag(k, m) := \Eval(k, m)$ with canonical verification $\Vrfy(k, m, t) := [t = \Eval(k, m)]$ is a UF-CMA-secure [[message-authentication-code|MAC]] with message space $\calM = \calD$ — [[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]].
+For a [[pseudorandom-function|PRF]] $\PRF = (\KeyGen, \Eval)$ with domain $\calD$ and a range $\calR = \calR_\secpar$ of superpolynomial size, $\Tag(k, m) := \Eval(k, m)$ with canonical verification $\Vrfy(k, m, t) := [t = \Eval(k, m)]$ is a UF-CMA-secure [[message-authentication-code|MAC]] with message space $\calM = \calD$ — [[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]].
 
 ## Sketch
 
@@ -28,4 +28,4 @@ Verification recomputes the tag, so correctness is perfect. The distinguisher $\
 
 ## Notes
 
-- Domain extension enlarges the message space beyond $\calD$: for $\calD = \calR = \bits^n$, [[prf-to-mac-bkr94|CBC-MAC]] is a PRF, hence a MAC, on messages of $\ell$ blocks for any fixed $\ell = \poly(\secpar)$ — [[BKR94 - The Security of Cipher Block Chaining|BKR94]].
+- Domain extension enlarges the message space beyond $\calD$: for $\calD = \calR = \bits^n$, [[prf-to-mac-bkr94|CBC-MAC]] is a PRF, hence a MAC, on messages of $\ell$ blocks for any fixed $\ell = \poly(\secpar)$ — [[BKR94 - The Security of Cipher Block Chaining|BKR94]], and [[prf-to-arbitrary-length-suf-cma-mac-br05|ECBC]] is one on $\bits^*$ — [[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]].

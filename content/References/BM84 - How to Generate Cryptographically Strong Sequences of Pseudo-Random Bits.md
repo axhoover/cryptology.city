@@ -2,10 +2,10 @@
 type: reference
 status: draft
 title: "BM84"
-source: https://epubs.siam.org/doi/10.1137/0213053
+source: https://doi.org/10.1137/0213053
 authors: Manuel Blum, Silvio Micali
 venue: SIAM Journal on Computing 1984
-published: 1984-01-01
+published: 1984
 aliases:
   - BM84
 cryptobib_key: BluMic84
@@ -13,7 +13,7 @@ cryptobib_key: BluMic84
 
 # [BM84] How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits
 
-**Authors:** Manuel Blum, Silvio Micali | **Venue:** SIAM Journal on Computing 1984 | [Source](https://epubs.siam.org/doi/10.1137/0213053)
+**Authors:** Manuel Blum, Silvio Micali | **Venue:** SIAM Journal on Computing 1984 | [Source](https://doi.org/10.1137/0213053)
 
 ## Abstract
 

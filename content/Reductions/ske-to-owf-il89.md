@@ -28,5 +28,5 @@ If no one-way function exists, every efficiently computable function can be dist
 
 ## Notes
 
-- The bound $|m| > |k|$ is necessary for one-time security: the one-time pad encrypts messages as long as its key with perfect secrecy and no assumption — folklore.
+- The bound $|m| > |k|$ is necessary for one-time security: the [[symmetric-key-encryption#one-time-pad|one-time pad]] encrypts messages as long as its key with [[symmetric-key-encryption#perfect-secrecy|perfect secrecy]] and no assumption — folklore.
 - The same distributional-inversion argument shows that [[com-to-owf-il89|commitment schemes]] and [[identification-scheme-to-owf-il89|identification schemes]] require one-way functions — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].

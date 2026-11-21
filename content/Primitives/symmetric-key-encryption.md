@@ -13,6 +13,9 @@ variants:
   cca-secure-symmetric-key-encryption: "#cca-security"
   cpa-security: "#cpa-security"
   ind-dollar-cpa-security: "#ind-cpa-security"
+  ror-cpa-security: "#real-or-random-cpa-security"
+  perfectly-secret-ske: "#perfect-secrecy"
+  long-message-ske: "#messages-longer-than-the-key"
 ---
 
 # Symmetric key encryption
@@ -32,7 +35,7 @@ A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ w
   takes a key $k \in \calK$ and ciphertext $c \in \calC$,
   outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
-Every SKE scheme on this page is $(1-\varepsilon)$-[[#Correctness|correct]] for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length that an efficient algorithm outputs on input $1^\secpar$. Without correctness, the scheme with $\Enc(k, m)$ a fresh uniform bit and $\Dec(k, c) := \bot$ meets every notion here; without two such messages, so does the perfectly correct scheme that encrypts $m$ to a fresh uniform string of length $|m|$ and decrypts $c$ to the unique message of length $|c|$ — standard. A CPA-secure, IND\$-CPA-secure or CCA-secure SKE scheme denotes such a scheme with the property of that name.
+Every SKE scheme on this page is $(1-\varepsilon)$-[[#Correctness|correct]] for a negligible function $\varepsilon(\secpar)$, and for every $\secpar$ its message space $\calM = \calM_\secpar$ contains two distinct messages of equal length that an efficient algorithm outputs on input $1^\secpar$. Without correctness, the scheme with $\Enc(k, m)$ a fresh uniform bit and $\Dec(k, c) := \bot$ meets every notion here; without two such messages, so does the perfectly correct scheme that encrypts $m$ to a fresh uniform string of length $|m|$ and decrypts $c$ to the unique message of length $|c|$ — standard. A perfectly secret, CPA-secure, ROR-CPA-secure, IND\$-CPA-secure or CCA-secure SKE scheme denotes such a scheme with the property of that name.
 
 As an object, SKE denotes such a scheme that is [[#One-time security|one-time secure]].
 
@@ -78,9 +81,66 @@ $$
 
 is negligible.
 
+No SKE scheme whose $\Enc$ is deterministic, and stateless as in [[#Syntax]], is CPA-secure. Let $m_0 \ne m_1$ be the two equal-length messages of [[#Syntax]]. The adversary queries $(m_0, m_0)$, receiving $c_1$, then $(m_0, m_1)$, receiving $c_2$, and outputs $b' := [c_1 \ne c_2]$. If $b = 0$, then $c_2 = \Enc(k, m_0) = c_1$. If $b = 1$, then $c_1 = c_2$ only if $\Dec(k, \Enc(k, m_0)) \ne m_0$ or $\Dec(k, \Enc(k, m_1)) \ne m_1$, which has probability at most $2\varepsilon$ for a $(1-\varepsilon)$-correct scheme. Hence $\Pr[b' = b] \ge 1 - \varepsilon$, and the advantage is at least $1 - 2\varepsilon$ — standard. **Electronic codebook (ECB)** mode, which encrypts $m_1 \cdots m_\ell$ with each $m_i \in \bits^n$ to $\Eval(k, m_1) \cdots \Eval(k, m_\ell)$ under a [[pseudorandom-permutation|PRP]] on $\bits^n$, is such a scheme, and so is the [[#One-time pad|one-time pad]]. Randomized counter mode ([[prf-to-ske|PRF ⇒ CPA-secure SKE]]) and CBC with a uniform initialization vector ([[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]]) are CPA-secure when built from a PRF and a PRP respectively, while CBC with a counter as initialization vector, a stateful scheme, is not ([[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)]]).
+
 ### One-time security
 
-The one-time game is the [[#CPA Security|CPA game]] $\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ played by an admissible $\calA$ that makes at most one query to $\calO_b$. A SKE scheme $\SKE$ is **one-time secure** if for all such efficient $\calA$, the CPA advantage $\Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ is negligible. The one-time pad on $\calM_\secpar = \bits^\secpar$ is perfectly correct and one-time secure with advantage $0$ — folklore.
+The one-time game is the [[#CPA Security|CPA game]] $\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ played by an admissible $\calA$ that makes at most one query to $\calO_b$. A SKE scheme $\SKE$ is **one-time secure** if for all such efficient $\calA$, the CPA advantage $\Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$ is negligible. The [[#One-time pad|one-time pad]] on $\calM_\secpar = \bits^\secpar$ is perfectly correct and [[#Perfect secrecy|perfectly secret]], hence one-time secure with advantage $0$ against every adversary ([[perfectly-secret-ske-to-ske|Perfectly secret SKE ⇒ SKE]]).
+
+### Perfect secrecy
+
+Perfect secrecy asks for one-time security with advantage exactly $0$ against every adversary, efficient or not. Write $\calM_{\secpar,\ell} := \calM_\secpar \cap \bits^\ell$ for the messages of length $\ell$, and let $K \gets \KeyGen(1^\secpar)$.
+
+A SKE scheme $\SKE$ is **perfectly secret** if for all $\secpar \in \NN$ and all $m_0, m_1 \in \calM_\secpar$ with $|m_0| = |m_1|$, the random variables $\Enc(K, m_0)$ and $\Enc(K, m_1)$, over $K$ and the coins of $\Enc$, are identically distributed. Equivalently, every admissible $\calA$, efficient or not, that makes at most one query in the [[#CPA Security|CPA game]] has $\Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar) = 0$. Under perfect secrecy the answer to the query has the same distribution for both values of $b$. Otherwise some admissible $m_0, m_1$ give distinct distributions, and the adversary that queries $(m_0, m_1)$ and outputs $0$ iff the answer lies in $\{c : \Pr[\Enc(K, m_0) = c] > \Pr[\Enc(K, m_1) = c]\}$ has advantage equal to their statistical distance, which is positive — standard.
+
+**Shannon secrecy** is the equivalent a-posteriori form: for all $\secpar$ and $\ell$, every random variable $M$ on $\calM_{\secpar,\ell}$ independent of $K$, and $C \gets \Enc(K, M)$,
+
+$$
+\Pr[M = m \mid C = c] = \Pr[M = m] \quad \text{for all } m \in \calM_{\secpar,\ell} \text{ and all } c \text{ with } \Pr[C = c] > 0.
+$$
+
+TODO: attribute this definition to [[Sha49 - Communication Theory of Secrecy Systems|Sha49]] once the passage defining it is read.
+
+The two notions are equivalent — standard. If $\SKE$ is perfectly secret, $p_c := \Pr[\Enc(K, m) = c]$ is the same for every $m \in \calM_{\secpar,\ell}$. As $M$ is independent of $K$, $\Pr[C = c \mid M = m] = p_c$ whenever $\Pr[M = m] > 0$, so $\Pr[C = c] = p_c$, and Bayes' rule gives $\Pr[M = m \mid C = c] = \Pr[M = m]$. Conversely, for distinct $m_0, m_1 \in \calM_{\secpar,\ell}$ let $M$ be uniform on $\{m_0, m_1\}$. Shannon secrecy and Bayes' rule give $\Pr[\Enc(K, m_i) = c] = \Pr[C = c]$ for $i \in \bits$ whenever $\Pr[C = c] > 0$, and both sides vanish otherwise, as $\Pr[C = c]$ is the average of $\Pr[\Enc(K, m_0) = c]$ and $\Pr[\Enc(K, m_1) = c]$. Shannon secrecy fixes the message length because, as in the CPA game, the ciphertext length may reveal it.
+
+#### One-time pad
+
+The **one-time pad** for message length $\ell = \ell(\secpar) \ge 1$ has $\calK_\secpar = \calM_\secpar = \calC_\secpar = \bits^\ell$; $\KeyGen(1^\secpar)$ outputs $k \getsr \bits^\ell$, $\Enc(k, m) := k \oplus m$ and $\Dec(k, c) := k \oplus c$. It is perfectly correct, as $k \oplus (k \oplus m) = m$, and perfectly secret: for every $m$, $k \mapsto k \oplus m$ is a bijection of $\bits^\ell$, so $\Enc(K, m)$ is uniform on $\bits^\ell$ — standard. Its $\Enc$ is deterministic, so it is not [[#CPA Security|CPA-secure]].
+
+#### Shannon's bound
+
+If $\SKE$ is perfectly correct and perfectly secret, then for all $\secpar$ and $\ell$, $\KeyGen(1^\secpar)$ outputs at least $|\calM_{\secpar,\ell}|$ keys with positive probability. Hence $|\calK_\secpar| \ge |\calM_{\secpar,\ell}|$, and with $\calK_\secpar \subseteq \bits^\kappa$ at most $2^\kappa$ messages of each length can be encrypted — standard.
+
+TODO: attribute the bound to [[Sha49 - Communication Theory of Secrecy Systems|Sha49]] once the passage stating it is read.
+
+Fix $m_0 \in \calM_{\secpar,\ell}$ and $c$ with $\Pr[\Enc(K, m_0) = c] > 0$. By perfect secrecy, $\Pr[\Enc(K, m) = c] > 0$ for every $m \in \calM_{\secpar,\ell}$, so some key $k_m$ that $\KeyGen(1^\secpar)$ outputs with positive probability has $\Pr[\Enc(k_m, m) = c] > 0$. Perfect correctness gives $\Dec(k_m, c) = m$, since otherwise decryption would fail with positive probability, and $\Dec$ is deterministic, so $m \mapsto k_m$ is injective. The one-time pad meets the bound with equality; [[#Messages longer than the key]] asks for one-time security in the regime where the bound rules out perfect secrecy.
+
+### Real-or-random CPA security
+
+In the **real-or-random (ROR) CPA** game, the adversary queries single messages $m$; in world 0 the oracle encrypts $m$, and in world 1 it encrypts a fresh uniform string of length $|m|$ in its place, under the same key — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]. The game needs that string to be a message, so the notion applies to schemes whose message space $\calM_\secpar$ contains, with each message $m$, all of $\bits^{|m|}$, as $\calM_\secpar = \bits^*$ and $\calM_\secpar = \bits^{\ell(\secpar)}$ do. An admissible adversary queries only messages in $\calM$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ror\text{-}cpa}}_{\SKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $\calO_0(m) := \Enc(k, m)$
+\State $\calO_1(m) := \Enc(k, r)$ for a fresh $r \getsr \bits^{|m|}$
+\Comment{Each query has $m \in \calM$; fresh coins in both worlds}
+\State $b' \gets \calA^{\calO_b}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A SKE scheme $\SKE$ with such a message space is **ROR-CPA-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ror\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ror\text{-}cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. For such schemes ROR-CPA security and CPA security are equivalent, with a factor $2$ from ROR to left-or-right ([[ror-cpa-security-to-cpa-security-bdjr97|ROR-CPA-secure SKE ⇒ CPA-secure SKE]]) and no loss in the other direction ([[cpa-security-to-ror-cpa-security-bdjr97|CPA-secure SKE ⇒ ROR-CPA-secure SKE]]) — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]].
 
 ### IND\$-CPA Security
 
@@ -135,18 +195,29 @@ $$
 \Adv^{\mathrm{cca}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cca}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. The admissibility restriction is necessary: without it, $\calA$ could query $\calO_b(0,1)$ and then decrypt the result to trivially learn $b$.
+is negligible. The admissibility restriction is necessary: without it, $\calA$ could query $\calO_b(m_0, m_1)$ on two distinct equal-length messages $m_0, m_1 \in \calM$ and submit the answer to $\calD$, which returns $m_b$ except with probability $\varepsilon$.
+
+A scheme is **malleable** if for some efficiently computable function $f$ on messages, an efficient algorithm given only a ciphertext $c$ of an unknown message $m$ outputs a ciphertext $c' \ne c$ that decrypts to $f(m)$, except with negligible probability. Malleability with $f(m_0) \ne f(m_1)$ for two equal-length messages $m_0, m_1 \in \calM$ defeats CCA security: $\calA$ transforms the answer $c^*$ of its single query $\calO_b(m_0, m_1)$ into $c' \ne c^*$, an admissible query to $\calD$, and outputs $0$ iff the answer is $f(m_0)$, which gives advantage $1 - \negl(\secpar)$ — standard. Randomized counter mode is malleable, since flipping a bit of the masked part of a ciphertext flips the same bit of the message, so it is not CCA-secure although it is CPA-secure under a PRF ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]]). Appending to every ciphertext a bit that $\Dec$ ignores makes any CPA-secure scheme malleable without affecting its CPA security, so a CPA-secure scheme need not be CCA-secure ([[no-cpa-security-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE]]).
+
+# Variations
+
+## Messages longer than the key
+
+A SKE scheme has **key length** $\kappa(\secpar)$ if $\calK_\secpar \subseteq \bits^{\kappa(\secpar)}$. A **one-time-secure SKE scheme for messages longer than the key** is a [[#One-time security|one-time-secure]] SKE scheme of some key length $\kappa$ whose message space contains every string of some length $\ell(\secpar) > \kappa(\secpar)$, that is, $\bits^{\ell(\secpar)} \subseteq \calM_\secpar$ for every $\secpar$. By [[#Shannon's bound]], no perfectly correct such scheme is perfectly secret. Two messages longer than the key would not suffice: for every $\ell \ge 2$, the keys $\calK_\secpar = \bits$, messages $\calM_\secpar = \{0^\ell, 1^\ell\}$, $\Enc(k, m) := m \oplus k^\ell$ and $\Dec(k, c) := c \oplus k^\ell$, where $k^\ell$ repeats the bit $k$, give a perfectly correct, perfectly secret scheme of key length $1$ — standard. If a [[pseudorandom-generator|PRG]] exists, the scheme $\Enc(k, m) := \PRG(k) \oplus m$ meets this notion ([[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]]).
 
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
+- [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]]
+- [[ror-cpa-security-to-cpa-security-bdjr97|ROR-CPA-secure SKE ⇒ CPA-secure SKE]] and [[cpa-security-to-ror-cpa-security-bdjr97|CPA-secure SKE ⇒ ROR-CPA-secure SKE]]
+- [[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 - [[searchable-symmetric-encryption|Searchable symmetric encryption]]: an encrypted index that a server searches with keyword tokens, learning only a specified leakage function — [[SWP00 - Practical Techniques for Searches on Encrypted Data|SWP00]], [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
 - [[order-preserving-encryption|Order-preserving and order-revealing encryption]]: deterministic encryption whose ciphertexts reveal the order of the plaintexts — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]], [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
-<!-- BEGIN GENERATED participates-in 8c1eaf1b8761 -->
+<!-- BEGIN GENERATED participates-in fdabb2d0c34d -->
 
 ## Participates in
 
@@ -154,26 +225,37 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 
 - [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[cpa-security-to-ror-cpa-security-bdjr97|CPA-secure SKE ⇒ ROR-CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[perfectly-secret-ske-to-ske|Perfectly secret SKE ⇒ SKE]] (via [[symmetric-key-encryption#perfect-secrecy|Perfect secrecy]])
+- [[ror-cpa-security-to-cpa-security-bdjr97|ROR-CPA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#real-or-random-cpa-security|Real-or-random CPA security]])
 - [[ske-to-owf-il89|SKE ⇒ OWF]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Produces Symmetric key encryption**
 
 - [[authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00|AE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[cpa-security-to-ror-cpa-security-bdjr97|CPA-secure SKE ⇒ ROR-CPA-secure SKE]] (via [[symmetric-key-encryption#real-or-random-cpa-security|Real-or-random CPA security]])
 - [[cpa-security-to-ske|CPA-secure SKE ⇒ SKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[perfectly-secret-ske-to-ske|Perfectly secret SKE ⇒ SKE]]
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]] (via [[symmetric-key-encryption#messages-longer-than-the-key|Messages longer than the key]])
+- [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[ror-cpa-security-to-cpa-security-bdjr97|ROR-CPA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Barriers**
 
+- [[no-cpa-security-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]], [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [No fixed-construction reduction from CPA Security to IND\$-CPA Security](no-cpa-security-to-ind-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]], [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[no-cpa-security-to-secret-key-bit-circular-security-gkw17a|No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]]) — circumvented by [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]]
 
 <!-- END GENERATED participates-in -->

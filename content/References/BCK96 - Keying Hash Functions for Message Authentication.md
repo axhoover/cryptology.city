@@ -18,3 +18,7 @@ cryptobib_key: C:BelCanKra96
 ## Abstract
 
 TODO — abstract.
+
+# Notes
+
+- The authors host a full version (June 1996) at https://cseweb.ucsd.edu/~mihir/papers/kmd5.pdf; the CRYPTO 1996 paper is an abridged version of it.

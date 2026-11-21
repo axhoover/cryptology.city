@@ -98,8 +98,7 @@ probability negligible in $|x|$ — [[OW93 - One-way functions are essential for
 
 A hash function $\hash$ is **weakly one-way** if there is a polynomial $p$ such that for
 all efficient $\calA$ and all sufficiently large $\secpar$,
-$\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 1 - 1/p(\secpar)$: every efficient
-inverter fails with noticeable probability —
+$\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 1 - 1/p(\secpar)$ —
 [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. Every
 one-way function is weakly one-way — folklore; conversely,
 [[weak-owf-to-owf-yao82a|weak one-way functions yield one-way functions]] — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].

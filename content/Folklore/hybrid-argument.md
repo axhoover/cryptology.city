@@ -40,7 +40,7 @@ Each transition is usually justified by a **reduction**: an algorithm that disti
 ## Statistical vs computational hybrids
 
 - **Computational hybrid argument**: each transition is computationally indistinguishable, relying on a hardness assumption. Polynomially many transitions with a common negligible bound suffice.
-- **Statistical hybrid argument**: each transition has statistical distance at most $\varepsilon$; the total statistical distance is at most $t\varepsilon$. Does not require any computational assumption. Used in information-theoretic proofs (e.g., perfect secrecy, unconditional MPC).
+- **Statistical hybrid argument**: each transition has statistical distance at most $\varepsilon$; the total statistical distance is at most $t\varepsilon$. Does not require any computational assumption. Used in information-theoretic proofs (e.g., [[symmetric-key-encryption#perfect-secrecy|perfect secrecy]], unconditional MPC).
 
 ## Limitations
 

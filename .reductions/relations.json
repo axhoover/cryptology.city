@@ -3928,6 +3928,19 @@
    "unlisted": false
   },
   {
+   "id": "long-message-ske",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#messages-longer-than-the-key",
+   "of": "ske",
+   "title": "Messages longer than the key",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "lossy-trapdoor-function",
    "kind": "variant",
    "type": "primitive",
@@ -5523,6 +5536,19 @@
    "unlisted": false
   },
   {
+   "id": "perfectly-secret-ske",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#perfect-secrecy",
+   "of": "ske",
+   "title": "Perfect secrecy",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ph",
    "kind": "object",
    "type": "complexity-class",
@@ -6000,7 +6026,8 @@
    "aliases": [
     "PRP",
     "sPRP",
-    "Pseudorandom permutation"
+    "Pseudorandom permutation",
+    "Block cipher"
    ],
    "unlisted": false
   },
@@ -6593,6 +6620,19 @@
     "Random Oracle Model",
     "RO"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "ror-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#real-or-random-cpa-security",
+   "of": "ske",
+   "title": "Real-or-random CPA security",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -7200,6 +7240,19 @@
     "Symmetric encryption",
     "Private-key encryption"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "small-domain-prp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-permutation.md",
+   "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
+   "anchor": "#small-domain-prps",
+   "of": "prp",
+   "title": "Small-domain PRPs",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -12039,6 +12092,33 @@
    "slug": "cpa-security-to-cpa-security",
    "graphSlug": "Reductions/cpa-security-to-cpa-security",
    "title": "IND-CPA ⇔ Semantic security"
+  },
+  {
+   "id": "red-cpa-security-to-ror-cpa-security-bdjr97",
+   "kind": "implication",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "ror-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none when every string of a message's length is a message; otherwise the bitwise encoding multiplies the number of queries by the message length",
+   "rationale": {
+    "class": "The construction is the identity on schemes, or the bitwise encoding, which calls Enc and Dec only as oracles, and the reduction runs any ROR-CPA adversary once, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cpa-security-to-ror-cpa-security-bdjr97.md",
+   "slug": "cpa-security-to-ror-cpa-security-bdjr97",
+   "graphSlug": "Reductions/cpa-security-to-ror-cpa-security-bdjr97",
+   "title": "CPA-secure SKE ⇒ ROR-CPA-secure SKE"
   },
   {
    "id": "red-cpa-security-to-ske",
@@ -22566,6 +22646,33 @@
    "title": "Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE"
   },
   {
+   "id": "red-perfectly-secret-ske-to-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-secret-ske"
+   ],
+   "conclusion": "ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: every one-query adversary has advantage 0",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any one-time adversary unchanged as a one-query adversary against perfect secrecy."
+   },
+   "status": "draft",
+   "page": "content/Reductions/perfectly-secret-ske-to-ske.md",
+   "slug": "perfectly-secret-ske-to-ske",
+   "graphSlug": "Reductions/perfectly-secret-ske-to-ske",
+   "title": "Perfectly secret SKE ⇒ SKE"
+  },
+  {
    "id": "red-phi-hiding-to-ds-kk12",
    "kind": "implication",
    "hypotheses": [
@@ -23615,6 +23722,33 @@
    "title": "CCA-secure PRE ⇒ PRE"
   },
   {
+   "id": "red-prf-to-arbitrary-length-suf-cma-mac-br05",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $\\sigma^2/2^n$ for queries totaling $\\sigma$ blocks, plus the PRF advantages of three adversaries, one per key, the first making $\\sigma$ queries and the others $q$",
+   "rationale": {
+    "class": "ECBC calls the PRF only as an oracle under three keys, each hybrid reduction runs the distinguisher once as an oracle, and the random-function case is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-arbitrary-length-suf-cma-mac-br05.md",
+   "slug": "prf-to-arbitrary-length-suf-cma-mac-br05",
+   "graphSlug": "Reductions/prf-to-arbitrary-length-suf-cma-mac-br05",
+   "title": "PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)"
+  },
+  {
    "id": "red-prf-to-garbled-circuits-bhr12",
    "kind": "implication",
    "hypotheses": [
@@ -23759,7 +23893,8 @@
     "standard"
    ],
    "source": [
-    "[[BKR94 - The Security of Cipher Block Chaining|BKR94]]"
+    "[[BKR94 - The Security of Cipher Block Chaining|BKR94]]",
+    "[[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]"
    ],
    "via": [],
    "heuristic": false,
@@ -23920,7 +24055,9 @@
    "source": [
     "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
    ],
-   "via": [],
+   "via": [
+    "[[switching-lemma|Switching Lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "sum of the round PRF advantages plus additive $O(q^2/2^n)$ for $q$ queries",
    "rationale": {
@@ -24171,6 +24308,33 @@
    "slug": "prg-to-leakage-resilient-stream-cipher-dp08",
    "graphSlug": "Reductions/prg-to-leakage-resilient-stream-cipher-dp08",
    "title": "PRG ⇒ Leakage-resilient stream cipher"
+  },
+  {
+   "id": "red-prg-to-long-message-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "prg"
+   ],
+   "conclusion": "long-message-ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2: the one-time advantage is twice the PRG advantage",
+   "rationale": {
+    "class": "The scheme evaluates the PRG on its key only as an oracle, and the reduction runs any one-time adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-to-long-message-ske.md",
+   "slug": "prg-to-long-message-ske",
+   "graphSlug": "Reductions/prg-to-long-message-ske",
+   "title": "PRG ⇒ One-time SKE for messages longer than the key"
   },
   {
    "id": "red-prg-to-np-average-case-hardness",
@@ -24775,6 +24939,60 @@
    "title": "DLOG ⇒ Schnorr signatures (tight, AGM)"
   },
   {
+   "id": "red-prp-to-arbitrary-length-suf-cma-mac-br05",
+   "kind": "implication",
+   "hypotheses": [
+    "prp"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $3.75\\sigma^2/2^n$ for queries totaling $\\sigma$ blocks, plus the PRP advantage of an adversary making $\\sigma$ queries in time $t + O(n\\sigma)$ (Corollary 8)",
+   "rationale": {
+    "class": "XCBC calls the block cipher only in the forward direction and only as an oracle, and the reduction samples the two XOR keys itself and runs the distinguisher once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-arbitrary-length-suf-cma-mac-br05.md",
+   "slug": "prp-to-arbitrary-length-suf-cma-mac-br05",
+   "graphSlug": "Reductions/prp-to-arbitrary-length-suf-cma-mac-br05",
+   "title": "PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)"
+  },
+  {
+   "id": "red-prp-to-cpa-security-bdjr97",
+   "kind": "implication",
+   "hypotheses": [
+    "prp"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2 in the PRP advantage, plus $(2q^2 - q)/2^n$ for $q$ encrypted blocks",
+   "rationale": {
+    "class": "CBC calls the permutation and its inverse only as oracles, and the reduction runs any CPA adversary as an oracle, answering its queries with its own permutation oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-cpa-security-bdjr97.md",
+   "slug": "prp-to-cpa-security-bdjr97",
+   "graphSlug": "Reductions/prp-to-cpa-security-bdjr97",
+   "title": "PRP ⇒ CPA-secure SKE (CBC)"
+  },
+  {
    "id": "red-prp-to-invertible-prf",
    "kind": "implication",
    "hypotheses": [
@@ -24816,7 +25034,8 @@
     "standard"
    ],
    "source": [
-    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]",
+    "[[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]"
    ],
    "via": [
     "[[switching-lemma|Switching Lemma]]"
@@ -24831,6 +25050,33 @@
    "slug": "prp-to-prf",
    "graphSlug": "Reductions/prp-to-prf",
    "title": "PRP ⇒ PRF"
+  },
+  {
+   "id": "red-prp-to-small-domain-prp-br02",
+   "kind": "implication",
+   "hypotheses": [
+    "prp"
+   ],
+   "conclusion": "small-domain-prp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BR02 - Ciphers with Arbitrary Finite Domains|BR02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: an adversary against the prefix cipher on $\\ZZ_N$, inverse queries included, has at most the PRP advantage of an adversary against $E$ making $N$ queries",
+   "rationale": {
+    "class": "The prefix cipher evaluates the PRP only as an oracle at the points of the small domain, and the reduction runs any small-domain distinguisher only as an oracle, answering it from the ranks of N oracle answers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-small-domain-prp-br02.md",
+   "slug": "prp-to-small-domain-prp-br02",
+   "graphSlug": "Reductions/prp-to-small-domain-prp-br02",
+   "title": "PRP ⇒ Small-domain PRP (prefix cipher)"
   },
   {
    "id": "red-prp-to-tweakable-block-cipher-lrw02",
@@ -26208,6 +26454,33 @@
    "slug": "rom-to-snark-mic00",
    "graphSlug": "Reductions/rom-to-snark-mic00",
    "title": "ROM ⇒ SNARK (Micali's CS proofs)"
+  },
+  {
+   "id": "red-ror-cpa-security-to-cpa-security-bdjr97",
+   "kind": "implication",
+   "hypotheses": [
+    "ror-cpa-security"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2: the left-or-right advantage is twice the real-or-random advantage of the reduction",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any CPA adversary once, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ror-cpa-security-to-cpa-security-bdjr97.md",
+   "slug": "ror-cpa-security-to-cpa-security-bdjr97",
+   "graphSlug": "Reductions/ror-cpa-security-to-cpa-security-bdjr97",
+   "title": "ROR-CPA-secure SKE ⇒ CPA-secure SKE"
   },
   {
    "id": "red-ros-with-auxiliary-input-to-ros",
@@ -32221,6 +32494,38 @@
    "title": "coNP ⊆ AM collapses the polynomial hierarchy"
   },
   {
+   "id": "bar-cpa-security-to-cca-secure-symmetric-key-encryption",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "cca-secure-symmetric-key-encryption",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "cpa-security"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself CCA-secure; building a CCA-secure scheme from a CPA-secure one by another construction is not ruled out.",
+    "strength": "The counterexample modifies a given CPA-secure scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-cpa-security-to-cca-secure-symmetric-key-encryption.md",
+   "slug": "no-cpa-security-to-cca-secure-symmetric-key-encryption",
+   "graphSlug": "Barriers/no-cpa-security-to-cca-secure-symmetric-key-encryption",
+   "title": "No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE"
+  },
+  {
    "id": "bar-cpa-security-to-ind-cpa-security",
    "hypotheses": [
     "cpa-security"
@@ -32906,6 +33211,38 @@
    "slug": "no-ke-to-tdp-rud91",
    "graphSlug": "Barriers/no-ke-to-tdp-rud91",
    "title": "No relativizing reduction from KE to TDP"
+  },
+  {
+   "id": "bar-mac-to-suf-cma-mac",
+   "hypotheses": [
+    "mac"
+   ],
+   "conclusion": "suf-cma-mac",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "mac"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The construction is the identity map, so the counterexample refutes only the claim that every UF-CMA-secure MAC is itself SUF-CMA-secure; building some other SUF-CMA-secure MAC from a UF-CMA-secure one is not ruled out.",
+    "strength": "The counterexample modifies a given UF-CMA-secure MAC, so it assumes one exists; without one, the identity-map implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-mac-to-suf-cma-mac.md",
+   "slug": "no-mac-to-suf-cma-mac",
+   "graphSlug": "Barriers/no-mac-to-suf-cma-mac",
+   "title": "No fixed-construction reduction from MAC to SUF-CMA MAC"
   },
   {
    "id": "bar-mip-star-to-mip",
@@ -34034,6 +34371,140 @@
    "title": "No fully-black-box reduction from PPAD hardness to OWF"
   },
   {
+   "id": "bar-prf-to-arbitrary-length-suf-cma-mac",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "prf"
+   ],
+   "circumventedBy": [
+    "red-prf-to-arbitrary-length-suf-cma-mac-br05"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The forgery refutes only plain CBC-MAC on messages of varying length; other constructions of an arbitrary-length MAC from a PRF are not ruled out.",
+    "strength": "The forgery applies to CBC-MAC over a given PRF, so the barrier assumes one exists; without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-arbitrary-length-suf-cma-mac.md",
+   "slug": "no-prf-to-arbitrary-length-suf-cma-mac",
+   "graphSlug": "Barriers/no-prf-to-arbitrary-length-suf-cma-mac",
+   "title": "No fixed-construction reduction from PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)"
+  },
+  {
+   "id": "bar-prf-to-cca-secure-symmetric-key-encryption",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "cca-secure-symmetric-key-encryption",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "prf"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes only randomized counter mode; building a CCA-secure scheme from a PRF by another construction is not ruled out.",
+    "strength": "The attack applies to randomized counter mode instantiated with a given PRF, so it assumes one exists; without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-cca-secure-symmetric-key-encryption.md",
+   "slug": "no-prf-to-cca-secure-symmetric-key-encryption",
+   "graphSlug": "Barriers/no-prf-to-cca-secure-symmetric-key-encryption",
+   "title": "No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)"
+  },
+  {
+   "id": "bar-prf-to-prp-two-round-feistel",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "prp",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "prf"
+   ],
+   "circumventedBy": [
+    "red-prf-to-prp-lr88"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes the two-round Feistel network on keyed round functions and does not rule out building a PRP from a PRF otherwise, as three rounds do.",
+    "strength": "The distinguisher refutes the construction instantiated with a PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-prp-two-round-feistel.md",
+   "slug": "no-prf-to-prp-two-round-feistel",
+   "graphSlug": "Barriers/no-prf-to-prp-two-round-feistel",
+   "title": "No fixed-construction reduction from PRF to PRP (two-round Feistel)"
+  },
+  {
+   "id": "bar-prf-to-strong-pseudorandom-permutation-three-round-feistel",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "strong-pseudorandom-permutation",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "prf"
+   ],
+   "circumventedBy": [
+    "red-prf-to-strong-pseudorandom-permutation-lr88"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes the three-round Feistel network on keyed round functions and does not rule out building a strong PRP from a PRF otherwise, as four rounds do.",
+    "strength": "The distinguisher refutes the construction instantiated with a PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-strong-pseudorandom-permutation-three-round-feistel.md",
+   "slug": "no-prf-to-strong-pseudorandom-permutation-three-round-feistel",
+   "graphSlug": "Barriers/no-prf-to-strong-pseudorandom-permutation-three-round-feistel",
+   "title": "No fixed-construction reduction from PRF to Strong PRP (three-round Feistel)"
+  },
+  {
    "id": "bar-prime-order-dlog-to-schnorr-signature-ff13",
    "hypotheses": [
     "prime-order-dlog"
@@ -34172,6 +34643,40 @@
    "slug": "no-tight-prime-order-dlog-to-schnorr-signature-seu12",
    "graphSlug": "Barriers/no-tight-prime-order-dlog-to-schnorr-signature-seu12",
    "title": "No tight algebraic reduction from DLOG to Schnorr signatures in the ROM"
+  },
+  {
+   "id": "bar-prp-to-cpa-security-bdjr97",
+   "hypotheses": [
+    "prp"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "prp"
+   ],
+   "circumventedBy": [
+    "red-prp-to-cpa-security-bdjr97"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "rationale": {
+    "class": "The attack refutes only CBC with a counter as initialization vector; CBC with a uniform initialization vector is a CPA-secure construction from a PRP.",
+    "strength": "The attack applies to CBC instantiated with a given PRP, so it assumes one exists; without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prp-to-cpa-security-bdjr97.md",
+   "slug": "no-prp-to-cpa-security-bdjr97",
+   "graphSlug": "Barriers/no-prp-to-cpa-security-bdjr97",
+   "title": "No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)"
   },
   {
    "id": "bar-prs-to-owf-kre21",

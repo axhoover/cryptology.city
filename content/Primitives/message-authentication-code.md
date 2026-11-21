@@ -27,9 +27,9 @@ A MAC is a triple of efficient algorithms $\MAC = (\KeyGen, \Tag, \Vrfy)$ with r
 
 Every MAC on this page is $(1-\varepsilon)$-correct, as defined under [[#Correctness|Correctness]], for a negligible function $\varepsilon(\secpar)$; for a [[#Nonce-based MACs|nonce-based MAC]] this means $\Pr\!\left[\Vrfy(k, n, m, \Tag(k, n, m)) = 1\right] \ge 1 - \varepsilon$ for every nonce $n$ and every $m \in \calM$. Without correctness, $\Vrfy \equiv 0$ meets every unforgeability notion below.
 
-As an object, a MAC denotes a $(1-\negl)$-correct, [[#Unforgeability|UF-CMA-secure]] scheme, and a [[#Strong unforgeability|strongly unforgeable]] MAC a $(1-\negl)$-correct, SUF-CMA-secure one.
+Unless a section says otherwise, the message space is a family $\calM = \{\calM_\secpar\}_{\secpar \in \NN}$ of sets of strings with $|\calM_\secpar|$ superpolynomial in $\secpar$, each containing a message that an efficient algorithm outputs on input $1^\secpar$; the standard instances are $\calM_\secpar = \bits^{n(\secpar)}$ with $n = \omega(\log \secpar)$ and $\calM = \bits^*$. The size condition excludes a trivial instance: with $|\calM_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform tags in $\bits^\secpar$, one per message, with $\Tag(k, m)$ the entry for $m$ and canonical verification $\Vrfy(k, m, t) := [t = \Tag(k, m)]$, is UF-CMA-secure and SUF-CMA-secure unconditionally, since a forgery $(\hat m, \hat t)$ on an unqueried $\hat m$ matches an entry independent of $\calA$'s view with probability $2^{-\secpar}$, and canonical verification leaves no second valid tag on a queried message — standard. [[#One-time MACs|One-time MACs]] take any message space, and [[#Nonce-based MACs|nonce-based MACs]] require a superpolynomial nonce space instead.
 
-TODO: quantify the message space of the base notion: with $|\calM_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform tags in $\bits^\secpar$, one per message, with $\Tag(k, m)$ the entry for $m$ and canonical verification, is a UF-CMA-secure MAC unconditionally.
+As an object, a MAC denotes a $(1-\negl)$-correct, [[#Unforgeability|UF-CMA-secure]] scheme, and a [[#Strong unforgeability|strongly unforgeable]] MAC a $(1-\negl)$-correct, SUF-CMA-secure one, each with such a message space.
 
 ## Properties
 
@@ -45,7 +45,7 @@ over the choice of $k \gets \KeyGen(1^\secpar)$ and the randomness of $\Tag$. Wh
 
 ### Unforgeability
 
-The following is the **unforgeability under chosen message attacks (UF-CMA)** game. $\calA$ gets a tagging oracle $\calO$ and wins by outputting a valid tag on a message it never queried.
+The following is the **unforgeability under chosen message attacks (UF-CMA)** game, also called **existential unforgeability under chosen message attacks (EUF-CMA)**. $\calA$ gets a tagging oracle $\calO$ and wins by outputting a valid tag on a message it never queried.
 
 ```pseudocode
 \begin{algorithm}
@@ -125,11 +125,19 @@ $$
 
 is negligible.
 
+SUF-CMA security implies UF-CMA security with no loss ([[suf-cma-mac-to-mac|SUF-CMA MAC ⇒ MAC]]), and not conversely: appending to every tag a bit that $\Vrfy$ ignores preserves UF-CMA security, and flipping that bit in an oracle answer is a strong forgery ([[no-mac-to-suf-cma-mac|No fixed-construction reduction from MAC to SUF-CMA MAC]]) — folklore.
+
+Both games allow $\calA$ one forgery attempt. In their variants with verification queries, $\calA$ also has an oracle $\calV(m, t) := \Vrfy(k, m, t)$, which it may query many times, and wins once it submits to $\calV$ a valid pair that meets the freshness condition of the game. Many verification queries are equivalent to one for strong unforgeability but not for UF-CMA, where a scheme secure against a single forgery attempt need not be secure against many — [[BGM04 - The Power of Verification Queries in Message Authentication and Authenticated Encryption|BGM04]].
+
 # Variations
 
 ## Strongly unforgeable MACs for arbitrary-length messages
 
-A MAC with message space $\calM = \bits^*$ that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$, with the bound holding for every $m \in \bits^*$, and [[#Strong unforgeability|SUF-CMA-secure]]; an efficient adversary queries and forges only on messages of polynomial length. It is a strongly unforgeable MAC ([[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]]) — folklore. Composing it with an encryption scheme whose ciphertexts are bit strings needs no condition linking the two message spaces, which Encrypt-then-MAC requires ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]]): a MAC on $\calM = \bits$, a key of two independent uniform tags in $\bits^\secpar$ with canonical verification, is correct and SUF-CMA-secure unconditionally, yet cannot tag a $\secpar$-bit ciphertext — standard.
+A MAC with message space $\calM = \bits^*$ that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$, with the bound holding for every $m \in \bits^*$, and [[#Strong unforgeability|SUF-CMA-secure]]; an efficient adversary queries and forges only on messages of polynomial length. It is a strongly unforgeable MAC ([[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]]) — folklore. Composing it with an encryption scheme whose ciphertexts are bit strings needs no condition linking the two message spaces, which Encrypt-then-MAC requires ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + arbitrary-length SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)]]): a MAC on $\bits^{n(\secpar)}$, such as the one a PRF on that domain gives ([[prf-to-mac|PRF ⇒ MAC]]), tags no ciphertext of another length.
+
+Plain CBC-MAC on messages of varying length is forgeable after one query ([[no-prf-to-arbitrary-length-suf-cma-mac|No fixed-construction reduction from PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)]]) — folklore. Applying the PRF under a second key to its output, or under a third key after $10^j$ padding of a message whose length is not a positive multiple of the block length $n$, gives ECBC, an arbitrary-length SUF-CMA MAC from a PRF ([[prf-to-arbitrary-length-suf-cma-mac-br05|PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]]). XORing into the last block one of two $n$-bit keys, chosen by whether the message was padded, gives XCBC, one from a PRP under a single block-cipher key ([[prp-to-arbitrary-length-suf-cma-mac-br05|PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)]]) — [[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]]. OMAC is XCBC under a block cipher $E_k$ with the two further keys derived as $2 E_k(0^n)$ and $4 E_k(0^n)$, products in $\FF_{2^n}$ — [[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]]; it needs only the block-cipher key, where XCBC needs two further $n$-bit keys, and is proved secure for messages of arbitrary length — [[IK03 - OMAC One-Key CBC MAC|IK03]].
+
+TODO: add a reduction page for OMAC (CMAC) once IK03's theorem, its PRP hypothesis and its bound are read.
 
 ## Deterministic MACs
 
@@ -154,12 +162,13 @@ $$
 # Other results
 
 - [[prf-to-mac|PRF ⇒ MAC]], and [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]] on messages of a fixed number of blocks.
+- [[prf-to-arbitrary-length-suf-cma-mac-br05|PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]] and [[prp-to-arbitrary-length-suf-cma-mac-br05|PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)]].
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]].
 - [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (encrypt-then-MAC).
-- **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$, let $F_k(m_1 \cdots m_\ell) := y_\ell$ with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$ be its iteration keyed by the initial chaining value. Then $\mathrm{NMAC}_{k_1,k_2}(m) := f(k_1, F_{k_2}(m) \,\|\, \mathrm{pad})$, for a fixed string $\mathrm{pad}$ of $b - c$ bits, is a UF-CMA-secure MAC if $f$, keyed by its chaining input, is a secure MAC on one-block messages and $F_k$ is weakly collision resistant, that is, collision resistant against an adversary that sees $F_k$ only through an oracle — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. $\mathrm{HMAC}$ is NMAC with $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$ derived from a single key $\bar k$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]].
+- **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$ with $c \le b$, let $F_k(m_1 \cdots m_\ell) := y_\ell$, with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$, be its iteration keyed by the initial chaining value, applied to messages padded to whole $b$-bit blocks. NMAC has an outer key $k_1$ and an inner key $k_2$, and $\mathrm{NMAC}_{k_1,k_2}(m) := f(k_1, F_{k_2}(m) \,\|\, \mathrm{pad})$ for a fixed string $\mathrm{pad}$ of $b - c$ bits. Suppose no forger making $q$ queries in time $t$ breaks $f$, keyed by its chaining input, as a MAC on $b$-bit messages with probability more than $\varepsilon_f$, and $F$ is weakly collision resistant: no adversary that sees $F_k$, for a hidden uniform key $k$, only through an oracle, and makes $q$ queries of at most $L$ bits in time $t$, outputs $m \ne m'$ with $F_k(m) = F_k(m')$ with probability more than $\varepsilon_F$. Then no forger making $q$ queries of at most $L$ bits in time $t$ breaks NMAC as a MAC with probability more than $\varepsilon_f + \varepsilon_F$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]] (Theorem 4.1). For the hash function $H := F_{\mathrm{IV}}$ with its fixed initial value, a key $\bar k$ padded with zeros to $b$ bits and two fixed $b$-bit constants $\mathrm{ipad} \ne \mathrm{opad}$, $\mathrm{HMAC}_{\bar k}(m) := H\big((\bar k \oplus \mathrm{opad}) \,\|\, H((\bar k \oplus \mathrm{ipad}) \,\|\, m)\big)$ is NMAC under the derived keys $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$, so the NMAC theorem covers HMAC if, in addition, $(k_1, k_2)$ is indistinguishable from a pair of independent uniform keys, a pseudorandomness assumption on $f$ keyed through its data input — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. Weak collision resistance fails for MD5 and SHA-1 — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
 - [[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]]: NMAC is a PRF against non-uniform adversaries if $f$, keyed by its chaining input, is a [[pseudorandom-function#non-uniform-compression-function-prfs|compression-function PRF against non-uniform adversaries]], with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]. The same holds for uniform adversaries by a uniform reduction ([[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]) — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]].
 
-<!-- BEGIN GENERATED participates-in 3a5f8604d5d2 -->
+<!-- BEGIN GENERATED participates-in 79070fb56b5f -->
 
 ## Participates in
 
@@ -173,11 +182,18 @@ $$
 **Produces Message authentication code**
 
 - [[arbitrary-length-suf-cma-mac-to-suf-cma-mac|Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
+- [[prf-to-arbitrary-length-suf-cma-mac-br05|PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]] (via [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|Strongly unforgeable MACs for arbitrary-length messages]])
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]]
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
 - [[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]
 - [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]] (via [[message-authentication-code#nonce-based-macs|Nonce-based MACs]])
+- [[prp-to-arbitrary-length-suf-cma-mac-br05|PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)]] (via [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|Strongly unforgeable MACs for arbitrary-length messages]])
 - [[suf-cma-mac-to-mac|SUF-CMA MAC ⇒ MAC]]
+
+**Barriers**
+
+- [[no-mac-to-suf-cma-mac|No fixed-construction reduction from MAC to SUF-CMA MAC]]
+- [[no-prf-to-arbitrary-length-suf-cma-mac|No fixed-construction reduction from PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)]] (via [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|Strongly unforgeable MACs for arbitrary-length messages]]) — circumvented by [[prf-to-arbitrary-length-suf-cma-mac-br05|PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]]
 
 <!-- END GENERATED participates-in -->

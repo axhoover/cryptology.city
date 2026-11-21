@@ -30,7 +30,7 @@ A PRF is a pair of efficient algorithms $\PRF= (\KeyGen, \Eval)$ with respect to
 - $\Eval(k,x) \to y,$ is a deterministic function that
   takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
 
-TODO: quantify the domain and range: with $|\calD_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform values in $\calR$, one per input, with $\Eval(k, x)$ the entry for $x$, is pseudorandom unconditionally, and with $|\calR| = 1$ every keyed family is, so the sizes under which results here hold (for example $\calD = \calR = \bits^\secpar$, or $|\calD_\secpar|$ superpolynomial as the Wegman–Carter MAC on [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC]] requires) should be stated.
+The domain and range are families $\calD = \{\calD_\secpar\}_{\secpar \in \NN}$ and $\calR = \{\calR_\secpar\}_{\secpar \in \NN}$ of finite sets of strings of length polynomial in $\secpar$, each with an efficient uniform sampler, such that $|\calD_\secpar|$ is superpolynomial in $\secpar$ ($1/|\calD_\secpar|$ is negligible) and $|\calR_\secpar| \ge 2$. The standard instance is $\calD_\secpar = \bits^{\ell(\secpar)}$ with $\ell = \omega(\log \secpar)$ and $\calR_\secpar = \bits^{m(\secpar)}$ with $m \ge 1$. Both conditions exclude trivial instances: with $|\calD_\secpar|$ polynomial, a key that is a table of independent uniform values in $\calR_\secpar$, one per input, with $\Eval(k, x)$ the entry for $x$, is pseudorandom unconditionally, and with $|\calR_\secpar| = 1$ every keyed family is — standard. On a domain of polynomial size the definition therefore carries content only for keys shorter than the function table of $|\calD_\secpar| \log_2 |\calR_\secpar|$ bits, and restricting a PRF to any efficiently embedded subset of its domain gives a family on that small domain, with the same key, that is pseudorandom in $\Game^{\mathrm{prf}}$, since a distinguisher for it is a distinguisher for the PRF that queries only embedded points — standard.
 
 ## Properties
 
@@ -58,7 +58,7 @@ $$
 \Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible.
+is negligible. The notion is due to [[GGM86 - How to construct random functions|GGM86]].
 
 ### Security against non-uniform adversaries
 
@@ -179,7 +179,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 06ae18361af8 -->
+<!-- BEGIN GENERATED participates-in b9fc34505f3b -->
 
 ## Participates in
 
@@ -192,6 +192,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[non-uniform-compression-function-prf-to-compression-function-prf|Non-uniform compression-function PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
 - [[non-uniform-compression-function-prf-to-non-uniform-prf|Non-uniform compression-function PRF ⇒ Non-uniform PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
 - [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
+- [[prf-to-arbitrary-length-suf-cma-mac-br05|PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]]
 - [[prf-to-garbled-circuits-bhr12|PRF ⇒ Garbled circuits (BHR)]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]]
@@ -228,5 +229,12 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
 - [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
+
+**Barriers**
+
+- [[no-prf-to-arbitrary-length-suf-cma-mac|No fixed-construction reduction from PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)]] — circumvented by [[prf-to-arbitrary-length-suf-cma-mac-br05|PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]]
+- [[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]]
+- [[no-prf-to-prp-two-round-feistel|No fixed-construction reduction from PRF to PRP (two-round Feistel)]] — circumvented by [[prf-to-prp-lr88|PRF ⇒ PRP]]
+- [[no-prf-to-strong-pseudorandom-permutation-three-round-feistel|No fixed-construction reduction from PRF to Strong PRP (three-round Feistel)]] — circumvented by [[prf-to-strong-pseudorandom-permutation-lr88|PRF ⇒ Strong PRP]]
 
 <!-- END GENERATED participates-in -->
