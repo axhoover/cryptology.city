@@ -23,6 +23,9 @@ can use the reports to reconcile duplicate findings.
 | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [1](2026-10-15-encryption-and-hybrids.md) | Public-key encryption, symmetric-key encryption, hybrid argument, switching lemma; semantic-security equivalence | Direct checks recorded; primary-source verification blocked |
 
+The [CS 579 coverage audit](cs579-coverage.md) (2026-11-21) is a separate,
+course-scoped survey: coverage per lecture topic, verified errors, Lean targets.
+
 ## Next batches
 
 Finish batch 1's pending source checks before calling it source reviewed.
