@@ -102,6 +102,7 @@ As an object, a **substitution-robust zero-bit PRC** denotes a family $(\mathsf{
 
 - PRCs were introduced in [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] motivated by undetectable watermarking of AI-generated content
 - [[zero-bit-prc-to-watermarking-cg24|Substitution-robust zero-bit PRC ⇒ Substring-complete watermarking]] — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
+- Secret-key PRCs admit no black-box robust combiner, even one required to be secure only when all but one candidate PRC is secure — [[DKRR26 - On Robust Combiners for Pseudorandom Codes and PKE with Pseudorandom Ciphertexts|DKRR26]]
 - [[subexponential-lpn-to-prc-cg24|Polylogarithmic-dimension LPN ⇒ PRC]] and [[lwe-to-zero-bit-prc-cg24|Polylogarithmic-dimension LPN ⇒ Substitution-robust zero-bit PRC]] — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
 
 <!-- BEGIN GENERATED participates-in 61f4b2aee59b -->
