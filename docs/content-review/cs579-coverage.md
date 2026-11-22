@@ -314,7 +314,7 @@ misleading), _misattributed_, _unsourced_.
     `References/LS15 - …md:18`. Unsourced. The standardization claim (ML-KEM,
     FIPS 203) is uncited, and no reference page exists. The key must match the
     lint pattern `^[A-Za-z][A-Za-z+]*\d{2}[a-z]?$`, so NIST24, not FIPS203.
-    Direct check; FIPS 203 could not be read here. **Status (2026-11-22):** fixed: FIPS 203 was read on nvlpubs.nist.gov, `NIST24` exists and is cited on the KEM page, the Module-LWE ⇒ KEM page and the LWE page, and the LS15 paraphrase is replaced by its verbatim abstract. ML-DSA (FIPS 204) is still uncited (TODO).
+    Direct check; FIPS 203 could not be read here. **Status (2026-11-22):** fixed: FIPS 203 was read on nvlpubs.nist.gov, `NIST24` exists and is cited on the KEM page, the Module-LWE ⇒ KEM page and the LWE page, and the LS15 paraphrase is replaced by its verbatim abstract. ML-DSA (FIPS 204) is cited to `NIST24b` since the signatures area.
 20. **E20** `Reductions/rsa-to-ind-cca-pke-oaep-fops01.md:24` and
     `key-encapsulation-mechanism.md:88`. Imprecise. The equivalence of
     partial-domain and full one-wayness for RSA is stated without condition. It
@@ -537,8 +537,8 @@ variant ids are in backticks. No existing `id` or variant name changes.
      prose on the KEM page, since each as an edge would be a self-loop on
      `ind-cca-kem`; and the T step has the hypothesis `pke-cpa-security`, the
      plan's fallback, because the readable restatement of HHK17's theorem assumes
-     IND-CPA. Not done: a page for HHK17 Theorem 3.1 (OW-CPA ⇒ OW-PCA), FOPS01's
-     lattice condition, the name of Sho01a's oracle and an OAEP+ page, and
+     IND-CPA. After the maintainer supplied HHK17, `29094e8` added the page for
+     HHK17 Theorem 3.1 (OW-CPA ⇒ OW-PCA). Not done: FOPS01's lattice condition, the name of Sho01a's oracle and an OAEP+ page, and
      GHP18's own theorem numbers and bounds (credited through PSJS24, DFH22 and
      SP 800-227).
 6. **Signatures (L20–L21).**
