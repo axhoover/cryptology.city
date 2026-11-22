@@ -1044,6 +1044,19 @@
    "unlisted": false
   },
   {
+   "id": "bounded-stateful-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#stateful-signatures",
+   "of": "ds",
+   "title": "Stateful signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "bpp",
    "kind": "object",
    "type": "complexity-class",
@@ -2122,6 +2135,19 @@
    "anchor": "#arbitrary-length-messages",
    "of": "ds",
    "title": "Arbitrary-length messages",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "ds-fixed-length",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#fixed-length-messages",
+   "of": "ds",
+   "title": "Fixed-length messages",
    "aliases": [],
    "unlisted": false
   },
@@ -7692,6 +7718,19 @@
    "unlisted": false
   },
   {
+   "id": "strong-one-time-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#strong-one-time-signatures",
+   "of": "ds",
+   "title": "Strong one-time signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "strong-pseudorandom-permutation",
    "kind": "variant",
    "type": "primitive",
@@ -8145,6 +8184,19 @@
    "anchor": "#succinct-iops-with-state-restoration-knowledge-soundness",
    "of": "iop",
    "title": "Succinct IOPs with state-restoration knowledge soundness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "suf-cma-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#strong-unforgeability",
+   "of": "ds",
+   "title": "Strong Unforgeability",
    "aliases": [],
    "unlisted": false
   },
@@ -9786,6 +9838,34 @@
    "slug": "approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
    "graphSlug": "Reductions/approximate-he-ind-cpa-d-to-approximate-homomorphic-encryption",
    "title": "IND-CPA-D approximate HE ⇒ Approximate HE"
+  },
+  {
+   "id": "red-arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf",
+    "ds-fixed-length"
+   ],
+   "conclusion": "ds-arbitrary-length",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rog06 - Formalizing Human Ignorance|Rog06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the forging advantage is at most that of a forger against the fixed-length scheme making as many signing queries, plus that of a collision finder, each running in about the forger's time",
+   "rationale": {
+    "class": "Hash-then-sign calls the hash family and the fixed-length scheme only as oracles, and each of the two reductions runs any forger once as an oracle, sampling the other component's keys itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06.md",
+   "slug": "arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06",
+   "graphSlug": "Reductions/arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06",
+   "title": "Arbitrary-length CRHF + fixed-length DS ⇒ DS for arbitrary-length messages (hash-then-sign)"
   },
   {
    "id": "red-arbitrary-length-crhf-to-crhf",
@@ -14761,6 +14841,87 @@
    "title": "DS for arbitrary-length messages ⇒ DS"
   },
   {
+   "id": "red-ds-arbitrary-length-to-ds-fixed-length",
+   "kind": "implication",
+   "hypotheses": [
+    "ds-arbitrary-length"
+   ],
+   "conclusion": "ds-fixed-length",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for every message length, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-arbitrary-length-to-ds-fixed-length.md",
+   "slug": "ds-arbitrary-length-to-ds-fixed-length",
+   "graphSlug": "Reductions/ds-arbitrary-length-to-ds-fixed-length",
+   "title": "DS for arbitrary-length messages ⇒ DS for fixed-length messages"
+  },
+  {
+   "id": "red-ds-fixed-length-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "ds-fixed-length"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for one-bit messages, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-fixed-length-to-ds.md",
+   "slug": "ds-fixed-length-to-ds",
+   "graphSlug": "Reductions/ds-fixed-length-to-ds",
+   "title": "DS for fixed-length messages ⇒ DS"
+  },
+  {
+   "id": "red-ds-to-bounded-stateful-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "bounded-stateful-ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the forging advantage is unchanged",
+   "rationale": {
+    "class": "The stateful scheme runs the stateless one unchanged, and the reduction runs any forger against it as an EUF-CMA forger, forwarding its signing queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-bounded-stateful-ds.md",
+   "slug": "ds-to-bounded-stateful-ds",
+   "graphSlug": "Reductions/ds-to-bounded-stateful-ds",
+   "title": "DS ⇒ Stateful DS"
+  },
+  {
    "id": "red-ds-to-byzantine-broadcast-ds83",
    "kind": "implication",
    "hypotheses": [
@@ -15024,7 +15185,7 @@
    "heuristic": false,
    "securityLoss": "additive: the sampler's statistical distance ν",
    "rationale": {
-    "class": "The construction is the identity on the family, and the reduction runs any inverter once, on $\\mathsf{Samp}(f; r)$ without $r$."
+    "class": "The construction is the identity on the family, and the reduction runs any inverter once, on $\\Samp(f; r)$ without $r$."
    },
    "status": "draft",
    "page": "content/Reductions/enhanced-trapdoor-permutation-to-tdp.md",
@@ -15652,7 +15813,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor 2: an inverter succeeding with probability ε factors N with probability ε/2",
+   "securityLoss": "a factor 2: an inverter succeeding with probability ε factors N with probability at least ε/2",
    "rationale": {
     "class": "The permutation uses only arithmetic modulo the sampled Blum integer, and one fixed reduction factors it by calling any inverter once, as an oracle, on the square of a uniform unit."
    },
@@ -16644,7 +16805,7 @@
     "crhf",
     "one-time-signature"
    ],
-   "conclusion": "ds",
+   "conclusion": "bounded-stateful-ds",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -16663,7 +16824,7 @@
    "page": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
    "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
    "graphSlug": "Reductions/hash-function-and-hash-based-signatures-to-ds-mer89",
-   "title": "CRHF + One-time signature ⇒ DS"
+   "title": "CRHF + One-time signature ⇒ Stateful DS (Merkle)"
   },
   {
    "id": "red-hash-function-and-io-to-deniable-encryption-sw14",
@@ -16840,7 +17001,7 @@
     "hash-function",
     "prf"
    ],
-   "conclusion": "ds",
+   "conclusion": "bounded-stateful-ds",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -16853,13 +17014,13 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any EUF-CMA forger as an oracle."
+    "class": "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any forger as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
    "graphSlug": "Reductions/hash-function-to-hash-based-signatures",
-   "title": "Hash function + PRF ⇒ DS (XMSS)"
+   "title": "Hash function + PRF ⇒ Stateful DS (XMSS)"
   },
   {
    "id": "red-hash-function-to-hash-based-signatures-lam79",
@@ -18172,6 +18333,33 @@
    "slug": "injective-one-way-function-to-three-round-non-malleable-commitment-gr19",
    "graphSlug": "Reductions/injective-one-way-function-to-three-round-non-malleable-commitment-gr19",
    "title": "Injective OWF ⇒ Three-round NM commitment (Goyal–Richelson)"
+  },
+  {
+   "id": "red-injective-one-way-function-to-uowhf-yglw15",
+   "kind": "implication",
+   "hypotheses": [
+    "injective-one-way-function"
+   ],
+   "conclusion": "uowhf",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[YGLW15 - (Almost) Optimal Constructions of UOWHFs from 1-to-1, Regular One-Way Functions and Beyond|YGLW15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "YGLW15 call their constructions black-box, a term that does not fix how the security reduction uses the adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/injective-one-way-function-to-uowhf-yglw15.md",
+   "slug": "injective-one-way-function-to-uowhf-yglw15",
+   "graphSlug": "Reductions/injective-one-way-function-to-uowhf-yglw15",
+   "title": "Injective OWF ⇒ UOWHF"
   },
   {
    "id": "red-invertible-prfs-to-prf",
@@ -20089,14 +20277,15 @@
     "module-lwe",
     "module-sis"
    ],
-   "conclusion": "ds",
+   "conclusion": "suf-cma-ds",
    "class": "unstated",
    "model": "rom",
    "models": [
     "rom"
    ],
    "source": [
-    "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
+    "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]",
+    "[[BDK+20 - CRYSTALS-Dilithium Algorithm Specifications and Supporting Documentation|BDK+20]]"
    ],
    "via": [
     "[[forking-lemma|forking lemma]]"
@@ -20111,7 +20300,7 @@
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
    "slug": "module-lwe-and-module-sis-to-ds",
    "graphSlug": "Reductions/module-lwe-and-module-sis-to-ds",
-   "title": "Module LWE + Module-SIS ⇒ DS"
+   "title": "Module LWE + Module-SIS ⇒ SUF-CMA DS"
   },
   {
    "id": "red-module-lwe-to-kem",
@@ -27345,6 +27534,35 @@
    "title": "RSA ⇒ Claw-free TDP"
   },
   {
+   "id": "red-rsa-to-ds-br96",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BR96 - The Exact Security of Digital Signatures How to Sign with RSA and Rabin|BR96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the inverter's success is at least the forger's less $3(q_S + q_H)^2(2^{-k_0} + 2^{-k_1})$, at $(q_S + q_H + 1) \\cdot k_0 \\cdot \\Theta(k^3)$ extra time",
+   "rationale": {
+    "class": "The scheme uses only the modulus generator and arithmetic modulo the modulus, and the fixed reduction runs any forger once as an oracle, answering its signing and random-oracle queries itself.",
+    "model": "The reduction programs both random oracles so that each image point it defines is the challenge times the e-th power of a known unit for a hash query, or the e-th power of a known unit for a signing query.",
+    "securityLoss": "The challenge is embedded in every image point defined for a hash query, so no query is guessed and only seed and hash-value collisions, cut-off sampling loops and forgeries on an unqueried hash input are lost."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rsa-to-ds-pss-br96.md",
+   "slug": "rsa-to-ds-pss-br96",
+   "graphSlug": "Reductions/rsa-to-ds-pss-br96",
+   "title": "RSA ⇒ DS (RSA-PSS, random oracle model)"
+  },
+  {
    "id": "red-rsa-to-ds-hw09",
    "kind": "implication",
    "hypotheses": [
@@ -27509,7 +27727,7 @@
     "rsa"
    ],
    "conclusion": "tdp",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -27520,6 +27738,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none: an inverter for the family is an RSA solver with the same advantage",
+   "rationale": {
+    "class": "The family uses only the modulus generator and arithmetic modulo the sampled modulus, and the reduction passes its RSA challenge unchanged to any inverter, called once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/rsa-to-tdp-rsa78.md",
    "slug": "rsa-to-tdp-rsa78",
@@ -28187,7 +28408,7 @@
    "hypotheses": [
     "trapdoor-sampling-sis"
    ],
-   "conclusion": "ds",
+   "conclusion": "suf-cma-ds",
    "class": "fully-black-box",
    "model": "rom",
    "models": [
@@ -28198,7 +28419,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to statistical terms: one run of the forger, with every hash value programmed as the image of a self-sampled short preimage, and a forgery differs from that preimage except with negligible probability",
+   "securityLoss": "tight up to statistical terms and the advantage against the derandomizing PRF: one run of the forger, with every hash value programmed as the image of a self-sampled short preimage, and a forgery differs from that preimage except with negligible probability",
    "rationale": {
     "class": "Hash-and-sign is one fixed construction from the trapdoor generator and preimage sampler, and the reduction runs any forger once as an oracle, programming the random oracle with self-sampled preimages.",
     "model": "The GPV08 reduction programs the random oracle by sampling each preimage first."
@@ -28207,7 +28428,7 @@
    "page": "content/Reductions/sis-to-ds.md",
    "slug": "sis-to-ds",
    "graphSlug": "Reductions/sis-to-ds",
-   "title": "SIS ⇒ DS"
+   "title": "SIS ⇒ SUF-CMA DS"
   },
   {
    "id": "red-sis-to-hash-function-ajt96",
@@ -28930,6 +29151,33 @@
    "slug": "statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk",
    "graphSlug": "Reductions/statistically-simulation-sound-nizk-for-np-to-statistically-simulation-sound-nizk",
    "title": "SSS-NIZK for NP ⇒ SSS-NIZK"
+  },
+  {
+   "id": "red-strong-one-time-signature-to-one-time-signature",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-one-time-signature"
+   ],
+   "conclusion": "one-time-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for each message length, and the reduction runs a one-time forger unchanged in the strong one-time game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-one-time-signature-to-one-time-signature.md",
+   "slug": "strong-one-time-signature-to-one-time-signature",
+   "graphSlug": "Reductions/strong-one-time-signature-to-one-time-signature",
+   "title": "Strong one-time signature ⇒ One-time signature"
   },
   {
    "id": "red-strong-pseudorandom-permutation-to-strong-tweakable-block-cipher-lrw02",
@@ -30479,6 +30727,33 @@
    "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
   },
   {
+   "id": "red-suf-cma-ds-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "suf-cma-ds"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs an EUF-CMA forger unchanged in the SUF-CMA game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/suf-cma-ds-to-ds.md",
+   "slug": "suf-cma-ds-to-ds",
+   "graphSlug": "Reductions/suf-cma-ds-to-ds",
+   "title": "SUF-CMA DS ⇒ DS"
+  },
+  {
    "id": "red-suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
    "kind": "implication",
    "hypotheses": [
@@ -31014,10 +31289,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor q_H + 1 for q_H hash queries, less q_H ν for a domain sampler at statistical distance ν: a forger with success ε inverts the permutation with probability at least ε/(q_H + 1) − q_H ν",
+   "securityLoss": "a factor $q_H + 1$ for a forger making $q_H$ hash and $q_S$ signing queries, less $(q_H + q_S)\\nu$ for a domain sampler at statistical distance $\\nu$: a forger with advantage $\\varepsilon$ yields an inverter with advantage at least $\\varepsilon/(q_H + 1) - (q_H + q_S)\\nu$",
    "rationale": {
     "class": "The scheme evaluates and inverts the permutation only as an oracle, and the reduction runs any forger once as an oracle, planting its challenge in one random-oracle answer.",
-    "model": "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose."
+    "model": "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose.",
+    "securityLoss": "The inverter guesses which of the forger's at most $q_H$ hash queries on new messages, or its unhashed forged message, carries the challenge, and each of the at most $q_H + q_S$ hash points it samples itself costs $\\nu$."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-ds-br93.md",
@@ -31072,7 +31348,7 @@
    "heuristic": false,
    "securityLoss": "additive: the sampler's statistical distance ν",
    "rationale": {
-    "class": "One fixed construction calls $\\Gen$, $\\mathsf{Samp}$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle and applies $\\mathsf{Samp}$ to its answer."
+    "class": "One fixed construction calls $\\Gen$, $\\Samp$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle and applies $\\Samp$ to its answer."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-hash-function.md",
@@ -35803,6 +36079,41 @@
    "slug": "no-rom-to-vdf-gry25",
    "graphSlug": "Barriers/no-rom-to-vdf-gry25",
    "title": "No reduction from ROM to VDF"
+  },
+  {
+   "id": "bar-rsa-to-ds-textbook-rsa",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "ds",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "rsa"
+   ],
+   "circumventedBy": [
+    "red-rsa-to-ds-br96",
+    "red-rsa-to-ds-hw09"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The forgeries refute only textbook RSA signatures; RSA-PSS in the random-oracle model and the Hohenberger–Waters scheme in the standard model are signature schemes from RSA.",
+    "strength": "The forgeries work for every generator of the RSA syntax, so the barrier assumes RSA hardness only because, without it, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rsa-to-ds-textbook-rsa.md",
+   "slug": "no-rsa-to-ds-textbook-rsa",
+   "graphSlug": "Barriers/no-rsa-to-ds-textbook-rsa",
+   "title": "No fixed-construction reduction from RSA to DS (textbook RSA signatures)"
   },
   {
    "id": "bar-rsa-to-pke-cpa-security-textbook-rsa",

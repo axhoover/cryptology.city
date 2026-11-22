@@ -19,7 +19,7 @@ variants:
 
 # Shortest Integer Solution
 
-The _Shortest Integer Solution (SIS)_ problem is a lattice problem used as the hardness foundation for collision-resistant hash functions ([[sis-to-hash-function-ajt96|SIS ⇒ CRHF]]) and lattice-based signature schemes ([[sis-to-ds|SIS ⇒ DS]]). Unlike [[learning-with-errors|LWE]], which is an indistinguishability problem, SIS is a search problem.
+The _Shortest Integer Solution (SIS)_ problem is a lattice problem used as the hardness foundation for collision-resistant hash functions ([[sis-to-hash-function-ajt96|SIS ⇒ CRHF]]) and lattice-based signature schemes ([[sis-to-ds|SIS ⇒ SUF-CMA DS]]). Unlike [[learning-with-errors|LWE]], which is an indistinguishability problem, SIS is a search problem.
 
 ## Assumption
 
@@ -101,19 +101,19 @@ Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now r
 
 The instance is parameterized by $(n, k, \ell, q, \beta)$, with $R = \ZZ[x]/\langle x^n + 1 \rangle$ for $n$ a power of $2$, $R_q = R/qR$ and $\mathbf{A} \getsr R_q^{k \times \ell}$, and a solution must satisfy $\|\mathbf{z}\| \le \beta$ for the Euclidean norm of the coefficient vector of $\mathbf{z}$ in $\ZZ^{n\ell}$. For $\ell > k \log q$ and $\sqrt{n\ell} \le \beta < q$, the analogue of the SIS regime, a solution with coefficients in $\{-1, 0, 1\}$ always exists and the trivial solution $q\mathbf{e}_1$ is excluded — standard. Dilithium's Module-SIS bounds $\|\mathbf{z}\|_\infty$ instead — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-Hardness of Module-SIS reduces to worst-case problems on module lattices ([[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
+Hardness of Module-SIS reduces to worst-case problems on module lattices ([[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-<!-- BEGIN GENERATED participates-in 56ec4fc5beb3 -->
+<!-- BEGIN GENERATED participates-in c8bf32c2084d -->
 
 ## Participates in
 
 **Builds on Shortest Integer Solution**
 
 - [[bit-compressing-sis-to-sis|Bit-compressing SIS ⇒ SIS]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[module-sis-to-crhf|Module-SIS ⇒ CRHF]] (via [[shortest-integer-solution#module-sis|Module-SIS]])
 - [[ring-sis-to-crhf-lm06|Ring-SIS ⇒ CRHF]] (via [[shortest-integer-solution#ring-sis|Ring-SIS]])
-- [[sis-to-ds|SIS ⇒ DS]] (via [[shortest-integer-solution#sis-at-trapdoor-sampling-parameters|SIS at trapdoor-sampling parameters]])
+- [[sis-to-ds|SIS ⇒ SUF-CMA DS]] (via [[shortest-integer-solution#sis-at-trapdoor-sampling-parameters|SIS at trapdoor-sampling parameters]])
 - [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])
 - [[isis-inhomogeneous-sis-to-sis|SIS ⇒ ISIS (Inhomogeneous SIS)]]
 - [[sis-to-pwpp-szz18|SIS ∈ PWPP]] (via [[shortest-integer-solution#bit-compressing-sis|Bit-compressing SIS]])

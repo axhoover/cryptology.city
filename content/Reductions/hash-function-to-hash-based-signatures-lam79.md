@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If $\hash$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]], then for every polynomial $\ell = \ell(\secpar) \ge 1$, Lamport's scheme on $\ell$-bit messages is a [[digital-signature#one-time-signatures|one-time signature]]: EUF-CMA-unforgeable against all efficient adversaries making at most one signing query. The signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$ — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]. The scheme is perfectly correct by its verification equation — standard.
+If $\hash$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]], then for every polynomial $\ell = \ell(\secpar) \ge 1$, Lamport's scheme on $\ell$-bit messages is a [[digital-signature#one-time-signatures|one-time signature]]: EUF-CMA-unforgeable against all efficient adversaries making at most one signing query. The signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is a key $k$ of $\hash$ with their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$ — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]. The scheme is perfectly correct by its verification equation — standard.
 
 ## Sketch
 
@@ -31,7 +31,7 @@ A forgery on $\hat{m} \ne m$ reveals a preimage of some $y_{i,1-m_i}$ that the s
 \algname{Algorithm}
 \caption{$\KeyGen(1^\secpar)$}
 \begin{algorithmic}
-\State $k \getsr \calK$
+\State $k \gets \hash.\KeyGen(1^\secpar)$
 \For{$i = 1, \dots, \ell$ and $b \in \bits$}
 \State $x_{i,b} \getsr \calD$; $y_{i,b} \gets \hash(k, x_{i,b})$
 \EndFor

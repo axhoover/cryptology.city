@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BDH11"
 source: https://eprint.iacr.org/2011/484
 authors: Johannes Buchmann, Erik Dahmen, Andreas Hülsing

@@ -291,7 +291,7 @@ is negligible. As an object, Module LWE denotes: there are $\poly(\secpar)$-comp
 The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). FIPS 203 specifies ML-KEM, a key-encapsulation mechanism derived from CRYSTALS-Kyber, and relates its security to the hardness of Module LWE — [[NIST24 - Module-Lattice-Based Key-Encapsulation Mechanism Standard|NIST24]]. Constructions from Module LWE:
 
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]]
 
 Hardness of Module LWE reduces to worst-case problems on module lattices ([[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
@@ -465,7 +465,7 @@ is negligible. As an object, succinct LWE denotes: there are such $n$, $q$ and $
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in ea87c3025334 -->
+<!-- BEGIN GENERATED participates-in 5287caf48ee1 -->
 
 ## Participates in
 
@@ -486,7 +486,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-pke-reg05|LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]] (via [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE with superpolynomial modulus-to-noise ratio]])
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[learning-with-errors#module-lwe|Module LWE]])
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|Degree-1 Module LWE]])
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])

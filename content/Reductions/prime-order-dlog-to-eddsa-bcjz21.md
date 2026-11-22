@@ -25,4 +25,4 @@ With the hash modeled as a [[random-oracle-model|random oracle]], [[digital-sign
 
 ## Notes
 
-- EdDSA differs from [[digital-signature#schnorr-signatures|Schnorr signatures]] in hashing the public key with the commitment and in deriving the nonce deterministically from the secret key and the message — [[BDLSY11 - High-Speed High-Security Signatures|BDLSY11]].
+- EdDSA differs from [[digital-signature#schnorr-signatures|Schnorr signatures]] in hashing the public key with the commitment and in deriving the nonce deterministically from the secret key and the message — [[BDLSY11 - High-Speed High-Security Signatures|BDLSY11]], [[JL17 - Edwards-Curve Digital Signature Algorithm (EdDSA)|JL17]] (Section 3.3).

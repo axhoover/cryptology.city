@@ -96,7 +96,7 @@ For an efficient (possibly randomized) rule $R$ that, on input $1^\secpar$ and d
 - **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme ([[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]]), and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard.
 - **Bleichenbacher's attack on PKCS #1 v1.5 encryption**: for a modulus $n$ of $\ell$ octets, RSAES-PKCS1-v1_5 encrypts a message $M$ of at most $\ell - 11$ octets as $c = x^e \bmod n$, where $x$ is the integer whose $\ell$-octet big-endian encoding is $\mathtt{00} \| \mathtt{02} \| \mathit{PS} \| \mathtt{00} \| M$ and $\mathit{PS}$ consists of at least eight pseudorandomly generated nonzero octets, and decryption rejects every ciphertext whose decryption does not have this form — [[MKJR16 - PKCS 1 RSA Cryptography Specifications Version 2.2|MKJR16]] (Section 7.2). With $B := 2^{8(\ell - 2)}$, every such $x$ satisfies $2B \le x < 3B$, and $c \cdot s^e \bmod n$ decrypts to $xs \bmod n$; so an oracle that accepts only ciphertexts whose decryption begins with the octets $\mathtt{00} \| \mathtt{02}$, such as one reporting whether decryption succeeds, shows whenever it accepts $c \cdot s^e \bmod n$ that $2B \le xs \bmod n < 3B$, which places $x$ in one of the intervals $[(2B + rn)/s, (3B + rn)/s)$ for an integer $r$ — standard. Bleichenbacher's adaptive chosen-ciphertext attack queries such an oracle on $c \cdot s_i^e \bmod n$ for a sequence of multipliers $s_i$ and intersects the intervals the accepted queries give until one value of $x$ remains, which decrypts $c$ — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]], as credited by [[Gar26 - A Bleichenbacher bit-by-bit oracle attack from partial message knowledge|Gar26]] (Section 4). For a conforming target ciphertext under a 1024-bit modulus, the original algorithm makes a mean of 215,000 and a median of 163,000 oracle calls, and an improved variant a mean of 49,000 and a median of 14,500 — [[BFK+12 - Efficient Padding Oracle Attacks on Cryptographic Hardware|BFK+12]]. PKCS #1 v2.2 includes RSAES-PKCS1-v1_5 only for compatibility with existing applications, requires new applications to support RSAES-OAEP ([[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]), and requires that an opponent cannot distinguish the decoding error conditions of RSAES-PKCS1-v1_5 decryption by error message or timing — [[MKJR16 - PKCS 1 RSA Cryptography Specifications Version 2.2|MKJR16]] (Sections 7 and 7.2.2).
 
-<!-- BEGIN GENERATED participates-in 08f0ec96c3c0 -->
+<!-- BEGIN GENERATED participates-in c8e4e948ea91 -->
 
 ## Participates in
 
@@ -109,6 +109,7 @@ For an efficient (possibly randomized) rule $R$ that, on input $1^\secpar$ and d
 - [[rsa-safe-primes-to-rsa|RSA with safe-prime moduli ⇒ RSA]] (via [[rsa-assumption#rsa-with-safe-prime-moduli|RSA with safe-prime moduli]])
 - [[rsa-to-bit-string-tdp-rst01|RSA ⇒ TDP over bit strings]]
 - [[rsa-to-claw-free-trapdoor-permutations|RSA ⇒ Claw-free TDP]]
+- [[rsa-to-ds-pss-br96|RSA ⇒ DS (RSA-PSS, random oracle model)]]
 - [[rsa-to-ds-hw09|RSA ⇒ DS (Hohenberger–Waters, short and stateless)]]
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] (via [[rsa-assumption#rsa-with-uniform-prime-moduli|RSA with uniform-prime moduli]])
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]] (via [[rsa-assumption#rsa-with-uniform-prime-moduli|RSA with uniform-prime moduli]])
@@ -136,6 +137,7 @@ For an efficient (possibly randomized) rule $R$ that, on input $1^\secpar$ and d
 **Barriers**
 
 - [[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]] (via [[rsa-assumption#low-exponent-rsa|Low-exponent RSA]])
+- [[no-rsa-to-ds-textbook-rsa|No fixed-construction reduction from RSA to DS (textbook RSA signatures)]] — circumvented by [[rsa-to-ds-pss-br96|RSA ⇒ DS (RSA-PSS, random oracle model)]], [[rsa-to-ds-hw09|RSA ⇒ DS (Hohenberger–Waters, short and stateless)]]
 - [[no-rsa-to-pke-cpa-security-textbook-rsa|No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)]] — circumvented by [[rsa-to-pke-rsa78|RSA ⇒ CPA-secure PKE]]
 
 <!-- END GENERATED participates-in -->

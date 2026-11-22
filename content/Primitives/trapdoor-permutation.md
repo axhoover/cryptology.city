@@ -1,6 +1,6 @@
 ---
 type: primitive
-status: stub
+status: draft
 aliases:
   - TDP
   - TDF
@@ -21,45 +21,65 @@ variants:
 
 # Trapdoor permutation
 
-A _trapdoor permutation (TDP)_ is a permutation that is easy to compute but hard to invert without a _trapdoor_: a secret that makes inversion efficient. Trapdoor permutations are one-way functions with an additional invertibility structure ([[tdp-to-hash-function|TDP ⇒ OWF]]), and they are associated with Impagliazzo's "Cryptomania" world. Their existence implies many public-key cryptographic primitives.
+A _trapdoor permutation (TDP)_ family samples an index $f$ together with a trapdoor $\td$: $f$ describes an efficiently computable permutation of a finite domain $\calD_f$ that every efficient adversary holding only $f$ inverts at a uniformly random point with at most negligible probability, while $\td$ inverts it everywhere — [[GB08 - Lecture Notes on Cryptography|GB08]], Definition 2.16.
 
 ## Syntax
 
-A _trapdoor permutation family_ is a tuple of efficient algorithms $\mathsf{TDP} = (\Gen, \mathsf{Samp}, \Eval, \Invert)$ with respect to a domain $\calD$, which may depend on the index $f$, and trapdoor space $\calT$:
+A _trapdoor permutation family_ is a tuple of efficient algorithms $\TDP = (\Gen, \Samp, \Eval, \Invert)$:
 
-- $\Gen(1^\secpar) \to (f, \td),$ is a randomized key generation algorithm that samples a function index $f$ and a trapdoor $\td \in \calT,$
-- $\mathsf{Samp}(f) \to x,$ is a randomized domain sampler whose output, for every index $f$ output by $\Gen(1^\secpar)$, is within statistical distance $\nu(\secpar)$ of uniform on $\calD$, for a negligible function $\nu$,
-- $\Eval(f, x) \to y,$ is a deterministic algorithm that evaluates $f : \calD \to \calD$ on input $x \in \calD$, outputting $y \in \calD,$
-- $\Invert(\td, y) \to x,$ is a deterministic algorithm that inverts $f$ on input $y$ given trapdoor $\td,$ outputting $x \in \calD.$
+- $\Gen(1^\secpar) \to (f, \td)$, a randomized algorithm that samples an index $f$, which describes a finite domain $\calD_f$, and a trapdoor $\td$,
+- $\Samp(f) \to x$, a randomized domain sampler that outputs some $x \in \calD_f$; for a negligible function $\nu$ and every index $f$ output by $\Gen(1^\secpar)$, its output distribution is within statistical distance $\nu(\secpar)$ of uniform on $\calD_f$,
+- $\Eval(f, x) \to y$, a deterministic algorithm whose restriction to inputs $x \in \calD_f$ is, for every index $f$ output by $\Gen(1^\secpar)$, a permutation of $\calD_f$,
+- $\Invert(\td, y) \to x$, a deterministic algorithm that inverts $\Eval(f, \cdot)$ with the trapdoor.
 
-We require that $f$ defines a bijection (permutation) on $\calD$. The domain sampler is part of the collection, as in [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]], Definition 2.4.5: without it a construction that must pick $x \in \calD$, such as encryption with a hard-core bit, need not be efficient.
+This is the collection form of [[GB08 - Lecture Notes on Cryptography|GB08]], Definition 2.16, and of the trapdoor permutation generators of [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]], Section 2, which follow [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. The domain sampler is part of the collection, as in [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]], Definition 2.4.5: without it a construction that must pick $x \in \calD_f$, such as encryption with a hard-core bit, need not be efficient. $\Eval$ runs on every input string; outside $\calD_f$ its output is unconstrained by the syntax but counts in the one-wayness game below.
 
 ## Properties
 
 ### Correctness
 
-For all $\secpar \in \NN$ and $x \in \calD$, with $(f, \td) \gets \Gen(1^\secpar)$:
-$$\Pr\!\left[\Invert(\td, \Eval(f, x)) = x\right] = 1.$$
+A trapdoor permutation family $\TDP = (\Gen, \Samp, \Eval, \Invert)$ is **correct** if for all $\secpar \in \NN$, all $(f, \td)$ in the support of $\Gen(1^\secpar)$ and all $x \in \calD_f$,
+
+$$
+\Invert(\td, \Eval(f, x)) = x,
+$$
+
+so that $\Invert(\td, \cdot)$ restricted to $\calD_f$ is the inverse permutation — [[GB08 - Lecture Notes on Cryptography|GB08]], Definition 2.16.
 
 ### One-wayness
 
-A TDP is **one-way** if for all efficient $\calA$,
-$$\Pr\!\left[\Eval(f, x') = \Eval(f, x) : (f,\td) \gets \Gen(1^\secpar),\ x \getsr \calD,\ x' \gets \calA(1^\secpar, f, \Eval(f, x))\right]$$
-is negligible.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ow}}_{\TDP,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(f, \td) \gets \Gen(1^\secpar)$
+\State $x \getsr \calD_f$; $y \gets \Eval(f, x)$
+\State $\hat{x} \gets \calA(1^\secpar, f, y)$
+\Return $[\Eval(f, \hat{x}) = y]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-### Easy inversion with trapdoor
+A trapdoor permutation family $\TDP$ is **one-way** if for all efficient $\calA$,
 
-Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with probability 1 in $\poly(\secpar)$ time.
+$$
+\Adv^{\mathrm{ow}}_{\TDP,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ow}}_{\TDP,\calA}(\secpar) = 1\right]
+$$
+
+is negligible — [[GB08 - Lecture Notes on Cryptography|GB08]], Definition 2.16. $\calA$ wins with any string that $\Eval(f, \cdot)$ maps to $y$, which within $\calD_f$ is $x$ alone. Drawing $x \gets \Samp(f)$ instead of $x \getsr \calD_f$ changes the advantage by at most $\nu(\secpar)$ — standard.
+
+As an object, a trapdoor permutation denotes a correct, one-way trapdoor permutation family.
 
 # Variations
 
 ## Trapdoor permutations over bit strings
 
-A _trapdoor permutation over bit strings_ is a trapdoor permutation family whose domain, for every index $f$ output by $\Gen(1^\secpar)$, is $\bits^{n(\secpar)}$ for a polynomial $n$, with the one-wayness and trapdoor inversion above; $x \getsr \calD$ is then a uniform $n(\secpar)$-bit string. Extending RSA to all $b$-bit strings gives one when $2^b$ exceeds the modulus by a super-polynomial factor ([[rsa-to-bit-string-tdp-rst01|RSA ⇒ TDP over bit strings]]) — [[RST01 - How to Leak a Secret|RST01]].
+A _trapdoor permutation over bit strings_ is a trapdoor permutation family whose domain, for every index $f$ output by $\Gen(1^\secpar)$, is $\calD_f = \bits^{n(\secpar)}$ for a polynomial $n$, with the correctness and one-wayness above; $x \getsr \calD_f$ is then a uniform $n(\secpar)$-bit string. Extending RSA to all $b$-bit strings gives one when $2^b$ exceeds the modulus by a super-polynomial factor ([[rsa-to-bit-string-tdp-rst01|RSA ⇒ TDP over bit strings]]) — [[RST01 - How to Leak a Secret|RST01]].
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ is a trapdoor permutation family whose domain sampler $\mathsf{Samp}$ (see [[#Syntax|Syntax]]) is enhanced: for all efficient $\calA$, $\Pr\!\left[\Eval(f, \calA(1^\secpar, f, r)) = \mathsf{Samp}(f; r) : (f, \td) \gets \Gen(1^\secpar),\ r \getsr \bits^{\rho(\secpar)}\right]$ is negligible, where $\rho$ is the sampler's coin length — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. With the same algorithms it is a trapdoor permutation ([[enhanced-trapdoor-permutation-to-tdp|Enhanced TDP ⇒ TDP]]) — folklore. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists ([[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]) — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
+An _enhanced TDP_ is a trapdoor permutation family whose domain sampler $\Samp$ (see [[#Syntax|Syntax]]) is enhanced: for all efficient $\calA$, $\Pr\!\left[\Eval(f, \calA(1^\secpar, f, r)) = \Samp(f; r) : (f, \td) \gets \Gen(1^\secpar),\ r \getsr \bits^{\rho(\secpar)}\right]$ is negligible, where $\rho$ is the sampler's coin length — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. With the same algorithms it is a trapdoor permutation ([[enhanced-trapdoor-permutation-to-tdp|Enhanced TDP ⇒ TDP]]) — folklore. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists ([[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]) — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
 ### Doubly enhanced certified trapdoor permutations
 
@@ -67,7 +87,7 @@ An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficien
 
 ## Injective trapdoor functions
 
-An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one ([[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]) — folklore.
+An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD_f \to \calR_f$ injective rather than a permutation of $\calD_f$, and the same correctness and one-wayness requirements. Every trapdoor permutation is one ([[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]) — folklore.
 
 ## Claw-free permutations
 
@@ -87,9 +107,12 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 
 # Other results
 
-- [[tdp-to-pke|TDP ⇒ PKE]]
-- [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
-- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- If [[rsa-assumption|RSA]] is hard, the RSA function $x \mapsto x^e \bmod n$ on $\ZZ_n^*$, with trapdoor $d$, is a trapdoor permutation ([[rsa-to-tdp-rsa78|RSA ⇒ TDP]]) — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; its domain sampler draws up to $\secpar$ uniform elements of $\ZZ_n$ and outputs the first unit, or $1$ if there is none — standard.
+- If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, squaring on the quadratic residues modulo a Blum integer, with the factorization as trapdoor, is a trapdoor permutation ([[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]]) — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]], [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]; its domain sampler squares a unit sampled as for RSA — standard.
+- Dropping the trapdoor leaves a [[hash-function#preimage-resistance-one-wayness|one-way function]] ([[tdp-to-hash-function|TDP ⇒ OWF]]) — folklore.
+- Encrypting a bit $m$ as $(\Eval(f, x), b(x) \oplus m)$ for $x \gets \Samp(f)$ and a hard-core predicate $b$ gives [[public-key-encryption#cpa-security|CPA-secure PKE]] ([[tdp-to-pke|TDP ⇒ CPA-secure PKE]]) — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
+- Signing $m \in \calD_f$ as $\Invert(\td, m)$, the proposal of [[DH76 - New Directions in Cryptography|DH76]] as credited by [[GB08 - Lecture Notes on Cryptography|GB08]], Section 10.2, admits the forgery $(\Eval(f, \sigma), \sigma)$ for every $\sigma \in \calD_f$, with no signing query — [[GB08 - Lecture Notes on Cryptography|GB08]], Section 10.3.1; for RSA see the [[no-rsa-to-ds-textbook-rsa|barrier for textbook RSA signatures]]. Full-domain hash signs $\Invert(\td, H(m))$ instead, with $H$ a random oracle onto $\calD_f$, and is EUF-CMA-unforgeable in the [[random-oracle-model|random-oracle model]] ([[tdp-to-ds-br93|TDP ⇒ DS]]) — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]].
+- An enhanced trapdoor permutation yields semi-honest [[oblivious-transfer|OT]] ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[EGL85 - A randomized protocol for signing contracts|EGL85]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
 
 <!-- BEGIN GENERATED participates-in 12897022f9df -->
 

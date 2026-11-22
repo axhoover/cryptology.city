@@ -45,7 +45,7 @@ $$
 \mathrm{frk} \ge \mathrm{acc} \cdot \left(\frac{\mathrm{acc}}{q} - \frac{1}{h}\right),
 $$
 
-which implies $\mathrm{acc} \le q/h + \sqrt{q \cdot \mathrm{frk}}$ — [[BN06 - Multi-Signatures in the Plain Public-Key Model and a General Forking Lemma|BN06]].
+which implies $\mathrm{acc} \le q/h + \sqrt{q \cdot \mathrm{frk}}$ — [[BN06 - Multi-Signatures in the Plain Public-Key Model and a General Forking Lemma|BN06]] (Lemma 1).
 
 ## Proof
 
@@ -59,7 +59,7 @@ The fresh answer $h'_I$ is independent of the first run, so $\Pr[I \ge 1 \wedge 
 
 ## Application to Fiat–Shamir signatures
 
-In a random-oracle proof for a [[fiat-shamir-heuristic|Fiat–Shamir]] [[digital-signature|signature]] built from a [[sigma-protocol|sigma protocol]], $\calA$ runs the forger, answers its $i$th random-oracle query with $h_i$, and returns the index of the query that fixes the challenge of a valid forgery, or $0$, making that query itself if the forger did not. A successful fork gives two accepting conversations with a common commitment and distinct challenges, from which special soundness extracts a witness. For signatures from three-move honest-verifier zero-knowledge [[identification-scheme|identification schemes]] with special soundness this is the proof of [[PS96 - Security Proofs for Signature Schemes|PS96]] ([[id-and-rom-to-ds|ID ⇒ DS]], [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]); by the bound above, a forger with success probability $\varepsilon$ making $q$ oracle queries yields a witness with probability about $\varepsilon^2/q$ — [[BN06 - Multi-Signatures in the Plain Public-Key Model and a General Forking Lemma|BN06]].
+In a random-oracle proof for a [[fiat-shamir-heuristic|Fiat–Shamir]] [[digital-signature|signature]] built from a [[sigma-protocol|sigma protocol]], $\calA$ runs the forger, answers its $i$th random-oracle query with $h_i$, and returns the index of the query that fixes the challenge of a valid forgery, or $0$, making that query itself if the forger did not. A successful fork gives two accepting conversations with a common commitment and distinct challenges, from which special soundness extracts a witness. For signatures from three-move honest-verifier zero-knowledge [[identification-scheme|identification schemes]] with special soundness this is the proof of [[PS96 - Security Proofs for Signature Schemes|PS96]] ([[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]); by the bound above, a forger with success probability $\varepsilon$ making $q$ oracle queries yields a witness with probability about $\varepsilon^2/q$ — [[BN06 - Multi-Signatures in the Plain Public-Key Model and a General Forking Lemma|BN06]]. The general Fiat–Shamir theorem ([[id-and-rom-to-ds|ID ⇒ DS]]) needs no forking. Its hypothesis is security against impersonation under passive attack, not special soundness — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]] — and the reduction runs the forger once, programming the random oracle at one guessed query so that the forgery answers the single challenge of the honest verifier. Rewinding enters when passive security is itself derived from special soundness, through the [[#Reset lemma|reset lemma]] below.
 
 For [[digital-signature#schnorr-signatures|Schnorr signatures]] the $O(q)$ time-to-success loss of the expected-time reduction of [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]] (see below) is essentially optimal: if [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] is hard, every algebraic reduction from [[discrete-logarithm#dlog-in-prime-order-groups|DLOG]] to Schnorr forgery in the random-oracle model loses a factor $f(\varepsilon)\, q$ in the time-to-success ratio, where $f$ is close to $1$ as long as the forger's success probability $\varepsilon$ is noticeably smaller than $1$, and a factor $\Omega(q)$, independent of $\varepsilon$, when the reduction's cost is measured by expected time and expected number of queries ([[no-tight-prime-order-dlog-to-schnorr-signature-seu12|barrier]]) — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]].
 
@@ -87,14 +87,14 @@ For a three-move public-coin protocol with challenge space $C$, fix a prover $P^
 
 If DLOG is 2-moment hard, meaning that every algorithm's success probability is bounded in terms of the second moment of its running time, as in the generic group model, a high-moment forking lemma for sigma protocols shows that every $t$-time Schnorr forger making $q$ hash queries succeeds with probability at most $(q t^2/p)^{2/3}$ in a group of prime order $p$, against $(q t^2/p)^{1/2}$ from earlier proofs — [[RS21 - Tighter Security for Schnorr Identification and Signatures A High-Moment Forking Lemma for Sigma-Protocols|RS21]].
 
-<!-- BEGIN GENERATED participates-in f1ee869aea9c -->
+<!-- BEGIN GENERATED participates-in 9efa38dd0bec -->
 
 ## Participates in
 
 **Used via Forking lemma**
 
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
 

@@ -32,4 +32,4 @@ Preimage sampling makes the key $\mathbf{e}$ a discrete Gaussian conditioned on 
 
 - The scheme is anonymous: ciphertexts are pseudorandom, so they hide the identity as well as the message — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 - Standard-model lattice IBE and HIBE follow from basis delegation: [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ selectively secure HIBE]] — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]], [[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]].
-- The same preimage-sampleable functions give hash-and-sign signatures: [[sis-to-ds|SIS ⇒ DS]] — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+- The same preimage-sampleable functions give hash-and-sign signatures: [[sis-to-ds|SIS ⇒ SUF-CMA DS]] — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].

@@ -179,14 +179,14 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 4eabe2fc8417 -->
+<!-- BEGIN GENERATED participates-in 0b2096ab2c58 -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
 - [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ Stateful DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
 - [[non-uniform-compression-function-prf-to-compression-function-prf|Non-uniform compression-function PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])

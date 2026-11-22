@@ -72,7 +72,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 5e4145fdf9c2 -->
+<!-- BEGIN GENERATED participates-in 21e7c8abdae9 -->
 
 ## Participates in
 
@@ -115,7 +115,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]]
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]]
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
 - [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]]
@@ -134,11 +134,12 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
 - [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 - [[qr-to-ind-id-cpa-coc01|QR ⇒ IBE (Cocks, random oracle model)]]
+- [[rsa-to-ds-pss-br96|RSA ⇒ DS (RSA-PSS, random oracle model)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[rsa-to-threshold-rsa-sho00|RSA (safe-prime moduli) ⇒ Threshold RSA signatures (Shoup)]]
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
-- [[sis-to-ds|SIS ⇒ DS]]
+- [[sis-to-ds|SIS ⇒ SUF-CMA DS]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 - [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]

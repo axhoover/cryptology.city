@@ -28,5 +28,5 @@ A one-time key signs a long message $m$ by signing $(k, \hash_k(m))$ for a fresh
 
 ## Notes
 
-- With collision-resistant instead of universal one-way hashing, the key can be fixed in advance: [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] — [[Mer89 - A Certified Digital Signature|Mer89]].
-- Both ingredients follow from one-way functions ([[owf-to-uowhf-rom90|OWF ⇒ UOWHF]], [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ one-time signatures]]), giving [[hash-function-to-ds|OWF ⇒ DS]] — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+- With a collision-resistant hash, one Merkle tree over $2^h$ one-time keys, computed at key generation, gives a stateful scheme for $2^h$ signatures: [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]] — [[Mer89 - A Certified Digital Signature|Mer89]].
+- With [[owp-to-uowhf-ny89|OWP ⇒ UOWHF (Naor–Yung)]], this gives signatures from any one-way permutation — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]], as credited by [[GB08 - Lecture Notes on Cryptography|GB08]] (Section 10.4). Both ingredients follow from one-way functions ([[owf-to-uowhf-rom90|OWF ⇒ UOWHF]], [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ one-time signatures]]), giving [[hash-function-to-ds|OWF ⇒ DS]] — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].

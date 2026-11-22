@@ -22,5 +22,5 @@ Let $e$ be a prime public exponent in the Φ-hiding regime $e \le N^{1/4 - \vare
 
 ## Notes
 
-- The best known reduction from RSA itself loses a factor about $q_S$ ([[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash)]]) — [[Cor00 - On the Exact Security of Full Domain Hash|Cor00]].
+- For a general trapdoor permutation, full-domain hash has a reduction losing a factor of the number of hash queries ([[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash)]]) — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]; for RSA, which is multiplicative, Coron's reduction from RSA loses a factor about $q_S$ — [[Cor00 - On the Exact Security of Full Domain Hash|Cor00]].
 - A loss of about $q_S$ is unavoidable for full-domain hash over certified trapdoor permutations — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]]. The impossibility needs certification and does not cover RSA in the Φ-hiding regime — [[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]].

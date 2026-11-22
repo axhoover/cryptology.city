@@ -401,7 +401,7 @@ TODO: definition and game.
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
 - [[crhf-to-second-preimage-resistance-rs04|CRHF ⇒ Second-preimage resistance]], [[crhf-to-uowhf-rs04|CRHF ⇒ UOWHF]], [[uowhf-to-second-preimage-resistance-rs04|UOWHF ⇒ Second-preimage resistance]] and [[second-preimage-resistance-to-weak-owf-rs04|Second-preimage resistance ⇒ Weak OWF]] — [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]
 - [[crhf-to-arbitrary-length-crhf|CRHF ⇒ Arbitrary-length CRHF (Merkle–Damgård)]] — [[Rog06 - Formalizing Human Ignorance|Rog06]]
@@ -413,12 +413,13 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in 673d288dad99 -->
+<!-- BEGIN GENERATED participates-in d58115b0e3f2 -->
 
 ## Participates in
 
 **Builds on Hash function**
 
+- [[arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06|Arbitrary-length CRHF + fixed-length DS ⇒ DS for arbitrary-length messages (hash-then-sign)]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[arbitrary-length-crhf-to-crhf|Arbitrary-length CRHF ⇒ CRHF]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[crhf-to-accumulator|CRHF ⇒ accumulator]] (via [[hash-function#collision-resistance|Collision resistance]])
@@ -435,14 +436,14 @@ TODO: definition and game.
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[distributional-owf-to-owf-il89|Distributional OWF ⇒ OWF (Impagliazzo–Luby)]] (via [[hash-function#distributional-one-wayness|Distributional one-wayness]])
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ Selectively unforgeable DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-czk|Non-uniform OWF ⇒ CZK]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
 - [[hash-function-to-ds|OWF ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ Stateful DS (XMSS)]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
@@ -505,6 +506,7 @@ TODO: definition and game.
 - [[ds-to-hash-function|DS ⇒ Distributional OWF]] (via [[hash-function#distributional-one-wayness|Distributional one-wayness]])
 - [[identification-scheme-to-owf-il89|ID ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[injective-one-way-function-to-owf|Injective OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[injective-one-way-function-to-uowhf-yglw15|Injective OWF ⇒ UOWHF]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[io-and-np-not-in-io-bpp-to-owf-kmnpry14|iO + NP ⊄ io-BPP ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[kt-mild-average-case-hardness-to-owf-lp20|Mild average-case hardness of Kᵗ ⇔ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[lossy-trapdoor-function-to-crhf-pw08|Highly lossy TDF ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])

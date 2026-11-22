@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "KK05"
 source: https://eprint.iacr.org/2005/328
 authors: Jonathan Katz, Chiu-Yuen Koo
