@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BLPRS13"
 source: https://arxiv.org/abs/1306.0281
 authors: Zvika Brakerski, Adeline Langlois, Chris Peikert, Oded Regev, Damien Stehlé

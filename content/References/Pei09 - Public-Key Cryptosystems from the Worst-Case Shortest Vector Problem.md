@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Pei09"
 source: https://eprint.iacr.org/2008/481
 authors: Chris Peikert

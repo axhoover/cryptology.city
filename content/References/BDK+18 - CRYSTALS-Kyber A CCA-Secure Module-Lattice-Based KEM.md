@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BDK+18"
 source: https://eprint.iacr.org/2017/634
 authors: Joppe W. Bos, Léo Ducas, Eike Kiltz, Tancrède Lepoint, Vadim Lyubashevsky, John M. Schanck, Peter Schwabe, Gregor Seiler, Damien Stehlé

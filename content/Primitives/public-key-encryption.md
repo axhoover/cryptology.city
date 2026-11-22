@@ -264,7 +264,8 @@ is negligible.
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ CPA-secure PKE (ElGamal)]]
-- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[lwe-to-pke-reg05|LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)]]
+- [[normal-form-lwe-to-pke-cpa-security-lp11b|Normal-form LWE ⇒ CPA-secure PKE (Lindner–Peikert)]]
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[forward-secure-public-key-encryption|Forward-secure PKE]]: the decryption key evolves over $T$ periods, and exposing the key of one period leaves ciphertexts of earlier periods secure — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
@@ -274,7 +275,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 7691a153e29b -->
+<!-- BEGIN GENERATED participates-in a6684423a8c1 -->
 
 ## Participates in
 
@@ -332,9 +333,10 @@ is negligible.
 - [[leakage-resilient-pke-to-pke-cpa-security|LR-PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
-- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[lwe-to-pke-reg05|LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[normal-form-lwe-to-pke-cpa-security-lp11b|Normal-form LWE ⇒ CPA-secure PKE (Lindner–Peikert)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
 - [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25)
 - [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
@@ -354,7 +356,7 @@ is negligible.
 - [[somewhat-homomorphic-encryption-to-pke-cpa-security|SHE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[strongly-homomorphic-encryption-to-pke-cpa-security|Strongly homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
-- [[subexponential-lwe-to-pke-reg05|Sub-exponential LWE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[subexponential-lwe-to-pke-reg05|Sub-exponential LWE ⇒ CPA-secure PKE (Regev)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subset-sum-to-pke-lps10|Subset sum at the LPS10 parameters ⇒ PKE]]
 - [[tdp-to-pke|TDP ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[universal2-hash-proof-system-to-pke-cca2-security-cs02|Universal-2 HPS ⇒ CCA-secure PKE]] (via [[public-key-encryption#cca-security|CCA Security]])

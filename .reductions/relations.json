@@ -4983,6 +4983,19 @@
    "unlisted": false
   },
   {
+   "id": "normal-form-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#normal-form-lwe",
+   "of": "lwe",
+   "title": "Normal-form LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "np",
    "kind": "object",
    "type": "complexity-class",
@@ -13865,7 +13878,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: one run of the search solver, with additive loss $2e^{-\\secpar}$ for $m \\ge 32(n \\ln q + \\secpar)$",
    "rationale": {
     "class": "The reduction runs any search-LWE solver once as an oracle on the decision instance and checks the residual, never using the solver's code."
    },
@@ -16037,7 +16050,7 @@
    "heuristic": false,
    "securityLoss": "polynomial",
    "rationale": {
-    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE distinguisher only as an oracle, for every distinguisher with noticeable advantage."
    },
    "status": "draft",
    "page": "content/Reductions/gapsvp-poly-factor-to-lwe-blprs13.md",
@@ -16058,13 +16071,14 @@
     "standard"
    ],
    "source": [
-    "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]"
+    "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]",
+    "[[MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller|MP12]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any LWE solver of noticeable success probability as an oracle",
+   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any LWE distinguisher of noticeable advantage as an oracle",
    "rationale": {
-    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE distinguisher only as an oracle, through the search-to-decision and discretization steps, for every distinguisher with noticeable advantage."
    },
    "status": "draft",
    "page": "content/Reductions/gapsvp-poly-factor-to-lwe-pei09.md",
@@ -19666,7 +19680,7 @@
    "hypotheses": [
     "polynomial-ratio-lwe"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -19679,7 +19693,7 @@
     "[[leftover-hash-lemma|leftover hash lemma]]"
    ],
    "heuristic": false,
-   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus the statistical leftover-hash term $\\sqrt{q^{n+1}/2^m}$",
    "rationale": {
     "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
    },
@@ -19687,7 +19701,7 @@
    "page": "content/Reductions/lwe-to-pke-reg05.md",
    "slug": "lwe-to-pke-reg05",
    "graphSlug": "Reductions/lwe-to-pke-reg05",
-   "title": "LWE ⇒ PKE"
+   "title": "LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)"
   },
   {
    "id": "red-lwe-to-tdh-dgi-19",
@@ -20046,14 +20060,15 @@
     "rom"
    ],
    "source": [
-    "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]"
+    "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]",
+    "[[AAB+24 - Formally Verifying Kyber Episode V Machine-Checked IND-CCA Security and Correctness of ML-KEM in EasyCrypt|AAB+24]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight in the random-oracle model: a constant multiple of the Module-LWE advantage plus a term of order $q\\delta$ for $q$ random-oracle queries and decryption-failure probability $\\delta$; non-tight in the quantum random-oracle model",
+   "securityLoss": "",
    "rationale": {
     "class": "The IND-CCA proof goes through the Fujisaki–Okamoto transform in the random-oracle model, and no source places it in the RTV04 taxonomy.",
-    "model": "The IND-CPA scheme is secure in the standard model, but the IND-CCA conclusion rests on the Fujisaki–Okamoto transform with implicit rejection, proved in the classical and quantum random-oracle models."
+    "model": "The IND-CCA conclusion rests on a Fujisaki–Okamoto transform with implicit rejection, proved in the random-oracle model, and BDK+18 also treat the quantum random-oracle model."
    },
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-kem.md",
@@ -21081,6 +21096,61 @@
    "slug": "nonzero-vector-ippe-to-ippe",
    "graphSlug": "Reductions/nonzero-vector-ippe-to-ippe",
    "title": "IPPE on nonzero vectors ⇒ IPPE"
+  },
+  {
+   "id": "red-normal-form-lwe-to-decision-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "normal-form-lwe"
+   ],
+   "conclusion": "decision-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The reduction shifts each sample by a uniform multiple of its matrix and runs any uniform-secret distinguisher once as an oracle on the result, for every distinguisher."
+   },
+   "status": "draft",
+   "page": "content/Reductions/normal-form-lwe-to-decision-lwe.md",
+   "slug": "normal-form-lwe-to-decision-lwe",
+   "graphSlug": "Reductions/normal-form-lwe-to-decision-lwe",
+   "title": "Normal-form LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-normal-form-lwe-to-pke-cpa-security-lp11b",
+   "kind": "implication",
+   "hypotheses": [
+    "normal-form-lwe"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $2\\ell$ on the public key, by a hybrid over its $\\ell$ columns, and a factor $2$ on the challenge ciphertext; each distinguisher runs the CPA adversary once",
+   "rationale": {
+    "class": "The scheme uses only uniform matrices and samples of the error distribution, and each fixed reduction embeds its normal-form LWE challenge in the public key or the challenge ciphertext and runs any CPA adversary once as an oracle.",
+    "securityLoss": "The public key holds ℓ normal-form instances with one matrix, which the first reduction replaces one at a time, while the ciphertext is a single instance with n + ℓ samples."
+   },
+   "status": "draft",
+   "page": "content/Reductions/normal-form-lwe-to-pke-cpa-security-lp11b.md",
+   "slug": "normal-form-lwe-to-pke-cpa-security-lp11b",
+   "graphSlug": "Reductions/normal-form-lwe-to-pke-cpa-security-lp11b",
+   "title": "Normal-form LWE ⇒ CPA-secure PKE (Lindner–Peikert)"
   },
   {
    "id": "red-notable-problems-to-qma",
@@ -23661,6 +23731,34 @@
    "slug": "polynomial-ratio-lwe-to-lwe",
    "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
    "title": "LWE with polynomial ratio ⇒ LWE"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-normal-form-lwe-acps09",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "normal-form-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[ACPS09 - Fast Cryptographic Primitives and Circular-Secure Encryption Based on Hard Learning Problems|ACPS09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "$n$ extra samples, and the advantage is multiplied by $\\prod_{j=1}^{n}(1 - q^{-j}) \\ge 1 - 1/(q-1)$, which is at least $1/2$ in the polynomial-ratio regime",
+   "rationale": {
+    "class": "The reduction transforms its samples by linear algebra modulo q and runs any normal-form distinguisher once as an oracle on the result, for every distinguisher.",
+    "securityLoss": "The first n samples are spent on a change of variables, and the reduction guesses at random when their matrix is singular, which happens with the same probability in both worlds."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-normal-form-lwe-acps09.md",
+   "slug": "polynomial-ratio-lwe-to-normal-form-lwe-acps09",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-normal-form-lwe-acps09",
+   "title": "LWE with polynomial ratio ⇒ Normal-form LWE"
   },
   {
    "id": "red-polynomial-ratio-lwe-to-sis",
@@ -27366,7 +27464,7 @@
     "search-lwe"
    ],
    "conclusion": "decision-lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -27376,7 +27474,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "polynomial: for a distinguisher of advantage $\\varepsilon$ the search algorithm runs in time $\\poly(n, q, 1/\\varepsilon)$, testing each of the $nq$ guesses $s_i = \\ell$",
+   "securityLoss": "polynomial: from a distinguisher of advantage $\\varepsilon$ on $m$ samples the search algorithm makes $\\poly(n, q, m, 1/\\varepsilon)$ calls to it and uses $\\poly(n, q, m, 1/\\varepsilon)$ samples, testing each of the $nq$ guesses $s_i = \\ell$",
+   "rationale": {
+    "class": "The search algorithm runs an arbitrary decision distinguisher only as an oracle on re-randomized samples and never uses its code."
+   },
    "status": "draft",
    "page": "content/Reductions/search-lwe-to-decision-lwe.md",
    "slug": "search-lwe-to-decision-lwe",
@@ -29449,7 +29550,7 @@
     "[[leftover-hash-lemma|leftover hash lemma]]"
    ],
    "heuristic": false,
-   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus the statistical leftover-hash term $\\sqrt{q^{n+1}/2^m}$",
    "rationale": {
     "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
    },
@@ -29457,7 +29558,7 @@
    "page": "content/Reductions/subexponential-lwe-to-pke-reg05.md",
    "slug": "subexponential-lwe-to-pke-reg05",
    "graphSlug": "Reductions/subexponential-lwe-to-pke-reg05",
-   "title": "Sub-exponential LWE ⇒ CPA-secure PKE"
+   "title": "Sub-exponential LWE ⇒ CPA-secure PKE (Regev)"
   },
   {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
