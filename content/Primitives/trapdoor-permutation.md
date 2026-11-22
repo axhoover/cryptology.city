@@ -91,7 +91,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 2a23254560eb -->
+<!-- BEGIN GENERATED participates-in 12897022f9df -->
 
 ## Participates in
 
@@ -151,6 +151,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 
 **Barriers**
 
+- [[no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a|No relativizing reduction from TDP over bit strings + ROM to CCA-secure PKE (OAEP)]] (via [[trapdoor-permutation#trapdoor-permutations-over-bit-strings|Trapdoor permutations over bit strings]]) — circumvented by [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[no-enhanced-trapdoor-permutation-to-polylog-cpir-hhs08|No polynomially-preserving fully-black-box reduction from enhanced TDP to PIR with polylogarithmic communication]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]]

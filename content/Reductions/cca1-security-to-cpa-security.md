@@ -23,4 +23,4 @@ Every [[public-key-encryption#cca1-security|CCA1]]-secure [[public-key-encryptio
 
 ## Notes
 
-- The implication is strict: if a CPA-secure scheme exists, one exists that is CPA-secure but not CCA1-secure ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+- The implication is strict: if a CPA-secure scheme exists, one exists that is CPA-secure but not CCA1-secure, since decryption may reveal the secret key on strings that encryption never outputs ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) — standard. [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] (Section 1.2) derive the separation from their Theorem 3.6, which assumes an NM-CPA-secure scheme.

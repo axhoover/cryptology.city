@@ -15,6 +15,8 @@ variants:
   semantic-security: "#semantic-security"
   pke-nm-cpa-security: "#non-malleability"
   pke-nm-cca2-security: "#nm-cca2"
+  pke-ow-cpa: "#ow-cpa-security"
+  pke-ow-pca: "#ow-pca-security"
 ---
 
 # Public key encryption
@@ -132,7 +134,7 @@ is negligible, over key generation, $\calA_1$, the fresh draw from $M$, encrypti
 
 ### CCA Security
 
-In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. An **admissible** adversary submits equal-length messages in $\calM$ and, after receiving $c^*$, may not query $\calD$ on $c^*$ itself.
+In the **adaptive chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. An **admissible** adversary submits equal-length messages in $\calM$ and, after receiving $c^*$, may not query $\calD$ on $c^*$ itself. The game is the IND-CCA2 game of [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] (Definition 2.1 of the full version); the adaptive attack is due to [[RS91 - Non-Interactive Zero-Knowledge Proof of Knowledge and Chosen Ciphertext Attack|RS91]], as credited by BDPR98 (Section 1.1).
 
 ```pseudocode
 \begin{algorithm}
@@ -169,7 +171,32 @@ A perfectly correct CPA-secure scheme whose message space depends on $\pk$ gives
 
 ## CCA1 Security
 
-**CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2 ([[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]]; [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]]). The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly stronger than CPA if CPA-secure schemes exist ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) and strictly weaker than CCA2 if CCA1-secure schemes exist ([[no-pke-cca1-security-to-pke-cca2-security-bdpr98|CCA1 ⇏ CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+In the **non-adaptive chosen-ciphertext attack (CCA1, or IND-CCA1)** game, also called the _lunchtime attack_, the adversary has the decryption oracle $\calD$ only in Phase 1, before it submits $(m_0, m_1)$, and none after receiving $c^*$. An **admissible** adversary submits $m_0, m_1 \in \calM$ with $|m_0| = |m_1|$; otherwise ciphertext length may reveal $b$. The game is the IND-CCA1 game of [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] (Definition 2.1 of the full version); the attack model was formalized by [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]], as credited by BDPR98 (Section 1.1).
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{cca1}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $\calD(c) := \Dec(\sk, c)$
+\State $(m_0, m_1, \stA) \gets \calA^{\calD}(1^\secpar, \pk)$
+\Comment{Phase 1: $\calD$ unrestricted; $m_0,m_1 \in \calM$, $|m_0|=|m_1|$}
+\State $c^* \gets \Enc(\pk, m_b)$
+\State $b' \gets \calA(c^*, \stA)$
+\Comment{Phase 2: no access to $\calD$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PKE scheme $\PKE$ is **CCA1-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{cca1}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cca1}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. CCA1 is an intermediate notion between CPA and CCA2 ([[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]]; [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]]). It is strictly weaker than CCA2 if CCA1-secure schemes exist ([[no-pke-cca1-security-to-pke-cca2-security-bdpr98|CCA1 ⇏ CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] (Theorem 3.5 gives an IND-CCA1-secure scheme that is not NM-CPA-secure, which by Theorem 3.3 is not IND-CCA2-secure). It is strictly stronger than CPA if CPA-secure schemes exist, by letting decryption reveal the secret key on strings that encryption never outputs ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) — standard; BDPR98 derive this separation from their Theorem 3.6, which assumes an NM-CPA-secure scheme (Section 1.2).
 
 ## Non-malleability
 
@@ -259,6 +286,60 @@ $$
 
 is negligible.
 
+## OW-CPA security
+
+**One-wayness under chosen-plaintext attack (OW-CPA)** asks that no efficient adversary, given $\pk$ and the encryption of a uniform message, recover the message; the game below is that of [[HHM22 - Failing Gracefully Decryption Failures and the Fujisaki-Okamoto Transform|HHM22]] (Definition 2). The notion applies to schemes whose message space $\calM_\secpar$ depends only on $\secpar$, can be sampled uniformly in time polynomial in $\secpar$, and has $1/|\calM_\secpar|$ negligible. Security forces the last condition, since the adversary that outputs a uniform element of $\calM_\secpar$ wins with probability $1/|\calM_\secpar|$; with $|\calM_\secpar| \le \poly(\secpar)$, as for bit encryption, no scheme is OW-CPA-secure — standard.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ow\text{-}cpa}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $m^* \getsr \calM_\secpar$
+\State $c^* \gets \Enc(\pk, m^*)$
+\State $m' \gets \calA(1^\secpar, \pk, c^*)$
+\Return $[m' = m^*]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PKE scheme $\PKE$ with such a message space is **OW-CPA-secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ow\text{-}cpa}}_{\PKE,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ow\text{-}cpa}}_{\PKE,\calA}(\secpar) = 1\right]
+$$
+
+is negligible. As an object, OW-CPA-secure PKE denotes a scheme with such a message space that is OW-CPA-secure. Encrypting $x \in \bits^\secpar$ bit by bit under any CPA-secure scheme gives one ([[pke-cpa-security-to-pke-ow-cpa|CPA-secure PKE ⇒ OW-CPA-secure PKE]]) — folklore. One of the modular Fujisaki–Okamoto variants of HHK17 builds an IND-CCA-secure scheme in the random oracle model from an OW-CPA-secure one — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]].
+
+## OW-PCA security
+
+**One-wayness under plaintext-checking attack (OW-PCA)** is OW-CPA security against an adversary that also has a plaintext-checking oracle $\calO_{\mathrm{pc}}$, which on $(m, c)$ reports whether $c$ decrypts to $m$. It applies to schemes with a message space as in [[#OW-CPA security]]. The notion is due to [[OP01 - REACT Rapid Enhanced-Security Asymmetric Cryptosystem Transform|OP01]], as credited by [[ABD+20 - FrodoKEM Learning With Errors Key Encapsulation Algorithm Specifications And Supporting Documentation|ABD+20]] (Definition 5.2), who recall it following the presentation of [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ow\text{-}pca}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $m^* \getsr \calM_\secpar$
+\State $c^* \gets \Enc(\pk, m^*)$
+\State $\calO_{\mathrm{pc}}(m, c) := [\Dec(\sk, c) = m]$
+\Comment{Every query has $m \in \calM_\secpar$; queries with $c = c^*$ are allowed}
+\State $m' \gets \calA^{\calO_{\mathrm{pc}}}(1^\secpar, \pk, c^*)$
+\Return $[m' = m^*]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+An **admissible** adversary queries $\calO_{\mathrm{pc}}$ only on messages $m \in \calM_\secpar$; a query $(\bot, c)$ would report whether $c$ is rejected, which is a ciphertext-validity oracle. Queries on $c^*$ are allowed, since each tests one candidate for $m^*$. A PKE scheme $\PKE$ with such a message space is **OW-PCA-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ow\text{-}pca}}_{\PKE,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ow\text{-}pca}}_{\PKE,\calA}(\secpar) = 1\right]
+$$
+
+is negligible. ABD+20 count as a win every output $m'$ with $\Dec(\sk, c^*) = m'$; the two winning events coincide when $c^*$ decrypts to $m^*$, so their probabilities differ by at most $\varepsilon$ for a $(1-\varepsilon)$-correct scheme — standard. As an object, OW-PCA-secure PKE denotes a scheme with such a message space that is OW-PCA-secure. An OW-CPA adversary is an OW-PCA adversary that makes no query, so OW-PCA security implies OW-CPA security ([[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]]) — folklore.
+
+TODO: check against [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] whether its plaintext-checking oracle accepts only $m \in \calM$, as here; the restatement in ABD+20 (Figure 4) does not say.
+
 # Other results
 
 - [[pke-to-hash-function|PKE ⇒ OWF]]
@@ -275,7 +356,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in a6684423a8c1 -->
+<!-- BEGIN GENERATED participates-in 27c0bfc98d89 -->
 
 ## Participates in
 
@@ -295,9 +376,13 @@ is negligible.
 - [[pke-cpa-security-to-forward-secure-pke|CPA-secure PKE ⇔ Forward-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
+- [[pke-cpa-security-to-pke-ow-cpa|CPA-secure PKE ⇒ OW-CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-cpa-security-to-pke-ow-pca-hhk17|IND-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
+- [[pke-ow-pca-to-ind-cca-kem-hhk17|OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)]] (via [[public-key-encryption#ow-pca-security|OW-PCA security]])
+- [[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]] (via [[public-key-encryption#ow-pca-security|OW-PCA security]])
 - [[pke-to-com|Perfectly correct PKE ⇒ COM]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[pke-to-ke|PKE ⇒ KE]]
@@ -329,7 +414,7 @@ is negligible.
 - [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[ind-sid-cpa-to-pke-cca2-security-chk04|Selective-ID IBE ⇒ CCA-secure PKE (CHK)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[ke-to-pke-dh76|NIKE ⇒ PKE]]
-- [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[kem-and-ske-to-pke|IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[leakage-resilient-pke-to-pke-cpa-security|LR-PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -344,9 +429,12 @@ is negligible.
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]]
 - [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#non-malleability|Non-malleability]])
+- [[pke-cpa-security-to-pke-ow-cpa|CPA-secure PKE ⇒ OW-CPA-secure PKE]] (via [[public-key-encryption#ow-cpa-security|OW-CPA security]])
+- [[pke-cpa-security-to-pke-ow-pca-hhk17|IND-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]] (via [[public-key-encryption#ow-pca-security|OW-PCA security]])
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]] (via [[public-key-encryption#ow-cpa-security|OW-CPA security]])
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -364,6 +452,7 @@ is negligible.
 
 **Barriers**
 
+- [[no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a|No relativizing reduction from TDP over bit strings + ROM to CCA-secure PKE (OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]]) — circumvented by [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[no-hash-function-to-pke-cca2-security-cgh98|No fixed-construction reduction from Hash function to CCA-secure PKE (random-oracle instantiation)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]]
 - [[no-hash-function-to-semantic-security-cgh98|No fixed-construction reduction from Hash function to semantically secure PKE (random-oracle instantiation)]] (via [[public-key-encryption#semantic-security|Semantic security]])

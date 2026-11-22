@@ -16,7 +16,7 @@ variants:
 
 # Key encapsulation mechanism
 
-A **key encapsulation mechanism** (KEM) is a public-key primitive that allows a sender to encapsulate a fresh uniformly random symmetric key $k$ into a ciphertext $c$ using a public key $\pk$, such that only the holder of the secret key $\sk$ can recover $k$ by decapsulation. Combined with a symmetric-key data encapsulation mechanism (DEM, i.e., [[symmetric-key-encryption|SKE]]), KEMs give the **KEM-DEM paradigm** for hybrid encryption — the standard approach to asymmetric encryption in practice.
+A **key encapsulation mechanism** (KEM) is a public-key primitive that allows a sender to encapsulate a fresh uniformly random symmetric key $k$ into a ciphertext $c$ using a public key $\pk$, such that only the holder of the secret key $\sk$ can recover $k$ by decapsulation. Combined with a data encapsulation mechanism (DEM), a [[symmetric-key-encryption|SKE]] scheme keyed by the encapsulated key, a KEM gives [[#KEM-DEM hybrid encryption|KEM-DEM hybrid encryption]].
 
 ## Syntax
 
@@ -42,6 +42,8 @@ over $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and $(c, k) \gets \Encap(\pk)$. When 
 
 ### IND-CCA security
 
+The adversary receives $\pk$, a challenge encapsulation $c^*$ and either the key $k_0$ it encapsulates or an independent uniform key $k_1 \in \calK$, may have any ciphertext other than $c^*$ decapsulated, and guesses which key it was given.
+
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
@@ -58,20 +60,22 @@ over $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and $(c, k) \gets \Encap(\pk)$. When 
 \end{algorithm}
 ```
 
-A KEM is **IND-CCA secure** if for all efficient $\calA$,
+A KEM is **IND-CCA secure** if for all efficient $\calA$ that do not query $\Decap$ on $c^*$,
 
-$$\Adv^{\mathrm{cca}}_{\mathrm{KEM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cca}}_{\mathrm{KEM},\calA}(\secpar) = 1\right] - 1\right|$$
+$$
+\Adv^{\mathrm{cca}}_{\mathrm{KEM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cca}}_{\mathrm{KEM},\calA}(\secpar) = 1\right] - 1\right|
+$$
 
-is negligible. The adversary cannot query the decapsulation oracle on the challenge ciphertext $c^*$, since that would trivially reveal $b$.
+is negligible. The restriction is necessary: $\Decap(\sk, c^*) = k_0$ except with probability $\varepsilon$, so one query on $c^*$ reveals $b$ — standard. KEMs were introduced by Cramer and Shoup as the asymmetric part of hybrid encryption — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]], [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]], as credited by [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 2.1); [[PSJS24 - CCA-Secure Hybrid Encryption in Correlated Randomness Model and KEM Combiners|PSJS24]] (Sections I and III) credit CS03 with formalizing their security. The game is the IND-CCA experiment of [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 2.3, Figure 3), with the same restriction on $c^*$; the literature also calls it IND-CCA2 (ABC+25, Section 2.3).
 
 ## KEM-DEM hybrid encryption
 
-Given an IND-CCA KEM and a one-time IND-CCA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
+Given a KEM with key space $\bits^{\ell}$ and a DEM, an [[symmetric-key-encryption|SKE]] scheme $\SKE$ keyed by uniform $\ell$-bit keys, the hybrid [[public-key-encryption|PKE]] scheme has the KEM's $\KeyGen$ and
 
 - $\Enc(\pk, m)$: run $(c_1, k) \gets \Encap(\pk)$; run $c_2 \gets \SKE.\Enc(k, m)$; output $(c_1, c_2)$.
 - $\Dec(\sk, (c_1, c_2))$: run $k \gets \Decap(\sk, c_1)$; output $\bot$ if $k = \bot$, and $\SKE.\Dec(k, c_2)$ otherwise.
 
-This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure ([[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]]) — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]]) — standard; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
+If the KEM is IND-CCA secure and the DEM is a [[symmetric-key-encryption#one-time-cca-security|one-time CCA-secure SKE]] scheme, CCA-secure against an adversary that sees a single challenge encryption, the hybrid is IND-CCA secure ([[kem-and-ske-to-pke|IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE]]) — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]], as credited by [[PSJS24 - CCA-Secure Hybrid Encryption in Correlated Randomness Model and KEM Combiners|PSJS24]] (Section I). One-time security suffices because each encapsulated key encrypts one message. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]]) — standard; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
 
 # Variations
 
@@ -205,20 +209,82 @@ The decapsulation failure rate is the probability over $d$, $z$ and $m$ that $\D
 
 ## RSA-KEM / RSAES-OAEP
 
-RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and derives $k = \hash(r)$; it is IND-CCA secure under [[rsa-assumption|RSA]] in the [[random-oracle-model|random oracle model]] ([[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]) — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. RSAES-OAEP is a [[public-key-encryption|PKE]], not a KEM; it is IND-CCA secure under RSA in the random oracle model — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
+RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and derives $k = \hash(r)$ — [[HT25 - Use of the RSA-KEM Algorithm in the Cryptographic Message Syntax (CMS)|HT25]] (Appendix A), who specify the RSA-KEM of ISO/IEC 18033-2. It is IND-CCA secure under [[rsa-assumption|RSA]] in the [[random-oracle-model|random oracle model]] ([[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]) — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. With a DEM and the key derivation modelled as a random oracle, its security is tightly related to the RSA problem and to the DEM's security — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]], as credited by [[HT25 - Use of the RSA-KEM Algorithm in the Cryptographic Message Syntax (CMS)|HT25]] (Sections 1.1 and 3). RSAES-OAEP is a [[public-key-encryption|PKE]], not a KEM. In the random oracle model, OAEP over a trapdoor permutation is IND-CCA secure if the permutation is partial-domain one-way. The RSA function can be inverted from a sufficiently large part of a preimage, so when OAEP's partial domain is that large, a non-tight reduction relates partial-domain one-wayness of RSA to the RSA assumption ([[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]) — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]]; [[MKJR16 - PKCS 1 RSA Cryptography Specifications Version 2.2|MKJR16]] (Section 7.1).
+
+## KEM combiners
+
+A **KEM combiner** builds one KEM from two ingredient KEMs: it runs both and derives the key from both keys and possibly both ciphertexts. A combiner **preserves IND-CPA** (**IND-CCA**) **security** if the combined KEM is IND-CPA (IND-CCA) secure whenever at least one ingredient is — [[GHP18 - KEM Combiners|GHP18]]; [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 4.6.3).
+
+For KEMs $\mathrm{KEM}_i = (\KeyGen_i, \Encap_i, \Decap_i)$, $i \in \{1, 2\}$, with key spaces $\calK_i$ and ciphertext spaces $\calC_i$, and an efficiently computable **core function** $W : \calK_1 \times \calK_2 \times \calC_1 \times \calC_2 \to \calK$, the combined KEM $\mathrm{KEM}_W$ has
+
+- $\KeyGen(1^\secpar)$: run $(\pk_i, \sk_i) \gets \KeyGen_i(1^\secpar)$ for $i \in \{1, 2\}$; output $(\pk, \sk) := ((\pk_1, \pk_2), (\sk_1, \sk_2))$.
+- $\Encap(\pk)$: run $(c_i, k_i) \gets \Encap_i(\pk_i)$ for $i \in \{1, 2\}$; output $((c_1, c_2), W(k_1, k_2, c_1, c_2))$.
+- $\Decap(\sk, (c_1, c_2))$: compute $k_i \gets \Decap_i(\sk_i, c_i)$ for $i \in \{1, 2\}$; output $\bot$ if $k_1 = \bot$ or $k_2 = \bot$, and $W(k_1, k_2, c_1, c_2)$ otherwise.
+
+This is the framework of [[GHP18 - KEM Combiners|GHP18]], as restated by [[PSJS24 - CCA-Secure Hybrid Encryption in Correlated Randomness Model and KEM Combiners|PSJS24]] (Section VI); [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 4.6.1) build the same composite KEM and also pass the encapsulation keys and the parameter set to the combiner. If $\mathrm{KEM}_i$ is $(1-\varepsilon_i)$-correct, $\mathrm{KEM}_W$ is $(1-\varepsilon_1-\varepsilon_2)$-correct, by a union bound. The combined key is uniform on $\calK$ for the XOR combiner, since $k_1$ is uniform and independent of $k_2$, and for $W$ a random oracle with range $\calK$ that the ingredients do not query — standard.
+
+### XOR combiner
+
+Let $\calK_1 = \calK_2 = \calK = \bits^{\ell}$ and $W(k_1, k_2, c_1, c_2) := k_1 \oplus k_2$. The XOR combiner preserves IND-CPA security but not IND-CCA security — [[GHP18 - KEM Combiners|GHP18]], as credited by [[PSJS24 - CCA-Secure Hybrid Encryption in Correlated Randomness Model and KEM Combiners|PSJS24]] (Section VI).
+
+For IND-CPA, let $\calA$ attack $\mathrm{KEM}_\oplus$, and let $\calB_1$, on input $(\pk_1, c_1^*, k)$, run $(\pk_2, \sk_2) \gets \KeyGen_2(1^\secpar)$ and $(c_2^*, k_2^*) \gets \Encap_2(\pk_2)$ and output $\calA((\pk_1, \pk_2), (c_1^*, c_2^*), k \oplus k_2^*)$. When $k$ is the key encapsulated in $c_1^*$, $\calA$ sees the real world of the combined game; when $k$ is uniform and independent of the rest, so is $k \oplus k_2^*$, and $\calA$ sees the random-key world. So $\Adv^{\mathrm{cpa}}_{\mathrm{KEM}_1,\calB_1}(\secpar) = \Adv^{\mathrm{cpa}}_{\mathrm{KEM}_\oplus,\calA}(\secpar)$, whatever $\mathrm{KEM}_2$ is, and $\calB_2$ is symmetric — standard.
+
+For IND-CCA, no XOR combination of two correct KEMs whose encapsulations rarely repeat is IND-CCA secure, even when both ingredients are: $\calA$ pairs each challenge component with a fresh encapsulation of its own and asks for both mixed ciphertexts to be decapsulated.
+
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\calA^{\Decap(\sk, \cdot)}((\pk_1, \pk_2), (c_1^*, c_2^*), k)$}
+\begin{algorithmic}
+\State $(c_1, k_1) \gets \Encap_1(\pk_1)$; $(c_2, k_2) \gets \Encap_2(\pk_2)$
+\If{$c_1 = c_1^*$ or $c_2 = c_2^*$}
+\Return $0$
+\EndIf
+\State $u \gets \Decap(\sk, (c_1^*, c_2))$; $v \gets \Decap(\sk, (c_1, c_2^*))$
+\Comment{Both queries differ from $(c_1^*, c_2^*)$}
+\Return $[u \ne \bot \wedge v \ne \bot \wedge u \oplus v \oplus k_1 \oplus k_2 \ne k]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+Write $(c_i^*, k_i^*)$ for the components of the challenge encapsulation, so that the real key is $k_1^* \oplus k_2^*$, and let $\gamma_i(\secpar) := \mathbb{E}_{\pk_i}\!\left[\max_{c} \Pr[\Encap_i(\pk_i) \text{ outputs ciphertext } c]\right]$ over $(\pk_i, \sk_i) \gets \KeyGen_i(1^\secpar)$, which bounds $\Pr[c_i = c_i^*]$. Unless $c_1 = c_1^*$ or $c_2 = c_2^*$, with probability at most $\gamma_1 + \gamma_2$, or one of the decapsulations of $c_1^*$, $c_1$, $c_2^*$ and $c_2$ errs, with probability at most $2\varepsilon_1 + 2\varepsilon_2$, the oracle returns $u = k_1^* \oplus k_2$ and $v = k_1 \oplus k_2^*$, so that $u \oplus v \oplus k_1 \oplus k_2 = k_1^* \oplus k_2^*$, which a uniform key equals with probability $2^{-\ell}$. None of these events depends on $b$, so
+
+$$
+\Adv^{\mathrm{cca}}_{\mathrm{KEM}_\oplus,\calA}(\secpar) \ge 1 - 2(\gamma_1 + \gamma_2) - 4(\varepsilon_1 + \varepsilon_2) - 2^{-\ell}
+$$
+
+— standard. For an IND-CPA KEM with negligible correctness error, $\gamma_i$ is negligible ([[kem-and-ske-to-pke|IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE]], Notes), so the XOR combination of two IND-CCA KEMs is not IND-CCA secure.
+
+A combiner whose core function reads only $k_1$ and $k_2$ does not preserve IND-CCA security, whatever the function — [[BCD+24 - X-Wing|BCD+24]], as credited by [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 4.6.3), for $W$ a key-derivation function of the two keys. Suppose $\mathrm{KEM}_2$ has an efficient map $c \mapsto c'$ with $c' \ne c$ and $\Decap_2(\sk_2, c') = \Decap_2(\sk_2, c)$ for all $\sk_2$ and $c$. The adversary that queries $u \gets \Decap(\sk, (c_1^*, c_2^{*\prime}))$ and outputs $[u \ne k]$ receives the real key $W(k_1^*, k_2^*)$ unless $c_1^*$ or $c_2^*$ decapsulates wrongly, so for $\calK = \bits^{\ell}$ its advantage is at least $1 - 2(\varepsilon_1 + \varepsilon_2) - 2^{-\ell}$, whatever $\mathrm{KEM}_1$ is — standard. Appending to every ciphertext of an IND-CPA KEM a bit that decapsulation ignores gives such a $\mathrm{KEM}_2$, still IND-CPA secure — standard. X25519, viewed as a KEM whose ciphertext is the sender's share ([[SFG26 - Hybrid Key Exchange in TLS 1.3|SFG26]], Section 2), has such a map, since it masks the most significant bit of the received u-coordinate — [[LHT16 - Elliptic Curves for Security|LHT16]] (Section 5).
+
+### Hashed and split-key PRF combiners
+
+With $W(k_1, k_2, c_1, c_2) := H(k_1, k_2, c_1, c_2)$ for a random oracle $H$ with range $\calK$, the combined KEM is IND-CCA secure if $\mathrm{KEM}_1$ or $\mathrm{KEM}_2$ is — [[GHP18 - KEM Combiners|GHP18]], as credited by [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 4.6.3). [[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 4.6.3) encourage combiners that preserve IND-CCA security and give as an example this combiner with $H$ from the SHA-3 family and with the two encapsulation keys and a domain separator identifying the composite scheme as further inputs; GHP18 omit the encapsulation keys, which IND-CCA preservation does not need.
+
+A **split-key PRF** is an efficiently computable $F : \calK_1 \times \calK_2 \times \calX \to \calK$ that, for each $i$, is a PRF keyed by $k_i$ on inputs $(k_{3-i}, x)$, against distinguishers that use a fresh $x$ in every query. With $W(k_1, k_2, c_1, c_2) := F(k_1, k_2, (c_1, c_2))$ the combined KEM is IND-CCA secure if either ingredient is — [[GHP18 - KEM Combiners|GHP18]], as credited by [[DFH22 - Adaptive Versus Static Multi-oracle Algorithms, and Quantum Security of a Split-Key PRF|DFH22]] (Sections 1 and 4.1). For a random oracle $H$ and an efficient $g$ with $\Pr_{k_i \getsr \calK_i}[g(k_1, k_2) = w] \le \varepsilon_g$ for each $i$, each value of the other key and each $w$, the function $F(k_1, k_2, x) := H(g(k_1, k_2), x)$ is a split-key PRF with distinguishing advantage at most $q_H \varepsilon_g$ for $q_H$ queries to $H$ — [[GHP18 - KEM Combiners|GHP18]], as credited by [[DFH22 - Adaptive Versus Static Multi-oracle Algorithms, and Quantum Security of a Split-Key PRF|DFH22]] (Section 4.1), who prove it secure in the quantum random-oracle model as well (Theorem 2 and Corollary 1). [[DFH22 - Adaptive Versus Static Multi-oracle Algorithms, and Quantum Security of a Split-Key PRF|DFH22]] (Section 4.1) name $g(k_1, k_2) := (k_1, k_2)$, which gives the hashed combiner above, and the sum of the keys; for $\calK_1 = \calK_2 = \bits^{\ell}$, both the identity and $k_1 \oplus k_2$ have $\varepsilon_g = 2^{-\ell}$ — standard. In the random oracle model, hashing $k_1 \oplus k_2$ together with both ciphertexts therefore preserves IND-CCA security, while $k_1 \oplus k_2$ alone does not.
+
+[[ABC+25 - Recommendations for Key-Encapsulation Mechanisms|ABC+25]] (Section 4.6.2) approve two kinds of key combiner. A key-derivation method of SP 800-56C applied to the tuple of shared secrets is approved when at least one of them, in any position, comes from SP 800-56A, SP 800-56B or an approved KEM, where SP 800-56C itself allows a pair $(S_1, S_2)$ with $S_1$ the approved secret; its FixedInfo input may carry ciphertexts, encapsulation keys and a domain separator. The key-combination methods of SP 800-133, namely concatenation, XOR and HMAC-based extraction, are approved only when every component scheme is approved, and a concatenated key should pass through a key-derivation function before use.
+
+### X25519MLKEM768
+
+X25519MLKEM768 is the TLS 1.3 hybrid key agreement of [[#ML-KEM|ML-KEM-768]] with X25519 Diffie–Hellman ([[LHT16 - Elliptic Curves for Security|LHT16]], Section 6.1) — [[KKWS26 - Post-Quantum Traditional (PQ-T) Hybrid Key Agreement Mechanisms for TLS 1.3|KKWS26]]. The client's key share is its ML-KEM-768 encapsulation key (1184 bytes) followed by its X25519 share (32 bytes); the server's key share is an ML-KEM-768 ciphertext encapsulated to that key (1088 bytes) followed by the server's X25519 share (32 bytes); the 64-byte shared secret is the ML-KEM-768 shared secret followed by the X25519 shared secret — [[KKWS26 - Post-Quantum Traditional (PQ-T) Hybrid Key Agreement Mechanisms for TLS 1.3|KKWS26]] (Sections 4.1–4.3). The shares and the secret put ML-KEM first although the group name lists X25519 first, which reverses, for historical reasons, the rule of [[SFG26 - Hybrid Key Exchange in TLS 1.3|SFG26]] (Section 3.2) that shares are concatenated in the order of the name ([[KKWS26 - Post-Quantum Traditional (PQ-T) Hybrid Key Agreement Mechanisms for TLS 1.3|KKWS26]], Section 4.1). Putting the ML-KEM secret first makes the first of the two secrets the FIPS-approved one, which SP 800-56C requires when HKDF is applied to two shared secrets ([[KKWS26 - Post-Quantum Traditional (PQ-T) Hybrid Key Agreement Mechanisms for TLS 1.3|KKWS26]], Section 5).
+
+The concatenated secret replaces the (EC)DHE shared secret as the input of the HKDF-Extract that yields the TLS 1.3 handshake secret — [[SFG26 - Hybrid Key Exchange in TLS 1.3|SFG26]] (Section 3.3, Figure 1). For fixed-length shared secrets, [[SFG26 - Hybrid Key Exchange in TLS 1.3|SFG26]] (Section 6) identify this construction with the dual-PRF combiner of [[BBF+19 - Hybrid Key Encapsulation Mechanisms and Authenticated Key Exchange|BBF+19]], which preserves security if the hash function is a dual PRF. The security analysis relies on the TLS 1.3 message transcript, and the same hybridization cannot be assumed secure in other protocols — [[KKWS26 - Post-Quantum Traditional (PQ-T) Hybrid Key Agreement Mechanisms for TLS 1.3|KKWS26]] (Section 6). A standalone KEM whose key is derived from the two shared secrets alone is a key-only combiner, and the one-query attack above, with the masked bit of the server's X25519 share flipped, breaks its IND-CCA security — standard.
+
+X-Wing is a hybrid KEM built from the same two components at lower cost than a generic combiner. It is IND-CCA secure if the strong Diffie–Hellman assumption holds in the X25519 group, in the random oracle model, and IND-CCA secure against quantum adversaries if ML-KEM-768 is IND-CCA secure and SHA3-256 is a PRF, in the standard model; these guarantees rest on the concrete choice of components — [[BCD+24 - X-Wing|BCD+24]].
 
 # Other results
 
 - [[pke-to-kem|PKE ⇒ KEM]]
-- [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
+- [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]], in the random oracle model, composed of [[pke-cpa-security-to-pke-ow-pca-hhk17|IND-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]] and [[pke-ow-pca-to-ind-cca-kem-hhk17|OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)]] — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]], in the random oracle model: Kyber — [[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]; ML-KEM, machine-checked down to a variant of Module LWE — [[AAB+24 - Formally Verifying Kyber Episode V Machine-Checked IND-CCA Security and Correctness of ML-KEM in EasyCrypt|AAB+24]]
-- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[kem-and-ske-to-pke|IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE]] — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]
 - [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]], with the one-time pad as DEM — folklore
 - [[cdh-to-ind-cpa-kem|CDH ⇒ IND-CPA KEM (hashed ElGamal)]], in the random oracle model — folklore
 - The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
 - [[kem-to-ke|KEM ⇒ KE with bit-string keys]]
 
-<!-- BEGIN GENERATED participates-in 6aa89f1cca1e -->
+<!-- BEGIN GENERATED participates-in 93b624d01046 -->
 
 ## Participates in
 
@@ -227,7 +293,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - [[ind-cca-security-to-ind-cpa-kem|IND-CCA security ⇒ IND-CPA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 - [[ind-cpa-kem-to-pke-cpa-security|IND-CPA KEM ⇒ IND-CPA PKE]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
-- [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
+- [[kem-and-ske-to-pke|IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[kem-to-ke|KEM ⇒ KE with bit-string keys]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 
 **Produces Key encapsulation mechanism**
@@ -237,6 +303,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
+- [[pke-ow-pca-to-ind-cca-kem-hhk17|OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 - [[pke-to-kem|PKE ⇒ KEM]] (via [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]])
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]])
 

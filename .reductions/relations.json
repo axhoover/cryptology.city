@@ -5207,6 +5207,19 @@
    "unlisted": false
   },
   {
+   "id": "one-time-cca-ske",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#one-time-cca-security",
+   "of": "ske",
+   "title": "One-time CCA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "one-time-mac",
    "kind": "variant",
    "type": "primitive",
@@ -5762,6 +5775,32 @@
    "anchor": "#non-malleability",
    "of": "pke",
    "title": "Non-malleability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pke-ow-cpa",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#ow-cpa-security",
+   "of": "pke",
+   "title": "OW-CPA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pke-ow-pca",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#ow-pca-security",
+   "of": "pke",
+   "title": "OW-PCA security",
    "aliases": [],
    "unlisted": false
   },
@@ -11100,6 +11139,33 @@
    "slug": "cca-secure-symmetric-key-encryption-to-cpa-security",
    "graphSlug": "Reductions/cca-secure-symmetric-key-encryption-to-cpa-security",
    "title": "CCA-secure SKE ⇒ CPA-secure SKE"
+  },
+  {
+   "id": "red-cca-secure-symmetric-key-encryption-to-one-time-cca-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "cca-secure-symmetric-key-encryption"
+   ],
+   "conclusion": "one-time-cca-ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction runs the scheme's algorithms as oracles on explicit coins, and the fixed reduction runs any one-time adversary unchanged as a CCA adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cca-secure-symmetric-key-encryption-to-one-time-cca-ske.md",
+   "slug": "cca-secure-symmetric-key-encryption-to-one-time-cca-ske",
+   "graphSlug": "Reductions/cca-secure-symmetric-key-encryption-to-one-time-cca-ske",
+   "title": "CCA-secure SKE ⇒ One-time CCA-secure SKE"
   },
   {
    "id": "red-cca-security-to-cca1-security",
@@ -17772,16 +17838,15 @@
     "rom"
    ],
    "source": [
-    "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]",
     "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive in the random-oracle model from IND-CPA: a constant multiple of the IND-CPA advantage plus terms of order $q\\delta$ and $q/|\\calM|$ for $q$ random-oracle queries, and $q_D 2^{-\\gamma}$ for $q_D$ decapsulation queries with explicit rejection; from one-wayness, a factor $O(q)$; a CPA-secure base scheme with only two messages, first converted bitwise to message space $\\bits^\\secpar$, multiplies the IND-CPA advantage term by $\\secpar$",
+   "securityLoss": "a factor $3$ on the IND-CPA advantage, plus $2q\\delta + (6q + 2)/|\\calM|$ for $q$ oracle queries in total; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $3\\secpar$ plus $4\\secpar q\\varepsilon + (6q + 2)2^{-\\secpar}$",
    "rationale": {
-    "class": "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption.",
-    "model": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known.",
-    "securityLoss": "HHK17 bound the derandomization step and the key-derivation step separately, and the composed transform adds the two bounds."
+    "class": "The KEM calls the encryption of the base scheme with explicit coins, its decryption and the hash functions only as oracles, and the IND-CPA adversary uses any IND-CCA adversary only as a black box, as ABD+20 observe of the proof of HHK17.",
+    "model": "HHK17 prove both steps of the transform with G and H modelled as random oracles, which the reductions simulate.",
+    "securityLoss": "The bound is the one HHK17 state for the composed transform, restated by ABD+20 for the advantage |Pr[b' = b] − 1/2| and doubled here for the advantage |2Pr[b' = b] − 1|."
    },
    "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
@@ -18626,7 +18691,7 @@
    "kind": "implication",
    "hypotheses": [
     "ind-cca-kem",
-    "cca-secure-symmetric-key-encryption"
+    "one-time-cca-ske"
    ],
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
@@ -18639,15 +18704,16 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: twice the KEM CCA advantage plus twice the KEM decapsulation error plus the DEM one-time CCA advantage",
+   "securityLoss": "additive: twice the KEM IND-CCA advantage, the DEM one-time CCA advantage, twice the decapsulation error, and twice the number of pre-challenge decryption queries times the expected largest probability of a single encapsulation ciphertext",
    "rationale": {
-    "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
+    "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and the KEM and DEM reductions each run the PKE adversary once as an oracle.",
+    "securityLoss": "Two game hops cost the decapsulation error and the KEM advantage, a third costs the chance that a pre-challenge query guesses the challenge encapsulation, and the last game is the DEM game."
    },
    "status": "draft",
    "page": "content/Reductions/kem-and-ske-to-pke.md",
    "slug": "kem-and-ske-to-pke",
    "graphSlug": "Reductions/kem-and-ske-to-pke",
-   "title": "IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE"
+   "title": "IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE"
   },
   {
    "id": "red-kem-to-ke",
@@ -21658,6 +21724,33 @@
    "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
   },
   {
+   "id": "red-one-time-cca-ske-to-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "one-time-cca-ske"
+   ],
+   "conclusion": "ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the advantage is unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs any one-time adversary once, forwarding its single encryption query as its challenge pair."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-time-cca-ske-to-ske.md",
+   "slug": "one-time-cca-ske-to-ske",
+   "graphSlug": "Reductions/one-time-cca-ske-to-ske",
+   "title": "One-time CCA-secure SKE ⇒ SKE"
+  },
+  {
    "id": "red-one-way-state-generator-to-one-time-quantum-public-key-signature-my22",
    "kind": "equivalence",
    "hypotheses": [
@@ -23357,6 +23450,63 @@
    "title": "IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)"
   },
   {
+   "id": "red-pke-cpa-security-to-pke-ow-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke-ow-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $\\secpar$ plus $2^{-\\secpar}$: the OW-CPA advantage is at most $\\secpar$ times the CPA advantage of a reduction that runs the adversary once, plus $2^{-\\secpar}$",
+   "rationale": {
+    "class": "The construction calls the scheme's algorithms and its message-pair algorithm only as oracles, and the fixed reduction runs any OW-CPA adversary once as an oracle.",
+    "securityLoss": "A hybrid over the $\\secpar$ encrypted bits costs the factor $\\secpar$, and the CPA adversary loses $2^{-\\secpar}$ when the inverter outputs the unencrypted message."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke-ow-cpa.md",
+   "slug": "pke-cpa-security-to-pke-ow-cpa",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke-ow-cpa",
+   "title": "CPA-secure PKE ⇒ OW-CPA-secure PKE"
+  },
+  {
+   "id": "red-pke-cpa-security-to-pke-ow-pca-hhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke-ow-pca",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the IND-CPA advantage plus $(q + 1)\\delta + (q + 1)/|\\calM|$ for $q$ queries to $G$ and the plaintext-checking oracle together; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $\\secpar$ plus $2\\secpar(q + 1)\\varepsilon + (q + 1)2^{-\\secpar}$",
+   "rationale": {
+    "class": "T[PKE, G] calls the encryption of PKE with explicit coins, its decryption and the oracle G only as oracles, and the IND-CPA adversary uses any OW-PCA adversary only as a black box, as ABD+20 observe of the proof of HHK17.",
+    "model": "HHK17 prove the step with G modelled as a random oracle, which the IND-CPA adversary simulates.",
+    "securityLoss": "Replacing the plaintext-checking oracle by a re-encryption check costs δ for the challenge message and for each message queried to G or to that oracle, and one IND-CPA adversary then detects both an output of and a query to G at the challenge message, at a cost of (q + 1)/|M|."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke-ow-pca-hhk17.md",
+   "slug": "pke-cpa-security-to-pke-ow-pca-hhk17",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke-ow-pca-hhk17",
+   "title": "IND-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)"
+  },
+  {
    "id": "red-pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
    "kind": "equivalence",
    "hypotheses": [
@@ -23436,6 +23586,62 @@
    "slug": "pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
    "graphSlug": "Reductions/pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
    "title": "NM-CPA ⇒ IND-CPA"
+  },
+  {
+   "id": "red-pke-ow-pca-to-ind-cca-kem-hhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-ow-pca"
+   ],
+   "conclusion": "ind-cca-kem",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: $2q_H/|\\calM|$ for $q_H$ queries to $H$, plus the probability $\\varepsilon_1$ that the base scheme fails to decrypt the encryption of a uniform message; the OW-PCA adversary runs the IND-CCA adversary once and makes at most $q_H$ plaintext-checking queries, whatever the number of decapsulation queries",
+   "rationale": {
+    "class": "The KEM calls the encryption and decryption of the base scheme and the oracle H only as oracles, and the OW-PCA adversary runs any IND-CCA adversary once as a black box.",
+    "model": "HHK17 prove the step with H modelled as a random oracle, which the OW-PCA adversary simulates, keeping it consistent with the decapsulation answers it samples itself through the plaintext-checking oracle.",
+    "securityLoss": "The term 2q_H/|M| pays for a query to H at the secret rejection seed, and ε1 for a challenge ciphertext that does not decrypt to its message."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-ow-pca-to-ind-cca-kem-hhk17.md",
+   "slug": "pke-ow-pca-to-ind-cca-kem-hhk17",
+   "graphSlug": "Reductions/pke-ow-pca-to-ind-cca-kem-hhk17",
+   "title": "OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)"
+  },
+  {
+   "id": "red-pke-ow-pca-to-pke-ow-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-ow-pca"
+   ],
+   "conclusion": "pke-ow-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs any OW-CPA adversary unchanged as an OW-PCA adversary that makes no oracle query."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-ow-pca-to-pke-ow-cpa.md",
+   "slug": "pke-ow-pca-to-pke-ow-cpa",
+   "graphSlug": "Reductions/pke-ow-pca-to-pke-ow-cpa",
+   "title": "OW-PCA-secure PKE ⇒ OW-CPA-secure PKE"
   },
   {
    "id": "red-pke-to-com",
@@ -27205,10 +27411,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "quadratic: RSA inversion succeeds with probability about $\\varepsilon^2/4$ for IND-CCA advantage $\\varepsilon$, in time $2t + q_H(q_H + 2q_G) \\cdot O(k^3)$ for adversary time $t$, $q_G$ and $q_H$ random-oracle queries and a $k$-bit modulus",
+   "securityLoss": "quadratic: for an IND-CCA adversary with advantage $\\varepsilon$ and running time $T$, the RSA inverter succeeds with probability about $\\varepsilon^2/4$ in time about $T^2$",
    "rationale": {
-    "model": "The proof models the OAEP padding hashes as random oracles whose query lists the reduction reads, and no standard-model IND-CCA proof of RSA-OAEP from RSA is known.",
-    "securityLoss": "The reduction runs the adversary twice, on $y$ and on $y \\alpha^e$, to obtain two partial preimages, which squares the success probability, and tries the lattice step on pairs of hash queries."
+    "model": "The proof models the two hash functions G and H of the OAEP padding as random oracles.",
+    "securityLoss": "The inverter applies the adversary twice, which squares its success probability."
    },
    "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-pke-oaep-fops01.md",
@@ -32898,6 +33104,38 @@
    "title": "No reduction from authenticated channels to UC MPC"
   },
   {
+   "id": "bar-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a",
+   "hypotheses": [
+    "bit-string-tdp",
+    "rom"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-rsa-to-ind-cca-pke-oaep-fops01"
+   ],
+   "source": [
+    "[[Sho01a - OAEP Reconsidered|Sho01a]]"
+   ],
+   "rationale": {
+    "class": "Sho01a rules out relativizing security proofs for the one construction OAEP, and the vocabulary has no class that fixes the construction and restricts the proof to relativizing ones."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a.md",
+   "slug": "no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a",
+   "graphSlug": "Barriers/no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a",
+   "title": "No relativizing reduction from TDP over bit strings + ROM to CCA-secure PKE (OAEP)"
+  },
+  {
    "id": "bar-bounded-round-assumption-to-concurrent-schnorr-identification-pas11",
    "hypotheses": [
     "bounded-round-assumption"
@@ -34833,11 +35071,11 @@
    ],
    "circumventedBy": [],
    "source": [
-    "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+    "folklore"
    ],
    "rationale": {
     "class": "The counterexample refutes the identity map (CPA security of a scheme implying CCA1 security of the same scheme) and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction.",
-    "strength": "BDPR98 prove the separation assuming an IND-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
+    "strength": "The counterexample is built from an IND-CPA-secure scheme, so the separation assumes one exists; without one, the identity-map implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-bdpr98.md",

@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BDPR98"
 source: https://eprint.iacr.org/1998/021
 authors: Mihir Bellare, Anand Desai, David Pointcheval, Phillip Rogaway

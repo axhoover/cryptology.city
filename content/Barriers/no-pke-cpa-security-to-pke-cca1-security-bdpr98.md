@@ -13,18 +13,17 @@ consequences:
     class: fixed-construction
 strength: conditional
 conditional-on: [pke-cpa-security]
-source:
-  - "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+source: folklore
 rationale:
   class: "The counterexample refutes the identity map (CPA security of a scheme implying CCA1 security of the same scheme) and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction."
-  strength: "BDPR98 prove the separation assuming an IND-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
+  strength: "The counterexample is built from an IND-CPA-secure scheme, so the separation assumes one exists; without one, the identity-map implication holds vacuously."
 ---
 
 # No fixed-construction reduction from CPA security to CCA1 security
 
 ## Statement
 
-If an [[public-key-encryption#cpa-security|IND-CPA]]-secure [[public-key-encryption|PKE]] scheme exists, then there is a PKE scheme that is IND-CPA-secure but not [[public-key-encryption#cca1-security|IND-CCA1]]-secure, so the identity map is no reduction from CPA to CCA1 security — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+If an [[public-key-encryption#cpa-security|IND-CPA]]-secure [[public-key-encryption|PKE]] scheme exists, then there is a PKE scheme that is IND-CPA-secure but not [[public-key-encryption#cca1-security|IND-CCA1]]-secure, so the identity map is no reduction from CPA to CCA1 security — folklore.
 
 ## Sketch
 
@@ -33,3 +32,4 @@ Given an IND-CPA-secure $\PKE = (\KeyGen, \Enc, \Dec)$, fix two distinct message
 ## Notes
 
 - The converse holds for every scheme: [[cca1-security-to-cpa-security|CCA1 security ⇒ CPA security]] — folklore.
+- [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] (Section 1.2) obtain the separation of IND-CPA from IND-CCA1 security from their Theorem 3.6, which separates NM-CPA from IND-CCA1 security assuming an NM-CPA-secure scheme exists ([[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|NM-CPA ⇏ CCA1]]).

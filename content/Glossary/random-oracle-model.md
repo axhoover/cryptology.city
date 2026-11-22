@@ -72,7 +72,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 97da6a6b35dd -->
+<!-- BEGIN GENERATED participates-in 8dd2194e1652 -->
 
 ## Participates in
 
@@ -88,6 +88,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 **Barriers**
 
+- [[no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a|No relativizing reduction from TDP over bit strings + ROM to CCA-secure PKE (OAEP)]] — circumvented by [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[no-rom-to-pk-depir-hpy26|No oracle-free-encoding reduction from ROM to public-key DEPIR with a sublinear key]]
 - [[no-rom-to-time-lock-puzzle-mmv11|No reduction from ROM to TLP]]
@@ -123,6 +124,8 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
 - [[pke-cpa-security-to-dpke-bbo07|CPA-secure PKE ⇒ D-PKE (Encrypt-with-Hash, random oracle model)]]
+- [[pke-cpa-security-to-pke-ow-pca-hhk17|IND-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]]
+- [[pke-ow-pca-to-ind-cca-kem-hhk17|OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)]]
 - [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]]
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]]
 - [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]]
