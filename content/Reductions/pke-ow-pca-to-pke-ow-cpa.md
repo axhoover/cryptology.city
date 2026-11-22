@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Every [[public-key-encryption#ow-pca-security|OW-PCA-secure]] [[public-key-encryption|PKE]] scheme is [[public-key-encryption#ow-cpa-security|OW-CPA-secure]]: the two notions apply to the same message spaces, and an OW-CPA adversary is an OW-PCA adversary that makes no query to the plaintext-checking oracle, so its OW-CPA and OW-PCA advantages against the same scheme coincide — folklore.
+Every [[public-key-encryption#ow-pca-security|OW-PCA-secure]] [[public-key-encryption|PKE]] scheme is [[public-key-encryption#ow-cpa-security|OW-CPA-secure]]: the two notions apply to the same message spaces and require the same $\delta$-correctness, and an OW-CPA adversary is an OW-PCA adversary that makes no query to the plaintext-checking oracle, so its OW-CPA and OW-PCA advantages against the same scheme coincide — folklore.

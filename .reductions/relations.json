@@ -17842,11 +17842,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor $3$ on the IND-CPA advantage, plus $2q\\delta + (6q + 2)/|\\calM|$ for $q$ oracle queries in total; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $3\\secpar$ plus $4\\secpar q\\varepsilon + (6q + 2)2^{-\\secpar}$",
+   "securityLoss": "tight: the IND-CPA advantage plus $(q_G + q_H + 1)\\delta + (q_G + 3q_H + 1)/|\\calM|$ for $q_G$ and $q_H$ queries to $G$ and $H$; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $\\secpar$ plus $2\\secpar(q_G + q_H + 1)\\varepsilon + (q_G + 3q_H + 1)2^{-\\secpar}$",
    "rationale": {
-    "class": "The KEM calls the encryption of the base scheme with explicit coins, its decryption and the hash functions only as oracles, and the IND-CPA adversary uses any IND-CCA adversary only as a black box, as ABD+20 observe of the proof of HHK17.",
+    "class": "The KEM calls the encryption of the base scheme with explicit coins, its decryption and the hash functions only as oracles, and the IND-CPA adversary runs any IND-CCA adversary once as a black box.",
     "model": "HHK17 prove both steps of the transform with G and H modelled as random oracles, which the reductions simulate.",
-    "securityLoss": "The bound is the one HHK17 state for the composed transform, restated by ABD+20 for the advantage |Pr[b' = b] − 1/2| and doubled here for the advantage |2Pr[b' = b] − 1|."
+    "securityLoss": "The U step costs 2q_H/|M| and the T step (q_G + q_H + 1)δ + (q_G + q_H + 1)/|M|, the failure of the challenge ciphertext to decrypt being one of the events bounded by the δ term."
    },
    "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
@@ -23496,7 +23496,7 @@
    "heuristic": false,
    "securityLoss": "tight: the IND-CPA advantage plus $(q + 1)\\delta + (q + 1)/|\\calM|$ for $q$ queries to $G$ and the plaintext-checking oracle together; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $\\secpar$ plus $2\\secpar(q + 1)\\varepsilon + (q + 1)2^{-\\secpar}$",
    "rationale": {
-    "class": "T[PKE, G] calls the encryption of PKE with explicit coins, its decryption and the oracle G only as oracles, and the IND-CPA adversary uses any OW-PCA adversary only as a black box, as ABD+20 observe of the proof of HHK17.",
+    "class": "T[PKE, G] calls the encryption of PKE with explicit coins, its decryption and the oracle G only as oracles, and the IND-CPA adversary runs any OW-PCA adversary once as a black box.",
     "model": "HHK17 prove the step with G modelled as a random oracle, which the IND-CPA adversary simulates.",
     "securityLoss": "Replacing the plaintext-checking oracle by a re-encryption check costs δ for the challenge message and for each message queried to G or to that oracle, and one IND-CPA adversary then detects both an output of and a query to G at the challenge message, at a cost of (q + 1)/|M|."
    },
@@ -23586,6 +23586,35 @@
    "slug": "pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
    "graphSlug": "Reductions/pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
    "title": "NM-CPA ⇒ IND-CPA"
+  },
+  {
+   "id": "red-pke-ow-cpa-to-pke-ow-pca-hhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-ow-cpa"
+   ],
+   "conclusion": "pke-ow-pca",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $q + 1$ on the OW-CPA advantage, plus $(q + 1)\\delta$, for $q$ queries to $G$ and the plaintext-checking oracle together; the OW-CPA adversary runs the OW-PCA adversary once",
+   "rationale": {
+    "class": "T[PKE, G] calls the encryption of PKE with explicit coins, its decryption and the oracle G only as oracles, and the OW-CPA adversary runs any OW-PCA adversary once as a black box.",
+    "model": "HHK17 prove the step with G modelled as a random oracle, which the OW-CPA adversary samples lazily and uses to answer plaintext-checking queries by re-encryption.",
+    "securityLoss": "Re-encryption replaces the plaintext-checking oracle at a cost of δ for each point at which G is evaluated, and the OW-CPA adversary guesses which of at most q + 1 candidate messages is the challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-ow-cpa-to-pke-ow-pca-hhk17.md",
+   "slug": "pke-ow-cpa-to-pke-ow-pca-hhk17",
+   "graphSlug": "Reductions/pke-ow-cpa-to-pke-ow-pca-hhk17",
+   "title": "OW-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)"
   },
   {
    "id": "red-pke-ow-pca-to-ind-cca-kem-hhk17",

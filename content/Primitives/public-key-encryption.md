@@ -288,7 +288,7 @@ is negligible.
 
 ## OW-CPA security
 
-**One-wayness under chosen-plaintext attack (OW-CPA)** asks that no efficient adversary, given $\pk$ and the encryption of a uniform message, recover the message; the game below is that of [[HHM22 - Failing Gracefully Decryption Failures and the Fujisaki-Okamoto Transform|HHM22]] (Definition 2). The notion applies to schemes whose message space $\calM_\secpar$ depends only on $\secpar$, can be sampled uniformly in time polynomial in $\secpar$, and has $1/|\calM_\secpar|$ negligible. Security forces the last condition, since the adversary that outputs a uniform element of $\calM_\secpar$ wins with probability $1/|\calM_\secpar|$; with $|\calM_\secpar| \le \poly(\secpar)$, as for bit encryption, no scheme is OW-CPA-secure — standard.
+**One-wayness under chosen-plaintext attack (OW-CPA)** asks that no efficient adversary, given $\pk$ and the encryption of a uniform message, recover the message; the game below is that of [[HHM22 - Failing Gracefully Decryption Failures and the Fujisaki-Okamoto Transform|HHM22]] (Definition 2), and differs from the game OW-CPA of [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] (Definition 2.1, Figure 3), the oracle-free case of their games OW-ATK, only in its winning condition, compared under [[#OW-PCA security]]. The notion applies to schemes whose message space $\calM_\secpar$ depends only on $\secpar$, can be sampled uniformly in time polynomial in $\secpar$, and has $1/|\calM_\secpar|$ negligible. Security forces the last condition, since the adversary that outputs a uniform element of $\calM_\secpar$ wins with probability $1/|\calM_\secpar|$; with $|\calM_\secpar| \le \poly(\secpar)$, as for bit encryption, no scheme is OW-CPA-secure — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -309,11 +309,19 @@ $$
 \Adv^{\mathrm{ow\text{-}cpa}}_{\PKE,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ow\text{-}cpa}}_{\PKE,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. As an object, OW-CPA-secure PKE denotes a scheme with such a message space that is OW-CPA-secure. Encrypting $x \in \bits^\secpar$ bit by bit under any CPA-secure scheme gives one ([[pke-cpa-security-to-pke-ow-cpa|CPA-secure PKE ⇒ OW-CPA-secure PKE]]) — folklore. One of the modular Fujisaki–Okamoto variants of HHK17 builds an IND-CCA-secure scheme in the random oracle model from an OW-CPA-secure one — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]].
+is negligible.
+
+A PKE scheme is **$\delta$-correct** if the decryption-failure probability of the worst message for each key pair, averaged over the key pair, is at most $\delta$,
+
+$$
+\mathbb{E}_{(\sk, \pk) \gets \KeyGen(1^\secpar)}\!\left[\max_{m \in \calM_\secpar} \Pr\!\left[\Dec(\sk, \Enc(\pk, m)) \ne m\right]\right] \le \delta,
+$$
+
+with the inner probability over the coins of $\Enc$ — HHK17 (Section 2.1); such a scheme is $(1-\delta)$-correct — standard. For a scheme defined relative to a random oracle, $\delta = \delta(q)$ bounds the probability that an unbounded adversary, given the key pair, outputs a message that fails to decrypt, where the oracle is evaluated at most $q$ times in this experiment, by the adversary and by the encryption and decryption of its output — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] (Section 2.1, Figure 2, with the count of the proof of Theorem 3.1). As an object, OW-CPA-secure PKE denotes a scheme with such a message space that is OW-CPA-secure and $\delta$-correct for a negligible $\delta$, which for a scheme defined relative to a random oracle means $\delta(q)$ negligible for every polynomial $q$. Encrypting $x \in \bits^\secpar$ bit by bit under any CPA-secure scheme gives one ([[pke-cpa-security-to-pke-ow-cpa|CPA-secure PKE ⇒ OW-CPA-secure PKE]]) — folklore. The Fujisaki–Okamoto KEM with implicit rejection of HHK17 is IND-CCA-secure in the random oracle model if its base scheme is OW-CPA-secure, by a non-tight reduction — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] (Sections 1.1.2 and 3.3).
 
 ## OW-PCA security
 
-**One-wayness under plaintext-checking attack (OW-PCA)** is OW-CPA security against an adversary that also has a plaintext-checking oracle $\calO_{\mathrm{pc}}$, which on $(m, c)$ reports whether $c$ decrypts to $m$. It applies to schemes with a message space as in [[#OW-CPA security]]. The notion is due to [[OP01 - REACT Rapid Enhanced-Security Asymmetric Cryptosystem Transform|OP01]], as credited by [[ABD+20 - FrodoKEM Learning With Errors Key Encapsulation Algorithm Specifications And Supporting Documentation|ABD+20]] (Definition 5.2), who recall it following the presentation of [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]].
+**One-wayness under plaintext-checking attack (OW-PCA)** is OW-CPA security against an adversary that also has a plaintext-checking oracle $\calO_{\mathrm{pc}}$, which on $(m, c)$ reports whether $c$ decrypts to $m$. It applies to schemes with a message space as in [[#OW-CPA security]]. The notion is due to [[OP01 - REACT Rapid Enhanced-Security Asymmetric Cryptosystem Transform|OP01]], as credited by [[ABD+20 - FrodoKEM Learning With Errors Key Encapsulation Algorithm Specifications And Supporting Documentation|ABD+20]] (Definition 5.2); [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] (Section 1) name it as the assumption of the REACT transform of OP01, and their game OW-PCA (Definition 2.1, Figure 3) is the one below up to the winning condition.
 
 ```pseudocode
 \begin{algorithm}
@@ -330,15 +338,13 @@ is negligible. As an object, OW-CPA-secure PKE denotes a scheme with such a mess
 \end{algorithm}
 ```
 
-An **admissible** adversary queries $\calO_{\mathrm{pc}}$ only on messages $m \in \calM_\secpar$; a query $(\bot, c)$ would report whether $c$ is rejected, which is a ciphertext-validity oracle. Queries on $c^*$ are allowed, since each tests one candidate for $m^*$. A PKE scheme $\PKE$ with such a message space is **OW-PCA-secure** if for all admissible efficient $\calA$,
+An **admissible** adversary queries $\calO_{\mathrm{pc}}$ only on messages $m \in \calM_\secpar$; a query $(\bot, c)$ would report whether $c$ is rejected, which is a ciphertext-validity oracle. HHK17 (Section 2.1, Figure 3) restrict the oracle in the same way and for the same reason, answering $\bot$ on $m \notin \calM$, and give the validity oracle separately, in their games OW-VA and OW-PCVA. Queries on $c^*$ are allowed, since each tests one candidate for $m^*$. A PKE scheme $\PKE$ with such a message space is **OW-PCA-secure** if for all admissible efficient $\calA$,
 
 $$
 \Adv^{\mathrm{ow\text{-}pca}}_{\PKE,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ow\text{-}pca}}_{\PKE,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. ABD+20 count as a win every output $m'$ with $\Dec(\sk, c^*) = m'$; the two winning events coincide when $c^*$ decrypts to $m^*$, so their probabilities differ by at most $\varepsilon$ for a $(1-\varepsilon)$-correct scheme — standard. As an object, OW-PCA-secure PKE denotes a scheme with such a message space that is OW-PCA-secure. An OW-CPA adversary is an OW-PCA adversary that makes no query, so OW-PCA security implies OW-CPA security ([[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]]) — folklore.
-
-TODO: check against [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] whether its plaintext-checking oracle accepts only $m \in \calM$, as here; the restatement in ABD+20 (Figure 4) does not say.
+is negligible. HHK17 (Definition 2.1, Figure 3) count as a win every output $m'$ with $\Dec(\sk, c^*) = m'$, the answer of $\calO_{\mathrm{pc}}(m', c^*)$; the two winning events coincide when $c^*$ decrypts to $m^*$, so their probabilities differ by at most $\delta$ for a $\delta$-correct scheme — HHK17 (Section 2.1). As an object, OW-PCA-secure PKE denotes a scheme with such a message space that is OW-PCA-secure and $\delta$-correct for a negligible $\delta$, as defined under [[#OW-CPA security]]. An OW-CPA adversary is an OW-PCA adversary that makes no query, so OW-PCA security implies OW-CPA security ([[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]]) — folklore. In the random oracle model, the transform T of HHK17, which derandomizes encryption with a random oracle and adds a re-encryption check to decryption, turns every OW-CPA-secure scheme into an OW-PCA-secure one ([[pke-ow-cpa-to-pke-ow-pca-hhk17|OW-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]]) — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] (Theorem 3.1).
 
 # Other results
 
@@ -356,7 +362,7 @@ TODO: check against [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transfo
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 27c0bfc98d89 -->
+<!-- BEGIN GENERATED participates-in d792499c94b5 -->
 
 ## Participates in
 
@@ -381,6 +387,7 @@ TODO: check against [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transfo
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
+- [[pke-ow-cpa-to-pke-ow-pca-hhk17|OW-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]] (via [[public-key-encryption#ow-cpa-security|OW-CPA security]])
 - [[pke-ow-pca-to-ind-cca-kem-hhk17|OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)]] (via [[public-key-encryption#ow-pca-security|OW-PCA security]])
 - [[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]] (via [[public-key-encryption#ow-pca-security|OW-PCA security]])
 - [[pke-to-com|Perfectly correct PKE ⇒ COM]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
@@ -434,6 +441,7 @@ TODO: check against [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transfo
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[pke-nm-cca2-security-to-pke-nm-cpa-security|NM-CCA2 ⇒ NM-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-ow-cpa-to-pke-ow-pca-hhk17|OW-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)]] (via [[public-key-encryption#ow-pca-security|OW-PCA security]])
 - [[pke-ow-pca-to-pke-ow-cpa|OW-PCA-secure PKE ⇒ OW-CPA-secure PKE]] (via [[public-key-encryption#ow-cpa-security|OW-CPA security]])
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
