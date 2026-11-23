@@ -17289,11 +17289,12 @@
     "standard"
    ],
    "source": [
-    "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]"
+    "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]",
+    "[[BH12 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions (Full Version)|BH12]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "Adv^eu-cma ≤ Adv^prf(F_n; 2^h queries) + 2·max{(2^(h+log ℓ) − 1)·Adv^spr(H_n), 2^h·(Adv^prf(F_n; ℓ queries) + ℓ²w²κ^(w−1)/(1/κ − 2^(−n))·Adv^prf(F_n; 2 queries))}, for tree height h (2^h periods with one signature each), ℓ W-OTS chains of Winternitz parameter w and at most κ key collisions of F_n, the adversaries running in time t′ = t + 2^h·t_Sign + t_Vf + t_Kg, t′ + ℓ or t′ + 2^h (BH12, equation (3))",
    "rationale": {
     "class": "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any forger as an oracle."
    },
