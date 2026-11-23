@@ -21,4 +21,4 @@ We present the hash-based signature scheme XMSS. It is the first provably (forwa
 
 # Notes
 
-The full version, with complete proofs, is [[BH12 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions (Full Version)|BH12]].
+BH12 is a later two-author full version, with the full security proofs, a discussion of the security level and new runtimes — [[BH12 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions (Full Version)|BH12]] (Section 1).
