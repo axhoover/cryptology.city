@@ -26,6 +26,7 @@ variants:
   arbitrary-length-crhf: "#arbitrary-length-collision-resistance"
   second-preimage-resistance: "#second-preimage-resistance"
   length-halving-second-preimage-resistance: "#length-halving-second-preimage-resistance"
+  same-width-spr-and-prf: "#spr-hashing-with-a-prf-of-the-same-width"
   uowhf: "#target-collision-resistance-universal-one-wayness"
   weakly-collision-resistant-hash: "#weak-collision-resistance"
   arbitrary-length-weakly-collision-resistant-hash: "#arbitrary-length-weak-collision-resistance"
@@ -339,6 +340,29 @@ there is a constant $c$ with $m(\secpar) \le c \log_2 \secpar$ for infinitely
 many $\secpar$, and for those $\secpar$ this is at least $\secpar^{-c}/2$, so
 the advantage is not negligible — standard.
 
+#### SPR hashing with a PRF of the same width
+
+A **same-width SPR hash and PRF** is a pair $(\hash, f)$ of a
+[[#Length-halving second-preimage resistance|length-halving second-preimage-resistant]]
+family $\hash : \calK \times \bits^{2n} \to \bits^{n}$ and a
+[[pseudorandom-function#compression-function-prfs|compression-function PRF]]
+$f : \bits^{n} \times \bits^{b} \to \bits^{n}$ with $n \le b$ and
+$\KeyGen(1^\secpar)$ uniform on $\bits^n$, for one polynomially bounded
+$n = n(\secpar) = \omega(\log \secpar)$ computable from $1^\secpar$ in
+polynomial time. As an object, it denotes such a pair for some such $n$. The
+common width is the point: a length-halving family of width $m$ and a
+compression-function PRF of width $c \ne m$ each meet their own nodes, but a
+tree that hashes pairs of $c$-bit PRF-derived values with a function on
+$2m$-bit inputs is not defined: for $m = 2\secpar$ and $c = 2\secpar + 1$, two
+$c$-bit values give $4\secpar + 2$ bits where the hash takes $4\secpar$ —
+standard. Each component meets its own node
+([[same-width-spr-and-prf-to-length-halving-second-preimage-resistance|Same-width SPR hash and PRF ⇒ Length-halving second-preimage resistance]],
+[[same-width-spr-and-prf-to-compression-function-prf|Same-width SPR hash and PRF ⇒ Compression-function PRF]])
+— folklore. XMSS uses its keyed functions at one width
+([[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]])
+— [[HBG+18 - XMSS eXtended Merkle Signature Scheme|HBG+18]] (Sections 3.1.1.1,
+3.1.2 and 4.1.2).
+
 ### Target collision resistance (universal one-wayness)
 
 The adversary commits to a target input before the key is sampled, then must
@@ -464,7 +488,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in 5c5baf4b0308 -->
+<!-- BEGIN GENERATED participates-in d1b72bdd346c -->
 
 ## Participates in
 
@@ -496,7 +520,7 @@ TODO: definition and game.
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-czk|Non-uniform OWF ⇒ CZK]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
 - [[hash-function-to-ds|OWF ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]] (via [[hash-function#length-halving-second-preimage-resistance|Length-halving second-preimage resistance]])
+- [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]] (via [[hash-function#spr-hashing-with-a-prf-of-the-same-width|SPR hashing with a PRF of the same width]])
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
@@ -524,6 +548,8 @@ TODO: definition and game.
 - [[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12|Quantum-secure OWF ⇒ Nonadaptive post-quantum DS]] (via [[hash-function#quantum-secure-one-wayness|Quantum-secure one-wayness]])
 - [[quantum-secure-owf-to-owf|Quantum-secure OWF ⇒ OWF]] (via [[hash-function#quantum-secure-one-wayness|Quantum-secure one-wayness]])
+- [[same-width-spr-and-prf-to-compression-function-prf|Same-width SPR hash and PRF ⇒ Compression-function PRF]] (via [[hash-function#spr-hashing-with-a-prf-of-the-same-width|SPR hashing with a PRF of the same width]])
+- [[same-width-spr-and-prf-to-length-halving-second-preimage-resistance|Same-width SPR hash and PRF ⇒ Length-halving second-preimage resistance]] (via [[hash-function#spr-hashing-with-a-prf-of-the-same-width|SPR hashing with a PRF of the same width]])
 - [[second-preimage-resistance-to-weak-owf-rs04|Second-preimage resistance ⇒ Weak OWF]] (via [[hash-function#second-preimage-resistance|Second-preimage resistance]])
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[size-verifiable-owf-to-owf|Size-verifiable OWF ⇒ OWF]] (via [[hash-function#size-verifiable-one-wayness|Size-verifiable one-wayness]])
@@ -581,6 +607,7 @@ TODO: definition and game.
 - [[prg-to-hash-function|PRG ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[quantum-secure-owf-to-owf|Quantum-secure OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ring-sis-to-crhf-lm06|Ring-SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[same-width-spr-and-prf-to-length-halving-second-preimage-resistance|Same-width SPR hash and PRF ⇒ Length-halving second-preimage resistance]] (via [[hash-function#length-halving-second-preimage-resistance|Length-halving second-preimage resistance]])
 - [[second-preimage-resistance-to-weak-owf-rs04|Second-preimage resistance ⇒ Weak OWF]] (via [[hash-function#weak-one-wayness|Weak one-wayness]])
 - [[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme with classical serial numbers ⇒ OWF]] (via [[hash-function#quantum-secure-one-wayness|Quantum-secure one-wayness]])
 - [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])

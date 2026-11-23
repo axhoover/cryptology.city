@@ -6931,6 +6931,19 @@
    "unlisted": false
   },
   {
+   "id": "same-width-spr-and-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#spr-hashing-with-a-prf-of-the-same-width",
+   "of": "hash-function",
+   "title": "SPR hashing with a PRF of the same width",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "sampler-io",
    "kind": "variant",
    "type": "primitive",
@@ -17267,8 +17280,7 @@
    "id": "red-hash-function-to-hash-based-signatures",
    "kind": "implication",
    "hypotheses": [
-    "length-halving-second-preimage-resistance",
-    "compression-function-prf"
+    "same-width-spr-and-prf"
    ],
    "conclusion": "bounded-stateful-ds",
    "class": "fully-black-box",
@@ -28152,6 +28164,60 @@
    "slug": "rsa-uniform-primes-to-rsa",
    "graphSlug": "Reductions/rsa-uniform-primes-to-rsa",
    "title": "RSA with uniform-prime moduli ⇒ RSA"
+  },
+  {
+   "id": "red-same-width-spr-and-prf-to-compression-function-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "same-width-spr-and-prf"
+   ],
+   "conclusion": "compression-function-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps one component of the pair unchanged, and the reduction forwards any adversary against it unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/same-width-spr-and-prf-to-compression-function-prf.md",
+   "slug": "same-width-spr-and-prf-to-compression-function-prf",
+   "graphSlug": "Reductions/same-width-spr-and-prf-to-compression-function-prf",
+   "title": "Same-width SPR hash and PRF ⇒ Compression-function PRF"
+  },
+  {
+   "id": "red-same-width-spr-and-prf-to-length-halving-second-preimage-resistance",
+   "kind": "implication",
+   "hypotheses": [
+    "same-width-spr-and-prf"
+   ],
+   "conclusion": "length-halving-second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps one component of the pair unchanged, and the reduction forwards any adversary against it unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/same-width-spr-and-prf-to-length-halving-second-preimage-resistance.md",
+   "slug": "same-width-spr-and-prf-to-length-halving-second-preimage-resistance",
+   "graphSlug": "Reductions/same-width-spr-and-prf-to-length-halving-second-preimage-resistance",
+   "title": "Same-width SPR hash and PRF ⇒ Length-halving second-preimage resistance"
   },
   {
    "id": "red-sampler-io-to-io",

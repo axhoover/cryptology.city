@@ -96,11 +96,23 @@ test("the NMAC generalization composes only at a compatible digest width", () =>
   );
 });
 
-test("XMSS requires second-preimage resistance, not a bare hash function", () => {
+test("XMSS requires a second-preimage-resistant hash and a PRF at one width", () => {
   const xmss = edge("red-hash-function-to-hash-based-signatures");
   assert.ok(!xmss.hypotheses.includes("hash-function"));
-  assert.ok(
-    xmss.hypotheses.includes("length-halving-second-preimage-resistance"),
-  );
+  assert.deepStrictEqual(xmss.hypotheses, ["same-width-spr-and-prf"]);
   assert.strictEqual(xmss.conclusion, "bounded-stateful-ds");
+  // A hash of one width and a PRF of another, supplied independently, do not
+  // give the same-width pair, so they cannot instantiate XMSS directly.
+  assert.ok(
+    !reaches(
+      ["length-halving-second-preimage-resistance", "compression-function-prf"],
+      "same-width-spr-and-prf",
+    ),
+  );
+  // The pair gives back each component.
+  for (const node of [
+    "length-halving-second-preimage-resistance",
+    "compression-function-prf",
+  ])
+    assert.ok(reaches(["same-width-spr-and-prf"], node), node);
 });

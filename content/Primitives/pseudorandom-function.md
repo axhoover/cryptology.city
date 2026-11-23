@@ -185,7 +185,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|Length-preserving PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 0589ec89a39e -->
+<!-- BEGIN GENERATED participates-in 3a3de353cdd0 -->
 
 ## Participates in
 
@@ -193,7 +193,6 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 
 - [[compression-function-prf-to-length-preserving-prf|Compression-function PRF ⇒ Length-preserving PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
-- [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
 - [[length-preserving-prf-to-prf|Length-preserving PRF ⇒ PRF]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
@@ -241,6 +240,7 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
 - [[rom-to-prf|ROM ⇒ PRF (secret-prefix hashing)]]
+- [[same-width-spr-and-prf-to-compression-function-prf|Same-width SPR hash and PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
 
 **Barriers**
