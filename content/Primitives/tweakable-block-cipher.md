@@ -90,7 +90,7 @@ $$
 \Adv^{\mathrm{tsprp}}_{\mathsf{TBC},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{tsprp}}_{\mathsf{TBC},\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — [[LRW02 - Tweakable Block Ciphers|LRW02]]. A strong tweakable PRP is a tweakable PRP ([[strong-tweakable-block-cipher-to-tweakable-block-cipher|Strong TBC ⇒ TBC]]); the [[prp-to-tweakable-block-cipher-lrw02|LRW1]] construction is a tweakable PRP whenever its block cipher is a PRP on $\bits^n$ with $n = \omega(\log \secpar)$, and four queries distinguish it from an ideal family once inverse queries are allowed — standard.
+is negligible — [[LRW02 - Tweakable Block Ciphers|LRW02]]. A strong tweakable PRP is a tweakable PRP ([[strong-tweakable-block-cipher-to-tweakable-block-cipher|Strong TBC ⇒ TBC]]); the [[prp-to-tweakable-block-cipher-lrw02|LRW1]] construction is a tweakable PRP whenever its block cipher is a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] with domain $\bits^n$, $n = \omega(\log \secpar)$, and four queries distinguish it from an ideal family once inverse queries are allowed — standard.
 
 # Variations
 
@@ -100,10 +100,10 @@ A **tweakable enciphering scheme** has a domain $\calD$ of bit strings of severa
 
 # Other results
 
-- [[prp-to-tweakable-block-cipher-lrw02|PRP ⇒ TBC (LRW1)]]
-- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP ⇒ Strong TBC (LRW2)]]
+- [[prp-to-tweakable-block-cipher-lrw02|PRP on bit strings ⇒ TBC (LRW1)]]
+- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP on bit strings ⇒ Strong TBC (LRW2)]]
 
-<!-- BEGIN GENERATED participates-in d6f215e45f22 -->
+<!-- BEGIN GENERATED participates-in 55954a9727b7 -->
 
 ## Participates in
 
@@ -113,8 +113,8 @@ A **tweakable enciphering scheme** has a domain $\calD$ of bit strings of severa
 
 **Produces Tweakable block cipher**
 
-- [[prp-to-tweakable-block-cipher-lrw02|PRP ⇒ TBC (LRW1)]]
-- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP ⇒ Strong TBC (LRW2)]] (via [[tweakable-block-cipher#strong-security|Strong security]])
+- [[prp-to-tweakable-block-cipher-lrw02|PRP on bit strings ⇒ TBC (LRW1)]]
+- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP on bit strings ⇒ Strong TBC (LRW2)]] (via [[tweakable-block-cipher#strong-security|Strong security]])
 - [[strong-tweakable-block-cipher-to-tweakable-block-cipher|Strong TBC ⇒ TBC]]
 
 <!-- END GENERATED participates-in -->

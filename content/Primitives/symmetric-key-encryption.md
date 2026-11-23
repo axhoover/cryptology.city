@@ -82,7 +82,7 @@ $$
 
 is negligible.
 
-No SKE scheme whose $\Enc$ is deterministic, and stateless as in [[#Syntax]], is CPA-secure. Let $m_0 \ne m_1$ be the two equal-length messages of [[#Syntax]]. The adversary queries $(m_0, m_0)$, receiving $c_1$, then $(m_0, m_1)$, receiving $c_2$, and outputs $b' := [c_1 \ne c_2]$. If $b = 0$, then $c_2 = \Enc(k, m_0) = c_1$. If $b = 1$, then $c_1 = c_2$ only if $\Dec(k, \Enc(k, m_0)) \ne m_0$ or $\Dec(k, \Enc(k, m_1)) \ne m_1$, which has probability at most $2\varepsilon$ for a $(1-\varepsilon)$-correct scheme. Hence $\Pr[b' = b] \ge 1 - \varepsilon$, and the advantage is at least $1 - 2\varepsilon$ — standard. **Electronic codebook (ECB)** mode, which encrypts $m_1 \cdots m_\ell$ with each $m_i \in \bits^n$ to $\Eval(k, m_1) \cdots \Eval(k, m_\ell)$ under a [[pseudorandom-permutation|PRP]] on $\bits^n$, is such a scheme, and so is the [[#One-time pad|one-time pad]]. Randomized counter mode ([[prf-to-ske|PRF ⇒ CPA-secure SKE]]) and CBC with a uniform initialization vector ([[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]]) are CPA-secure when built from a PRF and a PRP respectively, while CBC with a counter as initialization vector, a stateful scheme, is not ([[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)]]).
+No SKE scheme whose $\Enc$ is deterministic, and stateless as in [[#Syntax]], is CPA-secure. Let $m_0 \ne m_1$ be the two equal-length messages of [[#Syntax]]. The adversary queries $(m_0, m_0)$, receiving $c_1$, then $(m_0, m_1)$, receiving $c_2$, and outputs $b' := [c_1 \ne c_2]$. If $b = 0$, then $c_2 = \Enc(k, m_0) = c_1$. If $b = 1$, then $c_1 = c_2$ only if $\Dec(k, \Enc(k, m_0)) \ne m_0$ or $\Dec(k, \Enc(k, m_1)) \ne m_1$, which has probability at most $2\varepsilon$ for a $(1-\varepsilon)$-correct scheme. Hence $\Pr[b' = b] \ge 1 - \varepsilon$, and the advantage is at least $1 - 2\varepsilon$ — standard. **Electronic codebook (ECB)** mode, which encrypts $m_1 \cdots m_\ell$ with each $m_i \in \bits^n$ to $\Eval(k, m_1) \cdots \Eval(k, m_\ell)$ under a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] with domain $\bits^n$, is such a scheme, and so is the [[#One-time pad|one-time pad]]. Randomized counter mode ([[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]]) and CBC with a uniform initialization vector ([[prp-to-cpa-security-bdjr97|PRP on bit strings ⇒ CPA-secure SKE (CBC)]]) are CPA-secure when built from a [[pseudorandom-function#length-preserving-prfs|length-preserving PRF]] and a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] respectively, while CBC with a counter as initialization vector, a stateful scheme, is not ([[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)]]).
 
 ### One-time security
 
@@ -198,7 +198,7 @@ $$
 
 is negligible. The admissibility restriction is necessary: without it, $\calA$ could query $\calO_b(m_0, m_1)$ on two distinct equal-length messages $m_0, m_1 \in \calM$ and submit the answer to $\calD$, which returns $m_b$ except with probability $\varepsilon$. Restricted to a single encryption query, made before any decryption query, the game becomes [[#One-time CCA security|one-time CCA security]], the notion a KEM-DEM data encapsulation mechanism needs.
 
-A scheme is **malleable** if for some efficiently computable function $f$ on messages, an efficient algorithm given only a ciphertext $c$ of an unknown message $m$ outputs a ciphertext $c' \ne c$ that decrypts to $f(m)$, except with negligible probability. Malleability with $f(m_0) \ne f(m_1)$ for two equal-length messages $m_0, m_1 \in \calM$ defeats CCA security: $\calA$ transforms the answer $c^*$ of its single query $\calO_b(m_0, m_1)$ into $c' \ne c^*$, an admissible query to $\calD$, and outputs $0$ iff the answer is $f(m_0)$, which gives advantage $1 - \negl(\secpar)$ — standard. Randomized counter mode is malleable, since flipping a bit of the masked part of a ciphertext flips the same bit of the message, so it is not CCA-secure although it is CPA-secure under a PRF ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]]). Appending to every ciphertext a bit that $\Dec$ ignores makes any CPA-secure scheme malleable without affecting its CPA security, so a CPA-secure scheme need not be CCA-secure ([[no-cpa-security-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE]]).
+A scheme is **malleable** if for some efficiently computable function $f$ on messages, an efficient algorithm given only a ciphertext $c$ of an unknown message $m$ outputs a ciphertext $c' \ne c$ that decrypts to $f(m)$, except with negligible probability. Malleability with $f(m_0) \ne f(m_1)$ for two equal-length messages $m_0, m_1 \in \calM$ defeats CCA security: $\calA$ transforms the answer $c^*$ of its single query $\calO_b(m_0, m_1)$ into $c' \ne c^*$, an admissible query to $\calD$, and outputs $0$ iff the answer is $f(m_0)$, which gives advantage $1 - \negl(\secpar)$ — standard. Randomized counter mode is malleable, since flipping a bit of the masked part of a ciphertext flips the same bit of the message, so it is not CCA-secure although it is CPA-secure under a length-preserving PRF ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from length-preserving PRF to CCA-secure SKE (randomized CTR)]]). Appending to every ciphertext a bit that $\Dec$ ignores makes any CPA-secure scheme malleable without affecting its CPA security, so a CPA-secure scheme need not be CCA-secure ([[no-cpa-security-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE]]).
 
 # Variations
 
@@ -238,16 +238,16 @@ is negligible. As an object, one-time CCA-secure SKE denotes a one-time CCA-secu
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
-- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
-- [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]]
+- [[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]]
+- [[prp-to-cpa-security-bdjr97|PRP on bit strings ⇒ CPA-secure SKE (CBC)]]
 - [[ror-cpa-security-to-cpa-security-bdjr97|ROR-CPA-secure SKE ⇒ CPA-secure SKE]] and [[cpa-security-to-ror-cpa-security-bdjr97|CPA-secure SKE ⇒ ROR-CPA-secure SKE]]
 - [[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]]
-- [[prf-to-mac|PRF ⇒ MAC]]
+- [[prf-to-mac|Length-preserving PRF ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|Arbitrary-length SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 - [[searchable-symmetric-encryption|Searchable symmetric encryption]]: an encrypted index that a server searches with keyword tokens, learning only a specified leakage function — [[SWP00 - Practical Techniques for Searches on Encrypted Data|SWP00]], [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
 - [[order-preserving-encryption|Order-preserving and order-revealing encryption]]: deterministic encryption whose ciphertexts reveal the order of the plaintexts — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]], [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
-<!-- BEGIN GENERATED participates-in 1c6c504d2c68 -->
+<!-- BEGIN GENERATED participates-in 095832fb13fd -->
 
 ## Participates in
 
@@ -279,9 +279,9 @@ is negligible. As an object, one-time CCA-secure SKE denotes a one-time CCA-secu
 - [[one-time-cca-ske-to-ske|One-time CCA-secure SKE ⇒ SKE]]
 - [[perfectly-secret-ske-to-ske|Perfectly secret SKE ⇒ SKE]]
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
-- [[prf-to-ske|PRF ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[prg-to-long-message-ske|PRG ⇒ One-time SKE for messages longer than the key]] (via [[symmetric-key-encryption#messages-longer-than-the-key|Messages longer than the key]])
-- [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[prp-to-cpa-security-bdjr97|PRP on bit strings ⇒ CPA-secure SKE (CBC)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ror-cpa-security-to-cpa-security-bdjr97|ROR-CPA-secure SKE ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Barriers**
@@ -289,7 +289,7 @@ is negligible. As an object, one-time CCA-secure SKE denotes a one-time CCA-secu
 - [[no-cpa-security-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]], [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [No fixed-construction reduction from CPA Security to IND\$-CPA Security](no-cpa-security-to-ind-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]], [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[no-cpa-security-to-secret-key-bit-circular-security-gkw17a|No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
-- [[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
-- [[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]]) — circumvented by [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]]
+- [[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from length-preserving PRF to CCA-secure SKE (randomized CTR)]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
+- [[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)]] (via [[symmetric-key-encryption#cpa-security|CPA Security]]) — circumvented by [[prp-to-cpa-security-bdjr97|PRP on bit strings ⇒ CPA-secure SKE (CBC)]]
 
 <!-- END GENERATED participates-in -->

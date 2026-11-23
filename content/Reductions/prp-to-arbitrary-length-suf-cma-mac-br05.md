@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)"
+title: "PRP on bit strings ⇒ arbitrary-length SUF-CMA MAC (XCBC)"
 aliases: []
 id: red-prp-to-arbitrary-length-suf-cma-mac-br05
 kind: implication
-hypotheses: [prp]
+hypotheses: [bit-string-prp]
 conclusion: arbitrary-length-suf-cma-mac
 class: fully-black-box
 model: standard
@@ -16,11 +16,11 @@ rationale:
   class: "XCBC calls the block cipher only in the forward direction and only as an oracle, and the reduction samples the two XOR keys itself and runs the distinguisher once as an oracle."
 ---
 
-# PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)
+# PRP on bit strings ⇒ arbitrary-length SUF-CMA MAC (XCBC)
 
 ## Statement
 
-Let $\PRP = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation|PRP]] on $\bits^n$, $n = \omega(\log \secpar)$, and write $E_k := \Eval(k, \cdot)$. XCBC has key $(k_1, k_2, k_3)$ with $k_1 \gets \KeyGen(1^\secpar)$ and $k_2, k_3 \getsr \bits^n$, and message space $\bits^*$. For $M \in (\bits^n)^+$ let $P := M$ and $K := k_2$; otherwise let $P := M \,\|\, 1 0^{j}$ with $j := n - 1 - (|M| \bmod n)$, and $K := k_3$. Writing $P = P_1 \cdots P_m$ with $|P_i| = n$,
+Let $\PRP = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] with domain $\bits^n$, $n = n(\secpar) = \omega(\log \secpar)$, and write $E_k := \Eval(k, \cdot)$. XCBC has key $(k_1, k_2, k_3)$ with $k_1 \gets \KeyGen(1^\secpar)$ and $k_2, k_3 \getsr \bits^n$, and message space $\bits^*$. For $M \in (\bits^n)^+$ let $P := M$ and $K := k_2$; otherwise let $P := M \,\|\, 1 0^{j}$ with $j := n - 1 - (|M| \bmod n)$, and $K := k_3$. Writing $P = P_1 \cdots P_m$ with $|P_i| = n$,
 
 $$
 \mathrm{XCBC}_{k_1,k_2,k_3}(M) := E_{k_1}(P_m \oplus C_{m-1} \oplus K), \qquad C_0 := 0^n, \quad C_i := E_{k_1}(P_i \oplus C_{i-1}) \text{ for } 1 \le i < m.
@@ -32,7 +32,7 @@ $$
 \Adv^{\mathrm{prf}}_{\mathrm{XCBC},\calA}(\secpar) \le \Adv^{\mathrm{prp}}_{\PRP,\calB}(\secpar) + \frac{3.75\,\sigma^2}{2^n},
 $$
 
-where the PRF advantage is against a uniformly random function $\bits^* \to \bits^n$ — [[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]] (Corollary 8). So XCBC is a PRF on $\bits^*$ against adversaries whose queries total polynomially many blocks, and by the argument of [[prf-to-mac|PRF ⇒ MAC]], $\Tag((k_1, k_2, k_3), M) := \mathrm{XCBC}_{k_1,k_2,k_3}(M)$ with canonical verification is a perfectly correct UF-CMA-secure [[message-authentication-code|MAC]] on $\bits^*$; its $\Tag$ is deterministic, so it is SUF-CMA-secure ([[message-authentication-code#deterministic-macs|Deterministic MACs]]), hence an [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|arbitrary-length SUF-CMA MAC]] — standard.
+where the PRF advantage is against a uniformly random function $\bits^* \to \bits^n$ — [[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]] (Corollary 8). So XCBC is a PRF on $\bits^*$ against adversaries whose queries total polynomially many blocks, and by the argument of [[prf-to-mac|Length-preserving PRF ⇒ MAC]], which uses only that the range $\bits^n$ is superpolynomial, $\Tag((k_1, k_2, k_3), M) := \mathrm{XCBC}_{k_1,k_2,k_3}(M)$ with canonical verification is a perfectly correct UF-CMA-secure [[message-authentication-code|MAC]] on $\bits^*$; its $\Tag$ is deterministic, so it is SUF-CMA-secure ([[message-authentication-code#deterministic-macs|Deterministic MACs]]), hence an [[message-authentication-code#strongly-unforgeable-macs-for-arbitrary-length-messages|arbitrary-length SUF-CMA MAC]] — standard.
 
 ## Sketch
 

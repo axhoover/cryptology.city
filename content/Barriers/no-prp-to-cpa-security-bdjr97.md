@@ -1,10 +1,10 @@
 ---
 type: barrier
 status: draft
-title: "No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)"
+title: "No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)"
 aliases: []
 id: bar-prp-to-cpa-security-bdjr97
-hypotheses: [prp]
+hypotheses: [bit-string-prp]
 conclusion: cpa-security
 class: fixed-construction
 consequences:
@@ -12,20 +12,20 @@ consequences:
     target: ""
     class: fixed-construction
 strength: conditional
-conditional-on: [prp]
+conditional-on: [bit-string-prp]
 source:
   - "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
 circumvented-by: [red-prp-to-cpa-security-bdjr97]
 rationale:
-  strength: "The attack applies to CBC instantiated with a given PRP, so it assumes one exists; without one, the implication for this construction holds vacuously."
-  class: "The attack refutes only CBC with a counter as initialization vector; CBC with a uniform initialization vector is a CPA-secure construction from a PRP."
+  strength: "The attack applies to CBC instantiated with a given PRP on bit strings, so it assumes one exists; without one, the implication for this construction holds vacuously."
+  class: "The attack refutes only CBC with a counter as initialization vector; CBC with a uniform initialization vector is a CPA-secure construction from a PRP on bit strings."
 ---
 
-# No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)
+# No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)
 
 ## Statement
 
-If a [[pseudorandom-permutation|PRP]] $\PRP = (\KeyGen, \Eval, \Invert)$ with domain $\bits^n$ exists, CBC encryption built from it with a counter as initialization vector is not [[symmetric-key-encryption#cpa-security|CPA-secure]]: knowing the next counter value, the adversary chooses a query that repeats an earlier input to $\Eval(k, \cdot)$ — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]], Section 6 of the full version. In this stateful scheme the $j$-th encryption is that of [[prp-to-cpa-security-bdjr97|PRP ⇒ CPA-secure SKE (CBC)]] with $y_0 := \langle j \rangle$, the $n$-bit encoding of $j$, in place of a uniform $y_0$, and the CPA game is played with $\Enc$ keeping its counter across queries. The attack has advantage $1$ for every permutation family on $\bits^n$ with $n \ge 2$, so this construction is no reduction from PRP security to CPA security, while CBC with a uniform initialization vector is.
+If a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] $\PRP = (\KeyGen, \Eval, \Invert)$ with domain $\bits^n$ exists, CBC encryption built from it with a counter as initialization vector is not [[symmetric-key-encryption#cpa-security|CPA-secure]]: knowing the next counter value, the adversary chooses a query that repeats an earlier input to $\Eval(k, \cdot)$ — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]], Section 6 of the full version. In this stateful scheme the $j$-th encryption is that of [[prp-to-cpa-security-bdjr97|PRP on bit strings ⇒ CPA-secure SKE (CBC)]] with $y_0 := \langle j \rangle$, the $n$-bit encoding of $j$, in place of a uniform $y_0$, and the CPA game is played with $\Enc$ keeping its counter across queries. The attack has advantage $1$ for every permutation family on $\bits^n$ with $n \ge 2$, which holds for all large $\secpar$ since $n = \omega(\log \secpar)$, so this construction is no reduction from a PRP on bit strings to CPA security, while CBC with a uniform initialization vector is.
 
 ## Sketch
 

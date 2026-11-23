@@ -321,7 +321,7 @@ $$
 \Adv^{\mathrm{st\text{-}cma}}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{st\text{-}cma}}_{\DS,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. As an object, a stateful DS denotes, for every polynomial $T = T(\secpar) \ge 1$, a $(1-\negl(\secpar))$-correct stateful scheme for $T$ signatures that is unforgeable for $T$ signatures, with a non-trivial message space as for a DS scheme. The scheme is chosen after $T$ because a tree computed at key generation fixes the number of signatures: an efficient $\KeyGen$ computes the root of a Merkle tree over $2^h$ one-time keys only for $2^h \le \poly(\secpar)$, and the tree then signs $2^h$ messages ([[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]], [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ Stateful DS (XMSS)]]) — standard. A DS scheme whose signing key never changes is a stateful DS for every $T$ ([[ds-to-bounded-stateful-ds|DS ⇒ Stateful DS]]) — folklore.
+is negligible. As an object, a stateful DS denotes, for every polynomial $T = T(\secpar) \ge 1$, a $(1-\negl(\secpar))$-correct stateful scheme for $T$ signatures that is unforgeable for $T$ signatures, with a non-trivial message space as for a DS scheme. The scheme is chosen after $T$ because a tree computed at key generation fixes the number of signatures: an efficient $\KeyGen$ computes the root of a Merkle tree over $2^h$ one-time keys only for $2^h \le \poly(\secpar)$, and the tree then signs $2^h$ messages ([[hash-function-and-hash-based-signatures-to-ds-mer89|Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)]], [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]]) — standard. A DS scheme whose signing key never changes is a stateful DS for every $T$ ([[ds-to-bounded-stateful-ds|DS ⇒ Stateful DS]]) — folklore.
 
 TODO: no edge yet leads from stateful signatures, or from one-time signatures and a PRF, to a stateless DS. The construction with a tree of depth $\secpar$ whose one-time keys are derived with a PRF and whose leaf is chosen at random, credited to Goldreich, needs a readable source.
 
@@ -329,8 +329,8 @@ TODO: no edge yet leads from stateful signatures, or from one-time signatures an
 
 Hash-based signatures need no number-theoretic or lattice assumption: one-time signatures follow from [[hash-function#preimage-resistance-one-wayness|OWF]] ([[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]) — [[Lam79 - Constructing digital signatures from a one way function|Lam79]] — and many-time signatures from OWF ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]. A Merkle tree over one-time keys, computed at key generation, gives a [[#Stateful signatures|stateful scheme]] that signs as many messages as the tree has leaves (Merkle and XMSS below); [[#SLH-DSA|SLH-DSA]] is stateless.
 
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]]
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ Stateful DS (XMSS)]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)]]
+- [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]]
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]]
 - NIST approves two stateful hash-based schemes, LMS and XMSS, with their multi-tree variants HSS and XMSS$^{\mathrm{MT}}$. Since signatures on two messages under one one-time key make forgeries feasible, the signer must never use a one-time key twice, which requires careful state management — [[CAD+20 - Recommendation for Stateful Hash-Based Signature Schemes|CAD+20]] (Sections 1, 1.1 and 1.2).
 
@@ -748,7 +748,7 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3,
 - For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another — [[MP18 - On the Security Loss of Unique Signatures|MP18]] — loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]], [[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]].
 - For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by simple reductions from any non-interactive assumption in a very general class, unless that assumption is false — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in fafaa70fdbad -->
+<!-- BEGIN GENERATED participates-in b807c8947c53 -->
 
 ## Participates in
 
@@ -767,7 +767,7 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3,
 - [[ds-to-selective-ds|DS ⇒ Selectively unforgeable DS]]
 - [[eddsa-to-ds|EdDSA ⇒ DS]] (via [[digital-signature#eddsa|EdDSA]])
 - [[edl-signature-to-ds|EDL signatures ⇒ DS]] (via [[digital-signature#edl-signatures|EDL signatures]])
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 - [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
 - [[post-quantum-ds-to-ds|Post-quantum DS ⇒ DS]] (via [[digital-signature#security-against-quantum-adversaries|Security against quantum adversaries]])
 - [[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#security-against-quantum-adversaries|Security against quantum adversaries]])
@@ -797,10 +797,10 @@ is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]] (arXiv v3,
 - [[eddsa-to-ds|EdDSA ⇒ DS]]
 - [[edl-signature-to-ds|EDL signatures ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[digital-signature#stateful-signatures|Stateful signatures]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[digital-signature#stateful-signatures|Stateful signatures]])
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ Selectively unforgeable DS]] (via [[digital-signature#selective-unforgeability|Selective unforgeability]])
 - [[hash-function-to-ds|OWF ⇒ DS]]
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ Stateful DS (XMSS)]] (via [[digital-signature#stateful-signatures|Stateful signatures]])
+- [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]] (via [[digital-signature#stateful-signatures|Stateful signatures]])
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 - [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[identity-based-signature-to-ds|IBS ⇒ DS]]

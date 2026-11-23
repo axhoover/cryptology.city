@@ -33,5 +33,5 @@ On input $r$, $\calB$ samples $b \getsr \bits$, answers the query $(m_0, m_1)$ o
 
 ## Notes
 
-- $\Enc$ is deterministic, so the scheme is not [[symmetric-key-encryption#cpa-security|CPA-secure]]: two encryptions of one message under one key coincide — standard. CPA-secure SKE follows from a PRG through [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]].
+- $\Enc$ is deterministic, so the scheme is not [[symmetric-key-encryption#cpa-security|CPA-secure]]: two encryptions of one message under one key coincide — standard. CPA-secure SKE follows from a PRG through [[prg-to-prf-ggm86|PRG ⇒ Compression-function PRF (GGM)]], [[compression-function-prf-to-length-preserving-prf|Compression-function PRF ⇒ Length-preserving PRF]] and [[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]].
 - With keys of $\secpar$ bits and all messages of $\ell(\secpar) > \secpar$ bits, no perfectly correct scheme is [[symmetric-key-encryption#perfect-secrecy|perfectly secret]] ([[symmetric-key-encryption#shannons-bound|Shannon's bound]]) — standard.

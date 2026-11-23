@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "PRP ⇒ Small-domain PRP (prefix cipher)"
+title: "PRP on bit strings ⇒ Small-domain PRP (prefix cipher)"
 aliases:
   - Prefix cipher
 id: red-prp-to-small-domain-prp-br02
 kind: implication
-hypotheses: [prp]
+hypotheses: [bit-string-prp]
 conclusion: small-domain-prp
 class: fully-black-box
 model: standard
@@ -17,11 +17,11 @@ rationale:
   class: "The prefix cipher evaluates the PRP only as an oracle at the points of the small domain, and the reduction runs any small-domain distinguisher only as an oracle, answering it from the ranks of N oracle answers."
 ---
 
-# PRP ⇒ Small-domain PRP (prefix cipher)
+# PRP on bit strings ⇒ Small-domain PRP (prefix cipher)
 
 ## Statement
 
-Let $E = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation|PRP]] on $\bits^{n(\secpar)}$, write $E_k := \Eval(k, \cdot)$, and take the random coins of $\KeyGen$ as the key, so that keys are uniform in $\bits^{\kappa(\secpar)}$ for the number $\kappa(\secpar)$ of coins. For $N = N(\secpar) \le 2^{n(\secpar)}$, which holds for all large $\secpar$ when $N$ is polynomially bounded and $n = \omega(\log \secpar)$, identify $\ZZ_N$ with the first $N$ strings of $\bits^n$ in lexicographic order. The **prefix cipher** on $\ZZ_N$ has the key of $E$ and maps $x$ to the rank of $E_k(x)$ among $E_k(0), \ldots, E_k(N-1)$,
+Let $E = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] with domain $\bits^{n(\secpar)}$, $n = \omega(\log \secpar)$, write $E_k := \Eval(k, \cdot)$, and take the random coins of $\KeyGen$ as the key, so that keys are uniform in $\bits^{\kappa(\secpar)}$ for the number $\kappa(\secpar)$ of coins. For $N = N(\secpar) \le 2^{n(\secpar)}$, which holds for all large $\secpar$ when $N$ is polynomially bounded and $n = \omega(\log \secpar)$, identify $\ZZ_N$ with the first $N$ strings of $\bits^n$ in lexicographic order. The **prefix cipher** on $\ZZ_N$ has the key of $E$ and maps $x$ to the rank of $E_k(x)$ among $E_k(0), \ldots, E_k(N-1)$,
 
 $$
 \mathrm{Px}_k(x) := \left|\{\, j \in \ZZ_N : E_k(j) < E_k(x) \,\}\right|,

@@ -37,13 +37,14 @@ $$
 
 which is tight up to polylogarithmic factors — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]].
 
-<!-- BEGIN GENERATED participates-in 78ca3aa19bfb -->
+<!-- BEGIN GENERATED participates-in 226a063b56a0 -->
 
 ## Participates in
 
 **Used via Switching Lemma**
 
-- [[prf-to-prp-lr88|PRF ⇒ PRP]]
+- [[bit-string-prp-to-length-preserving-prf|PRP on bit strings ⇒ Length-preserving PRF]]
+- [[prf-to-prp-lr88|Length-preserving PRF ⇒ PRP on bit strings]]
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]]
 - [[prp-to-prf|PRP ⇒ PRF]]
 

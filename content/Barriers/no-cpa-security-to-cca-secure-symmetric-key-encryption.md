@@ -32,4 +32,4 @@ Let $\Enc'(k, m) := (\Enc(k, m), 0)$ and $\Dec'(k, (c, \beta)) := \Dec(k, c)$; a
 ## Notes
 
 - The converse holds for every scheme ([[cca-secure-symmetric-key-encryption-to-cpa-security|CCA-secure SKE ⇒ CPA-secure SKE]]) — folklore.
-- Randomized counter mode needs no modification: it is CPA-secure under a PRF and malleable, so not CCA-secure ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)]]) — standard.
+- Randomized counter mode needs no modification: it is CPA-secure under a length-preserving PRF and malleable, so not CCA-secure ([[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from length-preserving PRF to CCA-secure SKE (randomized CTR)]]) — standard.

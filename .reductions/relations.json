@@ -564,6 +564,19 @@
    "unlisted": false
   },
   {
+   "id": "arbitrary-length-weakly-collision-resistant-hash",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#arbitrary-length-weak-collision-resistance",
+   "of": "hash-function",
+   "title": "Arbitrary-length weak collision resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "arithmetization",
    "kind": "object",
    "type": "glossary",
@@ -919,6 +932,19 @@
    "anchor": "#key-exchange-with-bit-string-keys",
    "of": "ke",
    "title": "Key exchange with bit-string keys",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bit-string-prp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-permutation.md",
+   "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
+   "anchor": "#prps-on-bit-strings",
+   "of": "prp",
+   "title": "PRPs on bit strings",
    "aliases": [],
    "unlisted": false
   },
@@ -2424,6 +2450,19 @@
    "unlisted": false
   },
   {
+   "id": "fixed-length-suf-cma-mac",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/message-authentication-code.md",
+   "slug": "message-authentication-code",
+   "graphSlug": "Primitives/message-authentication-code",
+   "anchor": "#strongly-unforgeable-macs-for-fixed-length-messages",
+   "of": "mac",
+   "title": "Strongly unforgeable MACs for fixed-length messages",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "fixed-ring-ring-signature",
    "kind": "variant",
    "type": "primitive",
@@ -3908,6 +3947,19 @@
    "unlisted": false
   },
   {
+   "id": "length-halving-second-preimage-resistance",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#length-halving-second-preimage-resistance",
+   "of": "hash-function",
+   "title": "Length-halving second-preimage resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "length-increasing-injective-owf",
    "kind": "variant",
    "type": "primitive",
@@ -3917,6 +3969,19 @@
    "anchor": "#length-increasing-injective-owfs",
    "of": "injective-one-way-function",
    "title": "Length-increasing injective OWFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "length-preserving-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#length-preserving-prfs",
+   "of": "prf",
+   "title": "Length-preserving PRFs",
    "aliases": [],
    "unlisted": false
   },
@@ -7718,6 +7783,19 @@
    "unlisted": false
   },
   {
+   "id": "strong-bit-string-prp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-permutation.md",
+   "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
+   "anchor": "#strong-prps-on-bit-strings",
+   "of": "prp",
+   "title": "Strong PRPs on bit strings",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "strong-one-time-signature",
    "kind": "variant",
    "type": "primitive",
@@ -9895,12 +9973,39 @@
    "title": "Arbitrary-length CRHF ⇒ CRHF"
   },
   {
+   "id": "red-arbitrary-length-crhf-to-length-halving-second-preimage-resistance",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf"
+   ],
+   "conclusion": "length-halving-second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has at least the advantage of the second-preimage finder, in its time plus one evaluation of the family and one uniform sample from the domain",
+   "rationale": {
+    "class": "The construction restricts the family to one input length and pads its value to at least one bit, and the collision finder runs any second-preimage finder once as an oracle on a uniform input."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-to-length-halving-second-preimage-resistance.md",
+   "slug": "arbitrary-length-crhf-to-length-halving-second-preimage-resistance",
+   "graphSlug": "Reductions/arbitrary-length-crhf-to-length-halving-second-preimage-resistance",
+   "title": "Arbitrary-length CRHF ⇒ Length-halving second-preimage resistance"
+  },
+  {
    "id": "red-arbitrary-length-crhf-to-weakly-collision-resistant-hash",
    "kind": "implication",
    "hypotheses": [
     "arbitrary-length-crhf"
    ],
-   "conclusion": "weakly-collision-resistant-hash",
+   "conclusion": "arbitrary-length-weakly-collision-resistant-hash",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -9919,7 +10024,34 @@
    "page": "content/Reductions/arbitrary-length-crhf-to-weakly-collision-resistant-hash.md",
    "slug": "arbitrary-length-crhf-to-weakly-collision-resistant-hash",
    "graphSlug": "Reductions/arbitrary-length-crhf-to-weakly-collision-resistant-hash",
-   "title": "Arbitrary-length CRHF ⇒ Weakly collision-resistant hash"
+   "title": "Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash"
+  },
+  {
+   "id": "red-arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-suf-cma-mac"
+   ],
+   "conclusion": "fixed-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for every message length, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac.md",
+   "slug": "arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac",
+   "graphSlug": "Reductions/arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac",
+   "title": "Arbitrary-length SUF-CMA MAC ⇒ fixed-length SUF-CMA MAC"
   },
   {
    "id": "red-arbitrary-length-suf-cma-mac-to-suf-cma-mac",
@@ -9947,6 +10079,33 @@
    "slug": "arbitrary-length-suf-cma-mac-to-suf-cma-mac",
    "graphSlug": "Reductions/arbitrary-length-suf-cma-mac-to-suf-cma-mac",
    "title": "Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC"
+  },
+  {
+   "id": "red-arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-weakly-collision-resistant-hash"
+   ],
+   "conclusion": "weakly-collision-resistant-hash",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any oracle adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash.md",
+   "slug": "arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash",
+   "graphSlug": "Reductions/arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash",
+   "title": "Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash"
   },
   {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
@@ -10909,6 +11068,62 @@
    "slug": "bit-string-key-exchange-to-ke",
    "graphSlug": "Reductions/bit-string-key-exchange-to-ke",
    "title": "KE with bit-string keys ⇒ KE"
+  },
+  {
+   "id": "red-bit-string-prp-to-length-preserving-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "length-preserving-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]"
+   ],
+   "via": [
+    "[[switching-lemma|Switching Lemma]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/2^{n+1}$ for $q$ queries (birthday bound)",
+   "rationale": {
+    "class": "The construction is the identity on the PRP's key generation and evaluation, and the reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the switching-lemma gap is information-theoretic."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-prp-to-length-preserving-prf.md",
+   "slug": "bit-string-prp-to-length-preserving-prf",
+   "graphSlug": "Reductions/bit-string-prp-to-length-preserving-prf",
+   "title": "PRP on bit strings ⇒ Length-preserving PRF"
+  },
+  {
+   "id": "red-bit-string-prp-to-prp",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "prp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any PRP distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-prp-to-prp.md",
+   "slug": "bit-string-prp-to-prp",
+   "graphSlug": "Reductions/bit-string-prp-to-prp",
+   "title": "PRP on bit strings ⇒ PRP"
   },
   {
    "id": "red-bit-string-tdp-to-tdp",
@@ -12116,6 +12331,33 @@
    "slug": "compact-prime-order-dlog-to-prime-order-dlog",
    "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
    "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-compression-function-prf-to-length-preserving-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "compression-function-prf"
+   ],
+   "conclusion": "length-preserving-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction calls the compression function only as an oracle on padded inputs, and the reduction runs any distinguisher once, padding each of its queries before forwarding it."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compression-function-prf-to-length-preserving-prf.md",
+   "slug": "compression-function-prf-to-length-preserving-prf",
+   "graphSlug": "Reductions/compression-function-prf-to-length-preserving-prf",
+   "title": "Compression-function PRF ⇒ Length-preserving PRF"
   },
   {
    "id": "red-compression-function-prf-to-prf",
@@ -15965,6 +16207,33 @@
    "title": "Five-round 2PC ⇒ 2PC with expected-time simulation"
   },
   {
+   "id": "red-fixed-length-suf-cma-mac-to-suf-cma-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "fixed-length-suf-cma-mac"
+   ],
+   "conclusion": "suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for messages of length λ, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fixed-length-suf-cma-mac-to-suf-cma-mac.md",
+   "slug": "fixed-length-suf-cma-mac-to-suf-cma-mac",
+   "graphSlug": "Reductions/fixed-length-suf-cma-mac-to-suf-cma-mac",
+   "title": "Fixed-length SUF-CMA MAC ⇒ SUF-CMA MAC"
+  },
+  {
    "id": "red-four-round-mpc-to-mpc-with-expected-time-simulation",
    "kind": "implication",
    "hypotheses": [
@@ -16802,7 +17071,7 @@
    "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
    "kind": "implication",
    "hypotheses": [
-    "crhf",
+    "arbitrary-length-crhf",
     "one-time-signature"
    ],
    "conclusion": "bounded-stateful-ds",
@@ -16824,7 +17093,7 @@
    "page": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
    "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
    "graphSlug": "Reductions/hash-function-and-hash-based-signatures-to-ds-mer89",
-   "title": "CRHF + One-time signature ⇒ Stateful DS (Merkle)"
+   "title": "Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)"
   },
   {
    "id": "red-hash-function-and-io-to-deniable-encryption-sw14",
@@ -16998,8 +17267,8 @@
    "id": "red-hash-function-to-hash-based-signatures",
    "kind": "implication",
    "hypotheses": [
-    "hash-function",
-    "prf"
+    "length-halving-second-preimage-resistance",
+    "compression-function-prf"
    ],
    "conclusion": "bounded-stateful-ds",
    "class": "fully-black-box",
@@ -17020,7 +17289,7 @@
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
    "graphSlug": "Reductions/hash-function-to-hash-based-signatures",
-   "title": "Hash function + PRF ⇒ Stateful DS (XMSS)"
+   "title": "SPR hash + PRF ⇒ Stateful DS (XMSS)"
   },
   {
    "id": "red-hash-function-to-hash-based-signatures-lam79",
@@ -19111,6 +19380,33 @@
    "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
   },
   {
+   "id": "red-length-halving-second-preimage-resistance-to-second-preimage-resistance",
+   "kind": "implication",
+   "hypotheses": [
+    "length-halving-second-preimage-resistance"
+   ],
+   "conclusion": "second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any second-preimage finder unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/length-halving-second-preimage-resistance-to-second-preimage-resistance.md",
+   "slug": "length-halving-second-preimage-resistance-to-second-preimage-resistance",
+   "graphSlug": "Reductions/length-halving-second-preimage-resistance-to-second-preimage-resistance",
+   "title": "Length-halving second-preimage resistance ⇒ Second-preimage resistance"
+  },
+  {
    "id": "red-length-increasing-injective-owf-to-injective-one-way-function",
    "kind": "implication",
    "hypotheses": [
@@ -19136,6 +19432,33 @@
    "slug": "length-increasing-injective-owf-to-injective-one-way-function",
    "graphSlug": "Reductions/length-increasing-injective-owf-to-injective-one-way-function",
    "title": "Length-increasing injective OWF ⇒ Injective OWF"
+  },
+  {
+   "id": "red-length-preserving-prf-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function family, and the reduction forwards any PRF distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/length-preserving-prf-to-prf.md",
+   "slug": "length-preserving-prf-to-prf",
+   "graphSlug": "Reductions/length-preserving-prf-to-prf",
+   "title": "Length-preserving PRF ⇒ PRF"
   },
   {
    "id": "red-leveled-fully-homomorphic-encryption-to-he",
@@ -24590,7 +24913,7 @@
    "id": "red-prf-to-arbitrary-length-suf-cma-mac-br05",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "arbitrary-length-suf-cma-mac",
    "class": "fully-black-box",
@@ -24611,7 +24934,7 @@
    "page": "content/Reductions/prf-to-arbitrary-length-suf-cma-mac-br05.md",
    "slug": "prf-to-arbitrary-length-suf-cma-mac-br05",
    "graphSlug": "Reductions/prf-to-arbitrary-length-suf-cma-mac-br05",
-   "title": "PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)"
+   "title": "Length-preserving PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)"
   },
   {
    "id": "red-prf-to-garbled-circuits-bhr12",
@@ -24695,7 +25018,7 @@
    "id": "red-prf-to-mac",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "mac",
    "class": "fully-black-box",
@@ -24708,7 +25031,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 1/|\\calR|$",
+   "securityLoss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 2^{-n}$, with $\\calB$ making $q + 1$ queries for a forger making $q$ tag queries",
    "rationale": {
     "class": "The MAC calls the PRF only as an oracle, and the reduction runs the forger once as an oracle, answering its tag queries and testing its forgery with its own function oracle."
    },
@@ -24716,7 +25039,7 @@
    "page": "content/Reductions/prf-to-mac.md",
    "slug": "prf-to-mac",
    "graphSlug": "Reductions/prf-to-mac",
-   "title": "PRF ⇒ MAC"
+   "title": "Length-preserving PRF ⇒ MAC"
   },
   {
    "id": "red-prf-to-mac-bel06",
@@ -24749,7 +25072,7 @@
    "id": "red-prf-to-mac-bkr94",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "mac",
    "class": "fully-black-box",
@@ -24771,7 +25094,7 @@
    "page": "content/Reductions/prf-to-mac-bkr94.md",
    "slug": "prf-to-mac-bkr94",
    "graphSlug": "Reductions/prf-to-mac-bkr94",
-   "title": "PRF ⇒ MAC (CBC-MAC)"
+   "title": "Length-preserving PRF ⇒ MAC (CBC-MAC)"
   },
   {
    "id": "red-prf-to-mac-gpr14",
@@ -24801,7 +25124,7 @@
    "id": "red-prf-to-nonce-based-mac",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "nonce-based-mac",
    "class": "fully-black-box",
@@ -24822,7 +25145,7 @@
    "page": "content/Reductions/prf-to-nonce-based-mac.md",
    "slug": "prf-to-nonce-based-mac",
    "graphSlug": "Reductions/prf-to-nonce-based-mac",
-   "title": "PRF ⇒ nonce-based MAC (Wegman–Carter)"
+   "title": "Length-preserving PRF ⇒ nonce-based MAC (Wegman–Carter)"
   },
   {
    "id": "red-prf-to-ope-bclo09",
@@ -24879,6 +25202,33 @@
    "title": "PRF ⇒ ORE leaking the first differing bit (CLWW16)"
   },
   {
+   "id": "red-prf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "$\\Adv^{\\mathrm{pr}}_{f,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 2^{-\\secpar} + m(m-1)/(2|\\calD|)$ for $m = \\rho + \\secpar$ evaluation points, $\\rho$ the coin length of $\\KeyGen$, with $\\calB$ making $m$ non-adaptive queries",
+   "rationale": {
+    "class": "The one-way function runs the PRF's key generation, domain sampler and evaluation only as oracles, and the reduction runs any inverter once as an oracle and checks its output with the same algorithms."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-owf.md",
+   "slug": "prf-to-owf",
+   "graphSlug": "Reductions/prf-to-owf",
+   "title": "PRF ⇒ OWF"
+  },
+  {
    "id": "red-prf-to-polylog-oram-go96",
    "kind": "implication",
    "hypotheses": [
@@ -24909,9 +25259,9 @@
    "id": "red-prf-to-prp-lr88",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
-   "conclusion": "prp",
+   "conclusion": "bit-string-prp",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -24932,13 +25282,13 @@
    "page": "content/Reductions/prf-to-prp-lr88.md",
    "slug": "prf-to-prp-lr88",
    "graphSlug": "Reductions/prf-to-prp-lr88",
-   "title": "PRF ⇒ PRP"
+   "title": "Length-preserving PRF ⇒ PRP on bit strings"
   },
   {
    "id": "red-prf-to-ske",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "cpa-security",
    "class": "fully-black-box",
@@ -24959,15 +25309,15 @@
    "page": "content/Reductions/prf-to-ske.md",
    "slug": "prf-to-ske",
    "graphSlug": "Reductions/prf-to-ske",
-   "title": "PRF ⇒ CPA-secure SKE"
+   "title": "Length-preserving PRF ⇒ CPA-secure SKE"
   },
   {
    "id": "red-prf-to-strong-pseudorandom-permutation-lr88",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
-   "conclusion": "strong-pseudorandom-permutation",
+   "conclusion": "strong-bit-string-prp",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -24986,7 +25336,7 @@
    "page": "content/Reductions/prf-to-strong-pseudorandom-permutation-lr88.md",
    "slug": "prf-to-strong-pseudorandom-permutation-lr88",
    "graphSlug": "Reductions/prf-to-strong-pseudorandom-permutation-lr88",
-   "title": "PRF ⇒ Strong PRP"
+   "title": "Length-preserving PRF ⇒ Strong PRP on bit strings"
   },
   {
    "id": "red-prf-to-weak-prf",
@@ -25234,7 +25584,7 @@
    "hypotheses": [
     "prg"
    ],
-   "conclusion": "prf",
+   "conclusion": "compression-function-prf",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -25253,7 +25603,7 @@
    "page": "content/Reductions/prg-to-prf-ggm86.md",
    "slug": "prg-to-prf-ggm86",
    "graphSlug": "Reductions/prg-to-prf-ggm86",
-   "title": "PRG ⇒ PRF (GGM)"
+   "title": "PRG ⇒ Compression-function PRF (GGM)"
   },
   {
    "id": "red-prg-to-puncturable-prf-bw13",
@@ -25807,7 +26157,7 @@
    "id": "red-prp-to-arbitrary-length-suf-cma-mac-br05",
    "kind": "implication",
    "hypotheses": [
-    "prp"
+    "bit-string-prp"
    ],
    "conclusion": "arbitrary-length-suf-cma-mac",
    "class": "fully-black-box",
@@ -25828,13 +26178,13 @@
    "page": "content/Reductions/prp-to-arbitrary-length-suf-cma-mac-br05.md",
    "slug": "prp-to-arbitrary-length-suf-cma-mac-br05",
    "graphSlug": "Reductions/prp-to-arbitrary-length-suf-cma-mac-br05",
-   "title": "PRP ⇒ arbitrary-length SUF-CMA MAC (XCBC)"
+   "title": "PRP on bit strings ⇒ arbitrary-length SUF-CMA MAC (XCBC)"
   },
   {
    "id": "red-prp-to-cpa-security-bdjr97",
    "kind": "implication",
    "hypotheses": [
-    "prp"
+    "bit-string-prp"
    ],
    "conclusion": "cpa-security",
    "class": "fully-black-box",
@@ -25855,7 +26205,7 @@
    "page": "content/Reductions/prp-to-cpa-security-bdjr97.md",
    "slug": "prp-to-cpa-security-bdjr97",
    "graphSlug": "Reductions/prp-to-cpa-security-bdjr97",
-   "title": "PRP ⇒ CPA-secure SKE (CBC)"
+   "title": "PRP on bit strings ⇒ CPA-secure SKE (CBC)"
   },
   {
    "id": "red-prp-to-invertible-prf",
@@ -25920,7 +26270,7 @@
    "id": "red-prp-to-small-domain-prp-br02",
    "kind": "implication",
    "hypotheses": [
-    "prp"
+    "bit-string-prp"
    ],
    "conclusion": "small-domain-prp",
    "class": "fully-black-box",
@@ -25941,13 +26291,13 @@
    "page": "content/Reductions/prp-to-small-domain-prp-br02.md",
    "slug": "prp-to-small-domain-prp-br02",
    "graphSlug": "Reductions/prp-to-small-domain-prp-br02",
-   "title": "PRP ⇒ Small-domain PRP (prefix cipher)"
+   "title": "PRP on bit strings ⇒ Small-domain PRP (prefix cipher)"
   },
   {
    "id": "red-prp-to-tweakable-block-cipher-lrw02",
    "kind": "implication",
    "hypotheses": [
-    "prp"
+    "bit-string-prp"
    ],
    "conclusion": "tweakable-block-cipher",
    "class": "fully-black-box",
@@ -25968,7 +26318,7 @@
    "page": "content/Reductions/prp-to-tweakable-block-cipher-lrw02.md",
    "slug": "prp-to-tweakable-block-cipher-lrw02",
    "graphSlug": "Reductions/prp-to-tweakable-block-cipher-lrw02",
-   "title": "PRP ⇒ TBC (LRW1)"
+   "title": "PRP on bit strings ⇒ TBC (LRW1)"
   },
   {
    "id": "red-prs-to-pure-one-way-state-generator-my22a",
@@ -29153,6 +29503,60 @@
    "title": "SSS-NIZK for NP ⇒ SSS-NIZK"
   },
   {
+   "id": "red-strong-bit-string-prp-to-bit-string-prp",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-bit-string-prp"
+   ],
+   "conclusion": "bit-string-prp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the same adversary has the same advantage in both games",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the PRP distinguisher unchanged, using it only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-bit-string-prp-to-bit-string-prp.md",
+   "slug": "strong-bit-string-prp-to-bit-string-prp",
+   "graphSlug": "Reductions/strong-bit-string-prp-to-bit-string-prp",
+   "title": "Strong PRP on bit strings ⇒ PRP on bit strings"
+  },
+  {
+   "id": "red-strong-bit-string-prp-to-strong-pseudorandom-permutation",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-bit-string-prp"
+   ],
+   "conclusion": "strong-pseudorandom-permutation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any strong-PRP distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-bit-string-prp-to-strong-pseudorandom-permutation.md",
+   "slug": "strong-bit-string-prp-to-strong-pseudorandom-permutation",
+   "graphSlug": "Reductions/strong-bit-string-prp-to-strong-pseudorandom-permutation",
+   "title": "Strong PRP on bit strings ⇒ Strong PRP"
+  },
+  {
    "id": "red-strong-one-time-signature-to-one-time-signature",
    "kind": "implication",
    "hypotheses": [
@@ -29183,7 +29587,7 @@
    "id": "red-strong-pseudorandom-permutation-to-strong-tweakable-block-cipher-lrw02",
    "kind": "implication",
    "hypotheses": [
-    "strong-pseudorandom-permutation"
+    "strong-bit-string-prp"
    ],
    "conclusion": "strong-tweakable-block-cipher",
    "class": "fully-black-box",
@@ -29206,7 +29610,7 @@
    "page": "content/Reductions/strong-prp-to-strong-tweakable-block-cipher-lrw02.md",
    "slug": "strong-prp-to-strong-tweakable-block-cipher-lrw02",
    "graphSlug": "Reductions/strong-prp-to-strong-tweakable-block-cipher-lrw02",
-   "title": "Strong PRP ⇒ Strong TBC (LRW2)"
+   "title": "Strong PRP on bit strings ⇒ Strong TBC (LRW2)"
   },
   {
    "id": "red-strong-rsa-safe-primes-to-strong-rsa",
@@ -30757,8 +31161,8 @@
    "id": "red-suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
    "kind": "implication",
    "hypotheses": [
-    "suf-cma-mac",
-    "weakly-collision-resistant-hash"
+    "fixed-length-suf-cma-mac",
+    "arbitrary-length-weakly-collision-resistant-hash"
    ],
    "conclusion": "arbitrary-length-suf-cma-mac",
    "class": "fully-black-box",
@@ -30779,7 +31183,7 @@
    "page": "content/Reductions/suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96.md",
    "slug": "suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
    "graphSlug": "Reductions/suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
-   "title": "SUF-CMA MAC + weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)"
+   "title": "Fixed-length SUF-CMA MAC + arbitrary-length weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)"
   },
   {
    "id": "red-suf-cma-mac-to-mac",
@@ -35598,7 +36002,7 @@
   {
    "id": "bar-prf-to-arbitrary-length-suf-cma-mac",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "arbitrary-length-suf-cma-mac",
    "class": "fixed-construction",
@@ -35611,7 +36015,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "prf"
+    "length-preserving-prf"
    ],
    "circumventedBy": [
     "red-prf-to-arbitrary-length-suf-cma-mac-br05"
@@ -35620,19 +36024,19 @@
     "folklore"
    ],
    "rationale": {
-    "class": "The forgery refutes only plain CBC-MAC on messages of varying length; other constructions of an arbitrary-length MAC from a PRF are not ruled out.",
-    "strength": "The forgery applies to CBC-MAC over a given PRF, so the barrier assumes one exists; without one, the implication for this construction holds vacuously."
+    "class": "The forgery refutes only plain CBC-MAC on messages of varying length; other constructions of an arbitrary-length MAC from a length-preserving PRF are not ruled out.",
+    "strength": "The forgery applies to CBC-MAC over a given length-preserving PRF, so the barrier assumes one exists; without one, the implication for this construction holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-prf-to-arbitrary-length-suf-cma-mac.md",
    "slug": "no-prf-to-arbitrary-length-suf-cma-mac",
    "graphSlug": "Barriers/no-prf-to-arbitrary-length-suf-cma-mac",
-   "title": "No fixed-construction reduction from PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)"
+   "title": "No fixed-construction reduction from length-preserving PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)"
   },
   {
    "id": "bar-prf-to-cca-secure-symmetric-key-encryption",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "cca-secure-symmetric-key-encryption",
    "class": "fixed-construction",
@@ -35645,28 +36049,28 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "prf"
+    "length-preserving-prf"
    ],
    "circumventedBy": [],
    "source": [
     "folklore"
    ],
    "rationale": {
-    "class": "The attack refutes only randomized counter mode; building a CCA-secure scheme from a PRF by another construction is not ruled out.",
-    "strength": "The attack applies to randomized counter mode instantiated with a given PRF, so it assumes one exists; without one, the implication for this construction holds vacuously."
+    "class": "The attack refutes only randomized counter mode; building a CCA-secure scheme from a length-preserving PRF by another construction is not ruled out.",
+    "strength": "The attack applies to randomized counter mode instantiated with a given length-preserving PRF, so it assumes one exists; without one, the implication for this construction holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-prf-to-cca-secure-symmetric-key-encryption.md",
    "slug": "no-prf-to-cca-secure-symmetric-key-encryption",
    "graphSlug": "Barriers/no-prf-to-cca-secure-symmetric-key-encryption",
-   "title": "No fixed-construction reduction from PRF to CCA-secure SKE (randomized CTR)"
+   "title": "No fixed-construction reduction from length-preserving PRF to CCA-secure SKE (randomized CTR)"
   },
   {
    "id": "bar-prf-to-prp-two-round-feistel",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
-   "conclusion": "prp",
+   "conclusion": "bit-string-prp",
    "class": "fixed-construction",
    "consequences": [
     {
@@ -35677,7 +36081,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "prf"
+    "length-preserving-prf"
    ],
    "circumventedBy": [
     "red-prf-to-prp-lr88"
@@ -35686,21 +36090,21 @@
     "folklore"
    ],
    "rationale": {
-    "class": "The attack refutes the two-round Feistel network on keyed round functions and does not rule out building a PRP from a PRF otherwise, as three rounds do.",
-    "strength": "The distinguisher refutes the construction instantiated with a PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+    "class": "The attack refutes the two-round Feistel network on keyed round functions and does not rule out building a PRP on bit strings from a length-preserving PRF otherwise, as three rounds do.",
+    "strength": "The distinguisher refutes the construction instantiated with a length-preserving PRF, so the barrier assumes one exists; without one the implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-prf-to-prp-two-round-feistel.md",
    "slug": "no-prf-to-prp-two-round-feistel",
    "graphSlug": "Barriers/no-prf-to-prp-two-round-feistel",
-   "title": "No fixed-construction reduction from PRF to PRP (two-round Feistel)"
+   "title": "No fixed-construction reduction from length-preserving PRF to PRP on bit strings (two-round Feistel)"
   },
   {
    "id": "bar-prf-to-strong-pseudorandom-permutation-three-round-feistel",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
-   "conclusion": "strong-pseudorandom-permutation",
+   "conclusion": "strong-bit-string-prp",
    "class": "fixed-construction",
    "consequences": [
     {
@@ -35711,7 +36115,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "prf"
+    "length-preserving-prf"
    ],
    "circumventedBy": [
     "red-prf-to-strong-pseudorandom-permutation-lr88"
@@ -35720,14 +36124,14 @@
     "folklore"
    ],
    "rationale": {
-    "class": "The attack refutes the three-round Feistel network on keyed round functions and does not rule out building a strong PRP from a PRF otherwise, as four rounds do.",
-    "strength": "The distinguisher refutes the construction instantiated with a PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+    "class": "The attack refutes the three-round Feistel network on keyed round functions and does not rule out building a strong PRP on bit strings from a length-preserving PRF otherwise, as four rounds do.",
+    "strength": "The distinguisher refutes the construction instantiated with a length-preserving PRF, so the barrier assumes one exists; without one the implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-prf-to-strong-pseudorandom-permutation-three-round-feistel.md",
    "slug": "no-prf-to-strong-pseudorandom-permutation-three-round-feistel",
    "graphSlug": "Barriers/no-prf-to-strong-pseudorandom-permutation-three-round-feistel",
-   "title": "No fixed-construction reduction from PRF to Strong PRP (three-round Feistel)"
+   "title": "No fixed-construction reduction from length-preserving PRF to Strong PRP on bit strings (three-round Feistel)"
   },
   {
    "id": "bar-prime-order-dlog-to-schnorr-signature-ff13",
@@ -35872,7 +36276,7 @@
   {
    "id": "bar-prp-to-cpa-security-bdjr97",
    "hypotheses": [
-    "prp"
+    "bit-string-prp"
    ],
    "conclusion": "cpa-security",
    "class": "fixed-construction",
@@ -35885,7 +36289,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "prp"
+    "bit-string-prp"
    ],
    "circumventedBy": [
     "red-prp-to-cpa-security-bdjr97"
@@ -35894,14 +36298,14 @@
     "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
    ],
    "rationale": {
-    "class": "The attack refutes only CBC with a counter as initialization vector; CBC with a uniform initialization vector is a CPA-secure construction from a PRP.",
-    "strength": "The attack applies to CBC instantiated with a given PRP, so it assumes one exists; without one, the implication for this construction holds vacuously."
+    "class": "The attack refutes only CBC with a counter as initialization vector; CBC with a uniform initialization vector is a CPA-secure construction from a PRP on bit strings.",
+    "strength": "The attack applies to CBC instantiated with a given PRP on bit strings, so it assumes one exists; without one, the implication for this construction holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-prp-to-cpa-security-bdjr97.md",
    "slug": "no-prp-to-cpa-security-bdjr97",
    "graphSlug": "Barriers/no-prp-to-cpa-security-bdjr97",
-   "title": "No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)"
+   "title": "No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)"
   },
   {
    "id": "bar-prs-to-owf-kre21",

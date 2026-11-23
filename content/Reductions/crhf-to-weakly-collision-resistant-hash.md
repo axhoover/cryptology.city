@@ -30,4 +30,4 @@ in the time of $\calA$ plus $q$ evaluations of $\hash(k, \cdot)$ — folklore. T
 ## Notes
 
 - [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]] (Section 3) note that weak collision resistance is weaker than collision resistance: a collision finder for a hidden key must obtain every value of the function from the key holder.
-- The same simulation applies to an arbitrary-length family ([[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Weakly collision-resistant hash]]) — folklore.
+- The same simulation applies to an arbitrary-length family ([[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]]) — folklore.

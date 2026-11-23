@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Strong PRP ⇒ Strong TBC (LRW2)"
+title: "Strong PRP on bit strings ⇒ Strong TBC (LRW2)"
 aliases: []
 id: red-strong-pseudorandom-permutation-to-strong-tweakable-block-cipher-lrw02
 kind: implication
-hypotheses: [strong-pseudorandom-permutation]
+hypotheses: [strong-bit-string-prp]
 conclusion: strong-tweakable-block-cipher
 class: fully-black-box
 model: standard
@@ -18,11 +18,11 @@ rationale:
   class: "The construction calls the block cipher and its inverse only as oracles, the reduction runs the distinguisher once as an oracle and samples the hash function itself, and the random-permutation core is bounded information-theoretically."
 ---
 
-# Strong PRP ⇒ Strong TBC (LRW2)
+# Strong PRP on bit strings ⇒ Strong TBC (LRW2)
 
 ## Statement
 
-Let $\PRP = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation#strong-security|strong PRP]] on $\bits^n$, write $E_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently samplable and evaluable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calT \to \bits^n$ with $\varepsilon$ negligible in $\secpar$. With key $(k, h)$ for $h \getsr \calH$, the construction
+Let $\PRP = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation#strong-prps-on-bit-strings|strong PRP on bit strings]] with domain $\bits^n$, $n = n(\secpar) = \omega(\log \secpar)$, write $E_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently samplable and evaluable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calT \to \bits^n$ with $\varepsilon$ negligible in $\secpar$. With key $(k, h)$ for $h \getsr \calH$, the construction
 
 $$
 \tilde E_{k,h}(t, x) := E_k\big(x \oplus h(t)\big) \oplus h(t), \qquad \tilde E_{k,h}^{-1}(t, y) := E_k^{-1}\big(y \oplus h(t)\big) \oplus h(t),

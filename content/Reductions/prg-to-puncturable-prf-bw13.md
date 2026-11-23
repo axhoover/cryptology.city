@@ -31,4 +31,4 @@ Replace, level by level along the path to $x^*$, the pair of children of the cur
 ## Notes
 
 - The three papers introduced puncturable (more generally constrained) PRFs independently; [[BW13 - Constrained Pseudorandom Functions and Their Applications|BW13]] also give constrained PRFs for circuit predicates from multilinear maps.
-- The construction is [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] — [[GGM86 - How to construct random functions|GGM86]] — with the punctured key added; with [[owf-to-prg-hill99|OWF ⇒ PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]] — puncturable PRFs follow from one-way functions.
+- The construction is [[prg-to-prf-ggm86|PRG ⇒ Compression-function PRF (GGM)]] — [[GGM86 - How to construct random functions|GGM86]] — with the punctured key added; with [[owf-to-prg-hill99|OWF ⇒ PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]] — puncturable PRFs follow from one-way functions.

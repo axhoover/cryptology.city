@@ -33,7 +33,7 @@ Combining these axes gives four types of reductions:
 
 The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out relativizing, hence fully black-box, reductions — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
-> **Example (fully BB).** The [[pseudorandom-function|GGM construction]] of a $\PRF$ from a $\PRG$ is fully black-box ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]): the $\PRG$ is invoked as an oracle, and the security proof reduces any $\PRF$ adversary (treated as an oracle) to a $\PRG$ distinguisher.
+> **Example (fully BB).** The [[pseudorandom-function|GGM construction]] of a $\PRF$ from a $\PRG$ is fully black-box ([[prg-to-prf-ggm86|PRG ⇒ Compression-function PRF (GGM)]]): the $\PRG$ is invoked as an oracle, and the security proof reduces any $\PRF$ adversary (treated as an oracle) to a $\PRG$ distinguisher.
 
 ## Oracle Separations
 

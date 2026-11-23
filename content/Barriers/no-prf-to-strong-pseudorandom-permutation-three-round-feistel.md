@@ -1,30 +1,30 @@
 ---
 type: barrier
 status: draft
-title: "No fixed-construction reduction from PRF to Strong PRP (three-round Feistel)"
+title: "No fixed-construction reduction from length-preserving PRF to Strong PRP on bit strings (three-round Feistel)"
 aliases: []
 id: bar-prf-to-strong-pseudorandom-permutation-three-round-feistel
-hypotheses: [prf]
-conclusion: strong-pseudorandom-permutation
+hypotheses: [length-preserving-prf]
+conclusion: strong-bit-string-prp
 class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
     class: fixed-construction
 strength: conditional
-conditional-on: [prf]
+conditional-on: [length-preserving-prf]
 circumvented-by: [red-prf-to-strong-pseudorandom-permutation-lr88]
 source: folklore
 rationale:
-  strength: "The distinguisher refutes the construction instantiated with a PRF, so the barrier assumes one exists; without one the implication holds vacuously."
-  class: "The attack refutes the three-round Feistel network on keyed round functions and does not rule out building a strong PRP from a PRF otherwise, as four rounds do."
+  strength: "The distinguisher refutes the construction instantiated with a length-preserving PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+  class: "The attack refutes the three-round Feistel network on keyed round functions and does not rule out building a strong PRP on bit strings from a length-preserving PRF otherwise, as four rounds do."
 ---
 
-# No fixed-construction reduction from PRF to Strong PRP (three-round Feistel)
+# No fixed-construction reduction from length-preserving PRF to Strong PRP on bit strings (three-round Feistel)
 
 ## Statement
 
-If a [[pseudorandom-function|PRF]] $\PRF$ with domain and range $\bits^n$ exists, the three-round Feistel network $\Psi[\Eval(k_1, \cdot), \Eval(k_2, \cdot), \Eval(k_3, \cdot)]$ with independent keys, a [[pseudorandom-permutation|PRP]] by [[prf-to-prp-lr88|PRF ⇒ PRP]], is not a [[pseudorandom-permutation#strong-security|strong PRP]] on $\bits^{2n}$. The adversary that queries the forward oracle at $(L, R)$ and $(L', R)$ with $L \ne L'$, receiving $(S, T)$ and $(S', T')$, queries the inverse oracle at $(S',\ T' \oplus L \oplus L')$, and outputs $b' = 0$ iff the right half of the answer is $R \oplus S \oplus S'$ has advantage $\Adv^{\mathrm{sprp}} \ge 1 - 2^{1-n}$ for $n \ge 2$, whatever the round functions — folklore.
+If a [[pseudorandom-function#length-preserving-prfs|length-preserving PRF]] $\PRF$ with domain and range $\bits^n$ exists, the three-round Feistel network $\Psi[\Eval(k_1, \cdot), \Eval(k_2, \cdot), \Eval(k_3, \cdot)]$ with independent keys, a [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] by [[prf-to-prp-lr88|Length-preserving PRF ⇒ PRP on bit strings]], is not a [[pseudorandom-permutation#strong-prps-on-bit-strings|strong PRP on bit strings]] with domain $\bits^{2n}$. The adversary that queries the forward oracle at $(L, R)$ and $(L', R)$ with $L \ne L'$, receiving $(S, T)$ and $(S', T')$, queries the inverse oracle at $(S',\ T' \oplus L \oplus L')$, and outputs $b' = 0$ iff the right half of the answer is $R \oplus S \oplus S'$ has advantage $\Adv^{\mathrm{sprp}} \ge 1 - 2^{1-n}$ for $n \ge 2$, whatever the round functions — folklore.
 
 ## Sketch
 
@@ -32,5 +32,5 @@ With $f_i := \Eval(k_i, \cdot)$, write $a := L \oplus f_1(R)$ and $a' := L' \opl
 
 ## Notes
 
-- Four rounds give a strong PRP ([[prf-to-strong-pseudorandom-permutation-lr88|PRF ⇒ Strong PRP]]) — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
-- One and two rounds are not even PRPs ([[no-prf-to-prp-two-round-feistel|No fixed-construction reduction from PRF to PRP (two-round Feistel)]]) — folklore.
+- Four rounds give a strong PRP ([[prf-to-strong-pseudorandom-permutation-lr88|Length-preserving PRF ⇒ Strong PRP on bit strings]]) — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
+- One and two rounds are not even PRPs ([[no-prf-to-prp-two-round-feistel|No fixed-construction reduction from length-preserving PRF to PRP on bit strings (two-round Feistel)]]) — folklore.

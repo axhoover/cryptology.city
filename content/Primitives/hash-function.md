@@ -25,8 +25,10 @@ variants:
   crhf: "#collision-resistance"
   arbitrary-length-crhf: "#arbitrary-length-collision-resistance"
   second-preimage-resistance: "#second-preimage-resistance"
+  length-halving-second-preimage-resistance: "#length-halving-second-preimage-resistance"
   uowhf: "#target-collision-resistance-universal-one-wayness"
   weakly-collision-resistant-hash: "#weak-collision-resistance"
+  arbitrary-length-weakly-collision-resistant-hash: "#arbitrary-length-weak-collision-resistance"
 ---
 
 # Hash functions
@@ -305,6 +307,38 @@ no loss, and it implies
 additive loss of $|\calR|/|\calD|$ and a factor $2$ —
 [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]].
 
+#### Length-halving second-preimage resistance
+
+A **length-halving second-preimage-resistant** family is a
+second-preimage-resistant family
+$\hash : \calK \times \bits^{2m(\secpar)} \to \bits^{m(\secpar)}$, for a
+polynomially bounded $m = m(\secpar) \ge 1$ computable from $1^\secpar$ in
+polynomial time; it compresses since $m < 2m$, and the computability of $m$
+gives the uniform sampler of § Syntax. As an object, length-halving
+second-preimage resistance denotes such a family for some such $m$. It meets
+the definition above with input length $2m$
+([[length-halving-second-preimage-resistance-to-second-preimage-resistance|Length-halving second-preimage resistance ⇒ Second-preimage resistance]])
+— folklore, and restricting an
+[[#Arbitrary-length collision resistance|arbitrary-length CRHF]] with range
+$\bits^m$ to $\bits^{2m}$ gives one with no loss
+([[arbitrary-length-crhf-to-length-halving-second-preimage-resistance|Arbitrary-length CRHF ⇒ Length-halving second-preimage resistance]])
+— [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]].
+An input is the concatenation of two outputs, which is how a hash tree hashes
+the two children of a node: the function $H$ of
+[[hash-function-to-hash-based-signatures|XMSS]] maps $2n$-byte strings to
+$n$-byte strings under $n$-byte keys —
+[[HBG+18 - XMSS eXtended Merkle Signature Scheme|HBG+18]] (Section 4.1.2).
+
+Second-preimage resistance forces $m(\secpar) = \omega(\log \secpar)$. For
+each key, two independent uniform inputs have the same image with probability
+at least $1/|\calR| = 2^{-m}$, by the Cauchy–Schwarz inequality, and are equal
+with probability $2^{-2m}$, so the adversary that outputs a uniform
+$\hat{x} \getsr \calD$ wins with probability at least
+$2^{-m} - 2^{-2m} \ge 2^{-m-1}$. If $m(\secpar) \ne \omega(\log \secpar)$,
+there is a constant $c$ with $m(\secpar) \le c \log_2 \secpar$ for infinitely
+many $\secpar$, and for those $\secpar$ this is at least $\secpar^{-c}/2$, so
+the advantage is not negligible — standard.
+
 ### Target collision resistance (universal one-wayness)
 
 The adversary commits to a target input before the key is sampled, then must
@@ -381,17 +415,34 @@ is negligible. [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]
 (Definition 3.1) give the notion in concrete form, for an iterated hash function
 keyed by a secret initial value, against adversaries bounded in time and in the
 number and length of their queries, and note that it is weaker than collision
-resistance. NMAC is a MAC if its outer compression function, keyed by its
-chaining input, is one and its inner keyed iteration is weakly collision
-resistant ([[suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96|SUF-CMA MAC + weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)]]) — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]] (Theorem 4.1). An adversary given $k$ answers the oracle queries itself, so
-[[crhf-to-weakly-collision-resistant-hash|every CRHF]] and
-[[arbitrary-length-crhf-to-weakly-collision-resistant-hash|every arbitrary-length CRHF]]
-is weakly collision resistant — folklore. Weak collision resistance fails for
-MD5 and SHA-1 as iterated hash functions keyed by their initial value —
+resistance. An adversary given $k$ answers the oracle queries itself, so
+[[crhf-to-weakly-collision-resistant-hash|every CRHF]] is weakly collision
+resistant — folklore. Weak collision resistance fails for MD5 and SHA-1 as
+iterated hash functions keyed by their initial value —
 [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
 [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]
 list "weak collision resistance" as Merkle's name for
 [[#Second-preimage resistance|second-preimage resistance]], a different notion.
+
+#### Arbitrary-length weak collision resistance
+
+An **arbitrary-length weakly collision-resistant** family is an
+[[#Arbitrary-length collision resistance|arbitrary-length]] family
+$\hash : \calK \times \bits^* \to \bits^{m(\secpar)}$ that is weakly collision
+resistant, the second case of the definition above; an efficient $\calA$
+queries and outputs strings of polynomial length only. As an object, an
+arbitrary-length weakly collision-resistant hash denotes such a family. It is
+one of the families the definition above admits
+([[arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash|Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash]])
+— folklore, and an adversary given $k$ answers the oracle queries itself, so
+every arbitrary-length CRHF is one
+([[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]])
+— folklore. NMAC is a MAC on $\bits^*$ if its outer compression function,
+keyed by its chaining input, is a MAC on its fixed input length and its inner
+keyed iteration, a family on $\bits^*$, is weakly collision resistant
+([[suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96|Fixed-length SUF-CMA MAC + arbitrary-length weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)]])
+— [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]
+(Theorem 4.1).
 
 ### Distributional collision resistance
 
@@ -401,7 +452,7 @@ TODO: definition and game.
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
 - [[crhf-to-second-preimage-resistance-rs04|CRHF ⇒ Second-preimage resistance]], [[crhf-to-uowhf-rs04|CRHF ⇒ UOWHF]], [[uowhf-to-second-preimage-resistance-rs04|UOWHF ⇒ Second-preimage resistance]] and [[second-preimage-resistance-to-weak-owf-rs04|Second-preimage resistance ⇒ Weak OWF]] — [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]
 - [[crhf-to-arbitrary-length-crhf|CRHF ⇒ Arbitrary-length CRHF (Merkle–Damgård)]] — [[Rog06 - Formalizing Human Ignorance|Rog06]]
@@ -413,7 +464,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in d58115b0e3f2 -->
+<!-- BEGIN GENERATED participates-in 5c5baf4b0308 -->
 
 ## Participates in
 
@@ -421,7 +472,9 @@ TODO: definition and game.
 
 - [[arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06|Arbitrary-length CRHF + fixed-length DS ⇒ DS for arbitrary-length messages (hash-then-sign)]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[arbitrary-length-crhf-to-crhf|Arbitrary-length CRHF ⇒ CRHF]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
-- [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
+- [[arbitrary-length-crhf-to-length-halving-second-preimage-resistance|Arbitrary-length CRHF ⇒ Length-halving second-preimage resistance]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
+- [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
+- [[arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash|Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-weak-collision-resistance|Arbitrary-length weak collision resistance]])
 - [[crhf-to-accumulator|CRHF ⇒ accumulator]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-arbitrary-length-crhf|CRHF ⇒ Arbitrary-length CRHF (Merkle–Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ Constant-round NM commitment (Pass–Rosen)]] (via [[hash-function#collision-resistance|Collision resistance]])
@@ -436,18 +489,19 @@ TODO: definition and game.
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[distributional-owf-to-owf-il89|Distributional OWF ⇒ OWF (Impagliazzo–Luby)]] (via [[hash-function#distributional-one-wayness|Distributional one-wayness]])
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ Selectively unforgeable DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-czk|Non-uniform OWF ⇒ CZK]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
 - [[hash-function-to-ds|OWF ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ Stateful DS (XMSS)]]
+- [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]] (via [[hash-function#length-halving-second-preimage-resistance|Length-halving second-preimage resistance]])
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-zkp-gmw91|Non-uniform OWF ⇒ ZKP]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[length-halving-second-preimage-resistance-to-second-preimage-resistance|Length-halving second-preimage resistance ⇒ Second-preimage resistance]] (via [[hash-function#length-halving-second-preimage-resistance|Length-halving second-preimage resistance]])
 - [[non-uniform-owf-to-owf|Non-uniform OWF ⇒ OWF]] (via [[hash-function#one-wayness-against-non-uniform-adversaries|One-wayness against non-uniform adversaries]])
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-and-io-to-fe-wat15|OWF + iO ⇒ FE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
@@ -478,7 +532,7 @@ TODO: definition and game.
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)]] (via [[hash-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
 - [[subexponential-owf-to-owf|Sub-exponential OWF ⇒ OWF]] (via [[hash-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
-- [[suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96|SUF-CMA MAC + weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)]] (via [[hash-function#weak-collision-resistance|Weak collision resistance]])
+- [[suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96|Fixed-length SUF-CMA MAC + arbitrary-length weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)]] (via [[hash-function#arbitrary-length-weak-collision-resistance|Arbitrary-length weak collision resistance]])
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[uowhf-to-second-preimage-resistance-rs04|UOWHF ⇒ Second-preimage resistance]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[weak-owf-to-distributional-owf|Weak OWF ⇒ Distributional OWF]] (via [[hash-function#weak-one-wayness|Weak one-wayness]])
@@ -488,7 +542,9 @@ TODO: definition and game.
 
 - [[additively-homomorphic-encryption-to-crhf-iko05|Additively homomorphic encryption ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[arbitrary-length-crhf-to-crhf|Arbitrary-length CRHF ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Weakly collision-resistant hash]] (via [[hash-function#weak-collision-resistance|Weak collision resistance]])
+- [[arbitrary-length-crhf-to-length-halving-second-preimage-resistance|Arbitrary-length CRHF ⇒ Length-halving second-preimage resistance]] (via [[hash-function#length-halving-second-preimage-resistance|Length-halving second-preimage resistance]])
+- [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-weak-collision-resistance|Arbitrary-length weak collision resistance]])
+- [[arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash|Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash]] (via [[hash-function#weak-collision-resistance|Weak collision resistance]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[com-to-owf-il89|COM ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[constant-bias-coin-flipping-to-owf-ho11|Constant-bias coin flipping ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
@@ -509,6 +565,7 @@ TODO: definition and game.
 - [[injective-one-way-function-to-uowhf-yglw15|Injective OWF ⇒ UOWHF]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[io-and-np-not-in-io-bpp-to-owf-kmnpry14|iO + NP ⊄ io-BPP ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[kt-mild-average-case-hardness-to-owf-lp20|Mild average-case hardness of Kᵗ ⇔ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[length-halving-second-preimage-resistance-to-second-preimage-resistance|Length-halving second-preimage resistance ⇒ Second-preimage resistance]] (via [[hash-function#second-preimage-resistance|Second-preimage resistance]])
 - [[lossy-trapdoor-function-to-crhf-pw08|Highly lossy TDF ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[module-sis-to-crhf|Module-SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
@@ -520,6 +577,7 @@ TODO: definition and game.
 - [[owp-to-uowhf-ny89|OWP ⇒ UOWHF (Naor–Yung)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[pke-to-hash-function|PKE ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[post-quantum-injective-owf-to-quantum-secure-owf|Post-quantum injective OWF ⇒ Quantum-secure OWF]] (via [[hash-function#quantum-secure-one-wayness|Quantum-secure one-wayness]])
+- [[prf-to-owf|PRF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[prg-to-hash-function|PRG ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[quantum-secure-owf-to-owf|Quantum-secure OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ring-sis-to-crhf-lm06|Ring-SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])

@@ -1,13 +1,13 @@
 ---
 type: reduction
 status: draft
-title: "PRP ⇒ CPA-secure SKE (CBC)"
+title: "PRP on bit strings ⇒ CPA-secure SKE (CBC)"
 aliases:
   - CBC encryption
   - Cipher block chaining
 id: red-prp-to-cpa-security-bdjr97
 kind: implication
-hypotheses: [prp]
+hypotheses: [bit-string-prp]
 conclusion: cpa-security
 class: fully-black-box
 model: standard
@@ -18,11 +18,11 @@ rationale:
   class: "CBC calls the permutation and its inverse only as oracles, and the reduction runs any CPA adversary as an oracle, answering its queries with its own permutation oracle."
 ---
 
-# PRP ⇒ CPA-secure SKE (CBC)
+# PRP on bit strings ⇒ CPA-secure SKE (CBC)
 
 ## Statement
 
-A [[pseudorandom-permutation|PRP]] $\PRP = (\KeyGen, \Eval, \Invert)$ with domain $\bits^n$, where $n = n(\secpar) = \omega(\log \secpar)$, yields a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme by cipher block chaining with a uniform initialization vector (CBC). Its key generation is that of $\PRP$, its message space is $(\bits^n)^+$, and for $m = m_1 \cdots m_\ell$ with each $m_i \in \bits^n$,
+A [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] $\PRP = (\KeyGen, \Eval, \Invert)$ with domain $\bits^n$, where $n = n(\secpar) = \omega(\log \secpar)$, yields a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme by cipher block chaining with a uniform initialization vector (CBC). Its key generation is that of $\PRP$, its message space is $(\bits^n)^+$, and for $m = m_1 \cdots m_\ell$ with each $m_i \in \bits^n$,
 
 $$
 \Enc(k, m) := y_0 \| y_1 \| \cdots \| y_\ell, \qquad y_0 \getsr \bits^n, \quad y_i := \Eval(k, y_{i-1} \oplus m_i) \text{ for } 1 \le i \le \ell,
@@ -42,5 +42,5 @@ The proof first replaces $\Eval(k, \cdot)$ by a uniformly random function, losin
 
 - The birthday term is tight: against CBC with a uniformly random permutation, $q \le 2^{n/2}$ one-block queries give advantage at least $0.316 \cdot (q^2 - q)/2^n$ (Proposition 15 of the full version) — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]].
 - $\Dec$ calls $\Invert$, so CBC needs a permutation, and BDJR97 analyse it under PRP rather than PRF security, unlike [[prf-to-ske|randomized counter mode]] — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]].
-- The initialization vector must be unpredictable: with a counter in its place, CBC is not CPA-secure ([[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP to CPA-secure SKE (CBC with a counter IV)]]) — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]].
+- The initialization vector must be unpredictable: with a counter in its place, CBC is not CPA-secure ([[no-prp-to-cpa-security-bdjr97|No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)]]) — [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]].
 - $\Enc$ is randomized: CBC with a fixed initialization vector is deterministic and hence not CPA-secure ([[symmetric-key-encryption#cpa-security|SKE § CPA Security]]) — standard.
