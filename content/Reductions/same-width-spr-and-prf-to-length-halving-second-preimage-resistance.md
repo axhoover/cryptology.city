@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Let $(\hash, f)$ be a [[hash-function#spr-hashing-with-a-prf-of-the-same-width|same-width SPR hash and PRF]] of width $n$. Its first component $\hash : \calK \times \bits^{2n} \to \bits^n$ is, with its own key generation, a [[hash-function#length-halving-second-preimage-resistance|length-halving second-preimage-resistant]] family with $m := n$, with the same advantage $\Adv^{\mathrm{spr}}_{\hash,\calA}(\secpar)$ for every $\calA$ — folklore.
+Let $(\hash, f)$ be a [[hash-function#same-width-spr-hash-and-prf|same-width SPR hash and PRF]] of width $n$. Its first component $\hash : \calK \times \bits^{2n} \to \bits^n$ is, with its own key generation, a [[hash-function#length-halving-second-preimage-resistance|length-halving second-preimage-resistant]] family with $m := n$ and the same advantage $\Adv^{\mathrm{spr}}_{\hash,\calA}(\secpar)$ for every $\calA$ — folklore.

@@ -6937,9 +6937,9 @@
    "page": "content/Primitives/hash-function.md",
    "slug": "hash-function",
    "graphSlug": "Primitives/hash-function",
-   "anchor": "#spr-hashing-with-a-prf-of-the-same-width",
+   "anchor": "#same-width-spr-hash-and-prf",
    "of": "hash-function",
-   "title": "SPR hashing with a PRF of the same width",
+   "title": "Same-width SPR hash and PRF",
    "aliases": [],
    "unlisted": false
   },

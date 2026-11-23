@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Let $(\hash, f)$ be a [[hash-function#spr-hashing-with-a-prf-of-the-same-width|same-width SPR hash and PRF]] of width $n$. Its second component $f : \bits^n \times \bits^b \to \bits^n$, with $n \le b$, $n = \omega(\log \secpar)$ and keys uniform on $\bits^n$, is a [[pseudorandom-function#compression-function-prfs|compression-function PRF]] with $c := n$, with the same advantage $\Adv^{\mathrm{prf}}_{f,\calA}(\secpar)$ for every $\calA$ — folklore.
+Let $(\hash, f)$ be a [[hash-function#same-width-spr-hash-and-prf|same-width SPR hash and PRF]] of width $n$. Its second component $f : \bits^n \times \bits^b \to \bits^n$, with $n$ and $b$ polynomially bounded and computable from $1^\secpar$ in polynomial time, $n = \omega(\log \secpar)$, $n \le b$ and keys uniform on $\bits^n$, is a [[pseudorandom-function#compression-function-prfs|compression-function PRF]] with $c := n$ and the same advantage $\Adv^{\mathrm{prf}}_{f,\calA}(\secpar)$ for every $\calA$ — folklore.
