@@ -5,7 +5,7 @@ title: "Shor97"
 source: https://arxiv.org/abs/quant-ph/9508027
 authors: Peter W. Shor
 venue: SIAM Journal on Computing, 1997
-published: 1997-10-01
+published: 1997
 aliases:
   - Shor97
 bibtex: |
@@ -16,7 +16,8 @@ bibtex: |
     volume  = {26},
     number  = {5},
     pages   = {1484--1509},
-    year    = {1997}
+    year    = {1997},
+    doi     = {10.1137/S0097539795293172},
   }
 ---
 
@@ -27,3 +28,7 @@ bibtex: |
 ## Abstract
 
 A digital computer is generally believed to be an efficient universal computing device; that is, it is believed able to simulate any physical computing device with an increase in computation time of at most a polynomial factor. This may not be true when quantum mechanics is taken into consideration. This paper considers factoring integers and finding discrete logarithms, two problems which are generally thought to be hard on a classical computer and have been used as the basis of several proposed cryptosystems. Efficient randomized algorithms are given for these two problems on a hypothetical quantum computer. These algorithms take a number of steps polynomial in the input size, e.g., the number of digits of the integer to be factored.
+
+# Notes
+
+Expanded journal version of [[Shor94 - Algorithms for Quantum Computation Discrete Logarithms and Factoring|Shor94]] (FOCS 1994). The abstract is that of arXiv quant-ph/9508027v2.

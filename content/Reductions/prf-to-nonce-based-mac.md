@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "PRF ⇒ nonce-based MAC (Wegman–Carter)"
+title: "Length-preserving PRF ⇒ nonce-based MAC (Wegman–Carter)"
 aliases: []
 id: red-prf-to-nonce-based-mac
 kind: implication
-hypotheses: [prf]
+hypotheses: [length-preserving-prf]
 conclusion: nonce-based-mac
 class: fully-black-box
 model: standard
@@ -15,11 +15,11 @@ rationale:
   class: "The MAC calls the PRF only as an oracle, the reduction runs the forger once as an oracle with a hash function it samples itself, and the random-function case is bounded information-theoretically."
 ---
 
-# PRF ⇒ nonce-based MAC (Wegman–Carter)
+# Length-preserving PRF ⇒ nonce-based MAC (Wegman–Carter)
 
 ## Statement
 
-Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] with range $\bits^\tau$ whose domain $\calN = \calN_\secpar$ has size superpolynomial in $\secpar$, as the nonce space of a [[message-authentication-code#nonce-based-macs|nonce-based MAC]] does, write $F_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently sampleable and computable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calM \to \bits^\tau$. The Wegman–Carter MAC has key $(k, h)$ with $k \gets \KeyGen(1^\secpar)$ and $h \getsr \calH$, nonce space $\calN$, and
+Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function#length-preserving-prfs|length-preserving PRF]], with domain and range $\bits^\tau$ for a polynomially bounded $\tau = \tau(\secpar) = \omega(\log \secpar)$ computable from $1^\secpar$ in polynomial time, so that its domain $\calN := \bits^\tau$ has size superpolynomial in $\secpar$, as the nonce space of a [[message-authentication-code#nonce-based-macs|nonce-based MAC]] does. Write $F_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently sampleable and computable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calM \to \bits^\tau$. The Wegman–Carter MAC has key $(k, h)$ with $k \gets \KeyGen(1^\secpar)$ and $h \getsr \calH$, nonce space $\calN$, and
 
 $$
 \Tag((k, h), n, m) := F_k(n) \oplus h(m), \qquad \Vrfy((k, h), n, m, t) := [t = F_k(n) \oplus h(m)].
@@ -39,4 +39,5 @@ $\calB$ samples $h \getsr \calH$, answers each query $(n_i, m_i)$ of $\calA$ wit
 
 ## Notes
 
-- With a block cipher, a [[pseudorandom-permutation|PRP]] $E_k$ on $\calN = \bits^\tau$ in place of $F_k$, the [[switching-lemma|switching lemma]] applied to $\calB$'s $q + 1$ queries adds at most $(q+1)^2/2^{\tau+1}$ to the bound — standard.
+- The argument uses only that the nonce space is superpolynomial and that the range is $\bits^\tau$: for a [[pseudorandom-function|PRF]] with any domain $\calN$ of superpolynomial size and range $\bits^\tau$, the same MAC with nonce space $\calN$ has the same bound — folklore. A PRF with range $\bits$ has $\tau = 1$, and every $\varepsilon$-almost XOR-universal family into $\bits$ has $\varepsilon \ge 1/2$, so the bound is never negligible for it — standard.
+- With a block cipher, a [[pseudorandom-permutation#prps-on-bit-strings|PRP]] $E_k$ on $\calN = \bits^\tau$ in place of $F_k$, the [[switching-lemma|switching lemma]] applied to $\calB$'s $q + 1$ queries adds at most $(q+1)q/2^{\tau+1}$ to the bound — standard.

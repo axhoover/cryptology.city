@@ -538,6 +538,19 @@
    "unlisted": false
   },
   {
+   "id": "arbitrary-length-crhf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#arbitrary-length-collision-resistance",
+   "of": "hash-function",
+   "title": "Arbitrary-length collision resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "arbitrary-length-suf-cma-mac",
    "kind": "variant",
    "type": "primitive",
@@ -547,6 +560,19 @@
    "anchor": "#strongly-unforgeable-macs-for-arbitrary-length-messages",
    "of": "mac",
    "title": "Strongly unforgeable MACs for arbitrary-length messages",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "arbitrary-length-weakly-collision-resistant-hash",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#arbitrary-length-weak-collision-resistance",
+   "of": "hash-function",
+   "title": "Arbitrary-length weak collision resistance",
    "aliases": [],
    "unlisted": false
   },
@@ -855,6 +881,22 @@
    "unlisted": true
   },
   {
+   "id": "birthday-bound",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/birthday-bound.md",
+   "slug": "birthday-bound",
+   "graphSlug": "Folklore/birthday-bound",
+   "title": "Birthday bound",
+   "aliases": [
+    "Birthday paradox",
+    "Birthday problem",
+    "Birthday attack",
+    "Floyd's cycle-finding algorithm"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "bit-circular-security",
    "kind": "variant",
    "type": "assumption",
@@ -890,6 +932,19 @@
    "anchor": "#key-exchange-with-bit-string-keys",
    "of": "ke",
    "title": "Key exchange with bit-string keys",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bit-string-prp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-permutation.md",
+   "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
+   "anchor": "#prps-on-bit-strings",
+   "of": "prp",
+   "title": "PRPs on bit strings",
    "aliases": [],
    "unlisted": false
   },
@@ -1011,6 +1066,19 @@
    "anchor": "#bounded-round-assumptions",
    "of": "falsifiable-assumption",
    "title": "Bounded-round assumptions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bounded-stateful-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#stateful-signatures",
+   "of": "ds",
+   "title": "Stateful signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -2097,6 +2165,19 @@
    "unlisted": false
   },
   {
+   "id": "ds-fixed-length",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#fixed-length-messages",
+   "of": "ds",
+   "title": "Fixed-length messages",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "dv-delegation-for-p",
    "kind": "variant",
    "type": "primitive",
@@ -2365,6 +2446,19 @@
    "anchor": "#offline-oram-with-fixed-instructions",
    "of": "oram",
    "title": "Offline ORAM with fixed instructions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "fixed-length-suf-cma-mac",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/message-authentication-code.md",
+   "slug": "message-authentication-code",
+   "graphSlug": "Primitives/message-authentication-code",
+   "anchor": "#strongly-unforgeable-macs-for-fixed-length-messages",
+   "of": "mac",
+   "title": "Strongly unforgeable MACs for fixed-length messages",
    "aliases": [],
    "unlisted": false
   },
@@ -2709,6 +2803,21 @@
    "unlisted": true
   },
   {
+   "id": "generic-attacks",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/generic-attacks.md",
+   "slug": "generic-attacks",
+   "graphSlug": "Glossary/generic-attacks",
+   "title": "Generic attacks",
+   "aliases": [
+    "Generic attack",
+    "Exhaustive key search",
+    "Brute-force attack"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "generic-bilinear-group-model",
    "kind": "variant",
    "type": "glossary",
@@ -2785,6 +2894,20 @@
    "of": "syndrome-decoding",
    "title": "Goppa code indistinguishability",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "group-generator",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/group-generator.md",
+   "slug": "group-generator",
+   "graphSlug": "Glossary/group-generator",
+   "title": "Group generator",
+   "aliases": [
+    "GrGen",
+    "Group generation algorithm"
+   ],
    "unlisted": false
   },
   {
@@ -3824,6 +3947,19 @@
    "unlisted": false
   },
   {
+   "id": "length-halving-second-preimage-resistance",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#length-halving-second-preimage-resistance",
+   "of": "hash-function",
+   "title": "Length-halving second-preimage resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "length-increasing-injective-owf",
    "kind": "variant",
    "type": "primitive",
@@ -3833,6 +3969,19 @@
    "anchor": "#length-increasing-injective-owfs",
    "of": "injective-one-way-function",
    "title": "Length-increasing injective OWFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "length-preserving-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#length-preserving-prfs",
+   "of": "prf",
+   "title": "Length-preserving PRFs",
    "aliases": [],
    "unlisted": false
   },
@@ -3924,6 +4073,19 @@
    "anchor": "#logarithmic-overhead-oram",
    "of": "oram",
    "title": "Logarithmic-overhead ORAM",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "long-message-ske",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#messages-longer-than-the-key",
+   "of": "ske",
+   "title": "Messages longer than the key",
    "aliases": [],
    "unlisted": false
   },
@@ -4912,6 +5074,19 @@
    "unlisted": false
   },
   {
+   "id": "normal-form-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#normal-form-lwe",
+   "of": "lwe",
+   "title": "Normal-form LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "np",
    "kind": "object",
    "type": "complexity-class",
@@ -5123,6 +5298,19 @@
    "unlisted": false
   },
   {
+   "id": "one-time-cca-ske",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#one-time-cca-security",
+   "of": "ske",
+   "title": "One-time CCA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "one-time-mac",
    "kind": "variant",
    "type": "primitive",
@@ -5158,6 +5346,19 @@
    "anchor": "#one-time-signatures",
    "of": "ds",
    "title": "One-time signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-way-key-exchange",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/key-exchange.md",
+   "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
+   "anchor": "#one-way-security",
+   "of": "ke",
+   "title": "One-way security",
    "aliases": [],
    "unlisted": false
   },
@@ -5523,6 +5724,19 @@
    "unlisted": false
   },
   {
+   "id": "perfectly-secret-ske",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#perfect-secrecy",
+   "of": "ske",
+   "title": "Perfect secrecy",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ph",
    "kind": "object",
    "type": "complexity-class",
@@ -5652,6 +5866,32 @@
    "anchor": "#non-malleability",
    "of": "pke",
    "title": "Non-malleability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pke-ow-cpa",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#ow-cpa-security",
+   "of": "pke",
+   "title": "OW-CPA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pke-ow-pca",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#ow-pca-security",
+   "of": "pke",
+   "title": "OW-PCA security",
    "aliases": [],
    "unlisted": false
   },
@@ -6000,7 +6240,8 @@
    "aliases": [
     "PRP",
     "sPRP",
-    "Pseudorandom permutation"
+    "Pseudorandom permutation",
+    "Block cipher"
    ],
    "unlisted": false
   },
@@ -6596,6 +6837,19 @@
    "unlisted": false
   },
   {
+   "id": "ror-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/symmetric-key-encryption.md",
+   "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
+   "anchor": "#real-or-random-cpa-security",
+   "of": "ske",
+   "title": "Real-or-random CPA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ros",
    "kind": "object",
    "type": "assumption",
@@ -6677,6 +6931,19 @@
    "unlisted": false
   },
   {
+   "id": "same-width-spr-and-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#same-width-spr-hash-and-prf",
+   "of": "hash-function",
+   "title": "Same-width SPR hash and PRF",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "sampler-io",
    "kind": "variant",
    "type": "primitive",
@@ -6752,6 +7019,19 @@
    "anchor": "#search-noisy-k-lin",
    "of": "noisy-k-lin",
    "title": "Search noisy $k$-LIN",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "second-preimage-resistance",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#second-preimage-resistance",
+   "of": "hash-function",
+   "title": "Second-preimage resistance",
    "aliases": [],
    "unlisted": false
   },
@@ -7203,6 +7483,19 @@
    "unlisted": false
   },
   {
+   "id": "small-domain-prp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-permutation.md",
+   "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
+   "anchor": "#small-domain-prps",
+   "of": "prp",
+   "title": "Small-domain PRPs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "small-sorting-circuits",
    "kind": "variant",
    "type": "glossary",
@@ -7499,6 +7792,32 @@
    "anchor": "#statistically-simulation-sound-nizk-for-np",
    "of": "nizk",
    "title": "Statistically simulation-sound NIZK for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "strong-bit-string-prp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-permutation.md",
+   "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
+   "anchor": "#strong-prps-on-bit-strings",
+   "of": "prp",
+   "title": "Strong PRPs on bit strings",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "strong-one-time-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#strong-one-time-signatures",
+   "of": "ds",
+   "title": "Strong one-time signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -7956,6 +8275,19 @@
    "anchor": "#succinct-iops-with-state-restoration-knowledge-soundness",
    "of": "iop",
    "title": "Succinct IOPs with state-restoration knowledge soundness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "suf-cma-ds",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#strong-unforgeability",
+   "of": "ds",
+   "title": "Strong Unforgeability",
    "aliases": [],
    "unlisted": false
   },
@@ -8931,6 +9263,19 @@
    "unlisted": false
   },
   {
+   "id": "weakly-collision-resistant-hash",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#weak-collision-resistance",
+   "of": "hash-function",
+   "title": "Weak collision resistance",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "witness-encryption",
    "kind": "object",
    "type": "primitive",
@@ -9586,6 +9931,142 @@
    "title": "IND-CPA-D approximate HE ⇒ Approximate HE"
   },
   {
+   "id": "red-arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf",
+    "ds-fixed-length"
+   ],
+   "conclusion": "ds-arbitrary-length",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rog06 - Formalizing Human Ignorance|Rog06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the forging advantage is at most that of a forger against the fixed-length scheme making as many signing queries, plus that of a collision finder, each running in about the forger's time",
+   "rationale": {
+    "class": "Hash-then-sign calls the hash family and the fixed-length scheme only as oracles, and each of the two reductions runs any forger once as an oracle, sampling the other component's keys itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06.md",
+   "slug": "arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06",
+   "graphSlug": "Reductions/arbitrary-length-crhf-and-ds-fixed-length-to-ds-arbitrary-length-rog06",
+   "title": "Arbitrary-length CRHF + fixed-length DS ⇒ DS for arbitrary-length messages (hash-then-sign)"
+  },
+  {
+   "id": "red-arbitrary-length-crhf-to-crhf",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction restricts the family to one input length, and the reduction forwards any collision finder unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-to-crhf.md",
+   "slug": "arbitrary-length-crhf-to-crhf",
+   "graphSlug": "Reductions/arbitrary-length-crhf-to-crhf",
+   "title": "Arbitrary-length CRHF ⇒ CRHF"
+  },
+  {
+   "id": "red-arbitrary-length-crhf-to-length-halving-second-preimage-resistance",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf"
+   ],
+   "conclusion": "length-halving-second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has at least the advantage of the second-preimage finder, in its time plus one evaluation of the family and one uniform sample from the domain",
+   "rationale": {
+    "class": "The construction restricts the family to one input length and pads its value to at least one bit, and the collision finder runs any second-preimage finder once as an oracle on a uniform input."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-to-length-halving-second-preimage-resistance.md",
+   "slug": "arbitrary-length-crhf-to-length-halving-second-preimage-resistance",
+   "graphSlug": "Reductions/arbitrary-length-crhf-to-length-halving-second-preimage-resistance",
+   "title": "Arbitrary-length CRHF ⇒ Length-halving second-preimage resistance"
+  },
+  {
+   "id": "red-arbitrary-length-crhf-to-weakly-collision-resistant-hash",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-crhf"
+   ],
+   "conclusion": "arbitrary-length-weakly-collision-resistant-hash",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the oracle adversary plus one evaluation of the family per query",
+   "rationale": {
+    "class": "The weakly collision-resistant family is the hash family itself, and the collision finder runs any oracle adversary once, answering its queries with the public key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-crhf-to-weakly-collision-resistant-hash.md",
+   "slug": "arbitrary-length-crhf-to-weakly-collision-resistant-hash",
+   "graphSlug": "Reductions/arbitrary-length-crhf-to-weakly-collision-resistant-hash",
+   "title": "Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash"
+  },
+  {
+   "id": "red-arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-suf-cma-mac"
+   ],
+   "conclusion": "fixed-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for every message length, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac.md",
+   "slug": "arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac",
+   "graphSlug": "Reductions/arbitrary-length-suf-cma-mac-to-fixed-length-suf-cma-mac",
+   "title": "Arbitrary-length SUF-CMA MAC ⇒ fixed-length SUF-CMA MAC"
+  },
+  {
    "id": "red-arbitrary-length-suf-cma-mac-to-suf-cma-mac",
    "kind": "implication",
    "hypotheses": [
@@ -9611,6 +10092,33 @@
    "slug": "arbitrary-length-suf-cma-mac-to-suf-cma-mac",
    "graphSlug": "Reductions/arbitrary-length-suf-cma-mac-to-suf-cma-mac",
    "title": "Arbitrary-length SUF-CMA MAC ⇒ SUF-CMA MAC"
+  },
+  {
+   "id": "red-arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash",
+   "kind": "implication",
+   "hypotheses": [
+    "arbitrary-length-weakly-collision-resistant-hash"
+   ],
+   "conclusion": "weakly-collision-resistant-hash",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any oracle adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash.md",
+   "slug": "arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash",
+   "graphSlug": "Reductions/arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash",
+   "title": "Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash"
   },
   {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
@@ -10575,6 +11083,62 @@
    "title": "KE with bit-string keys ⇒ KE"
   },
   {
+   "id": "red-bit-string-prp-to-length-preserving-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "length-preserving-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]"
+   ],
+   "via": [
+    "[[switching-lemma|Switching Lemma]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/2^{n+1}$ for $q$ queries (birthday bound)",
+   "rationale": {
+    "class": "The construction is the identity on the PRP's key generation and evaluation, and the reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the switching-lemma gap is information-theoretic."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-prp-to-length-preserving-prf.md",
+   "slug": "bit-string-prp-to-length-preserving-prf",
+   "graphSlug": "Reductions/bit-string-prp-to-length-preserving-prf",
+   "title": "PRP on bit strings ⇒ Length-preserving PRF"
+  },
+  {
+   "id": "red-bit-string-prp-to-prp",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "prp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any PRP distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-prp-to-prp.md",
+   "slug": "bit-string-prp-to-prp",
+   "graphSlug": "Reductions/bit-string-prp-to-prp",
+   "title": "PRP on bit strings ⇒ PRP"
+  },
+  {
    "id": "red-bit-string-tdp-to-tdp",
    "kind": "implication",
    "hypotheses": [
@@ -10885,6 +11449,33 @@
    "title": "CCA-secure SKE ⇒ CPA-secure SKE"
   },
   {
+   "id": "red-cca-secure-symmetric-key-encryption-to-one-time-cca-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "cca-secure-symmetric-key-encryption"
+   ],
+   "conclusion": "one-time-cca-ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction runs the scheme's algorithms as oracles on explicit coins, and the fixed reduction runs any one-time adversary unchanged as a CCA adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cca-secure-symmetric-key-encryption-to-one-time-cca-ske.md",
+   "slug": "cca-secure-symmetric-key-encryption-to-one-time-cca-ske",
+   "graphSlug": "Reductions/cca-secure-symmetric-key-encryption-to-one-time-cca-ske",
+   "title": "CCA-secure SKE ⇒ One-time CCA-secure SKE"
+  },
+  {
    "id": "red-cca-security-to-cca1-security",
    "kind": "implication",
    "hypotheses": [
@@ -10939,6 +11530,36 @@
    "title": "CCA1 Security ⇒ CPA Security"
   },
   {
+   "id": "red-cdh-to-bit-string-key-exchange",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "bit-string-key-exchange",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [
+    "[[difference-lemma|fundamental lemma of game playing]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "a factor $q_H$: the CDH adversary outputs a uniformly chosen one of the eavesdropper's $q_H$ random-oracle queries",
+   "rationale": {
+    "class": "The protocol uses only the group generator, the group operations and the random oracle, and the fixed reduction runs any eavesdropper once as an oracle, answering its random-oracle queries itself.",
+    "model": "The reduction answers the eavesdropper's random-oracle queries by lazy sampling, without programming any of them, and reads them to find the Diffie–Hellman value."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-bit-string-key-exchange.md",
+   "slug": "cdh-to-bit-string-key-exchange",
+   "graphSlug": "Reductions/cdh-to-bit-string-key-exchange",
+   "title": "CDH ⇒ KE with bit-string keys (hashed Diffie–Hellman)"
+  },
+  {
    "id": "red-cdh-to-dlog",
    "kind": "implication",
    "hypotheses": [
@@ -10964,6 +11585,35 @@
    "slug": "cdh-to-dlog",
    "graphSlug": "Reductions/cdh-to-dlog",
    "title": "CDH ⇒ DLOG"
+  },
+  {
+   "id": "red-cdh-to-ind-cpa-kem",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "ind-cpa-kem",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $q_H$ for $q_H$ random-oracle queries: the KEM advantage is at most $q_H$ times the CDH advantage of a solver that outputs a uniformly chosen query",
+   "rationale": {
+    "class": "The KEM uses only the group generator and the random oracle, and the fixed reduction runs any KEM adversary once as an oracle, answering its random-oracle queries itself.",
+    "model": "The reduction simulates the random oracle and reads the adversary's queries to find the Diffie–Hellman value.",
+    "securityLoss": "Until the adversary queries the oracle at the Diffie–Hellman value its view is independent of the challenge bit, and the solver guesses which query that is."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-ind-cpa-kem.md",
+   "slug": "cdh-to-ind-cpa-kem",
+   "graphSlug": "Reductions/cdh-to-ind-cpa-kem",
+   "title": "CDH ⇒ IND-CPA KEM (hashed ElGamal)"
   },
   {
    "id": "red-cdh-to-ind-id-cpa-dg17a",
@@ -11006,14 +11656,13 @@
     "standard"
    ],
    "source": [
-    "[[DH76 - New Directions in Cryptography|DH76]]",
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
    ],
    "via": [
     "[[hardcore-predicate|Goldreich–Levin]]"
    ],
    "heuristic": false,
-   "securityLoss": "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε into a CDH solver with success probability Ω(ε²) and running time poly(L, 1/ε)",
+   "securityLoss": "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε and running time t into a CDH solver with success probability polynomial in ε and 1/L and running time poly(L, 1/ε) · t",
    "rationale": {
     "class": "The protocol uses only the group operations, and the reduction runs any key distinguisher as an oracle inside the Goldreich–Levin decoder to compute the Diffie–Hellman value."
    },
@@ -11022,6 +11671,33 @@
    "slug": "cdh-to-non-interactive-key-exchange-dh76",
    "graphSlug": "Reductions/cdh-to-non-interactive-key-exchange-dh76",
    "title": "CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)"
+  },
+  {
+   "id": "red-cdh-to-one-way-key-exchange",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "one-way-key-exchange",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the one-way advantage of every eavesdropper equals the CDH advantage of the adversary that forwards the transcript to it",
+   "rationale": {
+    "class": "The protocol uses only the group generator and the group operations, and the fixed reduction passes its CDH instance to any eavesdropper once, as an oracle, as the transcript, and outputs the eavesdropper's answer."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-one-way-key-exchange.md",
+   "slug": "cdh-to-one-way-key-exchange",
+   "graphSlug": "Reductions/cdh-to-one-way-key-exchange",
+   "title": "CDH ⇒ One-way KE (Diffie–Hellman)"
   },
   {
    "id": "red-cdh-to-uc-ot-dghmw20",
@@ -11670,6 +12346,33 @@
    "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
   },
   {
+   "id": "red-compression-function-prf-to-length-preserving-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "compression-function-prf"
+   ],
+   "conclusion": "length-preserving-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction calls the compression function only as an oracle on padded inputs, and the reduction runs any distinguisher once, padding each of its queries before forwarding it."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compression-function-prf-to-length-preserving-prf.md",
+   "slug": "compression-function-prf-to-length-preserving-prf",
+   "graphSlug": "Reductions/compression-function-prf-to-length-preserving-prf",
+   "title": "Compression-function PRF ⇒ Length-preserving PRF"
+  },
+  {
    "id": "red-compression-function-prf-to-prf",
    "kind": "implication",
    "hypotheses": [
@@ -12041,6 +12744,33 @@
    "title": "IND-CPA ⇔ Semantic security"
   },
   {
+   "id": "red-cpa-security-to-ror-cpa-security-bdjr97",
+   "kind": "implication",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "ror-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none when every string of a message's length is a message; otherwise the bitwise encoding multiplies the number of queries by the message length",
+   "rationale": {
+    "class": "The construction is the identity on schemes, or the bitwise encoding, which calls Enc and Dec only as oracles, and the reduction runs any ROR-CPA adversary once, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cpa-security-to-ror-cpa-security-bdjr97.md",
+   "slug": "cpa-security-to-ror-cpa-security-bdjr97",
+   "graphSlug": "Reductions/cpa-security-to-ror-cpa-security-bdjr97",
+   "title": "CPA-secure SKE ⇒ ROR-CPA-secure SKE"
+  },
+  {
    "id": "red-cpa-security-to-ske",
    "kind": "implication",
    "hypotheses": [
@@ -12167,6 +12897,33 @@
    "title": "CRHF ⇒ accumulator"
   },
   {
+   "id": "red-crhf-to-arbitrary-length-crhf",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "arbitrary-length-crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rog06 - Formalizing Human Ignorance|Rog06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none on collisions shorter than 2^b: the collision finder succeeds whenever the adversary does, after at most (|x| + |x'|)/b + 4 compression-function calls",
+   "rationale": {
+    "class": "The iteration calls the compression function only as an oracle, and the collision finder runs any adversary once as an oracle and then evaluates the iteration on its two outputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-arbitrary-length-crhf.md",
+   "slug": "crhf-to-arbitrary-length-crhf",
+   "graphSlug": "Reductions/crhf-to-arbitrary-length-crhf",
+   "title": "CRHF ⇒ Arbitrary-length CRHF (Merkle–Damgård)"
+  },
+  {
    "id": "red-crhf-to-constant-round-non-malleable-commitment-pr05",
    "kind": "implication",
    "hypotheses": [
@@ -12247,6 +13004,33 @@
    "title": "CRHF ⇒ Succinct arguments for NP (Kilian)"
   },
   {
+   "id": "red-crhf-to-second-preimage-resistance-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the second-preimage finder plus one uniform sample from the domain",
+   "rationale": {
+    "class": "The second-preimage-resistant family is the hash family itself, and the collision finder runs any second-preimage finder once as an oracle on a uniform input."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-second-preimage-resistance-rs04.md",
+   "slug": "crhf-to-second-preimage-resistance-rs04",
+   "graphSlug": "Reductions/crhf-to-second-preimage-resistance-rs04",
+   "title": "CRHF ⇒ Second-preimage resistance"
+  },
+  {
    "id": "red-crhf-to-statistically-hiding-commitment-dpp97",
    "kind": "implication",
    "hypotheses": [
@@ -12277,6 +13061,33 @@
    "title": "CRHF ⇒ Statistically hiding COM"
   },
   {
+   "id": "red-crhf-to-uowhf-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "uowhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the two stages of the target-collision finder",
+   "rationale": {
+    "class": "The target-collision-resistant family is the hash family itself, and the collision finder runs both stages of any target-collision finder once as oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-uowhf-rs04.md",
+   "slug": "crhf-to-uowhf-rs04",
+   "graphSlug": "Reductions/crhf-to-uowhf-rs04",
+   "title": "CRHF ⇒ UOWHF"
+  },
+  {
    "id": "red-crhf-to-weak-owf",
    "kind": "implication",
    "hypotheses": [
@@ -12302,6 +13113,33 @@
    "slug": "crhf-to-weak-owf",
    "graphSlug": "Reductions/crhf-to-weak-owf",
    "title": "CRHF ⇒ Weak OWF"
+  },
+  {
+   "id": "red-crhf-to-weakly-collision-resistant-hash",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "weakly-collision-resistant-hash",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the collision finder has the same advantage, in the time of the oracle adversary plus one evaluation of the family per query",
+   "rationale": {
+    "class": "The weakly collision-resistant family is the hash family itself, and the collision finder runs any oracle adversary once, answering its queries with the public key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-weakly-collision-resistant-hash.md",
+   "slug": "crhf-to-weakly-collision-resistant-hash",
+   "graphSlug": "Reductions/crhf-to-weakly-collision-resistant-hash",
+   "title": "CRHF ⇒ Weakly collision-resistant hash"
   },
   {
    "id": "red-czk-hardness-to-czk-worst-case-hardness",
@@ -13093,7 +13931,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "securityLoss": "tight up to an additive $\\mathbb{E}[1/p]$, over the group order $p$: one CDH call",
    "rationale": {
     "class": "The group generator is unchanged, and the fixed reduction runs any CDH adversary once as an oracle and compares its output with the challenge element."
    },
@@ -13225,7 +14063,7 @@
     "standard"
    ],
    "source": [
-    "[[DH76 - New Directions in Cryptography|DH76]]"
+    "folklore"
    ],
    "via": [],
    "heuristic": false,
@@ -13284,7 +14122,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one oracle call, advantage-preserving",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary, whose advantage is exactly twice the DDH advantage of the reduction",
    "rationale": {
     "class": "The ElGamal construction uses only the group generator, with homomorphic evaluation the componentwise group product, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
    },
@@ -13300,7 +14138,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -13312,7 +14150,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one oracle call, advantage-preserving",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary, whose advantage is exactly twice the DDH advantage of the reduction",
    "rationale": {
     "class": "The ElGamal construction uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
    },
@@ -13320,7 +14158,7 @@
    "page": "content/Reductions/ddh-to-pke-elgamal85.md",
    "slug": "ddh-to-pke-elgamal85",
    "graphSlug": "Reductions/ddh-to-pke-elgamal85",
-   "title": "DDH ⇒ PKE"
+   "title": "DDH ⇒ CPA-secure PKE (ElGamal)"
   },
   {
    "id": "red-ddh-to-prf-nr97",
@@ -13441,7 +14279,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: one run of the search solver, with additive loss $2e^{-\\secpar}$ for $m \\ge 32(n \\ln q + \\secpar)$",
    "rationale": {
     "class": "The reduction runs any search-LWE solver once as an oracle on the decision instance and checks the residual, never using the solver's code."
    },
@@ -13769,8 +14607,7 @@
     "quantum"
    ],
    "source": [
-    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]",
-    "[[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]"
+    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
    ],
    "via": [],
    "heuristic": false,
@@ -14259,6 +15096,87 @@
    "title": "DS for arbitrary-length messages ⇒ DS"
   },
   {
+   "id": "red-ds-arbitrary-length-to-ds-fixed-length",
+   "kind": "implication",
+   "hypotheses": [
+    "ds-arbitrary-length"
+   ],
+   "conclusion": "ds-fixed-length",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for every message length, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-arbitrary-length-to-ds-fixed-length.md",
+   "slug": "ds-arbitrary-length-to-ds-fixed-length",
+   "graphSlug": "Reductions/ds-arbitrary-length-to-ds-fixed-length",
+   "title": "DS for arbitrary-length messages ⇒ DS for fixed-length messages"
+  },
+  {
+   "id": "red-ds-fixed-length-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "ds-fixed-length"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for one-bit messages, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-fixed-length-to-ds.md",
+   "slug": "ds-fixed-length-to-ds",
+   "graphSlug": "Reductions/ds-fixed-length-to-ds",
+   "title": "DS for fixed-length messages ⇒ DS"
+  },
+  {
+   "id": "red-ds-to-bounded-stateful-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "bounded-stateful-ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the forging advantage is unchanged",
+   "rationale": {
+    "class": "The stateful scheme runs the stateless one unchanged, and the reduction runs any forger against it as an EUF-CMA forger, forwarding its signing queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-bounded-stateful-ds.md",
+   "slug": "ds-to-bounded-stateful-ds",
+   "graphSlug": "Reductions/ds-to-bounded-stateful-ds",
+   "title": "DS ⇒ Stateful DS"
+  },
+  {
    "id": "red-ds-to-byzantine-broadcast-ds83",
    "kind": "implication",
    "hypotheses": [
@@ -14522,7 +15440,7 @@
    "heuristic": false,
    "securityLoss": "additive: the sampler's statistical distance ν",
    "rationale": {
-    "class": "The construction is the identity on the family, and the reduction runs any inverter once, on $\\mathsf{Samp}(f; r)$ without $r$."
+    "class": "The construction is the identity on the family, and the reduction runs any inverter once, on $\\Samp(f; r)$ without $r$."
    },
    "status": "draft",
    "page": "content/Reductions/enhanced-trapdoor-permutation-to-tdp.md",
@@ -15150,7 +16068,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor 2: an inverter succeeding with probability ε factors N with probability ε/2",
+   "securityLoss": "a factor 2: an inverter succeeding with probability ε factors N with probability at least ε/2",
    "rationale": {
     "class": "The permutation uses only arithmetic modulo the sampled Blum integer, and one fixed reduction factors it by calling any inverter once, as an oracle, on the square of a uniform unit."
    },
@@ -15300,6 +16218,33 @@
    "slug": "five-round-two-party-computation-to-two-party-computation",
    "graphSlug": "Reductions/five-round-two-party-computation-to-two-party-computation",
    "title": "Five-round 2PC ⇒ 2PC with expected-time simulation"
+  },
+  {
+   "id": "red-fixed-length-suf-cma-mac-to-suf-cma-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "fixed-length-suf-cma-mac"
+   ],
+   "conclusion": "suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for messages of length λ, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fixed-length-suf-cma-mac-to-suf-cma-mac.md",
+   "slug": "fixed-length-suf-cma-mac-to-suf-cma-mac",
+   "graphSlug": "Reductions/fixed-length-suf-cma-mac-to-suf-cma-mac",
+   "title": "Fixed-length SUF-CMA MAC ⇒ SUF-CMA MAC"
   },
   {
    "id": "red-four-round-mpc-to-mpc-with-expected-time-simulation",
@@ -15614,7 +16559,7 @@
    "heuristic": false,
    "securityLoss": "polynomial",
    "rationale": {
-    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE distinguisher only as an oracle, for every distinguisher with noticeable advantage."
    },
    "status": "draft",
    "page": "content/Reductions/gapsvp-poly-factor-to-lwe-blprs13.md",
@@ -15635,13 +16580,14 @@
     "standard"
    ],
    "source": [
-    "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]"
+    "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]",
+    "[[MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller|MP12]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any LWE solver of noticeable success probability as an oracle",
+   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any LWE distinguisher of noticeable advantage as an oracle",
    "rationale": {
-    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE distinguisher only as an oracle, through the search-to-decision and discretization steps, for every distinguisher with noticeable advantage."
    },
    "status": "draft",
    "page": "content/Reductions/gapsvp-poly-factor-to-lwe-pei09.md",
@@ -16138,10 +17084,10 @@
    "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
    "kind": "implication",
    "hypotheses": [
-    "crhf",
+    "arbitrary-length-crhf",
     "one-time-signature"
    ],
-   "conclusion": "ds",
+   "conclusion": "bounded-stateful-ds",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -16160,7 +17106,7 @@
    "page": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
    "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
    "graphSlug": "Reductions/hash-function-and-hash-based-signatures-to-ds-mer89",
-   "title": "CRHF + One-time signature ⇒ DS"
+   "title": "Arbitrary-length CRHF + One-time signature ⇒ Stateful DS (Merkle)"
   },
   {
    "id": "red-hash-function-and-io-to-deniable-encryption-sw14",
@@ -16334,29 +17280,29 @@
    "id": "red-hash-function-to-hash-based-signatures",
    "kind": "implication",
    "hypotheses": [
-    "hash-function",
-    "prf"
+    "same-width-spr-and-prf"
    ],
-   "conclusion": "ds",
+   "conclusion": "bounded-stateful-ds",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
    ],
    "source": [
-    "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]"
+    "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]",
+    "[[BH12 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions (Full Version)|BH12]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "Adv^eu-cma ≤ Adv^prf(F_n; t′ + 2^h, 2^h queries) + 2·max{(2^(h+log ℓ) − 1)·Adv^spr(H_n; t′), 2^h·(Adv^prf(F_n; t′ + ℓ, ℓ queries) + ℓ²w²κ^(w−1)/(1/κ − 2^(−n))·Adv^prf(F_n; t′, 2 queries))}, for forgers running in time t with one signature per period over 2^h periods, tree height h, ℓ W-OTS chains of Winternitz parameter w, κ the largest number of keys of F_n that collide on one input (κ = 1: no key collisions), and t′ = t + 2^h·t_Sign + t_Vf + t_Kg (BH12, equation (3))",
    "rationale": {
-    "class": "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any EUF-CMA forger as an oracle."
+    "class": "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any forger as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
    "graphSlug": "Reductions/hash-function-to-hash-based-signatures",
-   "title": "Hash function + PRF ⇒ DS (XMSS)"
+   "title": "SPR hash + PRF ⇒ Stateful DS (XMSS)"
   },
   {
    "id": "red-hash-function-to-hash-based-signatures-lam79",
@@ -17335,16 +18281,15 @@
     "rom"
    ],
    "source": [
-    "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]",
     "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive in the random-oracle model from IND-CPA: a constant multiple of the IND-CPA advantage plus terms of order $q\\delta$ and $q/|\\calM|$ for $q$ random-oracle queries, and $q_D 2^{-\\gamma}$ for $q_D$ decapsulation queries with explicit rejection; from one-wayness, a factor $O(q)$; a CPA-secure base scheme with only two messages, first converted bitwise to message space $\\bits^\\secpar$, multiplies the IND-CPA advantage term by $\\secpar$",
+   "securityLoss": "tight: the IND-CPA advantage plus $(q_G + q_H + 1)\\delta + (q_G + 3q_H + 1)/|\\calM|$ for $q_G$ and $q_H$ queries to $G$ and $H$; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $\\secpar$ plus $2\\secpar(q_G + q_H + 1)\\varepsilon + (q_G + 3q_H + 1)2^{-\\secpar}$",
    "rationale": {
-    "class": "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption.",
-    "model": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known.",
-    "securityLoss": "HHK17 bound the derandomization step and the key-derivation step separately, and the composed transform adds the two bounds."
+    "class": "The KEM calls the encryption of the base scheme with explicit coins, its decryption and the hash functions only as oracles, and the IND-CPA adversary runs any IND-CCA adversary once as a black box.",
+    "model": "HHK17 prove both steps of the transform with G and H modelled as random oracles, which the reductions simulate.",
+    "securityLoss": "The U step costs 2q_H/|M| and the T step (q_G + q_H + 1)δ + (q_G + q_H + 1)/|M|, the failure of the challenge ciphertext to decrypt being one of the events bounded by the δ term."
    },
    "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
@@ -17670,6 +18615,33 @@
    "slug": "injective-one-way-function-to-three-round-non-malleable-commitment-gr19",
    "graphSlug": "Reductions/injective-one-way-function-to-three-round-non-malleable-commitment-gr19",
    "title": "Injective OWF ⇒ Three-round NM commitment (Goyal–Richelson)"
+  },
+  {
+   "id": "red-injective-one-way-function-to-uowhf-yglw15",
+   "kind": "implication",
+   "hypotheses": [
+    "injective-one-way-function"
+   ],
+   "conclusion": "uowhf",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[YGLW15 - (Almost) Optimal Constructions of UOWHFs from 1-to-1, Regular One-Way Functions and Beyond|YGLW15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "YGLW15 call their constructions black-box, a term that does not fix how the security reduction uses the adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/injective-one-way-function-to-uowhf-yglw15.md",
+   "slug": "injective-one-way-function-to-uowhf-yglw15",
+   "graphSlug": "Reductions/injective-one-way-function-to-uowhf-yglw15",
+   "title": "Injective OWF ⇒ UOWHF"
   },
   {
    "id": "red-invertible-prfs-to-prf",
@@ -18189,7 +19161,7 @@
    "kind": "implication",
    "hypotheses": [
     "ind-cca-kem",
-    "cca-secure-symmetric-key-encryption"
+    "one-time-cca-ske"
    ],
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
@@ -18202,15 +19174,16 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: twice the KEM CCA advantage plus twice the KEM decapsulation error plus the DEM one-time CCA advantage",
+   "securityLoss": "additive: twice the KEM IND-CCA advantage, the DEM one-time CCA advantage, twice the decapsulation error, and twice the number of pre-challenge decryption queries times the expected largest probability of a single encapsulation ciphertext",
    "rationale": {
-    "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
+    "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and the KEM and DEM reductions each run the PKE adversary once as an oracle.",
+    "securityLoss": "Two game hops cost the decapsulation error and the KEM advantage, a third costs the chance that a pre-challenge query guesses the challenge encapsulation, and the last game is the DEM game."
    },
    "status": "draft",
    "page": "content/Reductions/kem-and-ske-to-pke.md",
    "slug": "kem-and-ske-to-pke",
    "graphSlug": "Reductions/kem-and-ske-to-pke",
-   "title": "IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE"
+   "title": "IND-CCA KEM + one-time CCA-secure SKE ⇒ IND-CCA PKE"
   },
   {
    "id": "red-kem-to-ke",
@@ -18420,6 +19393,33 @@
    "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
   },
   {
+   "id": "red-length-halving-second-preimage-resistance-to-second-preimage-resistance",
+   "kind": "implication",
+   "hypotheses": [
+    "length-halving-second-preimage-resistance"
+   ],
+   "conclusion": "second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any second-preimage finder unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/length-halving-second-preimage-resistance-to-second-preimage-resistance.md",
+   "slug": "length-halving-second-preimage-resistance-to-second-preimage-resistance",
+   "graphSlug": "Reductions/length-halving-second-preimage-resistance-to-second-preimage-resistance",
+   "title": "Length-halving second-preimage resistance ⇒ Second-preimage resistance"
+  },
+  {
    "id": "red-length-increasing-injective-owf-to-injective-one-way-function",
    "kind": "implication",
    "hypotheses": [
@@ -18445,6 +19445,33 @@
    "slug": "length-increasing-injective-owf-to-injective-one-way-function",
    "graphSlug": "Reductions/length-increasing-injective-owf-to-injective-one-way-function",
    "title": "Length-increasing injective OWF ⇒ Injective OWF"
+  },
+  {
+   "id": "red-length-preserving-prf-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function family, and the reduction forwards any PRF distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/length-preserving-prf-to-prf.md",
+   "slug": "length-preserving-prf-to-prf",
+   "graphSlug": "Reductions/length-preserving-prf-to-prf",
+   "title": "Length-preserving PRF ⇒ PRF"
   },
   {
    "id": "red-leveled-fully-homomorphic-encryption-to-he",
@@ -19243,7 +20270,7 @@
    "hypotheses": [
     "polynomial-ratio-lwe"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -19256,7 +20283,7 @@
     "[[leftover-hash-lemma|leftover hash lemma]]"
    ],
    "heuristic": false,
-   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus the statistical leftover-hash term $\\sqrt{q^{n+1}/2^m}$",
    "rationale": {
     "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
    },
@@ -19264,7 +20291,7 @@
    "page": "content/Reductions/lwe-to-pke-reg05.md",
    "slug": "lwe-to-pke-reg05",
    "graphSlug": "Reductions/lwe-to-pke-reg05",
-   "title": "LWE ⇒ PKE"
+   "title": "LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)"
   },
   {
    "id": "red-lwe-to-tdh-dgi-19",
@@ -19586,14 +20613,15 @@
     "module-lwe",
     "module-sis"
    ],
-   "conclusion": "ds",
+   "conclusion": "suf-cma-ds",
    "class": "unstated",
    "model": "rom",
    "models": [
     "rom"
    ],
    "source": [
-    "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
+    "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]",
+    "[[BDK+20 - CRYSTALS-Dilithium Algorithm Specifications and Supporting Documentation|BDK+20]]"
    ],
    "via": [
     "[[forking-lemma|forking lemma]]"
@@ -19608,7 +20636,7 @@
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
    "slug": "module-lwe-and-module-sis-to-ds",
    "graphSlug": "Reductions/module-lwe-and-module-sis-to-ds",
-   "title": "Module LWE + Module-SIS ⇒ DS"
+   "title": "Module LWE + Module-SIS ⇒ SUF-CMA DS"
   },
   {
    "id": "red-module-lwe-to-kem",
@@ -19623,14 +20651,15 @@
     "rom"
    ],
    "source": [
-    "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]"
+    "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]",
+    "[[AAB+24 - Formally Verifying Kyber Episode V Machine-Checked IND-CCA Security and Correctness of ML-KEM in EasyCrypt|AAB+24]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight in the random-oracle model: a constant multiple of the Module-LWE advantage plus a term of order $q\\delta$ for $q$ random-oracle queries and decryption-failure probability $\\delta$; non-tight in the quantum random-oracle model",
+   "securityLoss": "",
    "rationale": {
     "class": "The IND-CCA proof goes through the Fujisaki–Okamoto transform in the random-oracle model, and no source places it in the RTV04 taxonomy.",
-    "model": "The IND-CPA scheme is secure in the standard model, but the IND-CCA conclusion rests on the Fujisaki–Okamoto transform with implicit rejection, proved in the classical and quantum random-oracle models."
+    "model": "The IND-CCA conclusion rests on a Fujisaki–Okamoto transform with implicit rejection, proved in the random-oracle model, and BDK+18 also treat the quantum random-oracle model."
    },
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-kem.md",
@@ -20660,6 +21689,61 @@
    "title": "IPPE on nonzero vectors ⇒ IPPE"
   },
   {
+   "id": "red-normal-form-lwe-to-decision-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "normal-form-lwe"
+   ],
+   "conclusion": "decision-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The reduction shifts each sample by a uniform multiple of its matrix and runs any uniform-secret distinguisher once as an oracle on the result, for every distinguisher."
+   },
+   "status": "draft",
+   "page": "content/Reductions/normal-form-lwe-to-decision-lwe.md",
+   "slug": "normal-form-lwe-to-decision-lwe",
+   "graphSlug": "Reductions/normal-form-lwe-to-decision-lwe",
+   "title": "Normal-form LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-normal-form-lwe-to-pke-cpa-security-lp11b",
+   "kind": "implication",
+   "hypotheses": [
+    "normal-form-lwe"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $2\\ell$ on the public key, by a hybrid over its $\\ell$ columns, and a factor $2$ on the challenge ciphertext; each distinguisher runs the CPA adversary once",
+   "rationale": {
+    "class": "The scheme uses only uniform matrices and samples of the error distribution, and each fixed reduction embeds its normal-form LWE challenge in the public key or the challenge ciphertext and runs any CPA adversary once as an oracle.",
+    "securityLoss": "The public key holds ℓ normal-form instances with one matrix, which the first reduction replaces one at a time, while the ciphertext is a single instance with n + ℓ samples."
+   },
+   "status": "draft",
+   "page": "content/Reductions/normal-form-lwe-to-pke-cpa-security-lp11b.md",
+   "slug": "normal-form-lwe-to-pke-cpa-security-lp11b",
+   "graphSlug": "Reductions/normal-form-lwe-to-pke-cpa-security-lp11b",
+   "title": "Normal-form LWE ⇒ CPA-secure PKE (Lindner–Peikert)"
+  },
+  {
    "id": "red-notable-problems-to-qma",
    "kind": "inclusion",
    "hypotheses": [
@@ -21163,6 +22247,33 @@
    "slug": "one-round-sublinear-cpir-to-total-nontrivial-cpir",
    "graphSlug": "Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir",
    "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
+  },
+  {
+   "id": "red-one-time-cca-ske-to-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "one-time-cca-ske"
+   ],
+   "conclusion": "ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the advantage is unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs any one-time adversary once, forwarding its single encryption query as its challenge pair."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-time-cca-ske-to-ske.md",
+   "slug": "one-time-cca-ske-to-ske",
+   "graphSlug": "Reductions/one-time-cca-ske-to-ske",
+   "title": "One-time CCA-secure SKE ⇒ SKE"
   },
   {
    "id": "red-one-way-state-generator-to-one-time-quantum-public-key-signature-my22",
@@ -22566,6 +23677,33 @@
    "title": "Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE"
   },
   {
+   "id": "red-perfectly-secret-ske-to-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-secret-ske"
+   ],
+   "conclusion": "ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: every one-query adversary has advantage 0",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any one-time adversary unchanged as a one-query adversary against perfect secrecy."
+   },
+   "status": "draft",
+   "page": "content/Reductions/perfectly-secret-ske-to-ske.md",
+   "slug": "perfectly-secret-ske-to-ske",
+   "graphSlug": "Reductions/perfectly-secret-ske-to-ske",
+   "title": "Perfectly secret SKE ⇒ SKE"
+  },
+  {
    "id": "red-phi-hiding-to-ds-kk12",
    "kind": "implication",
    "hypotheses": [
@@ -22837,6 +23975,63 @@
    "title": "IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)"
   },
   {
+   "id": "red-pke-cpa-security-to-pke-ow-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke-ow-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $\\secpar$ plus $2^{-\\secpar}$: the OW-CPA advantage is at most $\\secpar$ times the CPA advantage of a reduction that runs the adversary once, plus $2^{-\\secpar}$",
+   "rationale": {
+    "class": "The construction calls the scheme's algorithms and its message-pair algorithm only as oracles, and the fixed reduction runs any OW-CPA adversary once as an oracle.",
+    "securityLoss": "A hybrid over the $\\secpar$ encrypted bits costs the factor $\\secpar$, and the CPA adversary loses $2^{-\\secpar}$ when the inverter outputs the unencrypted message."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke-ow-cpa.md",
+   "slug": "pke-cpa-security-to-pke-ow-cpa",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke-ow-cpa",
+   "title": "CPA-secure PKE ⇒ OW-CPA-secure PKE"
+  },
+  {
+   "id": "red-pke-cpa-security-to-pke-ow-pca-hhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke-ow-pca",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the IND-CPA advantage plus $(q + 1)\\delta + (q + 1)/|\\calM|$ for $q$ queries to $G$ and the plaintext-checking oracle together; for a base scheme first converted bitwise to message space $\\bits^\\secpar$, a factor $\\secpar$ plus $2\\secpar(q + 1)\\varepsilon + (q + 1)2^{-\\secpar}$",
+   "rationale": {
+    "class": "T[PKE, G] calls the encryption of PKE with explicit coins, its decryption and the oracle G only as oracles, and the IND-CPA adversary runs any OW-PCA adversary once as a black box.",
+    "model": "HHK17 prove the step with G modelled as a random oracle, which the IND-CPA adversary simulates.",
+    "securityLoss": "Replacing the plaintext-checking oracle by a re-encryption check costs δ for the challenge message and for each message queried to G or to that oracle, and one IND-CPA adversary then detects both an output of and a query to G at the challenge message, at a cost of (q + 1)/|M|."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke-ow-pca-hhk17.md",
+   "slug": "pke-cpa-security-to-pke-ow-pca-hhk17",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke-ow-pca-hhk17",
+   "title": "IND-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)"
+  },
+  {
    "id": "red-pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
    "kind": "equivalence",
    "hypotheses": [
@@ -22916,6 +24111,91 @@
    "slug": "pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
    "graphSlug": "Reductions/pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
    "title": "NM-CPA ⇒ IND-CPA"
+  },
+  {
+   "id": "red-pke-ow-cpa-to-pke-ow-pca-hhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-ow-cpa"
+   ],
+   "conclusion": "pke-ow-pca",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $q + 1$ on the OW-CPA advantage, plus $(q + 1)\\delta$, for $q$ queries to $G$ and the plaintext-checking oracle together; the OW-CPA adversary runs the OW-PCA adversary once",
+   "rationale": {
+    "class": "T[PKE, G] calls the encryption of PKE with explicit coins, its decryption and the oracle G only as oracles, and the OW-CPA adversary runs any OW-PCA adversary once as a black box.",
+    "model": "HHK17 prove the step with G modelled as a random oracle, which the OW-CPA adversary samples lazily and uses to answer plaintext-checking queries by re-encryption.",
+    "securityLoss": "Re-encryption replaces the plaintext-checking oracle at a cost of δ for each point at which G is evaluated, and the OW-CPA adversary guesses which of at most q + 1 candidate messages is the challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-ow-cpa-to-pke-ow-pca-hhk17.md",
+   "slug": "pke-ow-cpa-to-pke-ow-pca-hhk17",
+   "graphSlug": "Reductions/pke-ow-cpa-to-pke-ow-pca-hhk17",
+   "title": "OW-CPA PKE ⇒ OW-PCA PKE (Fujisaki–Okamoto transform T)"
+  },
+  {
+   "id": "red-pke-ow-pca-to-ind-cca-kem-hhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-ow-pca"
+   ],
+   "conclusion": "ind-cca-kem",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: $2q_H/|\\calM|$ for $q_H$ queries to $H$, plus the probability $\\varepsilon_1$ that the base scheme fails to decrypt the encryption of a uniform message; the OW-PCA adversary runs the IND-CCA adversary once and makes at most $q_H$ plaintext-checking queries, whatever the number of decapsulation queries",
+   "rationale": {
+    "class": "The KEM calls the encryption and decryption of the base scheme and the oracle H only as oracles, and the OW-PCA adversary runs any IND-CCA adversary once as a black box.",
+    "model": "HHK17 prove the step with H modelled as a random oracle, which the OW-PCA adversary simulates, keeping it consistent with the decapsulation answers it samples itself through the plaintext-checking oracle.",
+    "securityLoss": "The term 2q_H/|M| pays for a query to H at the secret rejection seed, and ε1 for a challenge ciphertext that does not decrypt to its message."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-ow-pca-to-ind-cca-kem-hhk17.md",
+   "slug": "pke-ow-pca-to-ind-cca-kem-hhk17",
+   "graphSlug": "Reductions/pke-ow-pca-to-ind-cca-kem-hhk17",
+   "title": "OW-PCA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto transform U, implicit rejection)"
+  },
+  {
+   "id": "red-pke-ow-pca-to-pke-ow-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-ow-pca"
+   ],
+   "conclusion": "pke-ow-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs any OW-CPA adversary unchanged as an OW-PCA adversary that makes no oracle query."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-ow-pca-to-pke-ow-cpa.md",
+   "slug": "pke-ow-pca-to-pke-ow-cpa",
+   "graphSlug": "Reductions/pke-ow-pca-to-pke-ow-cpa",
+   "title": "OW-PCA-secure PKE ⇒ OW-CPA-secure PKE"
   },
   {
    "id": "red-pke-to-com",
@@ -23211,6 +24491,34 @@
    "slug": "polynomial-ratio-lwe-to-lwe",
    "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
    "title": "LWE with polynomial ratio ⇒ LWE"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-normal-form-lwe-acps09",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "normal-form-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[ACPS09 - Fast Cryptographic Primitives and Circular-Secure Encryption Based on Hard Learning Problems|ACPS09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "$n$ extra samples, and the advantage is multiplied by $\\prod_{j=1}^{n}(1 - q^{-j}) \\ge 1 - 1/(q-1)$, which is at least $1/2$ in the polynomial-ratio regime",
+   "rationale": {
+    "class": "The reduction transforms its samples by linear algebra modulo q and runs any normal-form distinguisher once as an oracle on the result, for every distinguisher.",
+    "securityLoss": "The first n samples are spent on a change of variables, and the reduction guesses at random when their matrix is singular, which happens with the same probability in both worlds."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-normal-form-lwe-acps09.md",
+   "slug": "polynomial-ratio-lwe-to-normal-form-lwe-acps09",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-normal-form-lwe-acps09",
+   "title": "LWE with polynomial ratio ⇒ Normal-form LWE"
   },
   {
    "id": "red-polynomial-ratio-lwe-to-sis",
@@ -23615,6 +24923,33 @@
    "title": "CCA-secure PRE ⇒ PRE"
   },
   {
+   "id": "red-prf-to-arbitrary-length-suf-cma-mac-br05",
+   "kind": "implication",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $\\sigma^2/2^n$ for queries totaling $\\sigma$ blocks, plus the PRF advantages of three adversaries, one per key, the first making $\\sigma$ queries and the others $q$",
+   "rationale": {
+    "class": "ECBC calls the PRF only as an oracle under three keys, each hybrid reduction runs the distinguisher once as an oracle, and the random-function case is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-arbitrary-length-suf-cma-mac-br05.md",
+   "slug": "prf-to-arbitrary-length-suf-cma-mac-br05",
+   "graphSlug": "Reductions/prf-to-arbitrary-length-suf-cma-mac-br05",
+   "title": "Length-preserving PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)"
+  },
+  {
    "id": "red-prf-to-garbled-circuits-bhr12",
    "kind": "implication",
    "hypotheses": [
@@ -23696,7 +25031,7 @@
    "id": "red-prf-to-mac",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "mac",
    "class": "fully-black-box",
@@ -23709,7 +25044,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 1/|\\calR|$",
+   "securityLoss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 2^{-n}$, with $\\calB$ making $q + 1$ queries for a forger making $q$ tag queries",
    "rationale": {
     "class": "The MAC calls the PRF only as an oracle, and the reduction runs the forger once as an oracle, answering its tag queries and testing its forgery with its own function oracle."
    },
@@ -23717,7 +25052,7 @@
    "page": "content/Reductions/prf-to-mac.md",
    "slug": "prf-to-mac",
    "graphSlug": "Reductions/prf-to-mac",
-   "title": "PRF ⇒ MAC"
+   "title": "Length-preserving PRF ⇒ MAC"
   },
   {
    "id": "red-prf-to-mac-bel06",
@@ -23750,7 +25085,7 @@
    "id": "red-prf-to-mac-bkr94",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "mac",
    "class": "fully-black-box",
@@ -23759,7 +25094,8 @@
     "standard"
    ],
    "source": [
-    "[[BKR94 - The Security of Cipher Block Chaining|BKR94]]"
+    "[[BKR94 - The Security of Cipher Block Chaining|BKR94]]",
+    "[[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]"
    ],
    "via": [],
    "heuristic": false,
@@ -23771,7 +25107,7 @@
    "page": "content/Reductions/prf-to-mac-bkr94.md",
    "slug": "prf-to-mac-bkr94",
    "graphSlug": "Reductions/prf-to-mac-bkr94",
-   "title": "PRF ⇒ MAC (CBC-MAC)"
+   "title": "Length-preserving PRF ⇒ MAC (CBC-MAC)"
   },
   {
    "id": "red-prf-to-mac-gpr14",
@@ -23801,7 +25137,7 @@
    "id": "red-prf-to-nonce-based-mac",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "nonce-based-mac",
    "class": "fully-black-box",
@@ -23822,7 +25158,7 @@
    "page": "content/Reductions/prf-to-nonce-based-mac.md",
    "slug": "prf-to-nonce-based-mac",
    "graphSlug": "Reductions/prf-to-nonce-based-mac",
-   "title": "PRF ⇒ nonce-based MAC (Wegman–Carter)"
+   "title": "Length-preserving PRF ⇒ nonce-based MAC (Wegman–Carter)"
   },
   {
    "id": "red-prf-to-ope-bclo09",
@@ -23879,6 +25215,33 @@
    "title": "PRF ⇒ ORE leaking the first differing bit (CLWW16)"
   },
   {
+   "id": "red-prf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "$\\Adv^{\\mathrm{pr}}_{f,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 2^{-\\secpar} + m(m-1)/(2|\\calD|)$ for $m = \\rho + \\secpar$ evaluation points, $\\rho$ the coin length of $\\KeyGen$, with $\\calB$ making $m$ non-adaptive queries",
+   "rationale": {
+    "class": "The one-way function runs the PRF's key generation, domain sampler and evaluation only as oracles, and the reduction runs any inverter once as an oracle and checks its output with the same algorithms."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-owf.md",
+   "slug": "prf-to-owf",
+   "graphSlug": "Reductions/prf-to-owf",
+   "title": "PRF ⇒ OWF"
+  },
+  {
    "id": "red-prf-to-polylog-oram-go96",
    "kind": "implication",
    "hypotheses": [
@@ -23909,9 +25272,9 @@
    "id": "red-prf-to-prp-lr88",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
-   "conclusion": "prp",
+   "conclusion": "bit-string-prp",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -23920,7 +25283,9 @@
    "source": [
     "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
    ],
-   "via": [],
+   "via": [
+    "[[switching-lemma|Switching Lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "sum of the round PRF advantages plus additive $O(q^2/2^n)$ for $q$ queries",
    "rationale": {
@@ -23930,13 +25295,13 @@
    "page": "content/Reductions/prf-to-prp-lr88.md",
    "slug": "prf-to-prp-lr88",
    "graphSlug": "Reductions/prf-to-prp-lr88",
-   "title": "PRF ⇒ PRP"
+   "title": "Length-preserving PRF ⇒ PRP on bit strings"
   },
   {
    "id": "red-prf-to-ske",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
    "conclusion": "cpa-security",
    "class": "fully-black-box",
@@ -23957,15 +25322,15 @@
    "page": "content/Reductions/prf-to-ske.md",
    "slug": "prf-to-ske",
    "graphSlug": "Reductions/prf-to-ske",
-   "title": "PRF ⇒ CPA-secure SKE"
+   "title": "Length-preserving PRF ⇒ CPA-secure SKE"
   },
   {
    "id": "red-prf-to-strong-pseudorandom-permutation-lr88",
    "kind": "implication",
    "hypotheses": [
-    "prf"
+    "length-preserving-prf"
    ],
-   "conclusion": "strong-pseudorandom-permutation",
+   "conclusion": "strong-bit-string-prp",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -23984,7 +25349,7 @@
    "page": "content/Reductions/prf-to-strong-pseudorandom-permutation-lr88.md",
    "slug": "prf-to-strong-pseudorandom-permutation-lr88",
    "graphSlug": "Reductions/prf-to-strong-pseudorandom-permutation-lr88",
-   "title": "PRF ⇒ Strong PRP"
+   "title": "Length-preserving PRF ⇒ Strong PRP on bit strings"
   },
   {
    "id": "red-prf-to-weak-prf",
@@ -24173,6 +25538,33 @@
    "title": "PRG ⇒ Leakage-resilient stream cipher"
   },
   {
+   "id": "red-prg-to-long-message-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "prg"
+   ],
+   "conclusion": "long-message-ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2: the one-time advantage is twice the PRG advantage",
+   "rationale": {
+    "class": "The scheme evaluates the PRG on its key only as an oracle, and the reduction runs any one-time adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-to-long-message-ske.md",
+   "slug": "prg-to-long-message-ske",
+   "graphSlug": "Reductions/prg-to-long-message-ske",
+   "title": "PRG ⇒ One-time SKE for messages longer than the key"
+  },
+  {
    "id": "red-prg-to-np-average-case-hardness",
    "kind": "implication",
    "hypotheses": [
@@ -24205,7 +25597,7 @@
    "hypotheses": [
     "prg"
    ],
-   "conclusion": "prf",
+   "conclusion": "compression-function-prf",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -24224,7 +25616,7 @@
    "page": "content/Reductions/prg-to-prf-ggm86.md",
    "slug": "prg-to-prf-ggm86",
    "graphSlug": "Reductions/prg-to-prf-ggm86",
-   "title": "PRG ⇒ PRF (GGM)"
+   "title": "PRG ⇒ Compression-function PRF (GGM)"
   },
   {
    "id": "red-prg-to-puncturable-prf-bw13",
@@ -24490,7 +25882,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "securityLoss": "tight up to an additive $\\mathbb{E}[1/p]$, over the group order $p$: one CDH call",
    "rationale": {
     "class": "The group generator is unchanged, and the fixed reduction runs any CDH adversary once as an oracle and compares its output with the challenge element."
    },
@@ -24775,6 +26167,60 @@
    "title": "DLOG ⇒ Schnorr signatures (tight, AGM)"
   },
   {
+   "id": "red-prp-to-arbitrary-length-suf-cma-mac-br05",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BR05 - CBC MACs for Arbitrary-Length Messages The Three-Key Constructions|BR05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive $3.75\\sigma^2/2^n$ for queries totaling $\\sigma$ blocks, plus the PRP advantage of an adversary making $\\sigma$ queries in time $t + O(n\\sigma)$ (Corollary 8)",
+   "rationale": {
+    "class": "XCBC calls the block cipher only in the forward direction and only as an oracle, and the reduction samples the two XOR keys itself and runs the distinguisher once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-arbitrary-length-suf-cma-mac-br05.md",
+   "slug": "prp-to-arbitrary-length-suf-cma-mac-br05",
+   "graphSlug": "Reductions/prp-to-arbitrary-length-suf-cma-mac-br05",
+   "title": "PRP on bit strings ⇒ arbitrary-length SUF-CMA MAC (XCBC)"
+  },
+  {
+   "id": "red-prp-to-cpa-security-bdjr97",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2 in the PRP advantage, plus $(2q^2 - q)/2^n$ for $q$ encrypted blocks",
+   "rationale": {
+    "class": "CBC calls the permutation and its inverse only as oracles, and the reduction runs any CPA adversary as an oracle, answering its queries with its own permutation oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-cpa-security-bdjr97.md",
+   "slug": "prp-to-cpa-security-bdjr97",
+   "graphSlug": "Reductions/prp-to-cpa-security-bdjr97",
+   "title": "PRP on bit strings ⇒ CPA-secure SKE (CBC)"
+  },
+  {
    "id": "red-prp-to-invertible-prf",
    "kind": "implication",
    "hypotheses": [
@@ -24816,7 +26262,8 @@
     "standard"
    ],
    "source": [
-    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]",
+    "[[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]"
    ],
    "via": [
     "[[switching-lemma|Switching Lemma]]"
@@ -24833,10 +26280,37 @@
    "title": "PRP ⇒ PRF"
   },
   {
+   "id": "red-prp-to-small-domain-prp-br02",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "small-domain-prp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BR02 - Ciphers with Arbitrary Finite Domains|BR02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: an adversary against the prefix cipher on $\\ZZ_N$, inverse queries included, has at most the PRP advantage of an adversary against $E$ making $N$ queries",
+   "rationale": {
+    "class": "The prefix cipher evaluates the PRP only as an oracle at the points of the small domain, and the reduction runs any small-domain distinguisher only as an oracle, answering it from the ranks of N oracle answers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-small-domain-prp-br02.md",
+   "slug": "prp-to-small-domain-prp-br02",
+   "graphSlug": "Reductions/prp-to-small-domain-prp-br02",
+   "title": "PRP on bit strings ⇒ Small-domain PRP (prefix cipher)"
+  },
+  {
    "id": "red-prp-to-tweakable-block-cipher-lrw02",
    "kind": "implication",
    "hypotheses": [
-    "prp"
+    "bit-string-prp"
    ],
    "conclusion": "tweakable-block-cipher",
    "class": "fully-black-box",
@@ -24857,7 +26331,7 @@
    "page": "content/Reductions/prp-to-tweakable-block-cipher-lrw02.md",
    "slug": "prp-to-tweakable-block-cipher-lrw02",
    "graphSlug": "Reductions/prp-to-tweakable-block-cipher-lrw02",
-   "title": "PRP ⇒ TBC (LRW1)"
+   "title": "PRP on bit strings ⇒ TBC (LRW1)"
   },
   {
    "id": "red-prs-to-pure-one-way-state-generator-my22a",
@@ -26179,6 +27653,36 @@
    "title": "ROM ⇒ Merkle puzzles"
   },
   {
+   "id": "red-rom-to-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "prf",
+   "class": "free",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [
+    "[[difference-lemma|fundamental lemma of game playing]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "distinguishing advantage at most $q_H / 2^\\secpar$ for $q_H$ random-oracle queries, whatever the number of PRF queries",
+   "rationale": {
+    "class": "The bound holds for every adversary in the random-oracle model, computationally unbounded and limited only in its oracle queries, which is the free class scoped by the model.",
+    "securityLoss": "The two worlds differ only on a random-oracle query that begins with the key, and in the random world the key is independent of everything the adversary sees."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rom-to-prf.md",
+   "slug": "rom-to-prf",
+   "graphSlug": "Reductions/rom-to-prf",
+   "title": "ROM ⇒ PRF (secret-prefix hashing)"
+  },
+  {
    "id": "red-rom-to-snark-mic00",
    "kind": "implication",
    "hypotheses": [
@@ -26208,6 +27712,33 @@
    "slug": "rom-to-snark-mic00",
    "graphSlug": "Reductions/rom-to-snark-mic00",
    "title": "ROM ⇒ SNARK (Micali's CS proofs)"
+  },
+  {
+   "id": "red-ror-cpa-security-to-cpa-security-bdjr97",
+   "kind": "implication",
+   "hypotheses": [
+    "ror-cpa-security"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2: the left-or-right advantage is twice the real-or-random advantage of the reduction",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any CPA adversary once, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ror-cpa-security-to-cpa-security-bdjr97.md",
+   "slug": "ror-cpa-security-to-cpa-security-bdjr97",
+   "graphSlug": "Reductions/ror-cpa-security-to-cpa-security-bdjr97",
+   "title": "ROR-CPA-secure SKE ⇒ CPA-secure SKE"
   },
   {
    "id": "red-ros-with-auxiliary-input-to-ros",
@@ -26366,6 +27897,35 @@
    "title": "RSA ⇒ Claw-free TDP"
   },
   {
+   "id": "red-rsa-to-ds-br96",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BR96 - The Exact Security of Digital Signatures How to Sign with RSA and Rabin|BR96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the inverter's success is at least the forger's less $3(q_S + q_H)^2(2^{-k_0} + 2^{-k_1})$, at $(q_S + q_H + 1) \\cdot k_0 \\cdot \\Theta(k^3)$ extra time",
+   "rationale": {
+    "class": "The scheme uses only the modulus generator and arithmetic modulo the modulus, and the fixed reduction runs any forger once as an oracle, answering its signing and random-oracle queries itself.",
+    "model": "The reduction programs both random oracles so that each image point it defines is the challenge times the e-th power of a known unit for a hash query, or the e-th power of a known unit for a signing query.",
+    "securityLoss": "The challenge is embedded in every image point defined for a hash query, so no query is guessed and only seed and hash-value collisions, cut-off sampling loops and forgeries on an unqueried hash input are lost."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rsa-to-ds-pss-br96.md",
+   "slug": "rsa-to-ds-pss-br96",
+   "graphSlug": "Reductions/rsa-to-ds-pss-br96",
+   "title": "RSA ⇒ DS (RSA-PSS, random oracle model)"
+  },
+  {
    "id": "red-rsa-to-ds-hw09",
    "kind": "implication",
    "hypotheses": [
@@ -26461,10 +28021,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "quadratic: RSA inversion succeeds with probability about $\\varepsilon^2/4$ for IND-CCA advantage $\\varepsilon$, in time $2t + q_H(q_H + 2q_G) \\cdot O(k^3)$ for adversary time $t$, $q_G$ and $q_H$ random-oracle queries and a $k$-bit modulus",
+   "securityLoss": "quadratic: for an IND-CCA adversary with advantage $\\varepsilon$ and running time $T$, the RSA inverter succeeds with probability about $\\varepsilon^2/4$ in time about $T^2$",
    "rationale": {
-    "model": "The proof models the OAEP padding hashes as random oracles whose query lists the reduction reads, and no standard-model IND-CCA proof of RSA-OAEP from RSA is known.",
-    "securityLoss": "The reduction runs the adversary twice, on $y$ and on $y \\alpha^e$, to obtain two partial preimages, which squares the success probability, and tries the lattice step on pairs of hash queries."
+    "model": "The proof models the two hash functions G and H of the OAEP padding as random oracles.",
+    "securityLoss": "The inverter applies the adversary twice, which squares its success probability."
    },
    "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-pke-oaep-fops01.md",
@@ -26530,7 +28090,7 @@
     "rsa"
    ],
    "conclusion": "tdp",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -26541,6 +28101,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none: an inverter for the family is an RSA solver with the same advantage",
+   "rationale": {
+    "class": "The family uses only the modulus generator and arithmetic modulo the sampled modulus, and the reduction passes its RSA challenge unchanged to any inverter, called once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/rsa-to-tdp-rsa78.md",
    "slug": "rsa-to-tdp-rsa78",
@@ -26602,6 +28165,60 @@
    "slug": "rsa-uniform-primes-to-rsa",
    "graphSlug": "Reductions/rsa-uniform-primes-to-rsa",
    "title": "RSA with uniform-prime moduli ⇒ RSA"
+  },
+  {
+   "id": "red-same-width-spr-and-prf-to-compression-function-prf",
+   "kind": "implication",
+   "hypotheses": [
+    "same-width-spr-and-prf"
+   ],
+   "conclusion": "compression-function-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps one component of the pair unchanged, and the reduction forwards any adversary against it unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/same-width-spr-and-prf-to-compression-function-prf.md",
+   "slug": "same-width-spr-and-prf-to-compression-function-prf",
+   "graphSlug": "Reductions/same-width-spr-and-prf-to-compression-function-prf",
+   "title": "Same-width SPR hash and PRF ⇒ Compression-function PRF"
+  },
+  {
+   "id": "red-same-width-spr-and-prf-to-length-halving-second-preimage-resistance",
+   "kind": "implication",
+   "hypotheses": [
+    "same-width-spr-and-prf"
+   ],
+   "conclusion": "length-halving-second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps one component of the pair unchanged, and the reduction forwards any adversary against it unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/same-width-spr-and-prf-to-length-halving-second-preimage-resistance.md",
+   "slug": "same-width-spr-and-prf-to-length-halving-second-preimage-resistance",
+   "graphSlug": "Reductions/same-width-spr-and-prf-to-length-halving-second-preimage-resistance",
+   "title": "Same-width SPR hash and PRF ⇒ Length-halving second-preimage resistance"
   },
   {
    "id": "red-sampler-io-to-io",
@@ -26720,7 +28337,7 @@
     "search-lwe"
    ],
    "conclusion": "decision-lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -26730,12 +28347,42 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "polynomial: for a distinguisher of advantage $\\varepsilon$ the search algorithm runs in time $\\poly(n, q, 1/\\varepsilon)$, testing each of the $nq$ guesses $s_i = \\ell$",
+   "securityLoss": "polynomial: from a distinguisher of advantage $\\varepsilon$ on $m$ samples the search algorithm makes $\\poly(n, q, m, 1/\\varepsilon)$ calls to it and uses $\\poly(n, q, m, 1/\\varepsilon)$ samples, testing each of the $nq$ guesses $s_i = \\ell$",
+   "rationale": {
+    "class": "The search algorithm runs an arbitrary decision distinguisher only as an oracle on re-randomized samples and never uses its code."
+   },
    "status": "draft",
    "page": "content/Reductions/search-lwe-to-decision-lwe.md",
    "slug": "search-lwe-to-decision-lwe",
    "graphSlug": "Reductions/search-lwe-to-decision-lwe",
    "title": "Search LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-second-preimage-resistance-to-weak-owf-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "second-preimage-resistance"
+   ],
+   "conclusion": "weak-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2 plus additive |R|/|D|: an inverter with success ε gives a second-preimage finder with success at least (ε − |R|/|D|)/2",
+   "rationale": {
+    "class": "The weak one-way function is the hash family itself, and the second-preimage finder runs any inverter once as an oracle on the image of its challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/second-preimage-resistance-to-weak-owf-rs04.md",
+   "slug": "second-preimage-resistance-to-weak-owf-rs04",
+   "graphSlug": "Reductions/second-preimage-resistance-to-weak-owf-rs04",
+   "title": "Second-preimage resistance ⇒ Weak OWF"
   },
   {
    "id": "red-secret-based-quantum-money-mini-scheme-to-owf-ac12",
@@ -27178,7 +28825,7 @@
    "hypotheses": [
     "trapdoor-sampling-sis"
    ],
-   "conclusion": "ds",
+   "conclusion": "suf-cma-ds",
    "class": "fully-black-box",
    "model": "rom",
    "models": [
@@ -27189,7 +28836,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight up to statistical terms: one run of the forger, with every hash value programmed as the image of a self-sampled short preimage, and a forgery differs from that preimage except with negligible probability",
+   "securityLoss": "tight up to statistical terms and the advantage against the derandomizing PRF: one run of the forger, with every hash value programmed as the image of a self-sampled short preimage, and a forgery differs from that preimage except with negligible probability",
    "rationale": {
     "class": "Hash-and-sign is one fixed construction from the trapdoor generator and preimage sampler, and the reduction runs any forger once as an oracle, programming the random oracle with self-sampled preimages.",
     "model": "The GPV08 reduction programs the random oracle by sampling each preimage first."
@@ -27198,7 +28845,7 @@
    "page": "content/Reductions/sis-to-ds.md",
    "slug": "sis-to-ds",
    "graphSlug": "Reductions/sis-to-ds",
-   "title": "SIS ⇒ DS"
+   "title": "SIS ⇒ SUF-CMA DS"
   },
   {
    "id": "red-sis-to-hash-function-ajt96",
@@ -27923,10 +29570,91 @@
    "title": "SSS-NIZK for NP ⇒ SSS-NIZK"
   },
   {
+   "id": "red-strong-bit-string-prp-to-bit-string-prp",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-bit-string-prp"
+   ],
+   "conclusion": "bit-string-prp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the same adversary has the same advantage in both games",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the PRP distinguisher unchanged, using it only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-bit-string-prp-to-bit-string-prp.md",
+   "slug": "strong-bit-string-prp-to-bit-string-prp",
+   "graphSlug": "Reductions/strong-bit-string-prp-to-bit-string-prp",
+   "title": "Strong PRP on bit strings ⇒ PRP on bit strings"
+  },
+  {
+   "id": "red-strong-bit-string-prp-to-strong-pseudorandom-permutation",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-bit-string-prp"
+   ],
+   "conclusion": "strong-pseudorandom-permutation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any strong-PRP distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-bit-string-prp-to-strong-pseudorandom-permutation.md",
+   "slug": "strong-bit-string-prp-to-strong-pseudorandom-permutation",
+   "graphSlug": "Reductions/strong-bit-string-prp-to-strong-pseudorandom-permutation",
+   "title": "Strong PRP on bit strings ⇒ Strong PRP"
+  },
+  {
+   "id": "red-strong-one-time-signature-to-one-time-signature",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-one-time-signature"
+   ],
+   "conclusion": "one-time-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme for each message length, and the reduction runs a one-time forger unchanged in the strong one-time game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-one-time-signature-to-one-time-signature.md",
+   "slug": "strong-one-time-signature-to-one-time-signature",
+   "graphSlug": "Reductions/strong-one-time-signature-to-one-time-signature",
+   "title": "Strong one-time signature ⇒ One-time signature"
+  },
+  {
    "id": "red-strong-pseudorandom-permutation-to-strong-tweakable-block-cipher-lrw02",
    "kind": "implication",
    "hypotheses": [
-    "strong-pseudorandom-permutation"
+    "strong-bit-string-prp"
    ],
    "conclusion": "strong-tweakable-block-cipher",
    "class": "fully-black-box",
@@ -27949,7 +29677,7 @@
    "page": "content/Reductions/strong-prp-to-strong-tweakable-block-cipher-lrw02.md",
    "slug": "strong-prp-to-strong-tweakable-block-cipher-lrw02",
    "graphSlug": "Reductions/strong-prp-to-strong-tweakable-block-cipher-lrw02",
-   "title": "Strong PRP ⇒ Strong TBC (LRW2)"
+   "title": "Strong PRP on bit strings ⇒ Strong TBC (LRW2)"
   },
   {
    "id": "red-strong-rsa-safe-primes-to-strong-rsa",
@@ -28776,7 +30504,7 @@
     "[[leftover-hash-lemma|leftover hash lemma]]"
    ],
    "heuristic": false,
-   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus the statistical leftover-hash term $\\sqrt{q^{n+1}/2^m}$",
    "rationale": {
     "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
    },
@@ -28784,7 +30512,7 @@
    "page": "content/Reductions/subexponential-lwe-to-pke-reg05.md",
    "slug": "subexponential-lwe-to-pke-reg05",
    "graphSlug": "Reductions/subexponential-lwe-to-pke-reg05",
-   "title": "Sub-exponential LWE ⇒ CPA-secure PKE"
+   "title": "Sub-exponential LWE ⇒ CPA-secure PKE (Regev)"
   },
   {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
@@ -29470,6 +31198,61 @@
    "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
   },
   {
+   "id": "red-suf-cma-ds-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "suf-cma-ds"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs an EUF-CMA forger unchanged in the SUF-CMA game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/suf-cma-ds-to-ds.md",
+   "slug": "suf-cma-ds-to-ds",
+   "graphSlug": "Reductions/suf-cma-ds-to-ds",
+   "title": "SUF-CMA DS ⇒ DS"
+  },
+  {
+   "id": "red-suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
+   "kind": "implication",
+   "hypotheses": [
+    "fixed-length-suf-cma-mac",
+    "arbitrary-length-weakly-collision-resistant-hash"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: forging advantage at most ε_f + ε_F, where the forger against the outer MAC makes as many queries as the NMAC forger and the collision finder one more",
+   "rationale": {
+    "class": "The construction calls the outer MAC and the inner family only as oracles, and each of the two reductions runs the forger once as an oracle and samples the other component's key itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96.md",
+   "slug": "suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
+   "graphSlug": "Reductions/suf-cma-mac-and-weakly-collision-resistant-hash-to-arbitrary-length-suf-cma-mac-bck96",
+   "title": "Fixed-length SUF-CMA MAC + arbitrary-length weakly collision-resistant hash ⇒ arbitrary-length SUF-CMA MAC (NMAC)"
+  },
+  {
    "id": "red-suf-cma-mac-to-mac",
    "kind": "implication",
    "hypotheses": [
@@ -29977,10 +31760,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor q_H + 1 for q_H hash queries, less q_H ν for a domain sampler at statistical distance ν: a forger with success ε inverts the permutation with probability at least ε/(q_H + 1) − q_H ν",
+   "securityLoss": "a factor $q_H + 1$ for a forger making $q_H$ hash and $q_S$ signing queries, less $(q_H + q_S)\\nu$ for a domain sampler at statistical distance $\\nu$: a forger with advantage $\\varepsilon$ yields an inverter with advantage at least $\\varepsilon/(q_H + 1) - (q_H + q_S)\\nu$",
    "rationale": {
     "class": "The scheme evaluates and inverts the permutation only as an oracle, and the reduction runs any forger once as an oracle, planting its challenge in one random-oracle answer.",
-    "model": "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose."
+    "model": "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose.",
+    "securityLoss": "The inverter guesses which of the forger's at most $q_H$ hash queries on new messages, or its unhashed forged message, carries the challenge, and each of the at most $q_H + q_S$ hash points it samples itself costs $\\nu$."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-ds-br93.md",
@@ -30035,7 +31819,7 @@
    "heuristic": false,
    "securityLoss": "additive: the sampler's statistical distance ν",
    "rationale": {
-    "class": "One fixed construction calls $\\Gen$, $\\mathsf{Samp}$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle and applies $\\mathsf{Samp}$ to its answer."
+    "class": "One fixed construction calls $\\Gen$, $\\Samp$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle and applies $\\Samp$ to its answer."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-hash-function.md",
@@ -31291,6 +33075,33 @@
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
   },
   {
+   "id": "red-uowhf-to-second-preimage-resistance-rs04",
+   "kind": "implication",
+   "hypotheses": [
+    "uowhf"
+   ],
+   "conclusion": "second-preimage-resistance",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the target-collision finder has the same advantage, in the time of the second-preimage finder plus one uniform sample from the domain",
+   "rationale": {
+    "class": "The second-preimage-resistant family is the hash family itself, and the target-collision finder commits to a uniform input and runs any second-preimage finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uowhf-to-second-preimage-resistance-rs04.md",
+   "slug": "uowhf-to-second-preimage-resistance-rs04",
+   "graphSlug": "Reductions/uowhf-to-second-preimage-resistance-rs04",
+   "title": "UOWHF ⇒ Second-preimage resistance"
+  },
+  {
    "id": "red-vdf-to-weak-vdf",
    "kind": "implication",
    "hypotheses": [
@@ -32069,6 +33880,38 @@
    "title": "No reduction from authenticated channels to UC MPC"
   },
   {
+   "id": "bar-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a",
+   "hypotheses": [
+    "bit-string-tdp",
+    "rom"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-rsa-to-ind-cca-pke-oaep-fops01"
+   ],
+   "source": [
+    "[[Sho01a - OAEP Reconsidered|Sho01a]]"
+   ],
+   "rationale": {
+    "class": "Sho01a rules out relativizing security proofs for the one construction OAEP, and the vocabulary has no class that fixes the construction and restricts the proof to relativizing ones."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a.md",
+   "slug": "no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a",
+   "graphSlug": "Barriers/no-bit-string-tdp-and-rom-to-pke-cca2-security-oaep-sho01a",
+   "title": "No relativizing reduction from TDP over bit strings + ROM to CCA-secure PKE (OAEP)"
+  },
+  {
    "id": "bar-bounded-round-assumption-to-concurrent-schnorr-identification-pas11",
    "hypotheses": [
     "bounded-round-assumption"
@@ -32221,6 +34064,38 @@
    "title": "coNP ⊆ AM collapses the polynomial hierarchy"
   },
   {
+   "id": "bar-cpa-security-to-cca-secure-symmetric-key-encryption",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "cca-secure-symmetric-key-encryption",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "cpa-security"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself CCA-secure; building a CCA-secure scheme from a CPA-secure one by another construction is not ruled out.",
+    "strength": "The counterexample modifies a given CPA-secure scheme, so it assumes one exists; without one, the identity-map implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-cpa-security-to-cca-secure-symmetric-key-encryption.md",
+   "slug": "no-cpa-security-to-cca-secure-symmetric-key-encryption",
+   "graphSlug": "Barriers/no-cpa-security-to-cca-secure-symmetric-key-encryption",
+   "title": "No fixed-construction reduction from CPA-secure SKE to CCA-secure SKE"
+  },
+  {
    "id": "bar-cpa-security-to-ind-cpa-security",
    "hypotheses": [
     "cpa-security"
@@ -32282,6 +34157,38 @@
    "slug": "no-cpa-security-to-secret-key-bit-circular-security-gkw17a",
    "graphSlug": "Barriers/no-cpa-security-to-secret-key-bit-circular-security-gkw17a",
    "title": "No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption"
+  },
+  {
+   "id": "bar-crhf-to-mac-secret-prefix",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "mac",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "crhf"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The forgery refutes only the secret-prefix MAC over Merkle–Damgård iteration; other constructions of a MAC from a CRHF are not ruled out.",
+    "strength": "The forgery works for every compression function, so the barrier assumes a CRHF only because, without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-crhf-to-mac-secret-prefix.md",
+   "slug": "no-crhf-to-mac-secret-prefix",
+   "graphSlug": "Barriers/no-crhf-to-mac-secret-prefix",
+   "title": "No fixed-construction reduction from CRHF to MAC (secret-prefix MAC)"
   },
   {
    "id": "bar-crhf-to-szk-hardness-bd19",
@@ -32531,6 +34438,68 @@
    "title": "No fixed-construction reduction from Fiat-Shamir to NIZK"
   },
   {
+   "id": "bar-hash-function-to-ds-cgh98",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "ds",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[CGH98 - The Random Oracle Methodology Revisited|CGH98]]"
+   ],
+   "rationale": {
+    "class": "The construction is CGH98's signature scheme with its random oracle instantiated by the hash function, and a counterexample against every function ensemble refutes it.",
+    "strength": "CGH98 start from a signature scheme secure in the random-oracle model, which a one-way function implemented by the oracle itself provides, so the theorem assumes no hardness assumption."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-hash-function-to-ds-cgh98.md",
+   "slug": "no-hash-function-to-ds-cgh98",
+   "graphSlug": "Barriers/no-hash-function-to-ds-cgh98",
+   "title": "No fixed-construction reduction from Hash function to DS (random-oracle instantiation)"
+  },
+  {
+   "id": "bar-hash-function-to-pke-cca2-security-cgh98",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "public-key encryption secure under adaptive chosen-ciphertext attack in the random-oracle model"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[CGH98 - The Random Oracle Methodology Revisited|CGH98]]"
+   ],
+   "rationale": {
+    "class": "The construction is CGH98's encryption scheme with its random oracle instantiated by the hash function, and a counterexample against every function ensemble refutes it.",
+    "strength": "The theorem assumes a public-key encryption scheme secure under adaptive chosen-ciphertext attack in the random-oracle model, which CGH98 modify into the counterexample."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-hash-function-to-pke-cca2-security-cgh98.md",
+   "slug": "no-hash-function-to-pke-cca2-security-cgh98",
+   "graphSlug": "Barriers/no-hash-function-to-pke-cca2-security-cgh98",
+   "title": "No fixed-construction reduction from Hash function to CCA-secure PKE (random-oracle instantiation)"
+  },
+  {
    "id": "bar-hash-function-to-pke-gkm-00",
    "hypotheses": [
     "owf"
@@ -32558,6 +34527,38 @@
    "slug": "no-hash-function-to-pke-gkm-00",
    "graphSlug": "Barriers/no-hash-function-to-pke-gkm-00",
    "title": "No relativizing reduction from OWF to PKE"
+  },
+  {
+   "id": "bar-hash-function-to-semantic-security-cgh98",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "semantic-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "public-key encryption semantically secure in the random-oracle model"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[CGH98 - The Random Oracle Methodology Revisited|CGH98]]"
+   ],
+   "rationale": {
+    "class": "The construction is CGH98's encryption scheme with its random oracle instantiated by the hash function, and a counterexample against every function ensemble refutes it.",
+    "strength": "The theorem assumes a public-key encryption scheme semantically secure in the random-oracle model, which CGH98 modify into the counterexample."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-hash-function-to-semantic-security-cgh98.md",
+   "slug": "no-hash-function-to-semantic-security-cgh98",
+   "graphSlug": "Barriers/no-hash-function-to-semantic-security-cgh98",
+   "title": "No fixed-construction reduction from Hash function to semantically secure PKE (random-oracle instantiation)"
   },
   {
    "id": "bar-he-to-cca-security",
@@ -32906,6 +34907,38 @@
    "slug": "no-ke-to-tdp-rud91",
    "graphSlug": "Barriers/no-ke-to-tdp-rud91",
    "title": "No relativizing reduction from KE to TDP"
+  },
+  {
+   "id": "bar-mac-to-suf-cma-mac",
+   "hypotheses": [
+    "mac"
+   ],
+   "conclusion": "suf-cma-mac",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "mac"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The construction is the identity map, so the counterexample refutes only the claim that every UF-CMA-secure MAC is itself SUF-CMA-secure; building some other SUF-CMA-secure MAC from a UF-CMA-secure one is not ruled out.",
+    "strength": "The counterexample modifies a given UF-CMA-secure MAC, so it assumes one exists; without one, the identity-map implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-mac-to-suf-cma-mac.md",
+   "slug": "no-mac-to-suf-cma-mac",
+   "graphSlug": "Barriers/no-mac-to-suf-cma-mac",
+   "title": "No fixed-construction reduction from MAC to SUF-CMA MAC"
   },
   {
    "id": "bar-mip-star-to-mip",
@@ -33814,11 +35847,11 @@
    ],
    "circumventedBy": [],
    "source": [
-    "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+    "folklore"
    ],
    "rationale": {
     "class": "The counterexample refutes the identity map (CPA security of a scheme implying CCA1 security of the same scheme) and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction.",
-    "strength": "BDPR98 prove the separation assuming an IND-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
+    "strength": "The counterexample is built from an IND-CPA-secure scheme, so the separation assumes one exists; without one, the identity-map implication holds vacuously."
    },
    "status": "draft",
    "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-bdpr98.md",
@@ -34034,6 +36067,140 @@
    "title": "No fully-black-box reduction from PPAD hardness to OWF"
   },
   {
+   "id": "bar-prf-to-arbitrary-length-suf-cma-mac",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "arbitrary-length-suf-cma-mac",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "length-preserving-prf"
+   ],
+   "circumventedBy": [
+    "red-prf-to-arbitrary-length-suf-cma-mac-br05"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The forgery refutes only plain CBC-MAC on messages of varying length; other constructions of an arbitrary-length MAC from a length-preserving PRF are not ruled out.",
+    "strength": "The forgery applies to CBC-MAC over a given length-preserving PRF, so the barrier assumes one exists; without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-arbitrary-length-suf-cma-mac.md",
+   "slug": "no-prf-to-arbitrary-length-suf-cma-mac",
+   "graphSlug": "Barriers/no-prf-to-arbitrary-length-suf-cma-mac",
+   "title": "No fixed-construction reduction from length-preserving PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)"
+  },
+  {
+   "id": "bar-prf-to-cca-secure-symmetric-key-encryption",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "cca-secure-symmetric-key-encryption",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "length-preserving-prf"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes only randomized counter mode; building a CCA-secure scheme from a length-preserving PRF by another construction is not ruled out.",
+    "strength": "The attack applies to randomized counter mode instantiated with a given length-preserving PRF, so it assumes one exists; without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-cca-secure-symmetric-key-encryption.md",
+   "slug": "no-prf-to-cca-secure-symmetric-key-encryption",
+   "graphSlug": "Barriers/no-prf-to-cca-secure-symmetric-key-encryption",
+   "title": "No fixed-construction reduction from length-preserving PRF to CCA-secure SKE (randomized CTR)"
+  },
+  {
+   "id": "bar-prf-to-prp-two-round-feistel",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "bit-string-prp",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "length-preserving-prf"
+   ],
+   "circumventedBy": [
+    "red-prf-to-prp-lr88"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes the two-round Feistel network on keyed round functions and does not rule out building a PRP on bit strings from a length-preserving PRF otherwise, as three rounds do.",
+    "strength": "The distinguisher refutes the construction instantiated with a length-preserving PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-prp-two-round-feistel.md",
+   "slug": "no-prf-to-prp-two-round-feistel",
+   "graphSlug": "Barriers/no-prf-to-prp-two-round-feistel",
+   "title": "No fixed-construction reduction from length-preserving PRF to PRP on bit strings (two-round Feistel)"
+  },
+  {
+   "id": "bar-prf-to-strong-pseudorandom-permutation-three-round-feistel",
+   "hypotheses": [
+    "length-preserving-prf"
+   ],
+   "conclusion": "strong-bit-string-prp",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "length-preserving-prf"
+   ],
+   "circumventedBy": [
+    "red-prf-to-strong-pseudorandom-permutation-lr88"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes the three-round Feistel network on keyed round functions and does not rule out building a strong PRP on bit strings from a length-preserving PRF otherwise, as four rounds do.",
+    "strength": "The distinguisher refutes the construction instantiated with a length-preserving PRF, so the barrier assumes one exists; without one the implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prf-to-strong-pseudorandom-permutation-three-round-feistel.md",
+   "slug": "no-prf-to-strong-pseudorandom-permutation-three-round-feistel",
+   "graphSlug": "Barriers/no-prf-to-strong-pseudorandom-permutation-three-round-feistel",
+   "title": "No fixed-construction reduction from length-preserving PRF to Strong PRP on bit strings (three-round Feistel)"
+  },
+  {
    "id": "bar-prime-order-dlog-to-schnorr-signature-ff13",
    "hypotheses": [
     "prime-order-dlog"
@@ -34172,6 +36339,40 @@
    "slug": "no-tight-prime-order-dlog-to-schnorr-signature-seu12",
    "graphSlug": "Barriers/no-tight-prime-order-dlog-to-schnorr-signature-seu12",
    "title": "No tight algebraic reduction from DLOG to Schnorr signatures in the ROM"
+  },
+  {
+   "id": "bar-prp-to-cpa-security-bdjr97",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "cpa-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "bit-string-prp"
+   ],
+   "circumventedBy": [
+    "red-prp-to-cpa-security-bdjr97"
+   ],
+   "source": [
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
+   ],
+   "rationale": {
+    "class": "The attack refutes only CBC with a counter as initialization vector; CBC with a uniform initialization vector is a CPA-secure construction from a PRP on bit strings.",
+    "strength": "The attack applies to CBC instantiated with a given PRP on bit strings, so it assumes one exists; without one, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prp-to-cpa-security-bdjr97.md",
+   "slug": "no-prp-to-cpa-security-bdjr97",
+   "graphSlug": "Barriers/no-prp-to-cpa-security-bdjr97",
+   "title": "No fixed-construction reduction from PRP on bit strings to CPA-secure SKE (CBC with a counter IV)"
   },
   {
    "id": "bar-prs-to-owf-kre21",
@@ -34349,6 +36550,75 @@
    "slug": "no-rom-to-vdf-gry25",
    "graphSlug": "Barriers/no-rom-to-vdf-gry25",
    "title": "No reduction from ROM to VDF"
+  },
+  {
+   "id": "bar-rsa-to-ds-textbook-rsa",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "ds",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "rsa"
+   ],
+   "circumventedBy": [
+    "red-rsa-to-ds-br96",
+    "red-rsa-to-ds-hw09"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The forgeries refute only textbook RSA signatures; RSA-PSS in the random-oracle model and the Hohenberger–Waters scheme in the standard model are signature schemes from RSA.",
+    "strength": "The forgeries work for every generator of the RSA syntax, so the barrier assumes RSA hardness only because, without it, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rsa-to-ds-textbook-rsa.md",
+   "slug": "no-rsa-to-ds-textbook-rsa",
+   "graphSlug": "Barriers/no-rsa-to-ds-textbook-rsa",
+   "title": "No fixed-construction reduction from RSA to DS (textbook RSA signatures)"
+  },
+  {
+   "id": "bar-rsa-to-pke-cpa-security-textbook-rsa",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "rsa"
+   ],
+   "circumventedBy": [
+    "red-rsa-to-pke-rsa78"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "rationale": {
+    "class": "The attack refutes only textbook RSA encryption; encrypting a hard-core bit of the RSA function is a CPA-secure construction from RSA.",
+    "strength": "The attack works for every generator of the RSA syntax, so the barrier assumes RSA hardness only because, without it, the implication for this construction holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rsa-to-pke-cpa-security-textbook-rsa.md",
+   "slug": "no-rsa-to-pke-cpa-security-textbook-rsa",
+   "graphSlug": "Barriers/no-rsa-to-pke-cpa-security-textbook-rsa",
+   "title": "No fixed-construction reduction from RSA to CPA-secure PKE (textbook RSA)"
   },
   {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",

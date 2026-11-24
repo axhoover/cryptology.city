@@ -23,4 +23,4 @@ A [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryptio
 
 ## Notes
 
-- The converse fails: the one-time pad is a symmetric-key encryption scheme with perfect one-time security but not CPA-secure, which is why [[ske-to-owf-il89|SKE ⇒ OWF]] takes CPA security as its hypothesis — standard.
+- The converse fails: the [[symmetric-key-encryption#one-time-pad|one-time pad]] is [[symmetric-key-encryption#perfect-secrecy|perfectly secret]], hence one-time secure, but its encryption is deterministic, so it is not CPA-secure, which is why [[ske-to-owf-il89|SKE ⇒ OWF]] takes CPA security as its hypothesis — standard.

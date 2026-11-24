@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Cor02"
 source: https://eprint.iacr.org/2001/062
 authors: Jean-Sébastien Coron

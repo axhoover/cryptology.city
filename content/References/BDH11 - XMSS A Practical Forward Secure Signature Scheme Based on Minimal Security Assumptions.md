@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BDH11"
 source: https://eprint.iacr.org/2011/484
 authors: Johannes Buchmann, Erik Dahmen, Andreas Hülsing
@@ -18,3 +18,7 @@ cryptobib_key: PQCRYPTO:BucDahHul11
 ## Abstract
 
 We present the hash-based signature scheme XMSS. It is the first provably (forward) secure and practical signature scheme with minimal security requirements: a pseudorandom and a second preimage resistant (hash) function family. Its signature size is reduced to less than 25% compared to the best provably secure hash based signature scheme.
+
+# Notes
+
+BH12 is a later two-author full version, with the full security proofs, a discussion of the security level and new runtimes — [[BH12 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions (Full Version)|BH12]] (Section 1).

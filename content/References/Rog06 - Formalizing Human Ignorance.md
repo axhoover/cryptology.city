@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Rog06"
 source: https://eprint.iacr.org/2006/281
 authors: Phillip Rogaway

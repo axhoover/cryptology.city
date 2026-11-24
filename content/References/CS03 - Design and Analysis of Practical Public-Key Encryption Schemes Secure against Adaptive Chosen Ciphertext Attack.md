@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "CS03"
 source: https://eprint.iacr.org/2001/108
 authors: Ronald Cramer, Victor Shoup

@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] yields a [[trapdoor-permutation|trapdoor permutation]] on its domain $\calD$: $\Gen'$ runs the pair's generator and outputs $(f_0, \td_0)$, $\mathsf{Samp}$ is the pair's domain sampler, $\Eval$ evaluates $f_0$, and $\Invert$ inverts it with $\td_0$ — folklore.
+A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] yields a [[trapdoor-permutation|trapdoor permutation]] on its domain $\calD$: $\Gen'$ runs the pair's generator and outputs $(f_0, \td_0)$, $\Samp$ is the pair's domain sampler, $\Eval$ evaluates $f_0$, and $\Invert$ inverts it with $\td_0$ — folklore.
 
 ## Sketch
 

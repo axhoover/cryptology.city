@@ -67,6 +67,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\Query`    | $\Query$    |
 | `\Eval`     | $\Eval$     |
 | `\Invert`   | $\Invert$   |
+| `\Samp`     | $\Samp$     |
 | `\Sign`     | $\Sign$     |
 | `\Vrfy`     | $\Vrfy$     |
 | `\Prove`    | $\Prove$    |
@@ -176,6 +177,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\PKE`  | $\PKE$     |
 | `\HE`   | $\HE$      |
 | `\DS`   | $\DS$      |
+| `\TDP`  | $\TDP$     |
 | `\MAC`  | $\MAC$     |
 | `\PIR`  | $\PIR$     |
 | `\hash` | $\hash$    |

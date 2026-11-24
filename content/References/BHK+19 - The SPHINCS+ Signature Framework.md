@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BHK+19"
 source: https://eprint.iacr.org/2019/1086
 authors: Daniel J. Bernstein, Andreas Hülsing, Stefan Kölbl, Ruben Niederhagen, Joost Rijneveld, Peter Schwabe

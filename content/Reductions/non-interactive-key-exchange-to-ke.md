@@ -28,3 +28,4 @@ The eavesdropper's view $(\pp, \pk_A, \pk_B)$ with $A$'s key or a uniform $u \ge
 ## Notes
 
 - Instantiated with the Diffie–Hellman NIKE ([[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ NIKE]]), the protocol is the Diffie–Hellman key exchange of [[DH76 - New Directions in Cryptography|DH76]].
+- The key space of the protocol is that of the NIKE for the $\pp$ that $A$ sends, so it is determined by the transcript, and it has at least two elements because the NIKE's has; with the Diffie–Hellman NIKE it is the group $\GG$ — folklore.

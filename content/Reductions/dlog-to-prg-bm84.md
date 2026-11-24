@@ -28,5 +28,5 @@ The half-interval predicate is hard-core for $x \mapsto g^x$: given $y = g^x$, E
 
 ## Notes
 
-- The next-bit test characterizes pseudorandomness, and the construction generalizes to a PRG from any one-way permutation — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
+- The next-bit test characterizes pseudorandomness, and the construction generalizes to a PRG from any one-way permutation ([[owp-to-prg-yao82a-gl89|OWP ⇒ PRG]]) — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
 - Efficiency: each output bit costs one exponentiation modulo $P$ — standard.

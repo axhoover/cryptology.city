@@ -38,11 +38,9 @@ The AGM constrains only the group elements an adversary outputs, so it places no
 
 ## Comparison with the GGM
 
-The relationship between the AGM and the [[generic-group-model|GGM]] has been the subject of significant study.
+Fuchsbauer, Kiltz and Loss state that their AGM results, combined with known lower bounds for the discrete logarithm in the [[generic-group-model|GGM]], give lower bounds in the GGM — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]. [[KZ22 - An Analysis of the Algebraic Group Model|KZ22]] describe the claim behind this as the view that the AGM is (strictly) weaker than the GGM: hardness results for algebraic algorithms imply hardness results for generic algorithms, and generic reductions in the AGM imply generic reductions in the GGM.
 
-[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every AGM-secure scheme is GGM-secure, and AGM lower bounds lift to the GGM.
-
-[[KZ22 - An Analysis of the Algebraic Group Model|Zhang, Zhou, and Katz (KZ22)]] challenged this claim: they showed that hardness in the AGM does not in general imply hardness in the GGM, and that generic reductions in the AGM need not yield analogous reductions in the GGM ([[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]). The precise conditions under which AGM proofs transfer to the GGM remain an active area of research.
+As the two models are currently formalized, that view is not correct in general: hardness in the AGM may not imply hardness in the GGM, and a generic reduction in the AGM may not imply a similar reduction in the GGM ([[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]) — [[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]. Under an alternative interpretation, in frameworks for generic and algebraic models of arbitrary algebraic structures, FKL18's claim holds, and most algebraic analyses in the literature fall within those frameworks — [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]].
 
 ## Comparison with the Standard Model
 

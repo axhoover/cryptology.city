@@ -22,6 +22,47 @@ where $H$ is either a [[random-oracle-model|random oracle]] or $h_s$ for a publi
 
 The transform is particularly useful for constructing [[digital-signature|digital signatures]] from identification schemes (the original application of Fiat and Shamir; [[id-and-rom-to-ds|ID ⇒ DS]]), and for building non-interactive zero-knowledge proofs ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]). It creates no succinctness, since the proof is the prover's transcript; applied to a PCP or a public-coin IOP whose oracles are Merkle-committed, it yields succinct non-interactive arguments in the random oracle model — [[Mic00 - Computationally Sound Proofs|Mic00]], [[BCS16 - Interactive Oracle Proofs|BCS16]] (for IOPs, given state-restoration soundness).
 
+### Signatures from identification schemes
+
+Let $\Pi = (\KeyGen, P, V)$ be a canonical [[identification-scheme|identification scheme]] with challenge space $C$: the prover sends a commitment $a$, receives a challenge $e \in C$ and answers with a response $z$, and $V(\pk, a, e, z)$ is the verifier's deterministic decision. For a hash function $H : \bits^* \to C$, the Fiat-Shamir signature scheme $\Pi_{\mathrm{FS}}$ keeps the key generation of $\Pi$, with $\pk$ as verification key, and replaces the verifier's challenge by the hash of the commitment and the message — the transform of [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]], as credited by [[BN06 - Multi-Signatures in the Plain Public-Key Model and a General Forking Lemma|BN06]] (Section 1):
+
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Pi_{\mathrm{FS}}.\KeyGen(1^\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \Pi.\KeyGen(1^\secpar)$
+\Return $(\sk, \pk)$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Pi_{\mathrm{FS}}.\Sign(\sk, m)$}
+\begin{algorithmic}
+\State $(a, \st) \gets P(\sk)$
+\Comment{Commitment, with fresh coins}
+\State $e \gets H(a, m)$
+\Comment{In place of the verifier's challenge}
+\State $z \gets P(\st, e)$
+\Return $\sigma := (a, z)$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Pi_{\mathrm{FS}}.\Vrfy(\pk, m, \sigma)$}
+\begin{algorithmic}
+\State $(a, z) \gets \sigma$
+\State $e \gets H(a, m)$
+\Comment{Recompute the challenge}
+\Return $V(\pk, a, e, z)$
+\end{algorithmic}
+\end{algorithm}
+```
+
+If $\Pi$ is perfectly correct, $V$ accepts the honest response to every challenge, so $\Pi_{\mathrm{FS}}$ is perfectly correct for every $H$ — standard. Two variants are common. The key-prefixed variant also hashes $\pk$, as [[digital-signature#eddsa|EdDSA]] does with the challenge $H(R \| A \| m)$ — [[JL17 - Edwards-Curve Digital Signature Algorithm (EdDSA)|JL17]] (Section 3.3). When the verification equation determines $a$ from $(\pk, e, z)$, as $a = g^z h^{-e}$ does for the [[identification-scheme#schnorr-identification-protocol|Schnorr protocol]], the signature can be $(e, z)$ instead, and $\Vrfy$ recomputes $a$ and checks $e = H(a, m)$ — standard. In the [[random-oracle-model|random-oracle model]], $\Pi_{\mathrm{FS}}$ is EUF-CMA-unforgeable if and only if $\Pi$ is secure against impersonation under passive attack, for [[identification-scheme#non-trivial-canonical-identification-schemes|non-trivial]] $\Pi$, whose commitments have super-logarithmic min-entropy ([[id-and-rom-to-ds|ID ⇒ DS]]) — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].
+
 ## Security in the ROM
 
 For a large class of signature schemes obtained from three-move identification protocols, the [[forking-lemma|forking lemma]] reduces security in the [[random-oracle-model|random oracle model]] to the hard problem underlying the protocol — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. For public-coin interactive oracle proofs, the soundness of the transform in the ROM is tightly characterized by state-restoration soundness, which is bounded tightly in terms of soundness and round complexity ([[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]]) — [[BCS16 - Interactive Oracle Proofs|BCS16]]. For a $(2\mu+1)$-move public-coin protocol and $Q$ oracle queries the generic loss is approximately $Q^\mu$, which the $\mu$-fold sequential repetition of $\Sigma$-protocols attains, while for $(k_1, \ldots, k_\mu)$-special-sound protocols the knowledge error degrades only linearly in $Q$ — [[AFK22 - Fiat-Shamir Transformation of Multi-round Interactive Proofs|AFK22]].

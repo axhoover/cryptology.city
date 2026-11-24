@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Sho01a"
 source: https://eprint.iacr.org/2000/060
 authors: Victor Shoup
@@ -51,3 +51,7 @@ rather than by design – that RSA-OAEP is secure in the random oracle
 model; however, this fact relies on special algebraic properties
 of the RSA function, and not on the security
 of the general OAEP scheme.
+
+# Notes
+
+- The CRYPTO 2001 version, "OAEP Reconsidered (Extended Abstract)", appears in LNCS 2139, pages 239–259, and a journal version in the Journal of Cryptology 15(4), 2002.

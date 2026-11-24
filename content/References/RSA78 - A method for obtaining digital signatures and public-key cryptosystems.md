@@ -2,8 +2,8 @@
 type: reference
 status: draft
 title: "RSA78"
-source: https://dl.acm.org/doi/10.1145/359340.359342
-authors: Ron Rivest, Adi Shamir, Leonard Adleman
+source: https://doi.org/10.1145/359340.359342
+authors: Ronald L. Rivest, Adi Shamir, Leonard M. Adleman
 venue: Communications of the ACM, 1978
 published: 1978-02-01
 aliases:
@@ -13,7 +13,7 @@ cryptobib_key: RivShaAdl78
 
 # [RSA78] A method for obtaining digital signatures and public-key cryptosystems
 
-**Authors:** Ron Rivest, Adi Shamir, Leonard Adleman | **Venue:** Communications of the ACM, 1978 | [Source](https://dl.acm.org/doi/10.1145/359340.359342)
+**Authors:** Ronald L. Rivest, Adi Shamir, Leonard M. Adleman | **Venue:** Communications of the ACM, 1978 | [Source](https://doi.org/10.1145/359340.359342)
 
 ## Abstract
 

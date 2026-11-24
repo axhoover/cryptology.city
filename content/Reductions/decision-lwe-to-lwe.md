@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Hardness of [[learning-with-errors#decision-lwe|decision LWE]] in its prime-modulus regime, a prime $q \le \poly(n)$ with Gaussian error of width $\alpha q \ge 2\sqrt{n}$ and $\alpha \le n^{-c}$ for every $m = \poly(\secpar)$, is hardness of [[learning-with-errors|LWE]] for the same $(n, q, \alpha)$, since $q$ is $\poly(\secpar)$-computable and $\lceil \log q \rceil = O(\log n) \le \poly(\secpar)$, with the same advantage — folklore.
+Let $(n, q, \alpha)$ witness [[learning-with-errors#decision-lwe|decision LWE]]: $n \le \poly(\secpar)$ and a prime $q \le \poly(n)$ are $\poly(\secpar)$-computable, $\alpha q \ge 2\sqrt{n}$, $\alpha \le n^{-c}$ for a constant $c > 0$, and decision LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m)$ for every $m = \poly(\secpar)$. The same $(n, q, \alpha)$ witnesses [[learning-with-errors|LWE]], whose modulus need only be $\poly(\secpar)$-computable with $\lceil \log q \rceil \le \poly(\secpar)$, here $\lceil \log q \rceil = O(\log n)$; the two games coincide, so every adversary has the same advantage in both — folklore.

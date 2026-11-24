@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "MM11b"
 source: https://eprint.iacr.org/2011/521
 authors: Daniele Micciancio, Petros Mol

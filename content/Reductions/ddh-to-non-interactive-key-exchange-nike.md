@@ -9,8 +9,7 @@ hypotheses: [ddh]
 conclusion: non-interactive-key-exchange
 class: fully-black-box
 model: standard
-source:
-  - "[[DH76 - New Directions in Cryptography|DH76]]"
+source: folklore
 security-loss: "tight for one honest pair: the DDH instance is forwarded unchanged"
 rationale:
   class: "The construction uses only the group generator, and the fixed reduction embeds the DDH challenge as the two public keys and the shared key and runs the adversary once as an oracle."
@@ -30,3 +29,4 @@ The reduction sets $(\pk_i, \pk_j, k_{ij}) := (X, Y, Z)$ from its DDH challenge:
 
 - DH76 predates the DDH assumption: the protocol is DH76's, and its security under DDH is immediate from the definition — folklore.
 - The statement covers one pair of honestly generated keys; NIKE security models with adversarially registered public keys are formalized in [[FHKP13 - Non-Interactive Key Exchange|FHKP13]].
+- Under [[computational-diffie-hellman|CDH]] alone, $g^{x_i x_j}$ is [[key-exchange#one-way-security|one-way]] but need not be pseudorandom ([[cdh-to-one-way-key-exchange|CDH ⇒ One-way KE (Diffie–Hellman)]]) — folklore.

@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, the Naor–Reingold function is a [[pseudorandom-function|PRF]]: over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with key $(a_0, a_1, \ldots, a_n) \getsr [p]^{n+1}$, it maps $x \in \bits^n$ to $g^{a_0 \prod_{i : x_i = 1} a_i} \in \GG$ — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].
+If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, the Naor–Reingold function is a [[pseudorandom-function|PRF]] for every polynomially bounded input length $n = n(\secpar)$ with $n = \omega(\log \secpar)$, so that the domain is superpolynomial: over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with key $(a_0, a_1, \ldots, a_n) \getsr [p]^{n+1}$, it maps $x \in \bits^n$ to $g^{a_0 \prod_{i : x_i = 1} a_i} \in \GG$ — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].
 
 ## Sketch
 

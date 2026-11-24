@@ -78,12 +78,12 @@ is $(\ell/|\FF|)$-almost $\Delta$-universal: for $m \ne m'$ and $c \in \FF$, $h_
 
 Wegman–Carter [[message-authentication-code#one-time-macs|one-time MACs]] are built from these families — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]]; so are [[message-authentication-code#nonce-based-macs|nonce-based]] Wegman–Carter MACs — standard. The [[strong-prp-to-strong-tweakable-block-cipher-lrw02|LRW2]] [[tweakable-block-cipher|tweakable block cipher]] uses an almost XOR-universal family — [[LRW02 - Tweakable Block Ciphers|LRW02]]. The [[leftover-hash-lemma|leftover hash lemma]] extracts nearly uniform bits with a universal family — [[ILL89 - Pseudo-random Generation from One-way Functions|ILL89]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].
 
-<!-- BEGIN GENERATED participates-in 0ef046f072e5 -->
+<!-- BEGIN GENERATED participates-in 7da715506e8e -->
 
 ## Participates in
 
 **Used via Universal hash function**
 
-- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP ⇒ Strong TBC (LRW2)]]
+- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP on bit strings ⇒ Strong TBC (LRW2)]]
 
 <!-- END GENERATED participates-in -->

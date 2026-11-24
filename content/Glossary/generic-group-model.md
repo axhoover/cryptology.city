@@ -15,18 +15,71 @@ variants:
 
 # Generic Group Model
 
-The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model goes back to Nechaev [[Nec94 - Complexity of a Determinate Algorithm for the Discrete Logarithm|Nec94]] and Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]; Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]] formalized the representation-free variant, and the two formulations differ in important ways.
+The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model goes back to Nechaev [[Nec94 - Complexity of a Determinate Algorithm for the Discrete Logarithm|Nec94]] and Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]; Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]] formalized the representation-free variant, and the two formulations differ ([[#Comparing the Two Formulations|below]]).
 
 ## Shoup's Formulation
 
 Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p = \secpar^{\omega(1)}$, so that $1/p$ is negligible. A **handle function** is a random injection $\sigma: \GG \to \bits^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
 
-- **Group operation:** $\calO_{\mathsf{op}}(\sigma(X), \sigma(Y)) \to \sigma(X \cdot Y)$
-- **Inversion:** $\calO_{\mathsf{inv}}(\sigma(X)) \to \sigma(X^{-1})$
+- **Group operation:** $\calO_{\mathrm{op}}(\sigma(X), \sigma(Y)) \to \sigma(X \cdot Y)$
+- **Inversion:** $\calO_{\mathrm{inv}}(\sigma(X)) \to \sigma(X^{-1})$
 
 Equality of group elements is implicit: since $\sigma$ is injective, two handles are equal iff the underlying elements are. An algorithm is **generic** (in Shoup's sense) if it succeeds at a computational task for every choice of injection $\sigma$.
 
 The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries ([[ggm-to-dlog-sho97|GGM ⇒ DLOG]], [[ggm-to-cdh-sho97|GGM ⇒ CDH]], [[ggm-to-ddh-sho97|GGM ⇒ DDH]]). Combined with the Baby-step Giant-step algorithm, this is tight.
+
+### Discrete-logarithm game
+
+Identifying $g^a$ with $a \in \ZZ_p$, a handle function is a random injection $\sigma : \ZZ_p \to \bits^n$ with $2^n \ge p$, the group operation maps $(\sigma(a), \sigma(b))$ to $\sigma(a + b)$, and inversion maps $\sigma(a)$ to $\sigma(-a)$. Write $\mathrm{Inj}(\ZZ_p, \bits^n)$ for the set of injections $\ZZ_p \to \bits^n$. The oracles answer only on handles the algorithm has already received, the list $L$; a query on any other string returns $\bot$, since otherwise the algorithm could learn handles by guessing strings in the image of $\sigma$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\text{gg-dl}}_{p,n,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\sigma \getsr \mathrm{Inj}(\ZZ_p, \bits^n)$ ; $x \getsr \ZZ_p$
+\State $L \gets \{\sigma(1), \sigma(x)\}$
+\State $\hat{x} \gets \calA^{\calO_{\mathrm{op}}, \calO_{\mathrm{inv}}}(1^\secpar, p, \sigma(1), \sigma(x))$
+\Return $[\hat{x} = x]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_{\mathrm{op}}(s, t)$}
+\begin{algorithmic}
+\If{$s \notin L \lor t \notin L$}
+\Return $\bot$
+\EndIf
+\State $u \gets \sigma(\sigma^{-1}(s) + \sigma^{-1}(t))$ ; $L \gets L \cup \{u\}$
+\Return $u$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_{\mathrm{inv}}(s)$}
+\begin{algorithmic}
+\If{$s \notin L$}
+\Return $\bot$
+\EndIf
+\State $u \gets \sigma(-\sigma^{-1}(s))$ ; $L \gets L \cup \{u\}$
+\Return $u$
+\end{algorithmic}
+\end{algorithm}
+```
+
+The algorithm $\calA$ is computationally unbounded and limited only in its number of oracle queries, and
+
+$$
+\Adv^{\text{gg-dl}}_{p,n,\calA}(\secpar) := \Pr\!\left[\Game^{\text{gg-dl}}_{p,n,\calA}(\secpar) = 1\right].
+$$
+
+For every $\calA$ making at most $q$ oracle queries, $\Adv^{\text{gg-dl}}_{p,n,\calA}(\secpar) \le \big(\binom{q+2}{2} + 1\big)/p$: every handle $\calA$ holds is $\sigma(u + vx)$ for an affine polynomial $u + vX$ that follows from its queries, at most $q + 2$ such polynomials arise, two distinct ones agree at $x$ for at most one value of $x$, and until two do, the view of $\calA$ is independent of $x$ — standard. So for $p = \secpar^{\omega(1)}$ the advantage of every $\calA$ making $\poly(\secpar)$ queries is negligible, and constant success probability takes $\Omega(\sqrt{p})$ queries ([[ggm-to-dlog-sho97|GGM ⇒ DLOG]]) — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].
 
 ## Maurer's Formulation
 
@@ -36,7 +89,7 @@ This captures a different notion of independence from the group representation, 
 
 ## Comparing the Two Formulations
 
-Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across _all_ known elements at once), whereas Maurer's label-free model encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy. Zhandry showed that Shoup's model is equivalent to a type-safe variant of Maurer's for single-stage games — [[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]].
+Zhandry observes that the two formulations are often treated as equivalent and shows that they differ: numerous textbook constructions are captured by Shoup's formulation but not by Maurer's, every construction captured by Maurer's is captured by Shoup's, and for constructions captured by both, security is equivalent for single-stage games, while Shoup security is strictly stronger than Maurer security for some multi-stage games — [[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]]. Maurer, Portmann and Zhu view a model as a set of games with the same type of interactions and compare models by reductions between games, which gives a hierarchy of generic group models with different queries; with it they strengthen the model in which the baby-step giant-step algorithm is proven, weaken the model in which the matching lower bound is proven, and close the gap between upper and lower bounds for the discrete logarithm with preprocessing that had been proven in mismatched models — [[MPZ20 - Unifying Generic Group Models|MPZ20]]. TODO: state what [[JS08 - On the Equivalence of Generic Group Models|JS08]] prove about the two formulations.
 
 ## The Structured GGM
 
@@ -64,7 +117,7 @@ Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e) \gets \G
 
 ## Comparison with the AGM
 
-The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM ([[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]).
+Fuchsbauer, Kiltz and Loss place the [[algebraic-group-model|Algebraic Group Model (AGM)]] between the standard model and the GGM, and state that their AGM results, combined with known lower bounds for the discrete logarithm in the GGM, give lower bounds in the GGM — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]. As the two models are currently formalized, the transfer does not hold in general: hardness in the AGM may not imply hardness in the GGM, and a generic reduction in the AGM may not imply a similar reduction in the GGM ([[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]) — [[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]. Under an alternative interpretation, in frameworks for generic and algebraic models of arbitrary algebraic structures, the claim that some hardness results in the AGM imply the same results in the GGM holds, and most algebraic analyses in the literature fall within those frameworks — [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]].
 
 <!-- BEGIN GENERATED participates-in 8d84e710fe96 -->
 

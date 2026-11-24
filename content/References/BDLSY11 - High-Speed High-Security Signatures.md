@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BDLSY11"
 source: https://eprint.iacr.org/2011/368
 authors: Daniel J. Bernstein, Niels Duif, Tanja Lange, Peter Schwabe, Bo-Yin Yang

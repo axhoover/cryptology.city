@@ -10,6 +10,7 @@ variants:
   compression-function-prf: "#compression-function-prfs"
   invertible-prf: "#invertible-prfs"
   key-expanding-weak-prf: "#key-expanding-weak-prfs"
+  length-preserving-prf: "#length-preserving-prfs"
   non-uniform-compression-function-prf: "#non-uniform-compression-function-prfs"
   non-uniform-prf: "#security-against-non-uniform-adversaries"
   pseudorandom-injective-function: "#pseudorandom-injective-functions"
@@ -30,7 +31,7 @@ A PRF is a pair of efficient algorithms $\PRF= (\KeyGen, \Eval)$ with respect to
 - $\Eval(k,x) \to y,$ is a deterministic function that
   takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
 
-TODO: quantify the domain and range: with $|\calD_\secpar|$ polynomial in $\secpar$, a key that is a table of independent uniform values in $\calR$, one per input, with $\Eval(k, x)$ the entry for $x$, is pseudorandom unconditionally, and with $|\calR| = 1$ every keyed family is, so the sizes under which results here hold (for example $\calD = \calR = \bits^\secpar$, or $|\calD_\secpar|$ superpolynomial as the Wegman–Carter MAC on [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC]] requires) should be stated.
+The domain and range are families $\calD = \{\calD_\secpar\}_{\secpar \in \NN}$ and $\calR = \{\calR_\secpar\}_{\secpar \in \NN}$ of finite sets of strings of length polynomial in $\secpar$, each with an efficient uniform sampler, such that $|\calD_\secpar|$ is superpolynomial in $\secpar$ ($1/|\calD_\secpar|$ is negligible) and $|\calR_\secpar| \ge 2$. The standard instance is $\calD_\secpar = \bits^{\ell(\secpar)}$ with $\ell = \omega(\log \secpar)$ and $\calR_\secpar = \bits^{m(\secpar)}$ with $m \ge 1$. Both conditions exclude trivial instances: with $|\calD_\secpar|$ polynomial, a key that is a table of independent uniform values in $\calR_\secpar$, one per input, with $\Eval(k, x)$ the entry for $x$, is pseudorandom unconditionally, and with $|\calR_\secpar| = 1$ every keyed family is — standard. On a domain of polynomial size the definition therefore carries content only for keys shorter than the function table of $|\calD_\secpar| \log_2 |\calR_\secpar|$ bits, and restricting a PRF to any efficiently embedded subset of its domain gives a family on that small domain, with the same key, that is pseudorandom in $\Game^{\mathrm{prf}}$, since a distinguisher for it is a distinguisher for the PRF that queries only embedded points — standard. Neither the shape of the standard instance nor any relation between $\calK$, $\calD$ and $\calR$ is required, and the range may be $\bits$ or a group, so a construction that XORs outputs with $n$-bit blocks or feeds them back as inputs assumes a [[#Length-preserving PRFs|length-preserving PRF]].
 
 ## Properties
 
@@ -58,7 +59,7 @@ $$
 \Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible.
+is negligible. The notion is due to [[GGM86 - How to construct random functions|GGM86]].
 
 ### Security against non-uniform adversaries
 
@@ -66,13 +67,17 @@ Let $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ be a family of polynomial-size
 
 # Variations
 
+## Length-preserving PRFs
+
+A **length-preserving PRF** is a PRF with $\calD_\secpar = \calR_\secpar = \bits^{n(\secpar)}$, for a polynomially bounded $n = n(\secpar)$ computable from $1^\secpar$ in polynomial time with $n = \omega(\log \secpar)$, so that the domain is superpolynomial; $\calK$ and $\KeyGen$ are unconstrained. As an object, a length-preserving PRF denotes such a PRF, pseudorandom in $\Game^{\mathrm{prf}}$, for some such $n$, which the construction producing it fixes. It is a PRF ([[length-preserving-prf-to-prf|Length-preserving PRF ⇒ PRF]]), and restricting a [[#Compression-function PRFs|compression-function PRF]] to the $0$-padded copy of $\bits^c$ in $\bits^b$ gives one with $n = c$ ([[compression-function-prf-to-length-preserving-prf|Compression-function PRF ⇒ Length-preserving PRF]]) — standard. A [[pseudorandom-permutation#prps-on-bit-strings|PRP on bit strings]] with domain $\bits^n$ is one up to the birthday term $q(q-1)/2^{n+1}$ ([[bit-string-prp-to-length-preserving-prf|PRP on bit strings ⇒ Length-preserving PRF]]) — [[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]]. [[prf-to-mac-bkr94|CBC-MAC]], [[prf-to-ske|counter mode]] and the [[prf-to-nonce-based-mac|Wegman–Carter MAC]] use this shape, which a PRF with range $\bits$ lacks.
+
 ## Compression-function PRFs
 
-A **compression-function PRF** is, for some polynomials $c = c(\secpar)$ and $b = b(\secpar)$ with $c = \omega(\log \secpar)$ and $c \le b$, an efficiently computable $f : \bits^c \times \bits^b \to \bits^c$ taken as a PRF with $\calK = \calR = \bits^c$, $\calD = \bits^b$ and $\Eval := f$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^c$. As an object, a compression-function PRF denotes such an $f$ that is pseudorandom in $\Game^{\mathrm{prf}}$. Pseudorandomness under a uniform $c$-bit key already forces $c = \omega(\log \secpar)$, since guessing the key and checking two queries gives advantage at least $2^{-c} - 2^{-2c}$ — standard. Outputs lie in the key space, so a chaining value can serve as the next key, as in the NMAC cascade; this is the premise of the uniform NMAC theorem of [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]] ([[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]).
+A **compression-function PRF** is, for some polynomially bounded $c = c(\secpar)$ and $b = b(\secpar)$, computable from $1^\secpar$ in polynomial time, with $c = \omega(\log \secpar)$ and $c \le b$, an efficiently computable $f : \bits^c \times \bits^b \to \bits^c$ taken as a PRF with $\calK = \calR = \bits^c$, $\calD = \bits^b$ and $\Eval := f$, whose $\KeyGen(1^\secpar)$ samples $k \getsr \bits^c$. As an object, a compression-function PRF denotes such an $f$ that is pseudorandom in $\Game^{\mathrm{prf}}$. Pseudorandomness under a uniform $c$-bit key already forces $c = \omega(\log \secpar)$, since guessing the key and checking two queries gives advantage at least $2^{-c} - 2^{-2c}$ — standard. Outputs lie in the key space, so a chaining value can serve as the next key, as in the NMAC cascade; this is the premise of the uniform NMAC theorem of [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]] ([[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]]). XMSS uses one together with a [[hash-function#length-halving-second-preimage-resistance|length-halving second-preimage-resistant]] family of the same width ([[hash-function#same-width-spr-hash-and-prf|same-width SPR hash and PRF]], [[hash-function-to-hash-based-signatures|SPR hash + PRF ⇒ Stateful DS (XMSS)]]) — [[HBG+18 - XMSS eXtended Merkle Signature Scheme|HBG+18]] (Sections 3.1.1.1, 3.1.2 and 4.1.2).
 
 ### Non-uniform compression-function PRFs
 
-A **non-uniform compression-function PRF** is an $f$ of the shape above, for some polynomials $c = \omega(\log \secpar)$ and $b \ge c$, taken as the PRF $\PRF = (\KeyGen, f)$ with $\KeyGen(1^\secpar)$ uniform on $\bits^c$, such that for every family $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ of polynomial-size oracle circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing $\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$, $\Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$ is negligible. It is the premise of the NMAC theorem of [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]] ([[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]]), whose reduction is non-uniform — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]].
+A **non-uniform compression-function PRF** is an $f$ of the shape above, for some such $c = \omega(\log \secpar)$ and $b \ge c$, taken as the PRF $\PRF = (\KeyGen, f)$ with $\KeyGen(1^\secpar)$ uniform on $\bits^c$, such that for every family $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ of polynomial-size oracle circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing $\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$, $\Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$ is negligible. It is the premise of the NMAC theorem of [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]] ([[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]]), whose reduction is non-uniform — [[GPR14 - The Exact PRF-Security of NMAC and HMAC|GPR14]].
 
 ## Invertible PRFs
 
@@ -174,38 +179,42 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 
 # Other results
 
-- [[owf-to-prg-hill99|OWF ⇒ PRG]] then [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]] then [[prg-to-prf-ggm86|PRG ⇒ Compression-function PRF (GGM)]] then [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]]
+- [[prf-to-owf|PRF ⇒ OWF]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
-- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
-- [[prf-to-mac|PRF ⇒ MAC]]
+- [[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]]
+- [[prf-to-mac|Length-preserving PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 06ae18361af8 -->
+<!-- BEGIN GENERATED participates-in 3a3de353cdd0 -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
+- [[compression-function-prf-to-length-preserving-prf|Compression-function PRF ⇒ Length-preserving PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#key-expanding-weak-prfs|Key-expanding weak PRFs]])
+- [[length-preserving-prf-to-prf|Length-preserving PRF ⇒ PRF]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[non-uniform-compression-function-prf-to-compression-function-prf|Non-uniform compression-function PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
 - [[non-uniform-compression-function-prf-to-non-uniform-prf|Non-uniform compression-function PRF ⇒ Non-uniform PRF]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
 - [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
+- [[prf-to-arbitrary-length-suf-cma-mac-br05|Length-preserving PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[prf-to-garbled-circuits-bhr12|PRF ⇒ Garbled circuits (BHR)]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]]
-- [[prf-to-mac|PRF ⇒ MAC]]
+- [[prf-to-mac|Length-preserving PRF ⇒ MAC]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[prf-to-mac-bel06|Non-uniform compression-function PRF ⇒ MAC (NMAC)]] (via [[pseudorandom-function#non-uniform-compression-function-prfs|Non-uniform compression-function PRFs]])
-- [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
+- [[prf-to-mac-bkr94|Length-preserving PRF ⇒ MAC (CBC-MAC)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[prf-to-mac-gpr14|Compression-function PRF ⇒ MAC (NMAC, uniform proof)]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
-- [[prf-to-nonce-based-mac|PRF ⇒ nonce-based MAC (Wegman–Carter)]]
+- [[prf-to-nonce-based-mac|Length-preserving PRF ⇒ nonce-based MAC (Wegman–Carter)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[prf-to-ope-bclo09|PRF ⇒ OPE (BCLO09)]]
 - [[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE leaking the first differing bit (CLWW16)]]
+- [[prf-to-owf|PRF ⇒ OWF]]
 - [[prf-to-polylog-oram-go96|PRF ⇒ polylogarithmic-overhead ORAM (hierarchical ORAM)]]
-- [[prf-to-prp-lr88|PRF ⇒ PRP]]
-- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
-- [[prf-to-strong-pseudorandom-permutation-lr88|PRF ⇒ Strong PRP]]
+- [[prf-to-prp-lr88|Length-preserving PRF ⇒ PRP on bit strings]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
+- [[prf-to-ske|Length-preserving PRF ⇒ CPA-secure SKE]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
+- [[prf-to-strong-pseudorandom-permutation-lr88|Length-preserving PRF ⇒ Strong PRP on bit strings]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]]
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]]
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]]
@@ -214,19 +223,31 @@ A **key-expanding weak PRF** is a [[pseudorandom-function#weak-prfs|weak PRF]] w
 **Produces Pseudorandom function**
 
 - [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
+- [[bit-string-prp-to-length-preserving-prf|PRP on bit strings ⇒ Length-preserving PRF]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
+- [[compression-function-prf-to-length-preserving-prf|Compression-function PRF ⇒ Length-preserving PRF]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
 - [[compression-function-prf-to-prf|Compression-function PRF ⇒ PRF]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[key-expanding-weak-prf-to-weak-prf|Key-expanding weak PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
+- [[length-preserving-prf-to-prf|Length-preserving PRF ⇒ PRF]]
 - [[non-uniform-compression-function-prf-to-compression-function-prf|Non-uniform compression-function PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[non-uniform-compression-function-prf-to-non-uniform-prf|Non-uniform compression-function PRF ⇒ Non-uniform PRF]] (via [[pseudorandom-function#security-against-non-uniform-adversaries|Security against non-uniform adversaries]])
 - [[non-uniform-prf-to-prf|Non-uniform PRF ⇒ PRF]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prf-to-weak-prf|PRF ⇒ Weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
-- [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prg-to-prf-ggm86|PRG ⇒ Compression-function PRF (GGM)]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]] (via [[pseudorandom-function#puncturable-prfs|Puncturable PRFs]])
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
+- [[rom-to-prf|ROM ⇒ PRF (secret-prefix hashing)]]
+- [[same-width-spr-and-prf-to-compression-function-prf|Same-width SPR hash and PRF ⇒ Compression-function PRF]] (via [[pseudorandom-function#compression-function-prfs|Compression-function PRFs]])
 - [[verifiable-random-function-to-prf|VRF ⇒ PRF]]
+
+**Barriers**
+
+- [[no-prf-to-arbitrary-length-suf-cma-mac|No fixed-construction reduction from length-preserving PRF to arbitrary-length SUF-CMA MAC (plain CBC-MAC)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]]) — circumvented by [[prf-to-arbitrary-length-suf-cma-mac-br05|Length-preserving PRF ⇒ arbitrary-length SUF-CMA MAC (ECBC)]]
+- [[no-prf-to-cca-secure-symmetric-key-encryption|No fixed-construction reduction from length-preserving PRF to CCA-secure SKE (randomized CTR)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]])
+- [[no-prf-to-prp-two-round-feistel|No fixed-construction reduction from length-preserving PRF to PRP on bit strings (two-round Feistel)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]]) — circumvented by [[prf-to-prp-lr88|Length-preserving PRF ⇒ PRP on bit strings]]
+- [[no-prf-to-strong-pseudorandom-permutation-three-round-feistel|No fixed-construction reduction from length-preserving PRF to Strong PRP on bit strings (three-round Feistel)]] (via [[pseudorandom-function#length-preserving-prfs|Length-preserving PRFs]]) — circumvented by [[prf-to-strong-pseudorandom-permutation-lr88|Length-preserving PRF ⇒ Strong PRP on bit strings]]
 
 <!-- END GENERATED participates-in -->

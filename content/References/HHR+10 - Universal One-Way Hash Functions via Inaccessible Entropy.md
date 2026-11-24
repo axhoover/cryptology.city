@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "HHR+10"
 source: https://eprint.iacr.org/2010/120
 authors: Iftach Haitner, Thomas Holenstein, Omer Reingold, Salil P. Vadhan, Hoeteck Wee
@@ -22,3 +22,7 @@ This paper revisits the construction of Universally One-Way Hash Functions (UOWH
 With this and other recent works we have that the constructions of three fundamental cryptographic primitives (Pseudorandom Generators, Statistically Hiding Commitments and UOWHFs) out of one-way functions are to a large extent unified. In particular, all three constructions rely on and manipulate computational notions of entropy in similar ways. Pseudorandom Generators rely on the well-established notion of pseudoentropy, whereas Statistically Hiding Commitments and UOWHFs rely on the newer notion of inaccessible entropy.
 
 In an additional result, we use the notion of inaccessible entropy for reproving the seminal result of Impagliazzo and Levin (FOCS 1989): a reduction from "uniform distribution" average case complexity problems to ones with arbitrary (though polynomial samplable one) distributions.
+
+# Notes
+
+The abstract is that of the ePrint version, a major revision (last revised 2014-12-11) titled "Universal One-Way Hash Functions and Average Case Complexity via Inaccessible Entropy". The journal version is [[HHR+20 - Inaccessible Entropy II IE Functions and Universal One-Way Hashing|HHR+20]].

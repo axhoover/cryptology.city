@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Lyu12"
 source: https://eprint.iacr.org/2011/537
 authors: Vadim Lyubashevsky

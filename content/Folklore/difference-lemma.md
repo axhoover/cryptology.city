@@ -37,3 +37,14 @@ $$
 $$
 
 and $G^{\calA}$ and $H^{\calA}$ set $\mathsf{bad}$ with the same probability — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]]. Run on the same coins, the two games agree up to the moment $\mathsf{bad}$ is set, which is the difference lemma with $F$ the event that $\mathsf{bad}$ is set — standard. The [[switching-lemma|switching lemma]] has a proof in this framework — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]].
+
+<!-- BEGIN GENERATED participates-in e5438482e1e9 -->
+
+## Participates in
+
+**Used via Difference lemma**
+
+- [[cdh-to-bit-string-key-exchange|CDH ⇒ KE with bit-string keys (hashed Diffie–Hellman)]]
+- [[rom-to-prf|ROM ⇒ PRF (secret-prefix hashing)]]
+
+<!-- END GENERATED participates-in -->

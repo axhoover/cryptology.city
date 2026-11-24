@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "AABN02"
 source: https://eprint.iacr.org/2002/022
 authors: Michel Abdalla, Jee Hea An, Mihir Bellare, Chanathip Namprempre

@@ -11,7 +11,6 @@ class: free
 model: quantum
 source:
   - "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
-  - "[[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]"
 security-loss: ""
 rationale:
   model: "The conclusion BQP is defined by quantum polynomial-time algorithms, and the cited discrete-logarithm algorithms are quantum."
@@ -21,8 +20,13 @@ rationale:
 
 ## Statement
 
-A polynomial-time quantum algorithm computes discrete logarithms in $\ZZ_p^*$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. The algorithm extends to every group whose operation is efficiently computable on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. The decision version of [[discrete-logarithm|DLOG]] (given $(\GG, g, h, t)$, decide whether some $x \le t$ satisfies $g^x = h$) is therefore in [[bounded-error-quantum-polynomial-time|BQP]].
+A polynomial-time quantum algorithm computes discrete logarithms in $\ZZ_p^*$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. The algorithm needs only the order of the generator, which quantum order finding can compute, and polynomial-time multiplication and inversion — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]] (Section 6); a [[group-generator|group generator]] provides these on uniquely encoded elements, so the algorithm applies to every group one outputs, elliptic-curve groups included — standard. The decision version of [[discrete-logarithm|DLOG]] (given $(\GG, g, h, t)$, decide whether some $x \le t$ satisfies $g^x = h$) is therefore in [[bounded-error-quantum-polynomial-time|BQP]].
 
 ## Sketch
 
 For $h = g^x$ in a group of order $r$, the function $f(a, b) := g^a h^{-b}$ on $\ZZ_r^2$ is constant exactly on the cosets of $\{(a, b) : a \equiv bx \bmod r\}$. Fourier sampling over $\ZZ_r^2$ returns $(c, d)$ with $d \equiv -cx \pmod r$, and $x = -d c^{-1} \bmod r$ whenever $c$ is invertible — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. Over the gate set $\{H, \mathrm{CNOT}, T\}$ of BQP, the group operations are reversible classical circuits and hence exact, while each controlled phase rotation of the Fourier transform is approximated within $1/\poly(n)$ in operator norm by a polynomial-size circuit over the gate set that is computable in polynomial time, which moves the success probability by at most $1/\poly(n)$ — standard.
+
+## Notes
+
+- [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]] generalize the algorithm to abelian groups that are not cyclic (credited by [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]], Section 6).
+- Over an $n$-bit prime field, the algorithm for elliptic-curve groups runs with $O(n^3)$ gates and roughly $6n$ qubits — [[PZ03 - Shor's discrete logarithm quantum algorithm for elliptic curves|PZ03]] (Section 6).

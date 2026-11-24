@@ -12,7 +12,7 @@ model: standard
 source: folklore
 security-loss: "additive: the sampler's statistical distance ν"
 rationale:
-  class: "The construction is the identity on the family, and the reduction runs any inverter once, on $\\mathsf{Samp}(f; r)$ without $r$."
+  class: "The construction is the identity on the family, and the reduction runs any inverter once, on $\\Samp(f; r)$ without $r$."
 ---
 
 # Enhanced TDP ⇒ TDP
@@ -23,4 +23,4 @@ An [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permu
 
 ## Sketch
 
-Given an enhanced challenge $(f, r)$, the reduction runs an inverter of $f$ on $\mathsf{Samp}(f; r)$. Since $\Eval(f, \cdot)$ is a bijection, $\Eval(f, x)$ is uniform for uniform $x$, and $\mathsf{Samp}(f; r)$ is within $\nu$ of it, so the inverter succeeds with probability at least its success minus $\nu$.
+Given an enhanced challenge $(f, r)$, the reduction runs an inverter of $f$ on $\Samp(f; r)$. Since $\Eval(f, \cdot)$ is a bijection, $\Eval(f, x)$ is uniform for uniform $x$, and $\Samp(f; r)$ is within $\nu$ of it, so the inverter succeeds with probability at least its success minus $\nu$.

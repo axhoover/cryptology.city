@@ -28,4 +28,5 @@ An adversary that distinguishes $\hash(r)$ from uniform must query $\hash$ at th
 
 ## Notes
 
+- RSA-KEM is the KEM of ISO/IEC 18033-2, specified for CMS in [[HT25 - Use of the RSA-KEM Algorithm in the Cryptographic Message Syntax (CMS)|HT25]] (Appendix A). With a DEM and the key derivation modelled as a random oracle, its security is tightly related to the RSA problem and to the DEM's security — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]], as credited by [[HT25 - Use of the RSA-KEM Algorithm in the Cryptographic Message Syntax (CMS)|HT25]] (Sections 1.1 and 3).
 - A ciphertext is one element of $\ZZ_N$; encapsulation costs one exponentiation by $e$ and one evaluation of $\hash$, decapsulation one exponentiation by the secret exponent and one evaluation of $\hash$ — standard.

@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "BCJZ21"
 source: https://eprint.iacr.org/2020/823
 authors: Jacqueline Brendel, Cas Cremers, Dennis Jackson, Mang Zhao

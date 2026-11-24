@@ -1,6 +1,6 @@
 ---
 type: reference
-status: stub
+status: draft
 title: "Bel06"
 source: https://eprint.iacr.org/2006/043
 authors: Mihir Bellare

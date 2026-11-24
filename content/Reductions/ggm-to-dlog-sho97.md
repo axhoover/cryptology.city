@@ -26,3 +26,7 @@ In the [[generic-group-model|generic group model]], every generic algorithm maki
 ## Sketch
 
 For prime $n = p$, treat $x$ as an indeterminate, answer group-oracle queries with random labels, record the affine polynomial $a + bx$ each label represents, and choose $x$ only after the adversary halts. Its view is then independent of $x$, and it wins only if two distinct recorded polynomials agree at $x$ (probability at most $1/p$ per pair, $O(q^2)$ pairs) or its output equals $x$ (probability $1/p$). For composite $n$, give the adversary $x \bmod n/p^e$ for free, $p^e$ the largest power of $p$ dividing $n$, and run the same argument over $\ZZ_{p^e}$, where a nonzero affine polynomial vanishes at a uniform point with probability at most $1/p$.
+
+## Notes
+
+- For prime $n = p$ and an algorithm making $q$ queries in the [[generic-group-model#discrete-logarithm-game|generic discrete-logarithm game]], the success probability is at most $\big(\binom{q+2}{2} + 1\big)/p$: at most $q + 2$ affine polynomials are recorded, each pair of distinct ones agrees at $x$ with probability at most $1/p$, and the final output equals $x$ with probability $1/p$ — standard.

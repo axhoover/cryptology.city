@@ -24,7 +24,7 @@ In the [[random-oracle-model|random oracle model]], for every function $1 \le n(
 
 ## Sketch
 
-Each party queries the oracle at $n$ distinct uniformly random points of a domain of size $n^2$ and sends the answers in the clear. By the birthday bound some answer appears in both lists with probability at least $1 - 1/e - \negl(\secpar)$, and the parties take its preimage as the key. An eavesdropper sees only oracle outputs, and finding a given output's preimage in a domain of size $n^2$ takes $\Omega(n^2)$ queries — standard.
+Each party queries the oracle at $n$ distinct uniformly random points of a domain of size $n^2$ and sends the answers in the clear. By the [[birthday-bound#Two lists|two-list birthday bound]] some answer appears in both lists with probability at least $1 - 1/e - \negl(\secpar)$, and the parties take its preimage as the key. An eavesdropper sees only oracle outputs, and finding a given output's preimage in a domain of size $n^2$ takes $\Omega(n^2)$ queries — standard.
 
 ## Notes
 

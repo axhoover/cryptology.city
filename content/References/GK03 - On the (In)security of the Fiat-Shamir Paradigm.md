@@ -5,7 +5,7 @@ title: "GK03"
 source: https://eprint.iacr.org/2003/034
 authors: Shafi Goldwasser, Yael Tauman Kalai
 venue: FOCS 2003
-published: 2003-01-01
+published: 2003
 aliases:
   - GK03
 cryptobib_key: FOCS:GolKal03
@@ -17,4 +17,8 @@ cryptobib_key: FOCS:GolKal03
 
 ## Abstract
 
-We show that the Fiat-Shamir transform is not sound in the standard model in general. Specifically, we construct a 3-round public-coin identification scheme that is secure in the random oracle model, yet for which the Fiat-Shamir signature scheme (obtained by replacing the random oracle with any concrete hash function) is existentially forgeable. More precisely, we show that for any concrete hash function $H$, the resulting signature scheme can be broken by an efficient adversary. Our techniques use non-black-box methods and demonstrate that the random oracle cannot be instantiated in general.
+In 1986, Fiat and Shamir suggested a general method for transforming secure 3-round public-coin identification schemes into digital signature schemes. The significant contribution of this method is a means for designing efficient digital signatures, while hopefully achieving security against chosen message attacks. All other known constructions which achieve such security are substantially more inefficient and complicated in design.
+
+In 1996, Pointcheval and Stern proved that the signature schemes obtained by the Fiat-Shamir transformation are secure in the so called ‘Random Oracle Model’. The question is: does the proof of the security of the Fiat-Shamir transformation in the Random Oracle Model, imply that the transformation yields secure signature schemes in the “real-world”?
+
+In this paper we answer this question negatively. We show that there exist secure 3-round public-coin identification schemes for which the Fiat-Shamir methodology produces **insecure** digital signature schemes for **any** implementation of the ‘Random Oracle Model’ in the ‘real-world’ by a function ensemble.

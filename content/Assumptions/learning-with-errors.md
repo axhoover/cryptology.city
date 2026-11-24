@@ -27,13 +27,14 @@ variants:
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
   polynomial-ratio-lwe: "#lwe-with-polynomial-modulus-to-noise-ratio"
+  normal-form-lwe: "#normal-form-lwe"
   quasi-polynomial-lwe: "#quasi-polynomially-hard-lwe"
   lwr: "#learning-with-rounding"
 ---
 
 # Learning with errors
 
-The _learning with errors (LWE)_ assumption is a standard assumption in lattice-based cryptography, especially in post-quantum cryptography. It is a generalization of the [[learning-parity-with-noise|LPN]] assumption.
+The decision _learning with errors (LWE)_ assumption states that, for a uniform secret $\mathbf{s} \in \ZZ_q^n$, pairs $(\mathbf{a}_i, \langle \mathbf{a}_i, \mathbf{s} \rangle + e_i)$ with uniform $\mathbf{a}_i \in \ZZ_q^n$ and short errors $e_i$ drawn from an error distribution $\chi$ are computationally indistinguishable from uniform pairs in $\ZZ_q^n \times \ZZ_q$. At $q = 2$ with Bernoulli errors it is [[learning-parity-with-noise|LPN]] — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] (Section 1).
 
 ## Assumption
 
@@ -50,7 +51,7 @@ In the decision variant, the adversary must distinguish LWE samples $(\mathbf{A}
 \algname{Game}
 \caption{$\Game^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$ ; $\mathbf{s} \getsr \ZZ_q^n$ ; $\mathbf{e} \getsr \chi^m$
+\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$ ; $\mathbf{s} \getsr \ZZ_q^n$ ; $\mathbf{e} \gets \chi^m$
 \State $b \getsr \bits$
 \State $\mathbf{u}_0 \gets \mathbf{A}\mathbf{s} + \mathbf{e}$ ; $\mathbf{u}_1 \getsr \ZZ_q^m$
 \State $\hat{b} \gets \calA(1^\secpar, \mathbf{A}, \mathbf{u}_b)$
@@ -78,7 +79,7 @@ In the search variant, the adversary must recover the secret $\mathbf{s}$ from L
 \algname{Game}
 \caption{$\Game^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$ ; $\mathbf{s} \getsr \ZZ_q^n$ ; $\mathbf{e} \getsr \chi^m$
+\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$ ; $\mathbf{s} \getsr \ZZ_q^n$ ; $\mathbf{e} \gets \chi^m$
 \State $\hat{\mathbf{s}} \gets \calA(1^\secpar, \mathbf{A},\, \mathbf{A}\mathbf{s}+\mathbf{e})$
 \Return $[\hat{\mathbf{s}} = \mathbf{s}]$
 \end{algorithmic}
@@ -99,11 +100,17 @@ As an object, search LWE denotes: there are $\poly(\secpar)$-computable $n \le \
 
 ### Search–Decision equivalence
 
-For prime $q \le \poly(n)$, the search and decision variants of LWE are equivalent — breaking one suffices to break the other — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+For prime $8 \le q \le \poly(n)$ and error $D_{\ZZ,\alpha q}$ with $\alpha \le 1/4$, search and decision LWE with the same $(n, q, \chi)$ are equivalent up to polynomial losses in samples, time and advantage: a search solver gives a distinguisher for every $q \ge 8$ — folklore — and a distinguisher gives a search solver for every error distribution and prime $q \le \poly(n)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] (Lemmas 4.1 and 4.2).
 
-**Search $\Rightarrow$ Decision** (easy direction): A search solver $\calA_s$ gives a decision adversary ([[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]]) — folklore. Given a challenge $(\mathbf{A}, \mathbf{u})$, run $\hat{\mathbf{s}} \gets \calA_s(\mathbf{A}, \mathbf{u})$ and guess $b=0$ (LWE world) iff at least $3m/4$ coordinates of $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ lie in $[-q/4, q/4]$, otherwise $b=1$ (uniform world). For Gaussian error of width $\alpha q$ with $\alpha \le 1/4$ the residual $\mathbf{u} - \mathbf{A}\mathbf{s}$ of an LWE sample fails the test with probability at most $e^{-m/32}$, and for $m \ge 32(n \ln q + \secpar)$ a uniform $\mathbf{u}$ admits a passing $\hat{\mathbf{s}}$ with probability at most $e^{-\secpar}$.
+**Search $\Rightarrow$ Decision** (easy direction; [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]]). Let $\chi = D_{\ZZ,\alpha q}$ with $\alpha \le 1/4$ and $q \ge 8$, and let $m \ge 32(n \ln q + \secpar)$. Given $(\mathbf{A}, \mathbf{u})$, the distinguisher runs a search solver $\calA$ to obtain $\hat{\mathbf{s}}$ and guesses $b = 0$ (LWE) iff at least $3m/4$ coordinates of $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ lie in $[-q/4, q/4]$. On LWE samples with $\hat{\mathbf{s}} = \mathbf{s}$ the test fails with probability at most $e^{-m/32}$. On uniform $\mathbf{u}$ each coordinate of $\mathbf{u} - \mathbf{A}\mathbf{s}$ lies in the interval with probability at most $1/2 + 1/q \le 5/8$ for each fixed $\mathbf{s}$, since $q \ge 8$, so some $\mathbf{s}$ passes with probability at most $q^n e^{-m/32} \le e^{-\secpar}$. Hence $\Adv^{\text{lwe}}_{n,q,\chi,m,\calB}(\secpar) \ge \Adv^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar) - 2e^{-\secpar}$ for the distinguisher $\calB$ — folklore.
 
-**Decision $\Rightarrow$ Search** (hard direction): Recover $\mathbf{s}$ one coordinate at a time. For each index $i \in [n]$ and each candidate $\ell \in \ZZ_q$, construct modified samples that effectively zero out the contribution of $\mathbf{s}[i]$ under the hypothesis $\mathbf{s}[i] = \ell$, then query the decision oracle to test whether the result is still an LWE instance or has become uniform. The candidate that keeps the distribution looking like LWE reveals the true $\mathbf{s}[i]$. Running over all $n \cdot q$ pairs takes $n \cdot q$ calls to the (amplified) decision procedure ([[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]]) — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+**Decision $\Rightarrow$ Search** (hard direction; [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]]). Let $q \le \poly(n)$ be prime. A distinguisher that works for a non-negligible fraction of secrets is first amplified, by re-randomizing the secret, to one that for every $\mathbf{s}$ accepts LWE samples and rejects uniform ones with probability exponentially close to $1$. To test the guess $s_i = \ell$, each sample $(\mathbf{a}, b)$ is mapped to $(\mathbf{a} + r\mathbf{1}_i, b + r\ell)$ for a fresh uniform $r \in \ZZ_q$ and the $i$-th unit vector $\mathbf{1}_i$: this preserves the LWE distribution if $\ell = s_i$ and, since $q$ is prime, makes it uniform otherwise, while uniform samples stay uniform. Testing all $nq$ pairs $(i, \ell)$ recovers $\mathbf{s}$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] (Lemmas 4.1 and 4.2).
+
+For a power-of-two modulus $q$ and $1/q < \alpha < 1/\omega(\sqrt{\log n})$, search LWE with continuous Gaussian error of rate $\alpha$ reduces to decision LWE at the same modulus with rate $\alpha \cdot \omega(\log n)$ — [[MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller|MP12]] (Theorem 3.1, as credited by [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]], arXiv v1, Theorem 2.17). With modulus switching this gives hardness of decision LWE at every modulus $q' \ge 25$, prime moduli included — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Corollary 3.3). Smooth-modulus and sample-preserving reductions are listed under [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]].
+
+### Uniform and normal-form secrets
+
+For prime $q$, hardness of decision LWE with uniform secret implies hardness of [[#Normal-form LWE|normal-form LWE]], whose secret is drawn from the error distribution — [[ACPS09 - Fast Cryptographic Primitives and Circular-Secure Encryption Based on Hard Learning Problems|ACPS09]], as credited by [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Section 2.3). A change of variables on the first $n$ samples turns a distinguisher with $m$ samples for normal-form LWE into one with $m + n$ samples for uniform-secret LWE with at least $1 - 1/(q-1)$ times its advantage ([[polynomial-ratio-lwe-to-normal-form-lwe-acps09|LWE with polynomial ratio ⇒ Normal-form LWE]]) — standard. Re-randomizing the secret gives the converse for every $q$, with the same advantage ([[normal-form-lwe-to-decision-lwe|Normal-form LWE ⇒ Decision LWE]]) — folklore.
 
 ### Modulus switching
 
@@ -113,7 +120,7 @@ $$
 \beta^2 \ge \alpha^2 + \frac{4}{\pi} \ln\!\left(2n(1 + 1/\varepsilon)\right) \cdot \left(\frac{B}{\min\{q, q'\}}\right)^2,
 $$
 
-there is an efficient reduction from decision LWE at modulus $q$ with noise at most $\alpha$ to decision LWE at modulus $q'$ with noise at most $\beta$, with the same sample count $m$ and secret distribution $D$, that reduces the advantage by at most $\delta + 14\varepsilon m$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Theorem 3.1 with $G$ the identity; Corollary 3.2 is the case $q \ge q'$). Applied to the normal form, whose secret is drawn from $D_{\ZZ^n, \sqrt{2}\alpha q}$, it gives for every $q' \ge 25$, $m \ge n$ and $\delta \in (0, 1/2)$ a reduction from decision LWE with uniform secret, modulus the smallest power of two $q \ge q'$ and noise width $\alpha \ge \sqrt{\ln(2n(1 + 16/\delta)/\pi)}/q$ to decision LWE at modulus $q'$ with $m - (16n + 4\ln\ln q)$ samples and noise at most $\beta = C\alpha\sqrt{n\log(n/\delta)\log(m/\delta)}$, for a universal constant $C$, that turns advantage $\zeta$ into at least $(\zeta - \delta)/4$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Lemma 2.12 and Corollary 3.3). The bounded-noise problem reduces to the exact-noise one: oracle access to an algorithm with advantage at least $\varepsilon$ at noise width exactly $\alpha$ gives an algorithm with advantage at least $1/3$ at noise at most $\alpha$, whose sample count and running time are $\poly(m, 1/\varepsilon, n, \log q)$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Lemma 2.15).
+there is an efficient reduction from decision LWE at modulus $q$ with noise at most $\alpha$ to decision LWE at modulus $q'$ with noise at most $\beta$, with the same sample count $m$ and secret distribution $D$, that reduces the advantage by at most $\delta + 14\varepsilon m$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Theorem 3.1 with $G$ the identity; Corollary 3.2 is the case $q \ge q'$). Applied to the [[#Normal-form LWE|normal form]] as BLPRS13 state it, whose secret is drawn from $D_{\ZZ^n, \sqrt{2}\alpha q}$, it gives for every $q' \ge 25$, $m \ge n$ and $\delta \in (0, 1/2)$ a reduction from decision LWE with uniform secret, modulus the smallest power of two $q \ge q'$ and noise width $\alpha \ge \sqrt{\ln(2n(1 + 16/\delta)/\pi)}/q$ to decision LWE at modulus $q'$ with $m - (16n + 4\ln\ln q)$ samples and noise at most $\beta = C\alpha\sqrt{n\log(n/\delta)\log(m/\delta)}$, for a universal constant $C$, that turns advantage $\zeta$ into at least $(\zeta - \delta)/4$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Lemma 2.12 and Corollary 3.3). The bounded-noise problem reduces to the exact-noise one: oracle access to an algorithm with advantage at least $\varepsilon$ at noise width exactly $\alpha$ gives an algorithm with advantage at least $1/3$ at noise at most $\alpha$, whose sample count and running time are $\poly(m, 1/\varepsilon, n, \log q)$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Lemma 2.15).
 
 ### Short kernel vectors distinguish LWE samples
 
@@ -121,20 +128,26 @@ Let $q$ be prime, let $\chi$ be the [[discrete-gaussian|discrete Gaussian]] over
 
 # Reduction to lattice problems
 
-The hardness of LWE rests on worst-case lattice problems via a quantum reduction — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]:
+Regev's reduction uses continuous error: for $\alpha \in (0, 1)$, $\Psi_\alpha$ is the normal distribution of standard deviation $\alpha/\sqrt{2\pi}$ reduced modulo $1$, a sample is $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle/q + e \bmod 1)$ with $\mathbf{a} \getsr \ZZ_q^n$ and $e \gets \Psi_\alpha$, and an algorithm solves search LWE if for every $\mathbf{s} \in \ZZ_q^n$ it outputs $\mathbf{s}$ from polynomially many samples with probability exponentially close to $1$. Let $q = q(n)$ be an integer and $\alpha = \alpha(n) \in (0, 1)$ with $\alpha q > 2\sqrt{n}$.
 
-- Solving decision (or search) LWE on a noticeable fraction of inputs is at least as hard as quantum-approximating the **Shortest Vector Problem (GapSVP)** and the **Shortest Independent Vectors Problem (SIVP)** to within polynomial factors in the worst case
-- Because GapSVP and SIVP are believed hard even for quantum computers, this gives a strong post-quantum security guarantee for LWE-based schemes
-- [[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]]
-- [[sivp-to-lwe-reg05|Quantum polynomial-factor SIVP ⇒ LWE]]
+- **Search LWE, every modulus.** An efficient algorithm solving search LWE with modulus $q$ and error $\Psi_\alpha$ yields efficient quantum algorithms for worst-case [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha)$ and worst-case [[shortest-vector-problem|GapSVP]] to within $O(n/\alpha)$ on $n$-dimensional lattices — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] (arXiv v1, Theorem 3.1 with Lemmas 3.17 and 3.20). Theorem 1.1 of Reg05 states it for the rounding $\bar{\Psi}_\alpha$ of the error to $\ZZ_q$, since an algorithm for the rounded error solves the continuous one (Lemma 4.3).
+- **Decision LWE, prime modulus $q \le \poly(n)$.** For prime $q \le \poly(n)$, a distinguisher between samples with error $\bar{\Psi}_\alpha$ and uniform samples, for a non-negligible fraction of secrets, yields an algorithm solving search LWE with error $\Psi_\alpha$, so the quantum hardness above extends to decision LWE in that regime — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] (arXiv v1, Lemma 4.4 and Section 5). The decision step needs $q$ prime and at most polynomial (Lemma 4.2); the rest of the reduction holds for every integer $q$.
+- For the discrete Gaussian error of the games above, at prime $q \le \poly(n)$ and $\alpha \ge 1/\poly(n)$, where the approximation factors are polynomial, randomized rounding of the continuous error takes each sample to within statistical distance $8 \cdot 2^{-n}$ of one with error $D_{\ZZ,\alpha' q}$ for some $\alpha' \in (\alpha, 2\alpha)$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Lemma 2.10) — so these give hardness of decision LWE at width $\alpha' q$: [[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]] and [[sivp-to-lwe-reg05|Quantum polynomial-factor SIVP ⇒ LWE]].
 
-Classical reductions start from worst-case hardness of [[shortest-vector-problem#polynomial-factors|GapSVP for polynomial factors]], at the cost of an exponential modulus $q \ge 2^{n/2}$ — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]] ([[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]]) — or of the dimension, LWE in dimension $n$ with polynomial modulus from GapSVP in dimension $\Theta(\sqrt{n})$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] ([[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]]).
+These reductions make LWE hard under the conjecture that no quantum polynomial-time algorithm approximates GapSVP or SIVP to within any polynomial factor in the worst case — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] (Section 1).
+
+Classical reductions start from worst-case hardness of [[shortest-vector-problem#polynomial-factors|GapSVP for polynomial factors]], at the cost of an exponential modulus $q \ge 2^{n/2}$ — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]], with decision hardness at a power-of-two modulus from the search-to-decision reduction of [[MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller|MP12]] ([[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]]) — or of the dimension, LWE in dimension $n$ with polynomial modulus from GapSVP in dimension $\Theta(\sqrt{n})$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] ([[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]]).
 
 ## Cryptographic constructions
 
-- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[lwe-to-pke-reg05|LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)]]
+- [[normal-form-lwe-to-pke-cpa-security-lp11b|Normal-form LWE ⇒ CPA-secure PKE (Lindner–Peikert)]]
 
 # Attacks
+
+## Arora–Ge linearization
+
+Let $q$ be prime and let $\chi$ have support $S \subseteq \ZZ_q$ of size $D < q$. Every sample $(\mathbf{a}, b)$ satisfies $\prod_{e \in S}(b - \langle \mathbf{a}, \mathbf{s} \rangle - e) = 0$, a polynomial equation of degree $D$ in the coordinates of $\mathbf{s}$, and replacing each monomial of degree at most $D$ by a new unknown turns $m$ samples into a linear system in $N := \binom{n+D}{D}$ unknowns. If moreover $\chi(0) = 1/\delta$ for some $\delta > 1$, a deterministic algorithm recovers $\mathbf{s}$ from $m := C N \delta q \log q$ samples, for a sufficiently large constant $C$, in time $\poly(m)$, except with probability $q^{-N}$ over the samples — implicit in [[AG11 - New Algorithms for Learning in Presence of Errors|AG11]] (Section 3), as credited by [[CLZ22 - Quantum Algorithms for Variants of Average-Case Lattice Problems via Filtering|CLZ22]] (arXiv v2, Section 2.2, Theorem 17). For uniform errors in $\{0, 1\}$ and prime $q \ge 3$ ($D = 2$, $\delta = 2$) this is $O(n^2 q \log q)$ samples and time $\poly(n, q)$. The discrete Gaussian $D_{\ZZ,\alpha q}$ of the games above has support all of $\ZZ_q$, so the theorem does not apply to it directly. TODO: AG11's running time for discrete Gaussian error of width $n^{\varepsilon}$, and whether it reaches the regime $\alpha q \ge 2\sqrt{n}$ of [[#Reduction to lattice problems|the reductions above]].
 
 ## Evasive LWE counterexamples
 
@@ -156,6 +169,33 @@ LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c 
 ### Quasi-polynomially hard LWE
 
 LWE with polynomial modulus-to-noise ratio is **quasi-polynomially hard** if for every choice of $c$, $q$ and $m$ above and every constant $d \ge 1$, for all sufficiently large $n$ every adversary $\calA$ of size at most $2^{(\log n)^d}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-(\log n)^d}$, with $\chi$ the discrete Gaussian of width $\alpha q$. Quasi-polynomial hardness of LWE at polynomial modulus-to-noise ratio is the assumption behind the statistical zap arguments of [[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]] ([[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]]).
+
+## Normal-form LWE
+
+**Normal-form LWE** is decision LWE with the secret drawn from the error distribution, $\mathbf{s} \gets \chi^n$, instead of uniformly from $\ZZ_q^n$; its hardness for prime $q$ was first shown by [[ACPS09 - Fast Cryptographic Primitives and Circular-Secure Encryption Based on Hard Learning Problems|ACPS09]], as credited by [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] (arXiv v1, Section 2.3).
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{nflwe}}_{n,q,\chi,m,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$ ; $\mathbf{s} \gets \chi^n$ ; $\mathbf{e} \gets \chi^m$
+\Comment{The secret has the error distribution}
+\State $b \getsr \bits$
+\State $\mathbf{u}_0 \gets \mathbf{A}\mathbf{s} + \mathbf{e}$ ; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $\hat{b} \gets \calA(1^\secpar, \mathbf{A}, \mathbf{u}_b)$
+\Return $[\hat{b} = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**Normal-form LWE is hard** for $(n, q, \chi, m)$ if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{nflwe}}_{n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{nflwe}}_{n,q,\chi,m,\calA}(\secpar)=1\right]-1\right|
+$$
+
+is negligible. As an object, normal-form LWE denotes the prime-modulus part of the regime of [[#LWE with polynomial modulus-to-noise ratio|LWE with polynomial modulus-to-noise ratio]]: there is a $\poly(\secpar)$-computable $n = n(\secpar)$ with $\secpar^{c_0} \le n \le \poly(\secpar)$ for some constant $c_0 > 0$ such that for every constant $c > 0$, every prime $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, normal-form LWE is hard for $(n, q, D_{\ZZ,\alpha q}, m)$. The bound $n \ge \secpar^{c_0}$ makes $m = \poly(n)$ the same as $m = \poly(\secpar)$. A scheme of dimension $n$ may thus choose $c$, the prime $q$ and the number of samples. Its relation to uniform-secret LWE is in [[#Uniform and normal-form secrets|§ Uniform and normal-form secrets]].
 
 ## Sub-exponential LWE
 
@@ -248,10 +288,10 @@ $$
 
 is negligible. As an object, Module LWE denotes: there are $\poly(\secpar)$-computable $d, k \le \poly(\secpar)$, $f$ and $q$ with $\lceil \log q \rceil \le \poly(\secpar)$, and error distributions $\chi_m$ that are $B$-bounded except with negligible probability for some $B \le q/4$, such that Module LWE is hard for $(f, q, k, \chi_m, m)$ for every $m = \poly(\secpar)$.
 
-The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). Module LWE is the basis for the NIST post-quantum standards:
+The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). FIPS 203 specifies ML-KEM, a key-encapsulation mechanism derived from CRYSTALS-Kyber, and relates its security to the hardness of Module LWE — [[NIST24 - Module-Lattice-Based Key-Encapsulation Mechanism Standard|NIST24]]. Constructions from Module LWE:
 
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]]
 
 Hardness of Module LWE reduces to worst-case problems on module lattices ([[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]]) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
@@ -265,15 +305,15 @@ Over the degree-1 ring $R = \ZZ$ ($R_q = \ZZ_q$) at module rank $k = n$, Module 
 
 ## Hint LWE
 
-**Hint LWE** augments standard LWE with auxiliary "hint" information about the secret $\mathbf{s}$ — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]. The adversary receives, in addition to the LWE challenge, $\ell$ hint pairs $(\mathbf{v}_i,\, \mathbf{v}_i^\top\mathbf{s} + e'_i)$ for known vectors $\mathbf{v}_i$ and small noise $e'_i \getsr \chi'$. Both the LWE samples and the hints share the same secret $\mathbf{s}$.
+**Hint LWE** augments standard LWE with auxiliary "hint" information about the secret $\mathbf{s}$ — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]. The adversary receives, in addition to the LWE challenge, $\ell$ hint pairs $(\mathbf{v}_i,\, \mathbf{v}_i^\top\mathbf{s} + e'_i)$ for known vectors $\mathbf{v}_i$ and small noise $e'_i \gets \chi'$. Both the LWE samples and the hints share the same secret $\mathbf{s}$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{hlwe}}_{n,q,\chi,\chi',m,\ell,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$; $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$
-\State $\mathbf{v}_1, \ldots, \mathbf{v}_\ell \getsr \ZZ_q^n$; $e'_1, \ldots, e'_\ell \getsr \chi'$
+\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$; $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \gets \chi^m$
+\State $\mathbf{v}_1, \ldots, \mathbf{v}_\ell \getsr \ZZ_q^n$; $e'_1, \ldots, e'_\ell \gets \chi'$
 \State $h_i \gets \mathbf{v}_i^\top \mathbf{s} + e'_i$ for each $i \in [\ell]$
 \Comment{Hints computed from the same $\mathbf{s}$ in both worlds}
 \State $b \getsr \bits$
@@ -322,7 +362,7 @@ The two games below use the row-vector convention from [[Wee22 - Optimal Broadca
 \State $(\mathbf{B}, \tau) \gets \mathrm{TrapGen}(1^n, q)$
 \Comment{$\tau$ not given to $\calA_0$}
 \State $\mathbf{s} \getsr \ZZ_q^n$; $b \getsr \bits$
-\State $\mathbf{e} \getsr \chi^m$; $\mathbf{e}' \getsr \chi^{m'}$; $\mathbf{e}'' \getsr \chi^t$
+\State $\mathbf{e} \gets \chi^m$; $\mathbf{e}' \gets \chi^{m'}$; $\mathbf{e}'' \gets \chi^t$
 \State $\mathbf{u}_0 \gets \mathbf{s}\mathbf{B} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
 \State $\mathbf{v}_0 \gets \mathbf{s}\mathbf{A}' + \mathbf{e}'$; $\mathbf{v}_1 \getsr \ZZ_q^{m'}$
 \State $\mathbf{w}_0 \gets \mathbf{s}\mathbf{P} + \mathbf{e}''$; $\mathbf{w}_1 \getsr \ZZ_q^t$
@@ -342,7 +382,7 @@ The two games below use the row-vector convention from [[Wee22 - Optimal Broadca
 \State $\mathbf{K} \gets \mathbf{B}^{-1}(\mathbf{P}, \sigma)$ using $\tau$
 \Comment{$\mathbf{BK} = \mathbf{P} \pmod{q}$, cols of $\mathbf{K}$ short}
 \State $\mathbf{s} \getsr \ZZ_q^n$; $b \getsr \bits$
-\State $\mathbf{e} \getsr \chi^m$; $\mathbf{e}' \getsr \chi^{m'}$
+\State $\mathbf{e} \gets \chi^m$; $\mathbf{e}' \gets \chi^{m'}$
 \State $\mathbf{u}_0 \gets \mathbf{s}\mathbf{B} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
 \State $\mathbf{v}_0 \gets \mathbf{s}\mathbf{A}' + \mathbf{e}'$; $\mathbf{v}_1 \getsr \ZZ_q^{m'}$
 \State $b' \gets \calA_1(1^\secpar, \mathbf{A}', \mathbf{B}, \mathbf{K}, \mathrm{aux}, \mathbf{u}_b, \mathbf{v}_b)$
@@ -405,7 +445,7 @@ The trapdoor $T_\mathbf{B}$ is discarded after setup; only $\pp_\ell = (\mathbf{
 \State $\mathbf{W} \getsr \ZZ_q^{\ell n \times m}$
 \State $T \gets \mathrm{SamplePre}([I_\ell \otimes \mathbf{B} \mid \mathbf{W}],\; I_\ell \otimes T_\mathbf{B},\; I_\ell \otimes \mathbf{G},\; \sigma)$
 \Comment{$[I_\ell \otimes \mathbf{B} \mid \mathbf{W}] \cdot T = I_\ell \otimes \mathbf{G}$; $T$ short, $T_\mathbf{B}$ not given to $\calA$}
-\State $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$; $b \getsr \bits$
+\State $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \gets \chi^m$; $b \getsr \bits$
 \State $\mathbf{u}_0 \gets \mathbf{s}\mathbf{B} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
 \State $b' \gets \calA(1^\secpar, \mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$
 \Return $[b' = b]$
@@ -425,7 +465,7 @@ is negligible. As an object, succinct LWE denotes: there are such $n$, $q$ and $
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in b9667dc303f9 -->
+<!-- BEGIN GENERATED participates-in 5287caf48ee1 -->
 
 ## Participates in
 
@@ -444,15 +484,18 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ Two-round UC-secure OT (PVW)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
-- [[lwe-to-pke-reg05|LWE ⇒ PKE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[lwe-to-pke-reg05|LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]] (via [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE with superpolynomial modulus-to-noise ratio]])
-- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[learning-with-errors#module-lwe|Module LWE]])
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ SUF-CMA DS]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|Degree-1 Module LWE]])
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
+- [[normal-form-lwe-to-decision-lwe|Normal-form LWE ⇒ Decision LWE]] (via [[learning-with-errors#normal-form-lwe|Normal-form LWE]])
+- [[normal-form-lwe-to-pke-cpa-security-lp11b|Normal-form LWE ⇒ CPA-secure PKE (Lindner–Peikert)]] (via [[learning-with-errors#normal-form-lwe|Normal-form LWE]])
 - [[polynomial-ratio-lwe-to-barg-for-np-cjj21|LWE with polynomial ratio ⇒ BARG for NP]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16|LWE with polynomial ratio ⇒ Circuit-private HE for NC1]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[polynomial-ratio-lwe-to-normal-form-lwe-acps09|LWE with polynomial ratio ⇒ Normal-form LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#quasi-polynomially-hard-lwe|Quasi-polynomially hard LWE]])
@@ -462,7 +505,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#sub-exponential-hardness-at-sub-exponential-ratio|Sub-exponential hardness at sub-exponential ratio]])
 - [[subexponential-lwe-to-lwe|Sub-exponential LWE ⇒ LWE]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
-- [[subexponential-lwe-to-pke-reg05|Sub-exponential LWE ⇒ CPA-secure PKE]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
+- [[subexponential-lwe-to-pke-reg05|Sub-exponential LWE ⇒ CPA-secure PKE (Regev)]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16|LWE + NIZK ⇒ Two-round MPC in the CRS model (Mukherjee–Wichs)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[circular-security-and-lwe-to-he|LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]], [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
@@ -485,7 +528,9 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]]
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
+- [[normal-form-lwe-to-decision-lwe|Normal-form LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]]
+- [[polynomial-ratio-lwe-to-normal-form-lwe-acps09|LWE with polynomial ratio ⇒ Normal-form LWE]] (via [[learning-with-errors#normal-form-lwe|Normal-form LWE]])
 - [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[ring-lwe-quasi-polynomial-approximation-to-ring-lwe|Ring-LWE with quasi-polynomial factors ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])

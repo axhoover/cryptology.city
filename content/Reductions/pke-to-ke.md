@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme with message space $\calM$, and $\calK \subseteq \calM$ an efficiently samplable key space of equal-length messages. The two-message protocol in which $B$ sends $\pk$ for $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $A$ replies with $c \gets \Enc(\pk, k)$ for $k \getsr \calK$ and outputs $k$, and $B$ outputs $\Dec(\sk, c)$, is a [[key-exchange|key exchange]] secure against eavesdroppers, whose two keys agree except with the negligible decryption error of $\PKE$ — folklore.
+Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme with message space $\calM$, and $\calK \subseteq \calM$ an efficiently samplable key space of at least two equal-length messages, which may depend on $\pk$, such as the two messages the syntax of PKE provides. The two-message protocol in which $B$ sends $\pk$ for $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $A$ replies with $c \gets \Enc(\pk, k)$ for $k \getsr \calK$ and outputs $k$, and $B$ outputs $\Dec(\sk, c)$, is a [[key-exchange|key exchange]] secure against eavesdroppers, whose two keys agree except with the negligible decryption error of $\PKE$ — folklore.
 
 ## Sketch
 

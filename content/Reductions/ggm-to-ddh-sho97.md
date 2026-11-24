@@ -29,4 +29,4 @@ Treat $x, y, z$ as indeterminates, answer group-oracle queries with random label
 
 ## Notes
 
-- Prime order and genericity are both needed: a small prime factor of the group order gives a generic distinguisher (project onto the small subgroup), and a symmetric pairing, which is not a generic operation, decides DDH outright — standard; see [[decisional-diffie-hellman#attacks|DDH attacks]].
+- The bound needs a group order with no small prime factor, and a generic algorithm. For a prime $r$ dividing the group order $p$, raising the tuple to the power $p/r$ and testing $z \equiv xy \pmod r$ is a generic distinguisher with advantage $1 - 1/r$ after $O(r + \log p)$ group operations, and a symmetric pairing, which is not a generic operation, decides DDH in a group of prime order $p$ with advantage $1 - 1/p$ ([[decisional-diffie-hellman#attacks|DDH attacks]]) — standard.

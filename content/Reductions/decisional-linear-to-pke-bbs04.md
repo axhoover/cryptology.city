@@ -30,4 +30,4 @@ On a DLIN challenge $(u, v, h, u^a, v^b, Z)$ the reduction sets $\pk = (u, v, h)
 ## Notes
 
 - A ciphertext is three group elements for a one-element message, and the public key is three group elements — [[BBS04 - Short Group Signatures|BBS04]].
-- DLIN is believed to hold in groups with a symmetric bilinear pairing, where DDH is easy and ElGamal ([[ddh-to-pke-elgamal85|DDH ⇒ PKE]]) is insecure; Linear Encryption is the counterpart of ElGamal for such groups — [[BBS04 - Short Group Signatures|BBS04]].
+- DLIN is believed to hold in groups with a symmetric bilinear pairing, where DDH is easy and ElGamal ([[ddh-to-pke-elgamal85|DDH ⇒ CPA-secure PKE (ElGamal)]]) is insecure; Linear Encryption is the counterpart of ElGamal for such groups — [[BBS04 - Short Group Signatures|BBS04]].

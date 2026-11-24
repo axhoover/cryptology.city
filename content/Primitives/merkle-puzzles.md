@@ -51,7 +51,7 @@ over $H$ and the coins of $A$ and $B$. If $H$ is injective, Merkle's puzzles agr
 
 ### Security
 
-The eavesdropper sees the transcript and queries $H$; security is measured by the number $q$ of its queries, not by its running time.
+The eavesdropper sees the transcript, queries $H$ and outputs a guess for $A$'s key, as in the [[key-exchange#one-way-security|one-way security]] game of key exchange; security is measured by the number $q$ of its queries, not by its running time.
 
 ```pseudocode
 \begin{algorithm}

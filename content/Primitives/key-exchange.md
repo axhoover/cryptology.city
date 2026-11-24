@@ -12,6 +12,7 @@ id: ke
 variants:
   authenticated-key-exchange: "#authenticated-key-exchange-ake"
   bit-string-key-exchange: "#key-exchange-with-bit-string-keys"
+  one-way-key-exchange: "#one-way-security"
   multi-party-key-exchange: "#multi-party-key-exchange"
   non-interactive-key-exchange: "#non-interactive-key-exchange-nike"
   multi-party-nike: "#multiparty-non-interactive-key-exchange"
@@ -24,7 +25,9 @@ A _key exchange_ (or _key agreement_) protocol allows two parties communicating 
 
 ## Syntax
 
-A two-party key exchange protocol is a pair of interactive algorithms $\Pi = (\mathsf{KE}_A, \mathsf{KE}_B)$ with key space $\calK$, run by parties $A$ and $B$ on input $1^\secpar$ over a public channel. An execution $\langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle \to (k_A, k_B)$ outputs keys $k_A, k_B \in \calK$ to $A$ and $B$; its [[interactive-protocol#Transcript|transcript]] $\tau$ is the sequence of all messages sent.
+A two-party key exchange protocol is a pair of interactive algorithms $\Pi = (\mathsf{KE}_A, \mathsf{KE}_B)$, run by parties $A$ and $B$ on input $1^\secpar$ over a public channel. An execution $\langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle \to (k_A, k_B)$ outputs keys $k_A, k_B \in \calK_\tau$ to $A$ and $B$; its [[interactive-protocol#Transcript|transcript]] $\tau$ is the sequence of all messages sent.
+
+The key space is a finite set $\calK_\tau$ determined by $\secpar$ and the transcript, such as a group whose description one party sends, and it is the same set $\calK = \calK_\secpar$ for every transcript when it depends on $\secpar$ alone. It has at least two elements: $|\calK_\tau| \ge 2$ for every $\secpar$ and every transcript $\tau$. On a one-element key space the uniform key equals $k_A$, so every protocol, including one in which the parties send nothing, would be [[#Security (indistinguishability from random)|secure]] — standard.
 
 ## Properties
 
@@ -48,7 +51,7 @@ The adversary sees the transcript $\tau$ of an honest execution, in which $A$ an
 \caption{$\Game^{\mathrm{ke}}_{\Pi,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $(\tau, k_A, k_B) \gets \langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle$; $b \getsr \bits$
-\State $k_0 := k_A$; $k_1 \getsr \calK$
+\State $k_0 := k_A$; $k_1 \getsr \calK_\tau$
 \State $b' \gets \calA(1^\secpar, \tau, k_b)$
 \Return $[b' = b]$
 \end{algorithmic}
@@ -65,13 +68,43 @@ is negligible.
 
 As an object, KE denotes a protocol, with $\mathsf{KE}_A$ and $\mathsf{KE}_B$ PPT, that is $(1-\varepsilon)$-[[#Correctness|correct]] for a negligible function $\varepsilon(\secpar)$ and secure. Without correctness, the protocol in which $A$ and $B$ output independent uniform keys and send nothing is secure.
 
+### One-way security
+
+The adversary sees the transcript $\tau$ of an honest execution and must output $A$'s key.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ow\text{-}ke}}_{\Pi,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\tau, k_A, k_B) \gets \langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle$
+\State $k' \gets \calA(1^\secpar, \tau)$
+\Return $[k' = k_A]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A key exchange protocol $\Pi = (\mathsf{KE}_A, \mathsf{KE}_B)$ is **one-way secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ow\text{-}ke}}_{\Pi,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ow\text{-}ke}}_{\Pi,\calA}(\secpar) = 1\right]
+$$
+
+is negligible.
+
+The game asks for $k_A$. For a $(1-\varepsilon)$-correct protocol, asking for $k_B$ instead changes the advantage of every $\calA$ by at most $\Pr[k_A \ne k_B] \le \varepsilon(\secpar)$, so the choice does not matter when $\varepsilon$ is negligible — standard. One-way security forces a large key space: if uniform elements of $\calK_\tau$ can be sampled efficiently given $\tau$, the adversary that outputs one wins with probability $\mathbb{E}[1/|\calK_\tau|]$, so in a one-way-secure protocol $\Pr[|\calK_\tau| \le s(\secpar)] \le s(\secpar) \cdot \mathbb{E}[1/|\calK_\tau|]$ is negligible for every polynomial $s$, and no protocol whose key space $\calK_\tau$ has polynomial size, such as $\bits$, is one-way secure — standard.
+
+Security in the [[#Security (indistinguishability from random)|indistinguishability game]] gives one-way security when $\mathbb{E}[1/|\calK_\tau|]$ is negligible: for an adversary $\calA$ outputting $k'$, the distinguisher that outputs $0$ exactly when $k' = k_b$ has advantage at least $\Adv^{\mathrm{ow\text{-}ke}}_{\Pi,\calA}(\secpar) - \mathbb{E}[1/|\calK_\tau|]$ — standard. The converse fails: if CDH is hard for a group generator outputting the groups $\ZZ_P^*$ for odd primes $P$, the Diffie–Hellman key $g^{xy}$ is one-way, but its Legendre symbol $(-1)^{xy}$ is determined by those of $g^x$ and $g^y$, while that of a uniform element of $\ZZ_P^*$ is a uniform sign, so an eavesdropper tells the key from a uniform element with advantage $1/2$ — standard.
+
+As a node, one-way KE denotes a protocol, with $\mathsf{KE}_A$ and $\mathsf{KE}_B$ PPT, that is $(1-\varepsilon)$-[[#Correctness|correct]] for a negligible function $\varepsilon(\secpar)$ and one-way secure. Without correctness, the protocol in which $A$ outputs a uniform key in $\bits^\secpar$ and sends nothing is one-way secure. Under [[computational-diffie-hellman|CDH]], the Diffie–Hellman protocol is one-way secure, with one-way advantage equal to the CDH advantage ([[cdh-to-one-way-key-exchange|CDH ⇒ One-way KE (Diffie–Hellman)]]) — folklore.
+
 # Variations
 
 ## Non-interactive key exchange (NIKE)
 
 A NIKE allows any two parties to derive the same shared key, each from its own secret key and the other's public key, with no interaction at all. Diffie-Hellman over a cyclic group is the canonical example: $k = g^{ab}$ given public keys $g^a$ and $g^b$ ([[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]) — [[DH76 - New Directions in Cryptography|DH76]].
 
-A NIKE is a tuple $\Pi = (\Setup, \Gen, \Combine)$ of efficient algorithms with a key space $\calK$, which may depend on $\pp$ and from which uniform elements can be sampled efficiently:
+A NIKE is a tuple $\Pi = (\Setup, \Gen, \Combine)$ of efficient algorithms with a key space $\calK$, which may depend on $\pp$, has at least two elements for every $\pp$, and from which uniform elements can be sampled efficiently:
 
 - $\Setup(1^\secpar) \to \pp$, a randomized algorithm generating public parameters common to all parties, with $\pp = 1^\secpar$ when there is no setup;
 - $\Gen(\pp) \to (\pk, \sk)$, a randomized algorithm generating a party's key pair;
@@ -126,7 +159,7 @@ An authenticated key exchange (AKE) protocol lets parties holding long-term key 
 The model below is that of [[BR93a - Entity Authentication and Key Distribution|BR93a]] in the public-key setting of [[BJM97 - Key Agreement Protocols and Their Security Analysis|BJM97]]. For every polynomial $N = N(\secpar) \ge 2$, there is a set $\calU$ of $N$ parties, and an AKE protocol $\Pi$ consists of:
 
 - $\KeyGen(1^\secpar) \to (\pk, \sk)$, a randomized algorithm generating a party's long-term key pair;
-- the stateful interactive algorithm run by each **instance** $\Pi^i_U$, $i \in \NN$, of a party $U \in \calU$, on input $\sk_U$ and $(\pk_V)_{V \in \calU}$. An instance is started either as an initiator, with an intended peer, or as a responder. It processes incoming messages and eventually either rejects or **accepts**, outputting a partner identity $\mathit{pid} \in \calU$, a session identity $\mathit{sid}$ and a session key $K \in \calK$.
+- the stateful interactive algorithm run by each **instance** $\Pi^i_U$, $i \in \NN$, of a party $U \in \calU$, on input $\sk_U$ and $(\pk_V)_{V \in \calU}$. An instance is started either as an initiator, with an intended peer, or as a responder. It processes incoming messages and eventually either rejects or **accepts**, outputting a partner identity $\mathit{pid} \in \calU$, a session identity $\mathit{sid}$ and a session key $K \in \calK$, for a finite key space $\calK$ of at least two elements.
 
 Two instances are **partners** if one is an initiator and the other a responder, both accepted with the same $\mathit{sid}$, each one's $\mathit{pid}$ names the other's party, and no other instance accepted with that $\mathit{sid}$. This is the partnering by session identities of [[BPR00 - Authenticated Key Exchange Secure against Dictionary Attacks|BPR00]] without its requirement that partners hold the same session key, which the security definition below imposes separately; [[BR93a - Entity Authentication and Key Distribution|BR93a]] partner instances by [[#Mutual authentication|matching conversations]].
 
@@ -226,11 +259,11 @@ NAXOS, whose ephemeral exponent is a hash of the session's ephemeral secret key 
 
 ## Key exchange with bit-string keys
 
-A two-party key exchange whose key space is $\calK = \bits^{\ell(\secpar)}$ for a polynomial-time computable $\ell$ with $1 \le \ell(\secpar) \le \poly(\secpar)$. As a node, it denotes such a protocol, with PPT parties, that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and secure against eavesdroppers. It is a key exchange ([[bit-string-key-exchange-to-ke|KE with bit-string keys ⇒ KE]]) — folklore, and an IND-CPA-secure [[key-encapsulation-mechanism|KEM]] gives it ([[kem-to-ke|KEM ⇒ KE with bit-string keys]]) — folklore. Its keys can serve as one-time pads under $\oplus$, which an arbitrary finite key space does not support: for a uniform key on a three-element space encoded as $\{00, 01, 10\}$, XOR-padding $00$ gives the support $\{00, 01, 10\}$ and padding $01$ gives $\{00, 01, 11\}$, so the padded string reveals the padded value with constant advantage — standard.
+A two-party key exchange whose key space is $\calK = \bits^{\ell(\secpar)}$ for a polynomial-time computable $\ell$ with $1 \le \ell(\secpar) \le \poly(\secpar)$. As a node, it denotes such a protocol, with PPT parties, that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and secure against eavesdroppers. It is a key exchange ([[bit-string-key-exchange-to-ke|KE with bit-string keys ⇒ KE]]) — folklore, and an IND-CPA-secure [[key-encapsulation-mechanism|KEM]] gives it ([[kem-to-ke|KEM ⇒ KE with bit-string keys]]) — folklore. In the [[random-oracle-model|random oracle model]], hashing the Diffie–Hellman key to $\secpar$ bits gives it under [[computational-diffie-hellman|CDH]] ([[cdh-to-bit-string-key-exchange|CDH ⇒ KE with bit-string keys (hashed Diffie–Hellman)]]) — folklore. Its keys can serve as one-time pads under $\oplus$, which an arbitrary finite key space does not support: for a uniform key on a three-element space encoded as $\{00, 01, 10\}$, XOR-padding $00$ gives the support $\{00, 01, 10\}$ and padding $01$ gives $\{00, 01, 11\}$, so the padded string reveals the padded value with constant advantage — standard.
 
 ## Multi-party key exchange
 
-For $n \ge 2$, an $n$-party key exchange protocol is a tuple $\Pi = (\mathsf{KE}_1, \ldots, \mathsf{KE}_n)$ of interactive algorithms with key space $\calK$, run by parties $P_1, \ldots, P_n$ on input $1^\secpar$ over a public, authenticated broadcast channel. An execution $\langle \mathsf{KE}_1(1^\secpar), \ldots, \mathsf{KE}_n(1^\secpar) \rangle \to (k_1, \ldots, k_n)$ outputs a key $k_i \in \calK$ to each $P_i$; its transcript $\tau$ is the sequence of all messages broadcast. $\Pi$ is $(1-\varepsilon)$-**correct**, for a function $\varepsilon = \varepsilon(\secpar)$, if for all $\secpar \in \NN$, $\Pr[k_1 = \cdots = k_n] \ge 1 - \varepsilon(\secpar)$ over the randomness of all parties.
+For $n \ge 2$, an $n$-party key exchange protocol is a tuple $\Pi = (\mathsf{KE}_1, \ldots, \mathsf{KE}_n)$ of interactive algorithms with a key space $\calK$ of at least two elements, run by parties $P_1, \ldots, P_n$ on input $1^\secpar$ over a public, authenticated broadcast channel. An execution $\langle \mathsf{KE}_1(1^\secpar), \ldots, \mathsf{KE}_n(1^\secpar) \rangle \to (k_1, \ldots, k_n)$ outputs a key $k_i \in \calK$ to each $P_i$; its transcript $\tau$ is the sequence of all messages broadcast. $\Pi$ is $(1-\varepsilon)$-**correct**, for a function $\varepsilon = \varepsilon(\secpar)$, if for all $\secpar \in \NN$, $\Pr[k_1 = \cdots = k_n] \ge 1 - \varepsilon(\secpar)$ over the randomness of all parties.
 
 ```pseudocode
 \begin{algorithm}
@@ -257,7 +290,7 @@ The protocol of Burmester and Desmedt takes two rounds for every $n$ — [[BD94 
 
 ## Multiparty non-interactive key exchange
 
-For $N \ge 2$, an $N$-party NIKE is a tuple $\Pi = (\Setup, \mathsf{Publish}, \mathsf{KeyDer})$ of efficient algorithms with a key space $\calK$, which may depend on $\pp$:
+For $N \ge 2$, an $N$-party NIKE is a tuple $\Pi = (\Setup, \mathsf{Publish}, \mathsf{KeyDer})$ of efficient algorithms with a key space $\calK$, which may depend on $\pp$ and has at least two elements for every $\pp$:
 
 - $\Setup(1^\secpar, 1^N) \to \pp$, a randomized algorithm generating public parameters, with $\pp = (1^\secpar, 1^N)$ when there is no setup;
 - $\mathsf{Publish}(\pp, i) \to (\mathit{msg}_i, \sk_i)$, a randomized algorithm run by party $i \in [N]$, which publishes $\mathit{msg}_i$ and keeps $\sk_i$;
@@ -296,15 +329,15 @@ A three-party NIKE is an $N$-party NIKE, as defined above, for $N = 3$; as a nod
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ NIKE]]
 - [[ke-to-pke-dh76|NIKE ⇒ PKE]]
 - [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]] — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]]
-- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
-- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- In the [[random-oracle-model|random oracle model]], [[merkle-puzzles|Merkle's puzzles]] is a key agreement in which each honest party makes $n$ oracle queries and every eavesdropper that recovers the key with constant probability makes $\Omega(n^2)$ queries ([[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]) — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]. The quadratic gap is optimal, so no random-oracle key agreement is secure against eavesdroppers making polynomially many queries ([[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]) — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
+- [[lwe-to-pke-reg05|LWE with polynomial ratio ⇒ CPA-secure PKE (Regev)]]
 - [[pke-to-ke|PKE ⇒ KE]]
 - [[BCK98 - A Modular Approach to the Design and Analysis of Authentication and Key Exchange Protocols|BCK98]] define the authenticated-links and unauthenticated-links models and **authenticators**, compilers that turn a protocol secure in the first into one secure in the second; they build authenticators from [[digital-signature|signatures]], from [[public-key-encryption|public-key encryption]] and from pre-shared MAC keys, and apply them to Diffie–Hellman key exchange.
 - In the SIGMA ("SIGn-and-MAc") protocols of [[Kra03 - SIGMA The SIGn-and-MAc Approach to Authenticated Diffie-Hellman and Its Use in the IKE Protocols|Kra03]], the parties exchange Diffie–Hellman values $g^x$ and $g^y$; each signs both values and MACs its own identity under a key derived from $g^{xy}$, from which the session key is also derived. SIGMA underlies the signature-based key exchange of IKE — [[Kra03 - SIGMA The SIGn-and-MAc Approach to Authenticated Diffie-Hellman and Its Use in the IKE Protocols|Kra03]]. [[CK02 - Security Analysis of IKE's Signature-based Key-Exchange Protocol|CK02]] prove SIGMA and IKE's signature-based protocols SK-secure in the [[#Canetti–Krawczyk model|CK model]], adapted to sessions whose peer is learned during the run, under [[decisional-diffie-hellman|DDH]] and the security of the signature scheme, the MAC and the key derivation.
 - HMQV, a hashed variant of the MQV protocol of [[LMQSV03 - An Efficient Protocol for Authenticated Key Agreement|LMQSV03]], is a two-message protocol: $A$, with static key pair $(a, g^a)$, sends $X = g^x$, and $B$, with $(b, g^b)$, sends $Y = g^y$; with $d = \bar H(X, B)$ and $e = \bar H(Y, A)$, both compute $\sigma = (Y g^{be})^{x + da} = (X g^{ad})^{y + eb}$ and the session key $H(\sigma)$ — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. As originally posted, with $H$ and $\bar H$ modeled as random oracles, HMQV was claimed secure in the CK model under [[computational-diffie-hellman|CDH]], with some further properties under the gap Diffie–Hellman assumption and [[knowledge-of-exponent|KEA1]] — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. That claim fails for the protocol as stated, which does not check that $X$, $Y$ and the static public keys lie in the intended prime-order group; the revised [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] requires each party to verify that the Diffie–Hellman values it receives are non-identity elements of that group, and its security claims are for this validated protocol. [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] also gives attacks on MQV in the CK model.
 - [[Men05 - Another look at HMQV|Men05]] gives attacks on the unvalidated HMQV in the CK model that recover a victim's static secret key, by sending elements of small order and enumerating the revealed session keys over the small subgroup, and identifies flaws in the original security proof of [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]; it proposes a patched variant, HMQV-1.
 
-<!-- BEGIN GENERATED participates-in 805b90f23724 -->
+<!-- BEGIN GENERATED participates-in 55547f6d6f29 -->
 
 ## Participates in
 
@@ -323,7 +356,9 @@ A three-party NIKE is an $N$-party NIKE, as defined above, for $N = 3$; as a nod
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
 - [[bit-string-key-exchange-to-ke|KE with bit-string keys ⇒ KE]]
+- [[cdh-to-bit-string-key-exchange|CDH ⇒ KE with bit-string keys (hashed Diffie–Hellman)]] (via [[key-exchange#key-exchange-with-bit-string-keys|Key exchange with bit-string keys]])
 - [[cdh-to-non-interactive-key-exchange-dh76|CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
+- [[cdh-to-one-way-key-exchange|CDH ⇒ One-way KE (Diffie–Hellman)]] (via [[key-exchange#one-way-security|One-way security]])
 - [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[key-exchange#three-party-nike|Three-party NIKE]])
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]] (via [[key-exchange#multiparty-non-interactive-key-exchange|Multiparty non-interactive key exchange]])
