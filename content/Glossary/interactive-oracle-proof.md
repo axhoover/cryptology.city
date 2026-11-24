@@ -13,7 +13,7 @@ variants:
 
 # Interactive oracle proof
 
-An interactive oracle proof (IOP) is a public-coin interactive proof in which the verifier reads only a few symbols of each prover message — [[BCS16 - Interactive Oracle Proofs|BCS16]].
+An interactive oracle proof (IOP) is an interactive proof in which the verifier has oracle access to the prover's messages and need not read them in full — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 
 ## Definition
 
@@ -32,7 +32,7 @@ Let $\calR_U = \{((M, x, T), w) : M \text{ accepts } (x, w) \text{ within } T \t
 - the verifier runs in time $\poly(\secpar, |M|, |x|, \log T)$, which bounds the number of rounds, the number of queries and the size of each queried symbol;
 - for every polynomial $t$ there is an extractor $\calE_t$, running in time $\poly(\secpar, |M|, |x|, T)$, such that for every prover $\tilde P$ that may, up to $t$ times, return the verifier to an earlier state before completing one transcript, the verifier then drawing fresh randomness for the next round: if $\tilde P$ makes $V$ accept $(M, x, T)$ with probability $\delta$, then $\calE_t^{\tilde P}(M, x, T)$ outputs $w$ with $((M, x, T), w) \in \calR_U$ with probability at least $\delta - \kappa_{\mathrm{sr}}(t)$, where $\kappa_{\mathrm{sr}}(t)$ is negligible in $\secpar$ — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 
-A state restoration rewinds the verifier, not the prover: $\tilde P$ chooses which partial transcript to continue from and which complete transcript to submit. Such a prover is what a cheating prover against the compiled non-interactive argument becomes, which is why this notion, rather than ordinary soundness, governs the [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]] — [[BCS16 - Interactive Oracle Proofs|BCS16]].
+A state restoration rewinds the verifier, not the prover: $\tilde P$ chooses which partial transcript to continue from and which complete transcript to submit. A cheating prover against the non-interactive argument compiled by the [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]] yields such a prover, so the argument's soundness is characterized by the IOP's state-restoration soundness, not its ordinary soundness — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 
 <!-- BEGIN GENERATED participates-in e0dddf219d11 -->
 
