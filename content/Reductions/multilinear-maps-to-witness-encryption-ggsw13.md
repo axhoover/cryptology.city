@@ -22,7 +22,7 @@ From [[multilinear-maps|multilinear maps]] under the [[multilinear-maps#decision
 
 ## Sketch
 
-For an Exact Cover instance over a universe $[n]$ with sets $S_1, \ldots, S_\ell$, sample $a_1, \ldots, a_n$ and publish, for each $S_i$, an encoding of $\prod_{j \in S_i} a_j$ at level $|S_i|$. The message is masked by a key extracted from the level-$n$ encoding of $\prod_{j \in [n]} a_j$. An exact cover multiplies the published encodings to exactly that encoding, and the Decision Multilinear No-Exact-Cover assumption says the key is pseudorandom when no exact cover exists — [[GGSW13 - Witness encryption and its applications|GGSW13]].
+For an Exact Cover instance over a universe $[n]$ with sets $T_1, \ldots, T_\ell$, sample $a_1, \ldots, a_n$ and publish, for each $T_j$, an encoding of $\prod_{i \in T_j} a_i$ at level $|T_j|$. The message is masked by a key extracted from the level-$n$ encoding of $\prod_{i \in [n]} a_i$. An exact cover multiplies the published encodings to exactly that encoding, and the Decision Multilinear No-Exact-Cover assumption says the key is pseudorandom when no exact cover exists — [[GGSW13 - Witness encryption and its applications|GGSW13]].
 
 ## Notes
 
