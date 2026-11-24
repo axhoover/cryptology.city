@@ -28,4 +28,5 @@ rationale:
 ## Notes
 
 - The puzzle relies on the hardness of factoring as well as on the sequentiality of squaring, and is therefore vulnerable to advances in factoring and to quantum attacks — [[MMV11 - Time-Lock Puzzles in the Random Oracle Model|MMV11]]; see [[sequential-squaring-to-fac-rsw96|Sequential squaring ⇒ FAC]].
+- Under [[sequential-squaring#decisional-sequential-squaring|decisional sequential squaring]] with gap $\varepsilon$, a puzzle that encodes each bit of the solution by whether $y = x^{2^T} \bmod N$ or $y$ is another element of $\J_N$ is a time-lock puzzle with gap $\varepsilon$ ([[decisional-sequential-squaring-to-time-lock-puzzle|Decisional sequential squaring ⇒ TLP]]) — folklore.
 - Time-lock puzzles with gap $\varepsilon$ against polynomial-size adversaries of depth below $T^\varepsilon$ are defined by [[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]], who construct them from [[randomized-encoding#succinct-randomized-encodings|succinct randomized encodings]] and a non-parallelizing language rather than from squaring.
