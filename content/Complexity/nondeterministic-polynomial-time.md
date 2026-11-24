@@ -13,15 +13,14 @@ variants:
 
 # Nondeterministic Polynomial-Time
 
-An "NP machine" is a nondeterministic polynomial-time Turing machine.
-Then NP is the class of decision problems solvable by an NP machine such that
+The class of decision problems solvable by a nondeterministic polynomial-time Turing machine such that
 
-1. If the answer is "yes," at least one computation path accepts.
-2. If the answer is "no," all computation paths reject.
+1. if the answer is "yes," at least one computation path accepts;
+2. if the answer is "no," all computation paths reject.
 
-Equivalently, NP is the class of decision problems such that, if the answer is "yes," then there is a proof of this fact, of length polynomial in the size of the input, that can be verified in [[polynomial-time|P]] (i.e. by a deterministic polynomial-time algorithm). On the other hand, if the answer is "no," then the algorithm must declare invalid any purported proof that the answer is "yes."
+Equivalently, NP is the class of decision problems for which there are a polynomial $p$ and a deterministic polynomial-time ([[polynomial-time|P]]) verifier $V$ such that the answer on input $x$ is "yes" if and only if $V(x, w) = 1$ for some proof $w$ of length at most $p(|x|)$ — [[Kar72 - Reducibility among Combinatorial Problems|Kar72]].
 
-See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#np) and its complement class [coNP here](https://complexityzoo.net/Complexity_Zoo:C#conp)
+See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#np). The complement class is [[co-nondeterministic-polynomial-time|coNP]].
 
 ## Notable problems
 
@@ -29,7 +28,8 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#n
 
 ## Known relationships
 
-- If [[nondeterministic-polynomial-time|NP]] = coNP, then any inconsistent Boolean formula of size n has a proof of inconsistency of size polynomial in n.
+- $\classP \subseteq \classNP \subseteq \classPSPACE$ ([[p-to-np|P ⊆ NP]], [[np-to-pspace|NP ⊆ PSPACE]]) — folklore. $\classNP$ is the first level $\mathbf{\Sigma_1^P}$ of the [[polynomial-time-hierarchy|polynomial hierarchy]] — [[Gol08 - Computational Complexity A Conceptual Perspective|Gol08]].
+- $\classNP = \classcoNP$ if and only if some propositional proof system has proofs of polynomial length: there are a polynomial-time algorithm $M$ and a polynomial $q$ such that a Boolean formula $T$ is a tautology if and only if $M(\pi, T) = 1$ for some proof $\pi$ of length at most $q(|T|)$ — [[CR79 - The Relative Efficiency of Propositional Proof Systems|CR79]].
 
 ## Hardness at almost every input length
 
