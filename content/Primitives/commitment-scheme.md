@@ -27,9 +27,9 @@ A _commitment scheme_ is a two-phase protocol between a committer and a receiver
 
 A _commitment scheme_ is a tuple of efficient algorithms $\mathsf{COM} = (\Gen, \Com, \Open)$ with respect to a message space $\calM$, commitment space $\calC$, and decommitment space $\calD$:
 
-- $\Gen(1^\secpar) \to \pp,$ is a randomized algorithm that outputs public parameters $\pp,$
-- $\Com(\pp, m; r) \to (c, d),$ is a randomized algorithm that takes a message $m \in \calM$ and randomness $r$, and outputs a commitment $c \in \calC$ and decommitment string $d \in \calD,$
-- $\Open(\pp, c, d) \to m \text{ or } \bot,$ is a deterministic algorithm that opens a commitment $c$ using decommitment $d$, returning the message or $\bot$ on failure.
+- $\Gen(1^\secpar) \to \pp$, a randomized algorithm that outputs public parameters $\pp$;
+- $\Com(\pp, m; r) \to (c, d)$, a randomized algorithm that takes a message $m \in \calM$ and randomness $r$, and outputs a commitment $c \in \calC$ and a decommitment string $d \in \calD$;
+- $\Open(\pp, c, d) \to m \text{ or } \bot$, a deterministic algorithm that opens a commitment $c$ using the decommitment $d$, returning the message or $\bot$ on failure.
 
 More generally, the commit phase is an interactive protocol between the committer $C(m)$ and the receiver $R$ whose transcript is the commitment $c$ and after which $C$ holds a decommitment $d$; the syntax above is the case where the receiver's only message is $\pp \gets \Gen(1^\secpar)$.
 
@@ -150,9 +150,11 @@ $$
 \Adv^{\mathrm{pos}}_{\mathsf{VC},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{pos}}_{\mathsf{VC},\calA}(\secpar) = 1\right]
 $$
 
-is negligible. As a node, a vector commitment denotes, for every polynomial $n = n(\secpar)$, a scheme that is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and position binding. This notion bounds neither $|c|$ nor $|\pi|$: the scheme with $c := (m_1, \ldots, m_n)$, an empty $\pi$ and a $\Vrfy$ that compares $m$ with the $i$-th entry of $c$ meets it. [[CF13 - Vector Commitments and Their Applications|CF13]], who introduced vector commitments and position binding, also require them to be _concise_: the commitment and its openings have size independent of $n$.
+is negligible.
 
-TODO: add conciseness, $|c|$ and $|\pi|$ bounded independently of $n$ as in [[CF13 - Vector Commitments and Their Applications|CF13]], to this notion once PCS ⇒ VC has a succinct PCS hypothesis, such as the KZG variant of [[polynomial-commitment|PCS]] or a PCS whose proofs are succinct.
+A vector commitment is **concise** if there is one polynomial $q$, fixed before $n$, such that for every polynomial $n = n(\secpar)$ and all sufficiently large $\secpar$, every $c$ output by $\Com$ and every $\pi$ output by $\Open$ has length at most $q(\secpar)$. [[CF13 - Vector Commitments and Their Applications|CF13]], who introduced vector commitments and position binding, require them to be concise, with the size of the commitment and of its openings independent of $n$; the definition above asks for a bound that is independent of $n$. Sizes at most $p(\secpar, \log n)$, for a polynomial $p$ with non-negative coefficients fixed before $n$, are concise with $q(\secpar) := p(\secpar, \secpar)$, since $n \le 2^\secpar$ for all sufficiently large $\secpar$. Without conciseness, the scheme with $c := (m_1, \ldots, m_n)$, an empty $\pi$ and a $\Vrfy$ that compares $m$ with the $i$-th entry of $c$ is perfectly correct and position binding; for $|\calM| \ge 2$ it is not concise, since $|c| \ge n$ exceeds $q(\secpar)$ for $n = q(\secpar) + 1$.
+
+As a node, a vector commitment denotes a concise scheme that, for every polynomial $n = n(\secpar)$, is $(1-\varepsilon)$-correct for a negligible function $\varepsilon(\secpar)$ and position binding. A [[polynomial-commitment|PCS]] gives one ([[pcs-to-vector-commitments|PCS ⇒ vector commitments]]) — folklore.
 
 ## UC commitment
 
@@ -162,7 +164,7 @@ Over [[interactive-protocol#authenticated-channels|authenticated channels]] with
 
 ### UC multi-commitment
 
-The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of commitments, between any pairs of parties, in one session: every input carries a commitment identifier $\mathit{cid}$, and $\calF_{\mathrm{MCOM}}$ treats the inputs with each $\mathit{cid}$ as $\calF_{\mathrm{COM}}$ does, except that it does not halt after an opening — [[CF01 - Universally Composable Commitments|CF01]]. A **UC multi-commitment** is a protocol in which each commitment involves only its committer and its receiver, in which, with non-negligible probability, the receiver of an honest committer's commitment accepts it and outputs a receipt, and which [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{MCOM}}$ against a malicious adversary that statically corrupts any set of parties, possibly in a hybrid model; a result against adaptive corruptions says so. In the common reference string model all commitments of a session then share one reference string. A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] together with a [[public-key-encryption#cca-security|CCA2-secure PKE]] gives one ([[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|claw-free TDP + CCA2 PKE ⇒ UC multi-commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of commitments, between any pairs of parties, in one session: every input carries a commitment identifier $\mathit{cid}$, and $\calF_{\mathrm{MCOM}}$ treats the inputs with each $\mathit{cid}$ as $\calF_{\mathrm{COM}}$ does, except that it does not halt after an opening — [[CF01 - Universally Composable Commitments|CF01]]. A **UC multi-commitment** is a protocol in which each commitment involves only its committer and its receiver, in which, with non-negligible probability, the receiver of an honest committer's commitment accepts it and outputs a receipt, and which [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{MCOM}}$ against a malicious adversary that statically corrupts any set of parties, possibly in a hybrid model; a result against adaptive corruptions says so. In the common reference string model all commitments of a session then share one reference string. Run for a single commitment under one fixed $\mathit{cid}$, a UC multi-commitment is a [[#UC commitment|UC commitment]] ([[uc-multi-commitment-to-uc-commitment|UC multi-commitment ⇒ UC commitment]]) — folklore. A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] together with a [[public-key-encryption#cca-security|CCA2-secure PKE]] gives one ([[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|claw-free TDP + CCA2 PKE ⇒ UC multi-commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
 
 ## Non-malleable commitments
 
