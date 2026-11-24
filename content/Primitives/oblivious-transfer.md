@@ -258,7 +258,7 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in 450d341f17f1 -->
+<!-- BEGIN GENERATED participates-in e8b4df2bfb38 -->
 
 ## Participates in
 
@@ -266,7 +266,7 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 
 - [[four-round-ot-to-four-round-mpc-ccg20|Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
 - [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
-- [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]]
+- [[gc-and-ot-to-two-party-computation-2pc|GC + String OT ⇒ Semi-honest 2PC (Yao)]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ideal-ot-to-com-kil88|Ideal OT ⇒ COM (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
@@ -279,10 +279,12 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
-- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
+- [[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[ot-to-semi-honest-security-gmw87|Semi-honest OT ⇒ Semi-honest MPC (GMW)]]
+- [[ot-to-string-ot|OT ⇒ String OT]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
+- [[string-ot-to-ot|String OT ⇒ OT]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[two-round-ot-to-ot|Two-round OT ⇒ OT]] (via [[oblivious-transfer#two-round-ot|Two-round OT]])
 - [[two-round-ot-to-two-round-semi-honest-mpc-gs18|Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)]] (via [[oblivious-transfer#two-round-ot|Two-round OT]])
 - [[two-round-uc-ot-to-two-round-mpc-gs18|Two-round UC OT ⇒ Two-round MPC in the CRS model (Garg–Srinivasan)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
@@ -305,11 +307,13 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[oprf-to-ot|OPRF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
-- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[ot-to-string-ot|OT ⇒ String OT]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[psi-to-ot|PSI ⇒ OT]]
 - [[qr-to-malicious-ot-security-pvw08|QR ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
+- [[string-ot-to-ot|String OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]

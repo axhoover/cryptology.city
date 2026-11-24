@@ -48,7 +48,7 @@ BQP defines the power of a quantum adversary. All post-quantum cryptographic sch
 
 For a cipher with $\kappa$-bit keys and a few known input–output pairs, Grover search over the keys, with the predicate that a key maps the known inputs to the known outputs, finds a key consistent with the pairs after an expected $O(2^{\kappa/2})$ evaluations of the cipher in superposition — [[BBHT98 - Tight Bounds on Quantum Searching|BBHT98]] ([[generic-attacks#quantum-key-search|quantum key search]]). Counted in cipher evaluations, a $\kappa$-bit key thus gives at most about $\kappa/2$ bits of security against a quantum adversary, and a search that uses the cipher only through this predicate and evaluates it in $T$ sequential rounds needs $\Omega(2^\kappa/T)$ evaluations in all to succeed with constant probability ([[generic-attacks#key-search-at-bounded-depth|key search at bounded depth]]). NIST's post-quantum security categories measure quantum attacks by circuit size under a depth bound MAXDEPTH between $2^{40}$ and $2^{96}$ logical gates, take key search on AES-128 as the floor of category 1 and estimate it at $2^{170}/\mathrm{MAXDEPTH}$ quantum gates or $2^{143}$ classical gates, and note that Grover's algorithm needs a long serial computation whose speedup shrinks when it runs as many smaller parallel instances, citing [[Zal97 - Grover's quantum searching algorithm is optimal|Zal97]] — [[NIST17 - Post-Quantum Cryptography Security (Evaluation Criteria)|NIST17]] (Section 4.A.5).
 
-<!-- BEGIN GENERATED participates-in a7e27f049fcd -->
+<!-- BEGIN GENERATED participates-in 1740dd566ba0 -->
 
 ## Participates in
 
@@ -66,5 +66,6 @@ For a cipher with $\kappa$-bit keys and a few known input–output pairs, Grover
 **Barriers**
 
 - [[no-bqp-to-np|No relativizing reduction from BQP to NP]]
+- [[no-np-to-bqp-bbbv97|No relativizing reduction from NP to BQP]]
 
 <!-- END GENERATED participates-in -->

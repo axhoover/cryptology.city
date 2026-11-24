@@ -60,13 +60,13 @@ $$
 
 so $m \le k - 2\log(1/\varepsilon) + 2$ gives distance at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]] (arXiv v4, Lemma 2.4). Conditioned on $Z = z$, the lemma bounds the distance by $\tfrac12 \sqrt{2^m \max_x \Pr[X = x \mid Z = z]}$; averaging over $z$ and applying Jensen's inequality to the concave $\sqrt{\cdot}$ gives the bound — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 
-<!-- BEGIN GENERATED participates-in 5e97ebe0a000 -->
+<!-- BEGIN GENERATED participates-in a4503c1313e6 -->
 
 ## Participates in
 
 **Used via Leftover hash lemma**
 
-- [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]]
+- [[crhf-to-statistically-hiding-commitment-dpp97|Arbitrary-length CRHF ⇒ Statistically hiding COM]]
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]]
 - [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ Selectively secure HIBE (bonsai trees)]]

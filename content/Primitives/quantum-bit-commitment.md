@@ -92,3 +92,13 @@ Every scheme can be modified so that the reveal message is classical. Write $X^x
 - [[linear-output-prs-to-quantum-bit-commitment-my22a|Linear-output PRS ⇒ Quantum bit commitment]]: [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS generators]] with $\secpar$-bit keys and output length $n \ge c\secpar$ for a constant $c > 1$ yield computationally hiding and statistically sum-binding schemes — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
 - No quantum bit commitment protocol is unconditionally secure, that is, secure against cheaters with no restriction on their time, space or technology — [[May97 - Unconditionally Secure Quantum Bit Commitment is Impossible|May97]]. All quantum bit commitment schemes proposed until then are insecure: the sender can almost always cheat by an Einstein–Podolsky–Rosen type of attack, delaying her measurement until she opens — [[LC97 - Is Quantum Bit Commitment Really Possible|LC97]].
 - No scheme of the syntax above is both statistically hiding and statistically sum-binding. If the receiver's states $\operatorname{Tr}_R |\psi_0\rangle\langle\psi_0|$ and $\operatorname{Tr}_R |\psi_1\rangle\langle\psi_1|$ have trace distance $\delta$, their fidelity is at least $(1 - \delta)^2$, and by Uhlmann's theorem a unitary $U$ on $R$ attains $|\langle\psi_1|(U \otimes I)|\psi_0\rangle|^2 \ge (1 - \delta)^2$; the sender who prepares $|\psi_0\rangle_{RC}$ and applies $U$ only to open $1$ has $p_0 = 1$ and $p_1 \ge (1 - \delta)^2$ — standard.
+
+<!-- BEGIN GENERATED participates-in 7f532829c48e -->
+
+## Participates in
+
+**Produces Quantum bit commitment**
+
+- [[linear-output-prs-to-quantum-bit-commitment-my22a|Linear-output PRS ⇒ Quantum bit commitment]]
+
+<!-- END GENERATED participates-in -->

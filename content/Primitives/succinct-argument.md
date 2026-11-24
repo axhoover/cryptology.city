@@ -204,7 +204,7 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces tightly to the $q$-DLOG assumption ([[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK]]) — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 93dd9ce297bf -->
+<!-- BEGIN GENERATED participates-in 738abe3d43f6 -->
 
 ## Participates in
 
@@ -224,7 +224,7 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]] (via [[succinct-argument#universalupdatable-snarks|Universal/updatable SNARKs]])
 - [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]] (via [[succinct-argument#zk-snark|zk-SNARK]])
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-SNARK]])
-- [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
+- [[crhf-to-interactive-succinct-argument-kil92|Arbitrary-length CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
 - [[fully-succinct-snark-to-sublinear-snarg-for-np|Fully succinct SNARK ⇒ SNARG for NP with sublinear proofs]] (via [[succinct-argument#snargs-for-np-with-sublinear-proofs|SNARGs for NP with sublinear proofs]])
 - [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
 - [[linear-only-encryption-to-designated-verifier-snarg-bciop13|Linear-only encryption ⇒ Designated-verifier SNARG]] (via [[succinct-argument#designated-verifier-snargs|Designated-verifier SNARGs]])

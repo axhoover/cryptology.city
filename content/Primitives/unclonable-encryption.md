@@ -112,12 +112,17 @@ As an object, unclonable-indistinguishable encryption denotes a [[#Correctness|c
 - No deterministic scheme is unclonable-indistinguishable, where a scheme is deterministic if $\Enc(k, \cdot)$ applies a unitary $U_k$ to the message and ancilla qubits in state $|0\rangle$, giving a pure ciphertext, and $\Dec(k, \cdot)$ applies $U_k^\dagger$ and measures: a single unbounded cloning adversary wins the unclonable-indistinguishability game against every such scheme with probability at least $0.568$ as $\secpar \to \infty$ — [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]] (arXiv v1, Definition 3.1, Theorem 3.2). Conjugate coding is deterministic; the unclonable-indistinguishable schemes above randomize $\Enc$.
 - Other plain-model results for one-bit messages are weaker: keyed by a unitary $2$-design, an efficient scheme with winning probability at most $1/2 + \tilde{O}(1/\secpar)$ — [[BC26 - Uncloneable Encryption from Decoupling|BC26]] (arXiv v4, Theorem 5.2); keyed by a Haar-random unitary on dimension $d$, a scheme that is not efficient, with winning probability at most $1/2 + O(d^{-1/8})$ — [[BBC26b - The uncloneable bit exists|BBC26b]] (arXiv v2, Theorem 17); a scheme whose decryption key is a quantum state — [[AKY25 - Simultaneous Haar Indistinguishability with Applications to Unclonable Cryptography|AKY25]] (arXiv v1, Theorem 21); and a scheme secure against efficient adversaries only, from post-quantum [[indistinguishability-obfuscation|iO]], [[hash-function#preimage-resistance-one-wayness|one-way functions]], compute-and-compare obfuscation and an unproven conjecture on simultaneous compute-and-compare obfuscation — [[CHV23 - Towards Unclonable Cryptography in the Plain Model|CHV23]] (arXiv v4, Conjecture 2, Corollary 5). A public-key scheme for multi-bit messages, secure against efficient adversaries, follows from sub-exponentially secure post-quantum iO and one-way functions, the quantum hardness of [[learning-with-errors|LWE]] and an unproven simultaneous inner-product conjecture — [[AB24 - A Modular Approach to Unclonable Cryptography|AB24]] (arXiv v3, Conjecture 14, Corollary 81).
 
-<!-- BEGIN GENERATED participates-in 686046d7126d -->
+<!-- BEGIN GENERATED participates-in 43f4f57ace99 -->
 
 ## Participates in
+
+**Builds on Unclonable encryption**
+
+- [[unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b|Unclonable encryption ⇒ unclonable-indistinguishable UE]]
 
 **Produces Unclonable encryption**
 
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]] (via [[unclonable-encryption#unclonable-indistinguishability|Unclonable indistinguishability]])
+- [[unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b|Unclonable encryption ⇒ unclonable-indistinguishable UE]] (via [[unclonable-encryption#unclonable-indistinguishability|Unclonable indistinguishability]])
 
 <!-- END GENERATED participates-in -->

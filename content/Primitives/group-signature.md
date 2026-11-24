@@ -142,14 +142,14 @@ In the dynamic model, members join at any time through an interactive protocol w
 - In [[pairings|bilinear groups]], [$q$-SDH](q-strong-diffie-hellman) and [[decisional-diffie-hellman#dlin|DLIN]] give CPA-anonymous group signatures in the [[random-oracle-model|random-oracle model]] whose signatures are about the size of an RSA signature at the same security level ([[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures]]) — [[BBS04 - Short Group Signatures|BBS04]].
 - Group signatures imply public-key encryption ([[group-signature-to-pke-aw04|Group signatures ⇒ PKE]]) — [[AW04 - On the Minimal Assumptions of Group Signature Schemes|AW04]].
 
-<!-- BEGIN GENERATED participates-in 05eae508bd8a -->
+<!-- BEGIN GENERATED participates-in d8f517b3d6f7 -->
 
 ## Participates in
 
 **Builds on Group signature**
 
 - [[group-signature-to-cpa-anonymous-group-signature|Group signatures ⇒ CPA-anonymous group signatures]]
-- [[group-signature-to-pke-aw04|Group signatures ⇒ PKE]]
+- [[group-signature-to-pke-aw04|CPA-anonymous group signatures ⇒ PKE]] (via [[group-signature#cpa-full-anonymity|CPA-full anonymity]])
 
 **Produces Group signature**
 

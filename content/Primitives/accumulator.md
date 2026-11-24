@@ -72,13 +72,13 @@ TODO: the security game of [[CL02 - Dynamic Accumulators and Application to Effi
 - The RSA accumulator is dynamic: additions and witness updates need no trapdoor, deletions use the factorization, and collision-freeness still rests on [[rsa-assumption#strong-rsa-with-safe-prime-moduli|strong RSA for safe-prime moduli]] ([[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]]) — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
 - In [[pairings|bilinear groups]], $\mathit{acc} = g^{\prod_{x \in X}(x + s)}$ for a secret $s$, with public parameters $g, g^s, \ldots, g^{s^q}$, accumulates sets of at most $q$ elements and is collision-free under the [$q$-SDH assumption](q-strong-diffie-hellman) — [[Ngu05 - Accumulators from Bilinear Pairings and Applications|Ngu05]].
 
-<!-- BEGIN GENERATED participates-in 4c9676a47c5d -->
+<!-- BEGIN GENERATED participates-in def444596a21 -->
 
 ## Participates in
 
 **Produces Cryptographic accumulator**
 
-- [[crhf-to-accumulator|CRHF ⇒ accumulator]]
+- [[crhf-to-accumulator|Arbitrary-length CRHF ⇒ accumulator]]
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]]
 - [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]]
 

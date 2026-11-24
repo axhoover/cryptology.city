@@ -107,7 +107,7 @@ A **tweakable enciphering scheme** has a domain $\calD$ of bit strings of severa
 - **XEX\*.** A tweakable block cipher is _tagged_ if $\calT = \bits \times \calT^*$. Its adversary has a forward and an inverse oracle and respects the tags: it makes no inverse query under a tweak $(0, T^*)$, and after a query under $(b, T^*)$ none under $(1 - b, T^*)$. XEX\* evaluates [[bit-string-prp-to-tweakable-block-cipher-rog04a|XE]] under the tweaks $(0, N, i)$ and [[strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a|XEX]] under the tweaks $(1, N, i)$, with one key and one offset $\Delta = \alpha^i E_k(N)$; under the hypotheses of XEX, a tag-respecting adversary distinguishes it from an ideal family with advantage at most the bound of XEX — [[Rog04a - Efficient Instantiations of Tweakable Blockciphers and Refinements to Modes OCB and PMAC|Rog04a]] (full version, Section 8 and Theorem 11). The restriction is necessary: the forward answers on $x$ under $(0, N, i)$ and under $(1, N, i)$ XOR to $\Delta$ for every $x$, whereas under an ideal family the answers on two inputs $x \ne x'$ have equal XORs with probability $1/(2^n - 1)$ — standard.
 - **OCB2.** The authenticated-encryption mode that Rog04a builds on XEX\*, named OCB1 there, encrypts block $j < m$ of an $m$-block message with XEX under the tweak $(1, N, j, 0)$ and derives the pad of the last block with XE under $(0, N, m, 0)$; decryption inverts XEX on the blocks $j < m$ and derives the pad in the same way — [[Rog04a - Efficient Instantiations of Tweakable Blockciphers and Refinements to Modes OCB and PMAC|Rog04a]] (full version, Section 10). An encryption and a decryption under one nonce $N$ with different numbers of blocks therefore evaluate both tags on one $(N, j, 0)$, the XEX\* bound does not apply, and universal forgeries and full plaintext recovery follow — [[IIMP19 - Cryptanalysis of OCB2 Attacks on Authenticity and Confidentiality|IIMP19]].
 
-<!-- BEGIN GENERATED participates-in 55954a9727b7 -->
+<!-- BEGIN GENERATED participates-in f8cdf088ae98 -->
 
 ## Participates in
 
@@ -117,7 +117,9 @@ A **tweakable enciphering scheme** has a domain $\calD$ of bit strings of severa
 
 **Produces Tweakable block cipher**
 
+- [[bit-string-prp-to-tweakable-block-cipher-rog04a|PRP on bit strings ⇒ TBC (XE)]]
 - [[prp-to-tweakable-block-cipher-lrw02|PRP on bit strings ⇒ TBC (LRW1)]]
+- [[strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a|Strong PRP on bit strings ⇒ Strong TBC (XEX)]] (via [[tweakable-block-cipher#strong-security|Strong security]])
 - [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP on bit strings ⇒ Strong TBC (LRW2)]] (via [[tweakable-block-cipher#strong-security|Strong security]])
 - [[strong-tweakable-block-cipher-to-tweakable-block-cipher|Strong TBC ⇒ TBC]]
 

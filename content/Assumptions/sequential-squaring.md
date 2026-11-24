@@ -95,12 +95,13 @@ The assumption generalizes from $\ZZ_N^*$ to a group generator $\GrGen$ that on 
 - **Factoring.** An algorithm that factors $N$ yields $\phi(N)$, and from it $x^{2^T}$ in further time $\poly(\secpar, \log T)$ — [[RSW96 - Time-lock Puzzles and Timed-release Crypto|RSW96]]; the RSW puzzle is therefore vulnerable to advances in factoring — [[MMV11 - Time-Lock Puzzles in the Random Oracle Model|MMV11]].
 - **Quantum.** Shor's algorithm factors $N$ in quantum polynomial time and so breaks the assumption in RSA groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
 
-<!-- BEGIN GENERATED participates-in 4c334da2f7a2 -->
+<!-- BEGIN GENERATED participates-in 56a21e47089e -->
 
 ## Participates in
 
 **Builds on Sequential Squaring Assumption**
 
+- [[decisional-sequential-squaring-to-time-lock-puzzle|Decisional sequential squaring ⇒ TLP]] (via [[sequential-squaring#decisional-sequential-squaring|Decisional sequential squaring]])
 - [[sequential-squaring-to-fac-rsw96|Sequential squaring ⇒ FAC]]
 - [[sequential-squaring-to-time-lock-puzzle-rsw96|Sequential squaring ⇒ TLP (RSW puzzle)]]
 

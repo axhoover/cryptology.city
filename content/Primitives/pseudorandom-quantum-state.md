@@ -81,7 +81,7 @@ A PRS generator is **single-copy secure** if its output length satisfies $n(\sec
 - [[no-single-copy-prs-to-owf-kqst23|No relativizing reduction from single-copy PRS to OWF]]: relative to a classical oracle, $\classP = \classNP$ and single-copy-secure PRS generators with $n > \secpar$, secure against uniform quantum adversaries, exist — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
 - If $\classBQP = \classPP$, no PRS generator with $n = \omega(\log \secpar)$ exists — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
 
-<!-- BEGIN GENERATED participates-in b0e216d3981b -->
+<!-- BEGIN GENERATED participates-in e88ca3d38458 -->
 
 ## Participates in
 
@@ -89,6 +89,7 @@ A PRS generator is **single-copy secure** if its output length satisfies $n(\sec
 
 - [[exponential-dimension-prs-to-prs|Exponential-dimension PRS ⇒ PRS]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])
 - [[linear-output-prs-to-exponential-dimension-prs|Linear-output PRS ⇒ Exponential-dimension PRS]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
+- [[linear-output-prs-to-quantum-bit-commitment-my22a|Linear-output PRS ⇒ Quantum bit commitment]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
 - [[linear-output-prs-to-single-copy-prs|Linear-output PRS ⇒ Single-copy PRS]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
 - [[prs-to-owsg-my22a|PRS ⇒ OWSG]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
 - [[prs-to-quantum-money-jls18|PRS ⇒ QM]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])

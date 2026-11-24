@@ -2230,6 +2230,21 @@
    "unlisted": false
   },
   {
+   "id": "elf",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/extremely-lossy-function.md",
+   "slug": "extremely-lossy-function",
+   "graphSlug": "Primitives/extremely-lossy-function",
+   "title": "Extremely lossy function",
+   "aliases": [
+    "ELF",
+    "Extremely lossy function",
+    "Extremely lossy functions"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "enhanced-trapdoor-permutation",
    "kind": "variant",
    "type": "primitive",
@@ -6537,6 +6552,22 @@
    "unlisted": false
   },
   {
+   "id": "quantum-bit-commitment",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-bit-commitment.md",
+   "slug": "quantum-bit-commitment",
+   "graphSlug": "Primitives/quantum-bit-commitment",
+   "title": "Quantum bit commitment",
+   "aliases": [
+    "Quantum bit commitment",
+    "Quantum bit commitments",
+    "Quantum commitment",
+    "Non-interactive quantum bit commitment"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "quantum-lightning",
    "kind": "variant",
    "type": "primitive",
@@ -7792,6 +7823,19 @@
    "anchor": "#statistically-simulation-sound-nizk-for-np",
    "of": "nizk",
    "title": "Statistically simulation-sound NIZK for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "string-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#string-ot",
+   "of": "ot",
+   "title": "String OT",
    "aliases": [],
    "unlisted": false
   },
@@ -11139,6 +11183,33 @@
    "title": "PRP on bit strings ⇒ PRP"
   },
   {
+   "id": "red-bit-string-prp-to-tweakable-block-cipher-rog04a",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-string-prp"
+   ],
+   "conclusion": "tweakable-block-cipher",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rog04a - Efficient Instantiations of Tweakable Blockciphers and Refinements to Modes OCB and PMAC|Rog04a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the PRP distinguisher makes $2q$ queries, plus additive $4.5\\,q^2/2^n$ for $q$ queries",
+   "rationale": {
+    "class": "The construction calls the block cipher only as an oracle, the reduction runs the tweakable-PRP distinguisher once as an oracle and answers each query with two calls to its own oracle, and the random-function core is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-string-prp-to-tweakable-block-cipher-rog04a.md",
+   "slug": "bit-string-prp-to-tweakable-block-cipher-rog04a",
+   "graphSlug": "Reductions/bit-string-prp-to-tweakable-block-cipher-rog04a",
+   "title": "PRP on bit strings ⇒ TBC (XE)"
+  },
+  {
    "id": "red-bit-string-tdp-to-tdp",
    "kind": "implication",
    "hypotheses": [
@@ -12210,6 +12281,33 @@
    "title": "co-CDH ⇒ BLS signatures"
   },
   {
+   "id": "red-coin-flipping-to-owf-il89",
+   "kind": "implication",
+   "hypotheses": [
+    "coin-flipping"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: a party biases the honest output of an $m$-message protocol by about $1/(8m)$",
+   "rationale": {
+    "class": "The one-way function evaluates the parties' next-message functions only as an oracle, and the biasing strategy runs a distributional inverter for that function, obtained from any inverter by IL89's transformation, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/coin-flipping-to-owf-il89.md",
+   "slug": "coin-flipping-to-owf-il89",
+   "graphSlug": "Reductions/coin-flipping-to-owf-il89",
+   "title": "Coin flipping ⇒ OWF"
+  },
+  {
    "id": "red-com-to-coin-flipping-blu81",
    "kind": "implication",
    "hypotheses": [
@@ -12873,7 +12971,7 @@
    "id": "red-crhf-to-accumulator",
    "kind": "implication",
    "hypotheses": [
-    "crhf"
+    "arbitrary-length-crhf"
    ],
    "conclusion": "accumulator",
    "class": "fully-black-box",
@@ -12894,7 +12992,7 @@
    "page": "content/Reductions/crhf-to-accumulator.md",
    "slug": "crhf-to-accumulator",
    "graphSlug": "Reductions/crhf-to-accumulator",
-   "title": "CRHF ⇒ accumulator"
+   "title": "Arbitrary-length CRHF ⇒ accumulator"
   },
   {
    "id": "red-crhf-to-arbitrary-length-crhf",
@@ -12981,7 +13079,7 @@
    "id": "red-crhf-to-interactive-succinct-argument-kil92",
    "kind": "implication",
    "hypotheses": [
-    "crhf"
+    "arbitrary-length-crhf"
    ],
    "conclusion": "interactive-succinct-argument",
    "class": "unstated",
@@ -13001,7 +13099,7 @@
    "page": "content/Reductions/crhf-to-interactive-succinct-argument-kil92.md",
    "slug": "crhf-to-interactive-succinct-argument-kil92",
    "graphSlug": "Reductions/crhf-to-interactive-succinct-argument-kil92",
-   "title": "CRHF ⇒ Succinct arguments for NP (Kilian)"
+   "title": "Arbitrary-length CRHF ⇒ Succinct arguments for NP (Kilian)"
   },
   {
    "id": "red-crhf-to-second-preimage-resistance-rs04",
@@ -13034,7 +13132,7 @@
    "id": "red-crhf-to-statistically-hiding-commitment-dpp97",
    "kind": "implication",
    "hypotheses": [
-    "crhf"
+    "arbitrary-length-crhf"
    ],
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
@@ -13058,7 +13156,7 @@
    "page": "content/Reductions/crhf-to-statistically-hiding-commitment-dpp97.md",
    "slug": "crhf-to-statistically-hiding-commitment-dpp97",
    "graphSlug": "Reductions/crhf-to-statistically-hiding-commitment-dpp97",
-   "title": "CRHF ⇒ Statistically hiding COM"
+   "title": "Arbitrary-length CRHF ⇒ Statistically hiding COM"
   },
   {
    "id": "red-crhf-to-uowhf-rs04",
@@ -13812,7 +13910,7 @@
     "jls21-common-prime-assumptions",
     "subexponential-prg-in-nc0"
    ],
-   "conclusion": "io",
+   "conclusion": "subexponential-io",
    "class": "free",
    "model": "standard",
    "models": [
@@ -14177,7 +14275,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit",
+   "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit; hashing the output to one bit adds $\\tfrac{q}{2}\\,\\mathbb{E}[\\sqrt{2/p}]$ for $q$ queries",
    "rationale": {
     "class": "The construction uses only the group generator's output, and each hybrid step runs the PRF distinguisher only as an oracle to build a DDH distinguisher."
    },
@@ -14315,6 +14413,33 @@
    "slug": "decisional-linear-to-pke-bbs04",
    "graphSlug": "Reductions/decisional-linear-to-pke-bbs04",
    "title": "DLIN ⇒ PKE (Linear Encryption)"
+  },
+  {
+   "id": "red-decisional-sequential-squaring-to-time-lock-puzzle",
+   "kind": "implication",
+   "hypotheses": [
+    "decisional-sequential-squaring"
+   ],
+   "conclusion": "time-lock-puzzle",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $\\secpar$, the solution length, and an additive $\\secpar \\cdot 2^{5-2\\secpar}$; the adversary's depth, and hence the gap, is preserved",
+   "rationale": {
+    "class": "The reduction fixes the puzzle's other positions as non-uniform advice, chosen by averaging, so that its depth equals the adversary's, and the vocabulary has no non-uniform class."
+   },
+   "status": "draft",
+   "page": "content/Reductions/decisional-sequential-squaring-to-time-lock-puzzle.md",
+   "slug": "decisional-sequential-squaring-to-time-lock-puzzle",
+   "graphSlug": "Reductions/decisional-sequential-squaring-to-time-lock-puzzle",
+   "title": "Decisional sequential squaring ⇒ TLP"
   },
   {
    "id": "red-deniable-encryption-to-pke-cpa-security",
@@ -16139,7 +16264,7 @@
    "hypotheses": [
     "subexponential-weakly-compact-fe"
    ],
-   "conclusion": "io",
+   "conclusion": "subexponential-io",
    "class": "free",
    "model": "standard",
    "models": [
@@ -16701,14 +16826,15 @@
    "hypotheses": [
     "gapsvp-poly-factor"
    ],
-   "conclusion": "sis",
+   "conclusion": "bit-compressing-sis",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
    ],
    "source": [
-    "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
+    "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]",
+    "[[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]]"
    ],
    "via": [],
    "heuristic": false,
@@ -16751,7 +16877,7 @@
    "kind": "implication",
    "hypotheses": [
     "garbled-circuits",
-    "ot"
+    "string-ot"
    ],
    "conclusion": "semi-honest-two-party-computation",
    "class": "fully-black-box",
@@ -16773,7 +16899,7 @@
    "page": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
    "slug": "gc-and-ot-to-two-party-computation-2pc",
    "graphSlug": "Reductions/gc-and-ot-to-two-party-computation-2pc",
-   "title": "GC + OT ⇒ Semi-honest 2PC (Yao)"
+   "title": "GC + String OT ⇒ Semi-honest 2PC (Yao)"
   },
   {
    "id": "red-generic-bilinear-group-model-to-asymmetric-q-sdh-bb08",
@@ -17057,7 +17183,7 @@
    "id": "red-group-signature-to-pke-aw04",
    "kind": "implication",
    "hypotheses": [
-    "group-signature"
+    "cpa-anonymous-group-signature"
    ],
    "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
@@ -17078,7 +17204,7 @@
    "page": "content/Reductions/group-signature-to-pke-aw04.md",
    "slug": "group-signature-to-pke-aw04",
    "graphSlug": "Reductions/group-signature-to-pke-aw04",
-   "title": "Group signatures ⇒ PKE"
+   "title": "CPA-anonymous group signatures ⇒ PKE"
   },
   {
    "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
@@ -19581,6 +19707,33 @@
    "slug": "linear-output-prs-to-exponential-dimension-prs",
    "graphSlug": "Reductions/linear-output-prs-to-exponential-dimension-prs",
    "title": "Linear-output PRS ⇒ Exponential-dimension PRS"
+  },
+  {
+   "id": "red-linear-output-prs-to-quantum-bit-commitment-my22a",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-output-prs"
+   ],
+   "conclusion": "quantum-bit-commitment",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none for hiding: the hiding advantage equals the pseudorandomness advantage for $t = 1$; binding is statistical, with $p_0 + p_1 \\le 1 + \\sqrt{2^\\secpar / 2^n}$",
+   "rationale": {
+    "model": "The commitment is a quantum state and the hiding adversary is quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-output-prs-to-quantum-bit-commitment-my22a.md",
+   "slug": "linear-output-prs-to-quantum-bit-commitment-my22a",
+   "graphSlug": "Reductions/linear-output-prs-to-quantum-bit-commitment-my22a",
+   "title": "Linear-output PRS ⇒ Quantum bit commitment"
   },
   {
    "id": "red-linear-output-prs-to-single-copy-prs",
@@ -22549,7 +22702,7 @@
    "id": "red-ot-to-ot-extension-iknp03",
    "kind": "implication",
    "hypotheses": [
-    "ot"
+    "string-ot"
    ],
    "conclusion": "ot-extension",
    "class": "fully-black-box",
@@ -22571,7 +22724,7 @@
    "page": "content/Reductions/ot-to-ot-extension-iknp03.md",
    "slug": "ot-to-ot-extension-iknp03",
    "graphSlug": "Reductions/ot-to-ot-extension-iknp03",
-   "title": "OT ⇒ OT extension (IKNP)"
+   "title": "String OT ⇒ OT extension (IKNP)"
   },
   {
    "id": "red-ot-to-semi-honest-security-gmw87",
@@ -22600,6 +22753,33 @@
    "slug": "ot-to-semi-honest-security-gmw87",
    "graphSlug": "Reductions/ot-to-semi-honest-security-gmw87",
    "title": "Semi-honest OT ⇒ Semi-honest MPC (GMW)"
+  },
+  {
+   "id": "red-ot-to-string-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "string-ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor $\\ell$ for strings of length $\\ell$, in each privacy game: a hybrid over the $\\ell$ parallel executions",
+   "rationale": {
+    "class": "The protocol runs the given OT only as an oracle, once per bit of the strings, and each reduction runs the privacy adversary once as an oracle and executes the other transfers honestly itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-string-ot.md",
+   "slug": "ot-to-string-ot",
+   "graphSlug": "Reductions/ot-to-string-ot",
+   "title": "OT ⇒ String OT"
   },
   {
    "id": "red-owf-and-io-to-fe-wat15",
@@ -29013,14 +29193,15 @@
    "hypotheses": [
     "sivp-poly-factor"
    ],
-   "conclusion": "sis",
+   "conclusion": "bit-compressing-sis",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
    ],
    "source": [
-    "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
+    "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]",
+    "[[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]]"
    ],
    "via": [],
    "heuristic": false,
@@ -29570,6 +29751,33 @@
    "title": "SSS-NIZK for NP ⇒ SSS-NIZK"
   },
   {
+   "id": "red-string-ot-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "string-ot"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the protocol for strings of length one, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/string-ot-to-ot.md",
+   "slug": "string-ot-to-ot",
+   "graphSlug": "Reductions/string-ot-to-ot",
+   "title": "String OT ⇒ OT"
+  },
+  {
    "id": "red-strong-bit-string-prp-to-bit-string-prp",
    "kind": "implication",
    "hypotheses": [
@@ -29624,6 +29832,33 @@
    "title": "Strong PRP on bit strings ⇒ Strong PRP"
   },
   {
+   "id": "red-strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-bit-string-prp"
+   ],
+   "conclusion": "strong-tweakable-block-cipher",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rog04a - Efficient Instantiations of Tweakable Blockciphers and Refinements to Modes OCB and PMAC|Rog04a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the strong-PRP distinguisher makes $2q$ queries, plus additive $9.5\\,q^2/2^n$ for $q$ queries",
+   "rationale": {
+    "class": "The construction calls the block cipher and its inverse only as oracles, the reduction runs the distinguisher once as an oracle and answers each query with two calls to its own oracles, and the random-permutation core is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a.md",
+   "slug": "strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a",
+   "graphSlug": "Reductions/strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a",
+   "title": "Strong PRP on bit strings ⇒ Strong TBC (XEX)"
+  },
+  {
    "id": "red-strong-one-time-signature-to-one-time-signature",
    "kind": "implication",
    "hypotheses": [
@@ -29669,7 +29904,7 @@
     "[[universal-hash-function|Almost XOR-universal hashing]]"
    ],
    "heuristic": false,
-   "securityLoss": "additive $O(\\varepsilon q^2)$ for $q$ queries and an $\\varepsilon$-AXU hash family",
+   "securityLoss": "additive $3\\varepsilon q^2$ for $q$ queries and an $\\varepsilon$-AXU hash family",
    "rationale": {
     "class": "The construction calls the block cipher and its inverse only as oracles, the reduction runs the distinguisher once as an oracle and samples the hash function itself, and the random-permutation core is bounded information-theoretically."
    },
@@ -30948,7 +31183,7 @@
     "subset-sum-constant-density-below-one"
    ],
    "conclusion": "decision-subset-sum",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -30956,9 +31191,14 @@
    "source": [
     "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "a factor O(n) in the advantage, from guessing the size of the intersection of the solution with the Goldreich–Levin vector, plus the polynomial loss of Goldreich–Levin decoding",
+   "rationale": {
+    "class": "The reduction turns any distinguisher, with one oracle call on a re-randomized instance, into a predictor of an inner-product bit of the solution, and Goldreich–Levin decoding runs that predictor only as an oracle to invert."
+   },
    "status": "draft",
    "page": "content/Reductions/subset-sum-to-decision-subset-sum-in96.md",
    "slug": "subset-sum-to-decision-subset-sum-in96",
@@ -31047,7 +31287,7 @@
     "subset-sum-constant-density-below-one"
    ],
    "conclusion": "prg",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -31055,9 +31295,14 @@
    "source": [
     "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "a factor O(n) in the advantage, from guessing the size of the intersection of the solution with the Goldreich–Levin vector, plus the polynomial loss of Goldreich–Levin decoding",
+   "rationale": {
+    "class": "The generator is the subset-sum function itself, and the reduction turns any distinguisher, with one oracle call on a re-randomized instance, into a predictor of an inner-product bit of the solution, which Goldreich–Levin decoding runs only as an oracle to invert."
+   },
    "status": "draft",
    "page": "content/Reductions/subset-sum-to-prg-in96.md",
    "slug": "subset-sum-to-prg-in96",
@@ -31071,7 +31316,7 @@
     "subset-sum-above-density-one"
    ],
    "conclusion": "uowhf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -31082,6 +31327,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The hash family is the subset-sum function itself with a uniform instance as key, and the reduction runs any target-collision finder only as an oracle, on a key in which one element is reprogrammed so that the finder's committed input sums to the subset-sum target."
+   },
    "status": "draft",
    "page": "content/Reductions/subset-sum-to-uowhf-in96.md",
    "slug": "subset-sum-to-uowhf-in96",
@@ -32577,7 +32825,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none",
+   "securityLoss": "constant: receiver-privacy advantage at most $2\\varepsilon$ and sender-privacy advantage at most $4\\varepsilon + 2\\delta$, for UC distinguishing advantage $\\varepsilon$ and non-triviality error $\\delta$",
    "rationale": {
     "class": "Identity map, and each privacy distinguisher becomes an environment distinguishing the real from the ideal execution, used as an oracle."
    },
@@ -32856,6 +33104,33 @@
    "title": "UC MPC ⇒ MPC"
   },
   {
+   "id": "red-uc-multi-commitment-to-uc-commitment",
+   "kind": "implication",
+   "hypotheses": [
+    "uc-multi-commitment"
+   ],
+   "conclusion": "uc-commitment",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The protocol runs the multi-commitment protocol as a subroutine under one fixed commitment identifier, and the composition theorem builds its simulator from the multi-commitment simulator, used as a black box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uc-multi-commitment-to-uc-commitment.md",
+   "slug": "uc-multi-commitment-to-uc-commitment",
+   "graphSlug": "Reductions/uc-multi-commitment-to-uc-commitment",
+   "title": "UC multi-commitment ⇒ UC commitment"
+  },
+  {
    "id": "red-uc-ot-to-malicious-ot-security",
    "kind": "implication",
    "hypotheses": [
@@ -32874,7 +33149,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the protocol, and a stand-alone adversary is a special case of a UC adversary with an environment that only supplies inputs and reads outputs."
+    "class": "The stand-alone protocol is the UC protocol with a default output in place of a missing one, and a stand-alone adversary is a special case of a UC adversary with an environment that only supplies inputs and reads outputs."
    },
    "status": "draft",
    "page": "content/Reductions/uc-ot-to-malicious-ot-security.md",
@@ -32899,7 +33174,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none",
+   "securityLoss": "constant: receiver-privacy advantage at most $2\\varepsilon$ and sender-privacy advantage at most $4\\varepsilon + 2\\delta$, for UC distinguishing advantage $\\varepsilon$ and non-triviality error $\\delta$",
    "rationale": {
     "class": "Identity map, and each privacy distinguisher becomes an environment distinguishing the real from the ideal execution, used as an oracle."
    },
@@ -32908,6 +33183,35 @@
    "slug": "uc-ot-to-ot",
    "graphSlug": "Reductions/uc-ot-to-ot",
    "title": "UC-secure OT ⇒ OT"
+  },
+  {
+   "id": "red-unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b",
+   "kind": "implication",
+   "hypotheses": [
+    "unclonable-encryption"
+   ],
+   "conclusion": "unclonable-indistinguishable-encryption",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[CLX26b - Unclonable encryption from BB84 states a simultaneous Goldreich-Levin reduction|CLX26b]]",
+    "[[Ana26 - Non-Local Search-to-Decision Reduction over F2, and More|Ana26]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "quartic: a cloning adversary winning the indistinguishability game with probability $1/2 + \\Delta/2$ yields one winning the unclonable-security game with probability at least $\\Delta^4$",
+   "rationale": {
+    "class": "CLX26b call their extractor black-box in the sense that it uses the adversary only through its splitting channel and coherent controlled applications of the receivers' measurement reflections, a form of access the class vocabulary does not describe.",
+    "model": "The ciphertexts and the cloning adversaries are quantum; the theorem is proved in the plain model, with no oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b.md",
+   "slug": "unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b",
+   "graphSlug": "Reductions/unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b",
+   "title": "Unclonable encryption ⇒ unclonable-indistinguishable UE"
   },
   {
    "id": "red-universal-hash-proof-system-to-leakage-resilient-pke-ns09",
@@ -35071,6 +35375,35 @@
    "title": "No tight simple reduction from non-interactive assumptions to Waters signatures"
   },
   {
+   "id": "bar-np-to-bqp-bbbv97",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "bqp",
+   "class": "relativizing",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "relativizing"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BBBV97 - Strengths and Weaknesses of Quantum Computing|BBBV97]]"
+   ],
+   "rationale": {
+    "class": "BBBV97 show that relative to a random oracle NP is not contained in BQP with probability 1, which rules out exactly the relativizing proofs of the inclusion (by the partial order, every fully-black-box one too) and says nothing about non-relativizing ones."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-bqp-bbbv97.md",
+   "slug": "no-np-to-bqp-bbbv97",
+   "graphSlug": "Barriers/no-np-to-bqp-bbbv97",
+   "title": "No relativizing reduction from NP to BQP"
+  },
+  {
    "id": "bar-np-to-cpir-lv15",
    "hypotheses": [
     "np"
@@ -36916,6 +37249,7 @@
   "semi-honest-honest-majority-t-lt-n-over-2",
   "semi-honest-security",
   "semi-honest-two-party-computation",
+  "string-ot",
   "two-party-computation",
   "two-party-computation-with-expected-time-simulation",
   "two-round-mpc",

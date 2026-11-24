@@ -219,7 +219,7 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 - [[pke-to-com|Perfectly correct PKE ⇒ COM]] — folklore
 - [[dlog-to-com-ped91|DLOG in verifiable prime-order groups ⇒ statistically hiding COM]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]
 
-<!-- BEGIN GENERATED participates-in 2b88b0fbaec5 -->
+<!-- BEGIN GENERATED participates-in 1ac39f1da7e1 -->
 
 ## Participates in
 
@@ -234,6 +234,7 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 - [[statistically-hiding-commitment-to-com|Statistically hiding COM ⇒ COM]] (via [[commitment-scheme#statistically-hiding-commitments|Statistically hiding commitments]])
 - [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|Statistically hiding COM ⇒ Statistical ZK arguments for NP]] (via [[commitment-scheme#statistically-hiding-commitments|Statistically hiding commitments]])
 - [[three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment|Three-round NM commitment ⇒ Constant-round NM commitment]] (via [[commitment-scheme#three-round-non-malleable-commitments|Three-round non-malleable commitments]])
+- [[uc-multi-commitment-to-uc-commitment|UC multi-commitment ⇒ UC commitment]] (via [[commitment-scheme#uc-multi-commitment|UC multi-commitment]])
 
 **Produces Commitment scheme**
 
@@ -241,7 +242,7 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 - [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-multi-commitment|UC multi-commitment]])
 - [[constant-round-non-malleable-commitment-to-non-malleable-commitment|Constant-round NM commitment ⇒ NM commitment]] (via [[commitment-scheme#non-malleable-commitments|Non-malleable commitments]])
 - [[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ Constant-round NM commitment (Pass–Rosen)]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
-- [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[commitment-scheme#statistically-hiding-commitments|Statistically hiding commitments]])
+- [[crhf-to-statistically-hiding-commitment-dpp97|Arbitrary-length CRHF ⇒ Statistically hiding COM]] (via [[commitment-scheme#statistically-hiding-commitments|Statistically hiding commitments]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#statistically-hiding-commitments|Statistically hiding commitments]])
 - [[ideal-ot-to-com-kil88|Ideal OT ⇒ COM (Kilian)]]
@@ -262,6 +263,7 @@ A non-malleable commitment scheme whose commit phase has three messages. GPR16 g
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]]
 - [[tdp-to-uc-commitment-cf01|TDP over bit strings ⇒ UC commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-commitment|UC commitment]])
 - [[three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment|Three-round NM commitment ⇒ Constant-round NM commitment]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
+- [[uc-multi-commitment-to-uc-commitment|UC multi-commitment ⇒ UC commitment]] (via [[commitment-scheme#uc-commitment|UC commitment]])
 
 **Barriers**
 

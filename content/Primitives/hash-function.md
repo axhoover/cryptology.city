@@ -500,7 +500,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in 0160e6cae4ae -->
+<!-- BEGIN GENERATED participates-in bdb163bd3db9 -->
 
 ## Participates in
 
@@ -511,13 +511,13 @@ TODO: definition and game.
 - [[arbitrary-length-crhf-to-length-halving-second-preimage-resistance|Arbitrary-length CRHF ⇒ Length-halving second-preimage resistance]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash|Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-weak-collision-resistance|Arbitrary-length weak collision resistance]])
-- [[crhf-to-accumulator|CRHF ⇒ accumulator]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[crhf-to-accumulator|Arbitrary-length CRHF ⇒ accumulator]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[crhf-to-arbitrary-length-crhf|CRHF ⇒ Arbitrary-length CRHF (Merkle–Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ Constant-round NM commitment (Pass–Rosen)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[crhf-to-interactive-succinct-argument-kil92|Arbitrary-length CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[crhf-to-second-preimage-resistance-rs04|CRHF ⇒ Second-preimage resistance]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[crhf-to-statistically-hiding-commitment-dpp97|Arbitrary-length CRHF ⇒ Statistically hiding COM]] (via [[hash-function#arbitrary-length-collision-resistance|Arbitrary-length collision resistance]])
 - [[crhf-to-uowhf-rs04|CRHF ⇒ UOWHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-weak-owf|CRHF ⇒ Weak OWF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-weakly-collision-resistant-hash|CRHF ⇒ Weakly collision-resistant hash]] (via [[hash-function#collision-resistance|Collision resistance]])
@@ -584,6 +584,7 @@ TODO: definition and game.
 - [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-weak-collision-resistance|Arbitrary-length weak collision resistance]])
 - [[arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash|Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash]] (via [[hash-function#weak-collision-resistance|Weak collision resistance]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[coin-flipping-to-owf-il89|Coin flipping ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[com-to-owf-il89|COM ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[constant-bias-coin-flipping-to-owf-ho11|Constant-bias coin flipping ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[cpir-to-crhf-iko05|One-round sublinear cPIR ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
