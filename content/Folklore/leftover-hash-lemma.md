@@ -18,7 +18,7 @@ $$
 \Delta\big((h, h(X)),\ (h, U_m)\big) \le \tfrac12 \sqrt{2^{m-k}}
 $$
 
-— [[ILL89 - Pseudo-random Generation from One-way Functions|ILL89]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. In particular, $m \le k - 2\log(1/\varepsilon)$ gives distance at most $\varepsilon/2$.
+— [[ILL89 - Pseudo-random Generation from One-way Functions|ILL89]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]; [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]] (arXiv v4, Lemma 2.1) state it for min-entropy, with collision probability exactly $2^{-m}$. In particular, $m \le k - 2\log(1/\varepsilon)$ gives distance at most $\varepsilon/2$.
 
 ## Proof
 
@@ -36,7 +36,7 @@ $$
 
 Hence $|\Omega|\,\mathrm{CP}(Z) - 1 \le 2^{m-k}$, and $(h, U_m)$ is uniform on $\Omega$ — standard.
 
-The proof uses $H_\infty(X) \ge k$ only through $\Pr[X = X'] \le 2^{-k}$, so the bound holds whenever the collision entropy $-\log \Pr[X = X']$ is at least $k$. For a family of functions into a finite set $\calR$ with collision probability at most $1/|\calR|$ on distinct inputs, the same argument gives $\tfrac12 \sqrt{|\calR| \cdot 2^{-k}}$ — standard.
+The proof uses $H_\infty(X) \ge k$ only through $\Pr[X = X'] \le 2^{-k}$, so the bound holds whenever the collision entropy $-\log \Pr[X = X']$, the Rényi entropy of order two, is at least $k$; Lemma 4.8 of [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]] is stated in this form — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]] (arXiv v4, footnote 6). For a family of functions into a finite set $\calR$ with collision probability at most $1/|\calR|$ on distinct inputs, the same argument gives $\tfrac12 \sqrt{|\calR| \cdot 2^{-k}}$ — standard.
 
 ## 2-universal families
 
@@ -50,7 +50,7 @@ $$
 \tilde H_\infty(X \mid Z) := -\log \mathbb{E}_{z \gets Z}\!\left[\max_x \Pr[X = x \mid Z = z]\right].
 $$
 
-If $Z$ takes at most $2^\ell$ values, then $\tilde H_\infty(X \mid Z) \ge H_\infty(X) - \ell$, since $\sum_z \max_x \Pr[X = x, Z = z] \le 2^\ell \max_x \Pr[X = x]$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
+If $Z$ takes at most $2^\ell$ values, then $\tilde H_\infty(X \mid Z) \ge H_\infty(X) - \ell$, since $\sum_z \max_x \Pr[X = x, Z = z] \le 2^\ell \max_x \Pr[X = x]$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]] (arXiv v4, Lemma 2.2(b)).
 
 For every 2-universal family $\calH$ of functions $\bits^n \to \bits^m$ and every pair $(X, Z)$ with $X$ on $\bits^n$ and $\tilde H_\infty(X \mid Z) \ge k$, with $h \getsr \calH$ independent of $(X, Z)$ and $U_m$ uniform and independent of $(h, Z)$,
 
@@ -58,7 +58,7 @@ $$
 \Delta\big((h, h(X), Z),\ (h, U_m, Z)\big) \le \tfrac12 \sqrt{2^{m-k}},
 $$
 
-so $m \le k - 2\log(1/\varepsilon) + 2$ gives distance at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]. Conditioned on $Z = z$, the lemma bounds the distance by $\tfrac12 \sqrt{2^m \max_x \Pr[X = x \mid Z = z]}$; averaging over $z$ and applying Jensen's inequality to the concave $\sqrt{\cdot}$ gives the bound.
+so $m \le k - 2\log(1/\varepsilon) + 2$ gives distance at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]] (arXiv v4, Lemma 2.4). Conditioned on $Z = z$, the lemma bounds the distance by $\tfrac12 \sqrt{2^m \max_x \Pr[X = x \mid Z = z]}$; averaging over $z$ and applying Jensen's inequality to the concave $\sqrt{\cdot}$ gives the bound — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 
 <!-- BEGIN GENERATED participates-in 5e97ebe0a000 -->
 
