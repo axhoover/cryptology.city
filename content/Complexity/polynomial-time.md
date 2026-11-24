@@ -10,7 +10,7 @@ id: p
 
 # Polynomial-Time
 
-The class of decision problems solvable in polynomial time by a Turing machine.
+The class of decision problems solvable by a deterministic Turing machine in time $\poly(n)$ on inputs of length $n$.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p).
 
