@@ -103,7 +103,7 @@ $$
 \Omega\!\left(\min\!\left(\sqrt{p},\; \frac{1}{\delta}\right)\right).
 $$
 
-As an application, CHW26 prove a tight subexponential-time lower bound against discrete-log algorithms that exploit the multiplicative structure of smooth integers but are otherwise generic, which applies to a broad class of index-calculus algorithms — [[CHW26 - The Structured Generic-Group Model|CHW26]].
+As an application, CHW26 prove a tight subexponential-time lower bound against discrete-log algorithms that exploit the multiplicative structure of smooth integers but are otherwise generic, which applies to a broad class of index-calculus algorithms, and similar lower bounds against algorithms that exploit the structure of small integers, smooth polynomials, and elliptic-curve points — [[CHW26 - The Structured Generic-Group Model|CHW26]].
 
 ## Preprocessing
 

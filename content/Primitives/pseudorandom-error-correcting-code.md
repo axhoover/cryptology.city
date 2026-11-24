@@ -88,7 +88,59 @@ is negligible — [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]] (arXiv v1, Defi
 
 ## Ideal PRC
 
-An **ideal PRC** is one for which, with $k \gets \Gen(1^\secpar)$, oracle access to $(\Enc_k, \Dec_k)$ is computationally indistinguishable from oracle access to an ideal functionality. Its encoder returns a fresh uniformly random $n$-bit string on every query. Its decoder returns $m$ on any string within Hamming distance $\varepsilon n$ of a string the encoder returned on input $m$, and $\bot$ on every other string. The adversary never receives $k$. Ideal security implies pseudorandomness, soundness and adaptive robustness against efficient channels — [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]].
+An **ideal PRC** is one for which, with $k \gets \Gen(1^\secpar)$, oracle access to $(\Enc_k, \Dec_k)$ is computationally indistinguishable from oracle access to an ideal functionality. Its encoder returns a fresh uniformly random $n$-bit string on every query. Its decoder returns $m$ on a string within Hamming distance $\delta n$ of a string the encoder returned on input $m$, and $\bot$ on a string farther than $\delta n$ from all of them. The adversary never receives $k$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ideal}}_{\mathsf{PRC},\delta,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$; $T \gets \emptyset$
+\State $b' \gets \calA^{\calO_{\mathrm{enc}}, \calO_{\mathrm{dec}}}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_{\mathrm{enc}}(m)$}
+\begin{algorithmic}
+\If{$b = 0$}
+\Return $\Enc_k(m)$
+\EndIf
+\State $c \getsr \bits^n$; $T \gets T \cup \{(m, c)\}$
+\Return $c$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_{\mathrm{dec}}(x)$}
+\begin{algorithmic}
+\If{$b = 0$}
+\Return $\Dec_k(x)$
+\EndIf
+\State $M \gets \{m : \exists (m, c) \in T,\ \mathrm{wt}(c \oplus x) \le \delta n\}$
+\If{$M = \emptyset$}
+\Return $\bot$
+\EndIf
+\State $m \getsr M$
+\Return $m$
+\end{algorithmic}
+\end{algorithm}
+```
+
+For a constant $\delta > 0$, an $L$-bit scheme $\mathsf{PRC} = (\Gen, \Enc, \Dec)$ with the syntax above has **ideal $\delta$-robust security** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ideal}}_{\mathsf{PRC},\delta,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ideal}}_{\mathsf{PRC},\delta,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]] (arXiv v1, Definition 5). As an object, an ideal PRC denotes such a scheme with $L \ge 1$ that has ideal $\delta$-robust security for some constant $\delta > 0$; no other property is required. Ideal security implies pseudorandomness, soundness and adaptive robustness against efficient channels, and with more than one message it is possible only for $\delta < 1/4$ — [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]] (arXiv v1, §2.4).
 
 ## Zero-bit PRC
 
@@ -96,7 +148,7 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 
 ## Substitution-robust zero-bit PRC
 
-As an object, a **substitution-robust zero-bit PRC** denotes a family $(\mathsf{PRC}_p)_{p \in (0, 1/2)}$ such that, for every constant $p \in (0, 1/2)$, $\mathsf{PRC}_p$ is a zero-bit PRC that is pseudorandom, sound and robust to every $p$-bounded channel; the code, its block length and its key generation may depend on $p$. A $p$-bounded channel is a length-preserving, possibly randomized, channel $\calE$ with $\Pr_{x \getsr \bits^n}[\mathrm{wt}(\calE(x) \oplus x) > pn] \le \negl(n)$, and robustness to it means that $\Pr[\Dec_k(\calE(c)) = \bot]$ is negligible for $k \gets \Gen(1^\secpar)$ and $c \gets \Enc_k$ — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] (§5.2, Definitions 1–2). Every $\varepsilon$-bounded channel as defined above is $\varepsilon$-bounded in this sense, so the code $\mathsf{PRC}_\varepsilon$ for $p = \varepsilon$ is an $\varepsilon$-robust zero-bit PRC ([[substitution-robust-zero-bit-prc-to-zero-bit-prc|Substitution-robust zero-bit PRC ⇒ Zero-bit PRC]]).
+As an object, a **substitution-robust zero-bit PRC** denotes a family $(\mathsf{PRC}_p)_{p \in (0, 1/2)}$ such that, for every constant $p \in (0, 1/2)$, $\mathsf{PRC}_p$ is a zero-bit PRC that is pseudorandom, sound and robust to every $p$-bounded channel, and whose block length $n_p(\secpar)$ is at least $\secpar^{c_p}$, for a constant $c_p > 0$ and all sufficiently large $\secpar$; the code, its block length and its key generation may depend on $p$. The bound makes every function negligible in $n_p$ negligible in $\secpar$ — standard; the channel bound below and the watermark analysis are stated in the block length, which is the security parameter there, $n(\secpar) = \secpar$ — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] (§5.1, §5.2, Lemmas 20–22). A $p$-bounded channel is a length-preserving, possibly randomized, channel $\calE$ with $\Pr_{x \getsr \bits^n}[\mathrm{wt}(\calE(x) \oplus x) > pn] \le \negl(n)$, and robustness to it means that $\Pr[\Dec_k(\calE(c)) = \bot]$ is negligible for $k \gets \Gen(1^\secpar)$ and $c \gets \Enc_k$ — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] (§5.2, Definitions 1–2). Every $\varepsilon$-bounded channel as defined above is $\varepsilon$-bounded in this sense, so the code $\mathsf{PRC}_\varepsilon$ for $p = \varepsilon$ is an $\varepsilon$-robust zero-bit PRC ([[substitution-robust-zero-bit-prc-to-zero-bit-prc|Substitution-robust zero-bit PRC ⇒ Zero-bit PRC]]).
 
 # Other results
 

@@ -29,7 +29,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 ## Relevance to cryptography
 
-In cryptography, efficient adversaries are modeled as probabilistic polynomial-time ($\PPT$) algorithms — the uniform version of BPP. Security definitions quantify over all $\PPT$ adversaries.
+A [[uniform-and-non-uniform-adversaries|uniform adversary]] is a probabilistic polynomial-time ($\PPT$) machine, the model of computation that defines $\classBPP$; a non-uniform adversary is a family of polynomial-size circuits ([[p-poly|P/poly]]). Pages on this site write _for all efficient $\calA$_ without fixing the reading, and a page that needs one of the two states it ([[uniform-and-non-uniform-adversaries#which-notion-this-site-uses|which notion this site uses]]).
 
 Against non-uniform adversaries randomness never helps: fixing the best random tape yields a deterministic circuit with at least the same advantage — folklore. A [[pseudorandom-generator|PRG]] secure against all $\classPpoly$ adversaries implies $\classBPP \subseteq \bigcap_{\varepsilon > 0} \mathbf{DTIME}(2^{n^\varepsilon})$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; $\classBPP = \classP$ follows from a generator with seed length $O(\log n)$, computable in time polynomial in its output length, that fools linear-size circuits — [[NW88 - Hardness vs. Randomness (Extended Abstract)|NW88]].
 

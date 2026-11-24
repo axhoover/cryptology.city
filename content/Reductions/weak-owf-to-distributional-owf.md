@@ -25,7 +25,7 @@ $$
 \Delta\big((x, f(x)),\, (\calA(1^n, f(x)), f(x))\big) \ge 1 - \Adv^{\mathrm{pr}}_{f,\calA}(n) \ge 1/p(n), \qquad x \getsr \bits^n,
 $$
 
-with $\Delta$ the statistical distance — folklore.
+with $\Delta$ the statistical distance — folklore. Here $f$ is a function on uniform $n$-bit inputs with the input length as security parameter; a keyed weakly one-way family gives one, its [[hash-function#unkeyed-form|unkeyed form]] — standard.
 
 ## Sketch
 

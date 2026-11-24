@@ -22,7 +22,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 ## Notable problems
 
 - **Integer factorization** and **discrete logarithms** in $\ZZ_p^*$ are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]], the journal version of [[Shor94 - Algorithms for Quantum Computation Discrete Logarithms and Factoring|Shor94]] ([[fac-to-bqp-shor97|FAC ∈ BQP]], [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]). The discrete-logarithm algorithm carries over to elliptic-curve groups: over an $n$-bit prime field it runs with $O(n^3)$ gates and roughly $6n$ qubits — [[PZ03 - Shor's discrete logarithm quantum algorithm for elliptic curves|PZ03]] (Section 6).
-- **Unstructured search** among $N$ candidates takes $\Theta(\sqrt{N})$ quantum queries ([[#grover-search|Grover search]]). The speedup is only quadratic: relative to a random oracle, with probability 1, $\classNP$ is not contained in the class of languages decided by bounded-error quantum Turing machines in time $o(2^{n/2})$ — [[BBBV97 - Strengths and Weaknesses of Quantum Computing|BBBV97]] (Theorem 3.5).
+- **Unstructured search** among $N$ candidates takes $\Theta(\sqrt{N})$ quantum queries ([[#grover-search|Grover search]]). The speedup is only quadratic: relative to a random oracle, with probability 1, $\classNP$ is not contained in the class of languages decided by bounded-error quantum Turing machines in time $o(2^{n/2})$ — [[BBBV97 - Strengths and Weaknesses of Quantum Computing|BBBV97]] (Theorem 3.5; [[no-np-to-bqp-bbbv97|No relativizing reduction from NP to BQP]]).
 
 ## Grover search
 
@@ -39,6 +39,7 @@ Grover search also speeds up collision finding. For a two-to-one $F : X \to Y$ w
 - $\classP \subseteq \classBPP \subseteq \classBQP$: a quantum machine simulates a probabilistic one ([[bpp-to-bqp|BPP ⊆ BQP]]) — [[BV97 - Quantum Complexity Theory|BV97]].
 - $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — [[ADH97 - Quantum Computability|ADH97]].
 - [[no-bqp-to-np|No relativizing reduction from BQP to NP]] — [[RT19 - Oracle Separation of BQP and PH|RT19]]
+- [[no-np-to-bqp-bbbv97|No relativizing reduction from NP to BQP]] — [[BBBV97 - Strengths and Weaknesses of Quantum Computing|BBBV97]]
 - **PostBQP $= \classPP$**: $\classBQP$ with postselection on measurement outcomes equals $\classPP$, which reproves $\classBQP \subseteq \classPP$ — [[Aar05 - Quantum computing, postselection, and probabilistic polynomial-time|Aar05]].
 
 ## Relevance to cryptography

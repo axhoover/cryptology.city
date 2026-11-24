@@ -39,15 +39,42 @@ For all $x \in L$ with witness $w$, $\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1$ wit
 
 ### Soundness / Argument
 
-For all $P^*$, $\Pr\!\left[\Vrfy(\crs, x, \pi) = 1 \wedge x \notin L\right] \le \negl(\secpar)$ over $\crs \gets \Setup(1^\secpar)$ and $(x, \pi) \gets P^*(\crs)$.
+For all computationally unbounded $P^*$, $\Pr\!\left[\Vrfy(\crs, x, \pi) = 1 \wedge x \notin L\right] \le \negl(\secpar)$ over $\crs \gets \Setup(1^\secpar)$ and $(x, \pi) \gets P^*(\crs)$; $P^*$ chooses the statement after seeing $\crs$.
 
-If soundness holds only against efficient provers (using computational hardness), the system is called a **NIZK argument**.
+If soundness holds only against efficient provers, the system is a **NIZK argument**. As an object, NIZK denotes a proof system, sound against unbounded provers.
 
 ### Zero-knowledge
 
-There exists an efficient simulator $(\Sim_1, \Sim_2)$ where $\Sim_1(1^\secpar) \to (\crs, \td)$ outputs a simulated CRS and trapdoor, and $\Sim_2(\td, x) \to \pi$ simulates proofs, such that real and simulated $(crs, \pi)$ pairs are computationally indistinguishable.
+A simulator $\Sim(1^\secpar, x) \to (\crs, \pi)$ receives the statement and no witness and outputs a reference string together with a proof. In the following game $R$ is the $\classNP$ relation of $L$.
 
-TODO: this paragraph does not quantify over the statement $x$ and witness $w$ (fixed before $\crs$, or chosen after seeing it) or over the number of proofs. [[#Adaptively zero-knowledge NIZK for NP|Adaptive single-theorem zero knowledge]] is stated separately; each result that takes this notion as a premise and proves statements that depend on $\crs$ needs the same check.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{zk}}_{\mathsf{NIZK},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(x, w, \stA) \gets \calA(1^\secpar)$; $b \getsr \bits$
+\Comment{$\calA$ must output $(x, w)$ with $R(x, w) = 1$, before $\crs$ is sampled}
+\State $\crs_0 \gets \Setup(1^\secpar)$; $\pi_0 \gets \Prove(\crs_0, x, w)$
+\State $(\crs_1, \pi_1) \gets \Sim(1^\secpar, x)$
+\State $b' \gets \calA(\stA, \crs_b, \pi_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+An adversary is admissible if it always outputs $(x, w)$ with $R(x, w) = 1$; without the constraint $\Prove$ is unspecified on its input while $\Sim$ still outputs a proof. A NIZK proof system $\mathsf{NIZK}$ is **zero-knowledge** if there is an efficient simulator $\Sim$ such that for all efficient admissible $\calA$,
+
+$$
+\Adv^{\mathrm{zk}}_{\mathsf{NIZK},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{zk}}_{\mathsf{NIZK},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. $\calA$ fixes $(x, w)$ before $\crs$ is sampled and sees one proof, and the simulated $\crs_1$ may depend on $x$: this is non-adaptive single-theorem zero knowledge, the basic notion, which asks only that the simulator's output be indistinguishable from a reference string paired with a proof — [[Gol08 - Computational Complexity A Conceptual Perspective|Gol08]] (Appendix C.4.4.2). Against [[uniform-and-non-uniform-adversaries|non-uniform]] adversaries, which can be taken deterministic, it says that $(\crs, \Prove(\crs, x, w))$ and $\Sim(1^\secpar, x)$ are computationally indistinguishable for every polynomially bounded sequence of pairs $(x, w)$ with $R(x, w) = 1$ — standard.
+
+Stronger notions let $\calA$ choose $(x, w)$ after seeing $\crs$, with a simulator that outputs $\crs$ before it reads $x$ ([[#Adaptively zero-knowledge NIZK for NP|adaptive zero knowledge]]), or give $\calA$ proofs of several statements under one reference string (multi-theorem zero knowledge). The definitions of [[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]] and of the journal version of [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]] do not require the two-stage simulator explicitly — [[BMW03 - Foundations of Group Signatures Formal Definitions, Simplified Requirements, and a Construction Based on General Assumptions|BMW03]] (Section 4.1).
+
+Zero knowledge implies witness indistinguishability under an honestly sampled reference string: for $(x, w_0, w_1)$ with $R(x, w_0) = R(x, w_1) = 1$ chosen before $\crs$ is sampled, $(\crs, \Prove(\crs, x, w_0))$ and $(\crs, \Prove(\crs, x, w_1))$ are computationally indistinguishable, each being indistinguishable from $\Sim(1^\secpar, x)$ — standard. The zap of [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] needs no more zero knowledge than this: its prover proves one statement under each reference string $\rho_i \oplus r$, a hybrid switches the witness one proof at a time, and a distinguisher given $(\crs, \pi)$ sets $r := \crs \oplus \rho_i$ and computes the other proofs itself — standard.
+
+TODO: read from [[MW16 - Two Round Multiparty Computation via Multi-key FHE|MW16]] which zero-knowledge notion [[subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16|LWE + NIZK ⇒ Two-round MPC in the CRS model (Mukherjee–Wichs)]] needs: whether the statements its parties prove are fixed before $\crs$ is sampled, and how many proofs share one reference string.
 
 # Variations
 
@@ -80,7 +107,7 @@ $$
 \Adv^{\mathrm{azk}}_{\mathsf{NIZK},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{azk}}_{\mathsf{NIZK},\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. $\calA$ sees one proof, so this is single-theorem zero knowledge. As an object, an adaptively zero-knowledge NIZK for NP denotes a NIZK proof system for NP, complete and sound as above, that is adaptively zero-knowledge. It is a NIZK proof system for NP ([[adaptive-zk-nizk-for-np-to-nizk-for-np|Adaptively zero-knowledge NIZK for NP ⇒ NIZK for NP]]): an adversary that ignores $\crs$ fixes $(x, w)$ in advance.
+is negligible. $\calA$ sees one proof, so this is single-theorem zero knowledge. As an object, an adaptively zero-knowledge NIZK for NP denotes a NIZK proof system for NP, complete and sound as above, that is adaptively zero-knowledge. It is a NIZK proof system for NP ([[adaptive-zk-nizk-for-np-to-nizk-for-np|Adaptively zero-knowledge NIZK for NP ⇒ NIZK for NP]]): $\Sim(1^\secpar, x)$ runs $\Sim_1$ and then $\Sim_2$, and an adversary that ignores $\crs$ fixes $(x, w)$ in advance.
 
 ### NIZK arguments for NP
 
@@ -139,14 +166,14 @@ See [[succinct-argument|SNARKs]] for more detail.
 
 ## NIZK in the random oracle model
 
-Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|sigma protocol]] with a superpolynomial-size challenge space can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the statement and the prover's commitment ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]) — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].
+The [[fiat-shamir-heuristic|Fiat–Shamir transform]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] — makes a [[sigma-protocol|sigma protocol]] non-interactive by computing the challenge as a hash of the statement and the prover's commitment. With the hash a [[random-oracle-model|random oracle]], a challenge space of superpolynomial size and a commitment of min-entropy $\omega(\log \secpar)$ for every $(x, w)$, the result is a NIZK argument ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]) — folklore. The simulator programs the oracle at the commitment of a simulated conversation, a point that the min-entropy condition leaves unqueried except with negligible probability; without the condition a distinguisher queries the oracle at a likely commitment before it asks for a proof — standard.
 
 # Other results
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]
-- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] — folklore, [[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]]
 - [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]

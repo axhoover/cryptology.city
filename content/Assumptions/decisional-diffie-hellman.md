@@ -158,11 +158,11 @@ As an object, Matrix Diffie-Hellman denotes the assumption that $\calD_{\ell,k}$
 
 ## SXDH (Symmetric External Diffie-Hellman)
 
-Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently ([[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]) — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
+Let $\GrGen$ be a $\PPT$ bilinear group generator: on input $1^\secpar$ it outputs $\Pi = (\GG_1, \GG_2, \GG_T, g_1, g_2, e, p)$, with $\GG_1, \GG_2, \GG_T$ cyclic groups of prime order $p$ whose operations are computable in polynomial time, $g_1$ and $g_2$ generators of $\GG_1$ and $\GG_2$, and $e : \GG_1 \times \GG_2 \to \GG_T$ an efficiently computable non-degenerate [[pairings|bilinear pairing]]. **SXDH is hard** for $\GrGen$ if DDH is hard in $\GG_1$ and in $\GG_2$, each given $\Pi$: for each $i \in \{1, 2\}$ and all efficient $\calA$, $\left|2\Pr[\hat b = b] - 1\right|$ is negligible in the [[#Assumption|DDH game]] run in $(\GG_i, g_i, p)$ in which $\calA$ receives $\Pi$ in place of $(\GG_i, g_i, p)$, together with the challenge $(X, Y, Z_b) \in \GG_i^3$. It rules out an efficiently computable non-trivial homomorphism between $\GG_1$ and $\GG_2$, which would decide DDH in its domain, so the pairing is asymmetric, of [[pairings#type-3|Type 3]] — standard. It is used to instantiate Groth–Sahai proofs efficiently ([[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]) — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
 
 ### Sub-exponential SXDH
 
-SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary of size at most $2^{\secpar^{\varepsilon}}$ has advantage at most $2^{-\secpar^{\varepsilon}}$ against DDH in each of $\GG_1$ and $\GG_2$.
+SXDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$ and each $i \in \{1, 2\}$, every adversary of size at most $2^{\secpar^{\varepsilon}}$ has advantage at most $2^{-\secpar^{\varepsilon}}$ in the DDH game in $(\GG_i, g_i, p)$ with $\Pi$ given, as [[#SXDH (Symmetric External Diffie-Hellman)|above]]. Hardness is measured in $\secpar$, and the bit length of $p$ is whatever $\GrGen$ outputs; the [[#SXDH, LWE and LPN over a common prime|joint premise of JLS21]] fixes it to $\secpar$ bits.
 
 ### SXDH, LWE and LPN over a common prime
 

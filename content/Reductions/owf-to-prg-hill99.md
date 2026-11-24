@@ -24,7 +24,7 @@ rationale:
 
 ## Statement
 
-Every unkeyed [[hash-function#preimage-resistance-one-wayness|one-way function]] $f$ yields a [[pseudorandom-generator|PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. The construction extracts, by universal hashing, the computational entropy that the [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] hard-core predicate adds to the output of $f$.
+Every unkeyed [[hash-function#preimage-resistance-one-wayness|one-way function]] $f$ yields a [[pseudorandom-generator|PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. A keyed one-way family gives such an $f$, its [[hash-function#unkeyed-form|unkeyed form]], which is one-way on uniform inputs with the input length as security parameter — standard. The construction extracts, by universal hashing, the computational entropy that the [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] hard-core predicate adds to the output of $f$.
 
 ## Sketch
 
