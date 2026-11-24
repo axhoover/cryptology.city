@@ -19,20 +19,20 @@ variants:
 
 ## Syntax
 
-An HVE scheme is a tuple of efficient algorithms $\mathsf{HVE} = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to alphabet $\Sigma$, vector length $n$, message space $\calM$, and ciphertext space $\calC$:
+An HVE scheme is a tuple of efficient algorithms $\mathsf{HVE} = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to alphabet $\Sigma$, vector length $n$, a message space $\calM$, which may depend on $\pp$, and a ciphertext space $\calC$:
 
 - $\Setup(1^\secpar, \Sigma, n) \to (\pp, \msk),$ is a randomized algorithm that outputs public parameters $\pp$ and master secret key $\msk$,
 - $\KeyGen(\msk, v) \to \sk_v,$ is a (possibly randomized) algorithm that takes $\msk$ and a pattern vector $v \in (\Sigma \cup \{*\})^n$, outputting a secret key $\sk_v$,
 - $\Enc(\pp, x, m) \to c,$ is a randomized algorithm that takes $\pp$, an attribute vector $x \in \Sigma^n$, and $m \in \calM$, outputting $c \in \calC$,
 - $\Dec(\sk_v, c) \to m,$ is a deterministic algorithm that takes $\sk_v$ and $c$, outputting $m \in \calM$ or $\bot$.
 
-Decryption succeeds if and only if $v$ matches $x$: for all $i \in [n]$, either $v_i = *$ (wildcard) or $v_i = x_i$.
+A pattern $v$ **matches** $x$ if for all $i \in [n]$, either $v_i = *$ (wildcard) or $v_i = x_i$. [[#Correctness|Correctness]] constrains $\Dec$ only under a key for a matching pattern; it does not require $\bot$ under any other key.
 
 ## Properties
 
 ### Correctness
 
-An HVE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $v \in (\Sigma \cup \{*\})^n$, $x \in \Sigma^n$ with $v$ matching $x$, and $m \in \calM$,
+An HVE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $v \in (\Sigma \cup \{*\})^n$, $x \in \Sigma^n$ with $v$ matching $x$, and $m \in \calM$, chosen as any function of $\pp$ when $\calM$ depends on $\pp$,
 
 $$
 \Pr\!\left[\Dec(\KeyGen(\msk, v),\, \Enc(\pp, x, m)) = m\right] \ge 1 - \varepsilon,
@@ -99,7 +99,7 @@ $$
 
 is negligible. Payload-hiding implies selective payload-hiding, a selective adversary being an adaptive one ([[hve-payload-hiding-to-hve|Payload-hiding HVE ⇒ HVE]]) — folklore.
 
-As an object, HVE denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]], selectively payload-hiding scheme with $|\calM| \ge 2$, for every alphabet $\Sigma = \Sigma(\secpar)$ with $2 \le |\Sigma| \le \poly(\secpar)$ and every $n = n(\secpar) \le \poly(\secpar)$ given to $\Setup$. Payload-hiding, attribute-hiding and selectively attribute-hiding HVE each denote a scheme with the same correctness, message space and quantifiers that meets its own game. A scheme for $\Sigma = \bits$ gives one for every $\Sigma$, with vectors of length $n|\Sigma|$: encode each symbol $x_i$ as its indicator vector in $\bits^{|\Sigma|}$, a pattern symbol $\sigma$ as the pattern with $1$ at position $\sigma$ and wildcards elsewhere, and $*$ as $|\Sigma|$ wildcards, which preserves every match — folklore.
+As an object, HVE denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]], selectively payload-hiding scheme whose message space $\calM$ contains, for every $\pp$ in the support of $\Setup$, two distinct messages that an efficient algorithm outputs on input $\pp$, for every alphabet $\Sigma = \Sigma(\secpar)$ with $2 \le |\Sigma| \le \poly(\secpar)$ and every $n = n(\secpar) \le \poly(\secpar)$ given to $\Setup$. Payload-hiding, attribute-hiding and selectively attribute-hiding HVE each denote a scheme with the same correctness, message pair and quantifiers that meets its own game. A scheme for $\Sigma = \bits$ gives one for every $\Sigma$, with vectors of length $n|\Sigma|$: encode each symbol $x_i$ as its indicator vector in $\bits^{|\Sigma|}$, a pattern symbol $\sigma$ as the pattern with $1$ at position $\sigma$ and wildcards elsewhere, and $*$ as $|\Sigma|$ wildcards, which preserves every match — folklore.
 
 ### Attribute-Hiding Security
 
@@ -164,14 +164,14 @@ is negligible. Attribute-hiding implies it, a selective adversary being an adapt
 
 ## Subset and range queries
 
-Range-query encryption is predicate encryption for conjunctions of subset and range predicates over attributes $x \in [T]^\ell$. A scheme is a tuple of efficient algorithms $\Pi = (\Setup, \KeyGen, \Enc, \Dec)$ with message space $\calM$:
+Range-query encryption is predicate encryption for conjunctions of subset and range predicates over attributes $x \in [T]^\ell$. A scheme is a tuple of efficient algorithms $\Pi = (\Setup, \KeyGen, \Enc, \Dec)$ with a message space $\calM$, which may depend on $\pp$:
 
 - $\Setup(1^\secpar, T, \ell) \to (\pp, \msk)$;
 - $\KeyGen(\msk, P) \to \sk_P$ for a predicate $P = P_1 \wedge \cdots \wedge P_\ell$, where each $P_j$ is a subset predicate $x_j \in S_j$ for a set $S_j \subseteq [T]$, a range predicate $a_j \le x_j \le b_j$ for $a_j \le b_j$ in $[T]$, or the predicate that is always true;
 - $\Enc(\pp, x, m) \to c$ for $x \in [T]^\ell$ and $m \in \calM$;
 - $\Dec(\sk_P, c) \to m$ or $\bot$, deterministic.
 
-The scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, every such $P$, every $x \in [T]^\ell$ with $P(x) = 1$ and every $m \in \calM$, $\Pr\!\left[\Dec(\KeyGen(\msk, P), \Enc(\pp, x, m)) = m\right] \ge 1 - \varepsilon$ over $(\pp, \msk) \gets \Setup(1^\secpar, T, \ell)$ and the coins of $\KeyGen$ and $\Enc$. In the selective payload-hiding game the adversary commits to $x^*$ before $\Setup$ runs and may not query a key for any $P$ with $P(x^*) = 1$, since such a key decrypts $c^*$.
+The scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, every such $P$, every $x \in [T]^\ell$ with $P(x) = 1$ and every $m \in \calM$, chosen as any function of $\pp$ when $\calM$ depends on $\pp$, $\Pr\!\left[\Dec(\KeyGen(\msk, P), \Enc(\pp, x, m)) = m\right] \ge 1 - \varepsilon$ over $(\pp, \msk) \gets \Setup(1^\secpar, T, \ell)$ and the coins of $\KeyGen$ and $\Enc$. In the selective payload-hiding game the adversary commits to $x^*$ before $\Setup$ runs and may not query a key for any $P$ with $P(x^*) = 1$, since such a key decrypts $c^*$.
 
 ```pseudocode
 \begin{algorithm}
@@ -197,7 +197,7 @@ $$
 \Adv^{\mathrm{sel\text{-}ph}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sel\text{-}ph}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. As an object, range-query encryption denotes a $(1-\negl(\secpar))$-correct, selectively payload-hiding scheme with $|\calM| \ge 2$, for every $T = T(\secpar)$ and $\ell = \ell(\secpar)$ with $T, \ell \le \poly(\secpar)$.
+is negligible. As an object, range-query encryption denotes a $(1-\negl(\secpar))$-correct, selectively payload-hiding scheme whose message space $\calM$ contains, for every $\pp$ in the support of $\Setup$, two distinct messages that an efficient algorithm outputs on input $\pp$, for every $T = T(\secpar)$ and $\ell = \ell(\secpar)$ with $T, \ell \le \poly(\secpar)$.
 
 Subset and range predicates reduce to HVE over $\Sigma = \bits$ by fixed encodings: $x \in S$ by the indicator vector of $x$ against the pattern with wildcards exactly on $S$ and $0$ elsewhere, $x \ge a$ by $x$ in unary against the pattern with $1$ at position $a$ and wildcards elsewhere, and a range as the conjunction of two comparisons, with ciphertexts linear in the domain size ([[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]]) — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
 

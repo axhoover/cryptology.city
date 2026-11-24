@@ -26,7 +26,7 @@ An IPPE scheme is a tuple of efficient algorithms $\mathsf{IPPE} = (\Setup, \Key
 - $\Enc(\pp, x, m) \to c,$ is a randomized algorithm that takes $\pp$, an attribute vector $x \in \ZZ_p^n$, for the prime $p$ in $\pp$, and $m \in \calM$, outputting $c \in \calC$,
 - $\Dec(\sk_v, c) \to m,$ is a deterministic algorithm that takes $\sk_v$ and $c$, outputting $m \in \calM$ or $\bot$.
 
-Decryption succeeds if and only if $\langle v, x \rangle = 0 \pmod{p}$.
+[[#Correctness|Correctness]] constrains $\Dec$ only when $\langle v, x \rangle = 0 \pmod{p}$; it does not require $\bot$ otherwise.
 
 ## Properties
 
