@@ -10,21 +10,22 @@ id: ma
 
 # Merlin-Arthur
 
-The class of decision problems verifiable by a Merlin-Arthur protocol: Merlin (an unbounded prover) sends a proof string to Arthur (a [[bounded-error-probabilistic-polynomial-time|BPP]] verifier), and Arthur decides whether to accept. We require:
+The class of decision problems verifiable by a Merlin-Arthur protocol: Merlin (an unbounded prover) sends a proof string to Arthur (a [[bounded-error-probabilistic-polynomial-time|BPP]] verifier), and Arthur decides whether to accept. A problem is in MA if there is an algorithm for Arthur such that:
 
-1. If the answer is "yes," there exists a proof Merlin can send such that Arthur accepts with probability at least 2/3.
-2. If the answer is "no," then for all proofs Merlin might send, Arthur rejects with probability at least 2/3.
+1. If the answer is "yes," there exists a proof Merlin can send such that Arthur accepts with probability at least $2/3$.
+2. If the answer is "no," then for all proofs Merlin might send, Arthur rejects with probability at least $2/3$.
 
-MA is the "one-message" analogue of [[interactive-proof-systems|IP]], where the prover speaks before Arthur's random coins are chosen. This contrasts with [[arthur-merlin|AM]], where Arthur sends a random challenge first and then Merlin responds.
+MA is [[interactive-proof-systems|IP]] restricted to a single message, sent by the prover before Arthur's random coins are chosen. In [[arthur-merlin|AM]], Arthur sends a random challenge first and then Merlin responds.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:M#ma).
 
 ## Known relationships
 
-- $\classNP \subseteq \classMA \subseteq \classAM$: any NP proof works as Merlin's message (Arthur just checks it deterministically), and [[ma-to-am|MA ⊆ AM]] — [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]: amplify the soundness error below $2^{-\ell}/3$, where $\ell$ bounds the length of Merlin's message, then let Arthur send the random coins first, and bound the soundness error of the swapped protocol by a union bound over Merlin's $2^{\ell}$ possible messages.
+- $\classNP \subseteq \classMA$ ([[np-to-ma|NP ⊆ MA]]) — folklore.
+- $\classMA \subseteq \classAM$ ([[ma-to-am|MA ⊆ AM]]) — [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
 - $\classMA \subseteq \classPP$ ([[ma-to-pp|MA ⊆ PP]]) — [[Ver92 - On the Power of PP|Ver92]].
-- $\classMA \subseteq \mathbf{\Sigma_2^P} \cap \mathbf{\Pi_2^P}$, placing MA in the second level of the polynomial-time hierarchy.
-- It is not known whether MA = NP or whether MA = AM.
+- $\classMA \subseteq \mathbf{\Sigma_2^P} \cap \mathbf{\Pi_2^P}$, in the second level of the [[polynomial-time-hierarchy|polynomial hierarchy]].
+- It is not known whether $\classMA = \classNP$ or whether $\classMA = \classAM$.
 
 <!-- BEGIN GENERATED participates-in 3ede9aef55db -->
 
