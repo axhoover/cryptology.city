@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]] scheme for size-$N$ databases with online communication $\tilde{O}(\sqrt{N})$ per query and, more generally, for all $N_c, N_s$ with $N_c \cdot N_s \ge N$, one with client-to-server communication $\tilde{O}(N_c)$ and server-to-client communication $\tilde{O}(N_s)$ — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]].
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then for all $N_c, N_s$ with $N_c \cdot N_s = N$ there is a perfectly correct [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]] scheme for $N$-bit databases with server-to-client communication $N_s$ and client-to-server communication $N_c \cdot \secpar \cdot \polylog(N)$ (Theorem 4.1 and Claim 4.3); at $N_c = N_s = \sqrt N$ its communication is $O(\sqrt N \cdot \secpar \cdot \polylog(N))$ (Corollary 4.2) — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]].
 
 ## Notes
 
