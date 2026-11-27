@@ -211,7 +211,7 @@ LWE is hard **with sub-exponential modulus-to-noise ratio** if for some $n = n(\
 
 ### Sub-exponential hardness at sub-exponential ratio
 
-LWE with sub-exponential modulus-to-noise ratio is **sub-exponentially hard** if, with the parameters above, there is moreover a constant $\delta > 0$ such that for all sufficiently large $n$ every adversary of size at most $2^{n^{\delta}}$ has advantage at most $2^{-n^{\delta}}$. The iO construction of [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]] assumes sub-exponential hardness of LWE at ratio $2^{k^{\varepsilon}}$ in dimension $k = \poly(\secpar)$ over $\ZZ_p$, where $p$ is an efficiently samplable $\secpar$-bit prime, the order of its bilinear groups (arXiv v1, Theorem 5.5). That modulus is sampled, where this section fixes one modulus function $q$; the premise is stated with its group under [[decisional-diffie-hellman#sxdh-lwe-and-lpn-over-a-common-prime|SXDH, LWE and LPN over a common prime]].
+LWE with sub-exponential modulus-to-noise ratio is **sub-exponentially hard** if, with the parameters above, there is moreover a constant $\delta > 0$ such that for all sufficiently large $n$ every adversary of size at most $2^{n^{\delta}}$ has advantage at most $2^{-n^{\delta}}$.
 
 ## Learning with rounding
 

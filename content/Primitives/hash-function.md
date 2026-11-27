@@ -87,18 +87,6 @@ $$
 
 is negligible. In this case, $\hash$ is called a **one-way function (OWF)**.
 
-#### Unkeyed form
-
-Let non-decreasing polynomials $a(\secpar)$ and $b(\secpar)$ bound the number of coins of $\KeyGen(1^\secpar)$ and of the sampler $\Samp(1^\secpar)$ of $\calD_\secpar$, and let $n(\secpar) := a(\secpar) + b(\secpar) + \secpar$. The **unkeyed form** of $\hash$ is the keyless family $f$ with domain $\bits^{n(\secpar)}$ and
-
-$$
-f_\secpar(r, s, u) := \big(k,\ \hash_\secpar(k, \Samp(1^\secpar; s))\big), \qquad k := \KeyGen(1^\secpar; r),
-$$
-
-for $r \in \bits^{a(\secpar)}$, $s \in \bits^{b(\secpar)}$ and a padding $u \in \bits^\secpar$ that $f_\secpar$ ignores. On a uniform input, $f_\secpar$ outputs the pair $(k, y)$ of $\Game^{\mathrm{pr}}_{\hash,\calA}(\secpar)$, and if $(r', s', u')$ is a preimage of $(k, y)$ under $f_\secpar$, then $\Samp(1^\secpar; s')$ is a preimage of $y$ under $\hash(k, \cdot)$. An inverter for $f$ therefore gives an inverter for $\hash$ that runs it once and has at least its advantage, so $f$ is one-way if $\hash$ is; the same holds for weak one-wayness, with the same $p$, and for one-wayness against non-uniform or quantum adversaries — standard.
-
-Since $\secpar \le n(\secpar) \le \poly(\secpar)$, a function is negligible, or polynomially bounded, in $n(\secpar)$ iff it is in $\secpar$. So $f$ meets each of these notions as a function on uniform $n$-bit inputs with the input length as security parameter, for the lengths $n = n(\secpar)$; applying $f_\secpar$, for the largest $\secpar$ with $n(\secpar) \le n$, to the first $n(\secpar)$ input bits extends it to every length $n \ge n(1)$ — standard. This is the form in which results such as [[owf-to-prg-hill99|OWF ⇒ PRG]] and [[weak-owf-to-owf-yao82a|Weak OWF ⇒ OWF (Yao)]] take their hypothesis; conversely, a function on uniform $\secpar$-bit inputs is a keyless family with $\calD_\secpar = \bits^\secpar$.
-
 ### One-wayness against non-uniform adversaries
 
 Let $\calA = \{\calA_\secpar\}_{\secpar \in \NN}$ be a family of polynomial-size circuits, a [[uniform-and-non-uniform-adversaries#non-uniform-adversaries|non-uniform adversary]], with $\calA_\secpar$ playing $\Game^{\mathrm{pr}}_{\hash,\calA}(\secpar)$. $\hash$ is **one-way against non-uniform adversaries** if for every such family $\calA$, $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar)$ is negligible. Security against all non-uniform adversaries implies security against all uniform ones ([[non-uniform-owf-to-owf|Non-uniform OWF ⇒ OWF]]) — standard.
@@ -500,7 +488,7 @@ TODO: definition and game.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in bdb163bd3db9 -->
+<!-- BEGIN GENERATED participates-in 4aa87b3e4980 -->
 
 ## Participates in
 
@@ -584,7 +572,6 @@ TODO: definition and game.
 - [[arbitrary-length-crhf-to-weakly-collision-resistant-hash|Arbitrary-length CRHF ⇒ Arbitrary-length weakly collision-resistant hash]] (via [[hash-function#arbitrary-length-weak-collision-resistance|Arbitrary-length weak collision resistance]])
 - [[arbitrary-length-weakly-collision-resistant-hash-to-weakly-collision-resistant-hash|Arbitrary-length weakly collision-resistant hash ⇒ Weakly collision-resistant hash]] (via [[hash-function#weak-collision-resistance|Weak collision resistance]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[coin-flipping-to-owf-il89|Coin flipping ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[com-to-owf-il89|COM ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[constant-bias-coin-flipping-to-owf-ho11|Constant-bias coin flipping ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[cpir-to-crhf-iko05|One-round sublinear cPIR ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])

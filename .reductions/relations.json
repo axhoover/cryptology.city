@@ -6552,22 +6552,6 @@
    "unlisted": false
   },
   {
-   "id": "quantum-bit-commitment",
-   "kind": "object",
-   "type": "primitive",
-   "page": "content/Primitives/quantum-bit-commitment.md",
-   "slug": "quantum-bit-commitment",
-   "graphSlug": "Primitives/quantum-bit-commitment",
-   "title": "Quantum bit commitment",
-   "aliases": [
-    "Quantum bit commitment",
-    "Quantum bit commitments",
-    "Quantum commitment",
-    "Non-interactive quantum bit commitment"
-   ],
-   "unlisted": false
-  },
-  {
    "id": "quantum-lightning",
    "kind": "variant",
    "type": "primitive",
@@ -12281,33 +12265,6 @@
    "title": "co-CDH ⇒ BLS signatures"
   },
   {
-   "id": "red-coin-flipping-to-owf-il89",
-   "kind": "implication",
-   "hypotheses": [
-    "coin-flipping"
-   ],
-   "conclusion": "owf",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "polynomial: a party biases the honest output of an $m$-message protocol by about $1/(8m)$",
-   "rationale": {
-    "class": "The one-way function evaluates the parties' next-message functions only as an oracle, and the biasing strategy runs a distributional inverter for that function, obtained from any inverter by IL89's transformation, only as an oracle."
-   },
-   "status": "draft",
-   "page": "content/Reductions/coin-flipping-to-owf-il89.md",
-   "slug": "coin-flipping-to-owf-il89",
-   "graphSlug": "Reductions/coin-flipping-to-owf-il89",
-   "title": "Coin flipping ⇒ OWF"
-  },
-  {
    "id": "red-com-to-coin-flipping-blu81",
    "kind": "implication",
    "hypotheses": [
@@ -13910,7 +13867,7 @@
     "jls21-common-prime-assumptions",
     "subexponential-prg-in-nc0"
    ],
-   "conclusion": "subexponential-io",
+   "conclusion": "io",
    "class": "free",
    "model": "standard",
    "models": [
@@ -14275,7 +14232,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit; hashing the output to one bit adds $\\tfrac{q}{2}\\,\\mathbb{E}[\\sqrt{2/p}]$ for $q$ queries",
+   "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit",
    "rationale": {
     "class": "The construction uses only the group generator's output, and each hybrid step runs the PRF distinguisher only as an oracle to build a DDH distinguisher."
    },
@@ -16264,7 +16221,7 @@
    "hypotheses": [
     "subexponential-weakly-compact-fe"
    ],
-   "conclusion": "subexponential-io",
+   "conclusion": "io",
    "class": "free",
    "model": "standard",
    "models": [
@@ -19707,33 +19664,6 @@
    "slug": "linear-output-prs-to-exponential-dimension-prs",
    "graphSlug": "Reductions/linear-output-prs-to-exponential-dimension-prs",
    "title": "Linear-output PRS ⇒ Exponential-dimension PRS"
-  },
-  {
-   "id": "red-linear-output-prs-to-quantum-bit-commitment-my22a",
-   "kind": "implication",
-   "hypotheses": [
-    "linear-output-prs"
-   ],
-   "conclusion": "quantum-bit-commitment",
-   "class": "unstated",
-   "model": "quantum",
-   "models": [
-    "quantum"
-   ],
-   "source": [
-    "[[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none for hiding: the hiding advantage equals the pseudorandomness advantage for $t = 1$; binding is statistical, with $p_0 + p_1 \\le 1 + \\sqrt{2^\\secpar / 2^n}$",
-   "rationale": {
-    "model": "The commitment is a quantum state and the hiding adversary is quantum."
-   },
-   "status": "draft",
-   "page": "content/Reductions/linear-output-prs-to-quantum-bit-commitment-my22a.md",
-   "slug": "linear-output-prs-to-quantum-bit-commitment-my22a",
-   "graphSlug": "Reductions/linear-output-prs-to-quantum-bit-commitment-my22a",
-   "title": "Linear-output PRS ⇒ Quantum bit commitment"
   },
   {
    "id": "red-linear-output-prs-to-single-copy-prs",
@@ -29904,7 +29834,7 @@
     "[[universal-hash-function|Almost XOR-universal hashing]]"
    ],
    "heuristic": false,
-   "securityLoss": "additive $3\\varepsilon q^2$ for $q$ queries and an $\\varepsilon$-AXU hash family",
+   "securityLoss": "additive $O(\\varepsilon q^2)$ for $q$ queries and an $\\varepsilon$-AXU hash family",
    "rationale": {
     "class": "The construction calls the block cipher and its inverse only as oracles, the reduction runs the distinguisher once as an oracle and samples the hash function itself, and the random-permutation core is bounded information-theoretically."
    },
@@ -33185,35 +33115,6 @@
    "title": "UC-secure OT ⇒ OT"
   },
   {
-   "id": "red-unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b",
-   "kind": "implication",
-   "hypotheses": [
-    "unclonable-encryption"
-   ],
-   "conclusion": "unclonable-indistinguishable-encryption",
-   "class": "unstated",
-   "model": "quantum",
-   "models": [
-    "quantum"
-   ],
-   "source": [
-    "[[CLX26b - Unclonable encryption from BB84 states a simultaneous Goldreich-Levin reduction|CLX26b]]",
-    "[[Ana26 - Non-Local Search-to-Decision Reduction over F2, and More|Ana26]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "quartic: a cloning adversary winning the indistinguishability game with probability $1/2 + \\Delta/2$ yields one winning the unclonable-security game with probability at least $\\Delta^4$",
-   "rationale": {
-    "class": "CLX26b call their extractor black-box in the sense that it uses the adversary only through its splitting channel and coherent controlled applications of the receivers' measurement reflections, a form of access the class vocabulary does not describe.",
-    "model": "The ciphertexts and the cloning adversaries are quantum; the theorem is proved in the plain model, with no oracle."
-   },
-   "status": "draft",
-   "page": "content/Reductions/unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b.md",
-   "slug": "unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b",
-   "graphSlug": "Reductions/unclonable-encryption-to-unclonable-indistinguishable-encryption-clx26b",
-   "title": "Unclonable encryption ⇒ unclonable-indistinguishable UE"
-  },
-  {
    "id": "red-universal-hash-proof-system-to-leakage-resilient-pke-ns09",
    "kind": "implication",
    "hypotheses": [
@@ -35373,35 +35274,6 @@
    "slug": "no-tight-non-interactive-assumption-to-waters-signature-hjk12",
    "graphSlug": "Barriers/no-tight-non-interactive-assumption-to-waters-signature-hjk12",
    "title": "No tight simple reduction from non-interactive assumptions to Waters signatures"
-  },
-  {
-   "id": "bar-np-to-bqp-bbbv97",
-   "hypotheses": [
-    "np"
-   ],
-   "conclusion": "bqp",
-   "class": "relativizing",
-   "consequences": [
-    {
-     "kind": "contradiction",
-     "target": "",
-     "class": "relativizing"
-    }
-   ],
-   "strength": "unconditional",
-   "conditionalOn": [],
-   "circumventedBy": [],
-   "source": [
-    "[[BBBV97 - Strengths and Weaknesses of Quantum Computing|BBBV97]]"
-   ],
-   "rationale": {
-    "class": "BBBV97 show that relative to a random oracle NP is not contained in BQP with probability 1, which rules out exactly the relativizing proofs of the inclusion (by the partial order, every fully-black-box one too) and says nothing about non-relativizing ones."
-   },
-   "status": "draft",
-   "page": "content/Barriers/no-np-to-bqp-bbbv97.md",
-   "slug": "no-np-to-bqp-bbbv97",
-   "graphSlug": "Barriers/no-np-to-bqp-bbbv97",
-   "title": "No relativizing reduction from NP to BQP"
   },
   {
    "id": "bar-np-to-cpir-lv15",

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If $f$ is a [[hash-function#quantum-secure-one-wayness|one-way function against efficient quantum adversaries]], then $\KeyGen(1^\secpar) := k \getsr \bits^\secpar$, $\mathsf{StateGen}(k) := |f(k)\rangle$, and $\Vrfy(k', \sigma)$, which measures $\sigma$ in the computational basis and accepts iff the outcome is $f(k')$, form a perfectly correct [[one-way-state-generator#pure-owsgs|pure one-way state generator]] — folklore. Here $f$ is a function on uniform $\secpar$-bit inputs; a keyed family that is one-way against efficient quantum adversaries gives one, its [[hash-function#unkeyed-form|unkeyed form]] — standard.
+If $f$ is a [[hash-function#quantum-secure-one-wayness|one-way function against efficient quantum adversaries]], then $\KeyGen(1^\secpar) := k \getsr \bits^\secpar$, $\mathsf{StateGen}(k) := |f(k)\rangle$, and $\Vrfy(k', \sigma)$, which measures $\sigma$ in the computational basis and accepts iff the outcome is $f(k')$, form a perfectly correct [[one-way-state-generator#pure-owsgs|pure one-way state generator]] — folklore.
 
 ## Sketch
 

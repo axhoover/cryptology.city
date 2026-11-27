@@ -111,7 +111,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 9d45bb8ecb82 -->
+<!-- BEGIN GENERATED participates-in 1d879c00e010 -->
 
 ## Participates in
 
@@ -144,10 +144,10 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 
 **Produces Indistinguishability Obfuscation**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
 - [[differing-inputs-obfuscation-to-sampler-io|Differing-inputs obfuscation (diO) ⇒ iO for sampled circuit pairs]] (via [[indistinguishability-obfuscation#io-for-sampled-circuit-pairs|iO for sampled circuit pairs]])
-- [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
+- [[fe-to-io|Sub-exponential weakly compact FE ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]
 - [[post-quantum-io-to-io|Post-quantum iO ⇒ iO]]
 - [[sampler-io-to-io|iO for sampled circuit pairs ⇒ iO]]

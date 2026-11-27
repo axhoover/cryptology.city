@@ -45,7 +45,7 @@ $$
 
 the probability also over the coins of $\calA$, so that the error is measured in the instance length $n = |x|$ — [[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]]. Without the length condition the notion would follow from $\classNP \not\subseteq \classBPP$: with $D(1^n)$ uniform on $\bits^{\lfloor \log n \rfloor}$ and $p(n) = 3n$, an algorithm that errs with probability below $1/(3n)$ under $D(1^n)$ for all but finitely many $n$ errs with probability below $1/3$ on all but finitely many inputs — folklore.
 
-<!-- BEGIN GENERATED participates-in 15cfcdb93c35 -->
+<!-- BEGIN GENERATED participates-in 3848a5dde83c -->
 
 ## Participates in
 
@@ -74,7 +74,6 @@ the probability also over the coins of $\calA$, so that the error is measured in
 
 - [[no-bqp-to-np|No relativizing reduction from BQP to NP]]
 - [[no-he-to-szk-bl13|No reduction from NP to compact FHE]]
-- [[no-np-to-bqp-bbbv97|No relativizing reduction from NP to BQP]]
 - [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to one-round sublinear cPIR]]
 - [[no-np-to-gapsvp-ar04|No Karp reduction from NP to GapSVP for γ ≥ c√n unless NP = coNP]]
 - [[no-np-to-gapsvp-gg00|No Karp reduction from NP to GapSVP for γ ≥ √(n/log n) unless coNP ⊆ AM]]

@@ -78,13 +78,12 @@ No fully-black-box construction from a [[hash-function#preimage-resistance-one-w
 
 A perfectly correct protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $1/2$ is trivial, since one party can choose the outcome — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]].
 
-<!-- BEGIN GENERATED participates-in 6c791e572866 -->
+<!-- BEGIN GENERATED participates-in c6fab308f169 -->
 
 ## Participates in
 
 **Builds on Coin flipping**
 
-- [[coin-flipping-to-owf-il89|Coin flipping ⇒ OWF]]
 - [[constant-bias-coin-flipping-to-owf-ho11|Constant-bias coin flipping ⇒ OWF]] (via [[coin-flipping#coin-flipping-with-constant-bias|Coin flipping with constant bias]])
 
 **Produces Coin flipping**

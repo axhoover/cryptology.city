@@ -6,7 +6,7 @@ aliases: []
 id: red-fe-to-io
 kind: implication
 hypotheses: [subexponential-weakly-compact-fe]
-conclusion: subexponential-io
+conclusion: io
 class: free
 model: standard
 source:
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[functional-encryption#correctness|perfectly correct]] public-key [[functional-encryption|FE]] scheme for $\classPpoly$ that is single-key, [[functional-encryption#selective-security|selectively]] and [[functional-encryption#sub-exponentially-secure-weakly-compact-fe|sub-exponentially]] secure, and [[functional-encryption#compactness|weakly compact]] (encrypting a message $m$ takes time $s^{1-\varepsilon} \cdot \poly(\secpar, |m|)$ when keys are for circuits of size $s$, for a constant $\varepsilon > 0$) yields [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure]] [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]], as stated by [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]] (arXiv v1, Theorem 5.4). The construction loses a factor $2^n$ on $n$-bit inputs, hence the sub-exponential hypothesis.
+A [[functional-encryption#correctness|perfectly correct]] public-key [[functional-encryption|FE]] scheme for $\classPpoly$ that is single-key, [[functional-encryption#selective-security|selectively]] and [[functional-encryption#sub-exponentially-secure-weakly-compact-fe|sub-exponentially]] secure, and [[functional-encryption#compactness|weakly compact]] (encrypting a message $m$ takes time $s^{1-\varepsilon} \cdot \poly(\secpar, |m|)$ when keys are for circuits of size $s$, for a constant $\varepsilon > 0$) yields [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]. The construction loses a factor $2^n$ on $n$-bit inputs, hence the sub-exponential hypothesis.
 
 ## Notes
 

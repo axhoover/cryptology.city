@@ -27,7 +27,7 @@ $$
 F(x_1, \ldots, x_t) := (f(x_1), \ldots, f(x_t)), \qquad t := n \cdot p(n),
 $$
 
-on independent uniform blocks $x_i \getsr \bits^n$, is a [[hash-function#preimage-resistance-one-wayness|one-way function]] — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. A keyed weakly one-way family gives such an $f$, its [[hash-function#unkeyed-form|unkeyed form]] — standard.
+on independent uniform blocks $x_i \getsr \bits^n$, is a [[hash-function#preimage-resistance-one-wayness|one-way function]] — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
 
 ## Sketch
 

@@ -24,5 +24,5 @@ Every [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct
 
 ## Notes
 
-- A transformation that uses the IND-CPA-secure scheme only as a black box also yields an NM-CPA-secure one — [[CDMW08 - Black-Box Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|CDMW08]]. It encrypts an encoding of the message under an error-correcting code instead of proving consistency of several encryptions, has a quasi-linear blow-up in ciphertext size, and extends to non-malleability under bounded-CCA2 attacks — [[CDMW18 - A Black-Box Construction of Non-malleable Encryption from Semantically Secure Encryption|CDMW18]].
+- A transformation that uses the IND-CPA-secure scheme only as a black box also yields an NM-CPA-secure one — [[CDMW08 - Black-Box Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|CDMW08]].
 - The identity map does not suffice: an IND-CPA-secure scheme need not be NM-CPA-secure ([[no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98|IND-CCA1 ⇏ NM-CPA]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
