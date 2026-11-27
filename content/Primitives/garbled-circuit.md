@@ -79,13 +79,13 @@ BHR12 parameterize privacy by a side-information function $\Phi$: the simulator 
 - A garbling scheme and OT give two-party computation secure against semi-honest adversaries ([[gc-and-ot-to-two-party-computation-2pc|Yao's protocol]]) — [[Yao86 - How to Generate and Exchange Secrets|Yao86]], [[LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation|LP09]].
 - A garbled circuit together with the input labels of $x$ is a computational [[randomized-encoding|randomized encoding]] of $C(x)$, which gives every polynomial-time function an encoding of locality $4$ from a PRG in $\oplus\mathrm{L}/\mathrm{poly}$ — [[AIK06b - Computationally Private Randomizing Polynomials and Their Applications|AIK06b]].
 
-<!-- BEGIN GENERATED participates-in 01e060b0466c -->
+<!-- BEGIN GENERATED participates-in 0620f68349fa -->
 
 ## Participates in
 
 **Builds on Garbled circuit**
 
-- [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]]
+- [[gc-and-ot-to-two-party-computation-2pc|GC + String OT ⇒ Semi-honest 2PC (Yao)]]
 
 **Produces Garbled circuit**
 

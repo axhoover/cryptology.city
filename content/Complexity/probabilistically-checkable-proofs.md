@@ -14,15 +14,15 @@ $\mathbf{PCP}[r(n), q(n)]$ is the class of languages $L$ with a probabilistic po
 
 ## Notable problems
 
-- Every language in $\classNP$, by the PCP theorem: [[pcp-to-np-alm-92|PCP = NP]] — [[ALM+92 - Proof Verification and Hardness of Approximation Problems|ALM+92]].
+- Every language in [[nondeterministic-polynomial-time|NP]], by the PCP theorem: [[pcp-to-np-alm-92|PCP = NP]] — [[ALM+92 - Proof Verification and Hardness of Approximation Problems|ALM+92]].
 
 ## Known relationships
 
-- $\mathbf{PCP}[\log n, 1] = \classNP$ — [[ALM+92 - Proof Verification and Hardness of Approximation Problems|ALM+92]], building on [[AS92 - Probabilistic Checking of Proofs A New Characterization of NP|AS92]].
-- With polynomial randomness and polynomially many queries the verifier is equivalent to a [[multi-prover-interactive-proofs|multi-prover interactive proof]] — [[FRS88 - On the Power of Multi-Prover Interactive Protocols|FRS88]] — so $\mathbf{PCP}[\poly(n), \poly(n)] = \mathbf{NEXP}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]].
+- $\mathbf{PCP}[\log n, 1] = \classNP$ ([[pcp-to-np-alm-92|PCP = NP]]) — [[ALM+92 - Proof Verification and Hardness of Approximation Problems|ALM+92]], building on [[AS92 - Probabilistic Checking of Proofs A New Characterization of NP|AS92]].
+- With polynomial randomness and polynomially many queries the verifier is equivalent to a [[multi-prover-interactive-proofs|multi-prover interactive proof]] — [[FRS88 - On the Power of Multi-Prover Interactive Protocols|FRS88]] — so $\mathbf{PCP}[\poly(n), \poly(n)] = \mathbf{NEXP}$ ([[mip-to-nexp-bfl90|MIP = NEXP]]) — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]].
 - A PCP is a one-round [[interactive-oracle-proof|interactive oracle proof]] — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 
-<!-- BEGIN GENERATED participates-in 0782e293f6f4 -->
+<!-- BEGIN GENERATED participates-in 42f8fbd0b550 -->
 
 ## Participates in
 
@@ -32,7 +32,7 @@ $\mathbf{PCP}[r(n), q(n)]$ is the class of languages $L$ with a probabilistic po
 
 **Used via Probabilistically checkable proofs**
 
-- [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]]
+- [[crhf-to-interactive-succinct-argument-kil92|Arbitrary-length CRHF ⇒ Succinct arguments for NP (Kilian)]]
 - [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 
 <!-- END GENERATED participates-in -->

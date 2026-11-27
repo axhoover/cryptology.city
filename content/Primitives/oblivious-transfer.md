@@ -13,6 +13,7 @@ variants:
   ot-extension: "#ot-extension"
   rabin-ot: "#rabin-ot"
   random-ot: "#random-ot"
+  string-ot: "#string-ot"
   two-round-ot: "#two-round-ot"
   two-round-uc-ot: "#two-round-uc-secure-ot"
   uc-ot: "#uc-secure-ot"
@@ -116,6 +117,8 @@ The ideal 1-out-of-2 OT functionality $\calF_{\mathrm{OT}}$ receives $(x_0, x_1)
 
 The sender- and receiver-privacy definitions are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. An OT $\OT$ has **malicious security** if it is $(1-\negl(\secpar))$-[[#Correctness|correct]] and for every efficient $\calA$ corrupting one of $S$ and $R$ and deviating from the protocol arbitrarily there is an efficient simulator $\Sim$ such that, for all $x_0, x_1 \in \calM$ and $c \in \bits$, the output of $\calA$ together with the honest party's output in a real execution is computationally indistinguishable from the output of $\Sim$ together with the honest party's output in an ideal execution. There the honest party hands its input to $\calF_{\mathrm{OT}}$, $\Sim$ hands it an input of its choice for the corrupted party, $\calF_{\mathrm{OT}}$ returns $x_c$ to $R$ for the resulting $(x_0, x_1)$ and $c$, and $\Sim$ also produces $\pp$ — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. The semi-honest games do not carry over by letting $\calA$ deviate: in the sender-privacy game a malicious receiver can announce $c$ and run $R$ on $1 - c$, so the simulator must extract the choice bit a malicious receiver effectively uses — standard. As for [[secure-multi-party-computation#security-with-abort|MPC]], the case with no corrupted party is covered by correctness, not by the simulation game, which would then ask that the transcript be simulatable without either input — standard.
 
+The ideal execution has no abort: $R$ receives $x_c$ whatever a corrupted sender does. A protocol that meets the definition with the weaker ideal execution in which $\Sim$, for a corrupted sender, may also make $R$ output $\bot$, as in [[secure-multi-party-computation#security-with-abort|security with abort]], has malicious security once $R$ outputs the $c$-th entry of a fixed default pair in place of $\bot$: for a corrupted sender $\Sim$ receives nothing from $\calF_{\mathrm{OT}}$, so whether it aborts does not depend on $c$, and it hands $\calF_{\mathrm{OT}}$ the default pair in place of the abort; for a corrupted receiver an abort changes nothing, since $S$ outputs $\bot$ either way — standard.
+
 As an object, OT denotes a $(1-\negl(\secpar))$-[[#Correctness|correct]] protocol, with $\Setup$, $S$ and $R$ PPT, that has [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]].
 
 # Variations
@@ -175,11 +178,15 @@ A generalization where the sender holds $n$ messages $(x_1, \ldots, x_n)$ and th
 
 Single-server [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|SPIR]] is 1-out-of-$n$ OT with total communication at most $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$, so it implies 1-out-of-$n$ OT — folklore; the converse is not known ([[symmetric-private-information-retrieval-single-server-to-ot|SPIR ⇒ OT]]).
 
+## String OT
+
+An OT **for strings of length $\ell$**, for a length function $\ell = \ell(\secpar)$, is an OT with message space $\calM = \bits^{\ell(\secpar)}$. As an object, string OT denotes, for every $\ell$ with $1 \le \ell(\secpar) \le \poly(\secpar)$ that is computable from $1^\secpar$ in polynomial time, a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT for strings of length $\ell$, with $\Setup$, $S$ and $R$ PPT, that has [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]]. The length is quantified before the protocol, and over every polynomially bounded length computable in polynomial time, because a construction may fix it from another primitive: Yao's protocol transfers the input labels of a garbling scheme ([[gc-and-ot-to-two-party-computation-2pc|GC + String OT ⇒ Semi-honest 2PC (Yao)]]). One execution of an OT on bits per bit of the strings, in parallel under one choice bit, gives a string OT ([[ot-to-string-ot|OT ⇒ String OT]]), and a string OT at length $1$ is an OT ([[string-ot-to-ot|String OT ⇒ OT]]) — folklore.
+
 ## OT Extension
 
 An **OT extension** is a protocol that, on input $1^m$, runs a 1-out-of-2 OT protocol, the **base OTs**, at most $k(\secpar)$ times, for a polynomial $k$ fixed independently of $m$, and that for every polynomial $m = m(\secpar)$ is a $(1-\negl(\secpar))$-correct protocol for $m$ 1-out-of-2 transfers with semi-honest sender and receiver privacy for the vector of transfers. These are the [[#Sender Privacy|sender-privacy]] and [[#Receiver Privacy|receiver-privacy]] games for message vectors $x_0 = (x_{0,i})_{i \in [m]}$ and $x_1 = (x_{1,i})_{i \in [m]}$ in $\calM^m$ and a choice vector $c \in \bits^m$, the $i$-th transfer delivering $x_{c_i,i}$. In the sender game $\calA$ commits to $c$ and to two pairs of message vectors with $x_{c_i,i} = x'_{c_i,i}$ for every $i \in [m]$; in the receiver game $\calA$ commits to $(x_0, x_1)$ and to two choice vectors $c^{(0)}, c^{(1)} \in \bits^m$, the protocol runs on $c^{(b)}$ for a uniform bit $b$, and $\calA$ guesses $b$. As an object, OT extension denotes such a protocol.
 
-The point of OT extension is the cost of the computation outside the base OTs, which each result states. [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]] uses $\secpar$ base transfers and a one-way function, through its code ([[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]); in the random-oracle model, [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]] use $\kappa$ base transfers, for the security parameter $\kappa$, and a constant number of hash evaluations per extended transfer ([[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]).
+The point of OT extension is the cost of the computation outside the base OTs, which each result states. [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]] uses $\secpar$ base transfers and a one-way function, through its code ([[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]); in the random-oracle model, [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]] use $\kappa$ base transfers, for the security parameter $\kappa$, and a constant number of hash evaluations per extended transfer ([[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]]).
 
 ## Random OT
 
@@ -231,7 +238,7 @@ A **two-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT $\OT$ w
 
 ## UC-secure OT
 
-The **UC version of $\calF_{\mathrm{OT}}$** receives $(x_0, x_1) \in \calM^2$ from $S$ and $c \in \bits$ from $R$, tells $\Sim$ that an output is pending, and delivers $x_c$ to $R$ as a private delayed output when $\Sim$ instructs it to; $S$ receives nothing — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. It differs from the [[#Ideal OT functionality|ideal OT functionality]] only in the delayed delivery. An OT protocol is **UC-secure** if, in the common reference string model with $\pp \gets \Setup(1^\secpar)$ as the reference string, it [[universal-composability-framework#uc-emulation|UC-realizes]] the UC version of $\calF_{\mathrm{OT}}$ against a malicious adversary that statically corrupts at most one party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]] — and is non-trivial: if neither party is corrupted and every message is delivered, $R$ outputs $x_c$ except with negligible probability — [[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]]. Non-triviality excludes the protocol that never sends a message, which UC-realizes the UC version of $\calF_{\mathrm{OT}}$ with a simulator that never instructs delivery — standard. UC security implies stand-alone [[#Malicious Security|malicious security]] ([[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]]), and by the composition theorem a UC-secure protocol can replace the UC version of $\calF_{\mathrm{OT}}$ in any protocol in its hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. A UC-secure protocol also has sender and receiver privacy with the same reference string, since a UC environment can choose the inputs after learning the reference string through the adversary ([[uc-ot-to-ot|UC-secure OT ⇒ OT]]) — folklore.
+The **UC version of $\calF_{\mathrm{OT}}$** receives $(x_0, x_1) \in \calM^2$ from $S$ and $c \in \bits$ from $R$, tells $\Sim$ that an output is pending, and delivers $x_c$ to $R$ as a private delayed output when $\Sim$ instructs it to; $S$ receives nothing — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. It differs from the [[#Ideal OT functionality|ideal OT functionality]] only in the delayed delivery. An OT protocol is **UC-secure** if, in the common reference string model with $\pp \gets \Setup(1^\secpar)$ as the reference string, it [[universal-composability-framework#uc-emulation|UC-realizes]] the UC version of $\calF_{\mathrm{OT}}$ against a malicious adversary that statically corrupts at most one party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]] — and is non-trivial: if neither party is corrupted and every message is delivered, $R$ outputs $x_c$ except with negligible probability — [[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]]. Non-triviality excludes the protocol that never sends a message, which UC-realizes the UC version of $\calF_{\mathrm{OT}}$ with a simulator that never instructs delivery — standard. UC security implies stand-alone [[#Malicious Security|malicious security]], once the receiver outputs a default value when the execution gives it no output ([[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]]), and by the composition theorem a UC-secure protocol can replace the UC version of $\calF_{\mathrm{OT}}$ in any protocol in its hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. A UC-secure protocol also has sender and receiver privacy with the same reference string, since a UC environment can choose the inputs after learning the reference string through the adversary ([[uc-ot-to-ot|UC-secure OT ⇒ OT]]) — folklore.
 
 ## Two-round UC-secure OT
 
@@ -251,7 +258,7 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in 450d341f17f1 -->
+<!-- BEGIN GENERATED participates-in e8b4df2bfb38 -->
 
 ## Participates in
 
@@ -259,7 +266,7 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 
 - [[four-round-ot-to-four-round-mpc-ccg20|Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
 - [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
-- [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]]
+- [[gc-and-ot-to-two-party-computation-2pc|GC + String OT ⇒ Semi-honest 2PC (Yao)]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ideal-ot-to-com-kil88|Ideal OT ⇒ COM (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
@@ -272,10 +279,12 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
-- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
+- [[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[ot-to-semi-honest-security-gmw87|Semi-honest OT ⇒ Semi-honest MPC (GMW)]]
+- [[ot-to-string-ot|OT ⇒ String OT]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
+- [[string-ot-to-ot|String OT ⇒ OT]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[two-round-ot-to-ot|Two-round OT ⇒ OT]] (via [[oblivious-transfer#two-round-ot|Two-round OT]])
 - [[two-round-ot-to-two-round-semi-honest-mpc-gs18|Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)]] (via [[oblivious-transfer#two-round-ot|Two-round OT]])
 - [[two-round-uc-ot-to-two-round-mpc-gs18|Two-round UC OT ⇒ Two-round MPC in the CRS model (Garg–Srinivasan)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
@@ -298,11 +307,13 @@ A **four-round OT** is a $(1-\negl(\secpar))$-[[#Correctness|correct]] OT protoc
 - [[oprf-to-ot|OPRF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
-- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[ot-to-string-ot|OT ⇒ String OT]] (via [[oblivious-transfer#string-ot|String OT]])
 - [[psi-to-ot|PSI ⇒ OT]]
 - [[qr-to-malicious-ot-security-pvw08|QR ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
+- [[string-ot-to-ot|String OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]

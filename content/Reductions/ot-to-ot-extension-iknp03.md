@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: OT ⇒ OT extension (IKNP)
+title: String OT ⇒ OT extension (IKNP)
 aliases:
   - IKNP OT extension
 id: red-ot-to-ot-extension-iknp03
 kind: implication
-hypotheses: [ot]
+hypotheses: [string-ot]
 conclusion: ot-extension
 class: fully-black-box
 model: rom
@@ -18,11 +18,11 @@ rationale:
   model: "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
 ---
 
-# OT ⇒ OT extension (IKNP)
+# String OT ⇒ OT extension (IKNP)
 
 ## Statement
 
-In the [[random-oracle-model|random-oracle model]], $\kappa$ base [[oblivious-transfer|oblivious transfers]] of $\kappa$-bit strings, stretched to $m$ bits with the hash as a generator, yield any polynomial number $m$ of 1-out-of-2 transfers of $\ell$-bit strings secure against semi-honest adversaries, with $O(m)$ hash evaluations and $O(m(\kappa + \ell))$ bits of communication — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
+In the [[random-oracle-model|random-oracle model]], $\kappa$ base transfers of $\kappa$-bit strings by a [[oblivious-transfer#string-ot|string OT]], stretched to $m$ bits with the hash as a generator, yield any polynomial number $m$ of 1-out-of-2 transfers of $\ell$-bit strings secure against semi-honest adversaries, with $O(m)$ hash evaluations and $O(m(\kappa + \ell))$ bits of communication — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
 
 ## Sketch
 
@@ -44,5 +44,6 @@ The receiver, with choice bits $r \in \bits^m$, samples a uniform matrix $T \in 
 ## Notes
 
 - Efficiency: after $\kappa$ public-key transfers, each extended transfer costs a constant number of hash evaluations and $O(\kappa + \ell)$ bits of communication — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
+- An OT on bits gives the base transfers of $\kappa$-bit strings by $\kappa$ parallel executions each ([[ot-to-string-ot|OT ⇒ String OT]]) — folklore.
 - Without a random oracle, [[ot-and-owf-to-ot-extension-bea96|Beaver's extension]] needs only a one-way function, but uses its code — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]].
 - Malicious security adds only a small overhead to the semi-honest protocol — [[KOS15 - Actively Secure OT Extension with Optimal Overhead|KOS15]].

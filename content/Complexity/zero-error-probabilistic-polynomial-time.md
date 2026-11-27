@@ -16,15 +16,14 @@ $$
 \classZPP = \classRP \cap \classcoRP.
 $$
 
-For $L \in \classRP \cap \classcoRP$, take an RP machine $M_1$ for $L$ and an RP machine $M_0$ for its complement (each accepts every instance in its language with probability at least 1/2 and accepts no instance outside it), and run both on input $x$: output "yes" if $M_1$ accepts, "no" if $M_0$ accepts, and "?" otherwise. Every non-"?" answer is correct and "?" occurs with probability at most 1/2, so this is a Las Vegas algorithm for $L$ — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
+For $L \in \classRP \cap \classcoRP$, take an RP machine $M_1$ for $L$ and an RP machine $M_0$ for its complement (each accepts every instance in its language with probability at least 1/2 and accepts no instance outside it), and run both on input $x$: output "yes" if $M_1$ accepts, "no" if $M_0$ accepts, and "?" otherwise. Every non-"?" answer is correct and "?" occurs with probability at most 1/2, so this is a Las Vegas algorithm for $L$; conversely, replacing "?" by reject in a zero-error algorithm gives [[zpp-to-rp|ZPP ⊆ RP]], and replacing it by accept gives $\classZPP \subseteq \classcoRP$ — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Z#zpp).
 
 ## Known relationships
 
-- $\classP \subseteq \classZPP \subseteq \classRP \subseteq \classBPP$.
-- If $\classP = \classBPP$ (the derandomization hypothesis), then $\classP = \classZPP = \classRP = \classBPP$.
-- ZPP is closed under complement: $\classZPP = \mathbf{coZPP}$.
+- $\classP \subseteq \classZPP \subseteq \classRP \subseteq \classBPP$ ([[p-to-zpp|P ⊆ ZPP]], [[zpp-to-rp|ZPP ⊆ RP]], [[rp-to-bpp|RP ⊆ BPP]]) — folklore. Hence if $\classP = \classBPP$ (the derandomization hypothesis), then $\classP = \classZPP = \classRP = \classBPP$.
+- ZPP is closed under complement, $\classZPP = \mathbf{coZPP}$: swap the answers "yes" and "no" — standard.
 
 <!-- BEGIN GENERATED participates-in 5c075c6a297a -->
 

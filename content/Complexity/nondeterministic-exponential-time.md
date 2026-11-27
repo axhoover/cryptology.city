@@ -11,7 +11,7 @@ id: nexp
 
 # Nondeterministic exponential time
 
-The class of decision problems decided by a nondeterministic Turing machine in time $2^{\poly(n)}$; equivalently, the languages whose membership has witnesses of exponential length that can be verified in exponential time.
+The class of decision problems decided by a nondeterministic Turing machine in time $2^{\poly(n)}$ on inputs of length $n$; equivalently, the languages whose members have witnesses of length $2^{\poly(n)}$ that a deterministic machine verifies in time $2^{\poly(n)}$.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#nexp).
 
@@ -21,8 +21,9 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#n
 
 ## Known relationships
 
-- $\classEXP \subseteq \mathbf{NEXP}$, and $\classNP \subsetneq \mathbf{NEXP}$ by the nondeterministic time hierarchy theorem — standard.
-- $\mathbf{NEXP}$ is exactly the class of languages with multi-prover interactive proofs: [[mip-to-nexp-bfl90|MIP = NEXP]] — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]], [[FRS88 - On the Power of Multi-Prover Interactive Protocols|FRS88]].
+- $\classEXP \subseteq \mathbf{NEXP}$ ([[exp-to-nexp|EXP ⊆ NEXP]]) — folklore.
+- $\classNP \subsetneq \mathbf{NEXP}$ by the nondeterministic time hierarchy theorem — [[Coo73 - A Hierarchy for Nondeterministic Time Complexity|Coo73]].
+- $\mathbf{NEXP}$ is exactly the class of languages with [[multi-prover-interactive-proofs|multi-prover interactive proofs]]: [[mip-to-nexp-bfl90|MIP = NEXP]] — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]], [[FRS88 - On the Power of Multi-Prover Interactive Protocols|FRS88]].
 
 <!-- BEGIN GENERATED participates-in 3c6eb5d787cc -->
 

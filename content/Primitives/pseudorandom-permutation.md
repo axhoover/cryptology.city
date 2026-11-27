@@ -147,7 +147,7 @@ the second identity inverting round $i$, so $\Psi$ is a permutation of $\bits^{2
 
 For a block cipher $E : \bits^\kappa \times \bits^n \to \bits^n$, double encryption $E_{k_2}(E_{k_1}(x))$ with independent keys has a $2\kappa$-bit key, but a meet-in-the-middle attack recovers it from $t$ known pairs $(x_j, y_j)$ with about $t \cdot 2^{\kappa+1}$ evaluations of $E$ and $2^\kappa$ table entries: tabulate $(E_{k_1}(x_1), \ldots, E_{k_1}(x_t))$ for every $k_1$, compute $(E^{-1}_{k_2}(y_1), \ldots, E^{-1}_{k_2}(y_t))$ for every $k_2$, and look it up. Each wrong key pair matches a known pair with probability about $2^{-n}$ when $E$ is an ideal cipher, so about $2^{2\kappa - tn}$ wrong pairs survive and $t > 2\kappa/n$ pairs isolate the key; three-key triple encryption $E_{k_3}(E_{k_2}(E_{k_1}(x)))$ falls to the same attack, tabulating the $k_1$ side and searching $(k_2, k_3)$ with $E^{-1}_{k_3}(y_j)$ computed once per $k_3$, with about $t \cdot 2^{2\kappa}$ evaluations, $2^\kappa$ table entries and $t > 3\kappa/n$ pairs. TODO: cite the meet-in-the-middle attacks on double and triple encryption (Diffie–Hellman, Computer 1977; Merkle–Hellman, CACM 1981) once the passages are read. The security of triple encryption in the ideal-cipher model is under [[ideal-cipher-model#results-in-the-model|results in the model]].
 
-<!-- BEGIN GENERATED participates-in 823c0168f955 -->
+<!-- BEGIN GENERATED participates-in 8d9bbf360421 -->
 
 ## Participates in
 
@@ -155,6 +155,7 @@ For a block cipher $E : \bits^\kappa \times \bits^n \to \bits^n$, double encrypt
 
 - [[bit-string-prp-to-length-preserving-prf|PRP on bit strings ⇒ Length-preserving PRF]] (via [[pseudorandom-permutation#prps-on-bit-strings|PRPs on bit strings]])
 - [[bit-string-prp-to-prp|PRP on bit strings ⇒ PRP]] (via [[pseudorandom-permutation#prps-on-bit-strings|PRPs on bit strings]])
+- [[bit-string-prp-to-tweakable-block-cipher-rog04a|PRP on bit strings ⇒ TBC (XE)]] (via [[pseudorandom-permutation#prps-on-bit-strings|PRPs on bit strings]])
 - [[prp-to-arbitrary-length-suf-cma-mac-br05|PRP on bit strings ⇒ arbitrary-length SUF-CMA MAC (XCBC)]] (via [[pseudorandom-permutation#prps-on-bit-strings|PRPs on bit strings]])
 - [[prp-to-cpa-security-bdjr97|PRP on bit strings ⇒ CPA-secure SKE (CBC)]] (via [[pseudorandom-permutation#prps-on-bit-strings|PRPs on bit strings]])
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]]
@@ -163,6 +164,7 @@ For a block cipher $E : \bits^\kappa \times \bits^n \to \bits^n$, double encrypt
 - [[prp-to-tweakable-block-cipher-lrw02|PRP on bit strings ⇒ TBC (LRW1)]] (via [[pseudorandom-permutation#prps-on-bit-strings|PRPs on bit strings]])
 - [[strong-bit-string-prp-to-bit-string-prp|Strong PRP on bit strings ⇒ PRP on bit strings]] (via [[pseudorandom-permutation#strong-prps-on-bit-strings|Strong PRPs on bit strings]])
 - [[strong-bit-string-prp-to-strong-pseudorandom-permutation|Strong PRP on bit strings ⇒ Strong PRP]] (via [[pseudorandom-permutation#strong-prps-on-bit-strings|Strong PRPs on bit strings]])
+- [[strong-bit-string-prp-to-strong-tweakable-block-cipher-rog04a|Strong PRP on bit strings ⇒ Strong TBC (XEX)]] (via [[pseudorandom-permutation#strong-prps-on-bit-strings|Strong PRPs on bit strings]])
 - [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP on bit strings ⇒ Strong TBC (LRW2)]] (via [[pseudorandom-permutation#strong-prps-on-bit-strings|Strong PRPs on bit strings]])
 - [[strong-security-to-prp|sPRP ⇒ PRP]] (via [[pseudorandom-permutation#strong-security|Strong Security]])
 

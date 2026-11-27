@@ -362,7 +362,7 @@ is negligible. HHK17 (Definition 2.1, Figure 3) count as a win every output $m'$
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in d792499c94b5 -->
+<!-- BEGIN GENERATED participates-in 66f60412ee36 -->
 
 ## Participates in
 
@@ -411,7 +411,7 @@ is negligible. HHK17 (Definition 2.1, Figure 3) count as a win every output $m'$
 - [[deniable-encryption-to-pke-cpa-security|Deniable encryption ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[factoring-blum-integers-to-pke-cpa-security-bg84|Factoring ⇒ CPA-secure PKE (Blum–Goldwasser)]] (via [[public-key-encryption#cpa-security|CPA Security]])
-- [[group-signature-to-pke-aw04|Group signatures ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[group-signature-to-pke-aw04|CPA-anonymous group signatures ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[hash-proof-system-to-pke-cpa-security-cs02|HPS ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])

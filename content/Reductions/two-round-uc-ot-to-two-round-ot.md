@@ -10,7 +10,7 @@ conclusion: two-round-ot
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: "none"
+security-loss: "constant: receiver-privacy advantage at most $2\\varepsilon$ and sender-privacy advantage at most $4\\varepsilon + 2\\delta$, for UC distinguishing advantage $\\varepsilon$ and non-triviality error $\\delta$"
 rationale:
   class: "Identity map, and each privacy distinguisher becomes an environment distinguishing the real from the ideal execution, used as an oracle."
 ---

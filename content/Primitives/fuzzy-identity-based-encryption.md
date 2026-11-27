@@ -17,14 +17,14 @@ variants:
 
 ## Syntax
 
-A Fuzzy IBE scheme is a tuple of efficient algorithms $\mathsf{FIBE} = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to attribute universe $\calU$, threshold $t \in \NN$, message space $\calM$, and ciphertext space $\calC$:
+A Fuzzy IBE scheme is a tuple of efficient algorithms $\mathsf{FIBE} = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to attribute universe $\calU$, threshold $t \in \NN$ with $t \ge 1$, message space $\calM$, and ciphertext space $\calC$:
 
 - $\Setup(1^\secpar, \calU, t) \to (\pp, \msk),$ is a randomized algorithm that outputs public parameters $\pp$ and master secret key $\msk$,
 - $\KeyGen(\msk, \omega) \to \sk_\omega,$ is a (possibly randomized) algorithm that takes $\msk$ and an attribute set $\omega \subseteq \calU$, outputting a secret key $\sk_\omega$,
 - $\Enc(\pp, \omega', m) \to c,$ is a randomized algorithm that takes $\pp$, an attribute set $\omega' \subseteq \calU$ used as the encryption identity, and $m \in \calM$, outputting $c \in \calC$,
 - $\Dec(\sk_\omega, c) \to m,$ is a deterministic algorithm that takes $\sk_\omega$ and $c$, outputting $m \in \calM$ or $\bot$.
 
-Decryption succeeds if and only if $|\omega \cap \omega'| \ge t$.
+Decryption succeeds if and only if $|\omega \cap \omega'| \ge t$. The threshold $t = 0$ is excluded: every key would decrypt every ciphertext and an [[#IND-FIBE-CPA Security|admissible]] adversary could make no key query, so the notion would be [[public-key-encryption#cpa-security|CPA-secure PKE]] with public key $\pp$ — standard.
 
 ## Properties
 

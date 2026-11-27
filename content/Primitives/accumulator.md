@@ -68,17 +68,17 @@ TODO: the security game of [[CL02 - Dynamic Accumulators and Application to Effi
 # Other results
 
 - RSA accumulator: $\pp = (N, g)$ for an RSA modulus $N$ and $g \in \QR_N$, elements are primes, $\Acc(\pp, X) = g^{\prod_{x \in X} x} \bmod N$, and the witness for $x$ is $g^{\prod_{y \in X \setminus \{x\}} y}$, checked by $w^x = \mathit{acc}$. It is collision-free under the [[rsa-assumption#strong-rsa|strong RSA assumption]] ([[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]]) — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]]. [[BdM93 - One-Way Accumulators A Decentralized Alternative to Digital Signatures|BdM93]] introduced the exponentiation accumulator as a quasi-commutative one-way function.
-- A Merkle tree over the sorted set, with the tree depth included in $\mathit{acc}$ (or leaf and internal-node hashes under distinct prefixes) and padding leaves repeating an element of $X$, is a collision-free accumulator with witnesses of $O(\log |X|)$ hash values if the hash is [[hash-function#collision-resistance|collision-resistant]] ([[crhf-to-accumulator|CRHF ⇒ accumulator]]) — folklore.
+- A Merkle tree over the sorted set, with the tree depth included in $\mathit{acc}$ (or leaf and internal-node hashes under distinct prefixes) and padding leaves repeating an element of $X$, is a collision-free accumulator with witnesses of $O(\log |X|)$ hash values if the hash is an [[hash-function#arbitrary-length-collision-resistance|arbitrary-length CRHF]], used on inputs of twice its output length ([[crhf-to-accumulator|Arbitrary-length CRHF ⇒ accumulator]]) — folklore.
 - The RSA accumulator is dynamic: additions and witness updates need no trapdoor, deletions use the factorization, and collision-freeness still rests on [[rsa-assumption#strong-rsa-with-safe-prime-moduli|strong RSA for safe-prime moduli]] ([[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]]) — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
 - In [[pairings|bilinear groups]], $\mathit{acc} = g^{\prod_{x \in X}(x + s)}$ for a secret $s$, with public parameters $g, g^s, \ldots, g^{s^q}$, accumulates sets of at most $q$ elements and is collision-free under the [$q$-SDH assumption](q-strong-diffie-hellman) — [[Ngu05 - Accumulators from Bilinear Pairings and Applications|Ngu05]].
 
-<!-- BEGIN GENERATED participates-in 4c9676a47c5d -->
+<!-- BEGIN GENERATED participates-in def444596a21 -->
 
 ## Participates in
 
 **Produces Cryptographic accumulator**
 
-- [[crhf-to-accumulator|CRHF ⇒ accumulator]]
+- [[crhf-to-accumulator|Arbitrary-length CRHF ⇒ accumulator]]
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]]
 - [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA (safe-prime moduli) ⇒ dynamic accumulator]]
 

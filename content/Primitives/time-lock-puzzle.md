@@ -75,7 +75,7 @@ TODO: encode the definition of [[MT19 - Homomorphic Time-Lock Puzzles and Applic
 - [[time-lock-puzzle-to-owf-bgj16|TLP ⇒ OWF]]: time-lock puzzles imply one-way functions — [[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]].
 - [[no-rom-to-time-lock-puzzle-mmv11|No reduction from ROM to TLP]]: in the random oracle model, a puzzle whose generator makes $n$ oracle queries is solved in $O(n)$ rounds of polynomially many parallel queries each; a puzzle with a linear gap exists there, generated with one round of $n$ parallel queries and requiring $n$ rounds of queries to solve — [[MMV11 - Time-Lock Puzzles in the Random Oracle Model|MMV11]].
 
-<!-- BEGIN GENERATED participates-in 8fad2b30fde9 -->
+<!-- BEGIN GENERATED participates-in 373e0a13cb56 -->
 
 ## Participates in
 
@@ -85,6 +85,7 @@ TODO: encode the definition of [[MT19 - Homomorphic Time-Lock Puzzles and Applic
 
 **Produces Time-lock puzzle**
 
+- [[decisional-sequential-squaring-to-time-lock-puzzle|Decisional sequential squaring ⇒ TLP]]
 - [[sequential-squaring-to-time-lock-puzzle-rsw96|Sequential squaring ⇒ TLP (RSW puzzle)]]
 
 **Barriers**

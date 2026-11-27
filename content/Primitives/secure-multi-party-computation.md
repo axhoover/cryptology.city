@@ -182,14 +182,14 @@ Security with selective abort against $t = n - 1$ corruptions, the ideal executi
 
 # Other results
 
-- OT extension: in the random-oracle model, $\secpar$ base OTs and a constant number of hash evaluations per extended transfer yield polynomially many OTs secure against semi-honest adversaries, and a correlation-robust hash function can replace the random oracle ([[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]) — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
+- OT extension: in the random-oracle model, $\secpar$ base OTs and a constant number of hash evaluations per extended transfer yield polynomially many OTs secure against semi-honest adversaries, and a correlation-robust hash function can replace the random oracle ([[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]]) — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 - Round complexity in the plain model with black-box proofs of security: five rounds for 2PC when one party sends per round ([[#Five-round 2PC]]) — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]] — and four for MPC ([[#Four-round MPC]]) — [[GMPP16 - The Exact Round Complexity of Secure Computation|GMPP16]], [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]; with a simultaneous-message channel, four rounds suffice for 2PC from trapdoor permutations — [[COSV17 - Round-Optimal Secure Two-Party Computation from Trapdoor Permutations|COSV17]].
 - Two-round MPC in the common reference string model: from indistinguishability obfuscation, UC-secure with abort against static malicious adversaries, with communication proportional to the input and output size and independent of the circuit size — [[GGHR14 - Two-Round Secure MPC from Indistinguishability Obfuscation|GGHR14]]; from LWE and NIZK arguments — [[MW16 - Two Round Multiparty Computation via Multi-key FHE|MW16]]; and from two-round malicious OT — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]] ([[#Two-round MPC]]).
 - 2PC from malicious OT by cut-and-choose over garbled circuits, with $O(1)$ OTs per input bit as its only public-key operations ([[malicious-ot-security-to-two-party-computation-lp07|malicious OT ⇒ 2PC]]) — [[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]].
 - Functions that a RAM computes in sublinear time have secure two-party computation in amortized sublinear time, by generic secure two-party computation run on top of an [[oblivious-ram|ORAM]] — [[GKK+12 - Secure Two-Party Computation in Sublinear (Amortized) Time|GKK+12]]
 
-<!-- BEGIN GENERATED participates-in d1b35a5f3e99 -->
+<!-- BEGIN GENERATED participates-in 96230ac9ec81 -->
 
 ## Participates in
 
@@ -234,7 +234,7 @@ Security with selective abort against $t = n - 1$ corruptions, the ideal executi
 - [[five-round-two-party-computation-to-two-party-computation|Five-round 2PC ⇒ 2PC with expected-time simulation]] (via [[secure-multi-party-computation#2pc-with-expected-polynomial-time-simulation|2PC with expected polynomial-time simulation]])
 - [[four-round-mpc-to-mpc|Four-round MPC ⇒ MPC with expected-time simulation]] (via [[secure-multi-party-computation#expected-polynomial-time-simulation|Expected polynomial-time simulation]])
 - [[four-round-ot-to-four-round-mpc-ccg20|Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)]] (via [[secure-multi-party-computation#four-round-mpc|Four-round MPC]])
-- [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
+- [[gc-and-ot-to-two-party-computation-2pc|GC + String OT ⇒ Semi-honest 2PC (Yao)]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
 - [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
 - [MPC with honest majority ($t < n/2$) ⇒ MPC with honest majority ($t < n/3$)](honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [MPC with honest majority ($t < n/2$) ⇒ MPC with abort and honest majority ($t < n/2$)](honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2) (via [Honest majority with abort ($t < n/2$)](secure-multi-party-computation#honest-majority-with-abort-t--n2))

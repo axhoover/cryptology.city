@@ -2,7 +2,7 @@
 type: reference
 status: stub
 title: "BMvT78"
-source: https://authors.library.caltech.edu/5607
+source: https://doi.org/10.1109/TIT.1978.1055873
 authors: Elwyn R. Berlekamp, Robert J. McEliece, Henk C. A. van Tilborg
 venue: IEEE Transactions on Information Theory 1978
 published: 1978
@@ -17,12 +17,13 @@ bibtex: |
     number  = {3},
     pages   = {384--386},
     year    = {1978},
+    doi     = {10.1109/TIT.1978.1055873},
   }
 ---
 
 # [BMvT78] On the Inherent Intractability of Certain Coding Problems
 
-**Authors:** Elwyn R. Berlekamp, Robert J. McEliece, Henk C. A. van Tilborg | **Venue:** IEEE Transactions on Information Theory 1978 | [Source](https://authors.library.caltech.edu/5607)
+**Authors:** Elwyn R. Berlekamp, Robert J. McEliece, Henk C. A. van Tilborg | **Venue:** IEEE Transactions on Information Theory 1978 | [Source](https://doi.org/10.1109/TIT.1978.1055873)
 
 ## Abstract
 

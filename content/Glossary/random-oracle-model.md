@@ -72,7 +72,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[oblivious-interactive-hash-function|OIHFs]] can be constructed from random oracles, and a standard-model OIHF implies [[oblivious-transfer|OT]] by a non-black-box reduction that is not defined for OIHFs using a random oracle — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
-<!-- BEGIN GENERATED participates-in 21e7c8abdae9 -->
+<!-- BEGIN GENERATED participates-in 33c1d74710ca -->
 
 ## Participates in
 
@@ -120,7 +120,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
 - [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]
-- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
+- [[ot-to-ot-extension-iknp03|String OT ⇒ OT extension (IKNP)]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
 - [[pke-cpa-security-to-dpke-bbo07|CPA-secure PKE ⇒ D-PKE (Encrypt-with-Hash, random oracle model)]]

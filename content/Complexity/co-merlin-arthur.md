@@ -10,15 +10,15 @@ id: coma
 
 # Co-Merlin-Arthur
 
-The complement class of [[merlin-arthur|MA]]: a problem is in coMA if its complement is in MA — standard.
+The complement class of [[merlin-arthur|MA]]: a problem is in coMA if its complement is in MA.
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#coma).
 
 ## Known relationships
 
-- $\mathbf{coMA} \subseteq \classcoAM$, by taking complements in $\classMA \subseteq \classAM$ — [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
-- $\classcoNP \subseteq \mathbf{coMA}$ and $\classBPP \subseteq \mathbf{coMA}$, by taking complements in $\classNP \subseteq \classMA$ and $\classBPP \subseteq \classMA$ — standard.
-- $\classNP \subseteq \mathbf{coMA}$ would give $\classcoNP \subseteq \classMA \subseteq \classAM$ and collapse the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]], [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
+- $\mathbf{coMA} \subseteq \classcoAM$, by taking complements in $\classMA \subseteq \classAM$ ([[ma-to-am|MA ⊆ AM]]) — [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
+- $\classcoNP \subseteq \mathbf{coMA}$ and $\classBPP \subseteq \mathbf{coMA}$, by taking complements in $\classNP \subseteq \classMA$ ([[np-to-ma|NP ⊆ MA]]) and $\classBPP \subseteq \classMA$ — standard.
+- $\classNP \subseteq \mathbf{coMA}$ would give $\classcoNP \subseteq \classMA \subseteq \classAM$ and collapse the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level ([[no-conp-to-am-bm88|coNP ⊆ AM collapses the polynomial hierarchy]]) — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]], [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
 
 <!-- BEGIN GENERATED participates-in 2739415bc10c -->
 
