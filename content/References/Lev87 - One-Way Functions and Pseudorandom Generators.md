@@ -2,7 +2,7 @@
 type: reference
 status: stub
 title: "Lev87"
-source: https://zbmath.org/?q=ti%3A%22One-way%20functions%20and%20pseudorandom%20generators%22
+source: https://doi.org/10.1007/BF02579323
 authors: Leonid A. Levin
 venue: Combinatorica 1987
 published: 1987
@@ -17,12 +17,13 @@ bibtex: |
     number  = {4},
     pages   = {357--363},
     year    = {1987},
+    doi     = {10.1007/BF02579323},
   }
 ---
 
 # [Lev87] One-Way Functions and Pseudorandom Generators
 
-**Authors:** Leonid A. Levin | **Venue:** Combinatorica 1987 | [Source](https://zbmath.org/?q=ti%3A%22One-way%20functions%20and%20pseudorandom%20generators%22)
+**Authors:** Leonid A. Levin | **Venue:** Combinatorica 1987 | [Source](https://doi.org/10.1007/BF02579323)
 
 ## Abstract
 

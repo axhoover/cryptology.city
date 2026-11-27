@@ -4,15 +4,18 @@ status: draft
 title: "HH22"
 source: https://arxiv.org/abs/2202.12401
 authors: David Harvey, Markus Hittmeir
-venue: arXiv 2022
+venue: Research in Number Theory 2022
 published: 2022-02-24
 aliases:
   - HH22
 bibtex: |
-  @misc{HH22,
+  @article{HH22,
     author       = {David Harvey and Markus Hittmeir},
     title        = {A Deterministic Algorithm for Finding $r$-Power Divisors},
-    howpublished = {arXiv:2202.12401},
+    journal      = {Research in Number Theory},
+    volume       = {8},
+    number       = {4},
+    pages        = {94},
     year         = {2022},
     doi          = {10.1007/s40993-022-00387-w},
     url          = {https://arxiv.org/abs/2202.12401}
@@ -21,7 +24,7 @@ bibtex: |
 
 # [HH22] A Deterministic Algorithm for Finding r-Power Divisors
 
-**Authors:** David Harvey, Markus Hittmeir | **Venue:** arXiv 2022 | [Source](https://arxiv.org/abs/2202.12401)
+**Authors:** David Harvey, Markus Hittmeir | **Venue:** Research in Number Theory 2022 | [Source](https://arxiv.org/abs/2202.12401)
 
 ## Abstract
 

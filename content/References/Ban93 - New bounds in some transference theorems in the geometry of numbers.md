@@ -14,7 +14,7 @@ bibtex: |
     title   = {New bounds in some transference theorems in the geometry of numbers},
     journal = {Mathematische Annalen},
     volume  = {296},
-    number  = {4},
+    number  = {1},
     pages   = {625--635},
     year    = {1993},
     doi     = {10.1007/BF01445125},
