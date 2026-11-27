@@ -4,16 +4,28 @@ status: stub
 title: "ABGMM25"
 source: https://eprint.iacr.org/2025/305
 authors: Gennaro Avitabile, Vincenzo Botta, Emanuele Giunta, Marcin Mielniczuk, Francesco Migliaro
-venue: preprint
-published: 2025
+venue: EUROCRYPT 2026
+published: 2026
 aliases:
   - ABGMM25
-cryptobib_key: EPRINT:ABGMM25
+bibtex: |
+  @inproceedings{ABGMM25,
+    author    = {Gennaro Avitabile and Vincenzo Botta and Emanuele Giunta and Marcin Mielniczuk and Francesco Migliaro},
+    title     = {The Malice of {ELFs}: Practical Anamorphic-Resistant Encryption Without Random Oracles},
+    booktitle = {EUROCRYPT 2026, Part V},
+    editor    = {Joan Daemen and Emmanuel Thom{\'e}},
+    series    = {LNCS},
+    volume    = {16545},
+    pages     = {303--333},
+    publisher = {Springer, Cham},
+    year      = {2026},
+    doi       = {10.1007/978-3-032-25330-9_11},
+  }
 ---
 
 # [ABGMM25] The Malice of ELFs: Practical Anamorphic-Resistant Encryption without Random Oracles
 
-**Authors:** Gennaro Avitabile, Vincenzo Botta, Emanuele Giunta, Marcin Mielniczuk, Francesco Migliaro | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/305)
+**Authors:** Gennaro Avitabile, Vincenzo Botta, Emanuele Giunta, Marcin Mielniczuk, Francesco Migliaro | **Venue:** EUROCRYPT 2026 | [Source](https://eprint.iacr.org/2025/305)
 
 ## Abstract
 
