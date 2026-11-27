@@ -13,7 +13,7 @@ source:
   - "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
 security-loss: ""
 rationale:
-  class: "The hash family is the subset-sum function itself with a uniform instance as key, and the reduction runs any target-collision finder only as an oracle, on a key in which one element is reprogrammed so that the finder's committed input sums to the subset-sum target."
+  class: "The hash family is the subset-sum function itself with a uniform instance as key, and the reduction of IN96 Theorem 3.1 runs any target-collision finder only as an oracle, on a key it derives from the subset-sum instance and target."
 ---
 
 # Subset sum at constant density above one ⇒ UOWHF

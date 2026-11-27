@@ -31258,7 +31258,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The hash family is the subset-sum function itself with a uniform instance as key, and the reduction runs any target-collision finder only as an oracle, on a key in which one element is reprogrammed so that the finder's committed input sums to the subset-sum target."
+    "class": "The hash family is the subset-sum function itself with a uniform instance as key, and the reduction of IN96 Theorem 3.1 runs any target-collision finder only as an oracle, on a key it derives from the subset-sum instance and target."
    },
    "status": "draft",
    "page": "content/Reductions/subset-sum-to-uowhf-in96.md",
