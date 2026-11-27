@@ -23,4 +23,4 @@ If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at nois
 ## Notes
 
 - One-way functions alone give SK-PIR, at online communication $\tilde{O}(\sqrt{N})$ rather than $O(N^{\varepsilon})$ — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]] ([[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]).
-- Under [[learning-subspace-with-noise|LSN]], the same paper achieves similar communication with encoding size $(1 + \varepsilon) N$ and a server circuit of size $(4 + \varepsilon) N$ — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]] ([[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]]).
+- Under [[learning-subspace-with-noise|LSN]], the same paper achieves similar communication with encoding size $(1 + \varepsilon) N$, and under split LSN a server circuit of size $(4 + \varepsilon) N$ (Theorem 7.1, items 2 and 3) — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]] ([[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]]).
