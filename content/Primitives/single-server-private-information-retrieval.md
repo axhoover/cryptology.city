@@ -178,7 +178,7 @@ $$
 
 where $\sk \gets \KeyGen(1^\secpar, 1^N)$, $D' \gets \Setup(\sk, D)$ and $(q, \st) \gets \Query(\sk, i)$. When $\varepsilon = 0$, the scheme is **perfectly correct**.
 
-TODO: fix the correctness level that SK-PIR requires. With $\varepsilon$ free, $\Decode := 0$ with an empty query and answer meets every property in this section with no assumption. The level is that of [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]] (Definition 4.3 and its LPN and LSN theorems) and of [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]'s definition, stated from the papers.
+As an object, SK-PIR denotes a $(1-\negl(\secpar))$-correct scheme in this syntax that is secret-key private and meets the online-communication bound below. Without correctness, $\Decode := 0$ with an empty query and answer meets both, and for $\varepsilon \ge 1/2$ so does a $\Decode$ that outputs a uniform bit — folklore. The sk-PIR definition of [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]] requires perfect correctness (Definition 4.3), which meets this level.
 
 ### Online communication
 
