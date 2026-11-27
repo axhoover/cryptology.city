@@ -532,7 +532,8 @@ _Last updated: 2026-11-27_
 - [ ] [External] cryptobib drift to check against the paper: BBS86 "Michael Shub" vs cryptobib "Mike Shub". RSA78 now uses the cryptobib form "Ronald L. Rivest, Adi Shamir, Leonard M. Adleman" (2026-11-21; the paper is unread). CDH+19's title and author order differ from NISTPQC-R2:NTRU19 ("{NTRUEncrypt}", Zhang first). The HLL23 H1 carries the ePrint subtitle; FOCS:HsiLinLuo23 is "Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices". The RW13 H1 "New Constructions and Proof Methods for Large Universe Attribute-Based Encryption" vs CCS:RouWat13 "Practical constructions and new proof methods for large universe attribute-based encryption". FGJ+25 venue "CiC Vol 1, No 4 (2025)" and `published: 2023-10-27` vs CiC:FGJMMW24 (2024). Cha82 `published` 1983 for CRYPTO '82 (cryptobib 1982) — _source: scripts/sync-cryptobib.ts, content/References/ (various)_
 
 ---
-- [ ] [External] ABGMM25 now carries inline BibTeX for EUROCRYPT 2026 (LNCS 16545, pp. 303–333, doi 10.1007/978-3-032-25330-9_11); upstream cryptobib has it as `EC:ABGMM26`, which the vendored copy predates. After the next cryptobib bump, replace the `bibtex` field with `cryptobib_key: EC:ABGMM26` — _source: content/References/ABGMM25 - The Malice of ELFs Practical Anamorphic-Resistant Encryption without Random Oracles.md_
+
+- [ ] [External] ABGMM25 now carries inline BibTeX for EUROCRYPT 2026 (LNCS 16545, pp. 303–333, doi 10.1007/978-3-032-25330-9*11); upstream cryptobib has it as `EC:ABGMM26`, which the vendored copy predates. After the next cryptobib bump, replace the `bibtex` field with `cryptobib_key: EC:ABGMM26` — \_source: content/References/ABGMM25 - The Malice of ELFs Practical Anamorphic-Resistant Encryption without Random Oracles.md*
 
 ## Cannot Verify (needs human review)
 
